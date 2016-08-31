@@ -86,7 +86,7 @@ limitations under the License.
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\com.ultracart.admin.v2\com.ultracart.admin.v2.csproj">
-          <Project>{DF4DAAEB-8E27-473B-B7CB-89486F78AF1B}</Project>
+          <Project>{240564E2-CB10-4088-AE35-3E45F54EB482}</Project>
           <Name>com.ultracart.admin.v2</Name>
       </ProjectReference>
   </ItemGroup>

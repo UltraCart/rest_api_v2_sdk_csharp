@@ -60,17 +60,17 @@ namespace com.ultracart.admin.v2.Client
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default configuration and base path (https://localhost/rest/admin/v2).
+        /// with default configuration and base path (https://secure.ultracart.com/rest/admin/v2).
         /// </summary>
         public ApiClient()
         {
             Configuration = Configuration.Default;
-            RestClient = new RestClient("https://localhost/rest/admin/v2");
+            RestClient = new RestClient("https://secure.ultracart.com/rest/admin/v2");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://localhost/rest/admin/v2).
+        /// with default base path (https://secure.ultracart.com/rest/admin/v2).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config = null)
@@ -80,7 +80,7 @@ namespace com.ultracart.admin.v2.Client
             else
                 Configuration = config;
 
-            RestClient = new RestClient("https://localhost/rest/admin/v2");
+            RestClient = new RestClient("https://secure.ultracart.com/rest/admin/v2");
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace com.ultracart.admin.v2.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://localhost/rest/admin/v2")
+        public ApiClient(String basePath = "https://secure.ultracart.com/rest/admin/v2")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");

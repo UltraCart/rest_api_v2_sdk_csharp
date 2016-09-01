@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="itemitemsget"></a>
 # **ItemItemsGet**
-> ItemsResponse ItemItemsGet (int? parentCategoryId = null)
+> ItemsResponse ItemItemsGet (int? parentCategoryId = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
 
 Retrieve items
 
@@ -44,11 +44,17 @@ namespace Example
 
             var apiInstance = new ItemApi();
             var parentCategoryId = 56;  // int? | The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root (optional) 
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (optional) 
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional) 
+            var since = since_example;  // string | Fetch items that have been created/modified since this date/time. (optional) 
+            var sort = sort_example;  // string | The sort order of the items.  See documentation for examples (optional) 
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
             try
             {
                 // Retrieve items
-                ItemsResponse result = apiInstance.ItemItemsGet(parentCategoryId);
+                ItemsResponse result = apiInstance.ItemItemsGet(parentCategoryId, limit, offset, since, sort, expand, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -65,6 +71,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **parentCategoryId** | **int?**| The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root | [optional] 
+ **limit** | **int?**| The maximum number of records to return on this one API call. | [optional] 
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] 
+ **since** | **string**| Fetch items that have been created/modified since this date/time. | [optional] 
+ **sort** | **string**| The sort order of the items.  See documentation for examples | [optional] 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
@@ -151,7 +163,7 @@ void (empty response body)
 
 <a name="itemitemsmerchantitemoidget"></a>
 # **ItemItemsMerchantItemOidGet**
-> ItemResponse ItemItemsMerchantItemOidGet (int? merchantItemOid)
+> ItemResponse ItemItemsMerchantItemOidGet (int? merchantItemOid, string expand = null, bool? placeholders = null)
 
 Retrieve an item
 
@@ -181,11 +193,13 @@ namespace Example
 
             var apiInstance = new ItemApi();
             var merchantItemOid = 56;  // int? | The item oid to retrieve.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
             try
             {
                 // Retrieve an item
-                ItemResponse result = apiInstance.ItemItemsMerchantItemOidGet(merchantItemOid);
+                ItemResponse result = apiInstance.ItemItemsMerchantItemOidGet(merchantItemOid, expand, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -202,6 +216,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **merchantItemOid** | **int?**| The item oid to retrieve. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 

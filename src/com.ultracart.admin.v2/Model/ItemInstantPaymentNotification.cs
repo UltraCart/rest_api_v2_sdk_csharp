@@ -42,9 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemInstantPaymentNotification" /> class.
         /// </summary>
-        /// <param name="PostOperation">PostOperation.</param>
-        /// <param name="SuccessfulResponseText">SuccessfulResponseText.</param>
-        /// <param name="Url">Url.</param>
+        /// <param name="PostOperation">True for HTTP POST instead of GET.</param>
+        /// <param name="SuccessfulResponseText">Successful response text.</param>
+        /// <param name="Url">URL.</param>
         public ItemInstantPaymentNotification(bool? PostOperation = null, string SuccessfulResponseText = null, string Url = null)
         {
             this.PostOperation = PostOperation;
@@ -53,18 +53,21 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets PostOperation
+        /// True for HTTP POST instead of GET
         /// </summary>
+        /// <value>True for HTTP POST instead of GET</value>
         [DataMember(Name="post_operation", EmitDefaultValue=false)]
         public bool? PostOperation { get; set; }
         /// <summary>
-        /// Gets or Sets SuccessfulResponseText
+        /// Successful response text
         /// </summary>
+        /// <value>Successful response text</value>
         [DataMember(Name="successful_response_text", EmitDefaultValue=false)]
         public string SuccessfulResponseText { get; set; }
         /// <summary>
-        /// Gets or Sets Url
+        /// URL
         /// </summary>
+        /// <value>URL</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
         /// <summary>

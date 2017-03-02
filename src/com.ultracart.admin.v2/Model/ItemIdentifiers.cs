@@ -43,9 +43,9 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ItemIdentifiers" /> class.
         /// </summary>
         /// <param name="Barcode">Barcode.</param>
-        /// <param name="ManufacturerName">ManufacturerName.</param>
-        /// <param name="ManufacturerSku">ManufacturerSku.</param>
-        /// <param name="Unspsc">Unspsc.</param>
+        /// <param name="ManufacturerName">Manufacturer Name.</param>
+        /// <param name="ManufacturerSku">Manufacturer SKU.</param>
+        /// <param name="Unspsc">UNSPSC.</param>
         public ItemIdentifiers(string Barcode = null, string ManufacturerName = null, string ManufacturerSku = null, string Unspsc = null)
         {
             this.Barcode = Barcode;
@@ -55,23 +55,27 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Barcode
+        /// Barcode
         /// </summary>
+        /// <value>Barcode</value>
         [DataMember(Name="barcode", EmitDefaultValue=false)]
         public string Barcode { get; set; }
         /// <summary>
-        /// Gets or Sets ManufacturerName
+        /// Manufacturer Name
         /// </summary>
+        /// <value>Manufacturer Name</value>
         [DataMember(Name="manufacturer_name", EmitDefaultValue=false)]
         public string ManufacturerName { get; set; }
         /// <summary>
-        /// Gets or Sets ManufacturerSku
+        /// Manufacturer SKU
         /// </summary>
+        /// <value>Manufacturer SKU</value>
         [DataMember(Name="manufacturer_sku", EmitDefaultValue=false)]
         public string ManufacturerSku { get; set; }
         /// <summary>
-        /// Gets or Sets Unspsc
+        /// UNSPSC
         /// </summary>
+        /// <value>UNSPSC</value>
         [DataMember(Name="unspsc", EmitDefaultValue=false)]
         public string Unspsc { get; set; }
         /// <summary>

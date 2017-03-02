@@ -42,11 +42,11 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiUserApplicationProfile" /> class.
         /// </summary>
-        /// <param name="ApiApplicationLogoUrl">ApiApplicationLogoUrl.</param>
-        /// <param name="ApplicationDescription">ApplicationDescription.</param>
-        /// <param name="ApplicationName">ApplicationName.</param>
-        /// <param name="DeveloperName">DeveloperName.</param>
-        /// <param name="DeveloperWebsite">DeveloperWebsite.</param>
+        /// <param name="ApiApplicationLogoUrl">Application logo URL.</param>
+        /// <param name="ApplicationDescription">Application description.</param>
+        /// <param name="ApplicationName">Application name.</param>
+        /// <param name="DeveloperName">Developer name.</param>
+        /// <param name="DeveloperWebsite">Developer website.</param>
         public ApiUserApplicationProfile(string ApiApplicationLogoUrl = null, string ApplicationDescription = null, string ApplicationName = null, string DeveloperName = null, string DeveloperWebsite = null)
         {
             this.ApiApplicationLogoUrl = ApiApplicationLogoUrl;
@@ -57,28 +57,33 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets ApiApplicationLogoUrl
+        /// Application logo URL
         /// </summary>
+        /// <value>Application logo URL</value>
         [DataMember(Name="api_application_logo_url", EmitDefaultValue=false)]
         public string ApiApplicationLogoUrl { get; set; }
         /// <summary>
-        /// Gets or Sets ApplicationDescription
+        /// Application description
         /// </summary>
+        /// <value>Application description</value>
         [DataMember(Name="application_description", EmitDefaultValue=false)]
         public string ApplicationDescription { get; set; }
         /// <summary>
-        /// Gets or Sets ApplicationName
+        /// Application name
         /// </summary>
+        /// <value>Application name</value>
         [DataMember(Name="application_name", EmitDefaultValue=false)]
         public string ApplicationName { get; set; }
         /// <summary>
-        /// Gets or Sets DeveloperName
+        /// Developer name
         /// </summary>
+        /// <value>Developer name</value>
         [DataMember(Name="developer_name", EmitDefaultValue=false)]
         public string DeveloperName { get; set; }
         /// <summary>
-        /// Gets or Sets DeveloperWebsite
+        /// Developer website
         /// </summary>
+        /// <value>Developer website</value>
         [DataMember(Name="developer_website", EmitDefaultValue=false)]
         public string DeveloperWebsite { get; set; }
         /// <summary>

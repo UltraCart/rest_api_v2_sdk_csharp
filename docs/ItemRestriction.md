@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExcludeCoupon** | **bool?** |  | [optional] 
-**ExcludeFromFreePromotion** | **bool?** |  | [optional] 
-**Items** | [**List&lt;ItemRestrictionItem&gt;**](ItemRestrictionItem.md) |  | [optional] 
-**MaximumQuantity** | **int?** |  | [optional] 
-**MinimumQuantity** | **int?** |  | [optional] 
-**MultipleQuantity** | **int?** |  | [optional] 
-**OnePerCustomer** | **bool?** |  | [optional] 
-**PurchaseSeparately** | **bool?** |  | [optional] 
+**ExcludeCoupon** | **bool?** | Exclude coupons | [optional] 
+**ExcludeFromFreePromotion** | **bool?** | Exclude from free promotion | [optional] 
+**Items** | [**List&lt;ItemRestrictionItem&gt;**](ItemRestrictionItem.md) | Items | [optional] 
+**MaximumQuantity** | **int?** | Maximum quantity | [optional] 
+**MinimumQuantity** | **int?** | Minimum quantity (defaults to 1) | [optional] 
+**MultipleQuantity** | **int?** | Multiple of quantity | [optional] 
+**OnePerCustomer** | **bool?** | One per customer | [optional] 
+**PurchaseSeparately** | **bool?** | Purchase separately | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

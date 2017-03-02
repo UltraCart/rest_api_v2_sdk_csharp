@@ -46,13 +46,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Amember">Amember.</param>
         /// <param name="AutoOrder">AutoOrder.</param>
         /// <param name="Ccbill">Ccbill.</param>
-        /// <param name="ChannelPartnerMappings">ChannelPartnerMappings.</param>
+        /// <param name="ChannelPartnerMappings">Channel Partner Item Mapping.</param>
         /// <param name="Chargeback">Chargeback.</param>
         /// <param name="Checkout">Checkout.</param>
         /// <param name="Content">Content.</param>
-        /// <param name="CreationDts">CreationDts.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="DescriptionTranslatedTextInstanceOid">DescriptionTranslatedTextInstanceOid.</param>
+        /// <param name="CreationDts">Date/time of creation.</param>
+        /// <param name="Description">Description of the item up to 500 characters..</param>
+        /// <param name="DescriptionTranslatedTextInstanceOid">Description translated text instance id.</param>
         /// <param name="DigitalDelivery">DigitalDelivery.</param>
         /// <param name="Ebay">Ebay.</param>
         /// <param name="EmailNotifications">EmailNotifications.</param>
@@ -60,17 +60,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="GiftCertificate">GiftCertificate.</param>
         /// <param name="GoogleProductSearch">GoogleProductSearch.</param>
         /// <param name="Identifiers">Identifiers.</param>
-        /// <param name="Inactive">Inactive.</param>
+        /// <param name="Inactive">True if this item is inactive and can not be purchased.</param>
         /// <param name="InstantPaymentNotifications">InstantPaymentNotifications.</param>
         /// <param name="_Internal">_Internal.</param>
-        /// <param name="Kit">Kit.</param>
+        /// <param name="Kit">True if this item is a kit.</param>
         /// <param name="KitDefinition">KitDefinition.</param>
-        /// <param name="LastModifiedDts">LastModifiedDts.</param>
-        /// <param name="MerchantId">MerchantId.</param>
-        /// <param name="MerchantItemId">MerchantItemId.</param>
-        /// <param name="MerchantItemOid">MerchantItemOid.</param>
+        /// <param name="LastModifiedDts">Date/time of last modification.</param>
+        /// <param name="MerchantId">UltraCart merchant ID owning item.</param>
+        /// <param name="MerchantItemId">Unique item id assigned to this item.</param>
+        /// <param name="MerchantItemOid">Unique object identifier for this item.</param>
         /// <param name="Options">Options.</param>
-        /// <param name="ParentCategoryId">ParentCategoryId.</param>
+        /// <param name="ParentCategoryId">Parent category of the item.  Zero indicates the root folder..</param>
         /// <param name="PaymentProcessing">PaymentProcessing.</param>
         /// <param name="Physical">Physical.</param>
         /// <param name="Pricing">Pricing.</param>
@@ -83,8 +83,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Salesforce">Salesforce.</param>
         /// <param name="Shipping">Shipping.</param>
         /// <param name="Tax">Tax.</param>
-        /// <param name="ThirdPartyEmailMarketing">ThirdPartyEmailMarketing.</param>
-        /// <param name="VariantItems">VariantItems.</param>
+        /// <param name="ThirdPartyEmailMarketing">3rd Party Email Marketing.</param>
+        /// <param name="VariantItems">Variant Items.</param>
         /// <param name="Variations">Variations.</param>
         /// <param name="WishlistMember">WishlistMember.</param>
         public Item(ItemAccounting Accounting = null, ItemAmember Amember = null, ItemAutoOrder AutoOrder = null, ItemCCBill Ccbill = null, List<ItemChannelPartnerMapping> ChannelPartnerMappings = null, ItemChargeback Chargeback = null, ItemCheckout Checkout = null, ItemContent Content = null, string CreationDts = null, string Description = null, int? DescriptionTranslatedTextInstanceOid = null, ItemDigitalDelivery DigitalDelivery = null, ItemEbay Ebay = null, ItemEmailNotifications EmailNotifications = null, ItemEnrollment123 Enrollment123 = null, ItemGiftCertificate GiftCertificate = null, ItemGoogleProductSearch GoogleProductSearch = null, ItemIdentifiers Identifiers = null, bool? Inactive = null, ItemInstantPaymentNotifications InstantPaymentNotifications = null, ItemInternal _Internal = null, bool? Kit = null, ItemKitDefinition KitDefinition = null, string LastModifiedDts = null, string MerchantId = null, string MerchantItemId = null, int? MerchantItemOid = null, List<ItemOption> Options = null, int? ParentCategoryId = null, ItemPaymentProcessing PaymentProcessing = null, ItemPhysical Physical = null, ItemPricing Pricing = null, ItemRealtimePricing RealtimePricing = null, ItemRelated Related = null, ItemReporting Reporting = null, ItemRestriction Restriction = null, ItemRevguard Revguard = null, ItemReviews Reviews = null, ItemSalesforce Salesforce = null, ItemShipping Shipping = null, ItemTax Tax = null, List<ItemThirdPartyEmailMarketing> ThirdPartyEmailMarketing = null, List<ItemVariantItem> VariantItems = null, List<ItemVariation> Variations = null, ItemWishlistMember WishlistMember = null)
@@ -157,8 +157,9 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="ccbill", EmitDefaultValue=false)]
         public ItemCCBill Ccbill { get; set; }
         /// <summary>
-        /// Gets or Sets ChannelPartnerMappings
+        /// Channel Partner Item Mapping
         /// </summary>
+        /// <value>Channel Partner Item Mapping</value>
         [DataMember(Name="channelPartnerMappings", EmitDefaultValue=false)]
         public List<ItemChannelPartnerMapping> ChannelPartnerMappings { get; set; }
         /// <summary>
@@ -177,18 +178,21 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="content", EmitDefaultValue=false)]
         public ItemContent Content { get; set; }
         /// <summary>
-        /// Gets or Sets CreationDts
+        /// Date/time of creation
         /// </summary>
+        /// <value>Date/time of creation</value>
         [DataMember(Name="creation_dts", EmitDefaultValue=false)]
         public string CreationDts { get; set; }
         /// <summary>
-        /// Gets or Sets Description
+        /// Description of the item up to 500 characters.
         /// </summary>
+        /// <value>Description of the item up to 500 characters.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
         /// <summary>
-        /// Gets or Sets DescriptionTranslatedTextInstanceOid
+        /// Description translated text instance id
         /// </summary>
+        /// <value>Description translated text instance id</value>
         [DataMember(Name="description_translated_text_instance_oid", EmitDefaultValue=false)]
         public int? DescriptionTranslatedTextInstanceOid { get; set; }
         /// <summary>
@@ -227,8 +231,9 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="identifiers", EmitDefaultValue=false)]
         public ItemIdentifiers Identifiers { get; set; }
         /// <summary>
-        /// Gets or Sets Inactive
+        /// True if this item is inactive and can not be purchased
         /// </summary>
+        /// <value>True if this item is inactive and can not be purchased</value>
         [DataMember(Name="inactive", EmitDefaultValue=false)]
         public bool? Inactive { get; set; }
         /// <summary>
@@ -242,8 +247,9 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="internal", EmitDefaultValue=false)]
         public ItemInternal _Internal { get; set; }
         /// <summary>
-        /// Gets or Sets Kit
+        /// True if this item is a kit
         /// </summary>
+        /// <value>True if this item is a kit</value>
         [DataMember(Name="kit", EmitDefaultValue=false)]
         public bool? Kit { get; set; }
         /// <summary>
@@ -252,33 +258,39 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="kit_definition", EmitDefaultValue=false)]
         public ItemKitDefinition KitDefinition { get; set; }
         /// <summary>
-        /// Gets or Sets LastModifiedDts
+        /// Date/time of last modification
         /// </summary>
+        /// <value>Date/time of last modification</value>
         [DataMember(Name="last_modified_dts", EmitDefaultValue=false)]
         public string LastModifiedDts { get; set; }
         /// <summary>
-        /// Gets or Sets MerchantId
+        /// UltraCart merchant ID owning item
         /// </summary>
+        /// <value>UltraCart merchant ID owning item</value>
         [DataMember(Name="merchant_id", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
         /// <summary>
-        /// Gets or Sets MerchantItemId
+        /// Unique item id assigned to this item
         /// </summary>
+        /// <value>Unique item id assigned to this item</value>
         [DataMember(Name="merchant_item_id", EmitDefaultValue=false)]
         public string MerchantItemId { get; set; }
         /// <summary>
-        /// Gets or Sets MerchantItemOid
+        /// Unique object identifier for this item
         /// </summary>
+        /// <value>Unique object identifier for this item</value>
         [DataMember(Name="merchant_item_oid", EmitDefaultValue=false)]
         public int? MerchantItemOid { get; set; }
         /// <summary>
-        /// Gets or Sets Options
+        /// Options
         /// </summary>
+        /// <value>Options</value>
         [DataMember(Name="options", EmitDefaultValue=false)]
         public List<ItemOption> Options { get; set; }
         /// <summary>
-        /// Gets or Sets ParentCategoryId
+        /// Parent category of the item.  Zero indicates the root folder.
         /// </summary>
+        /// <value>Parent category of the item.  Zero indicates the root folder.</value>
         [DataMember(Name="parent_category_id", EmitDefaultValue=false)]
         public int? ParentCategoryId { get; set; }
         /// <summary>
@@ -342,18 +354,21 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="tax", EmitDefaultValue=false)]
         public ItemTax Tax { get; set; }
         /// <summary>
-        /// Gets or Sets ThirdPartyEmailMarketing
+        /// 3rd Party Email Marketing
         /// </summary>
+        /// <value>3rd Party Email Marketing</value>
         [DataMember(Name="third_party_email_marketing", EmitDefaultValue=false)]
         public List<ItemThirdPartyEmailMarketing> ThirdPartyEmailMarketing { get; set; }
         /// <summary>
-        /// Gets or Sets VariantItems
+        /// Variant Items
         /// </summary>
+        /// <value>Variant Items</value>
         [DataMember(Name="variant_items", EmitDefaultValue=false)]
         public List<ItemVariantItem> VariantItems { get; set; }
         /// <summary>
-        /// Gets or Sets Variations
+        /// Variations
         /// </summary>
+        /// <value>Variations</value>
         [DataMember(Name="variations", EmitDefaultValue=false)]
         public List<ItemVariation> Variations { get; set; }
         /// <summary>

@@ -42,9 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemPricingTierLimit" /> class.
         /// </summary>
-        /// <param name="CumulativeOrderLimit">CumulativeOrderLimit.</param>
-        /// <param name="IndividualOrderLimit">IndividualOrderLimit.</param>
-        /// <param name="MultipleQuantity">MultipleQuantity.</param>
+        /// <param name="CumulativeOrderLimit">Cumulative order limit.</param>
+        /// <param name="IndividualOrderLimit">Individual order limit.</param>
+        /// <param name="MultipleQuantity">Multiple quantity.</param>
         public ItemPricingTierLimit(int? CumulativeOrderLimit = null, int? IndividualOrderLimit = null, int? MultipleQuantity = null)
         {
             this.CumulativeOrderLimit = CumulativeOrderLimit;
@@ -53,18 +53,21 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets CumulativeOrderLimit
+        /// Cumulative order limit
         /// </summary>
+        /// <value>Cumulative order limit</value>
         [DataMember(Name="cumulative_order_limit", EmitDefaultValue=false)]
         public int? CumulativeOrderLimit { get; set; }
         /// <summary>
-        /// Gets or Sets IndividualOrderLimit
+        /// Individual order limit
         /// </summary>
+        /// <value>Individual order limit</value>
         [DataMember(Name="individual_order_limit", EmitDefaultValue=false)]
         public int? IndividualOrderLimit { get; set; }
         /// <summary>
-        /// Gets or Sets MultipleQuantity
+        /// Multiple quantity
         /// </summary>
+        /// <value>Multiple quantity</value>
         [DataMember(Name="multiple_quantity", EmitDefaultValue=false)]
         public int? MultipleQuantity { get; set; }
         /// <summary>

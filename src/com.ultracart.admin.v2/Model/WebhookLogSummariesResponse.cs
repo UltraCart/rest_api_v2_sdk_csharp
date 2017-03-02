@@ -44,8 +44,8 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="Error">Error.</param>
         /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Success.</param>
-        /// <param name="WebhookLogSummaries">WebhookLogSummaries.</param>
+        /// <param name="Success">Indicates if API call was successful.</param>
+        /// <param name="WebhookLogSummaries">Webhook log summaries.</param>
         public WebhookLogSummariesResponse(Error Error = null, ResponseMetadata Metadata = null, bool? Success = null, List<WebhookLogSummary> WebhookLogSummaries = null)
         {
             this.Error = Error;
@@ -65,13 +65,15 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public ResponseMetadata Metadata { get; set; }
         /// <summary>
-        /// Gets or Sets Success
+        /// Indicates if API call was successful
         /// </summary>
+        /// <value>Indicates if API call was successful</value>
         [DataMember(Name="success", EmitDefaultValue=false)]
         public bool? Success { get; set; }
         /// <summary>
-        /// Gets or Sets WebhookLogSummaries
+        /// Webhook log summaries
         /// </summary>
+        /// <value>Webhook log summaries</value>
         [DataMember(Name="webhook_log_summaries", EmitDefaultValue=false)]
         public List<WebhookLogSummary> WebhookLogSummaries { get; set; }
         /// <summary>

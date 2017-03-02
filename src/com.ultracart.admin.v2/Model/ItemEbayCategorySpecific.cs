@@ -42,7 +42,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemEbayCategorySpecific" /> class.
         /// </summary>
-        /// <param name="Name">Name.</param>
+        /// <param name="Name">Name of the category specification field.</param>
         /// <param name="Value">Value.</param>
         public ItemEbayCategorySpecific(string Name = null, string Value = null)
         {
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the category specification field
         /// </summary>
+        /// <value>Name of the category specification field</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
         /// <summary>
-        /// Gets or Sets Value
+        /// Value
         /// </summary>
+        /// <value>Value</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
         /// <summary>

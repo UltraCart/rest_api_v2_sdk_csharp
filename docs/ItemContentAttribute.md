@@ -3,13 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ITEM_META_DESCRIPTION** | **string** |  | [optional] 
-**ITEM_META_KEYWORDS** | **string** |  | [optional] 
-**ITEM_META_TITLE** | **string** |  | [optional] 
-**Name** | **string** |  | [optional] 
-**TranslatedTextInstanceOid** | **int?** |  | [optional] 
-**Type** | **string** |  | [optional] 
-**Value** | **string** |  | [optional] 
+**Name** | **string** | Attribute name | [optional] 
+**TranslatedTextInstanceOid** | **int?** | Attribute translated text instance identifier | [optional] 
+**Type** | **string** | Attribute type | [optional] 
+**Value** | **string** | Attribute value | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

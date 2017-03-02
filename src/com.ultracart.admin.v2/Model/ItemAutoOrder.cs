@@ -42,40 +42,34 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAutoOrder" /> class.
         /// </summary>
-        /// <param name="AuthFutureAmount">AuthFutureAmount.</param>
-        /// <param name="AuthTestAmount">AuthTestAmount.</param>
-        /// <param name="AutoOrderCancelItemOid">AutoOrderCancelItemOid.</param>
-        /// <param name="AutoOrderDowngradeItems">AutoOrderDowngradeItems.</param>
-        /// <param name="AutoOrderPaused">AutoOrderPaused.</param>
-        /// <param name="AutoOrderSchedules">AutoOrderSchedules.</param>
-        /// <param name="AutoOrderUpgradeItems">AutoOrderUpgradeItems.</param>
-        /// <param name="AutoOrderUpsell">AutoOrderUpsell.</param>
-        /// <param name="AutoOrderUpsellDelay">AutoOrderUpsellDelay.</param>
-        /// <param name="AutoOrderUpsellMerchantItemOid">AutoOrderUpsellMerchantItemOid.</param>
-        /// <param name="AutoOrderUpsellNoEasyCancel">AutoOrderUpsellNoEasyCancel.</param>
-        /// <param name="AutoOrderUpsellOnePerCustomer">AutoOrderUpsellOnePerCustomer.</param>
-        /// <param name="AutoOrderUpsellRepeatCount">AutoOrderUpsellRepeatCount.</param>
-        /// <param name="AutoOrderUpsellSchedule">AutoOrderUpsellSchedule.</param>
-        /// <param name="AutoOrderable">AutoOrderable.</param>
-        /// <param name="CancelOtherAutoOrders">CancelOtherAutoOrders.</param>
-        /// <param name="FreeShippingAutoOrder">FreeShippingAutoOrder.</param>
-        /// <param name="Steps">Steps.</param>
-        public ItemAutoOrder(double? AuthFutureAmount = null, double? AuthTestAmount = null, int? AutoOrderCancelItemOid = null, string AutoOrderDowngradeItems = null, bool? AutoOrderPaused = null, int? AutoOrderSchedules = null, string AutoOrderUpgradeItems = null, bool? AutoOrderUpsell = null, int? AutoOrderUpsellDelay = null, int? AutoOrderUpsellMerchantItemOid = null, bool? AutoOrderUpsellNoEasyCancel = null, bool? AutoOrderUpsellOnePerCustomer = null, int? AutoOrderUpsellRepeatCount = null, string AutoOrderUpsellSchedule = null, bool? AutoOrderable = null, bool? CancelOtherAutoOrders = null, bool? FreeShippingAutoOrder = null, List<ItemAutoOrderStep> Steps = null)
+        /// <param name="AuthFutureAmount">Amount to try and authorize for the future rebill.</param>
+        /// <param name="AuthTestAmount">Amount to try and test authorize.</param>
+        /// <param name="AutoOrderCancelItemId">Item id to attempt charging the customer for if they cancel.</param>
+        /// <param name="AutoOrderCancelItemOid">Item object identifier to attempt charging the customer for if they cancel.</param>
+        /// <param name="AutoOrderDowngradeItems">List of downgrade items presented to customer service representatives.</param>
+        /// <param name="AutoOrderPaused">True if the rebill processing of this item is paused.</param>
+        /// <param name="AutoOrderSchedules">The user selectable schedules that are available.</param>
+        /// <param name="AutoOrderUpgradeItems">List of upgrade items presented to customer service representatives.</param>
+        /// <param name="AutoOrderUpsell">True if this item uses a fixed upsell step schedule.</param>
+        /// <param name="AutoOrderUpsellNoEasyCancel">Do not send the easy cancel email to the customer.</param>
+        /// <param name="AutoOrderUpsellOnePerCustomer">Limit the purchase of this item to one per customer.</param>
+        /// <param name="AutoOrderable">True if this item can be automatically ordered by the customer.</param>
+        /// <param name="CancelOtherAutoOrders">True if other auto orders for this customer should be canceled when this item is ordered.</param>
+        /// <param name="FreeShippingAutoOrder">True if the customer should be given free shipping.</param>
+        /// <param name="Steps">The rebill steps if this auto order is an upsell.</param>
+        public ItemAutoOrder(decimal? AuthFutureAmount = null, decimal? AuthTestAmount = null, string AutoOrderCancelItemId = null, int? AutoOrderCancelItemOid = null, List<string> AutoOrderDowngradeItems = null, bool? AutoOrderPaused = null, List<string> AutoOrderSchedules = null, List<string> AutoOrderUpgradeItems = null, bool? AutoOrderUpsell = null, bool? AutoOrderUpsellNoEasyCancel = null, bool? AutoOrderUpsellOnePerCustomer = null, bool? AutoOrderable = null, bool? CancelOtherAutoOrders = null, bool? FreeShippingAutoOrder = null, List<ItemAutoOrderStep> Steps = null)
         {
             this.AuthFutureAmount = AuthFutureAmount;
             this.AuthTestAmount = AuthTestAmount;
+            this.AutoOrderCancelItemId = AutoOrderCancelItemId;
             this.AutoOrderCancelItemOid = AutoOrderCancelItemOid;
             this.AutoOrderDowngradeItems = AutoOrderDowngradeItems;
             this.AutoOrderPaused = AutoOrderPaused;
             this.AutoOrderSchedules = AutoOrderSchedules;
             this.AutoOrderUpgradeItems = AutoOrderUpgradeItems;
             this.AutoOrderUpsell = AutoOrderUpsell;
-            this.AutoOrderUpsellDelay = AutoOrderUpsellDelay;
-            this.AutoOrderUpsellMerchantItemOid = AutoOrderUpsellMerchantItemOid;
             this.AutoOrderUpsellNoEasyCancel = AutoOrderUpsellNoEasyCancel;
             this.AutoOrderUpsellOnePerCustomer = AutoOrderUpsellOnePerCustomer;
-            this.AutoOrderUpsellRepeatCount = AutoOrderUpsellRepeatCount;
-            this.AutoOrderUpsellSchedule = AutoOrderUpsellSchedule;
             this.AutoOrderable = AutoOrderable;
             this.CancelOtherAutoOrders = CancelOtherAutoOrders;
             this.FreeShippingAutoOrder = FreeShippingAutoOrder;
@@ -83,93 +77,93 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AuthFutureAmount
+        /// Amount to try and authorize for the future rebill
         /// </summary>
+        /// <value>Amount to try and authorize for the future rebill</value>
         [DataMember(Name="auth_future_amount", EmitDefaultValue=false)]
-        public double? AuthFutureAmount { get; set; }
+        public decimal? AuthFutureAmount { get; set; }
         /// <summary>
-        /// Gets or Sets AuthTestAmount
+        /// Amount to try and test authorize
         /// </summary>
+        /// <value>Amount to try and test authorize</value>
         [DataMember(Name="auth_test_amount", EmitDefaultValue=false)]
-        public double? AuthTestAmount { get; set; }
+        public decimal? AuthTestAmount { get; set; }
         /// <summary>
-        /// Gets or Sets AutoOrderCancelItemOid
+        /// Item id to attempt charging the customer for if they cancel
         /// </summary>
+        /// <value>Item id to attempt charging the customer for if they cancel</value>
+        [DataMember(Name="auto_order_cancel_item_id", EmitDefaultValue=false)]
+        public string AutoOrderCancelItemId { get; set; }
+        /// <summary>
+        /// Item object identifier to attempt charging the customer for if they cancel
+        /// </summary>
+        /// <value>Item object identifier to attempt charging the customer for if they cancel</value>
         [DataMember(Name="auto_order_cancel_item_oid", EmitDefaultValue=false)]
         public int? AutoOrderCancelItemOid { get; set; }
         /// <summary>
-        /// Gets or Sets AutoOrderDowngradeItems
+        /// List of downgrade items presented to customer service representatives
         /// </summary>
+        /// <value>List of downgrade items presented to customer service representatives</value>
         [DataMember(Name="auto_order_downgrade_items", EmitDefaultValue=false)]
-        public string AutoOrderDowngradeItems { get; set; }
+        public List<string> AutoOrderDowngradeItems { get; set; }
         /// <summary>
-        /// Gets or Sets AutoOrderPaused
+        /// True if the rebill processing of this item is paused
         /// </summary>
+        /// <value>True if the rebill processing of this item is paused</value>
         [DataMember(Name="auto_order_paused", EmitDefaultValue=false)]
         public bool? AutoOrderPaused { get; set; }
         /// <summary>
-        /// Gets or Sets AutoOrderSchedules
+        /// The user selectable schedules that are available
         /// </summary>
+        /// <value>The user selectable schedules that are available</value>
         [DataMember(Name="auto_order_schedules", EmitDefaultValue=false)]
-        public int? AutoOrderSchedules { get; set; }
+        public List<string> AutoOrderSchedules { get; set; }
         /// <summary>
-        /// Gets or Sets AutoOrderUpgradeItems
+        /// List of upgrade items presented to customer service representatives
         /// </summary>
+        /// <value>List of upgrade items presented to customer service representatives</value>
         [DataMember(Name="auto_order_upgrade_items", EmitDefaultValue=false)]
-        public string AutoOrderUpgradeItems { get; set; }
+        public List<string> AutoOrderUpgradeItems { get; set; }
         /// <summary>
-        /// Gets or Sets AutoOrderUpsell
+        /// True if this item uses a fixed upsell step schedule
         /// </summary>
+        /// <value>True if this item uses a fixed upsell step schedule</value>
         [DataMember(Name="auto_order_upsell", EmitDefaultValue=false)]
         public bool? AutoOrderUpsell { get; set; }
         /// <summary>
-        /// Gets or Sets AutoOrderUpsellDelay
+        /// Do not send the easy cancel email to the customer
         /// </summary>
-        [DataMember(Name="auto_order_upsell_delay", EmitDefaultValue=false)]
-        public int? AutoOrderUpsellDelay { get; set; }
-        /// <summary>
-        /// Gets or Sets AutoOrderUpsellMerchantItemOid
-        /// </summary>
-        [DataMember(Name="auto_order_upsell_merchant_item_oid", EmitDefaultValue=false)]
-        public int? AutoOrderUpsellMerchantItemOid { get; set; }
-        /// <summary>
-        /// Gets or Sets AutoOrderUpsellNoEasyCancel
-        /// </summary>
+        /// <value>Do not send the easy cancel email to the customer</value>
         [DataMember(Name="auto_order_upsell_no_easy_cancel", EmitDefaultValue=false)]
         public bool? AutoOrderUpsellNoEasyCancel { get; set; }
         /// <summary>
-        /// Gets or Sets AutoOrderUpsellOnePerCustomer
+        /// Limit the purchase of this item to one per customer
         /// </summary>
+        /// <value>Limit the purchase of this item to one per customer</value>
         [DataMember(Name="auto_order_upsell_one_per_customer", EmitDefaultValue=false)]
         public bool? AutoOrderUpsellOnePerCustomer { get; set; }
         /// <summary>
-        /// Gets or Sets AutoOrderUpsellRepeatCount
+        /// True if this item can be automatically ordered by the customer
         /// </summary>
-        [DataMember(Name="auto_order_upsell_repeat_count", EmitDefaultValue=false)]
-        public int? AutoOrderUpsellRepeatCount { get; set; }
-        /// <summary>
-        /// Gets or Sets AutoOrderUpsellSchedule
-        /// </summary>
-        [DataMember(Name="auto_order_upsell_schedule", EmitDefaultValue=false)]
-        public string AutoOrderUpsellSchedule { get; set; }
-        /// <summary>
-        /// Gets or Sets AutoOrderable
-        /// </summary>
+        /// <value>True if this item can be automatically ordered by the customer</value>
         [DataMember(Name="auto_orderable", EmitDefaultValue=false)]
         public bool? AutoOrderable { get; set; }
         /// <summary>
-        /// Gets or Sets CancelOtherAutoOrders
+        /// True if other auto orders for this customer should be canceled when this item is ordered
         /// </summary>
+        /// <value>True if other auto orders for this customer should be canceled when this item is ordered</value>
         [DataMember(Name="cancel_other_auto_orders", EmitDefaultValue=false)]
         public bool? CancelOtherAutoOrders { get; set; }
         /// <summary>
-        /// Gets or Sets FreeShippingAutoOrder
+        /// True if the customer should be given free shipping
         /// </summary>
+        /// <value>True if the customer should be given free shipping</value>
         [DataMember(Name="free_shipping_auto_order", EmitDefaultValue=false)]
         public bool? FreeShippingAutoOrder { get; set; }
         /// <summary>
-        /// Gets or Sets Steps
+        /// The rebill steps if this auto order is an upsell
         /// </summary>
+        /// <value>The rebill steps if this auto order is an upsell</value>
         [DataMember(Name="steps", EmitDefaultValue=false)]
         public List<ItemAutoOrderStep> Steps { get; set; }
         /// <summary>
@@ -182,18 +176,15 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ItemAutoOrder {\n");
             sb.Append("  AuthFutureAmount: ").Append(AuthFutureAmount).Append("\n");
             sb.Append("  AuthTestAmount: ").Append(AuthTestAmount).Append("\n");
+            sb.Append("  AutoOrderCancelItemId: ").Append(AutoOrderCancelItemId).Append("\n");
             sb.Append("  AutoOrderCancelItemOid: ").Append(AutoOrderCancelItemOid).Append("\n");
             sb.Append("  AutoOrderDowngradeItems: ").Append(AutoOrderDowngradeItems).Append("\n");
             sb.Append("  AutoOrderPaused: ").Append(AutoOrderPaused).Append("\n");
             sb.Append("  AutoOrderSchedules: ").Append(AutoOrderSchedules).Append("\n");
             sb.Append("  AutoOrderUpgradeItems: ").Append(AutoOrderUpgradeItems).Append("\n");
             sb.Append("  AutoOrderUpsell: ").Append(AutoOrderUpsell).Append("\n");
-            sb.Append("  AutoOrderUpsellDelay: ").Append(AutoOrderUpsellDelay).Append("\n");
-            sb.Append("  AutoOrderUpsellMerchantItemOid: ").Append(AutoOrderUpsellMerchantItemOid).Append("\n");
             sb.Append("  AutoOrderUpsellNoEasyCancel: ").Append(AutoOrderUpsellNoEasyCancel).Append("\n");
             sb.Append("  AutoOrderUpsellOnePerCustomer: ").Append(AutoOrderUpsellOnePerCustomer).Append("\n");
-            sb.Append("  AutoOrderUpsellRepeatCount: ").Append(AutoOrderUpsellRepeatCount).Append("\n");
-            sb.Append("  AutoOrderUpsellSchedule: ").Append(AutoOrderUpsellSchedule).Append("\n");
             sb.Append("  AutoOrderable: ").Append(AutoOrderable).Append("\n");
             sb.Append("  CancelOtherAutoOrders: ").Append(CancelOtherAutoOrders).Append("\n");
             sb.Append("  FreeShippingAutoOrder: ").Append(FreeShippingAutoOrder).Append("\n");
@@ -245,6 +236,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AuthTestAmount.Equals(other.AuthTestAmount)
                 ) && 
                 (
+                    this.AutoOrderCancelItemId == other.AutoOrderCancelItemId ||
+                    this.AutoOrderCancelItemId != null &&
+                    this.AutoOrderCancelItemId.Equals(other.AutoOrderCancelItemId)
+                ) && 
+                (
                     this.AutoOrderCancelItemOid == other.AutoOrderCancelItemOid ||
                     this.AutoOrderCancelItemOid != null &&
                     this.AutoOrderCancelItemOid.Equals(other.AutoOrderCancelItemOid)
@@ -252,7 +248,7 @@ namespace com.ultracart.admin.v2.Model
                 (
                     this.AutoOrderDowngradeItems == other.AutoOrderDowngradeItems ||
                     this.AutoOrderDowngradeItems != null &&
-                    this.AutoOrderDowngradeItems.Equals(other.AutoOrderDowngradeItems)
+                    this.AutoOrderDowngradeItems.SequenceEqual(other.AutoOrderDowngradeItems)
                 ) && 
                 (
                     this.AutoOrderPaused == other.AutoOrderPaused ||
@@ -262,27 +258,17 @@ namespace com.ultracart.admin.v2.Model
                 (
                     this.AutoOrderSchedules == other.AutoOrderSchedules ||
                     this.AutoOrderSchedules != null &&
-                    this.AutoOrderSchedules.Equals(other.AutoOrderSchedules)
+                    this.AutoOrderSchedules.SequenceEqual(other.AutoOrderSchedules)
                 ) && 
                 (
                     this.AutoOrderUpgradeItems == other.AutoOrderUpgradeItems ||
                     this.AutoOrderUpgradeItems != null &&
-                    this.AutoOrderUpgradeItems.Equals(other.AutoOrderUpgradeItems)
+                    this.AutoOrderUpgradeItems.SequenceEqual(other.AutoOrderUpgradeItems)
                 ) && 
                 (
                     this.AutoOrderUpsell == other.AutoOrderUpsell ||
                     this.AutoOrderUpsell != null &&
                     this.AutoOrderUpsell.Equals(other.AutoOrderUpsell)
-                ) && 
-                (
-                    this.AutoOrderUpsellDelay == other.AutoOrderUpsellDelay ||
-                    this.AutoOrderUpsellDelay != null &&
-                    this.AutoOrderUpsellDelay.Equals(other.AutoOrderUpsellDelay)
-                ) && 
-                (
-                    this.AutoOrderUpsellMerchantItemOid == other.AutoOrderUpsellMerchantItemOid ||
-                    this.AutoOrderUpsellMerchantItemOid != null &&
-                    this.AutoOrderUpsellMerchantItemOid.Equals(other.AutoOrderUpsellMerchantItemOid)
                 ) && 
                 (
                     this.AutoOrderUpsellNoEasyCancel == other.AutoOrderUpsellNoEasyCancel ||
@@ -293,16 +279,6 @@ namespace com.ultracart.admin.v2.Model
                     this.AutoOrderUpsellOnePerCustomer == other.AutoOrderUpsellOnePerCustomer ||
                     this.AutoOrderUpsellOnePerCustomer != null &&
                     this.AutoOrderUpsellOnePerCustomer.Equals(other.AutoOrderUpsellOnePerCustomer)
-                ) && 
-                (
-                    this.AutoOrderUpsellRepeatCount == other.AutoOrderUpsellRepeatCount ||
-                    this.AutoOrderUpsellRepeatCount != null &&
-                    this.AutoOrderUpsellRepeatCount.Equals(other.AutoOrderUpsellRepeatCount)
-                ) && 
-                (
-                    this.AutoOrderUpsellSchedule == other.AutoOrderUpsellSchedule ||
-                    this.AutoOrderUpsellSchedule != null &&
-                    this.AutoOrderUpsellSchedule.Equals(other.AutoOrderUpsellSchedule)
                 ) && 
                 (
                     this.AutoOrderable == other.AutoOrderable ||
@@ -341,6 +317,8 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.AuthFutureAmount.GetHashCode();
                 if (this.AuthTestAmount != null)
                     hash = hash * 59 + this.AuthTestAmount.GetHashCode();
+                if (this.AutoOrderCancelItemId != null)
+                    hash = hash * 59 + this.AutoOrderCancelItemId.GetHashCode();
                 if (this.AutoOrderCancelItemOid != null)
                     hash = hash * 59 + this.AutoOrderCancelItemOid.GetHashCode();
                 if (this.AutoOrderDowngradeItems != null)
@@ -353,18 +331,10 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.AutoOrderUpgradeItems.GetHashCode();
                 if (this.AutoOrderUpsell != null)
                     hash = hash * 59 + this.AutoOrderUpsell.GetHashCode();
-                if (this.AutoOrderUpsellDelay != null)
-                    hash = hash * 59 + this.AutoOrderUpsellDelay.GetHashCode();
-                if (this.AutoOrderUpsellMerchantItemOid != null)
-                    hash = hash * 59 + this.AutoOrderUpsellMerchantItemOid.GetHashCode();
                 if (this.AutoOrderUpsellNoEasyCancel != null)
                     hash = hash * 59 + this.AutoOrderUpsellNoEasyCancel.GetHashCode();
                 if (this.AutoOrderUpsellOnePerCustomer != null)
                     hash = hash * 59 + this.AutoOrderUpsellOnePerCustomer.GetHashCode();
-                if (this.AutoOrderUpsellRepeatCount != null)
-                    hash = hash * 59 + this.AutoOrderUpsellRepeatCount.GetHashCode();
-                if (this.AutoOrderUpsellSchedule != null)
-                    hash = hash * 59 + this.AutoOrderUpsellSchedule.GetHashCode();
                 if (this.AutoOrderable != null)
                     hash = hash * 59 + this.AutoOrderable.GetHashCode();
                 if (this.CancelOtherAutoOrders != null)

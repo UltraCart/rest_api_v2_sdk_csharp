@@ -42,9 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookLogSummary" /> class.
         /// </summary>
-        /// <param name="DeliveryDts">DeliveryDts.</param>
-        /// <param name="RequestId">RequestId.</param>
-        /// <param name="Success">Success.</param>
+        /// <param name="DeliveryDts">Date/time of the delivery.</param>
+        /// <param name="RequestId">Request id.</param>
+        /// <param name="Success">True if the notification was successful.</param>
         public WebhookLogSummary(string DeliveryDts = null, string RequestId = null, bool? Success = null)
         {
             this.DeliveryDts = DeliveryDts;
@@ -53,18 +53,21 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets DeliveryDts
+        /// Date/time of the delivery
         /// </summary>
+        /// <value>Date/time of the delivery</value>
         [DataMember(Name="delivery_dts", EmitDefaultValue=false)]
         public string DeliveryDts { get; set; }
         /// <summary>
-        /// Gets or Sets RequestId
+        /// Request id
         /// </summary>
+        /// <value>Request id</value>
         [DataMember(Name="request_id", EmitDefaultValue=false)]
         public string RequestId { get; set; }
         /// <summary>
-        /// Gets or Sets Success
+        /// True if the notification was successful
         /// </summary>
+        /// <value>True if the notification was successful</value>
         [DataMember(Name="success", EmitDefaultValue=false)]
         public bool? Success { get; set; }
         /// <summary>

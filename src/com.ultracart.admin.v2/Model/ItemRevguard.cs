@@ -42,13 +42,13 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRevguard" /> class.
         /// </summary>
-        /// <param name="RevguardCanceledCsrPromptGroup">RevguardCanceledCsrPromptGroup.</param>
-        /// <param name="RevguardCanceledIvrPromptGroup">RevguardCanceledIvrPromptGroup.</param>
-        /// <param name="RevguardCanceledWebPromptGroup">RevguardCanceledWebPromptGroup.</param>
-        /// <param name="RevguardClientBrand">RevguardClientBrand.</param>
-        /// <param name="RevguardCsrPromptGroup">RevguardCsrPromptGroup.</param>
-        /// <param name="RevguardIvrPromptGroup">RevguardIvrPromptGroup.</param>
-        /// <param name="RevguardWebPromptGroup">RevguardWebPromptGroup.</param>
+        /// <param name="RevguardCanceledCsrPromptGroup">Canceled CSR prompt group.</param>
+        /// <param name="RevguardCanceledIvrPromptGroup">IVR prompt group.</param>
+        /// <param name="RevguardCanceledWebPromptGroup">Canceled web prompt group.</param>
+        /// <param name="RevguardClientBrand">Client brand.</param>
+        /// <param name="RevguardCsrPromptGroup">CSR prompt group.</param>
+        /// <param name="RevguardIvrPromptGroup">IVR prompt group.</param>
+        /// <param name="RevguardWebPromptGroup">Web prompt group.</param>
         public ItemRevguard(long? RevguardCanceledCsrPromptGroup = null, long? RevguardCanceledIvrPromptGroup = null, long? RevguardCanceledWebPromptGroup = null, long? RevguardClientBrand = null, long? RevguardCsrPromptGroup = null, long? RevguardIvrPromptGroup = null, long? RevguardWebPromptGroup = null)
         {
             this.RevguardCanceledCsrPromptGroup = RevguardCanceledCsrPromptGroup;
@@ -61,38 +61,45 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets RevguardCanceledCsrPromptGroup
+        /// Canceled CSR prompt group
         /// </summary>
+        /// <value>Canceled CSR prompt group</value>
         [DataMember(Name="revguard_canceled_csr_prompt_group", EmitDefaultValue=false)]
         public long? RevguardCanceledCsrPromptGroup { get; set; }
         /// <summary>
-        /// Gets or Sets RevguardCanceledIvrPromptGroup
+        /// IVR prompt group
         /// </summary>
+        /// <value>IVR prompt group</value>
         [DataMember(Name="revguard_canceled_ivr_prompt_group", EmitDefaultValue=false)]
         public long? RevguardCanceledIvrPromptGroup { get; set; }
         /// <summary>
-        /// Gets or Sets RevguardCanceledWebPromptGroup
+        /// Canceled web prompt group
         /// </summary>
+        /// <value>Canceled web prompt group</value>
         [DataMember(Name="revguard_canceled_web_prompt_group", EmitDefaultValue=false)]
         public long? RevguardCanceledWebPromptGroup { get; set; }
         /// <summary>
-        /// Gets or Sets RevguardClientBrand
+        /// Client brand
         /// </summary>
+        /// <value>Client brand</value>
         [DataMember(Name="revguard_client_brand", EmitDefaultValue=false)]
         public long? RevguardClientBrand { get; set; }
         /// <summary>
-        /// Gets or Sets RevguardCsrPromptGroup
+        /// CSR prompt group
         /// </summary>
+        /// <value>CSR prompt group</value>
         [DataMember(Name="revguard_csr_prompt_group", EmitDefaultValue=false)]
         public long? RevguardCsrPromptGroup { get; set; }
         /// <summary>
-        /// Gets or Sets RevguardIvrPromptGroup
+        /// IVR prompt group
         /// </summary>
+        /// <value>IVR prompt group</value>
         [DataMember(Name="revguard_ivr_prompt_group", EmitDefaultValue=false)]
         public long? RevguardIvrPromptGroup { get; set; }
         /// <summary>
-        /// Gets or Sets RevguardWebPromptGroup
+        /// Web prompt group
         /// </summary>
+        /// <value>Web prompt group</value>
         [DataMember(Name="revguard_web_prompt_group", EmitDefaultValue=false)]
         public long? RevguardWebPromptGroup { get; set; }
         /// <summary>

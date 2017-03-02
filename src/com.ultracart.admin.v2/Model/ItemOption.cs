@@ -40,23 +40,80 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemOption :  IEquatable<ItemOption>
     {
         /// <summary>
+        /// Type of option
+        /// </summary>
+        /// <value>Type of option</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Dropdown for "dropdown"
+            /// </summary>
+            [EnumMember(Value = "dropdown")]
+            Dropdown,
+            
+            /// <summary>
+            /// Enum Fileattachment for "file attachment"
+            /// </summary>
+            [EnumMember(Value = "file attachment")]
+            Fileattachment,
+            
+            /// <summary>
+            /// Enum Fixed for "fixed"
+            /// </summary>
+            [EnumMember(Value = "fixed")]
+            Fixed,
+            
+            /// <summary>
+            /// Enum Hidden for "hidden"
+            /// </summary>
+            [EnumMember(Value = "hidden")]
+            Hidden,
+            
+            /// <summary>
+            /// Enum Multiline for "multiline"
+            /// </summary>
+            [EnumMember(Value = "multiline")]
+            Multiline,
+            
+            /// <summary>
+            /// Enum Radio for "radio"
+            /// </summary>
+            [EnumMember(Value = "radio")]
+            Radio,
+            
+            /// <summary>
+            /// Enum Single for "single"
+            /// </summary>
+            [EnumMember(Value = "single")]
+            Single
+        }
+
+        /// <summary>
+        /// Type of option
+        /// </summary>
+        /// <value>Type of option</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemOption" /> class.
         /// </summary>
-        /// <param name="CostIfSpecified">CostIfSpecified.</param>
-        /// <param name="CostPerLetter">CostPerLetter.</param>
-        /// <param name="CostPerLine">CostPerLine.</param>
-        /// <param name="IgnoreIfDefault">IgnoreIfDefault.</param>
+        /// <param name="CostIfSpecified">Cost if specified.</param>
+        /// <param name="CostPerLetter">Cost per letter.</param>
+        /// <param name="CostPerLine">Cost per line.</param>
+        /// <param name="IgnoreIfDefault">Ignore this option on the order if the default value is selected.</param>
         /// <param name="Label">Label.</param>
-        /// <param name="LabelTranslatedTextInstanceOid">LabelTranslatedTextInstanceOid.</param>
+        /// <param name="LabelTranslatedTextInstanceOid">Label translated text instance ID.</param>
         /// <param name="Name">Name.</param>
-        /// <param name="NameTranslatedTextInstanceOid">NameTranslatedTextInstanceOid.</param>
-        /// <param name="OneTimeFee">OneTimeFee.</param>
-        /// <param name="OptionOid">OptionOid.</param>
-        /// <param name="Required">Required.</param>
-        /// <param name="SystemOption">SystemOption.</param>
-        /// <param name="Type">Type.</param>
+        /// <param name="NameTranslatedTextInstanceOid">Name translated text instance ID.</param>
+        /// <param name="OneTimeFee">One time fee.</param>
+        /// <param name="OptionOid">Option object identifier.</param>
+        /// <param name="Required">True if the customer is required to specify an answer.</param>
+        /// <param name="SystemOption">True if this is a system option.</param>
+        /// <param name="Type">Type of option.</param>
         /// <param name="Values">Values.</param>
-        public ItemOption(double? CostIfSpecified = null, double? CostPerLetter = null, double? CostPerLine = null, bool? IgnoreIfDefault = null, string Label = null, int? LabelTranslatedTextInstanceOid = null, string Name = null, int? NameTranslatedTextInstanceOid = null, bool? OneTimeFee = null, int? OptionOid = null, bool? Required = null, bool? SystemOption = null, string Type = null, List<ItemOptionValue> Values = null)
+        public ItemOption(decimal? CostIfSpecified = null, decimal? CostPerLetter = null, decimal? CostPerLine = null, bool? IgnoreIfDefault = null, string Label = null, int? LabelTranslatedTextInstanceOid = null, string Name = null, int? NameTranslatedTextInstanceOid = null, bool? OneTimeFee = null, int? OptionOid = null, bool? Required = null, bool? SystemOption = null, TypeEnum? Type = null, List<ItemOptionValue> Values = null)
         {
             this.CostIfSpecified = CostIfSpecified;
             this.CostPerLetter = CostPerLetter;
@@ -75,73 +132,81 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets CostIfSpecified
+        /// Cost if specified
         /// </summary>
+        /// <value>Cost if specified</value>
         [DataMember(Name="cost_if_specified", EmitDefaultValue=false)]
-        public double? CostIfSpecified { get; set; }
+        public decimal? CostIfSpecified { get; set; }
         /// <summary>
-        /// Gets or Sets CostPerLetter
+        /// Cost per letter
         /// </summary>
+        /// <value>Cost per letter</value>
         [DataMember(Name="cost_per_letter", EmitDefaultValue=false)]
-        public double? CostPerLetter { get; set; }
+        public decimal? CostPerLetter { get; set; }
         /// <summary>
-        /// Gets or Sets CostPerLine
+        /// Cost per line
         /// </summary>
+        /// <value>Cost per line</value>
         [DataMember(Name="cost_per_line", EmitDefaultValue=false)]
-        public double? CostPerLine { get; set; }
+        public decimal? CostPerLine { get; set; }
         /// <summary>
-        /// Gets or Sets IgnoreIfDefault
+        /// Ignore this option on the order if the default value is selected
         /// </summary>
+        /// <value>Ignore this option on the order if the default value is selected</value>
         [DataMember(Name="ignore_if_default", EmitDefaultValue=false)]
         public bool? IgnoreIfDefault { get; set; }
         /// <summary>
-        /// Gets or Sets Label
+        /// Label
         /// </summary>
+        /// <value>Label</value>
         [DataMember(Name="label", EmitDefaultValue=false)]
         public string Label { get; set; }
         /// <summary>
-        /// Gets or Sets LabelTranslatedTextInstanceOid
+        /// Label translated text instance ID
         /// </summary>
+        /// <value>Label translated text instance ID</value>
         [DataMember(Name="label_translated_text_instance_oid", EmitDefaultValue=false)]
         public int? LabelTranslatedTextInstanceOid { get; set; }
         /// <summary>
-        /// Gets or Sets Name
+        /// Name
         /// </summary>
+        /// <value>Name</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
         /// <summary>
-        /// Gets or Sets NameTranslatedTextInstanceOid
+        /// Name translated text instance ID
         /// </summary>
+        /// <value>Name translated text instance ID</value>
         [DataMember(Name="name_translated_text_instance_oid", EmitDefaultValue=false)]
         public int? NameTranslatedTextInstanceOid { get; set; }
         /// <summary>
-        /// Gets or Sets OneTimeFee
+        /// One time fee
         /// </summary>
+        /// <value>One time fee</value>
         [DataMember(Name="one_time_fee", EmitDefaultValue=false)]
         public bool? OneTimeFee { get; set; }
         /// <summary>
-        /// Gets or Sets OptionOid
+        /// Option object identifier
         /// </summary>
+        /// <value>Option object identifier</value>
         [DataMember(Name="option_oid", EmitDefaultValue=false)]
         public int? OptionOid { get; set; }
         /// <summary>
-        /// Gets or Sets Required
+        /// True if the customer is required to specify an answer
         /// </summary>
+        /// <value>True if the customer is required to specify an answer</value>
         [DataMember(Name="required", EmitDefaultValue=false)]
         public bool? Required { get; set; }
         /// <summary>
-        /// Gets or Sets SystemOption
+        /// True if this is a system option
         /// </summary>
+        /// <value>True if this is a system option</value>
         [DataMember(Name="system_option", EmitDefaultValue=false)]
         public bool? SystemOption { get; set; }
         /// <summary>
-        /// Gets or Sets Type
+        /// Values
         /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-        /// <summary>
-        /// Gets or Sets Values
-        /// </summary>
+        /// <value>Values</value>
         [DataMember(Name="values", EmitDefaultValue=false)]
         public List<ItemOptionValue> Values { get; set; }
         /// <summary>

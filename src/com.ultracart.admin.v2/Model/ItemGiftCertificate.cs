@@ -42,8 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemGiftCertificate" /> class.
         /// </summary>
-        /// <param name="GiftCertificate">GiftCertificate.</param>
-        /// <param name="GiftCertificateExpirationDays">GiftCertificateExpirationDays.</param>
+        /// <param name="GiftCertificate">True if the purchase of this item generates a gift certificate.</param>
+        /// <param name="GiftCertificateExpirationDays">The number of days that the gift certificate is good for (optional).</param>
         public ItemGiftCertificate(bool? GiftCertificate = null, int? GiftCertificateExpirationDays = null)
         {
             this.GiftCertificate = GiftCertificate;
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets GiftCertificate
+        /// True if the purchase of this item generates a gift certificate
         /// </summary>
+        /// <value>True if the purchase of this item generates a gift certificate</value>
         [DataMember(Name="gift_certificate", EmitDefaultValue=false)]
         public bool? GiftCertificate { get; set; }
         /// <summary>
-        /// Gets or Sets GiftCertificateExpirationDays
+        /// The number of days that the gift certificate is good for (optional)
         /// </summary>
+        /// <value>The number of days that the gift certificate is good for (optional)</value>
         [DataMember(Name="gift_certificate_expiration_days", EmitDefaultValue=false)]
         public int? GiftCertificateExpirationDays { get; set; }
         /// <summary>

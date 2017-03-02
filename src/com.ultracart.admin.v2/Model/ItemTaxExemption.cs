@@ -43,10 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ItemTaxExemption" /> class.
         /// </summary>
         /// <param name="City">City.</param>
-        /// <param name="CountryCode">CountryCode.</param>
+        /// <param name="CountryCode">Country code (ISO-3166 two letter).</param>
         /// <param name="County">County.</param>
-        /// <param name="PostalCode">PostalCode.</param>
-        /// <param name="StateCode">StateCode.</param>
+        /// <param name="PostalCode">Postal code.</param>
+        /// <param name="StateCode">State code.</param>
         public ItemTaxExemption(string City = null, string CountryCode = null, string County = null, string PostalCode = null, string StateCode = null)
         {
             this.City = City;
@@ -57,28 +57,33 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets City
+        /// City
         /// </summary>
+        /// <value>City</value>
         [DataMember(Name="city", EmitDefaultValue=false)]
         public string City { get; set; }
         /// <summary>
-        /// Gets or Sets CountryCode
+        /// Country code (ISO-3166 two letter)
         /// </summary>
+        /// <value>Country code (ISO-3166 two letter)</value>
         [DataMember(Name="country_code", EmitDefaultValue=false)]
         public string CountryCode { get; set; }
         /// <summary>
-        /// Gets or Sets County
+        /// County
         /// </summary>
+        /// <value>County</value>
         [DataMember(Name="county", EmitDefaultValue=false)]
         public string County { get; set; }
         /// <summary>
-        /// Gets or Sets PostalCode
+        /// Postal code
         /// </summary>
+        /// <value>Postal code</value>
         [DataMember(Name="postal_code", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
         /// <summary>
-        /// Gets or Sets StateCode
+        /// State code
         /// </summary>
+        /// <value>State code</value>
         [DataMember(Name="state_code", EmitDefaultValue=false)]
         public string StateCode { get; set; }
         /// <summary>

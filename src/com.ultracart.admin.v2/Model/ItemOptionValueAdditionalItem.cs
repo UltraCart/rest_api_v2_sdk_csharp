@@ -42,8 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemOptionValueAdditionalItem" /> class.
         /// </summary>
-        /// <param name="AdditionalMerchantItemId">AdditionalMerchantItemId.</param>
-        /// <param name="AdditionalMerchantItemOid">AdditionalMerchantItemOid.</param>
+        /// <param name="AdditionalMerchantItemId">Additional item id.</param>
+        /// <param name="AdditionalMerchantItemOid">Additional item object identifier.</param>
         public ItemOptionValueAdditionalItem(string AdditionalMerchantItemId = null, int? AdditionalMerchantItemOid = null)
         {
             this.AdditionalMerchantItemId = AdditionalMerchantItemId;
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AdditionalMerchantItemId
+        /// Additional item id
         /// </summary>
+        /// <value>Additional item id</value>
         [DataMember(Name="additional_merchant_item_id", EmitDefaultValue=false)]
         public string AdditionalMerchantItemId { get; set; }
         /// <summary>
-        /// Gets or Sets AdditionalMerchantItemOid
+        /// Additional item object identifier
         /// </summary>
+        /// <value>Additional item object identifier</value>
         [DataMember(Name="additional_merchant_item_oid", EmitDefaultValue=false)]
         public int? AdditionalMerchantItemOid { get; set; }
         /// <summary>

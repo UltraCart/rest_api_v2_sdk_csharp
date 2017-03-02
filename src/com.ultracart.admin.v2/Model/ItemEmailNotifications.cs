@@ -42,8 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemEmailNotifications" /> class.
         /// </summary>
-        /// <param name="SkipReceipt">SkipReceipt.</param>
-        /// <param name="SkipShipmentNotification">SkipShipmentNotification.</param>
+        /// <param name="SkipReceipt">Skip receipt email to customer.</param>
+        /// <param name="SkipShipmentNotification">Skip shipment notification to customer.</param>
         public ItemEmailNotifications(bool? SkipReceipt = null, bool? SkipShipmentNotification = null)
         {
             this.SkipReceipt = SkipReceipt;
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets SkipReceipt
+        /// Skip receipt email to customer
         /// </summary>
+        /// <value>Skip receipt email to customer</value>
         [DataMember(Name="skip_receipt", EmitDefaultValue=false)]
         public bool? SkipReceipt { get; set; }
         /// <summary>
-        /// Gets or Sets SkipShipmentNotification
+        /// Skip shipment notification to customer
         /// </summary>
+        /// <value>Skip shipment notification to customer</value>
         [DataMember(Name="skip_shipment_notification", EmitDefaultValue=false)]
         public bool? SkipShipmentNotification { get; set; }
         /// <summary>

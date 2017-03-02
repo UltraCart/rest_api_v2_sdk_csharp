@@ -42,11 +42,11 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemPricingTier" /> class.
         /// </summary>
-        /// <param name="DefaultTier">DefaultTier.</param>
+        /// <param name="DefaultTier">True if this is the default tier.</param>
         /// <param name="Discounts">Discounts.</param>
         /// <param name="Limit">Limit.</param>
-        /// <param name="Name">Name.</param>
-        /// <param name="PricingTierOid">PricingTierOid.</param>
+        /// <param name="Name">Pricing tier name.</param>
+        /// <param name="PricingTierOid">Pricing tier object identifier.</param>
         public ItemPricingTier(bool? DefaultTier = null, List<ItemPricingTierDiscount> Discounts = null, ItemPricingTierLimit Limit = null, string Name = null, int? PricingTierOid = null)
         {
             this.DefaultTier = DefaultTier;
@@ -57,13 +57,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets DefaultTier
+        /// True if this is the default tier
         /// </summary>
+        /// <value>True if this is the default tier</value>
         [DataMember(Name="default_tier", EmitDefaultValue=false)]
         public bool? DefaultTier { get; set; }
         /// <summary>
-        /// Gets or Sets Discounts
+        /// Discounts
         /// </summary>
+        /// <value>Discounts</value>
         [DataMember(Name="discounts", EmitDefaultValue=false)]
         public List<ItemPricingTierDiscount> Discounts { get; set; }
         /// <summary>
@@ -72,13 +74,15 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="limit", EmitDefaultValue=false)]
         public ItemPricingTierLimit Limit { get; set; }
         /// <summary>
-        /// Gets or Sets Name
+        /// Pricing tier name
         /// </summary>
+        /// <value>Pricing tier name</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
         /// <summary>
-        /// Gets or Sets PricingTierOid
+        /// Pricing tier object identifier
         /// </summary>
+        /// <value>Pricing tier object identifier</value>
         [DataMember(Name="pricing_tier_oid", EmitDefaultValue=false)]
         public int? PricingTierOid { get; set; }
         /// <summary>

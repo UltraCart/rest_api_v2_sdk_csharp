@@ -42,8 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAmember" /> class.
         /// </summary>
-        /// <param name="AmemberPaymentDurationDays">AmemberPaymentDurationDays.</param>
-        /// <param name="AmemberProductId">AmemberProductId.</param>
+        /// <param name="AmemberPaymentDurationDays">The number of days that the customer should be given access to the item.</param>
+        /// <param name="AmemberProductId">A-member product id give customer access to when they purchase this item.</param>
         public ItemAmember(int? AmemberPaymentDurationDays = null, string AmemberProductId = null)
         {
             this.AmemberPaymentDurationDays = AmemberPaymentDurationDays;
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AmemberPaymentDurationDays
+        /// The number of days that the customer should be given access to the item
         /// </summary>
+        /// <value>The number of days that the customer should be given access to the item</value>
         [DataMember(Name="amember_payment_duration_days", EmitDefaultValue=false)]
         public int? AmemberPaymentDurationDays { get; set; }
         /// <summary>
-        /// Gets or Sets AmemberProductId
+        /// A-member product id give customer access to when they purchase this item
         /// </summary>
+        /// <value>A-member product id give customer access to when they purchase this item</value>
         [DataMember(Name="amember_product_id", EmitDefaultValue=false)]
         public string AmemberProductId { get; set; }
         /// <summary>

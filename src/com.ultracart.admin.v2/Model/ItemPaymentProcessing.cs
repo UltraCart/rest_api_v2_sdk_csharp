@@ -42,12 +42,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemPaymentProcessing" /> class.
         /// </summary>
-        /// <param name="BlockPrepaid">BlockPrepaid.</param>
-        /// <param name="CreditCardTransactionType">CreditCardTransactionType.</param>
-        /// <param name="NoRealtimeCharge">NoRealtimeCharge.</param>
-        /// <param name="PaymentMethodValidity">PaymentMethodValidity.</param>
-        /// <param name="RotatingTransactionGatewayCodes">RotatingTransactionGatewayCodes.</param>
-        public ItemPaymentProcessing(bool? BlockPrepaid = null, string CreditCardTransactionType = null, bool? NoRealtimeCharge = null, string PaymentMethodValidity = null, string RotatingTransactionGatewayCodes = null)
+        /// <param name="BlockPrepaid">True if prepaid cards should be blocked from buying this item.</param>
+        /// <param name="CreditCardTransactionType">Credit card transaction type.</param>
+        /// <param name="NoRealtimeCharge">True if no real-time charge should be performed on this item..</param>
+        /// <param name="PaymentMethodValidity">Payment method validity.</param>
+        /// <param name="RotatingTransactionGatewayCodes">Rotating transaction gateway codes.</param>
+        public ItemPaymentProcessing(bool? BlockPrepaid = null, string CreditCardTransactionType = null, bool? NoRealtimeCharge = null, List<string> PaymentMethodValidity = null, List<string> RotatingTransactionGatewayCodes = null)
         {
             this.BlockPrepaid = BlockPrepaid;
             this.CreditCardTransactionType = CreditCardTransactionType;
@@ -57,30 +57,35 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets BlockPrepaid
+        /// True if prepaid cards should be blocked from buying this item
         /// </summary>
+        /// <value>True if prepaid cards should be blocked from buying this item</value>
         [DataMember(Name="block_prepaid", EmitDefaultValue=false)]
         public bool? BlockPrepaid { get; set; }
         /// <summary>
-        /// Gets or Sets CreditCardTransactionType
+        /// Credit card transaction type
         /// </summary>
+        /// <value>Credit card transaction type</value>
         [DataMember(Name="credit_card_transaction_type", EmitDefaultValue=false)]
         public string CreditCardTransactionType { get; set; }
         /// <summary>
-        /// Gets or Sets NoRealtimeCharge
+        /// True if no real-time charge should be performed on this item.
         /// </summary>
+        /// <value>True if no real-time charge should be performed on this item.</value>
         [DataMember(Name="no_realtime_charge", EmitDefaultValue=false)]
         public bool? NoRealtimeCharge { get; set; }
         /// <summary>
-        /// Gets or Sets PaymentMethodValidity
+        /// Payment method validity
         /// </summary>
+        /// <value>Payment method validity</value>
         [DataMember(Name="payment_method_validity", EmitDefaultValue=false)]
-        public string PaymentMethodValidity { get; set; }
+        public List<string> PaymentMethodValidity { get; set; }
         /// <summary>
-        /// Gets or Sets RotatingTransactionGatewayCodes
+        /// Rotating transaction gateway codes
         /// </summary>
+        /// <value>Rotating transaction gateway codes</value>
         [DataMember(Name="rotating_transaction_gateway_codes", EmitDefaultValue=false)]
-        public string RotatingTransactionGatewayCodes { get; set; }
+        public List<string> RotatingTransactionGatewayCodes { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -148,12 +153,12 @@ namespace com.ultracart.admin.v2.Model
                 (
                     this.PaymentMethodValidity == other.PaymentMethodValidity ||
                     this.PaymentMethodValidity != null &&
-                    this.PaymentMethodValidity.Equals(other.PaymentMethodValidity)
+                    this.PaymentMethodValidity.SequenceEqual(other.PaymentMethodValidity)
                 ) && 
                 (
                     this.RotatingTransactionGatewayCodes == other.RotatingTransactionGatewayCodes ||
                     this.RotatingTransactionGatewayCodes != null &&
-                    this.RotatingTransactionGatewayCodes.Equals(other.RotatingTransactionGatewayCodes)
+                    this.RotatingTransactionGatewayCodes.SequenceEqual(other.RotatingTransactionGatewayCodes)
                 );
         }
 

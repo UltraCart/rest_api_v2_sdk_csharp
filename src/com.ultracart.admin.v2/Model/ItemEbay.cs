@@ -40,78 +40,117 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemEbay :  IEquatable<ItemEbay>
     {
         /// <summary>
+        /// The type of e-Bay listing
+        /// </summary>
+        /// <value>The type of e-Bay listing</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ListingTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum  for ""
+            /// </summary>
+            [EnumMember(Value = "")]
+            ,
+            
+            /// <summary>
+            /// Enum Auction for "Auction"
+            /// </summary>
+            [EnumMember(Value = "Auction")]
+            Auction,
+            
+            /// <summary>
+            /// Enum Fixed for "Fixed"
+            /// </summary>
+            [EnumMember(Value = "Fixed")]
+            Fixed,
+            
+            /// <summary>
+            /// Enum Store for "Store"
+            /// </summary>
+            [EnumMember(Value = "Store")]
+            Store
+        }
+
+        /// <summary>
+        /// The type of e-Bay listing
+        /// </summary>
+        /// <value>The type of e-Bay listing</value>
+        [DataMember(Name="listing_type", EmitDefaultValue=false)]
+        public ListingTypeEnum? ListingType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemEbay" /> class.
         /// </summary>
-        /// <param name="Active">Active.</param>
-        /// <param name="CategoryId">CategoryId.</param>
-        /// <param name="CategorySpecifics">CategorySpecifics.</param>
-        /// <param name="ConditionDescription">ConditionDescription.</param>
-        /// <param name="ConditionId">ConditionId.</param>
-        /// <param name="ConsecutiveFailures">ConsecutiveFailures.</param>
-        /// <param name="CustomCategory1">CustomCategory1.</param>
-        /// <param name="CustomCategory2">CustomCategory2.</param>
-        /// <param name="DispatchTimeMax">DispatchTimeMax.</param>
-        /// <param name="Domestic1AdditionalCost">Domestic1AdditionalCost.</param>
-        /// <param name="Domestic1FirstCost">Domestic1FirstCost.</param>
-        /// <param name="Domestic2AdditionalCost">Domestic2AdditionalCost.</param>
-        /// <param name="Domestic2FirstCost">Domestic2FirstCost.</param>
-        /// <param name="Domestic3AdditionalCost">Domestic3AdditionalCost.</param>
-        /// <param name="Domestic3FirstCost">Domestic3FirstCost.</param>
-        /// <param name="Domestic4AdditionalCost">Domestic4AdditionalCost.</param>
-        /// <param name="Domestic4FirstCost">Domestic4FirstCost.</param>
-        /// <param name="EbayAuctionId">EbayAuctionId.</param>
-        /// <param name="EbaySpecificInventory">EbaySpecificInventory.</param>
-        /// <param name="EbayTemplateName">EbayTemplateName.</param>
-        /// <param name="EbayTemplateOid">EbayTemplateOid.</param>
-        /// <param name="EndTime">EndTime.</param>
-        /// <param name="FreeShipping">FreeShipping.</param>
-        /// <param name="FreeShippingMethod">FreeShippingMethod.</param>
-        /// <param name="International1AdditionalCost">International1AdditionalCost.</param>
-        /// <param name="International1FirstCost">International1FirstCost.</param>
-        /// <param name="International2AdditionalCost">International2AdditionalCost.</param>
-        /// <param name="International2FirstCost">International2FirstCost.</param>
-        /// <param name="International3AdditionalCost">International3AdditionalCost.</param>
-        /// <param name="International3FirstCost">International3FirstCost.</param>
-        /// <param name="International4AdditionalCost">International4AdditionalCost.</param>
-        /// <param name="International4FirstCost">International4FirstCost.</param>
-        /// <param name="LastStatusDts">LastStatusDts.</param>
-        /// <param name="ListedDispatchTimeMax">ListedDispatchTimeMax.</param>
-        /// <param name="ListedEbayTemplateOid">ListedEbayTemplateOid.</param>
-        /// <param name="ListingDts">ListingDts.</param>
-        /// <param name="ListingDuration">ListingDuration.</param>
-        /// <param name="ListingPrice">ListingPrice.</param>
-        /// <param name="ListingPriceOverride">ListingPriceOverride.</param>
-        /// <param name="ListingType">ListingType.</param>
+        /// <param name="Active">True if the item is active for listing.</param>
+        /// <param name="CategoryId">e-Bay category ID.</param>
+        /// <param name="CategorySpecifics">Answers to category specific questions.</param>
+        /// <param name="ConditionDescription">Description of the condition (e-Bay constant).</param>
+        /// <param name="ConditionId">Numerical ID of the condition (e-Bay constant).</param>
+        /// <param name="ConsecutiveFailures">Number of consecutive failures trying to list this item.</param>
+        /// <param name="CustomCategory1">e-Bay Store category 1.</param>
+        /// <param name="CustomCategory2">e-Bay Store category 2.</param>
+        /// <param name="DispatchTimeMax">Maximum number of days it will take to ship the item.</param>
+        /// <param name="Domestic1AdditionalCost">Domestic 1 method additional item cost.</param>
+        /// <param name="Domestic1FirstCost">Domestic 1 method first item cost.</param>
+        /// <param name="Domestic2AdditionalCost">Domestic 2 method additional item cost.</param>
+        /// <param name="Domestic2FirstCost">Domestic 2 method first item cost.</param>
+        /// <param name="Domestic3AdditionalCost">Domestic 3 method additional item cost.</param>
+        /// <param name="Domestic3FirstCost">Domestic 3 method first item cost.</param>
+        /// <param name="Domestic4AdditionalCost">Domestic 4 method additional item cost.</param>
+        /// <param name="Domestic4FirstCost">Domestic 4 method first item cost.</param>
+        /// <param name="EbayAuctionId">If listed, this is the e-Bay auction id.</param>
+        /// <param name="EbaySpecificInventory">e-Bay specific inventory.</param>
+        /// <param name="EbayTemplateName">The template name to use hwen rendering the e-Bay listing.</param>
+        /// <param name="EbayTemplateOid">The template object identifier to use when rendering the e-Bay listing.</param>
+        /// <param name="EndTime">Date/time of the auction end.</param>
+        /// <param name="FreeShipping">True if item receives free shipping.</param>
+        /// <param name="FreeShippingMethod">The method that is free for free shipping.</param>
+        /// <param name="International1AdditionalCost">International 1 method additional item cost.</param>
+        /// <param name="International1FirstCost">International 1 method first item cost.</param>
+        /// <param name="International2AdditionalCost">International 2 method additional item cost.</param>
+        /// <param name="International2FirstCost">International 2 method first item cost.</param>
+        /// <param name="International3AdditionalCost">International 3 method additional item cost.</param>
+        /// <param name="International3FirstCost">International 3 method first item cost.</param>
+        /// <param name="International4AdditionalCost">International 4 method additional item cost.</param>
+        /// <param name="International4FirstCost">International 4 method first item cost.</param>
+        /// <param name="LastStatusDts">Date/time of the last status check.</param>
+        /// <param name="ListedDispatchTimeMax">Current listing dispatch time maximum.</param>
+        /// <param name="ListedEbayTemplateOid">The template object identifier used for the listing.</param>
+        /// <param name="ListingDts">Date/time of the listing.</param>
+        /// <param name="ListingDuration">The duration of the listing.</param>
+        /// <param name="ListingPrice">Price to list the item at.</param>
+        /// <param name="ListingPriceOverride">The price to list the item at if different than the regular UltraCart item price.</param>
+        /// <param name="ListingType">The type of e-Bay listing.</param>
         /// <param name="MarketplaceAnalysis">MarketplaceAnalysis.</param>
-        /// <param name="MarketplaceAnalysisPerform">MarketplaceAnalysisPerform.</param>
-        /// <param name="MarketplaceFinalValueFeePercentage">MarketplaceFinalValueFeePercentage.</param>
-        /// <param name="MarketplaceLastCheckDts">MarketplaceLastCheckDts.</param>
-        /// <param name="MarketplaceLowest">MarketplaceLowest.</param>
-        /// <param name="MarketplaceMapViolation">MarketplaceMapViolation.</param>
-        /// <param name="MarketplaceMultiplier">MarketplaceMultiplier.</param>
-        /// <param name="MarketplaceOtherPrice">MarketplaceOtherPrice.</param>
-        /// <param name="MarketplaceOtherSeller">MarketplaceOtherSeller.</param>
-        /// <param name="MarketplaceOtherShipping">MarketplaceOtherShipping.</param>
-        /// <param name="MarketplaceOtherTotal">MarketplaceOtherTotal.</param>
-        /// <param name="MarketplaceOurAdditionalProfitPotential">MarketplaceOurAdditionalProfitPotential.</param>
-        /// <param name="MarketplaceOurPrice">MarketplaceOurPrice.</param>
-        /// <param name="MarketplaceOurProfit">MarketplaceOurProfit.</param>
-        /// <param name="MarketplaceOurShipping">MarketplaceOurShipping.</param>
-        /// <param name="MarketplaceOurTotal">MarketplaceOurTotal.</param>
-        /// <param name="MarketplaceOverhead">MarketplaceOverhead.</param>
-        /// <param name="MarketplaceProfitable">MarketplaceProfitable.</param>
-        /// <param name="NextAttempDts">NextAttempDts.</param>
-        /// <param name="NextListingDuration">NextListingDuration.</param>
-        /// <param name="NoPromotionalShipping">NoPromotionalShipping.</param>
-        /// <param name="PackagingHandlingCosts">PackagingHandlingCosts.</param>
-        /// <param name="PreviousEbayAuctionId">PreviousEbayAuctionId.</param>
-        /// <param name="Quantity">Quantity.</param>
-        /// <param name="ReservePrice">ReservePrice.</param>
-        /// <param name="SendDimensionsAndWeight">SendDimensionsAndWeight.</param>
-        /// <param name="StartTime">StartTime.</param>
-        /// <param name="Status">Status.</param>
-        /// <param name="TargetDispatchTimeMax">TargetDispatchTimeMax.</param>
-        public ItemEbay(bool? Active = null, int? CategoryId = null, List<ItemEbayCategorySpecific> CategorySpecifics = null, string ConditionDescription = null, int? ConditionId = null, int? ConsecutiveFailures = null, long? CustomCategory1 = null, long? CustomCategory2 = null, int? DispatchTimeMax = null, double? Domestic1AdditionalCost = null, double? Domestic1FirstCost = null, double? Domestic2AdditionalCost = null, double? Domestic2FirstCost = null, double? Domestic3AdditionalCost = null, double? Domestic3FirstCost = null, double? Domestic4AdditionalCost = null, double? Domestic4FirstCost = null, string EbayAuctionId = null, int? EbaySpecificInventory = null, string EbayTemplateName = null, int? EbayTemplateOid = null, string EndTime = null, bool? FreeShipping = null, string FreeShippingMethod = null, double? International1AdditionalCost = null, double? International1FirstCost = null, double? International2AdditionalCost = null, double? International2FirstCost = null, double? International3AdditionalCost = null, double? International3FirstCost = null, double? International4AdditionalCost = null, double? International4FirstCost = null, string LastStatusDts = null, int? ListedDispatchTimeMax = null, int? ListedEbayTemplateOid = null, string ListingDts = null, string ListingDuration = null, double? ListingPrice = null, double? ListingPriceOverride = null, string ListingType = null, ItemEbayMarketPlaceAnalysis MarketplaceAnalysis = null, bool? MarketplaceAnalysisPerform = null, double? MarketplaceFinalValueFeePercentage = null, string MarketplaceLastCheckDts = null, bool? MarketplaceLowest = null, bool? MarketplaceMapViolation = null, double? MarketplaceMultiplier = null, double? MarketplaceOtherPrice = null, string MarketplaceOtherSeller = null, double? MarketplaceOtherShipping = null, double? MarketplaceOtherTotal = null, double? MarketplaceOurAdditionalProfitPotential = null, double? MarketplaceOurPrice = null, double? MarketplaceOurProfit = null, double? MarketplaceOurShipping = null, double? MarketplaceOurTotal = null, double? MarketplaceOverhead = null, bool? MarketplaceProfitable = null, string NextAttempDts = null, string NextListingDuration = null, bool? NoPromotionalShipping = null, double? PackagingHandlingCosts = null, string PreviousEbayAuctionId = null, int? Quantity = null, double? ReservePrice = null, string SendDimensionsAndWeight = null, string StartTime = null, string Status = null, int? TargetDispatchTimeMax = null)
+        /// <param name="MarketplaceAnalysisPerform">True if marketplace analysis should be performed.</param>
+        /// <param name="MarketplaceFinalValueFeePercentage">Marketplace FVF percentage.</param>
+        /// <param name="MarketplaceLastCheckDts">Date/time of the marketplace analysis last check.</param>
+        /// <param name="MarketplaceLowest">True if we are the lowest offer in the marketplace.</param>
+        /// <param name="MarketplaceMapViolation">True if another seller is violating MAP.</param>
+        /// <param name="MarketplaceMultiplier">Marketplace multiplier.</param>
+        /// <param name="MarketplaceOtherPrice">Marketplace other price.</param>
+        /// <param name="MarketplaceOtherSeller">Marketplace other seller.</param>
+        /// <param name="MarketplaceOtherShipping">Marketplace other shipping.</param>
+        /// <param name="MarketplaceOtherTotal">Marketplace other total.</param>
+        /// <param name="MarketplaceOurAdditionalProfitPotential">Marketplace our additional profit potential.</param>
+        /// <param name="MarketplaceOurPrice">Marketplace our price.</param>
+        /// <param name="MarketplaceOurProfit">Marketplace our profit.</param>
+        /// <param name="MarketplaceOurShipping">Marketplace our shipping.</param>
+        /// <param name="MarketplaceOurTotal">Marketplace our total.</param>
+        /// <param name="MarketplaceOverhead">Marketplace overhead.</param>
+        /// <param name="MarketplaceProfitable">True if our listing is profitable to sell.</param>
+        /// <param name="NextAttemptDts">Date/time for the next attempt to list.</param>
+        /// <param name="NextListingDuration">The next listing duration to use when the current listing ends..</param>
+        /// <param name="NoPromotionalShipping">True if the item should not qualify for promotional shipping.</param>
+        /// <param name="PackagingHandlingCosts">Packaging and handling costs.</param>
+        /// <param name="PreviousEbayAuctionId">Previous e-Bay auction id.</param>
+        /// <param name="Quantity">Quantity available of the item.</param>
+        /// <param name="ReservePrice">Reserve price.</param>
+        /// <param name="SendDimensionsAndWeight">How to send the item dimensions and weights to e-Bay.</param>
+        /// <param name="StartTime">Date/time of the auction start.</param>
+        /// <param name="Status">Status of the item&#39;s listing.</param>
+        /// <param name="TargetDispatchTimeMax">Typical number of days it will take to ship the item.</param>
+        public ItemEbay(bool? Active = null, int? CategoryId = null, List<ItemEbayCategorySpecific> CategorySpecifics = null, string ConditionDescription = null, int? ConditionId = null, int? ConsecutiveFailures = null, long? CustomCategory1 = null, long? CustomCategory2 = null, int? DispatchTimeMax = null, decimal? Domestic1AdditionalCost = null, decimal? Domestic1FirstCost = null, decimal? Domestic2AdditionalCost = null, decimal? Domestic2FirstCost = null, decimal? Domestic3AdditionalCost = null, decimal? Domestic3FirstCost = null, decimal? Domestic4AdditionalCost = null, decimal? Domestic4FirstCost = null, string EbayAuctionId = null, int? EbaySpecificInventory = null, string EbayTemplateName = null, int? EbayTemplateOid = null, string EndTime = null, bool? FreeShipping = null, string FreeShippingMethod = null, decimal? International1AdditionalCost = null, decimal? International1FirstCost = null, decimal? International2AdditionalCost = null, decimal? International2FirstCost = null, decimal? International3AdditionalCost = null, decimal? International3FirstCost = null, decimal? International4AdditionalCost = null, decimal? International4FirstCost = null, string LastStatusDts = null, int? ListedDispatchTimeMax = null, int? ListedEbayTemplateOid = null, string ListingDts = null, string ListingDuration = null, decimal? ListingPrice = null, decimal? ListingPriceOverride = null, ListingTypeEnum? ListingType = null, ItemEbayMarketPlaceAnalysis MarketplaceAnalysis = null, bool? MarketplaceAnalysisPerform = null, decimal? MarketplaceFinalValueFeePercentage = null, string MarketplaceLastCheckDts = null, bool? MarketplaceLowest = null, bool? MarketplaceMapViolation = null, decimal? MarketplaceMultiplier = null, decimal? MarketplaceOtherPrice = null, string MarketplaceOtherSeller = null, decimal? MarketplaceOtherShipping = null, decimal? MarketplaceOtherTotal = null, decimal? MarketplaceOurAdditionalProfitPotential = null, decimal? MarketplaceOurPrice = null, decimal? MarketplaceOurProfit = null, decimal? MarketplaceOurShipping = null, decimal? MarketplaceOurTotal = null, decimal? MarketplaceOverhead = null, bool? MarketplaceProfitable = null, string NextAttemptDts = null, string NextListingDuration = null, bool? NoPromotionalShipping = null, decimal? PackagingHandlingCosts = null, string PreviousEbayAuctionId = null, int? Quantity = null, decimal? ReservePrice = null, string SendDimensionsAndWeight = null, string StartTime = null, string Status = null, int? TargetDispatchTimeMax = null)
         {
             this.Active = Active;
             this.CategoryId = CategoryId;
@@ -171,7 +210,7 @@ namespace com.ultracart.admin.v2.Model
             this.MarketplaceOurTotal = MarketplaceOurTotal;
             this.MarketplaceOverhead = MarketplaceOverhead;
             this.MarketplaceProfitable = MarketplaceProfitable;
-            this.NextAttempDts = NextAttempDts;
+            this.NextAttemptDts = NextAttemptDts;
             this.NextListingDuration = NextListingDuration;
             this.NoPromotionalShipping = NoPromotionalShipping;
             this.PackagingHandlingCosts = PackagingHandlingCosts;
@@ -185,348 +224,410 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Active
+        /// True if the item is active for listing
         /// </summary>
+        /// <value>True if the item is active for listing</value>
         [DataMember(Name="active", EmitDefaultValue=false)]
         public bool? Active { get; set; }
         /// <summary>
-        /// Gets or Sets CategoryId
+        /// e-Bay category ID
         /// </summary>
+        /// <value>e-Bay category ID</value>
         [DataMember(Name="category_id", EmitDefaultValue=false)]
         public int? CategoryId { get; set; }
         /// <summary>
-        /// Gets or Sets CategorySpecifics
+        /// Answers to category specific questions
         /// </summary>
+        /// <value>Answers to category specific questions</value>
         [DataMember(Name="category_specifics", EmitDefaultValue=false)]
         public List<ItemEbayCategorySpecific> CategorySpecifics { get; set; }
         /// <summary>
-        /// Gets or Sets ConditionDescription
+        /// Description of the condition (e-Bay constant)
         /// </summary>
+        /// <value>Description of the condition (e-Bay constant)</value>
         [DataMember(Name="condition_description", EmitDefaultValue=false)]
         public string ConditionDescription { get; set; }
         /// <summary>
-        /// Gets or Sets ConditionId
+        /// Numerical ID of the condition (e-Bay constant)
         /// </summary>
+        /// <value>Numerical ID of the condition (e-Bay constant)</value>
         [DataMember(Name="condition_id", EmitDefaultValue=false)]
         public int? ConditionId { get; set; }
         /// <summary>
-        /// Gets or Sets ConsecutiveFailures
+        /// Number of consecutive failures trying to list this item
         /// </summary>
+        /// <value>Number of consecutive failures trying to list this item</value>
         [DataMember(Name="consecutive_failures", EmitDefaultValue=false)]
         public int? ConsecutiveFailures { get; set; }
         /// <summary>
-        /// Gets or Sets CustomCategory1
+        /// e-Bay Store category 1
         /// </summary>
+        /// <value>e-Bay Store category 1</value>
         [DataMember(Name="custom_category1", EmitDefaultValue=false)]
         public long? CustomCategory1 { get; set; }
         /// <summary>
-        /// Gets or Sets CustomCategory2
+        /// e-Bay Store category 2
         /// </summary>
+        /// <value>e-Bay Store category 2</value>
         [DataMember(Name="custom_category2", EmitDefaultValue=false)]
         public long? CustomCategory2 { get; set; }
         /// <summary>
-        /// Gets or Sets DispatchTimeMax
+        /// Maximum number of days it will take to ship the item
         /// </summary>
+        /// <value>Maximum number of days it will take to ship the item</value>
         [DataMember(Name="dispatch_time_max", EmitDefaultValue=false)]
         public int? DispatchTimeMax { get; set; }
         /// <summary>
-        /// Gets or Sets Domestic1AdditionalCost
+        /// Domestic 1 method additional item cost
         /// </summary>
+        /// <value>Domestic 1 method additional item cost</value>
         [DataMember(Name="domestic_1_additional_cost", EmitDefaultValue=false)]
-        public double? Domestic1AdditionalCost { get; set; }
+        public decimal? Domestic1AdditionalCost { get; set; }
         /// <summary>
-        /// Gets or Sets Domestic1FirstCost
+        /// Domestic 1 method first item cost
         /// </summary>
+        /// <value>Domestic 1 method first item cost</value>
         [DataMember(Name="domestic_1_first_cost", EmitDefaultValue=false)]
-        public double? Domestic1FirstCost { get; set; }
+        public decimal? Domestic1FirstCost { get; set; }
         /// <summary>
-        /// Gets or Sets Domestic2AdditionalCost
+        /// Domestic 2 method additional item cost
         /// </summary>
+        /// <value>Domestic 2 method additional item cost</value>
         [DataMember(Name="domestic_2_additional_cost", EmitDefaultValue=false)]
-        public double? Domestic2AdditionalCost { get; set; }
+        public decimal? Domestic2AdditionalCost { get; set; }
         /// <summary>
-        /// Gets or Sets Domestic2FirstCost
+        /// Domestic 2 method first item cost
         /// </summary>
+        /// <value>Domestic 2 method first item cost</value>
         [DataMember(Name="domestic_2_first_cost", EmitDefaultValue=false)]
-        public double? Domestic2FirstCost { get; set; }
+        public decimal? Domestic2FirstCost { get; set; }
         /// <summary>
-        /// Gets or Sets Domestic3AdditionalCost
+        /// Domestic 3 method additional item cost
         /// </summary>
+        /// <value>Domestic 3 method additional item cost</value>
         [DataMember(Name="domestic_3_additional_cost", EmitDefaultValue=false)]
-        public double? Domestic3AdditionalCost { get; set; }
+        public decimal? Domestic3AdditionalCost { get; set; }
         /// <summary>
-        /// Gets or Sets Domestic3FirstCost
+        /// Domestic 3 method first item cost
         /// </summary>
+        /// <value>Domestic 3 method first item cost</value>
         [DataMember(Name="domestic_3_first_cost", EmitDefaultValue=false)]
-        public double? Domestic3FirstCost { get; set; }
+        public decimal? Domestic3FirstCost { get; set; }
         /// <summary>
-        /// Gets or Sets Domestic4AdditionalCost
+        /// Domestic 4 method additional item cost
         /// </summary>
+        /// <value>Domestic 4 method additional item cost</value>
         [DataMember(Name="domestic_4_additional_cost", EmitDefaultValue=false)]
-        public double? Domestic4AdditionalCost { get; set; }
+        public decimal? Domestic4AdditionalCost { get; set; }
         /// <summary>
-        /// Gets or Sets Domestic4FirstCost
+        /// Domestic 4 method first item cost
         /// </summary>
+        /// <value>Domestic 4 method first item cost</value>
         [DataMember(Name="domestic_4_first_cost", EmitDefaultValue=false)]
-        public double? Domestic4FirstCost { get; set; }
+        public decimal? Domestic4FirstCost { get; set; }
         /// <summary>
-        /// Gets or Sets EbayAuctionId
+        /// If listed, this is the e-Bay auction id
         /// </summary>
+        /// <value>If listed, this is the e-Bay auction id</value>
         [DataMember(Name="ebay_auction_id", EmitDefaultValue=false)]
         public string EbayAuctionId { get; set; }
         /// <summary>
-        /// Gets or Sets EbaySpecificInventory
+        /// e-Bay specific inventory
         /// </summary>
+        /// <value>e-Bay specific inventory</value>
         [DataMember(Name="ebay_specific_inventory", EmitDefaultValue=false)]
         public int? EbaySpecificInventory { get; set; }
         /// <summary>
-        /// Gets or Sets EbayTemplateName
+        /// The template name to use hwen rendering the e-Bay listing
         /// </summary>
+        /// <value>The template name to use hwen rendering the e-Bay listing</value>
         [DataMember(Name="ebay_template_name", EmitDefaultValue=false)]
         public string EbayTemplateName { get; set; }
         /// <summary>
-        /// Gets or Sets EbayTemplateOid
+        /// The template object identifier to use when rendering the e-Bay listing
         /// </summary>
+        /// <value>The template object identifier to use when rendering the e-Bay listing</value>
         [DataMember(Name="ebay_template_oid", EmitDefaultValue=false)]
         public int? EbayTemplateOid { get; set; }
         /// <summary>
-        /// Gets or Sets EndTime
+        /// Date/time of the auction end
         /// </summary>
+        /// <value>Date/time of the auction end</value>
         [DataMember(Name="end_time", EmitDefaultValue=false)]
         public string EndTime { get; set; }
         /// <summary>
-        /// Gets or Sets FreeShipping
+        /// True if item receives free shipping
         /// </summary>
+        /// <value>True if item receives free shipping</value>
         [DataMember(Name="free_shipping", EmitDefaultValue=false)]
         public bool? FreeShipping { get; set; }
         /// <summary>
-        /// Gets or Sets FreeShippingMethod
+        /// The method that is free for free shipping
         /// </summary>
+        /// <value>The method that is free for free shipping</value>
         [DataMember(Name="free_shipping_method", EmitDefaultValue=false)]
         public string FreeShippingMethod { get; set; }
         /// <summary>
-        /// Gets or Sets International1AdditionalCost
+        /// International 1 method additional item cost
         /// </summary>
+        /// <value>International 1 method additional item cost</value>
         [DataMember(Name="international_1_additional_cost", EmitDefaultValue=false)]
-        public double? International1AdditionalCost { get; set; }
+        public decimal? International1AdditionalCost { get; set; }
         /// <summary>
-        /// Gets or Sets International1FirstCost
+        /// International 1 method first item cost
         /// </summary>
+        /// <value>International 1 method first item cost</value>
         [DataMember(Name="international_1_first_cost", EmitDefaultValue=false)]
-        public double? International1FirstCost { get; set; }
+        public decimal? International1FirstCost { get; set; }
         /// <summary>
-        /// Gets or Sets International2AdditionalCost
+        /// International 2 method additional item cost
         /// </summary>
+        /// <value>International 2 method additional item cost</value>
         [DataMember(Name="international_2_additional_cost", EmitDefaultValue=false)]
-        public double? International2AdditionalCost { get; set; }
+        public decimal? International2AdditionalCost { get; set; }
         /// <summary>
-        /// Gets or Sets International2FirstCost
+        /// International 2 method first item cost
         /// </summary>
+        /// <value>International 2 method first item cost</value>
         [DataMember(Name="international_2_first_cost", EmitDefaultValue=false)]
-        public double? International2FirstCost { get; set; }
+        public decimal? International2FirstCost { get; set; }
         /// <summary>
-        /// Gets or Sets International3AdditionalCost
+        /// International 3 method additional item cost
         /// </summary>
+        /// <value>International 3 method additional item cost</value>
         [DataMember(Name="international_3_additional_cost", EmitDefaultValue=false)]
-        public double? International3AdditionalCost { get; set; }
+        public decimal? International3AdditionalCost { get; set; }
         /// <summary>
-        /// Gets or Sets International3FirstCost
+        /// International 3 method first item cost
         /// </summary>
+        /// <value>International 3 method first item cost</value>
         [DataMember(Name="international_3_first_cost", EmitDefaultValue=false)]
-        public double? International3FirstCost { get; set; }
+        public decimal? International3FirstCost { get; set; }
         /// <summary>
-        /// Gets or Sets International4AdditionalCost
+        /// International 4 method additional item cost
         /// </summary>
+        /// <value>International 4 method additional item cost</value>
         [DataMember(Name="international_4_additional_cost", EmitDefaultValue=false)]
-        public double? International4AdditionalCost { get; set; }
+        public decimal? International4AdditionalCost { get; set; }
         /// <summary>
-        /// Gets or Sets International4FirstCost
+        /// International 4 method first item cost
         /// </summary>
+        /// <value>International 4 method first item cost</value>
         [DataMember(Name="international_4_first_cost", EmitDefaultValue=false)]
-        public double? International4FirstCost { get; set; }
+        public decimal? International4FirstCost { get; set; }
         /// <summary>
-        /// Gets or Sets LastStatusDts
+        /// Date/time of the last status check
         /// </summary>
+        /// <value>Date/time of the last status check</value>
         [DataMember(Name="last_status_dts", EmitDefaultValue=false)]
         public string LastStatusDts { get; set; }
         /// <summary>
-        /// Gets or Sets ListedDispatchTimeMax
+        /// Current listing dispatch time maximum
         /// </summary>
+        /// <value>Current listing dispatch time maximum</value>
         [DataMember(Name="listed_dispatch_time_max", EmitDefaultValue=false)]
         public int? ListedDispatchTimeMax { get; set; }
         /// <summary>
-        /// Gets or Sets ListedEbayTemplateOid
+        /// The template object identifier used for the listing
         /// </summary>
+        /// <value>The template object identifier used for the listing</value>
         [DataMember(Name="listed_ebay_template_oid", EmitDefaultValue=false)]
         public int? ListedEbayTemplateOid { get; set; }
         /// <summary>
-        /// Gets or Sets ListingDts
+        /// Date/time of the listing
         /// </summary>
+        /// <value>Date/time of the listing</value>
         [DataMember(Name="listing_dts", EmitDefaultValue=false)]
         public string ListingDts { get; set; }
         /// <summary>
-        /// Gets or Sets ListingDuration
+        /// The duration of the listing
         /// </summary>
+        /// <value>The duration of the listing</value>
         [DataMember(Name="listing_duration", EmitDefaultValue=false)]
         public string ListingDuration { get; set; }
         /// <summary>
-        /// Gets or Sets ListingPrice
+        /// Price to list the item at
         /// </summary>
+        /// <value>Price to list the item at</value>
         [DataMember(Name="listing_price", EmitDefaultValue=false)]
-        public double? ListingPrice { get; set; }
+        public decimal? ListingPrice { get; set; }
         /// <summary>
-        /// Gets or Sets ListingPriceOverride
+        /// The price to list the item at if different than the regular UltraCart item price
         /// </summary>
+        /// <value>The price to list the item at if different than the regular UltraCart item price</value>
         [DataMember(Name="listing_price_override", EmitDefaultValue=false)]
-        public double? ListingPriceOverride { get; set; }
-        /// <summary>
-        /// Gets or Sets ListingType
-        /// </summary>
-        [DataMember(Name="listing_type", EmitDefaultValue=false)]
-        public string ListingType { get; set; }
+        public decimal? ListingPriceOverride { get; set; }
         /// <summary>
         /// Gets or Sets MarketplaceAnalysis
         /// </summary>
         [DataMember(Name="marketplace_analysis", EmitDefaultValue=false)]
         public ItemEbayMarketPlaceAnalysis MarketplaceAnalysis { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceAnalysisPerform
+        /// True if marketplace analysis should be performed
         /// </summary>
+        /// <value>True if marketplace analysis should be performed</value>
         [DataMember(Name="marketplace_analysis_perform", EmitDefaultValue=false)]
         public bool? MarketplaceAnalysisPerform { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceFinalValueFeePercentage
+        /// Marketplace FVF percentage
         /// </summary>
+        /// <value>Marketplace FVF percentage</value>
         [DataMember(Name="marketplace_final_value_fee_percentage", EmitDefaultValue=false)]
-        public double? MarketplaceFinalValueFeePercentage { get; set; }
+        public decimal? MarketplaceFinalValueFeePercentage { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceLastCheckDts
+        /// Date/time of the marketplace analysis last check
         /// </summary>
+        /// <value>Date/time of the marketplace analysis last check</value>
         [DataMember(Name="marketplace_last_check_dts", EmitDefaultValue=false)]
         public string MarketplaceLastCheckDts { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceLowest
+        /// True if we are the lowest offer in the marketplace
         /// </summary>
+        /// <value>True if we are the lowest offer in the marketplace</value>
         [DataMember(Name="marketplace_lowest", EmitDefaultValue=false)]
         public bool? MarketplaceLowest { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceMapViolation
+        /// True if another seller is violating MAP
         /// </summary>
+        /// <value>True if another seller is violating MAP</value>
         [DataMember(Name="marketplace_map_violation", EmitDefaultValue=false)]
         public bool? MarketplaceMapViolation { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceMultiplier
+        /// Marketplace multiplier
         /// </summary>
+        /// <value>Marketplace multiplier</value>
         [DataMember(Name="marketplace_multiplier", EmitDefaultValue=false)]
-        public double? MarketplaceMultiplier { get; set; }
+        public decimal? MarketplaceMultiplier { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceOtherPrice
+        /// Marketplace other price
         /// </summary>
+        /// <value>Marketplace other price</value>
         [DataMember(Name="marketplace_other_price", EmitDefaultValue=false)]
-        public double? MarketplaceOtherPrice { get; set; }
+        public decimal? MarketplaceOtherPrice { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceOtherSeller
+        /// Marketplace other seller
         /// </summary>
+        /// <value>Marketplace other seller</value>
         [DataMember(Name="marketplace_other_seller", EmitDefaultValue=false)]
         public string MarketplaceOtherSeller { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceOtherShipping
+        /// Marketplace other shipping
         /// </summary>
+        /// <value>Marketplace other shipping</value>
         [DataMember(Name="marketplace_other_shipping", EmitDefaultValue=false)]
-        public double? MarketplaceOtherShipping { get; set; }
+        public decimal? MarketplaceOtherShipping { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceOtherTotal
+        /// Marketplace other total
         /// </summary>
+        /// <value>Marketplace other total</value>
         [DataMember(Name="marketplace_other_total", EmitDefaultValue=false)]
-        public double? MarketplaceOtherTotal { get; set; }
+        public decimal? MarketplaceOtherTotal { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceOurAdditionalProfitPotential
+        /// Marketplace our additional profit potential
         /// </summary>
+        /// <value>Marketplace our additional profit potential</value>
         [DataMember(Name="marketplace_our_additional_profit_potential", EmitDefaultValue=false)]
-        public double? MarketplaceOurAdditionalProfitPotential { get; set; }
+        public decimal? MarketplaceOurAdditionalProfitPotential { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceOurPrice
+        /// Marketplace our price
         /// </summary>
+        /// <value>Marketplace our price</value>
         [DataMember(Name="marketplace_our_price", EmitDefaultValue=false)]
-        public double? MarketplaceOurPrice { get; set; }
+        public decimal? MarketplaceOurPrice { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceOurProfit
+        /// Marketplace our profit
         /// </summary>
+        /// <value>Marketplace our profit</value>
         [DataMember(Name="marketplace_our_profit", EmitDefaultValue=false)]
-        public double? MarketplaceOurProfit { get; set; }
+        public decimal? MarketplaceOurProfit { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceOurShipping
+        /// Marketplace our shipping
         /// </summary>
+        /// <value>Marketplace our shipping</value>
         [DataMember(Name="marketplace_our_shipping", EmitDefaultValue=false)]
-        public double? MarketplaceOurShipping { get; set; }
+        public decimal? MarketplaceOurShipping { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceOurTotal
+        /// Marketplace our total
         /// </summary>
+        /// <value>Marketplace our total</value>
         [DataMember(Name="marketplace_our_total", EmitDefaultValue=false)]
-        public double? MarketplaceOurTotal { get; set; }
+        public decimal? MarketplaceOurTotal { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceOverhead
+        /// Marketplace overhead
         /// </summary>
+        /// <value>Marketplace overhead</value>
         [DataMember(Name="marketplace_overhead", EmitDefaultValue=false)]
-        public double? MarketplaceOverhead { get; set; }
+        public decimal? MarketplaceOverhead { get; set; }
         /// <summary>
-        /// Gets or Sets MarketplaceProfitable
+        /// True if our listing is profitable to sell
         /// </summary>
+        /// <value>True if our listing is profitable to sell</value>
         [DataMember(Name="marketplace_profitable", EmitDefaultValue=false)]
         public bool? MarketplaceProfitable { get; set; }
         /// <summary>
-        /// Gets or Sets NextAttempDts
+        /// Date/time for the next attempt to list
         /// </summary>
-        [DataMember(Name="next_attemp_dts", EmitDefaultValue=false)]
-        public string NextAttempDts { get; set; }
+        /// <value>Date/time for the next attempt to list</value>
+        [DataMember(Name="next_attempt_dts", EmitDefaultValue=false)]
+        public string NextAttemptDts { get; set; }
         /// <summary>
-        /// Gets or Sets NextListingDuration
+        /// The next listing duration to use when the current listing ends.
         /// </summary>
+        /// <value>The next listing duration to use when the current listing ends.</value>
         [DataMember(Name="next_listing_duration", EmitDefaultValue=false)]
         public string NextListingDuration { get; set; }
         /// <summary>
-        /// Gets or Sets NoPromotionalShipping
+        /// True if the item should not qualify for promotional shipping
         /// </summary>
+        /// <value>True if the item should not qualify for promotional shipping</value>
         [DataMember(Name="no_promotional_shipping", EmitDefaultValue=false)]
         public bool? NoPromotionalShipping { get; set; }
         /// <summary>
-        /// Gets or Sets PackagingHandlingCosts
+        /// Packaging and handling costs
         /// </summary>
+        /// <value>Packaging and handling costs</value>
         [DataMember(Name="packaging_handling_costs", EmitDefaultValue=false)]
-        public double? PackagingHandlingCosts { get; set; }
+        public decimal? PackagingHandlingCosts { get; set; }
         /// <summary>
-        /// Gets or Sets PreviousEbayAuctionId
+        /// Previous e-Bay auction id
         /// </summary>
+        /// <value>Previous e-Bay auction id</value>
         [DataMember(Name="previous_ebay_auction_id", EmitDefaultValue=false)]
         public string PreviousEbayAuctionId { get; set; }
         /// <summary>
-        /// Gets or Sets Quantity
+        /// Quantity available of the item
         /// </summary>
+        /// <value>Quantity available of the item</value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public int? Quantity { get; set; }
         /// <summary>
-        /// Gets or Sets ReservePrice
+        /// Reserve price
         /// </summary>
+        /// <value>Reserve price</value>
         [DataMember(Name="reserve_price", EmitDefaultValue=false)]
-        public double? ReservePrice { get; set; }
+        public decimal? ReservePrice { get; set; }
         /// <summary>
-        /// Gets or Sets SendDimensionsAndWeight
+        /// How to send the item dimensions and weights to e-Bay
         /// </summary>
+        /// <value>How to send the item dimensions and weights to e-Bay</value>
         [DataMember(Name="send_dimensions_and_weight", EmitDefaultValue=false)]
         public string SendDimensionsAndWeight { get; set; }
         /// <summary>
-        /// Gets or Sets StartTime
+        /// Date/time of the auction start
         /// </summary>
+        /// <value>Date/time of the auction start</value>
         [DataMember(Name="start_time", EmitDefaultValue=false)]
         public string StartTime { get; set; }
         /// <summary>
-        /// Gets or Sets Status
+        /// Status of the item&#39;s listing
         /// </summary>
+        /// <value>Status of the item&#39;s listing</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>
-        /// Gets or Sets TargetDispatchTimeMax
+        /// Typical number of days it will take to ship the item
         /// </summary>
+        /// <value>Typical number of days it will take to ship the item</value>
         [DataMember(Name="target_dispatch_time_max", EmitDefaultValue=false)]
         public int? TargetDispatchTimeMax { get; set; }
         /// <summary>
@@ -595,7 +696,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MarketplaceOurTotal: ").Append(MarketplaceOurTotal).Append("\n");
             sb.Append("  MarketplaceOverhead: ").Append(MarketplaceOverhead).Append("\n");
             sb.Append("  MarketplaceProfitable: ").Append(MarketplaceProfitable).Append("\n");
-            sb.Append("  NextAttempDts: ").Append(NextAttempDts).Append("\n");
+            sb.Append("  NextAttemptDts: ").Append(NextAttemptDts).Append("\n");
             sb.Append("  NextListingDuration: ").Append(NextListingDuration).Append("\n");
             sb.Append("  NoPromotionalShipping: ").Append(NoPromotionalShipping).Append("\n");
             sb.Append("  PackagingHandlingCosts: ").Append(PackagingHandlingCosts).Append("\n");
@@ -933,9 +1034,9 @@ namespace com.ultracart.admin.v2.Model
                     this.MarketplaceProfitable.Equals(other.MarketplaceProfitable)
                 ) && 
                 (
-                    this.NextAttempDts == other.NextAttempDts ||
-                    this.NextAttempDts != null &&
-                    this.NextAttempDts.Equals(other.NextAttempDts)
+                    this.NextAttemptDts == other.NextAttemptDts ||
+                    this.NextAttemptDts != null &&
+                    this.NextAttemptDts.Equals(other.NextAttemptDts)
                 ) && 
                 (
                     this.NextListingDuration == other.NextListingDuration ||
@@ -1116,8 +1217,8 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.MarketplaceOverhead.GetHashCode();
                 if (this.MarketplaceProfitable != null)
                     hash = hash * 59 + this.MarketplaceProfitable.GetHashCode();
-                if (this.NextAttempDts != null)
-                    hash = hash * 59 + this.NextAttempDts.GetHashCode();
+                if (this.NextAttemptDts != null)
+                    hash = hash * 59 + this.NextAttemptDts.GetHashCode();
                 if (this.NextListingDuration != null)
                     hash = hash * 59 + this.NextListingDuration.GetHashCode();
                 if (this.NoPromotionalShipping != null)

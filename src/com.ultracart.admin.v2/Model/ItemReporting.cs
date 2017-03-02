@@ -42,24 +42,26 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemReporting" /> class.
         /// </summary>
-        /// <param name="ReportAsUpsell">ReportAsUpsell.</param>
-        /// <param name="ReportPickableQuantities">ReportPickableQuantities.</param>
-        public ItemReporting(bool? ReportAsUpsell = null, string ReportPickableQuantities = null)
+        /// <param name="ReportAsUpsell">Report as an upsell.</param>
+        /// <param name="ReportPickableQuantities">Report pickable quantities.</param>
+        public ItemReporting(bool? ReportAsUpsell = null, List<int?> ReportPickableQuantities = null)
         {
             this.ReportAsUpsell = ReportAsUpsell;
             this.ReportPickableQuantities = ReportPickableQuantities;
         }
         
         /// <summary>
-        /// Gets or Sets ReportAsUpsell
+        /// Report as an upsell
         /// </summary>
+        /// <value>Report as an upsell</value>
         [DataMember(Name="report_as_upsell", EmitDefaultValue=false)]
         public bool? ReportAsUpsell { get; set; }
         /// <summary>
-        /// Gets or Sets ReportPickableQuantities
+        /// Report pickable quantities
         /// </summary>
+        /// <value>Report pickable quantities</value>
         [DataMember(Name="report_pickable_quantities", EmitDefaultValue=false)]
-        public string ReportPickableQuantities { get; set; }
+        public List<int?> ReportPickableQuantities { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -114,7 +116,7 @@ namespace com.ultracart.admin.v2.Model
                 (
                     this.ReportPickableQuantities == other.ReportPickableQuantities ||
                     this.ReportPickableQuantities != null &&
-                    this.ReportPickableQuantities.Equals(other.ReportPickableQuantities)
+                    this.ReportPickableQuantities.SequenceEqual(other.ReportPickableQuantities)
                 );
         }
 

@@ -42,10 +42,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemVariation" /> class.
         /// </summary>
-        /// <param name="DefaultText">DefaultText.</param>
-        /// <param name="DefaultTextTranslatedTextInstanceOid">DefaultTextTranslatedTextInstanceOid.</param>
+        /// <param name="DefaultText">Default text.</param>
+        /// <param name="DefaultTextTranslatedTextInstanceOid">Default text translated text instance id.</param>
         /// <param name="Name">Name.</param>
-        /// <param name="NameTranslatedTextInstanceOid">NameTranslatedTextInstanceOid.</param>
+        /// <param name="NameTranslatedTextInstanceOid">Name translated text instance id.</param>
         /// <param name="Options">Options.</param>
         public ItemVariation(string DefaultText = null, int? DefaultTextTranslatedTextInstanceOid = null, string Name = null, int? NameTranslatedTextInstanceOid = null, List<ItemVariationOption> Options = null)
         {
@@ -57,28 +57,33 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets DefaultText
+        /// Default text
         /// </summary>
+        /// <value>Default text</value>
         [DataMember(Name="default_text", EmitDefaultValue=false)]
         public string DefaultText { get; set; }
         /// <summary>
-        /// Gets or Sets DefaultTextTranslatedTextInstanceOid
+        /// Default text translated text instance id
         /// </summary>
+        /// <value>Default text translated text instance id</value>
         [DataMember(Name="default_text_translated_text_instance_oid", EmitDefaultValue=false)]
         public int? DefaultTextTranslatedTextInstanceOid { get; set; }
         /// <summary>
-        /// Gets or Sets Name
+        /// Name
         /// </summary>
+        /// <value>Name</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
         /// <summary>
-        /// Gets or Sets NameTranslatedTextInstanceOid
+        /// Name translated text instance id
         /// </summary>
+        /// <value>Name translated text instance id</value>
         [DataMember(Name="name_translated_text_instance_oid", EmitDefaultValue=false)]
         public int? NameTranslatedTextInstanceOid { get; set; }
         /// <summary>
-        /// Gets or Sets Options
+        /// Options
         /// </summary>
+        /// <value>Options</value>
         [DataMember(Name="options", EmitDefaultValue=false)]
         public List<ItemVariationOption> Options { get; set; }
         /// <summary>

@@ -43,9 +43,9 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="WebhookSampleRequest" /> class.
         /// </summary>
         /// <param name="Request">Request.</param>
-        /// <param name="RequestHeaders">RequestHeaders.</param>
-        /// <param name="RequestId">RequestId.</param>
-        /// <param name="Uri">Uri.</param>
+        /// <param name="RequestHeaders">Request headers.</param>
+        /// <param name="RequestId">Request id.</param>
+        /// <param name="Uri">URI to send request to.</param>
         public WebhookSampleRequest(string Request = null, List<HTTPHeader> RequestHeaders = null, string RequestId = null, string Uri = null)
         {
             this.Request = Request;
@@ -55,23 +55,27 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Request
+        /// Request
         /// </summary>
+        /// <value>Request</value>
         [DataMember(Name="request", EmitDefaultValue=false)]
         public string Request { get; set; }
         /// <summary>
-        /// Gets or Sets RequestHeaders
+        /// Request headers
         /// </summary>
+        /// <value>Request headers</value>
         [DataMember(Name="request_headers", EmitDefaultValue=false)]
         public List<HTTPHeader> RequestHeaders { get; set; }
         /// <summary>
-        /// Gets or Sets RequestId
+        /// Request id
         /// </summary>
+        /// <value>Request id</value>
         [DataMember(Name="request_id", EmitDefaultValue=false)]
         public string RequestId { get; set; }
         /// <summary>
-        /// Gets or Sets Uri
+        /// URI to send request to
         /// </summary>
+        /// <value>URI to send request to</value>
         [DataMember(Name="uri", EmitDefaultValue=false)]
         public string Uri { get; set; }
         /// <summary>

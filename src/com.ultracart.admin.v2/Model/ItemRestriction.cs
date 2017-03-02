@@ -42,14 +42,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRestriction" /> class.
         /// </summary>
-        /// <param name="ExcludeCoupon">ExcludeCoupon.</param>
-        /// <param name="ExcludeFromFreePromotion">ExcludeFromFreePromotion.</param>
+        /// <param name="ExcludeCoupon">Exclude coupons.</param>
+        /// <param name="ExcludeFromFreePromotion">Exclude from free promotion.</param>
         /// <param name="Items">Items.</param>
-        /// <param name="MaximumQuantity">MaximumQuantity.</param>
-        /// <param name="MinimumQuantity">MinimumQuantity.</param>
-        /// <param name="MultipleQuantity">MultipleQuantity.</param>
-        /// <param name="OnePerCustomer">OnePerCustomer.</param>
-        /// <param name="PurchaseSeparately">PurchaseSeparately.</param>
+        /// <param name="MaximumQuantity">Maximum quantity.</param>
+        /// <param name="MinimumQuantity">Minimum quantity (defaults to 1).</param>
+        /// <param name="MultipleQuantity">Multiple of quantity.</param>
+        /// <param name="OnePerCustomer">One per customer.</param>
+        /// <param name="PurchaseSeparately">Purchase separately.</param>
         public ItemRestriction(bool? ExcludeCoupon = null, bool? ExcludeFromFreePromotion = null, List<ItemRestrictionItem> Items = null, int? MaximumQuantity = null, int? MinimumQuantity = null, int? MultipleQuantity = null, bool? OnePerCustomer = null, bool? PurchaseSeparately = null)
         {
             this.ExcludeCoupon = ExcludeCoupon;
@@ -63,43 +63,51 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets ExcludeCoupon
+        /// Exclude coupons
         /// </summary>
+        /// <value>Exclude coupons</value>
         [DataMember(Name="exclude_coupon", EmitDefaultValue=false)]
         public bool? ExcludeCoupon { get; set; }
         /// <summary>
-        /// Gets or Sets ExcludeFromFreePromotion
+        /// Exclude from free promotion
         /// </summary>
+        /// <value>Exclude from free promotion</value>
         [DataMember(Name="exclude_from_free_promotion", EmitDefaultValue=false)]
         public bool? ExcludeFromFreePromotion { get; set; }
         /// <summary>
-        /// Gets or Sets Items
+        /// Items
         /// </summary>
+        /// <value>Items</value>
         [DataMember(Name="items", EmitDefaultValue=false)]
         public List<ItemRestrictionItem> Items { get; set; }
         /// <summary>
-        /// Gets or Sets MaximumQuantity
+        /// Maximum quantity
         /// </summary>
+        /// <value>Maximum quantity</value>
         [DataMember(Name="maximum_quantity", EmitDefaultValue=false)]
         public int? MaximumQuantity { get; set; }
         /// <summary>
-        /// Gets or Sets MinimumQuantity
+        /// Minimum quantity (defaults to 1)
         /// </summary>
+        /// <value>Minimum quantity (defaults to 1)</value>
         [DataMember(Name="minimum_quantity", EmitDefaultValue=false)]
         public int? MinimumQuantity { get; set; }
         /// <summary>
-        /// Gets or Sets MultipleQuantity
+        /// Multiple of quantity
         /// </summary>
+        /// <value>Multiple of quantity</value>
         [DataMember(Name="multiple_quantity", EmitDefaultValue=false)]
         public int? MultipleQuantity { get; set; }
         /// <summary>
-        /// Gets or Sets OnePerCustomer
+        /// One per customer
         /// </summary>
+        /// <value>One per customer</value>
         [DataMember(Name="one_per_customer", EmitDefaultValue=false)]
         public bool? OnePerCustomer { get; set; }
         /// <summary>
-        /// Gets or Sets PurchaseSeparately
+        /// Purchase separately
         /// </summary>
+        /// <value>Purchase separately</value>
         [DataMember(Name="purchase_separately", EmitDefaultValue=false)]
         public bool? PurchaseSeparately { get; set; }
         /// <summary>

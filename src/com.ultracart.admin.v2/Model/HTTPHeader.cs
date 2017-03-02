@@ -42,8 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HTTPHeader" /> class.
         /// </summary>
-        /// <param name="Name">Name.</param>
-        /// <param name="Value">Value.</param>
+        /// <param name="Name">Name of the HTTP header.</param>
+        /// <param name="Value">Value of the HTTP header.</param>
         public HTTPHeader(string Name = null, string Value = null)
         {
             this.Name = Name;
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the HTTP header
         /// </summary>
+        /// <value>Name of the HTTP header</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
         /// <summary>
-        /// Gets or Sets Value
+        /// Value of the HTTP header
         /// </summary>
+        /// <value>Value of the HTTP header</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
         /// <summary>

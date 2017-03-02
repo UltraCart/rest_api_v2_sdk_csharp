@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filename** | **string** |  | [optional] 
-**Height** | **int?** |  | [optional] 
-**MultimediaType** | **string** |  | [optional] 
-**Size** | **long?** |  | [optional] 
-**TempMultimediaOid** | **int?** |  | [optional] 
-**Url** | **string** |  | [optional] 
-**Width** | **int?** |  | [optional] 
+**Filename** | **string** | Filename | [optional] 
+**Height** | **int?** | Height | [optional] 
+**MultimediaType** | **string** | Multimedia type | [optional] 
+**Size** | **long?** | Size | [optional] 
+**TempMultimediaOid** | **int?** | Temporary multimedia object identifier | [optional] 
+**Url** | **string** | URL | [optional] 
+**Width** | **int?** | Width | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

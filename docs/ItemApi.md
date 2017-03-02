@@ -1,6 +1,6 @@
 # com.ultracart.admin.v2.Api.ItemApi
 
-All URIs are relative to *https://secure.ultracart.com/rest/admin/v2*
+All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,11 +14,11 @@ Method | HTTP request | Description
 
 <a name="itemitemsget"></a>
 # **ItemItemsGet**
-> ItemsResponse ItemItemsGet (int? parentCategoryId = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+> ItemsResponse ItemItemsGet (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
 
 Retrieve items
 
-Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
+Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 
 ### Example
 ```csharp
@@ -43,18 +43,19 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new ItemApi();
-            var parentCategoryId = 56;  // int? | The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root (optional) 
-            var limit = 56;  // int? | The maximum number of records to return on this one API call. (optional) 
-            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional) 
+            var parentCategoryId = 56;  // int? | The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 = root (optional) 
+            var parentCategoryPath = parentCategoryPath_example;  // string | The parent category path to retrieve items for.  Unspecified means all items on the account.  / = root (optional) 
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional)  (default to 100)
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
             var since = since_example;  // string | Fetch items that have been created/modified since this date/time. (optional) 
-            var sort = sort_example;  // string | The sort order of the items.  See documentation for examples (optional) 
+            var sort = sort_example;  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
             var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
             try
             {
                 // Retrieve items
-                ItemsResponse result = apiInstance.ItemItemsGet(parentCategoryId, limit, offset, since, sort, expand, placeholders);
+                ItemsResponse result = apiInstance.ItemItemsGet(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -70,11 +71,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parentCategoryId** | **int?**| The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root | [optional] 
- **limit** | **int?**| The maximum number of records to return on this one API call. | [optional] 
- **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] 
+ **parentCategoryId** | **int?**| The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root | [optional] 
+ **parentCategoryPath** | **string**| The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root | [optional] 
+ **limit** | **int?**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **since** | **string**| Fetch items that have been created/modified since this date/time. | [optional] 
- **sort** | **string**| The sort order of the items.  See documentation for examples | [optional] 
+ **sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
  **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
@@ -265,7 +267,7 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new ItemApi();
-            var item = new Item(); // Item | Item to create
+            var item = new Item(); // Item | Item to update
             var merchantItemOid = 56;  // int? | The item oid to update.
 
             try
@@ -287,7 +289,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **item** | [**Item**](Item.md)| Item to create | 
+ **item** | [**Item**](Item.md)| Item to update | 
  **merchantItemOid** | **int?**| The item oid to update. | 
 
 ### Return type
@@ -300,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -369,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -42,9 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRelated" /> class.
         /// </summary>
-        /// <param name="NoSystemCalculatedRelatedItems">NoSystemCalculatedRelatedItems.</param>
-        /// <param name="NotRelatable">NotRelatable.</param>
-        /// <param name="RelatedItems">RelatedItems.</param>
+        /// <param name="NoSystemCalculatedRelatedItems">True to suppress system calculated relationships.</param>
+        /// <param name="NotRelatable">Not relatable.</param>
+        /// <param name="RelatedItems">Related items.</param>
         public ItemRelated(bool? NoSystemCalculatedRelatedItems = null, bool? NotRelatable = null, List<ItemRelatedItem> RelatedItems = null)
         {
             this.NoSystemCalculatedRelatedItems = NoSystemCalculatedRelatedItems;
@@ -53,18 +53,21 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets NoSystemCalculatedRelatedItems
+        /// True to suppress system calculated relationships
         /// </summary>
+        /// <value>True to suppress system calculated relationships</value>
         [DataMember(Name="no_system_calculated_related_items", EmitDefaultValue=false)]
         public bool? NoSystemCalculatedRelatedItems { get; set; }
         /// <summary>
-        /// Gets or Sets NotRelatable
+        /// Not relatable
         /// </summary>
+        /// <value>Not relatable</value>
         [DataMember(Name="not_relatable", EmitDefaultValue=false)]
         public bool? NotRelatable { get; set; }
         /// <summary>
-        /// Gets or Sets RelatedItems
+        /// Related items
         /// </summary>
+        /// <value>Related items</value>
         [DataMember(Name="related_items", EmitDefaultValue=false)]
         public List<ItemRelatedItem> RelatedItems { get; set; }
         /// <summary>

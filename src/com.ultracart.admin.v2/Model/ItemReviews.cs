@@ -42,14 +42,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemReviews" /> class.
         /// </summary>
-        /// <param name="HasApprovedReview">HasApprovedReview.</param>
-        /// <param name="HasReview">HasReview.</param>
-        /// <param name="ReviewCount">ReviewCount.</param>
-        /// <param name="ReviewOverall">ReviewOverall.</param>
-        /// <param name="ReviewTemplateName">ReviewTemplateName.</param>
-        /// <param name="ReviewTemplateOid">ReviewTemplateOid.</param>
-        /// <param name="Reviewable">Reviewable.</param>
-        public ItemReviews(bool? HasApprovedReview = null, bool? HasReview = null, int? ReviewCount = null, double? ReviewOverall = null, string ReviewTemplateName = null, int? ReviewTemplateOid = null, bool? Reviewable = null)
+        /// <param name="HasApprovedReview">True if the item has an approved review.</param>
+        /// <param name="HasReview">True if the item has a review.</param>
+        /// <param name="ReviewCount">Number of approved reviews.</param>
+        /// <param name="ReviewOverall">Overall score of reviews.</param>
+        /// <param name="ReviewTemplateName">Review template name.</param>
+        /// <param name="ReviewTemplateOid">Review template object identifier.</param>
+        /// <param name="Reviewable">True if the item is reviewable.</param>
+        public ItemReviews(bool? HasApprovedReview = null, bool? HasReview = null, int? ReviewCount = null, decimal? ReviewOverall = null, string ReviewTemplateName = null, int? ReviewTemplateOid = null, bool? Reviewable = null)
         {
             this.HasApprovedReview = HasApprovedReview;
             this.HasReview = HasReview;
@@ -61,38 +61,45 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets HasApprovedReview
+        /// True if the item has an approved review
         /// </summary>
+        /// <value>True if the item has an approved review</value>
         [DataMember(Name="has_approved_review", EmitDefaultValue=false)]
         public bool? HasApprovedReview { get; set; }
         /// <summary>
-        /// Gets or Sets HasReview
+        /// True if the item has a review
         /// </summary>
+        /// <value>True if the item has a review</value>
         [DataMember(Name="has_review", EmitDefaultValue=false)]
         public bool? HasReview { get; set; }
         /// <summary>
-        /// Gets or Sets ReviewCount
+        /// Number of approved reviews
         /// </summary>
+        /// <value>Number of approved reviews</value>
         [DataMember(Name="review_count", EmitDefaultValue=false)]
         public int? ReviewCount { get; set; }
         /// <summary>
-        /// Gets or Sets ReviewOverall
+        /// Overall score of reviews
         /// </summary>
+        /// <value>Overall score of reviews</value>
         [DataMember(Name="review_overall", EmitDefaultValue=false)]
-        public double? ReviewOverall { get; set; }
+        public decimal? ReviewOverall { get; set; }
         /// <summary>
-        /// Gets or Sets ReviewTemplateName
+        /// Review template name
         /// </summary>
+        /// <value>Review template name</value>
         [DataMember(Name="review_template_name", EmitDefaultValue=false)]
         public string ReviewTemplateName { get; set; }
         /// <summary>
-        /// Gets or Sets ReviewTemplateOid
+        /// Review template object identifier
         /// </summary>
+        /// <value>Review template object identifier</value>
         [DataMember(Name="review_template_oid", EmitDefaultValue=false)]
         public int? ReviewTemplateOid { get; set; }
         /// <summary>
-        /// Gets or Sets Reviewable
+        /// True if the item is reviewable
         /// </summary>
+        /// <value>True if the item is reviewable</value>
         [DataMember(Name="reviewable", EmitDefaultValue=false)]
         public bool? Reviewable { get; set; }
         /// <summary>

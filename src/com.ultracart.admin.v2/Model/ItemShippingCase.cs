@@ -42,10 +42,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingCase" /> class.
         /// </summary>
-        /// <param name="CaseLabel">CaseLabel.</param>
-        /// <param name="CaseMerchantItemId">CaseMerchantItemId.</param>
-        /// <param name="CaseMerchantItemOid">CaseMerchantItemOid.</param>
-        /// <param name="Quantity">Quantity.</param>
+        /// <param name="CaseLabel">Case label.</param>
+        /// <param name="CaseMerchantItemId">Case item id.</param>
+        /// <param name="CaseMerchantItemOid">Case item object identifier.</param>
+        /// <param name="Quantity">Case quantity.</param>
         public ItemShippingCase(string CaseLabel = null, string CaseMerchantItemId = null, int? CaseMerchantItemOid = null, int? Quantity = null)
         {
             this.CaseLabel = CaseLabel;
@@ -55,23 +55,27 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets CaseLabel
+        /// Case label
         /// </summary>
+        /// <value>Case label</value>
         [DataMember(Name="case_label", EmitDefaultValue=false)]
         public string CaseLabel { get; set; }
         /// <summary>
-        /// Gets or Sets CaseMerchantItemId
+        /// Case item id
         /// </summary>
+        /// <value>Case item id</value>
         [DataMember(Name="case_merchant_item_id", EmitDefaultValue=false)]
         public string CaseMerchantItemId { get; set; }
         /// <summary>
-        /// Gets or Sets CaseMerchantItemOid
+        /// Case item object identifier
         /// </summary>
+        /// <value>Case item object identifier</value>
         [DataMember(Name="case_merchant_item_oid", EmitDefaultValue=false)]
         public int? CaseMerchantItemOid { get; set; }
         /// <summary>
-        /// Gets or Sets Quantity
+        /// Case quantity
         /// </summary>
+        /// <value>Case quantity</value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public int? Quantity { get; set; }
         /// <summary>

@@ -42,15 +42,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemEnrollment123" /> class.
         /// </summary>
-        /// <param name="Enrollment123ProductCode">Enrollment123ProductCode.</param>
+        /// <param name="Enrollment123ProductCode">Enrolment 123 product code.</param>
         public ItemEnrollment123(string Enrollment123ProductCode = null)
         {
             this.Enrollment123ProductCode = Enrollment123ProductCode;
         }
         
         /// <summary>
-        /// Gets or Sets Enrollment123ProductCode
+        /// Enrolment 123 product code
         /// </summary>
+        /// <value>Enrolment 123 product code</value>
         [DataMember(Name="enrollment123_product_code", EmitDefaultValue=false)]
         public string Enrollment123ProductCode { get; set; }
         /// <summary>

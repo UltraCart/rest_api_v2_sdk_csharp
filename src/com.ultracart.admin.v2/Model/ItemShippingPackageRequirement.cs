@@ -42,8 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingPackageRequirement" /> class.
         /// </summary>
-        /// <param name="PackageName">PackageName.</param>
-        /// <param name="PackageOid">PackageOid.</param>
+        /// <param name="PackageName">Package name.</param>
+        /// <param name="PackageOid">Package object identifier.</param>
         public ItemShippingPackageRequirement(string PackageName = null, int? PackageOid = null)
         {
             this.PackageName = PackageName;
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets PackageName
+        /// Package name
         /// </summary>
+        /// <value>Package name</value>
         [DataMember(Name="package_name", EmitDefaultValue=false)]
         public string PackageName { get; set; }
         /// <summary>
-        /// Gets or Sets PackageOid
+        /// Package object identifier
         /// </summary>
+        /// <value>Package object identifier</value>
         [DataMember(Name="package_oid", EmitDefaultValue=false)]
         public int? PackageOid { get; set; }
         /// <summary>

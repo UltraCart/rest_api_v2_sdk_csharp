@@ -40,12 +40,45 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemRestrictionItem :  IEquatable<ItemRestrictionItem>
     {
         /// <summary>
+        /// Restriction type
+        /// </summary>
+        /// <value>Restriction type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Cannotbepurchasedwith for "can not be purchased with"
+            /// </summary>
+            [EnumMember(Value = "can not be purchased with")]
+            Cannotbepurchasedwith,
+            
+            /// <summary>
+            /// Enum Canonlybepurchasedwith for "can only be purchased with"
+            /// </summary>
+            [EnumMember(Value = "can only be purchased with")]
+            Canonlybepurchasedwith,
+            
+            /// <summary>
+            /// Enum Mustbepurchasedwith for "must be purchased with"
+            /// </summary>
+            [EnumMember(Value = "must be purchased with")]
+            Mustbepurchasedwith
+        }
+
+        /// <summary>
+        /// Restriction type
+        /// </summary>
+        /// <value>Restriction type</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemRestrictionItem" /> class.
         /// </summary>
-        /// <param name="RestrictMerchantItemId">RestrictMerchantItemId.</param>
-        /// <param name="RestrictMerchantItemOid">RestrictMerchantItemOid.</param>
-        /// <param name="Type">Type.</param>
-        public ItemRestrictionItem(string RestrictMerchantItemId = null, int? RestrictMerchantItemOid = null, string Type = null)
+        /// <param name="RestrictMerchantItemId">Restrict item id.</param>
+        /// <param name="RestrictMerchantItemOid">Restrict item object identifier.</param>
+        /// <param name="Type">Restriction type.</param>
+        public ItemRestrictionItem(string RestrictMerchantItemId = null, int? RestrictMerchantItemOid = null, TypeEnum? Type = null)
         {
             this.RestrictMerchantItemId = RestrictMerchantItemId;
             this.RestrictMerchantItemOid = RestrictMerchantItemOid;
@@ -53,20 +86,17 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets RestrictMerchantItemId
+        /// Restrict item id
         /// </summary>
+        /// <value>Restrict item id</value>
         [DataMember(Name="restrict_merchant_item_id", EmitDefaultValue=false)]
         public string RestrictMerchantItemId { get; set; }
         /// <summary>
-        /// Gets or Sets RestrictMerchantItemOid
+        /// Restrict item object identifier
         /// </summary>
+        /// <value>Restrict item object identifier</value>
         [DataMember(Name="restrict_merchant_item_oid", EmitDefaultValue=false)]
         public int? RestrictMerchantItemOid { get; set; }
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

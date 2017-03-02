@@ -43,9 +43,9 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ItemTax" /> class.
         /// </summary>
         /// <param name="Exemptions">Exemptions.</param>
-        /// <param name="TaxFree">TaxFree.</param>
-        /// <param name="TaxableCost">TaxableCost.</param>
-        public ItemTax(List<ItemTaxExemption> Exemptions = null, bool? TaxFree = null, double? TaxableCost = null)
+        /// <param name="TaxFree">True if tax free.</param>
+        /// <param name="TaxableCost">Taxable cost if different than regular cost.</param>
+        public ItemTax(List<ItemTaxExemption> Exemptions = null, bool? TaxFree = null, decimal? TaxableCost = null)
         {
             this.Exemptions = Exemptions;
             this.TaxFree = TaxFree;
@@ -53,20 +53,23 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Exemptions
+        /// Exemptions
         /// </summary>
+        /// <value>Exemptions</value>
         [DataMember(Name="exemptions", EmitDefaultValue=false)]
         public List<ItemTaxExemption> Exemptions { get; set; }
         /// <summary>
-        /// Gets or Sets TaxFree
+        /// True if tax free
         /// </summary>
+        /// <value>True if tax free</value>
         [DataMember(Name="tax_free", EmitDefaultValue=false)]
         public bool? TaxFree { get; set; }
         /// <summary>
-        /// Gets or Sets TaxableCost
+        /// Taxable cost if different than regular cost
         /// </summary>
+        /// <value>Taxable cost if different than regular cost</value>
         [DataMember(Name="taxable_cost", EmitDefaultValue=false)]
-        public double? TaxableCost { get; set; }
+        public decimal? TaxableCost { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

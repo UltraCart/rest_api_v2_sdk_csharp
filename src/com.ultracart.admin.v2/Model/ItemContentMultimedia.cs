@@ -40,24 +40,69 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemContentMultimedia :  IEquatable<ItemContentMultimedia>
     {
         /// <summary>
+        /// Type of file
+        /// </summary>
+        /// <value>Type of file</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Image for "Image"
+            /// </summary>
+            [EnumMember(Value = "Image")]
+            Image,
+            
+            /// <summary>
+            /// Enum PDF for "PDF"
+            /// </summary>
+            [EnumMember(Value = "PDF")]
+            PDF,
+            
+            /// <summary>
+            /// Enum Text for "Text"
+            /// </summary>
+            [EnumMember(Value = "Text")]
+            Text,
+            
+            /// <summary>
+            /// Enum Unknown for "Unknown"
+            /// </summary>
+            [EnumMember(Value = "Unknown")]
+            Unknown,
+            
+            /// <summary>
+            /// Enum Video for "Video"
+            /// </summary>
+            [EnumMember(Value = "Video")]
+            Video
+        }
+
+        /// <summary>
+        /// Type of file
+        /// </summary>
+        /// <value>Type of file</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemContentMultimedia" /> class.
         /// </summary>
-        /// <param name="CloudUrl">CloudUrl.</param>
-        /// <param name="CloudUrlExpiration">CloudUrlExpiration.</param>
-        /// <param name="Code">Code.</param>
+        /// <param name="CloudUrl">URL where the image can be downloaded from the cloud.</param>
+        /// <param name="CloudUrlExpiration">Expiration date of the cloud URL.</param>
+        /// <param name="Code">Code assigned to the file.</param>
         /// <param name="Description">Description.</param>
-        /// <param name="ExcludeFromGallery">ExcludeFromGallery.</param>
-        /// <param name="FileName">FileName.</param>
-        /// <param name="Height">Height.</param>
-        /// <param name="MerchantItemMultimediaOid">MerchantItemMultimediaOid.</param>
-        /// <param name="Orphan">Orphan.</param>
-        /// <param name="Placeholder">Placeholder.</param>
-        /// <param name="TempMultimediaOid">TempMultimediaOid.</param>
-        /// <param name="Thumbnails">Thumbnails.</param>
-        /// <param name="Type">Type.</param>
-        /// <param name="Url">Url.</param>
-        /// <param name="Width">Width.</param>
-        public ItemContentMultimedia(string CloudUrl = null, string CloudUrlExpiration = null, string Code = null, string Description = null, bool? ExcludeFromGallery = null, string FileName = null, int? Height = null, int? MerchantItemMultimediaOid = null, bool? Orphan = null, bool? Placeholder = null, int? TempMultimediaOid = null, List<ItemContentMultimediaThumbnail> Thumbnails = null, string Type = null, string Url = null, int? Width = null)
+        /// <param name="ExcludeFromGallery">True to exclude from multimedia gallery.</param>
+        /// <param name="FileName">File name.</param>
+        /// <param name="Height">Height of the image.</param>
+        /// <param name="MerchantItemMultimediaOid">Item multimedia object identifier.</param>
+        /// <param name="Orphan">True if the multimedia is an orphan of the active StoreFront themes.</param>
+        /// <param name="Placeholder">True if the object is a place holder that can be populated.</param>
+        /// <param name="TempMultimediaOid">Temporary multimedia object identifier assigned if uploading new multimedia.</param>
+        /// <param name="Thumbnails">Thumbnails of this image.</param>
+        /// <param name="Type">Type of file.</param>
+        /// <param name="Url">URL to download file.</param>
+        /// <param name="Width">Width of the image.</param>
+        public ItemContentMultimedia(string CloudUrl = null, string CloudUrlExpiration = null, string Code = null, string Description = null, bool? ExcludeFromGallery = null, string FileName = null, int? Height = null, int? MerchantItemMultimediaOid = null, bool? Orphan = null, bool? Placeholder = null, int? TempMultimediaOid = null, List<ItemContentMultimediaThumbnail> Thumbnails = null, TypeEnum? Type = null, string Url = null, int? Width = null)
         {
             this.CloudUrl = CloudUrl;
             this.CloudUrlExpiration = CloudUrlExpiration;
@@ -77,78 +122,87 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets CloudUrl
+        /// URL where the image can be downloaded from the cloud
         /// </summary>
+        /// <value>URL where the image can be downloaded from the cloud</value>
         [DataMember(Name="cloud_url", EmitDefaultValue=false)]
         public string CloudUrl { get; set; }
         /// <summary>
-        /// Gets or Sets CloudUrlExpiration
+        /// Expiration date of the cloud URL
         /// </summary>
+        /// <value>Expiration date of the cloud URL</value>
         [DataMember(Name="cloud_url_expiration", EmitDefaultValue=false)]
         public string CloudUrlExpiration { get; set; }
         /// <summary>
-        /// Gets or Sets Code
+        /// Code assigned to the file
         /// </summary>
+        /// <value>Code assigned to the file</value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
         /// <summary>
-        /// Gets or Sets Description
+        /// Description
         /// </summary>
+        /// <value>Description</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
         /// <summary>
-        /// Gets or Sets ExcludeFromGallery
+        /// True to exclude from multimedia gallery
         /// </summary>
+        /// <value>True to exclude from multimedia gallery</value>
         [DataMember(Name="exclude_from_gallery", EmitDefaultValue=false)]
         public bool? ExcludeFromGallery { get; set; }
         /// <summary>
-        /// Gets or Sets FileName
+        /// File name
         /// </summary>
+        /// <value>File name</value>
         [DataMember(Name="file_name", EmitDefaultValue=false)]
         public string FileName { get; set; }
         /// <summary>
-        /// Gets or Sets Height
+        /// Height of the image
         /// </summary>
+        /// <value>Height of the image</value>
         [DataMember(Name="height", EmitDefaultValue=false)]
         public int? Height { get; set; }
         /// <summary>
-        /// Gets or Sets MerchantItemMultimediaOid
+        /// Item multimedia object identifier
         /// </summary>
+        /// <value>Item multimedia object identifier</value>
         [DataMember(Name="merchant_item_multimedia_oid", EmitDefaultValue=false)]
         public int? MerchantItemMultimediaOid { get; set; }
         /// <summary>
-        /// Gets or Sets Orphan
+        /// True if the multimedia is an orphan of the active StoreFront themes
         /// </summary>
+        /// <value>True if the multimedia is an orphan of the active StoreFront themes</value>
         [DataMember(Name="orphan", EmitDefaultValue=false)]
         public bool? Orphan { get; set; }
         /// <summary>
-        /// Gets or Sets Placeholder
+        /// True if the object is a place holder that can be populated
         /// </summary>
+        /// <value>True if the object is a place holder that can be populated</value>
         [DataMember(Name="placeholder", EmitDefaultValue=false)]
         public bool? Placeholder { get; set; }
         /// <summary>
-        /// Gets or Sets TempMultimediaOid
+        /// Temporary multimedia object identifier assigned if uploading new multimedia
         /// </summary>
+        /// <value>Temporary multimedia object identifier assigned if uploading new multimedia</value>
         [DataMember(Name="temp_multimedia_oid", EmitDefaultValue=false)]
         public int? TempMultimediaOid { get; set; }
         /// <summary>
-        /// Gets or Sets Thumbnails
+        /// Thumbnails of this image
         /// </summary>
+        /// <value>Thumbnails of this image</value>
         [DataMember(Name="thumbnails", EmitDefaultValue=false)]
         public List<ItemContentMultimediaThumbnail> Thumbnails { get; set; }
         /// <summary>
-        /// Gets or Sets Type
+        /// URL to download file
         /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-        /// <summary>
-        /// Gets or Sets Url
-        /// </summary>
+        /// <value>URL to download file</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
         /// <summary>
-        /// Gets or Sets Width
+        /// Width of the image
         /// </summary>
+        /// <value>Width of the image</value>
         [DataMember(Name="width", EmitDefaultValue=false)]
         public int? Width { get; set; }
         /// <summary>

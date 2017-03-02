@@ -40,35 +40,37 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve items
         /// </summary>
         /// <remarks>
-        /// Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
+        /// Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentCategoryId">The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional)</param>
+        /// <param name="parentCategoryId">The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
+        /// <param name="parentCategoryPath">The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See documentation for examples (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ItemsResponse</returns>
-        ItemsResponse ItemItemsGet (int? parentCategoryId = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+        ItemsResponse ItemItemsGet (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
 
         /// <summary>
         /// Retrieve items
         /// </summary>
         /// <remarks>
-        /// Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
+        /// Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentCategoryId">The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional)</param>
+        /// <param name="parentCategoryId">The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
+        /// <param name="parentCategoryPath">The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See documentation for examples (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemsResponse</returns>
-        ApiResponse<ItemsResponse> ItemItemsGetWithHttpInfo (int? parentCategoryId = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+        ApiResponse<ItemsResponse> ItemItemsGetWithHttpInfo (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
         /// <summary>
         /// Delete an item
         /// </summary>
@@ -122,7 +124,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update a new item on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="item">Item to create</param>
+        /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
         /// <returns>ItemResponse</returns>
         ItemResponse ItemItemsMerchantItemOidPut (Item item, int? merchantItemOid);
@@ -134,7 +136,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update a new item on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="item">Item to create</param>
+        /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
         /// <returns>ApiResponse of ItemResponse</returns>
         ApiResponse<ItemResponse> ItemItemsMerchantItemOidPutWithHttpInfo (Item item, int? merchantItemOid);
@@ -186,35 +188,37 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve items
         /// </summary>
         /// <remarks>
-        /// Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
+        /// Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentCategoryId">The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional)</param>
+        /// <param name="parentCategoryId">The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
+        /// <param name="parentCategoryPath">The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See documentation for examples (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ItemsResponse</returns>
-        System.Threading.Tasks.Task<ItemsResponse> ItemItemsGetAsync (int? parentCategoryId = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+        System.Threading.Tasks.Task<ItemsResponse> ItemItemsGetAsync (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
 
         /// <summary>
         /// Retrieve items
         /// </summary>
         /// <remarks>
-        /// Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
+        /// Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentCategoryId">The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional)</param>
+        /// <param name="parentCategoryId">The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
+        /// <param name="parentCategoryPath">The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See documentation for examples (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> ItemItemsGetAsyncWithHttpInfo (int? parentCategoryId = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> ItemItemsGetAsyncWithHttpInfo (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
         /// <summary>
         /// Delete an item
         /// </summary>
@@ -268,7 +272,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update a new item on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="item">Item to create</param>
+        /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
         /// <returns>Task of ItemResponse</returns>
         System.Threading.Tasks.Task<ItemResponse> ItemItemsMerchantItemOidPutAsync (Item item, int? merchantItemOid);
@@ -280,7 +284,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update a new item on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="item">Item to create</param>
+        /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemResponse>> ItemItemsMerchantItemOidPutAsyncWithHttpInfo (Item item, int? merchantItemOid);
@@ -439,36 +443,38 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve items Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
+        /// Retrieve items Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentCategoryId">The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional)</param>
+        /// <param name="parentCategoryId">The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
+        /// <param name="parentCategoryPath">The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See documentation for examples (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ItemsResponse</returns>
-        public ItemsResponse ItemItemsGet (int? parentCategoryId = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        public ItemsResponse ItemItemsGet (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
         {
-             ApiResponse<ItemsResponse> localVarResponse = ItemItemsGetWithHttpInfo(parentCategoryId, limit, offset, since, sort, expand, placeholders);
+             ApiResponse<ItemsResponse> localVarResponse = ItemItemsGetWithHttpInfo(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve items Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
+        /// Retrieve items Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentCategoryId">The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional)</param>
+        /// <param name="parentCategoryId">The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
+        /// <param name="parentCategoryPath">The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See documentation for examples (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemsResponse</returns>
-        public ApiResponse< ItemsResponse > ItemItemsGetWithHttpInfo (int? parentCategoryId = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        public ApiResponse< ItemsResponse > ItemItemsGetWithHttpInfo (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
         {
 
             var localVarPath = "/item/items";
@@ -497,6 +503,7 @@ namespace com.ultracart.admin.v2.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (parentCategoryId != null) localVarQueryParams.Add("parent_category_id", Configuration.ApiClient.ParameterToString(parentCategoryId)); // query parameter
+            if (parentCategoryPath != null) localVarQueryParams.Add("parent_category_path", Configuration.ApiClient.ParameterToString(parentCategoryPath)); // query parameter
             if (limit != null) localVarQueryParams.Add("_limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
             if (offset != null) localVarQueryParams.Add("_offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
             if (since != null) localVarQueryParams.Add("_since", Configuration.ApiClient.ParameterToString(since)); // query parameter
@@ -537,37 +544,39 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve items Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
+        /// Retrieve items Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentCategoryId">The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional)</param>
+        /// <param name="parentCategoryId">The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
+        /// <param name="parentCategoryPath">The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See documentation for examples (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ItemsResponse</returns>
-        public async System.Threading.Tasks.Task<ItemsResponse> ItemItemsGetAsync (int? parentCategoryId = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        public async System.Threading.Tasks.Task<ItemsResponse> ItemItemsGetAsync (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
         {
-             ApiResponse<ItemsResponse> localVarResponse = await ItemItemsGetAsyncWithHttpInfo(parentCategoryId, limit, offset, since, sort, expand, placeholders);
+             ApiResponse<ItemsResponse> localVarResponse = await ItemItemsGetAsyncWithHttpInfo(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Retrieve items Retrieves a group of items from the account.  If no parameters are specified, all items will be returned. 
+        /// Retrieve items Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentCategoryId">The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional)</param>
+        /// <param name="parentCategoryId">The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)</param>
+        /// <param name="parentCategoryPath">The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See documentation for examples (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> ItemItemsGetAsyncWithHttpInfo (int? parentCategoryId = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> ItemItemsGetAsyncWithHttpInfo (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
         {
 
             var localVarPath = "/item/items";
@@ -596,6 +605,7 @@ namespace com.ultracart.admin.v2.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (parentCategoryId != null) localVarQueryParams.Add("parent_category_id", Configuration.ApiClient.ParameterToString(parentCategoryId)); // query parameter
+            if (parentCategoryPath != null) localVarQueryParams.Add("parent_category_path", Configuration.ApiClient.ParameterToString(parentCategoryPath)); // query parameter
             if (limit != null) localVarQueryParams.Add("_limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
             if (offset != null) localVarQueryParams.Add("_offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
             if (since != null) localVarQueryParams.Add("_since", Configuration.ApiClient.ParameterToString(since)); // query parameter
@@ -980,7 +990,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update an item Update a new item on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="item">Item to create</param>
+        /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
         /// <returns>ItemResponse</returns>
         public ItemResponse ItemItemsMerchantItemOidPut (Item item, int? merchantItemOid)
@@ -993,7 +1003,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update an item Update a new item on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="item">Item to create</param>
+        /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
         /// <returns>ApiResponse of ItemResponse</returns>
         public ApiResponse< ItemResponse > ItemItemsMerchantItemOidPutWithHttpInfo (Item item, int? merchantItemOid)
@@ -1015,7 +1025,7 @@ namespace com.ultracart.admin.v2.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "application/json"
+                "application/json; charset=UTF-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -1076,7 +1086,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update an item Update a new item on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="item">Item to create</param>
+        /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
         /// <returns>Task of ItemResponse</returns>
         public async System.Threading.Tasks.Task<ItemResponse> ItemItemsMerchantItemOidPutAsync (Item item, int? merchantItemOid)
@@ -1090,7 +1100,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update an item Update a new item on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="item">Item to create</param>
+        /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ItemResponse>> ItemItemsMerchantItemOidPutAsyncWithHttpInfo (Item item, int? merchantItemOid)
@@ -1112,7 +1122,7 @@ namespace com.ultracart.admin.v2.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "application/json"
+                "application/json; charset=UTF-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -1202,7 +1212,7 @@ namespace com.ultracart.admin.v2.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "application/json"
+                "application/json; charset=UTF-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -1293,7 +1303,7 @@ namespace com.ultracart.admin.v2.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "application/json"
+                "application/json; charset=UTF-8"
             };
             String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 

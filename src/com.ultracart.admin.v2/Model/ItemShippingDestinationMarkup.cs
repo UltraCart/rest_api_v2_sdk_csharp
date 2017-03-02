@@ -42,15 +42,15 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingDestinationMarkup" /> class.
         /// </summary>
-        /// <param name="Country">Country.</param>
-        /// <param name="FlatFee">FlatFee.</param>
-        /// <param name="PerItem">PerItem.</param>
-        /// <param name="PostalCode">PostalCode.</param>
-        /// <param name="ShippingMethod">ShippingMethod.</param>
+        /// <param name="CountryCode">Country code (ISO-3166 two letter).</param>
+        /// <param name="FlatFee">Flat fee.</param>
+        /// <param name="PerItem">Per item.</param>
+        /// <param name="PostalCode">Postal code.</param>
+        /// <param name="ShippingMethod">Shipping method.</param>
         /// <param name="State">State.</param>
-        public ItemShippingDestinationMarkup(string Country = null, double? FlatFee = null, double? PerItem = null, string PostalCode = null, string ShippingMethod = null, string State = null)
+        public ItemShippingDestinationMarkup(string CountryCode = null, decimal? FlatFee = null, decimal? PerItem = null, string PostalCode = null, string ShippingMethod = null, string State = null)
         {
-            this.Country = Country;
+            this.CountryCode = CountryCode;
             this.FlatFee = FlatFee;
             this.PerItem = PerItem;
             this.PostalCode = PostalCode;
@@ -59,33 +59,39 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Country
+        /// Country code (ISO-3166 two letter)
         /// </summary>
-        [DataMember(Name="country", EmitDefaultValue=false)]
-        public string Country { get; set; }
+        /// <value>Country code (ISO-3166 two letter)</value>
+        [DataMember(Name="country_code", EmitDefaultValue=false)]
+        public string CountryCode { get; set; }
         /// <summary>
-        /// Gets or Sets FlatFee
+        /// Flat fee
         /// </summary>
+        /// <value>Flat fee</value>
         [DataMember(Name="flat_fee", EmitDefaultValue=false)]
-        public double? FlatFee { get; set; }
+        public decimal? FlatFee { get; set; }
         /// <summary>
-        /// Gets or Sets PerItem
+        /// Per item
         /// </summary>
+        /// <value>Per item</value>
         [DataMember(Name="per_item", EmitDefaultValue=false)]
-        public double? PerItem { get; set; }
+        public decimal? PerItem { get; set; }
         /// <summary>
-        /// Gets or Sets PostalCode
+        /// Postal code
         /// </summary>
+        /// <value>Postal code</value>
         [DataMember(Name="postal_code", EmitDefaultValue=false)]
         public string PostalCode { get; set; }
         /// <summary>
-        /// Gets or Sets ShippingMethod
+        /// Shipping method
         /// </summary>
+        /// <value>Shipping method</value>
         [DataMember(Name="shipping_method", EmitDefaultValue=false)]
         public string ShippingMethod { get; set; }
         /// <summary>
-        /// Gets or Sets State
+        /// State
         /// </summary>
+        /// <value>State</value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; set; }
         /// <summary>
@@ -96,7 +102,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ItemShippingDestinationMarkup {\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  FlatFee: ").Append(FlatFee).Append("\n");
             sb.Append("  PerItem: ").Append(PerItem).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
@@ -139,9 +145,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.Country == other.Country ||
-                    this.Country != null &&
-                    this.Country.Equals(other.Country)
+                    this.CountryCode == other.CountryCode ||
+                    this.CountryCode != null &&
+                    this.CountryCode.Equals(other.CountryCode)
                 ) && 
                 (
                     this.FlatFee == other.FlatFee ||
@@ -181,8 +187,8 @@ namespace com.ultracart.admin.v2.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Country != null)
-                    hash = hash * 59 + this.Country.GetHashCode();
+                if (this.CountryCode != null)
+                    hash = hash * 59 + this.CountryCode.GetHashCode();
                 if (this.FlatFee != null)
                     hash = hash * 59 + this.FlatFee.GetHashCode();
                 if (this.PerItem != null)

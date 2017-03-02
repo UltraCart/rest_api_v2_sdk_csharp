@@ -42,9 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookEventCategory" /> class.
         /// </summary>
-        /// <param name="EventCategory">EventCategory.</param>
-        /// <param name="Events">Events.</param>
-        /// <param name="Subscribed">Subscribed.</param>
+        /// <param name="EventCategory">Name of the event category.</param>
+        /// <param name="Events">The events within the category.  Individual subscription flags contained within the child object..</param>
+        /// <param name="Subscribed">True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier..</param>
         public WebhookEventCategory(string EventCategory = null, List<WebhookEventSubscription> Events = null, bool? Subscribed = null)
         {
             this.EventCategory = EventCategory;
@@ -53,18 +53,21 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets EventCategory
+        /// Name of the event category
         /// </summary>
+        /// <value>Name of the event category</value>
         [DataMember(Name="event_category", EmitDefaultValue=false)]
         public string EventCategory { get; set; }
         /// <summary>
-        /// Gets or Sets Events
+        /// The events within the category.  Individual subscription flags contained within the child object.
         /// </summary>
+        /// <value>The events within the category.  Individual subscription flags contained within the child object.</value>
         [DataMember(Name="events", EmitDefaultValue=false)]
         public List<WebhookEventSubscription> Events { get; set; }
         /// <summary>
-        /// Gets or Sets Subscribed
+        /// True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.
         /// </summary>
+        /// <value>True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.</value>
         [DataMember(Name="subscribed", EmitDefaultValue=false)]
         public bool? Subscribed { get; set; }
         /// <summary>

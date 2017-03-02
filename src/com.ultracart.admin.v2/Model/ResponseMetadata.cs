@@ -42,7 +42,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResponseMetadata" /> class.
         /// </summary>
-        /// <param name="PayloadName">PayloadName.</param>
+        /// <param name="PayloadName">Payload name.</param>
         /// <param name="ResultSet">ResultSet.</param>
         public ResponseMetadata(string PayloadName = null, ResultSet ResultSet = null)
         {
@@ -51,8 +51,9 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets PayloadName
+        /// Payload name
         /// </summary>
+        /// <value>Payload name</value>
         [DataMember(Name="payload_name", EmitDefaultValue=false)]
         public string PayloadName { get; set; }
         /// <summary>

@@ -42,8 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemSalesforce" /> class.
         /// </summary>
-        /// <param name="SfdcPricebookId">SfdcPricebookId.</param>
-        /// <param name="SfdcProductId">SfdcProductId.</param>
+        /// <param name="SfdcPricebookId">Salesforce.com pricebook id.</param>
+        /// <param name="SfdcProductId">Salesforce.com product id.</param>
         public ItemSalesforce(string SfdcPricebookId = null, string SfdcProductId = null)
         {
             this.SfdcPricebookId = SfdcPricebookId;
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets SfdcPricebookId
+        /// Salesforce.com pricebook id
         /// </summary>
+        /// <value>Salesforce.com pricebook id</value>
         [DataMember(Name="sfdc_pricebook_id", EmitDefaultValue=false)]
         public string SfdcPricebookId { get; set; }
         /// <summary>
-        /// Gets or Sets SfdcProductId
+        /// Salesforce.com product id
         /// </summary>
+        /// <value>Salesforce.com product id</value>
         [DataMember(Name="sfdc_product_id", EmitDefaultValue=false)]
         public string SfdcProductId { get; set; }
         /// <summary>

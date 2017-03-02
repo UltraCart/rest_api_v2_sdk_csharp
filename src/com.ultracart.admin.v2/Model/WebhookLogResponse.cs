@@ -44,7 +44,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="Error">Error.</param>
         /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Success.</param>
+        /// <param name="Success">Indicates if API call was successful.</param>
         /// <param name="WebhookLog">WebhookLog.</param>
         public WebhookLogResponse(Error Error = null, ResponseMetadata Metadata = null, bool? Success = null, WebhookLog WebhookLog = null)
         {
@@ -65,8 +65,9 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public ResponseMetadata Metadata { get; set; }
         /// <summary>
-        /// Gets or Sets Success
+        /// Indicates if API call was successful
         /// </summary>
+        /// <value>Indicates if API call was successful</value>
         [DataMember(Name="success", EmitDefaultValue=false)]
         public bool? Success { get; set; }
         /// <summary>

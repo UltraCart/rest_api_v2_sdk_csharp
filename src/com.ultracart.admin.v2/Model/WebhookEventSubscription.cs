@@ -42,14 +42,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookEventSubscription" /> class.
         /// </summary>
-        /// <param name="Comments">Comments.</param>
-        /// <param name="DeprecatedFlag">DeprecatedFlag.</param>
-        /// <param name="DiscontinuedFlag">DiscontinuedFlag.</param>
-        /// <param name="EventDescription">EventDescription.</param>
-        /// <param name="EventName">EventName.</param>
-        /// <param name="Expansion">Expansion.</param>
-        /// <param name="Subscribed">Subscribed.</param>
-        /// <param name="WebhookEventOid">WebhookEventOid.</param>
+        /// <param name="Comments">Comment about the event to provide further clarification to the end user.</param>
+        /// <param name="DeprecatedFlag">True if the event is deprecated.  See the API change log for details on when it will be discontinued..</param>
+        /// <param name="DiscontinuedFlag">True if the event is discontinued.  See the API change log for details on migration details..</param>
+        /// <param name="EventDescription">Description of the event.</param>
+        /// <param name="EventName">Event name.</param>
+        /// <param name="Expansion">The expand string for the notification object.  See the individual resource _expand documentation for valid values..</param>
+        /// <param name="Subscribed">True if this is event is subscribed to.</param>
+        /// <param name="WebhookEventOid">The webhook event object identifier.</param>
         public WebhookEventSubscription(string Comments = null, bool? DeprecatedFlag = null, bool? DiscontinuedFlag = null, string EventDescription = null, string EventName = null, string Expansion = null, bool? Subscribed = null, int? WebhookEventOid = null)
         {
             this.Comments = Comments;
@@ -63,43 +63,51 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Comments
+        /// Comment about the event to provide further clarification to the end user
         /// </summary>
+        /// <value>Comment about the event to provide further clarification to the end user</value>
         [DataMember(Name="comments", EmitDefaultValue=false)]
         public string Comments { get; set; }
         /// <summary>
-        /// Gets or Sets DeprecatedFlag
+        /// True if the event is deprecated.  See the API change log for details on when it will be discontinued.
         /// </summary>
+        /// <value>True if the event is deprecated.  See the API change log for details on when it will be discontinued.</value>
         [DataMember(Name="deprecated_flag", EmitDefaultValue=false)]
         public bool? DeprecatedFlag { get; set; }
         /// <summary>
-        /// Gets or Sets DiscontinuedFlag
+        /// True if the event is discontinued.  See the API change log for details on migration details.
         /// </summary>
+        /// <value>True if the event is discontinued.  See the API change log for details on migration details.</value>
         [DataMember(Name="discontinued_flag", EmitDefaultValue=false)]
         public bool? DiscontinuedFlag { get; set; }
         /// <summary>
-        /// Gets or Sets EventDescription
+        /// Description of the event
         /// </summary>
+        /// <value>Description of the event</value>
         [DataMember(Name="event_description", EmitDefaultValue=false)]
         public string EventDescription { get; set; }
         /// <summary>
-        /// Gets or Sets EventName
+        /// Event name
         /// </summary>
+        /// <value>Event name</value>
         [DataMember(Name="event_name", EmitDefaultValue=false)]
         public string EventName { get; set; }
         /// <summary>
-        /// Gets or Sets Expansion
+        /// The expand string for the notification object.  See the individual resource _expand documentation for valid values.
         /// </summary>
+        /// <value>The expand string for the notification object.  See the individual resource _expand documentation for valid values.</value>
         [DataMember(Name="expansion", EmitDefaultValue=false)]
         public string Expansion { get; set; }
         /// <summary>
-        /// Gets or Sets Subscribed
+        /// True if this is event is subscribed to
         /// </summary>
+        /// <value>True if this is event is subscribed to</value>
         [DataMember(Name="subscribed", EmitDefaultValue=false)]
         public bool? Subscribed { get; set; }
         /// <summary>
-        /// Gets or Sets WebhookEventOid
+        /// The webhook event object identifier
         /// </summary>
+        /// <value>The webhook event object identifier</value>
         [DataMember(Name="webhook_event_oid", EmitDefaultValue=false)]
         public int? WebhookEventOid { get; set; }
         /// <summary>

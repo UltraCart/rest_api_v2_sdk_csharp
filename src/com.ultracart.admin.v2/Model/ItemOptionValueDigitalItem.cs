@@ -42,8 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemOptionValueDigitalItem" /> class.
         /// </summary>
-        /// <param name="DigitalItemOid">DigitalItemOid.</param>
-        /// <param name="OriginalFilename">OriginalFilename.</param>
+        /// <param name="DigitalItemOid">Digital item object identifier.</param>
+        /// <param name="OriginalFilename">Original filename.</param>
         public ItemOptionValueDigitalItem(int? DigitalItemOid = null, string OriginalFilename = null)
         {
             this.DigitalItemOid = DigitalItemOid;
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets DigitalItemOid
+        /// Digital item object identifier
         /// </summary>
+        /// <value>Digital item object identifier</value>
         [DataMember(Name="digital_item_oid", EmitDefaultValue=false)]
         public int? DigitalItemOid { get; set; }
         /// <summary>
-        /// Gets or Sets OriginalFilename
+        /// Original filename
         /// </summary>
+        /// <value>Original filename</value>
         [DataMember(Name="original_filename", EmitDefaultValue=false)]
         public string OriginalFilename { get; set; }
         /// <summary>

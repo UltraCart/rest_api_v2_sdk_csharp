@@ -40,26 +40,49 @@ namespace com.ultracart.admin.v2.Model
     public partial class Distance :  IEquatable<Distance>
     {
         /// <summary>
+        /// Unit of measure
+        /// </summary>
+        /// <value>Unit of measure</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum UomEnum
+        {
+            
+            /// <summary>
+            /// Enum IN for "IN"
+            /// </summary>
+            [EnumMember(Value = "IN")]
+            IN,
+            
+            /// <summary>
+            /// Enum CM for "CM"
+            /// </summary>
+            [EnumMember(Value = "CM")]
+            CM
+        }
+
+        /// <summary>
+        /// Unit of measure
+        /// </summary>
+        /// <value>Unit of measure</value>
+        [DataMember(Name="uom", EmitDefaultValue=false)]
+        public UomEnum? Uom { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Distance" /> class.
         /// </summary>
-        /// <param name="Uom">Uom.</param>
-        /// <param name="Value">Value.</param>
-        public Distance(string Uom = null, double? Value = null)
+        /// <param name="Uom">Unit of measure.</param>
+        /// <param name="Value">The distance measured in UOM.</param>
+        public Distance(UomEnum? Uom = null, decimal? Value = null)
         {
             this.Uom = Uom;
             this.Value = Value;
         }
         
         /// <summary>
-        /// Gets or Sets Uom
+        /// The distance measured in UOM
         /// </summary>
-        [DataMember(Name="uom", EmitDefaultValue=false)]
-        public string Uom { get; set; }
-        /// <summary>
-        /// Gets or Sets Value
-        /// </summary>
+        /// <value>The distance measured in UOM</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        public double? Value { get; set; }
+        public decimal? Value { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

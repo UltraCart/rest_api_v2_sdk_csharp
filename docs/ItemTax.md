@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Exemptions** | [**List&lt;ItemTaxExemption&gt;**](ItemTaxExemption.md) |  | [optional] 
-**TaxFree** | **bool?** |  | [optional] 
-**TaxableCost** | **double?** |  | [optional] 
+**Exemptions** | [**List&lt;ItemTaxExemption&gt;**](ItemTaxExemption.md) | Exemptions | [optional] 
+**TaxFree** | **bool?** | True if tax free | [optional] 
+**TaxableCost** | **decimal?** | Taxable cost if different than regular cost | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

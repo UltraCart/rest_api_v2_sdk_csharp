@@ -42,20 +42,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingDistributionCenter" /> class.
         /// </summary>
-        /// <param name="AllocatedToPlacedOrders">AllocatedToPlacedOrders.</param>
-        /// <param name="AllocatedToShoppingCarts">AllocatedToShoppingCarts.</param>
-        /// <param name="AvailableToAllocate">AvailableToAllocate.</param>
-        /// <param name="DesiredInventoryLevel">DesiredInventoryLevel.</param>
-        /// <param name="DistributionCenterCode">DistributionCenterCode.</param>
-        /// <param name="DistributionCenterOid">DistributionCenterOid.</param>
-        /// <param name="Eta">Eta.</param>
-        /// <param name="Handles">Handles.</param>
-        /// <param name="InventoryLevel">InventoryLevel.</param>
-        /// <param name="MaximumBackorder">MaximumBackorder.</param>
-        /// <param name="ReorderInventoryLevel">ReorderInventoryLevel.</param>
-        /// <param name="Sku">Sku.</param>
-        /// <param name="StockPickingLocation">StockPickingLocation.</param>
-        public ItemShippingDistributionCenter(double? AllocatedToPlacedOrders = null, double? AllocatedToShoppingCarts = null, double? AvailableToAllocate = null, double? DesiredInventoryLevel = null, string DistributionCenterCode = null, int? DistributionCenterOid = null, string Eta = null, bool? Handles = null, double? InventoryLevel = null, int? MaximumBackorder = null, double? ReorderInventoryLevel = null, string Sku = null, string StockPickingLocation = null)
+        /// <param name="AllocatedToPlacedOrders">Allocated to placed orders.</param>
+        /// <param name="AllocatedToShoppingCarts">Allocated to shopping carts.</param>
+        /// <param name="AvailableToAllocate">Available to allocate.</param>
+        /// <param name="DesiredInventoryLevel">Desired inventory level.</param>
+        /// <param name="DistributionCenterCode">Distribution center code.</param>
+        /// <param name="DistributionCenterOid">Distribution center object identifier.</param>
+        /// <param name="Eta">Estimated time of arrival.</param>
+        /// <param name="Handles">True if this distribution center handles this item.</param>
+        /// <param name="InventoryLevel">Inventory level.</param>
+        /// <param name="MaximumBackorder">Maximum back-order.</param>
+        /// <param name="ReorderInventoryLevel">Reorder inventory level (triggers notification).</param>
+        /// <param name="Sku">SKU.</param>
+        /// <param name="StockPickingLocation">Stock picking location.</param>
+        public ItemShippingDistributionCenter(decimal? AllocatedToPlacedOrders = null, decimal? AllocatedToShoppingCarts = null, decimal? AvailableToAllocate = null, decimal? DesiredInventoryLevel = null, string DistributionCenterCode = null, int? DistributionCenterOid = null, string Eta = null, bool? Handles = null, decimal? InventoryLevel = null, int? MaximumBackorder = null, decimal? ReorderInventoryLevel = null, string Sku = null, string StockPickingLocation = null)
         {
             this.AllocatedToPlacedOrders = AllocatedToPlacedOrders;
             this.AllocatedToShoppingCarts = AllocatedToShoppingCarts;
@@ -73,68 +73,81 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AllocatedToPlacedOrders
+        /// Allocated to placed orders
         /// </summary>
+        /// <value>Allocated to placed orders</value>
         [DataMember(Name="allocated_to_placed_orders", EmitDefaultValue=false)]
-        public double? AllocatedToPlacedOrders { get; set; }
+        public decimal? AllocatedToPlacedOrders { get; set; }
         /// <summary>
-        /// Gets or Sets AllocatedToShoppingCarts
+        /// Allocated to shopping carts
         /// </summary>
+        /// <value>Allocated to shopping carts</value>
         [DataMember(Name="allocated_to_shopping_carts", EmitDefaultValue=false)]
-        public double? AllocatedToShoppingCarts { get; set; }
+        public decimal? AllocatedToShoppingCarts { get; set; }
         /// <summary>
-        /// Gets or Sets AvailableToAllocate
+        /// Available to allocate
         /// </summary>
+        /// <value>Available to allocate</value>
         [DataMember(Name="available_to_allocate", EmitDefaultValue=false)]
-        public double? AvailableToAllocate { get; set; }
+        public decimal? AvailableToAllocate { get; set; }
         /// <summary>
-        /// Gets or Sets DesiredInventoryLevel
+        /// Desired inventory level
         /// </summary>
+        /// <value>Desired inventory level</value>
         [DataMember(Name="desired_inventory_level", EmitDefaultValue=false)]
-        public double? DesiredInventoryLevel { get; set; }
+        public decimal? DesiredInventoryLevel { get; set; }
         /// <summary>
-        /// Gets or Sets DistributionCenterCode
+        /// Distribution center code
         /// </summary>
+        /// <value>Distribution center code</value>
         [DataMember(Name="distribution_center_code", EmitDefaultValue=false)]
         public string DistributionCenterCode { get; set; }
         /// <summary>
-        /// Gets or Sets DistributionCenterOid
+        /// Distribution center object identifier
         /// </summary>
+        /// <value>Distribution center object identifier</value>
         [DataMember(Name="distribution_center_oid", EmitDefaultValue=false)]
         public int? DistributionCenterOid { get; set; }
         /// <summary>
-        /// Gets or Sets Eta
+        /// Estimated time of arrival
         /// </summary>
+        /// <value>Estimated time of arrival</value>
         [DataMember(Name="eta", EmitDefaultValue=false)]
         public string Eta { get; set; }
         /// <summary>
-        /// Gets or Sets Handles
+        /// True if this distribution center handles this item
         /// </summary>
+        /// <value>True if this distribution center handles this item</value>
         [DataMember(Name="handles", EmitDefaultValue=false)]
         public bool? Handles { get; set; }
         /// <summary>
-        /// Gets or Sets InventoryLevel
+        /// Inventory level
         /// </summary>
+        /// <value>Inventory level</value>
         [DataMember(Name="inventory_level", EmitDefaultValue=false)]
-        public double? InventoryLevel { get; set; }
+        public decimal? InventoryLevel { get; set; }
         /// <summary>
-        /// Gets or Sets MaximumBackorder
+        /// Maximum back-order
         /// </summary>
+        /// <value>Maximum back-order</value>
         [DataMember(Name="maximum_backorder", EmitDefaultValue=false)]
         public int? MaximumBackorder { get; set; }
         /// <summary>
-        /// Gets or Sets ReorderInventoryLevel
+        /// Reorder inventory level (triggers notification)
         /// </summary>
+        /// <value>Reorder inventory level (triggers notification)</value>
         [DataMember(Name="reorder_inventory_level", EmitDefaultValue=false)]
-        public double? ReorderInventoryLevel { get; set; }
+        public decimal? ReorderInventoryLevel { get; set; }
         /// <summary>
-        /// Gets or Sets Sku
+        /// SKU
         /// </summary>
+        /// <value>SKU</value>
         [DataMember(Name="sku", EmitDefaultValue=false)]
         public string Sku { get; set; }
         /// <summary>
-        /// Gets or Sets StockPickingLocation
+        /// Stock picking location
         /// </summary>
+        /// <value>Stock picking location</value>
         [DataMember(Name="stock_picking_location", EmitDefaultValue=false)]
         public string StockPickingLocation { get; set; }
         /// <summary>

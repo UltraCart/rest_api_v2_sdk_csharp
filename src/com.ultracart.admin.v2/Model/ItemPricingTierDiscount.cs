@@ -44,20 +44,22 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="Cost">Cost.</param>
         /// <param name="Quantity">Quantity.</param>
-        public ItemPricingTierDiscount(double? Cost = null, int? Quantity = null)
+        public ItemPricingTierDiscount(decimal? Cost = null, int? Quantity = null)
         {
             this.Cost = Cost;
             this.Quantity = Quantity;
         }
         
         /// <summary>
-        /// Gets or Sets Cost
+        /// Cost
         /// </summary>
+        /// <value>Cost</value>
         [DataMember(Name="cost", EmitDefaultValue=false)]
-        public double? Cost { get; set; }
+        public decimal? Cost { get; set; }
         /// <summary>
-        /// Gets or Sets Quantity
+        /// Quantity
         /// </summary>
+        /// <value>Quantity</value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public int? Quantity { get; set; }
         /// <summary>

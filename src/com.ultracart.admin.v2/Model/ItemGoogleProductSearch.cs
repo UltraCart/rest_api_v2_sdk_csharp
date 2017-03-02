@@ -42,54 +42,54 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemGoogleProductSearch" /> class.
         /// </summary>
-        /// <param name="AdwordsGrouping">AdwordsGrouping.</param>
-        /// <param name="AdwordsLabel1">AdwordsLabel1.</param>
-        /// <param name="AdwordsLabel2">AdwordsLabel2.</param>
-        /// <param name="AdwordsLabel3">AdwordsLabel3.</param>
-        /// <param name="AdwordsLabel4">AdwordsLabel4.</param>
-        /// <param name="AdwordsLabel5">AdwordsLabel5.</param>
-        /// <param name="AgeGroup">AgeGroup.</param>
-        /// <param name="AvailableAtPhysicalStore">AvailableAtPhysicalStore.</param>
-        /// <param name="BookAuthor">BookAuthor.</param>
-        /// <param name="BookFormat">BookFormat.</param>
-        /// <param name="BookIsbn">BookIsbn.</param>
-        /// <param name="BookPublisher">BookPublisher.</param>
-        /// <param name="CategoryDescription">CategoryDescription.</param>
+        /// <param name="AdwordsGrouping">Adwords grouping.</param>
+        /// <param name="AdwordsLabel1">Adwords label 1.</param>
+        /// <param name="AdwordsLabel2">Adwords label 2.</param>
+        /// <param name="AdwordsLabel3">Adwords label 3.</param>
+        /// <param name="AdwordsLabel4">Adwords label 4.</param>
+        /// <param name="AdwordsLabel5">Adwords label 5.</param>
+        /// <param name="AgeGroup">Age group.</param>
+        /// <param name="AvailableAtPhysicalStore">Available at physical store.</param>
+        /// <param name="BookAuthor">Book - author.</param>
+        /// <param name="BookFormat">Book - format.</param>
+        /// <param name="BookIsbn">Bood - ISBN.</param>
+        /// <param name="BookPublisher">Book - publisher.</param>
+        /// <param name="CategoryDescription">Category description.</param>
         /// <param name="Color">Color.</param>
         /// <param name="Condition">Condition.</param>
-        /// <param name="CustomLabel0">CustomLabel0.</param>
-        /// <param name="CustomLabel1">CustomLabel1.</param>
-        /// <param name="CustomLabel2">CustomLabel2.</param>
-        /// <param name="CustomLabel3">CustomLabel3.</param>
-        /// <param name="CustomLabel4">CustomLabel4.</param>
+        /// <param name="CustomLabel0">Custom label 0.</param>
+        /// <param name="CustomLabel1">Custom label 1.</param>
+        /// <param name="CustomLabel2">Custom label 2.</param>
+        /// <param name="CustomLabel3">Custom label 3.</param>
+        /// <param name="CustomLabel4">Custom label 4.</param>
         /// <param name="Gender">Gender.</param>
-        /// <param name="GoogleProductCategory">GoogleProductCategory.</param>
-        /// <param name="MusicArtist">MusicArtist.</param>
-        /// <param name="MusicFormat">MusicFormat.</param>
-        /// <param name="MusicReleaseDate">MusicReleaseDate.</param>
-        /// <param name="OmitFromFeed">OmitFromFeed.</param>
-        /// <param name="ProductType">ProductType.</param>
-        /// <param name="PromotionId1">PromotionId1.</param>
-        /// <param name="PromotionId10">PromotionId10.</param>
-        /// <param name="PromotionId2">PromotionId2.</param>
-        /// <param name="PromotionId3">PromotionId3.</param>
-        /// <param name="PromotionId4">PromotionId4.</param>
-        /// <param name="PromotionId5">PromotionId5.</param>
-        /// <param name="PromotionId6">PromotionId6.</param>
-        /// <param name="PromotionId7">PromotionId7.</param>
-        /// <param name="PromotionId8">PromotionId8.</param>
-        /// <param name="PromotionId9">PromotionId9.</param>
-        /// <param name="SearchDts">SearchDts.</param>
-        /// <param name="SearchLowestPrice">SearchLowestPrice.</param>
-        /// <param name="SearchLowestUrl">SearchLowestUrl.</param>
-        /// <param name="SearchPosition">SearchPosition.</param>
+        /// <param name="GoogleProductCategory">Google product category.</param>
+        /// <param name="MusicArtist">Music - artist.</param>
+        /// <param name="MusicFormat">Music - format.</param>
+        /// <param name="MusicReleaseDate">Music - release date.</param>
+        /// <param name="OmitFromFeed">Omit from feed.</param>
+        /// <param name="ProductType">Product type.</param>
+        /// <param name="PromotionId1">Promotion ID 1.</param>
+        /// <param name="PromotionId10">Promotion ID 10.</param>
+        /// <param name="PromotionId2">Promotion ID 2.</param>
+        /// <param name="PromotionId3">Promotion ID 3.</param>
+        /// <param name="PromotionId4">Promotion ID 4.</param>
+        /// <param name="PromotionId5">Promotion ID 5.</param>
+        /// <param name="PromotionId6">Promotion ID 6.</param>
+        /// <param name="PromotionId7">Promotion ID 7.</param>
+        /// <param name="PromotionId8">Promotion ID 8.</param>
+        /// <param name="PromotionId9">Promotion ID 9.</param>
+        /// <param name="SearchDts">Search date/time.</param>
+        /// <param name="SearchLowestPrice">Search lowest price.</param>
+        /// <param name="SearchLowestUrl">Search lowest URL.</param>
+        /// <param name="SearchPosition">Search position.</param>
         /// <param name="Size">Size.</param>
-        /// <param name="VideoDirector">VideoDirector.</param>
-        /// <param name="VideoFormat">VideoFormat.</param>
-        /// <param name="VideoRating">VideoRating.</param>
-        /// <param name="VideoReleaseDate">VideoReleaseDate.</param>
-        /// <param name="VideoStarring">VideoStarring.</param>
-        public ItemGoogleProductSearch(string AdwordsGrouping = null, string AdwordsLabel1 = null, string AdwordsLabel2 = null, string AdwordsLabel3 = null, string AdwordsLabel4 = null, string AdwordsLabel5 = null, string AgeGroup = null, bool? AvailableAtPhysicalStore = null, string BookAuthor = null, string BookFormat = null, string BookIsbn = null, string BookPublisher = null, string CategoryDescription = null, string Color = null, string Condition = null, string CustomLabel0 = null, string CustomLabel1 = null, string CustomLabel2 = null, string CustomLabel3 = null, string CustomLabel4 = null, string Gender = null, string GoogleProductCategory = null, string MusicArtist = null, string MusicFormat = null, string MusicReleaseDate = null, bool? OmitFromFeed = null, string ProductType = null, string PromotionId1 = null, string PromotionId10 = null, string PromotionId2 = null, string PromotionId3 = null, string PromotionId4 = null, string PromotionId5 = null, string PromotionId6 = null, string PromotionId7 = null, string PromotionId8 = null, string PromotionId9 = null, string SearchDts = null, double? SearchLowestPrice = null, string SearchLowestUrl = null, int? SearchPosition = null, string Size = null, string VideoDirector = null, string VideoFormat = null, string VideoRating = null, string VideoReleaseDate = null, string VideoStarring = null)
+        /// <param name="VideoDirector">Video - director.</param>
+        /// <param name="VideoFormat">Video - format.</param>
+        /// <param name="VideoRating">Video - rating.</param>
+        /// <param name="VideoReleaseDate">Video - release date.</param>
+        /// <param name="VideoStarring">Video - starring.</param>
+        public ItemGoogleProductSearch(string AdwordsGrouping = null, string AdwordsLabel1 = null, string AdwordsLabel2 = null, string AdwordsLabel3 = null, string AdwordsLabel4 = null, string AdwordsLabel5 = null, string AgeGroup = null, bool? AvailableAtPhysicalStore = null, string BookAuthor = null, string BookFormat = null, string BookIsbn = null, string BookPublisher = null, string CategoryDescription = null, string Color = null, string Condition = null, string CustomLabel0 = null, string CustomLabel1 = null, string CustomLabel2 = null, string CustomLabel3 = null, string CustomLabel4 = null, string Gender = null, string GoogleProductCategory = null, string MusicArtist = null, string MusicFormat = null, string MusicReleaseDate = null, bool? OmitFromFeed = null, string ProductType = null, string PromotionId1 = null, string PromotionId10 = null, string PromotionId2 = null, string PromotionId3 = null, string PromotionId4 = null, string PromotionId5 = null, string PromotionId6 = null, string PromotionId7 = null, string PromotionId8 = null, string PromotionId9 = null, string SearchDts = null, decimal? SearchLowestPrice = null, string SearchLowestUrl = null, int? SearchPosition = null, string Size = null, string VideoDirector = null, string VideoFormat = null, string VideoRating = null, string VideoReleaseDate = null, string VideoStarring = null)
         {
             this.AdwordsGrouping = AdwordsGrouping;
             this.AdwordsLabel1 = AdwordsLabel1;
@@ -141,238 +141,285 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AdwordsGrouping
+        /// Adwords grouping
         /// </summary>
+        /// <value>Adwords grouping</value>
         [DataMember(Name="adwords_grouping", EmitDefaultValue=false)]
         public string AdwordsGrouping { get; set; }
         /// <summary>
-        /// Gets or Sets AdwordsLabel1
+        /// Adwords label 1
         /// </summary>
+        /// <value>Adwords label 1</value>
         [DataMember(Name="adwords_label1", EmitDefaultValue=false)]
         public string AdwordsLabel1 { get; set; }
         /// <summary>
-        /// Gets or Sets AdwordsLabel2
+        /// Adwords label 2
         /// </summary>
+        /// <value>Adwords label 2</value>
         [DataMember(Name="adwords_label2", EmitDefaultValue=false)]
         public string AdwordsLabel2 { get; set; }
         /// <summary>
-        /// Gets or Sets AdwordsLabel3
+        /// Adwords label 3
         /// </summary>
+        /// <value>Adwords label 3</value>
         [DataMember(Name="adwords_label3", EmitDefaultValue=false)]
         public string AdwordsLabel3 { get; set; }
         /// <summary>
-        /// Gets or Sets AdwordsLabel4
+        /// Adwords label 4
         /// </summary>
+        /// <value>Adwords label 4</value>
         [DataMember(Name="adwords_label4", EmitDefaultValue=false)]
         public string AdwordsLabel4 { get; set; }
         /// <summary>
-        /// Gets or Sets AdwordsLabel5
+        /// Adwords label 5
         /// </summary>
+        /// <value>Adwords label 5</value>
         [DataMember(Name="adwords_label5", EmitDefaultValue=false)]
         public string AdwordsLabel5 { get; set; }
         /// <summary>
-        /// Gets or Sets AgeGroup
+        /// Age group
         /// </summary>
+        /// <value>Age group</value>
         [DataMember(Name="age_group", EmitDefaultValue=false)]
         public string AgeGroup { get; set; }
         /// <summary>
-        /// Gets or Sets AvailableAtPhysicalStore
+        /// Available at physical store
         /// </summary>
+        /// <value>Available at physical store</value>
         [DataMember(Name="available_at_physical_store", EmitDefaultValue=false)]
         public bool? AvailableAtPhysicalStore { get; set; }
         /// <summary>
-        /// Gets or Sets BookAuthor
+        /// Book - author
         /// </summary>
+        /// <value>Book - author</value>
         [DataMember(Name="book_author", EmitDefaultValue=false)]
         public string BookAuthor { get; set; }
         /// <summary>
-        /// Gets or Sets BookFormat
+        /// Book - format
         /// </summary>
+        /// <value>Book - format</value>
         [DataMember(Name="book_format", EmitDefaultValue=false)]
         public string BookFormat { get; set; }
         /// <summary>
-        /// Gets or Sets BookIsbn
+        /// Bood - ISBN
         /// </summary>
+        /// <value>Bood - ISBN</value>
         [DataMember(Name="book_isbn", EmitDefaultValue=false)]
         public string BookIsbn { get; set; }
         /// <summary>
-        /// Gets or Sets BookPublisher
+        /// Book - publisher
         /// </summary>
+        /// <value>Book - publisher</value>
         [DataMember(Name="book_publisher", EmitDefaultValue=false)]
         public string BookPublisher { get; set; }
         /// <summary>
-        /// Gets or Sets CategoryDescription
+        /// Category description
         /// </summary>
+        /// <value>Category description</value>
         [DataMember(Name="category_description", EmitDefaultValue=false)]
         public string CategoryDescription { get; set; }
         /// <summary>
-        /// Gets or Sets Color
+        /// Color
         /// </summary>
+        /// <value>Color</value>
         [DataMember(Name="color", EmitDefaultValue=false)]
         public string Color { get; set; }
         /// <summary>
-        /// Gets or Sets Condition
+        /// Condition
         /// </summary>
+        /// <value>Condition</value>
         [DataMember(Name="condition", EmitDefaultValue=false)]
         public string Condition { get; set; }
         /// <summary>
-        /// Gets or Sets CustomLabel0
+        /// Custom label 0
         /// </summary>
+        /// <value>Custom label 0</value>
         [DataMember(Name="custom_label0", EmitDefaultValue=false)]
         public string CustomLabel0 { get; set; }
         /// <summary>
-        /// Gets or Sets CustomLabel1
+        /// Custom label 1
         /// </summary>
+        /// <value>Custom label 1</value>
         [DataMember(Name="custom_label1", EmitDefaultValue=false)]
         public string CustomLabel1 { get; set; }
         /// <summary>
-        /// Gets or Sets CustomLabel2
+        /// Custom label 2
         /// </summary>
+        /// <value>Custom label 2</value>
         [DataMember(Name="custom_label2", EmitDefaultValue=false)]
         public string CustomLabel2 { get; set; }
         /// <summary>
-        /// Gets or Sets CustomLabel3
+        /// Custom label 3
         /// </summary>
+        /// <value>Custom label 3</value>
         [DataMember(Name="custom_label3", EmitDefaultValue=false)]
         public string CustomLabel3 { get; set; }
         /// <summary>
-        /// Gets or Sets CustomLabel4
+        /// Custom label 4
         /// </summary>
+        /// <value>Custom label 4</value>
         [DataMember(Name="custom_label4", EmitDefaultValue=false)]
         public string CustomLabel4 { get; set; }
         /// <summary>
-        /// Gets or Sets Gender
+        /// Gender
         /// </summary>
+        /// <value>Gender</value>
         [DataMember(Name="gender", EmitDefaultValue=false)]
         public string Gender { get; set; }
         /// <summary>
-        /// Gets or Sets GoogleProductCategory
+        /// Google product category
         /// </summary>
+        /// <value>Google product category</value>
         [DataMember(Name="google_product_category", EmitDefaultValue=false)]
         public string GoogleProductCategory { get; set; }
         /// <summary>
-        /// Gets or Sets MusicArtist
+        /// Music - artist
         /// </summary>
+        /// <value>Music - artist</value>
         [DataMember(Name="music_artist", EmitDefaultValue=false)]
         public string MusicArtist { get; set; }
         /// <summary>
-        /// Gets or Sets MusicFormat
+        /// Music - format
         /// </summary>
+        /// <value>Music - format</value>
         [DataMember(Name="music_format", EmitDefaultValue=false)]
         public string MusicFormat { get; set; }
         /// <summary>
-        /// Gets or Sets MusicReleaseDate
+        /// Music - release date
         /// </summary>
+        /// <value>Music - release date</value>
         [DataMember(Name="music_release_date", EmitDefaultValue=false)]
         public string MusicReleaseDate { get; set; }
         /// <summary>
-        /// Gets or Sets OmitFromFeed
+        /// Omit from feed
         /// </summary>
+        /// <value>Omit from feed</value>
         [DataMember(Name="omit_from_feed", EmitDefaultValue=false)]
         public bool? OmitFromFeed { get; set; }
         /// <summary>
-        /// Gets or Sets ProductType
+        /// Product type
         /// </summary>
+        /// <value>Product type</value>
         [DataMember(Name="product_type", EmitDefaultValue=false)]
         public string ProductType { get; set; }
         /// <summary>
-        /// Gets or Sets PromotionId1
+        /// Promotion ID 1
         /// </summary>
+        /// <value>Promotion ID 1</value>
         [DataMember(Name="promotion_id1", EmitDefaultValue=false)]
         public string PromotionId1 { get; set; }
         /// <summary>
-        /// Gets or Sets PromotionId10
+        /// Promotion ID 10
         /// </summary>
+        /// <value>Promotion ID 10</value>
         [DataMember(Name="promotion_id10", EmitDefaultValue=false)]
         public string PromotionId10 { get; set; }
         /// <summary>
-        /// Gets or Sets PromotionId2
+        /// Promotion ID 2
         /// </summary>
+        /// <value>Promotion ID 2</value>
         [DataMember(Name="promotion_id2", EmitDefaultValue=false)]
         public string PromotionId2 { get; set; }
         /// <summary>
-        /// Gets or Sets PromotionId3
+        /// Promotion ID 3
         /// </summary>
+        /// <value>Promotion ID 3</value>
         [DataMember(Name="promotion_id3", EmitDefaultValue=false)]
         public string PromotionId3 { get; set; }
         /// <summary>
-        /// Gets or Sets PromotionId4
+        /// Promotion ID 4
         /// </summary>
+        /// <value>Promotion ID 4</value>
         [DataMember(Name="promotion_id4", EmitDefaultValue=false)]
         public string PromotionId4 { get; set; }
         /// <summary>
-        /// Gets or Sets PromotionId5
+        /// Promotion ID 5
         /// </summary>
+        /// <value>Promotion ID 5</value>
         [DataMember(Name="promotion_id5", EmitDefaultValue=false)]
         public string PromotionId5 { get; set; }
         /// <summary>
-        /// Gets or Sets PromotionId6
+        /// Promotion ID 6
         /// </summary>
+        /// <value>Promotion ID 6</value>
         [DataMember(Name="promotion_id6", EmitDefaultValue=false)]
         public string PromotionId6 { get; set; }
         /// <summary>
-        /// Gets or Sets PromotionId7
+        /// Promotion ID 7
         /// </summary>
+        /// <value>Promotion ID 7</value>
         [DataMember(Name="promotion_id7", EmitDefaultValue=false)]
         public string PromotionId7 { get; set; }
         /// <summary>
-        /// Gets or Sets PromotionId8
+        /// Promotion ID 8
         /// </summary>
+        /// <value>Promotion ID 8</value>
         [DataMember(Name="promotion_id8", EmitDefaultValue=false)]
         public string PromotionId8 { get; set; }
         /// <summary>
-        /// Gets or Sets PromotionId9
+        /// Promotion ID 9
         /// </summary>
+        /// <value>Promotion ID 9</value>
         [DataMember(Name="promotion_id9", EmitDefaultValue=false)]
         public string PromotionId9 { get; set; }
         /// <summary>
-        /// Gets or Sets SearchDts
+        /// Search date/time
         /// </summary>
+        /// <value>Search date/time</value>
         [DataMember(Name="search_dts", EmitDefaultValue=false)]
         public string SearchDts { get; set; }
         /// <summary>
-        /// Gets or Sets SearchLowestPrice
+        /// Search lowest price
         /// </summary>
+        /// <value>Search lowest price</value>
         [DataMember(Name="search_lowest_price", EmitDefaultValue=false)]
-        public double? SearchLowestPrice { get; set; }
+        public decimal? SearchLowestPrice { get; set; }
         /// <summary>
-        /// Gets or Sets SearchLowestUrl
+        /// Search lowest URL
         /// </summary>
+        /// <value>Search lowest URL</value>
         [DataMember(Name="search_lowest_url", EmitDefaultValue=false)]
         public string SearchLowestUrl { get; set; }
         /// <summary>
-        /// Gets or Sets SearchPosition
+        /// Search position
         /// </summary>
+        /// <value>Search position</value>
         [DataMember(Name="search_position", EmitDefaultValue=false)]
         public int? SearchPosition { get; set; }
         /// <summary>
-        /// Gets or Sets Size
+        /// Size
         /// </summary>
+        /// <value>Size</value>
         [DataMember(Name="size", EmitDefaultValue=false)]
         public string Size { get; set; }
         /// <summary>
-        /// Gets or Sets VideoDirector
+        /// Video - director
         /// </summary>
+        /// <value>Video - director</value>
         [DataMember(Name="video_director", EmitDefaultValue=false)]
         public string VideoDirector { get; set; }
         /// <summary>
-        /// Gets or Sets VideoFormat
+        /// Video - format
         /// </summary>
+        /// <value>Video - format</value>
         [DataMember(Name="video_format", EmitDefaultValue=false)]
         public string VideoFormat { get; set; }
         /// <summary>
-        /// Gets or Sets VideoRating
+        /// Video - rating
         /// </summary>
+        /// <value>Video - rating</value>
         [DataMember(Name="video_rating", EmitDefaultValue=false)]
         public string VideoRating { get; set; }
         /// <summary>
-        /// Gets or Sets VideoReleaseDate
+        /// Video - release date
         /// </summary>
+        /// <value>Video - release date</value>
         [DataMember(Name="video_release_date", EmitDefaultValue=false)]
         public string VideoReleaseDate { get; set; }
         /// <summary>
-        /// Gets or Sets VideoStarring
+        /// Video - starring
         /// </summary>
+        /// <value>Video - starring</value>
         [DataMember(Name="video_starring", EmitDefaultValue=false)]
         public string VideoStarring { get; set; }
         /// <summary>

@@ -1,6 +1,6 @@
 # com.ultracart.admin.v2.Api.WebhookApi
 
-All URIs are relative to *https://secure.ultracart.com/rest/admin/v2*
+All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,13 +11,11 @@ Method | HTTP request | Description
 [**WebhookWebhooksWebhookOidLogsRequestIdGet**](WebhookApi.md#webhookwebhookswebhookoidlogsrequestidget) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
 [**WebhookWebhooksWebhookOidPut**](WebhookApi.md#webhookwebhookswebhookoidput) | **PUT** /webhook/webhooks/{webhookOid} | Update a webhook
 [**WebhookWebhooksWebhookOidReflowEventNamePost**](WebhookApi.md#webhookwebhookswebhookoidrefloweventnamepost) | **POST** /webhook/webhooks/{webhookOid}/reflow/{eventName} | Resend events to the webhook endpoint.
-[**WebhookWebhooksWebhookOidSamplesGet**](WebhookApi.md#webhookwebhookswebhookoidsamplesget) | **GET** /webhook/webhooks/{webhookOid}/samples | Retrieve a sample notification.
-[**WebhookWebhooksWebhookOidValidatePost**](WebhookApi.md#webhookwebhookswebhookoidvalidatepost) | **POST** /webhook/webhooks/{webhookOid}/validate | Send test message to an endpoint.
 
 
 <a name="webhookwebhooksget"></a>
 # **WebhookWebhooksGet**
-> WebhooksResponse WebhookWebhooksGet ()
+> WebhooksResponse WebhookWebhooksGet (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null)
 
 Retrieve webhooks
 
@@ -46,11 +44,15 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new WebhookApi();
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (optional)  (default to 100)
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var sort = sort_example;  // string | The sort order of the webhooks.  See documentation for examples (optional) 
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
             try
             {
                 // Retrieve webhooks
-                WebhooksResponse result = apiInstance.WebhookWebhooksGet();
+                WebhooksResponse result = apiInstance.WebhookWebhooksGet(limit, offset, sort, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -63,7 +65,13 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int?**| The maximum number of records to return on this one API call. | [optional] [default to 100]
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **string**| The sort order of the webhooks.  See documentation for examples | [optional] 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
@@ -82,11 +90,11 @@ This endpoint does not need any parameter.
 
 <a name="webhookwebhookspost"></a>
 # **WebhookWebhooksPost**
-> WebhooksResponse WebhookWebhooksPost (Webhook webhook)
+> WebhookResponse WebhookWebhooksPost (Webhook webhook, bool? placeholders = null)
 
 Add a webhook
 
-Adds a new webhook on the account 
+Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
 
 ### Example
 ```csharp
@@ -112,11 +120,12 @@ namespace Example
 
             var apiInstance = new WebhookApi();
             var webhook = new Webhook(); // Webhook | Webhook to create
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
             try
             {
                 // Add a webhook
-                WebhooksResponse result = apiInstance.WebhookWebhooksPost(webhook);
+                WebhookResponse result = apiInstance.WebhookWebhooksPost(webhook, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -133,10 +142,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook** | [**Webhook**](Webhook.md)| Webhook to create | 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
-[**WebhooksResponse**](WebhooksResponse.md)
+[**WebhookResponse**](WebhookResponse.md)
 
 ### Authorization
 
@@ -144,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -219,7 +229,7 @@ void (empty response body)
 
 <a name="webhookwebhookswebhookoidlogsget"></a>
 # **WebhookWebhooksWebhookOidLogsGet**
-> WebhookLogSummariesResponse WebhookWebhooksWebhookOidLogsGet (int? webhookOid)
+> WebhookLogSummariesResponse WebhookWebhooksWebhookOidLogsGet (int? webhookOid, int? limit = null, int? offset = null, string since = null)
 
 Retrieve the log summaries
 
@@ -249,11 +259,14 @@ namespace Example
 
             var apiInstance = new WebhookApi();
             var webhookOid = 56;  // int? | The webhook oid to retrieve log summaries for.
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (optional)  (default to 100)
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var since = since_example;  // string | Fetch log summaries that have been delivered since this date/time. (optional) 
 
             try
             {
                 // Retrieve the log summaries
-                WebhookLogSummariesResponse result = apiInstance.WebhookWebhooksWebhookOidLogsGet(webhookOid);
+                WebhookLogSummariesResponse result = apiInstance.WebhookWebhooksWebhookOidLogsGet(webhookOid, limit, offset, since);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -270,6 +283,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhookOid** | **int?**| The webhook oid to retrieve log summaries for. | 
+ **limit** | **int?**| The maximum number of records to return on this one API call. | [optional] [default to 100]
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **since** | **string**| Fetch log summaries that have been delivered since this date/time. | [optional] 
 
 ### Return type
 
@@ -359,7 +375,7 @@ Name | Type | Description  | Notes
 
 <a name="webhookwebhookswebhookoidput"></a>
 # **WebhookWebhooksWebhookOidPut**
-> WebhooksResponse WebhookWebhooksWebhookOidPut (Webhook webhook, int? webhookOid)
+> WebhookResponse WebhookWebhooksWebhookOidPut (Webhook webhook, int? webhookOid, bool? placeholders = null)
 
 Update a webhook
 
@@ -390,11 +406,12 @@ namespace Example
             var apiInstance = new WebhookApi();
             var webhook = new Webhook(); // Webhook | Webhook to update
             var webhookOid = 56;  // int? | The webhook oid to update.
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
             try
             {
                 // Update a webhook
-                WebhooksResponse result = apiInstance.WebhookWebhooksWebhookOidPut(webhook, webhookOid);
+                WebhookResponse result = apiInstance.WebhookWebhooksWebhookOidPut(webhook, webhookOid, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -412,10 +429,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook** | [**Webhook**](Webhook.md)| Webhook to update | 
  **webhookOid** | **int?**| The webhook oid to update. | 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
-[**WebhooksResponse**](WebhooksResponse.md)
+[**WebhookResponse**](WebhookResponse.md)
 
 ### Authorization
 
@@ -423,7 +441,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -494,147 +512,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="webhookwebhookswebhookoidsamplesget"></a>
-# **WebhookWebhooksWebhookOidSamplesGet**
-> WebhookSampleRequestResponse WebhookWebhooksWebhookOidSamplesGet (int? webhookOid)
-
-Retrieve a sample notification.
-
-Retrieves a sample notification for the webhook.  This provides as example of what the notifications that can be delivered will look like. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class WebhookWebhooksWebhookOidSamplesGetExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new WebhookApi();
-            var webhookOid = 56;  // int? | The webhook oid to retrieve samples for.
-
-            try
-            {
-                // Retrieve a sample notification.
-                WebhookSampleRequestResponse result = apiInstance.WebhookWebhooksWebhookOidSamplesGet(webhookOid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling WebhookApi.WebhookWebhooksWebhookOidSamplesGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookOid** | **int?**| The webhook oid to retrieve samples for. | 
-
-### Return type
-
-[**WebhookSampleRequestResponse**](WebhookSampleRequestResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="webhookwebhookswebhookoidvalidatepost"></a>
-# **WebhookWebhooksWebhookOidValidatePost**
-> WebhookLogResponse WebhookWebhooksWebhookOidValidatePost (WebhookSampleRequest samples, int? webhookOid)
-
-Send test message to an endpoint.
-
-Performs a test of the webhook endpoint given the specified sample request and returns the log associated with the response. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class WebhookWebhooksWebhookOidValidatePostExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new WebhookApi();
-            var samples = new WebhookSampleRequest(); // WebhookSampleRequest | Samples to send in the test
-            var webhookOid = 56;  // int? | The webhook oid that is being tested.
-
-            try
-            {
-                // Send test message to an endpoint.
-                WebhookLogResponse result = apiInstance.WebhookWebhooksWebhookOidValidatePost(samples, webhookOid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling WebhookApi.WebhookWebhooksWebhookOidValidatePost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **samples** | [**WebhookSampleRequest**](WebhookSampleRequest.md)| Samples to send in the test | 
- **webhookOid** | **int?**| The webhook oid that is being tested. | 
-
-### Return type
-
-[**WebhookLogResponse**](WebhookLogResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

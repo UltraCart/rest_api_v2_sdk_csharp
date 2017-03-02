@@ -42,16 +42,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookLog" /> class.
         /// </summary>
-        /// <param name="DeliveryDts">DeliveryDts.</param>
-        /// <param name="Duration">Duration.</param>
-        /// <param name="Request">Request.</param>
-        /// <param name="RequestHeaders">RequestHeaders.</param>
-        /// <param name="RequestId">RequestId.</param>
-        /// <param name="Response">Response.</param>
-        /// <param name="ResponseHeaders">ResponseHeaders.</param>
-        /// <param name="StatusCode">StatusCode.</param>
-        /// <param name="Success">Success.</param>
-        /// <param name="Uri">Uri.</param>
+        /// <param name="DeliveryDts">Date/time of delivery.</param>
+        /// <param name="Duration">Number of milliseconds to process the notification.</param>
+        /// <param name="Request">Request payload (first 100,000 characters).</param>
+        /// <param name="RequestHeaders">Request headers sent to the server.</param>
+        /// <param name="RequestId">Request id is a unique string that you can look up in the logs.</param>
+        /// <param name="Response">Response payload (first 100,000 characters).</param>
+        /// <param name="ResponseHeaders">Response headers received from the server.</param>
+        /// <param name="StatusCode">HTTP status code received from the server.</param>
+        /// <param name="Success">True if the delivery was successful.</param>
+        /// <param name="Uri">URI of the webhook delivered to.</param>
         public WebhookLog(string DeliveryDts = null, int? Duration = null, string Request = null, List<HTTPHeader> RequestHeaders = null, string RequestId = null, string Response = null, List<HTTPHeader> ResponseHeaders = null, int? StatusCode = null, bool? Success = null, string Uri = null)
         {
             this.DeliveryDts = DeliveryDts;
@@ -67,53 +67,63 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets DeliveryDts
+        /// Date/time of delivery
         /// </summary>
+        /// <value>Date/time of delivery</value>
         [DataMember(Name="delivery_dts", EmitDefaultValue=false)]
         public string DeliveryDts { get; set; }
         /// <summary>
-        /// Gets or Sets Duration
+        /// Number of milliseconds to process the notification
         /// </summary>
+        /// <value>Number of milliseconds to process the notification</value>
         [DataMember(Name="duration", EmitDefaultValue=false)]
         public int? Duration { get; set; }
         /// <summary>
-        /// Gets or Sets Request
+        /// Request payload (first 100,000 characters)
         /// </summary>
+        /// <value>Request payload (first 100,000 characters)</value>
         [DataMember(Name="request", EmitDefaultValue=false)]
         public string Request { get; set; }
         /// <summary>
-        /// Gets or Sets RequestHeaders
+        /// Request headers sent to the server
         /// </summary>
+        /// <value>Request headers sent to the server</value>
         [DataMember(Name="request_headers", EmitDefaultValue=false)]
         public List<HTTPHeader> RequestHeaders { get; set; }
         /// <summary>
-        /// Gets or Sets RequestId
+        /// Request id is a unique string that you can look up in the logs
         /// </summary>
+        /// <value>Request id is a unique string that you can look up in the logs</value>
         [DataMember(Name="request_id", EmitDefaultValue=false)]
         public string RequestId { get; set; }
         /// <summary>
-        /// Gets or Sets Response
+        /// Response payload (first 100,000 characters)
         /// </summary>
+        /// <value>Response payload (first 100,000 characters)</value>
         [DataMember(Name="response", EmitDefaultValue=false)]
         public string Response { get; set; }
         /// <summary>
-        /// Gets or Sets ResponseHeaders
+        /// Response headers received from the server
         /// </summary>
+        /// <value>Response headers received from the server</value>
         [DataMember(Name="response_headers", EmitDefaultValue=false)]
         public List<HTTPHeader> ResponseHeaders { get; set; }
         /// <summary>
-        /// Gets or Sets StatusCode
+        /// HTTP status code received from the server
         /// </summary>
+        /// <value>HTTP status code received from the server</value>
         [DataMember(Name="status_code", EmitDefaultValue=false)]
         public int? StatusCode { get; set; }
         /// <summary>
-        /// Gets or Sets Success
+        /// True if the delivery was successful
         /// </summary>
+        /// <value>True if the delivery was successful</value>
         [DataMember(Name="success", EmitDefaultValue=false)]
         public bool? Success { get; set; }
         /// <summary>
-        /// Gets or Sets Uri
+        /// URI of the webhook delivered to
         /// </summary>
+        /// <value>URI of the webhook delivered to</value>
         [DataMember(Name="uri", EmitDefaultValue=false)]
         public string Uri { get; set; }
         /// <summary>

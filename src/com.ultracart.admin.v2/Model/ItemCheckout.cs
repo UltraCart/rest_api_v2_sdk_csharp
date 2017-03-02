@@ -42,9 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemCheckout" /> class.
         /// </summary>
-        /// <param name="SuppressBuysafe">SuppressBuysafe.</param>
-        /// <param name="Terms">Terms.</param>
-        /// <param name="TermsTranslatedTextInstanceOid">TermsTranslatedTextInstanceOid.</param>
+        /// <param name="SuppressBuysafe">True to suppress buySAFE.</param>
+        /// <param name="Terms">Terms for purchasing this item.</param>
+        /// <param name="TermsTranslatedTextInstanceOid">Terms translated text instance identifier.</param>
         public ItemCheckout(bool? SuppressBuysafe = null, string Terms = null, int? TermsTranslatedTextInstanceOid = null)
         {
             this.SuppressBuysafe = SuppressBuysafe;
@@ -53,18 +53,21 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets SuppressBuysafe
+        /// True to suppress buySAFE
         /// </summary>
+        /// <value>True to suppress buySAFE</value>
         [DataMember(Name="suppress_buysafe", EmitDefaultValue=false)]
         public bool? SuppressBuysafe { get; set; }
         /// <summary>
-        /// Gets or Sets Terms
+        /// Terms for purchasing this item
         /// </summary>
+        /// <value>Terms for purchasing this item</value>
         [DataMember(Name="terms", EmitDefaultValue=false)]
         public string Terms { get; set; }
         /// <summary>
-        /// Gets or Sets TermsTranslatedTextInstanceOid
+        /// Terms translated text instance identifier
         /// </summary>
+        /// <value>Terms translated text instance identifier</value>
         [DataMember(Name="terms_translated_text_instance_oid", EmitDefaultValue=false)]
         public int? TermsTranslatedTextInstanceOid { get; set; }
         /// <summary>

@@ -40,16 +40,55 @@ namespace com.ultracart.admin.v2.Model
     public partial class TempMultimedia :  IEquatable<TempMultimedia>
     {
         /// <summary>
+        /// Multimedia type
+        /// </summary>
+        /// <value>Multimedia type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MultimediaTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Image for "Image"
+            /// </summary>
+            [EnumMember(Value = "Image")]
+            Image,
+            
+            /// <summary>
+            /// Enum PDF for "PDF"
+            /// </summary>
+            [EnumMember(Value = "PDF")]
+            PDF,
+            
+            /// <summary>
+            /// Enum Text for "Text"
+            /// </summary>
+            [EnumMember(Value = "Text")]
+            Text,
+            
+            /// <summary>
+            /// Enum Video for "Video"
+            /// </summary>
+            [EnumMember(Value = "Video")]
+            Video
+        }
+
+        /// <summary>
+        /// Multimedia type
+        /// </summary>
+        /// <value>Multimedia type</value>
+        [DataMember(Name="multimedia_type", EmitDefaultValue=false)]
+        public MultimediaTypeEnum? MultimediaType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="TempMultimedia" /> class.
         /// </summary>
         /// <param name="Filename">Filename.</param>
         /// <param name="Height">Height.</param>
-        /// <param name="MultimediaType">MultimediaType.</param>
+        /// <param name="MultimediaType">Multimedia type.</param>
         /// <param name="Size">Size.</param>
-        /// <param name="TempMultimediaOid">TempMultimediaOid.</param>
-        /// <param name="Url">Url.</param>
+        /// <param name="TempMultimediaOid">Temporary multimedia object identifier.</param>
+        /// <param name="Url">URL.</param>
         /// <param name="Width">Width.</param>
-        public TempMultimedia(string Filename = null, int? Height = null, string MultimediaType = null, long? Size = null, int? TempMultimediaOid = null, string Url = null, int? Width = null)
+        public TempMultimedia(string Filename = null, int? Height = null, MultimediaTypeEnum? MultimediaType = null, long? Size = null, int? TempMultimediaOid = null, string Url = null, int? Width = null)
         {
             this.Filename = Filename;
             this.Height = Height;
@@ -61,38 +100,39 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Filename
+        /// Filename
         /// </summary>
+        /// <value>Filename</value>
         [DataMember(Name="filename", EmitDefaultValue=false)]
         public string Filename { get; set; }
         /// <summary>
-        /// Gets or Sets Height
+        /// Height
         /// </summary>
+        /// <value>Height</value>
         [DataMember(Name="height", EmitDefaultValue=false)]
         public int? Height { get; set; }
         /// <summary>
-        /// Gets or Sets MultimediaType
+        /// Size
         /// </summary>
-        [DataMember(Name="multimedia_type", EmitDefaultValue=false)]
-        public string MultimediaType { get; set; }
-        /// <summary>
-        /// Gets or Sets Size
-        /// </summary>
+        /// <value>Size</value>
         [DataMember(Name="size", EmitDefaultValue=false)]
         public long? Size { get; set; }
         /// <summary>
-        /// Gets or Sets TempMultimediaOid
+        /// Temporary multimedia object identifier
         /// </summary>
+        /// <value>Temporary multimedia object identifier</value>
         [DataMember(Name="temp_multimedia_oid", EmitDefaultValue=false)]
         public int? TempMultimediaOid { get; set; }
         /// <summary>
-        /// Gets or Sets Url
+        /// URL
         /// </summary>
+        /// <value>URL</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
         /// <summary>
-        /// Gets or Sets Width
+        /// Width
         /// </summary>
+        /// <value>Width</value>
         [DataMember(Name="width", EmitDefaultValue=false)]
         public int? Width { get; set; }
         /// <summary>

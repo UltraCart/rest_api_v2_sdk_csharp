@@ -42,12 +42,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemCCBill" /> class.
         /// </summary>
-        /// <param name="CcbillAllowedCurrencies">CcbillAllowedCurrencies.</param>
-        /// <param name="CcbillAllowedTypes">CcbillAllowedTypes.</param>
-        /// <param name="CcbillCurrencyCode">CcbillCurrencyCode.</param>
-        /// <param name="CcbillFormName">CcbillFormName.</param>
-        /// <param name="CcbillSubaccountId">CcbillSubaccountId.</param>
-        /// <param name="CcbillSubscriptionTypeId">CcbillSubscriptionTypeId.</param>
+        /// <param name="CcbillAllowedCurrencies">Allowed currencies.</param>
+        /// <param name="CcbillAllowedTypes">Allowed types.</param>
+        /// <param name="CcbillCurrencyCode">Currency code.</param>
+        /// <param name="CcbillFormName">Form name.</param>
+        /// <param name="CcbillSubaccountId">Sub-account id.</param>
+        /// <param name="CcbillSubscriptionTypeId">Subscription type id.</param>
         public ItemCCBill(string CcbillAllowedCurrencies = null, string CcbillAllowedTypes = null, string CcbillCurrencyCode = null, string CcbillFormName = null, string CcbillSubaccountId = null, string CcbillSubscriptionTypeId = null)
         {
             this.CcbillAllowedCurrencies = CcbillAllowedCurrencies;
@@ -59,33 +59,39 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets CcbillAllowedCurrencies
+        /// Allowed currencies
         /// </summary>
+        /// <value>Allowed currencies</value>
         [DataMember(Name="ccbill_allowed_currencies", EmitDefaultValue=false)]
         public string CcbillAllowedCurrencies { get; set; }
         /// <summary>
-        /// Gets or Sets CcbillAllowedTypes
+        /// Allowed types
         /// </summary>
+        /// <value>Allowed types</value>
         [DataMember(Name="ccbill_allowed_types", EmitDefaultValue=false)]
         public string CcbillAllowedTypes { get; set; }
         /// <summary>
-        /// Gets or Sets CcbillCurrencyCode
+        /// Currency code
         /// </summary>
+        /// <value>Currency code</value>
         [DataMember(Name="ccbill_currency_code", EmitDefaultValue=false)]
         public string CcbillCurrencyCode { get; set; }
         /// <summary>
-        /// Gets or Sets CcbillFormName
+        /// Form name
         /// </summary>
+        /// <value>Form name</value>
         [DataMember(Name="ccbill_form_name", EmitDefaultValue=false)]
         public string CcbillFormName { get; set; }
         /// <summary>
-        /// Gets or Sets CcbillSubaccountId
+        /// Sub-account id
         /// </summary>
+        /// <value>Sub-account id</value>
         [DataMember(Name="ccbill_subaccount_id", EmitDefaultValue=false)]
         public string CcbillSubaccountId { get; set; }
         /// <summary>
-        /// Gets or Sets CcbillSubscriptionTypeId
+        /// Subscription type id
         /// </summary>
+        /// <value>Subscription type id</value>
         [DataMember(Name="ccbill_subscription_type_id", EmitDefaultValue=false)]
         public string CcbillSubscriptionTypeId { get; set; }
         /// <summary>

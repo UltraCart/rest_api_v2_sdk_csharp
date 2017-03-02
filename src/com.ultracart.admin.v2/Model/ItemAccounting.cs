@@ -42,8 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAccounting" /> class.
         /// </summary>
-        /// <param name="AccountingCode">AccountingCode.</param>
-        /// <param name="QbClass">QbClass.</param>
+        /// <param name="AccountingCode">QuickBooks item name if different than the item id.</param>
+        /// <param name="QbClass">QuickBooks class if you are classifying items on your invoices/receipts.</param>
         public ItemAccounting(string AccountingCode = null, string QbClass = null)
         {
             this.AccountingCode = AccountingCode;
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AccountingCode
+        /// QuickBooks item name if different than the item id
         /// </summary>
+        /// <value>QuickBooks item name if different than the item id</value>
         [DataMember(Name="accounting_code", EmitDefaultValue=false)]
         public string AccountingCode { get; set; }
         /// <summary>
-        /// Gets or Sets QbClass
+        /// QuickBooks class if you are classifying items on your invoices/receipts
         /// </summary>
+        /// <value>QuickBooks class if you are classifying items on your invoices/receipts</value>
         [DataMember(Name="qb_class", EmitDefaultValue=false)]
         public string QbClass { get; set; }
         /// <summary>

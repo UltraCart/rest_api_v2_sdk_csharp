@@ -42,22 +42,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAutoOrderStepArbitraryUnitCostSchedule" /> class.
         /// </summary>
-        /// <param name="ArbitraryUnitCost">ArbitraryUnitCost.</param>
-        /// <param name="RetryDays">RetryDays.</param>
-        public ItemAutoOrderStepArbitraryUnitCostSchedule(double? ArbitraryUnitCost = null, int? RetryDays = null)
+        /// <param name="ArbitraryUnitCost">Arbitrary unit cost.</param>
+        /// <param name="RetryDays">Retry days.</param>
+        public ItemAutoOrderStepArbitraryUnitCostSchedule(decimal? ArbitraryUnitCost = null, int? RetryDays = null)
         {
             this.ArbitraryUnitCost = ArbitraryUnitCost;
             this.RetryDays = RetryDays;
         }
         
         /// <summary>
-        /// Gets or Sets ArbitraryUnitCost
+        /// Arbitrary unit cost
         /// </summary>
-        [DataMember(Name="arbitrary_unit_Cost", EmitDefaultValue=false)]
-        public double? ArbitraryUnitCost { get; set; }
+        /// <value>Arbitrary unit cost</value>
+        [DataMember(Name="arbitrary_unit_cost", EmitDefaultValue=false)]
+        public decimal? ArbitraryUnitCost { get; set; }
         /// <summary>
-        /// Gets or Sets RetryDays
+        /// Retry days
         /// </summary>
+        /// <value>Retry days</value>
         [DataMember(Name="retry_days", EmitDefaultValue=false)]
         public int? RetryDays { get; set; }
         /// <summary>

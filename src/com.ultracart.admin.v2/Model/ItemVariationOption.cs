@@ -42,9 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemVariationOption" /> class.
         /// </summary>
-        /// <param name="DefaultOption">DefaultOption.</param>
-        /// <param name="MerchantItemMultimediaOid">MerchantItemMultimediaOid.</param>
-        /// <param name="TranslatedTextInstanceOid">TranslatedTextInstanceOid.</param>
+        /// <param name="DefaultOption">True if default option.</param>
+        /// <param name="MerchantItemMultimediaOid">Multimedia object identifier.</param>
+        /// <param name="TranslatedTextInstanceOid">Translated text instance id.</param>
         /// <param name="Value">Value.</param>
         public ItemVariationOption(bool? DefaultOption = null, int? MerchantItemMultimediaOid = null, int? TranslatedTextInstanceOid = null, string Value = null)
         {
@@ -55,23 +55,27 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets DefaultOption
+        /// True if default option
         /// </summary>
+        /// <value>True if default option</value>
         [DataMember(Name="default_option", EmitDefaultValue=false)]
         public bool? DefaultOption { get; set; }
         /// <summary>
-        /// Gets or Sets MerchantItemMultimediaOid
+        /// Multimedia object identifier
         /// </summary>
+        /// <value>Multimedia object identifier</value>
         [DataMember(Name="merchant_item_multimedia_oid", EmitDefaultValue=false)]
         public int? MerchantItemMultimediaOid { get; set; }
         /// <summary>
-        /// Gets or Sets TranslatedTextInstanceOid
+        /// Translated text instance id
         /// </summary>
+        /// <value>Translated text instance id</value>
         [DataMember(Name="translated_text_instance_oid", EmitDefaultValue=false)]
         public int? TranslatedTextInstanceOid { get; set; }
         /// <summary>
-        /// Gets or Sets Value
+        /// Value
         /// </summary>
+        /// <value>Value</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
         /// <summary>

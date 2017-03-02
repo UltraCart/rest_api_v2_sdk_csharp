@@ -3,16 +3,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdjustedPrice** | **double?** |  | [optional] 
-**AdjustedShipping** | **double?** |  | [optional] 
-**AdjustedTotal** | **double?** |  | [optional] 
-**Cogs** | **double?** |  | [optional] 
-**FinalValueFee** | **double?** |  | [optional] 
-**MinimumAdvertisedPrice** | **double?** |  | [optional] 
-**OtherListings** | [**List&lt;ItemEbayMarketListing&gt;**](ItemEbayMarketListing.md) |  | [optional] 
+**AdjustedPrice** | **decimal?** | Adjusted price | [optional] 
+**AdjustedShipping** | **decimal?** | Adjusted shipping | [optional] 
+**AdjustedTotal** | **decimal?** | Adjusted total | [optional] 
+**Cogs** | **decimal?** | Cost of goods sold | [optional] 
+**FinalValueFee** | **decimal?** | Final value fee | [optional] 
+**MinimumAdvertisedPrice** | **decimal?** | Minimum advertised price | [optional] 
+**OtherListings** | [**List&lt;ItemEbayMarketListing&gt;**](ItemEbayMarketListing.md) | Other listings | [optional] 
 **OurListing** | [**ItemEbayMarketListing**](ItemEbayMarketListing.md) |  | [optional] 
-**Overhead** | **double?** |  | [optional] 
-**ProfitPotential** | **double?** |  | [optional] 
+**Overhead** | **decimal?** | Overhead | [optional] 
+**ProfitPotential** | **decimal?** | Profit potential | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

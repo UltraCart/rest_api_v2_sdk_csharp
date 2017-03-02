@@ -42,12 +42,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemDigitalDelivery" /> class.
         /// </summary>
-        /// <param name="ActivationCodeDescription">ActivationCodeDescription.</param>
-        /// <param name="ActivationCodeLowWarning">ActivationCodeLowWarning.</param>
-        /// <param name="ActivationCodeRealtimeUrl">ActivationCodeRealtimeUrl.</param>
-        /// <param name="ActivationCodeSharedSecret">ActivationCodeSharedSecret.</param>
-        /// <param name="ActivationCodeType">ActivationCodeType.</param>
-        /// <param name="DigitalItems">DigitalItems.</param>
+        /// <param name="ActivationCodeDescription">Description of the activation code.</param>
+        /// <param name="ActivationCodeLowWarning">The number of activation codes whcih should generate a warning email.</param>
+        /// <param name="ActivationCodeRealtimeUrl">The URL to retrieve activation codes from in real-time.</param>
+        /// <param name="ActivationCodeSharedSecret">Shared secret used when communicating with the real-time URL.</param>
+        /// <param name="ActivationCodeType">Type of activation code.</param>
+        /// <param name="DigitalItems">Digital items that customer can download when this item is purchased.</param>
         public ItemDigitalDelivery(string ActivationCodeDescription = null, int? ActivationCodeLowWarning = null, string ActivationCodeRealtimeUrl = null, string ActivationCodeSharedSecret = null, string ActivationCodeType = null, List<ItemDigitalItem> DigitalItems = null)
         {
             this.ActivationCodeDescription = ActivationCodeDescription;
@@ -59,33 +59,39 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets ActivationCodeDescription
+        /// Description of the activation code
         /// </summary>
+        /// <value>Description of the activation code</value>
         [DataMember(Name="activation_code_description", EmitDefaultValue=false)]
         public string ActivationCodeDescription { get; set; }
         /// <summary>
-        /// Gets or Sets ActivationCodeLowWarning
+        /// The number of activation codes whcih should generate a warning email
         /// </summary>
+        /// <value>The number of activation codes whcih should generate a warning email</value>
         [DataMember(Name="activation_code_low_warning", EmitDefaultValue=false)]
         public int? ActivationCodeLowWarning { get; set; }
         /// <summary>
-        /// Gets or Sets ActivationCodeRealtimeUrl
+        /// The URL to retrieve activation codes from in real-time
         /// </summary>
+        /// <value>The URL to retrieve activation codes from in real-time</value>
         [DataMember(Name="activation_code_realtime_url", EmitDefaultValue=false)]
         public string ActivationCodeRealtimeUrl { get; set; }
         /// <summary>
-        /// Gets or Sets ActivationCodeSharedSecret
+        /// Shared secret used when communicating with the real-time URL
         /// </summary>
+        /// <value>Shared secret used when communicating with the real-time URL</value>
         [DataMember(Name="activation_code_shared_secret", EmitDefaultValue=false)]
         public string ActivationCodeSharedSecret { get; set; }
         /// <summary>
-        /// Gets or Sets ActivationCodeType
+        /// Type of activation code
         /// </summary>
+        /// <value>Type of activation code</value>
         [DataMember(Name="activation_code_type", EmitDefaultValue=false)]
         public string ActivationCodeType { get; set; }
         /// <summary>
-        /// Gets or Sets DigitalItems
+        /// Digital items that customer can download when this item is purchased
         /// </summary>
+        /// <value>Digital items that customer can download when this item is purchased</value>
         [DataMember(Name="digital_items", EmitDefaultValue=false)]
         public List<ItemDigitalItem> DigitalItems { get; set; }
         /// <summary>

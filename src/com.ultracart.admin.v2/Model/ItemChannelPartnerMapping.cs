@@ -42,23 +42,23 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemChannelPartnerMapping" /> class.
         /// </summary>
-        /// <param name="BarcodeUa">BarcodeUa.</param>
-        /// <param name="BarcodeUc">BarcodeUc.</param>
-        /// <param name="BarcodeUi">BarcodeUi.</param>
-        /// <param name="BarcodeUk">BarcodeUk.</param>
-        /// <param name="BuyerDpci">BuyerDpci.</param>
-        /// <param name="BuyerItemNumber">BuyerItemNumber.</param>
-        /// <param name="ChannelPartnerCode">ChannelPartnerCode.</param>
-        /// <param name="ChannelPartnerOid">ChannelPartnerOid.</param>
-        /// <param name="FromItemId">FromItemId.</param>
-        /// <param name="FromSku">FromSku.</param>
-        /// <param name="MutuallyDefinedNumber">MutuallyDefinedNumber.</param>
-        /// <param name="QuantityRatioCp">QuantityRatioCp.</param>
-        /// <param name="QuantityRatioUc">QuantityRatioUc.</param>
-        /// <param name="Sku">Sku.</param>
-        /// <param name="UnitOfMeasure">UnitOfMeasure.</param>
-        /// <param name="VendorNumber">VendorNumber.</param>
-        /// <param name="VendorStyleNumber">VendorStyleNumber.</param>
+        /// <param name="BarcodeUa">Barcode UA (EDI only).</param>
+        /// <param name="BarcodeUc">Barcode UC (EDI only).</param>
+        /// <param name="BarcodeUi">Barcode UI (EDI only).</param>
+        /// <param name="BarcodeUk">Barcode UK (EDI only).</param>
+        /// <param name="BuyerDpci">Buyer DPCI (EDI only).</param>
+        /// <param name="BuyerItemNumber">Buyer item number (EDI only).</param>
+        /// <param name="ChannelPartnerCode">Channel partner code.</param>
+        /// <param name="ChannelPartnerOid">Channel partner object identifier.</param>
+        /// <param name="FromItemId">From Item ID.</param>
+        /// <param name="FromSku">From SKU.</param>
+        /// <param name="MutuallyDefinedNumber">Mutually defined number (EDI only).</param>
+        /// <param name="QuantityRatioCp">Ratio (Channel Partner).</param>
+        /// <param name="QuantityRatioUc">Ratio (UltraCart).</param>
+        /// <param name="Sku">SKU.</param>
+        /// <param name="UnitOfMeasure">Unit of measure.</param>
+        /// <param name="VendorNumber">Vendor number (EDI only).</param>
+        /// <param name="VendorStyleNumber">Vendor style number (EDI only).</param>
         public ItemChannelPartnerMapping(string BarcodeUa = null, string BarcodeUc = null, string BarcodeUi = null, string BarcodeUk = null, string BuyerDpci = null, string BuyerItemNumber = null, string ChannelPartnerCode = null, int? ChannelPartnerOid = null, string FromItemId = null, string FromSku = null, string MutuallyDefinedNumber = null, int? QuantityRatioCp = null, int? QuantityRatioUc = null, string Sku = null, string UnitOfMeasure = null, string VendorNumber = null, string VendorStyleNumber = null)
         {
             this.BarcodeUa = BarcodeUa;
@@ -81,88 +81,105 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets BarcodeUa
+        /// Barcode UA (EDI only)
         /// </summary>
+        /// <value>Barcode UA (EDI only)</value>
         [DataMember(Name="barcode_ua", EmitDefaultValue=false)]
         public string BarcodeUa { get; set; }
         /// <summary>
-        /// Gets or Sets BarcodeUc
+        /// Barcode UC (EDI only)
         /// </summary>
+        /// <value>Barcode UC (EDI only)</value>
         [DataMember(Name="barcode_uc", EmitDefaultValue=false)]
         public string BarcodeUc { get; set; }
         /// <summary>
-        /// Gets or Sets BarcodeUi
+        /// Barcode UI (EDI only)
         /// </summary>
+        /// <value>Barcode UI (EDI only)</value>
         [DataMember(Name="barcode_ui", EmitDefaultValue=false)]
         public string BarcodeUi { get; set; }
         /// <summary>
-        /// Gets or Sets BarcodeUk
+        /// Barcode UK (EDI only)
         /// </summary>
+        /// <value>Barcode UK (EDI only)</value>
         [DataMember(Name="barcode_uk", EmitDefaultValue=false)]
         public string BarcodeUk { get; set; }
         /// <summary>
-        /// Gets or Sets BuyerDpci
+        /// Buyer DPCI (EDI only)
         /// </summary>
+        /// <value>Buyer DPCI (EDI only)</value>
         [DataMember(Name="buyer_dpci", EmitDefaultValue=false)]
         public string BuyerDpci { get; set; }
         /// <summary>
-        /// Gets or Sets BuyerItemNumber
+        /// Buyer item number (EDI only)
         /// </summary>
+        /// <value>Buyer item number (EDI only)</value>
         [DataMember(Name="buyer_item_number", EmitDefaultValue=false)]
         public string BuyerItemNumber { get; set; }
         /// <summary>
-        /// Gets or Sets ChannelPartnerCode
+        /// Channel partner code
         /// </summary>
+        /// <value>Channel partner code</value>
         [DataMember(Name="channel_partner_code", EmitDefaultValue=false)]
         public string ChannelPartnerCode { get; set; }
         /// <summary>
-        /// Gets or Sets ChannelPartnerOid
+        /// Channel partner object identifier
         /// </summary>
+        /// <value>Channel partner object identifier</value>
         [DataMember(Name="channel_partner_oid", EmitDefaultValue=false)]
         public int? ChannelPartnerOid { get; set; }
         /// <summary>
-        /// Gets or Sets FromItemId
+        /// From Item ID
         /// </summary>
+        /// <value>From Item ID</value>
         [DataMember(Name="from_item_id", EmitDefaultValue=false)]
         public string FromItemId { get; set; }
         /// <summary>
-        /// Gets or Sets FromSku
+        /// From SKU
         /// </summary>
+        /// <value>From SKU</value>
         [DataMember(Name="from_sku", EmitDefaultValue=false)]
         public string FromSku { get; set; }
         /// <summary>
-        /// Gets or Sets MutuallyDefinedNumber
+        /// Mutually defined number (EDI only)
         /// </summary>
+        /// <value>Mutually defined number (EDI only)</value>
         [DataMember(Name="mutually_defined_number", EmitDefaultValue=false)]
         public string MutuallyDefinedNumber { get; set; }
         /// <summary>
-        /// Gets or Sets QuantityRatioCp
+        /// Ratio (Channel Partner)
         /// </summary>
+        /// <value>Ratio (Channel Partner)</value>
         [DataMember(Name="quantity_ratio_cp", EmitDefaultValue=false)]
         public int? QuantityRatioCp { get; set; }
         /// <summary>
-        /// Gets or Sets QuantityRatioUc
+        /// Ratio (UltraCart)
         /// </summary>
+        /// <value>Ratio (UltraCart)</value>
         [DataMember(Name="quantity_ratio_uc", EmitDefaultValue=false)]
         public int? QuantityRatioUc { get; set; }
         /// <summary>
-        /// Gets or Sets Sku
+        /// SKU
         /// </summary>
+        /// <value>SKU</value>
         [DataMember(Name="sku", EmitDefaultValue=false)]
         public string Sku { get; set; }
         /// <summary>
-        /// Gets or Sets UnitOfMeasure
+        /// Unit of measure
         /// </summary>
+        /// <value>Unit of measure</value>
         [DataMember(Name="unit_of_measure", EmitDefaultValue=false)]
         public string UnitOfMeasure { get; set; }
         /// <summary>
-        /// Gets or Sets VendorNumber
+        /// Vendor number (EDI only)
         /// </summary>
+        /// <value>Vendor number (EDI only)</value>
         [DataMember(Name="vendor_number", EmitDefaultValue=false)]
         public string VendorNumber { get; set; }
         /// <summary>
-        /// Gets or Sets VendorStyleNumber
+        /// Vendor style number (EDI only)
         /// </summary>
+        /// <value>Vendor style number (EDI only)</value>
         [DataMember(Name="vendor_style_number", EmitDefaultValue=false)]
         public string VendorStyleNumber { get; set; }
         /// <summary>

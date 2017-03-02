@@ -42,12 +42,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemContentMultimediaThumbnail" /> class.
         /// </summary>
-        /// <param name="Height">Height.</param>
-        /// <param name="HttpUrl">HttpUrl.</param>
-        /// <param name="HttpsUrl">HttpsUrl.</param>
-        /// <param name="PngFormat">PngFormat.</param>
-        /// <param name="Square">Square.</param>
-        /// <param name="Width">Width.</param>
+        /// <param name="Height">Height of the thumbnail.</param>
+        /// <param name="HttpUrl">HTTP URL to view the thumbnail.</param>
+        /// <param name="HttpsUrl">HTTPS URL to view the thumbnail.</param>
+        /// <param name="PngFormat">True if PNG, false if JPEG.</param>
+        /// <param name="Square">True if the thumbnail is square.</param>
+        /// <param name="Width">Width of the thumbnail.</param>
         public ItemContentMultimediaThumbnail(int? Height = null, string HttpUrl = null, string HttpsUrl = null, bool? PngFormat = null, bool? Square = null, int? Width = null)
         {
             this.Height = Height;
@@ -59,33 +59,39 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Height
+        /// Height of the thumbnail
         /// </summary>
+        /// <value>Height of the thumbnail</value>
         [DataMember(Name="height", EmitDefaultValue=false)]
         public int? Height { get; set; }
         /// <summary>
-        /// Gets or Sets HttpUrl
+        /// HTTP URL to view the thumbnail
         /// </summary>
+        /// <value>HTTP URL to view the thumbnail</value>
         [DataMember(Name="http_url", EmitDefaultValue=false)]
         public string HttpUrl { get; set; }
         /// <summary>
-        /// Gets or Sets HttpsUrl
+        /// HTTPS URL to view the thumbnail
         /// </summary>
+        /// <value>HTTPS URL to view the thumbnail</value>
         [DataMember(Name="https_url", EmitDefaultValue=false)]
         public string HttpsUrl { get; set; }
         /// <summary>
-        /// Gets or Sets PngFormat
+        /// True if PNG, false if JPEG
         /// </summary>
+        /// <value>True if PNG, false if JPEG</value>
         [DataMember(Name="png_format", EmitDefaultValue=false)]
         public bool? PngFormat { get; set; }
         /// <summary>
-        /// Gets or Sets Square
+        /// True if the thumbnail is square
         /// </summary>
+        /// <value>True if the thumbnail is square</value>
         [DataMember(Name="square", EmitDefaultValue=false)]
         public bool? Square { get; set; }
         /// <summary>
-        /// Gets or Sets Width
+        /// Width of the thumbnail
         /// </summary>
+        /// <value>Width of the thumbnail</value>
         [DataMember(Name="width", EmitDefaultValue=false)]
         public int? Width { get; set; }
         /// <summary>

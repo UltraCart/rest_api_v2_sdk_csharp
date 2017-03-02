@@ -42,11 +42,11 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemDigitalItem" /> class.
         /// </summary>
-        /// <param name="CreationDts">CreationDts.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="FileSize">FileSize.</param>
-        /// <param name="MimeType">MimeType.</param>
-        /// <param name="OriginalFilename">OriginalFilename.</param>
+        /// <param name="CreationDts">File creation date.</param>
+        /// <param name="Description">Description of the digital item.</param>
+        /// <param name="FileSize">File size.</param>
+        /// <param name="MimeType">Mime type associated with the file.</param>
+        /// <param name="OriginalFilename">Original filename.</param>
         public ItemDigitalItem(string CreationDts = null, string Description = null, long? FileSize = null, string MimeType = null, string OriginalFilename = null)
         {
             this.CreationDts = CreationDts;
@@ -57,28 +57,33 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets CreationDts
+        /// File creation date
         /// </summary>
+        /// <value>File creation date</value>
         [DataMember(Name="creation_dts", EmitDefaultValue=false)]
         public string CreationDts { get; set; }
         /// <summary>
-        /// Gets or Sets Description
+        /// Description of the digital item
         /// </summary>
+        /// <value>Description of the digital item</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
         /// <summary>
-        /// Gets or Sets FileSize
+        /// File size
         /// </summary>
+        /// <value>File size</value>
         [DataMember(Name="file_size", EmitDefaultValue=false)]
         public long? FileSize { get; set; }
         /// <summary>
-        /// Gets or Sets MimeType
+        /// Mime type associated with the file
         /// </summary>
+        /// <value>Mime type associated with the file</value>
         [DataMember(Name="mime_type", EmitDefaultValue=false)]
         public string MimeType { get; set; }
         /// <summary>
-        /// Gets or Sets OriginalFilename
+        /// Original filename
         /// </summary>
+        /// <value>Original filename</value>
         [DataMember(Name="original_filename", EmitDefaultValue=false)]
         public string OriginalFilename { get; set; }
         /// <summary>

@@ -40,12 +40,39 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemRelatedItem :  IEquatable<ItemRelatedItem>
     {
         /// <summary>
+        /// Relationship type
+        /// </summary>
+        /// <value>Relationship type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            
+            /// <summary>
+            /// Enum System for "System"
+            /// </summary>
+            [EnumMember(Value = "System")]
+            System,
+            
+            /// <summary>
+            /// Enum UserDefined for "UserDefined"
+            /// </summary>
+            [EnumMember(Value = "UserDefined")]
+            UserDefined
+        }
+
+        /// <summary>
+        /// Relationship type
+        /// </summary>
+        /// <value>Relationship type</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemRelatedItem" /> class.
         /// </summary>
-        /// <param name="RelatedMerchantItemId">RelatedMerchantItemId.</param>
-        /// <param name="RelatedMerchantItemOid">RelatedMerchantItemOid.</param>
-        /// <param name="Type">Type.</param>
-        public ItemRelatedItem(string RelatedMerchantItemId = null, int? RelatedMerchantItemOid = null, string Type = null)
+        /// <param name="RelatedMerchantItemId">Related item id.</param>
+        /// <param name="RelatedMerchantItemOid">Related item object identifier.</param>
+        /// <param name="Type">Relationship type.</param>
+        public ItemRelatedItem(string RelatedMerchantItemId = null, int? RelatedMerchantItemOid = null, TypeEnum? Type = null)
         {
             this.RelatedMerchantItemId = RelatedMerchantItemId;
             this.RelatedMerchantItemOid = RelatedMerchantItemOid;
@@ -53,20 +80,17 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets RelatedMerchantItemId
+        /// Related item id
         /// </summary>
+        /// <value>Related item id</value>
         [DataMember(Name="related_merchant_item_id", EmitDefaultValue=false)]
         public string RelatedMerchantItemId { get; set; }
         /// <summary>
-        /// Gets or Sets RelatedMerchantItemOid
+        /// Related item object identifier
         /// </summary>
+        /// <value>Related item object identifier</value>
         [DataMember(Name="related_merchant_item_oid", EmitDefaultValue=false)]
         public int? RelatedMerchantItemOid { get; set; }
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

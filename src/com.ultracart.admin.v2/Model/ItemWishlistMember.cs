@@ -42,9 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemWishlistMember" /> class.
         /// </summary>
-        /// <param name="WishlistMemberInstanceDescription">WishlistMemberInstanceDescription.</param>
-        /// <param name="WishlistMemberInstanceOid">WishlistMemberInstanceOid.</param>
-        /// <param name="WishlistMemberSku">WishlistMemberSku.</param>
+        /// <param name="WishlistMemberInstanceDescription">WishList Member instance description.</param>
+        /// <param name="WishlistMemberInstanceOid">WishList Member instance object identifier.</param>
+        /// <param name="WishlistMemberSku">WishList Member SKU.</param>
         public ItemWishlistMember(string WishlistMemberInstanceDescription = null, int? WishlistMemberInstanceOid = null, string WishlistMemberSku = null)
         {
             this.WishlistMemberInstanceDescription = WishlistMemberInstanceDescription;
@@ -53,18 +53,21 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets WishlistMemberInstanceDescription
+        /// WishList Member instance description
         /// </summary>
+        /// <value>WishList Member instance description</value>
         [DataMember(Name="wishlist_member_instance_description", EmitDefaultValue=false)]
         public string WishlistMemberInstanceDescription { get; set; }
         /// <summary>
-        /// Gets or Sets WishlistMemberInstanceOid
+        /// WishList Member instance object identifier
         /// </summary>
+        /// <value>WishList Member instance object identifier</value>
         [DataMember(Name="wishlist_member_instance_oid", EmitDefaultValue=false)]
         public int? WishlistMemberInstanceOid { get; set; }
         /// <summary>
-        /// Gets or Sets WishlistMemberSku
+        /// WishList Member SKU
         /// </summary>
+        /// <value>WishList Member SKU</value>
         [DataMember(Name="wishlist_member_sku", EmitDefaultValue=false)]
         public string WishlistMemberSku { get; set; }
         /// <summary>

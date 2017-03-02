@@ -42,24 +42,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemPricing" /> class.
         /// </summary>
-        /// <param name="AllowArbitraryCost">AllowArbitraryCost.</param>
-        /// <param name="ArbitraryCostVelocityCode">ArbitraryCostVelocityCode.</param>
-        /// <param name="AutomaticPricingTierName">AutomaticPricingTierName.</param>
-        /// <param name="AutomaticPricingTierOid">AutomaticPricingTierOid.</param>
-        /// <param name="Cogs">Cogs.</param>
+        /// <param name="AllowArbitraryCost">Allow arbitrary cost.</param>
+        /// <param name="ArbitraryCostVelocityCode">Arbitrary cost velocity code.</param>
+        /// <param name="AutomaticPricingTierName">Automatic pricing tier name.</param>
+        /// <param name="AutomaticPricingTierOid">Automatic pricing tier object identifier.</param>
+        /// <param name="Cogs">Cost of goods sold.</param>
         /// <param name="Cost">Cost.</param>
-        /// <param name="CurrencyCode">CurrencyCode.</param>
-        /// <param name="ManufacturerSuggestedRetailPrice">ManufacturerSuggestedRetailPrice.</param>
-        /// <param name="MaximumArbitraryCost">MaximumArbitraryCost.</param>
-        /// <param name="MinimumAdvertisedPrice">MinimumAdvertisedPrice.</param>
-        /// <param name="MinimumArbitraryCost">MinimumArbitraryCost.</param>
-        /// <param name="MixAndMatchGroup">MixAndMatchGroup.</param>
-        /// <param name="MixAndMatchGroupOid">MixAndMatchGroupOid.</param>
-        /// <param name="SaleCost">SaleCost.</param>
-        /// <param name="SaleEnd">SaleEnd.</param>
-        /// <param name="SaleStart">SaleStart.</param>
+        /// <param name="CurrencyCode">Currency code.</param>
+        /// <param name="ManufacturerSuggestedRetailPrice">Manufacturer suggested retail price.</param>
+        /// <param name="MaximumArbitraryCost">Maximum arbitrary cost.</param>
+        /// <param name="MinimumAdvertisedPrice">Minimum advertised price.</param>
+        /// <param name="MinimumArbitraryCost">Minimum arbitrary cost.</param>
+        /// <param name="MixAndMatchGroup">Mix and match group.</param>
+        /// <param name="MixAndMatchGroupOid">Mix and match group object identifier.</param>
+        /// <param name="SaleCost">Sale cost.</param>
+        /// <param name="SaleEnd">Sale end.</param>
+        /// <param name="SaleStart">Sale start.</param>
         /// <param name="Tiers">Tiers.</param>
-        public ItemPricing(bool? AllowArbitraryCost = null, string ArbitraryCostVelocityCode = null, string AutomaticPricingTierName = null, int? AutomaticPricingTierOid = null, double? Cogs = null, double? Cost = null, string CurrencyCode = null, double? ManufacturerSuggestedRetailPrice = null, double? MaximumArbitraryCost = null, double? MinimumAdvertisedPrice = null, double? MinimumArbitraryCost = null, string MixAndMatchGroup = null, int? MixAndMatchGroupOid = null, double? SaleCost = null, string SaleEnd = null, string SaleStart = null, List<ItemPricingTier> Tiers = null)
+        public ItemPricing(bool? AllowArbitraryCost = null, string ArbitraryCostVelocityCode = null, string AutomaticPricingTierName = null, int? AutomaticPricingTierOid = null, decimal? Cogs = null, decimal? Cost = null, string CurrencyCode = null, decimal? ManufacturerSuggestedRetailPrice = null, decimal? MaximumArbitraryCost = null, decimal? MinimumAdvertisedPrice = null, decimal? MinimumArbitraryCost = null, string MixAndMatchGroup = null, int? MixAndMatchGroupOid = null, decimal? SaleCost = null, string SaleEnd = null, string SaleStart = null, List<ItemPricingTier> Tiers = null)
         {
             this.AllowArbitraryCost = AllowArbitraryCost;
             this.ArbitraryCostVelocityCode = ArbitraryCostVelocityCode;
@@ -81,88 +81,105 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AllowArbitraryCost
+        /// Allow arbitrary cost
         /// </summary>
+        /// <value>Allow arbitrary cost</value>
         [DataMember(Name="allow_arbitrary_cost", EmitDefaultValue=false)]
         public bool? AllowArbitraryCost { get; set; }
         /// <summary>
-        /// Gets or Sets ArbitraryCostVelocityCode
+        /// Arbitrary cost velocity code
         /// </summary>
+        /// <value>Arbitrary cost velocity code</value>
         [DataMember(Name="arbitrary_cost_velocity_code", EmitDefaultValue=false)]
         public string ArbitraryCostVelocityCode { get; set; }
         /// <summary>
-        /// Gets or Sets AutomaticPricingTierName
+        /// Automatic pricing tier name
         /// </summary>
+        /// <value>Automatic pricing tier name</value>
         [DataMember(Name="automatic_pricing_tier_name", EmitDefaultValue=false)]
         public string AutomaticPricingTierName { get; set; }
         /// <summary>
-        /// Gets or Sets AutomaticPricingTierOid
+        /// Automatic pricing tier object identifier
         /// </summary>
+        /// <value>Automatic pricing tier object identifier</value>
         [DataMember(Name="automatic_pricing_tier_oid", EmitDefaultValue=false)]
         public int? AutomaticPricingTierOid { get; set; }
         /// <summary>
-        /// Gets or Sets Cogs
+        /// Cost of goods sold
         /// </summary>
+        /// <value>Cost of goods sold</value>
         [DataMember(Name="cogs", EmitDefaultValue=false)]
-        public double? Cogs { get; set; }
+        public decimal? Cogs { get; set; }
         /// <summary>
-        /// Gets or Sets Cost
+        /// Cost
         /// </summary>
+        /// <value>Cost</value>
         [DataMember(Name="cost", EmitDefaultValue=false)]
-        public double? Cost { get; set; }
+        public decimal? Cost { get; set; }
         /// <summary>
-        /// Gets or Sets CurrencyCode
+        /// Currency code
         /// </summary>
+        /// <value>Currency code</value>
         [DataMember(Name="currency_code", EmitDefaultValue=false)]
         public string CurrencyCode { get; set; }
         /// <summary>
-        /// Gets or Sets ManufacturerSuggestedRetailPrice
+        /// Manufacturer suggested retail price
         /// </summary>
+        /// <value>Manufacturer suggested retail price</value>
         [DataMember(Name="manufacturer_suggested_retail_price", EmitDefaultValue=false)]
-        public double? ManufacturerSuggestedRetailPrice { get; set; }
+        public decimal? ManufacturerSuggestedRetailPrice { get; set; }
         /// <summary>
-        /// Gets or Sets MaximumArbitraryCost
+        /// Maximum arbitrary cost
         /// </summary>
+        /// <value>Maximum arbitrary cost</value>
         [DataMember(Name="maximum_arbitrary_cost", EmitDefaultValue=false)]
-        public double? MaximumArbitraryCost { get; set; }
+        public decimal? MaximumArbitraryCost { get; set; }
         /// <summary>
-        /// Gets or Sets MinimumAdvertisedPrice
+        /// Minimum advertised price
         /// </summary>
+        /// <value>Minimum advertised price</value>
         [DataMember(Name="minimum_advertised_price", EmitDefaultValue=false)]
-        public double? MinimumAdvertisedPrice { get; set; }
+        public decimal? MinimumAdvertisedPrice { get; set; }
         /// <summary>
-        /// Gets or Sets MinimumArbitraryCost
+        /// Minimum arbitrary cost
         /// </summary>
+        /// <value>Minimum arbitrary cost</value>
         [DataMember(Name="minimum_arbitrary_cost", EmitDefaultValue=false)]
-        public double? MinimumArbitraryCost { get; set; }
+        public decimal? MinimumArbitraryCost { get; set; }
         /// <summary>
-        /// Gets or Sets MixAndMatchGroup
+        /// Mix and match group
         /// </summary>
+        /// <value>Mix and match group</value>
         [DataMember(Name="mix_and_match_group", EmitDefaultValue=false)]
         public string MixAndMatchGroup { get; set; }
         /// <summary>
-        /// Gets or Sets MixAndMatchGroupOid
+        /// Mix and match group object identifier
         /// </summary>
+        /// <value>Mix and match group object identifier</value>
         [DataMember(Name="mix_and_match_group_oid", EmitDefaultValue=false)]
         public int? MixAndMatchGroupOid { get; set; }
         /// <summary>
-        /// Gets or Sets SaleCost
+        /// Sale cost
         /// </summary>
+        /// <value>Sale cost</value>
         [DataMember(Name="sale_cost", EmitDefaultValue=false)]
-        public double? SaleCost { get; set; }
+        public decimal? SaleCost { get; set; }
         /// <summary>
-        /// Gets or Sets SaleEnd
+        /// Sale end
         /// </summary>
+        /// <value>Sale end</value>
         [DataMember(Name="sale_end", EmitDefaultValue=false)]
         public string SaleEnd { get; set; }
         /// <summary>
-        /// Gets or Sets SaleStart
+        /// Sale start
         /// </summary>
+        /// <value>Sale start</value>
         [DataMember(Name="sale_start", EmitDefaultValue=false)]
         public string SaleStart { get; set; }
         /// <summary>
-        /// Gets or Sets Tiers
+        /// Tiers
         /// </summary>
+        /// <value>Tiers</value>
         [DataMember(Name="tiers", EmitDefaultValue=false)]
         public List<ItemPricingTier> Tiers { get; set; }
         /// <summary>

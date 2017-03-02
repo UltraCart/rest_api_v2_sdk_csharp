@@ -43,7 +43,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ItemChargeback" /> class.
         /// </summary>
         /// <param name="Addendums">Addendums.</param>
-        /// <param name="AdjustmentRequests">AdjustmentRequests.</param>
+        /// <param name="AdjustmentRequests">Adjustment requests.</param>
         public ItemChargeback(List<ItemChargebackAddendum> Addendums = null, List<ItemChargebackAdjustmentRequest> AdjustmentRequests = null)
         {
             this.Addendums = Addendums;
@@ -51,13 +51,15 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Addendums
+        /// Addendums
         /// </summary>
+        /// <value>Addendums</value>
         [DataMember(Name="addendums", EmitDefaultValue=false)]
         public List<ItemChargebackAddendum> Addendums { get; set; }
         /// <summary>
-        /// Gets or Sets AdjustmentRequests
+        /// Adjustment requests
         /// </summary>
+        /// <value>Adjustment requests</value>
         [DataMember(Name="adjustment_requests", EmitDefaultValue=false)]
         public List<ItemChargebackAdjustmentRequest> AdjustmentRequests { get; set; }
         /// <summary>

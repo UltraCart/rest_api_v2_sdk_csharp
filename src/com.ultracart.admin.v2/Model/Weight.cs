@@ -40,26 +40,55 @@ namespace com.ultracart.admin.v2.Model
     public partial class Weight :  IEquatable<Weight>
     {
         /// <summary>
+        /// Unit of measure
+        /// </summary>
+        /// <value>Unit of measure</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum UomEnum
+        {
+            
+            /// <summary>
+            /// Enum KG for "KG"
+            /// </summary>
+            [EnumMember(Value = "KG")]
+            KG,
+            
+            /// <summary>
+            /// Enum LB for "LB"
+            /// </summary>
+            [EnumMember(Value = "LB")]
+            LB,
+            
+            /// <summary>
+            /// Enum OZ for "OZ"
+            /// </summary>
+            [EnumMember(Value = "OZ")]
+            OZ
+        }
+
+        /// <summary>
+        /// Unit of measure
+        /// </summary>
+        /// <value>Unit of measure</value>
+        [DataMember(Name="uom", EmitDefaultValue=false)]
+        public UomEnum? Uom { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Weight" /> class.
         /// </summary>
-        /// <param name="Uom">Uom.</param>
-        /// <param name="Value">Value.</param>
-        public Weight(string Uom = null, double? Value = null)
+        /// <param name="Uom">Unit of measure.</param>
+        /// <param name="Value">Weight.</param>
+        public Weight(UomEnum? Uom = null, decimal? Value = null)
         {
             this.Uom = Uom;
             this.Value = Value;
         }
         
         /// <summary>
-        /// Gets or Sets Uom
+        /// Weight
         /// </summary>
-        [DataMember(Name="uom", EmitDefaultValue=false)]
-        public string Uom { get; set; }
-        /// <summary>
-        /// Gets or Sets Value
-        /// </summary>
+        /// <value>Weight</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        public double? Value { get; set; }
+        public decimal? Value { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

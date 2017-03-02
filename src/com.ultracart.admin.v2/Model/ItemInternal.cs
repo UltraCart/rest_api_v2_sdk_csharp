@@ -49,8 +49,9 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Memo
+        /// Memo
         /// </summary>
+        /// <value>Memo</value>
         [DataMember(Name="memo", EmitDefaultValue=false)]
         public string Memo { get; set; }
         /// <summary>

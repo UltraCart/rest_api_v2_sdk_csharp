@@ -42,17 +42,17 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemEbayMarketPlaceAnalysis" /> class.
         /// </summary>
-        /// <param name="AdjustedPrice">AdjustedPrice.</param>
-        /// <param name="AdjustedShipping">AdjustedShipping.</param>
-        /// <param name="AdjustedTotal">AdjustedTotal.</param>
-        /// <param name="Cogs">Cogs.</param>
-        /// <param name="FinalValueFee">FinalValueFee.</param>
-        /// <param name="MinimumAdvertisedPrice">MinimumAdvertisedPrice.</param>
-        /// <param name="OtherListings">OtherListings.</param>
+        /// <param name="AdjustedPrice">Adjusted price.</param>
+        /// <param name="AdjustedShipping">Adjusted shipping.</param>
+        /// <param name="AdjustedTotal">Adjusted total.</param>
+        /// <param name="Cogs">Cost of goods sold.</param>
+        /// <param name="FinalValueFee">Final value fee.</param>
+        /// <param name="MinimumAdvertisedPrice">Minimum advertised price.</param>
+        /// <param name="OtherListings">Other listings.</param>
         /// <param name="OurListing">OurListing.</param>
         /// <param name="Overhead">Overhead.</param>
-        /// <param name="ProfitPotential">ProfitPotential.</param>
-        public ItemEbayMarketPlaceAnalysis(double? AdjustedPrice = null, double? AdjustedShipping = null, double? AdjustedTotal = null, double? Cogs = null, double? FinalValueFee = null, double? MinimumAdvertisedPrice = null, List<ItemEbayMarketListing> OtherListings = null, ItemEbayMarketListing OurListing = null, double? Overhead = null, double? ProfitPotential = null)
+        /// <param name="ProfitPotential">Profit potential.</param>
+        public ItemEbayMarketPlaceAnalysis(decimal? AdjustedPrice = null, decimal? AdjustedShipping = null, decimal? AdjustedTotal = null, decimal? Cogs = null, decimal? FinalValueFee = null, decimal? MinimumAdvertisedPrice = null, List<ItemEbayMarketListing> OtherListings = null, ItemEbayMarketListing OurListing = null, decimal? Overhead = null, decimal? ProfitPotential = null)
         {
             this.AdjustedPrice = AdjustedPrice;
             this.AdjustedShipping = AdjustedShipping;
@@ -67,38 +67,45 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AdjustedPrice
+        /// Adjusted price
         /// </summary>
+        /// <value>Adjusted price</value>
         [DataMember(Name="adjusted_price", EmitDefaultValue=false)]
-        public double? AdjustedPrice { get; set; }
+        public decimal? AdjustedPrice { get; set; }
         /// <summary>
-        /// Gets or Sets AdjustedShipping
+        /// Adjusted shipping
         /// </summary>
+        /// <value>Adjusted shipping</value>
         [DataMember(Name="adjusted_shipping", EmitDefaultValue=false)]
-        public double? AdjustedShipping { get; set; }
+        public decimal? AdjustedShipping { get; set; }
         /// <summary>
-        /// Gets or Sets AdjustedTotal
+        /// Adjusted total
         /// </summary>
+        /// <value>Adjusted total</value>
         [DataMember(Name="adjusted_total", EmitDefaultValue=false)]
-        public double? AdjustedTotal { get; set; }
+        public decimal? AdjustedTotal { get; set; }
         /// <summary>
-        /// Gets or Sets Cogs
+        /// Cost of goods sold
         /// </summary>
+        /// <value>Cost of goods sold</value>
         [DataMember(Name="cogs", EmitDefaultValue=false)]
-        public double? Cogs { get; set; }
+        public decimal? Cogs { get; set; }
         /// <summary>
-        /// Gets or Sets FinalValueFee
+        /// Final value fee
         /// </summary>
+        /// <value>Final value fee</value>
         [DataMember(Name="final_value_fee", EmitDefaultValue=false)]
-        public double? FinalValueFee { get; set; }
+        public decimal? FinalValueFee { get; set; }
         /// <summary>
-        /// Gets or Sets MinimumAdvertisedPrice
+        /// Minimum advertised price
         /// </summary>
+        /// <value>Minimum advertised price</value>
         [DataMember(Name="minimum_advertised_price", EmitDefaultValue=false)]
-        public double? MinimumAdvertisedPrice { get; set; }
+        public decimal? MinimumAdvertisedPrice { get; set; }
         /// <summary>
-        /// Gets or Sets OtherListings
+        /// Other listings
         /// </summary>
+        /// <value>Other listings</value>
         [DataMember(Name="other_listings", EmitDefaultValue=false)]
         public List<ItemEbayMarketListing> OtherListings { get; set; }
         /// <summary>
@@ -107,15 +114,17 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="our_listing", EmitDefaultValue=false)]
         public ItemEbayMarketListing OurListing { get; set; }
         /// <summary>
-        /// Gets or Sets Overhead
+        /// Overhead
         /// </summary>
+        /// <value>Overhead</value>
         [DataMember(Name="overhead", EmitDefaultValue=false)]
-        public double? Overhead { get; set; }
+        public decimal? Overhead { get; set; }
         /// <summary>
-        /// Gets or Sets ProfitPotential
+        /// Profit potential
         /// </summary>
+        /// <value>Profit potential</value>
         [DataMember(Name="profit_potential", EmitDefaultValue=false)]
-        public double? ProfitPotential { get; set; }
+        public decimal? ProfitPotential { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

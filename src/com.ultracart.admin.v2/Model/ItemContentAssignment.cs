@@ -42,11 +42,11 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemContentAssignment" /> class.
         /// </summary>
-        /// <param name="GroupOid">GroupOid.</param>
-        /// <param name="GroupPath">GroupPath.</param>
-        /// <param name="Host">Host.</param>
-        /// <param name="SortOrder">SortOrder.</param>
-        /// <param name="UrlPart">UrlPart.</param>
+        /// <param name="GroupOid">Page (group) object identifier.</param>
+        /// <param name="GroupPath">Page (group) path.</param>
+        /// <param name="Host">StoreFront host name.</param>
+        /// <param name="SortOrder">Sort order (optional).</param>
+        /// <param name="UrlPart">URL part if the item id is not used.</param>
         public ItemContentAssignment(int? GroupOid = null, string GroupPath = null, string Host = null, int? SortOrder = null, string UrlPart = null)
         {
             this.GroupOid = GroupOid;
@@ -57,28 +57,33 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets GroupOid
+        /// Page (group) object identifier
         /// </summary>
+        /// <value>Page (group) object identifier</value>
         [DataMember(Name="group_oid", EmitDefaultValue=false)]
         public int? GroupOid { get; set; }
         /// <summary>
-        /// Gets or Sets GroupPath
+        /// Page (group) path
         /// </summary>
+        /// <value>Page (group) path</value>
         [DataMember(Name="group_path", EmitDefaultValue=false)]
         public string GroupPath { get; set; }
         /// <summary>
-        /// Gets or Sets Host
+        /// StoreFront host name
         /// </summary>
+        /// <value>StoreFront host name</value>
         [DataMember(Name="host", EmitDefaultValue=false)]
         public string Host { get; set; }
         /// <summary>
-        /// Gets or Sets SortOrder
+        /// Sort order (optional)
         /// </summary>
+        /// <value>Sort order (optional)</value>
         [DataMember(Name="sort_order", EmitDefaultValue=false)]
         public int? SortOrder { get; set; }
         /// <summary>
-        /// Gets or Sets UrlPart
+        /// URL part if the item id is not used
         /// </summary>
+        /// <value>URL part if the item id is not used</value>
         [DataMember(Name="url_part", EmitDefaultValue=false)]
         public string UrlPart { get; set; }
         /// <summary>

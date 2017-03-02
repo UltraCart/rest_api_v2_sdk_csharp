@@ -40,14 +40,101 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemThirdPartyEmailMarketing :  IEquatable<ItemThirdPartyEmailMarketing>
     {
         /// <summary>
+        /// Provider name
+        /// </summary>
+        /// <value>Provider name</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ProviderNameEnum
+        {
+            
+            /// <summary>
+            /// Enum ActiveCampaign for "ActiveCampaign"
+            /// </summary>
+            [EnumMember(Value = "ActiveCampaign")]
+            ActiveCampaign,
+            
+            /// <summary>
+            /// Enum AWeber for "AWeber"
+            /// </summary>
+            [EnumMember(Value = "AWeber")]
+            AWeber,
+            
+            /// <summary>
+            /// Enum CampaignMonitor for "Campaign Monitor"
+            /// </summary>
+            [EnumMember(Value = "Campaign Monitor")]
+            CampaignMonitor,
+            
+            /// <summary>
+            /// Enum ConstantContact for "ConstantContact"
+            /// </summary>
+            [EnumMember(Value = "ConstantContact")]
+            ConstantContact,
+            
+            /// <summary>
+            /// Enum Emma for "Emma"
+            /// </summary>
+            [EnumMember(Value = "Emma")]
+            Emma,
+            
+            /// <summary>
+            /// Enum GetResponse for "GetResponse"
+            /// </summary>
+            [EnumMember(Value = "GetResponse")]
+            GetResponse,
+            
+            /// <summary>
+            /// Enum IContact for "iContact"
+            /// </summary>
+            [EnumMember(Value = "iContact")]
+            IContact,
+            
+            /// <summary>
+            /// Enum Klaviyo for "Klaviyo"
+            /// </summary>
+            [EnumMember(Value = "Klaviyo")]
+            Klaviyo,
+            
+            /// <summary>
+            /// Enum Lyris for "Lyris"
+            /// </summary>
+            [EnumMember(Value = "Lyris")]
+            Lyris,
+            
+            /// <summary>
+            /// Enum LyrisHQ for "LyrisHQ"
+            /// </summary>
+            [EnumMember(Value = "LyrisHQ")]
+            LyrisHQ,
+            
+            /// <summary>
+            /// Enum MailChimp for "MailChimp"
+            /// </summary>
+            [EnumMember(Value = "MailChimp")]
+            MailChimp,
+            
+            /// <summary>
+            /// Enum SilverPop for "SilverPop"
+            /// </summary>
+            [EnumMember(Value = "SilverPop")]
+            SilverPop
+        }
+
+        /// <summary>
+        /// Provider name
+        /// </summary>
+        /// <value>Provider name</value>
+        [DataMember(Name="provider_name", EmitDefaultValue=false)]
+        public ProviderNameEnum? ProviderName { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemThirdPartyEmailMarketing" /> class.
         /// </summary>
-        /// <param name="AddTags">AddTags.</param>
-        /// <param name="ProviderName">ProviderName.</param>
-        /// <param name="RemoveTags">RemoveTags.</param>
-        /// <param name="SubscribeLists">SubscribeLists.</param>
-        /// <param name="UnsubscribeLists">UnsubscribeLists.</param>
-        public ItemThirdPartyEmailMarketing(List<string> AddTags = null, string ProviderName = null, List<string> RemoveTags = null, List<string> SubscribeLists = null, List<string> UnsubscribeLists = null)
+        /// <param name="AddTags">Add tags.</param>
+        /// <param name="ProviderName">Provider name.</param>
+        /// <param name="RemoveTags">Remove tags.</param>
+        /// <param name="SubscribeLists">Subscribe to lists.</param>
+        /// <param name="UnsubscribeLists">Unsubscribe from lists.</param>
+        public ItemThirdPartyEmailMarketing(List<string> AddTags = null, ProviderNameEnum? ProviderName = null, List<string> RemoveTags = null, List<string> SubscribeLists = null, List<string> UnsubscribeLists = null)
         {
             this.AddTags = AddTags;
             this.ProviderName = ProviderName;
@@ -57,28 +144,27 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AddTags
+        /// Add tags
         /// </summary>
+        /// <value>Add tags</value>
         [DataMember(Name="add_tags", EmitDefaultValue=false)]
         public List<string> AddTags { get; set; }
         /// <summary>
-        /// Gets or Sets ProviderName
+        /// Remove tags
         /// </summary>
-        [DataMember(Name="provider_name", EmitDefaultValue=false)]
-        public string ProviderName { get; set; }
-        /// <summary>
-        /// Gets or Sets RemoveTags
-        /// </summary>
+        /// <value>Remove tags</value>
         [DataMember(Name="remove_tags", EmitDefaultValue=false)]
         public List<string> RemoveTags { get; set; }
         /// <summary>
-        /// Gets or Sets SubscribeLists
+        /// Subscribe to lists
         /// </summary>
+        /// <value>Subscribe to lists</value>
         [DataMember(Name="subscribe_lists", EmitDefaultValue=false)]
         public List<string> SubscribeLists { get; set; }
         /// <summary>
-        /// Gets or Sets UnsubscribeLists
+        /// Unsubscribe from lists
         /// </summary>
+        /// <value>Unsubscribe from lists</value>
         [DataMember(Name="unsubscribe_lists", EmitDefaultValue=false)]
         public List<string> UnsubscribeLists { get; set; }
         /// <summary>

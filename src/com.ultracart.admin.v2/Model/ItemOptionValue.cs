@@ -40,24 +40,57 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemOptionValue :  IEquatable<ItemOptionValue>
     {
         /// <summary>
+        /// Additional dimensions application
+        /// </summary>
+        /// <value>Additional dimensions application</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AdditionalDimensionApplicationEnum
+        {
+            
+            /// <summary>
+            /// Enum None for "none"
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None,
+            
+            /// <summary>
+            /// Enum Setitemto for "set item to"
+            /// </summary>
+            [EnumMember(Value = "set item to")]
+            Setitemto,
+            
+            /// <summary>
+            /// Enum Additem for "add item"
+            /// </summary>
+            [EnumMember(Value = "add item")]
+            Additem
+        }
+
+        /// <summary>
+        /// Additional dimensions application
+        /// </summary>
+        /// <value>Additional dimensions application</value>
+        [DataMember(Name="additional_dimension_application", EmitDefaultValue=false)]
+        public AdditionalDimensionApplicationEnum? AdditionalDimensionApplication { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemOptionValue" /> class.
         /// </summary>
-        /// <param name="AdditionalDimensionApplication">AdditionalDimensionApplication.</param>
-        /// <param name="AdditionalItems">AdditionalItems.</param>
-        /// <param name="CostChange">CostChange.</param>
-        /// <param name="DefaultValue">DefaultValue.</param>
-        /// <param name="DigitalItems">DigitalItems.</param>
+        /// <param name="AdditionalDimensionApplication">Additional dimensions application.</param>
+        /// <param name="AdditionalItems">Additional items to add to the order if this value is selected.</param>
+        /// <param name="CostChange">Cost change.</param>
+        /// <param name="DefaultValue">True if default value.</param>
+        /// <param name="DigitalItems">Digital items to allow the customer to download if this option value is selected.</param>
         /// <param name="Height">Height.</param>
         /// <param name="Length">Length.</param>
-        /// <param name="MerchantItemMultimediaOid">MerchantItemMultimediaOid.</param>
-        /// <param name="OptionValueOid">OptionValueOid.</param>
-        /// <param name="PercentCostChange">PercentCostChange.</param>
-        /// <param name="TranslatedTextInstanceOid">TranslatedTextInstanceOid.</param>
+        /// <param name="MerchantItemMultimediaOid">Multimedia object identifier associated with this option value.</param>
+        /// <param name="OptionValueOid">Option value object identifier.</param>
+        /// <param name="PercentCostChange">Percentage cost change.</param>
+        /// <param name="TranslatedTextInstanceOid">Translated text instance id.</param>
         /// <param name="Value">Value.</param>
         /// <param name="WeightChange">WeightChange.</param>
-        /// <param name="WeightChangePercent">WeightChangePercent.</param>
+        /// <param name="WeightChangePercent">Percentage weight change.</param>
         /// <param name="Width">Width.</param>
-        public ItemOptionValue(string AdditionalDimensionApplication = null, List<ItemOptionValueAdditionalItem> AdditionalItems = null, double? CostChange = null, bool? DefaultValue = null, List<ItemOptionValueDigitalItem> DigitalItems = null, Distance Height = null, Distance Length = null, int? MerchantItemMultimediaOid = null, int? OptionValueOid = null, double? PercentCostChange = null, int? TranslatedTextInstanceOid = null, string Value = null, Weight WeightChange = null, double? WeightChangePercent = null, Distance Width = null)
+        public ItemOptionValue(AdditionalDimensionApplicationEnum? AdditionalDimensionApplication = null, List<ItemOptionValueAdditionalItem> AdditionalItems = null, decimal? CostChange = null, bool? DefaultValue = null, List<ItemOptionValueDigitalItem> DigitalItems = null, Distance Height = null, Distance Length = null, int? MerchantItemMultimediaOid = null, int? OptionValueOid = null, decimal? PercentCostChange = null, int? TranslatedTextInstanceOid = null, string Value = null, Weight WeightChange = null, decimal? WeightChangePercent = null, Distance Width = null)
         {
             this.AdditionalDimensionApplication = AdditionalDimensionApplication;
             this.AdditionalItems = AdditionalItems;
@@ -77,28 +110,27 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AdditionalDimensionApplication
+        /// Additional items to add to the order if this value is selected
         /// </summary>
-        [DataMember(Name="additional_dimension_application", EmitDefaultValue=false)]
-        public string AdditionalDimensionApplication { get; set; }
-        /// <summary>
-        /// Gets or Sets AdditionalItems
-        /// </summary>
+        /// <value>Additional items to add to the order if this value is selected</value>
         [DataMember(Name="additional_items", EmitDefaultValue=false)]
         public List<ItemOptionValueAdditionalItem> AdditionalItems { get; set; }
         /// <summary>
-        /// Gets or Sets CostChange
+        /// Cost change
         /// </summary>
+        /// <value>Cost change</value>
         [DataMember(Name="cost_change", EmitDefaultValue=false)]
-        public double? CostChange { get; set; }
+        public decimal? CostChange { get; set; }
         /// <summary>
-        /// Gets or Sets DefaultValue
+        /// True if default value
         /// </summary>
+        /// <value>True if default value</value>
         [DataMember(Name="default_value", EmitDefaultValue=false)]
         public bool? DefaultValue { get; set; }
         /// <summary>
-        /// Gets or Sets DigitalItems
+        /// Digital items to allow the customer to download if this option value is selected
         /// </summary>
+        /// <value>Digital items to allow the customer to download if this option value is selected</value>
         [DataMember(Name="digital_items", EmitDefaultValue=false)]
         public List<ItemOptionValueDigitalItem> DigitalItems { get; set; }
         /// <summary>
@@ -112,28 +144,33 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="length", EmitDefaultValue=false)]
         public Distance Length { get; set; }
         /// <summary>
-        /// Gets or Sets MerchantItemMultimediaOid
+        /// Multimedia object identifier associated with this option value
         /// </summary>
+        /// <value>Multimedia object identifier associated with this option value</value>
         [DataMember(Name="merchant_item_multimedia_oid", EmitDefaultValue=false)]
         public int? MerchantItemMultimediaOid { get; set; }
         /// <summary>
-        /// Gets or Sets OptionValueOid
+        /// Option value object identifier
         /// </summary>
+        /// <value>Option value object identifier</value>
         [DataMember(Name="option_value_oid", EmitDefaultValue=false)]
         public int? OptionValueOid { get; set; }
         /// <summary>
-        /// Gets or Sets PercentCostChange
+        /// Percentage cost change
         /// </summary>
+        /// <value>Percentage cost change</value>
         [DataMember(Name="percent_cost_change", EmitDefaultValue=false)]
-        public double? PercentCostChange { get; set; }
+        public decimal? PercentCostChange { get; set; }
         /// <summary>
-        /// Gets or Sets TranslatedTextInstanceOid
+        /// Translated text instance id
         /// </summary>
+        /// <value>Translated text instance id</value>
         [DataMember(Name="translated_text_instance_oid", EmitDefaultValue=false)]
         public int? TranslatedTextInstanceOid { get; set; }
         /// <summary>
-        /// Gets or Sets Value
+        /// Value
         /// </summary>
+        /// <value>Value</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
         /// <summary>
@@ -142,10 +179,11 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="weight_change", EmitDefaultValue=false)]
         public Weight WeightChange { get; set; }
         /// <summary>
-        /// Gets or Sets WeightChangePercent
+        /// Percentage weight change
         /// </summary>
+        /// <value>Percentage weight change</value>
         [DataMember(Name="weight_change_percent", EmitDefaultValue=false)]
-        public double? WeightChangePercent { get; set; }
+        public decimal? WeightChangePercent { get; set; }
         /// <summary>
         /// Gets or Sets Width
         /// </summary>

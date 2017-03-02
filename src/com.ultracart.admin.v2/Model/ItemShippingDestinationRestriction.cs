@@ -40,33 +40,57 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemShippingDestinationRestriction :  IEquatable<ItemShippingDestinationRestriction>
     {
         /// <summary>
+        /// Validity
+        /// </summary>
+        /// <value>Validity</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ValidityEnum
+        {
+            
+            /// <summary>
+            /// Enum Validonlyfor for "valid only for"
+            /// </summary>
+            [EnumMember(Value = "valid only for")]
+            Validonlyfor,
+            
+            /// <summary>
+            /// Enum Invalidfor for "invalid for"
+            /// </summary>
+            [EnumMember(Value = "invalid for")]
+            Invalidfor
+        }
+
+        /// <summary>
+        /// Validity
+        /// </summary>
+        /// <value>Validity</value>
+        [DataMember(Name="validity", EmitDefaultValue=false)]
+        public ValidityEnum? Validity { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingDestinationRestriction" /> class.
         /// </summary>
-        /// <param name="Country">Country.</param>
+        /// <param name="CountryCode">Country code (ISO-3166 two letter).</param>
         /// <param name="State">State.</param>
         /// <param name="Validity">Validity.</param>
-        public ItemShippingDestinationRestriction(string Country = null, string State = null, string Validity = null)
+        public ItemShippingDestinationRestriction(string CountryCode = null, string State = null, ValidityEnum? Validity = null)
         {
-            this.Country = Country;
+            this.CountryCode = CountryCode;
             this.State = State;
             this.Validity = Validity;
         }
         
         /// <summary>
-        /// Gets or Sets Country
+        /// Country code (ISO-3166 two letter)
         /// </summary>
-        [DataMember(Name="country", EmitDefaultValue=false)]
-        public string Country { get; set; }
+        /// <value>Country code (ISO-3166 two letter)</value>
+        [DataMember(Name="country_code", EmitDefaultValue=false)]
+        public string CountryCode { get; set; }
         /// <summary>
-        /// Gets or Sets State
+        /// State
         /// </summary>
+        /// <value>State</value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; set; }
-        /// <summary>
-        /// Gets or Sets Validity
-        /// </summary>
-        [DataMember(Name="validity", EmitDefaultValue=false)]
-        public string Validity { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -75,7 +99,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ItemShippingDestinationRestriction {\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Validity: ").Append(Validity).Append("\n");
             sb.Append("}\n");
@@ -115,9 +139,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.Country == other.Country ||
-                    this.Country != null &&
-                    this.Country.Equals(other.Country)
+                    this.CountryCode == other.CountryCode ||
+                    this.CountryCode != null &&
+                    this.CountryCode.Equals(other.CountryCode)
                 ) && 
                 (
                     this.State == other.State ||
@@ -142,8 +166,8 @@ namespace com.ultracart.admin.v2.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Country != null)
-                    hash = hash * 59 + this.Country.GetHashCode();
+                if (this.CountryCode != null)
+                    hash = hash * 59 + this.CountryCode.GetHashCode();
                 if (this.State != null)
                     hash = hash * 59 + this.State.GetHashCode();
                 if (this.Validity != null)

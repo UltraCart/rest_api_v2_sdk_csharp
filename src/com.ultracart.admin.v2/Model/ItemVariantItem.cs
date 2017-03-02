@@ -43,10 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ItemVariantItem" /> class.
         /// </summary>
         /// <param name="Description">Description.</param>
-        /// <param name="MerchantItemMultimediaOid">MerchantItemMultimediaOid.</param>
-        /// <param name="VariantMerchantItemId">VariantMerchantItemId.</param>
-        /// <param name="VariantMerchantItemOid">VariantMerchantItemOid.</param>
-        /// <param name="VariationOptions">VariationOptions.</param>
+        /// <param name="MerchantItemMultimediaOid">Multimedia object identifier.</param>
+        /// <param name="VariantMerchantItemId">Variant item id.</param>
+        /// <param name="VariantMerchantItemOid">Variant item object identifier.</param>
+        /// <param name="VariationOptions">Variation options.</param>
         /// <param name="Variations">Variations.</param>
         public ItemVariantItem(string Description = null, int? MerchantItemMultimediaOid = null, string VariantMerchantItemId = null, int? VariantMerchantItemOid = null, List<string> VariationOptions = null, List<string> Variations = null)
         {
@@ -59,33 +59,39 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Description
+        /// Description
         /// </summary>
+        /// <value>Description</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
         /// <summary>
-        /// Gets or Sets MerchantItemMultimediaOid
+        /// Multimedia object identifier
         /// </summary>
+        /// <value>Multimedia object identifier</value>
         [DataMember(Name="merchant_item_multimedia_oid", EmitDefaultValue=false)]
         public int? MerchantItemMultimediaOid { get; set; }
         /// <summary>
-        /// Gets or Sets VariantMerchantItemId
+        /// Variant item id
         /// </summary>
+        /// <value>Variant item id</value>
         [DataMember(Name="variant_merchant_item_id", EmitDefaultValue=false)]
         public string VariantMerchantItemId { get; set; }
         /// <summary>
-        /// Gets or Sets VariantMerchantItemOid
+        /// Variant item object identifier
         /// </summary>
+        /// <value>Variant item object identifier</value>
         [DataMember(Name="variant_merchant_item_oid", EmitDefaultValue=false)]
         public int? VariantMerchantItemOid { get; set; }
         /// <summary>
-        /// Gets or Sets VariationOptions
+        /// Variation options
         /// </summary>
+        /// <value>Variation options</value>
         [DataMember(Name="variation_options", EmitDefaultValue=false)]
         public List<string> VariationOptions { get; set; }
         /// <summary>
-        /// Gets or Sets Variations
+        /// Variations
         /// </summary>
+        /// <value>Variations</value>
         [DataMember(Name="variations", EmitDefaultValue=false)]
         public List<string> Variations { get; set; }
         /// <summary>

@@ -42,12 +42,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemEbayMarketListing" /> class.
         /// </summary>
-        /// <param name="AuctionId">AuctionId.</param>
+        /// <param name="AuctionId">Auction ID.</param>
         /// <param name="Price">Price.</param>
         /// <param name="Seller">Seller.</param>
         /// <param name="Shipping">Shipping.</param>
         /// <param name="Total">Total.</param>
-        public ItemEbayMarketListing(string AuctionId = null, double? Price = null, string Seller = null, double? Shipping = null, double? Total = null)
+        public ItemEbayMarketListing(string AuctionId = null, decimal? Price = null, string Seller = null, decimal? Shipping = null, decimal? Total = null)
         {
             this.AuctionId = AuctionId;
             this.Price = Price;
@@ -57,30 +57,35 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AuctionId
+        /// Auction ID
         /// </summary>
+        /// <value>Auction ID</value>
         [DataMember(Name="auction_id", EmitDefaultValue=false)]
         public string AuctionId { get; set; }
         /// <summary>
-        /// Gets or Sets Price
+        /// Price
         /// </summary>
+        /// <value>Price</value>
         [DataMember(Name="price", EmitDefaultValue=false)]
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
         /// <summary>
-        /// Gets or Sets Seller
+        /// Seller
         /// </summary>
+        /// <value>Seller</value>
         [DataMember(Name="seller", EmitDefaultValue=false)]
         public string Seller { get; set; }
         /// <summary>
-        /// Gets or Sets Shipping
+        /// Shipping
         /// </summary>
+        /// <value>Shipping</value>
         [DataMember(Name="shipping", EmitDefaultValue=false)]
-        public double? Shipping { get; set; }
+        public decimal? Shipping { get; set; }
         /// <summary>
-        /// Gets or Sets Total
+        /// Total
         /// </summary>
+        /// <value>Total</value>
         [DataMember(Name="total", EmitDefaultValue=false)]
-        public double? Total { get; set; }
+        public decimal? Total { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

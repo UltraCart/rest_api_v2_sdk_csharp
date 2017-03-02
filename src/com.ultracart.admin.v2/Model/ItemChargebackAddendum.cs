@@ -42,10 +42,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemChargebackAddendum" /> class.
         /// </summary>
-        /// <param name="ChargebackAddendumOid">ChargebackAddendumOid.</param>
+        /// <param name="ChargebackAddendumOid">Chargeback addendum object identifier.</param>
         /// <param name="Description">Description.</param>
-        /// <param name="FileSize">FileSize.</param>
-        /// <param name="Pages">Pages.</param>
+        /// <param name="FileSize">Size of the file.</param>
+        /// <param name="Pages">Number of pages.</param>
         public ItemChargebackAddendum(int? ChargebackAddendumOid = null, string Description = null, int? FileSize = null, int? Pages = null)
         {
             this.ChargebackAddendumOid = ChargebackAddendumOid;
@@ -55,23 +55,27 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets ChargebackAddendumOid
+        /// Chargeback addendum object identifier
         /// </summary>
+        /// <value>Chargeback addendum object identifier</value>
         [DataMember(Name="chargeback_addendum_oid", EmitDefaultValue=false)]
         public int? ChargebackAddendumOid { get; set; }
         /// <summary>
-        /// Gets or Sets Description
+        /// Description
         /// </summary>
+        /// <value>Description</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
         /// <summary>
-        /// Gets or Sets FileSize
+        /// Size of the file
         /// </summary>
+        /// <value>Size of the file</value>
         [DataMember(Name="file_size", EmitDefaultValue=false)]
         public int? FileSize { get; set; }
         /// <summary>
-        /// Gets or Sets Pages
+        /// Number of pages
         /// </summary>
+        /// <value>Number of pages</value>
         [DataMember(Name="pages", EmitDefaultValue=false)]
         public int? Pages { get; set; }
         /// <summary>

@@ -42,12 +42,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemKitComponent" /> class.
         /// </summary>
-        /// <param name="ComponentCost">ComponentCost.</param>
-        /// <param name="ComponentDescription">ComponentDescription.</param>
-        /// <param name="ComponentMerchantItemId">ComponentMerchantItemId.</param>
-        /// <param name="ComponentMerchantItemOid">ComponentMerchantItemOid.</param>
+        /// <param name="ComponentCost">Component item cost.</param>
+        /// <param name="ComponentDescription">Component item description.</param>
+        /// <param name="ComponentMerchantItemId">Component item ID.</param>
+        /// <param name="ComponentMerchantItemOid">Component item object identifier.</param>
         /// <param name="Quantity">Quantity.</param>
-        public ItemKitComponent(double? ComponentCost = null, string ComponentDescription = null, string ComponentMerchantItemId = null, int? ComponentMerchantItemOid = null, int? Quantity = null)
+        public ItemKitComponent(decimal? ComponentCost = null, string ComponentDescription = null, string ComponentMerchantItemId = null, int? ComponentMerchantItemOid = null, int? Quantity = null)
         {
             this.ComponentCost = ComponentCost;
             this.ComponentDescription = ComponentDescription;
@@ -57,28 +57,33 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets ComponentCost
+        /// Component item cost
         /// </summary>
-        [DataMember(Name="component_Cost", EmitDefaultValue=false)]
-        public double? ComponentCost { get; set; }
+        /// <value>Component item cost</value>
+        [DataMember(Name="component_cost", EmitDefaultValue=false)]
+        public decimal? ComponentCost { get; set; }
         /// <summary>
-        /// Gets or Sets ComponentDescription
+        /// Component item description
         /// </summary>
+        /// <value>Component item description</value>
         [DataMember(Name="component_description", EmitDefaultValue=false)]
         public string ComponentDescription { get; set; }
         /// <summary>
-        /// Gets or Sets ComponentMerchantItemId
+        /// Component item ID
         /// </summary>
+        /// <value>Component item ID</value>
         [DataMember(Name="component_merchant_item_id", EmitDefaultValue=false)]
         public string ComponentMerchantItemId { get; set; }
         /// <summary>
-        /// Gets or Sets ComponentMerchantItemOid
+        /// Component item object identifier
         /// </summary>
+        /// <value>Component item object identifier</value>
         [DataMember(Name="component_merchant_item_oid", EmitDefaultValue=false)]
         public int? ComponentMerchantItemOid { get; set; }
         /// <summary>
-        /// Gets or Sets Quantity
+        /// Quantity
         /// </summary>
+        /// <value>Quantity</value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public int? Quantity { get; set; }
         /// <summary>

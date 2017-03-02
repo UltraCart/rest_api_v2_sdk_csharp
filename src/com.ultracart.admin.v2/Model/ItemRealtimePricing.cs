@@ -42,9 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRealtimePricing" /> class.
         /// </summary>
-        /// <param name="RealtimePricingParameter">RealtimePricingParameter.</param>
-        /// <param name="RealtimePricingProvider">RealtimePricingProvider.</param>
-        /// <param name="RealtimePricingProviderOid">RealtimePricingProviderOid.</param>
+        /// <param name="RealtimePricingParameter">Real-time pricing provider parameters.</param>
+        /// <param name="RealtimePricingProvider">Real-time pricing provider name.</param>
+        /// <param name="RealtimePricingProviderOid">Real-time pricing provide object identifier.</param>
         public ItemRealtimePricing(string RealtimePricingParameter = null, string RealtimePricingProvider = null, int? RealtimePricingProviderOid = null)
         {
             this.RealtimePricingParameter = RealtimePricingParameter;
@@ -53,18 +53,21 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets RealtimePricingParameter
+        /// Real-time pricing provider parameters
         /// </summary>
+        /// <value>Real-time pricing provider parameters</value>
         [DataMember(Name="realtime_pricing_parameter", EmitDefaultValue=false)]
         public string RealtimePricingParameter { get; set; }
         /// <summary>
-        /// Gets or Sets RealtimePricingProvider
+        /// Real-time pricing provider name
         /// </summary>
+        /// <value>Real-time pricing provider name</value>
         [DataMember(Name="realtime_pricing_provider", EmitDefaultValue=false)]
         public string RealtimePricingProvider { get; set; }
         /// <summary>
-        /// Gets or Sets RealtimePricingProviderOid
+        /// Real-time pricing provide object identifier
         /// </summary>
+        /// <value>Real-time pricing provide object identifier</value>
         [DataMember(Name="realtime_pricing_provider_oid", EmitDefaultValue=false)]
         public int? RealtimePricingProviderOid { get; set; }
         /// <summary>

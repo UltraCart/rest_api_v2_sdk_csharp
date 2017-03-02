@@ -42,60 +42,61 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShipping" /> class.
         /// </summary>
-        /// <param name="AllowBackOrder">AllowBackOrder.</param>
-        /// <param name="AmazonFba">AmazonFba.</param>
-        /// <param name="CaseInnerPacks">CaseInnerPacks.</param>
-        /// <param name="CaseUnits">CaseUnits.</param>
+        /// <param name="AllowBackOrder">Allow back order.</param>
+        /// <param name="AmazonFba">Fulfillment by Amazon.com.</param>
+        /// <param name="CaseInnerPacks">Case inner packs.</param>
+        /// <param name="CaseUnits">Case units.</param>
         /// <param name="Cases">Cases.</param>
-        /// <param name="CountryOfOrigin">CountryOfOrigin.</param>
-        /// <param name="CustomsDescription">CustomsDescription.</param>
-        /// <param name="CustomsValue">CustomsValue.</param>
-        /// <param name="DeliveryOnFriday">DeliveryOnFriday.</param>
-        /// <param name="DeliveryOnMonday">DeliveryOnMonday.</param>
-        /// <param name="DeliveryOnSaturday">DeliveryOnSaturday.</param>
-        /// <param name="DeliveryOnSunday">DeliveryOnSunday.</param>
-        /// <param name="DeliveryOnThursday">DeliveryOnThursday.</param>
-        /// <param name="DeliveryOnTuesday">DeliveryOnTuesday.</param>
-        /// <param name="DeliveryOnWednesday">DeliveryOnWednesday.</param>
-        /// <param name="DestinationMarkups">DestinationMarkups.</param>
-        /// <param name="DestinationRestrictions">DestinationRestrictions.</param>
-        /// <param name="DistributionCenters">DistributionCenters.</param>
-        /// <param name="Eta">Eta.</param>
-        /// <param name="FreeShipping">FreeShipping.</param>
-        /// <param name="FreightClass">FreightClass.</param>
-        /// <param name="Hazmat">Hazmat.</param>
-        /// <param name="MadeToOrder">MadeToOrder.</param>
-        /// <param name="MadeToOrderLeadTime">MadeToOrderLeadTime.</param>
-        /// <param name="MaxDaysTimeInTransit">MaxDaysTimeInTransit.</param>
+        /// <param name="CountryCodeOfOrigin">Country code of origin for customs forms.  (ISO-3166 two letter code).</param>
+        /// <param name="CustomsDescription">Customs description.</param>
+        /// <param name="CustomsValue">Customs value.</param>
+        /// <param name="DeliveryOnFriday">Delivery on Friday.</param>
+        /// <param name="DeliveryOnMonday">Delivery on Monday.</param>
+        /// <param name="DeliveryOnSaturday">Delivery on Saturday.</param>
+        /// <param name="DeliveryOnSunday">Delivery on Sunday.</param>
+        /// <param name="DeliveryOnThursday">Delivery on Thursday.</param>
+        /// <param name="DeliveryOnTuesday">Delivery on Tuesday.</param>
+        /// <param name="DeliveryOnWednesday">Delivery on Wednesday.</param>
+        /// <param name="DestinationMarkups">Destination markups.</param>
+        /// <param name="DestinationRestrictions">Destination restrictions.</param>
+        /// <param name="DistributionCenters">Distribution centers.</param>
+        /// <param name="Eta">Estimated time of arrival.</param>
+        /// <param name="FreeShipping">Qualifies for free shipping.</param>
+        /// <param name="FreightClass">Freight class.</param>
+        /// <param name="Hazmat">Hazardous material.</param>
+        /// <param name="MadeToOrder">True if this item is made to order.</param>
+        /// <param name="MadeToOrderLeadTime">Number of days lead time it takes to make the item before ite can ship.</param>
+        /// <param name="MaxDaysTimeInTransit">Maximum days allowed in transit.</param>
         /// <param name="Methods">Methods.</param>
-        /// <param name="NoShippingDiscount">NoShippingDiscount.</param>
-        /// <param name="PackageRequirements">PackageRequirements.</param>
-        /// <param name="PerishableClassOid">PerishableClassOid.</param>
-        /// <param name="Preorder">Preorder.</param>
-        /// <param name="RequireDeliveryDate">RequireDeliveryDate.</param>
-        /// <param name="RestrictShipmentOnFriday">RestrictShipmentOnFriday.</param>
-        /// <param name="RestrictShipmentOnMonday">RestrictShipmentOnMonday.</param>
-        /// <param name="RestrictShipmentOnSaturday">RestrictShipmentOnSaturday.</param>
-        /// <param name="RestrictShipmentOnSunday">RestrictShipmentOnSunday.</param>
-        /// <param name="RestrictShipmentOnThursday">RestrictShipmentOnThursday.</param>
-        /// <param name="RestrictShipmentOnTuesday">RestrictShipmentOnTuesday.</param>
-        /// <param name="RestrictShipmentOnWednesday">RestrictShipmentOnWednesday.</param>
-        /// <param name="ShipSeparately">ShipSeparately.</param>
+        /// <param name="NoShippingDiscount">No shipping discounts.</param>
+        /// <param name="PackageRequirements">Package requirements.</param>
+        /// <param name="PerishableClassName">Perishable class name.</param>
+        /// <param name="PerishableClassOid">Perishable class object identifier.</param>
+        /// <param name="Preorder">This item is on pre-order.</param>
+        /// <param name="RequireDeliveryDate">True to require customer to select a delivery date.</param>
+        /// <param name="RestrictShipmentOnFriday">Restrict shipment on Friday.</param>
+        /// <param name="RestrictShipmentOnMonday">Restrict shipment on Monday.</param>
+        /// <param name="RestrictShipmentOnSaturday">Restrict shipment on Saturday.</param>
+        /// <param name="RestrictShipmentOnSunday">Restrict shipment on Sunday.</param>
+        /// <param name="RestrictShipmentOnThursday">Restrict shipment on Thursday.</param>
+        /// <param name="RestrictShipmentOnTuesday">Restrict shipment on Tuesday.</param>
+        /// <param name="RestrictShipmentOnWednesday">Restrict shipment on Wednesday.</param>
+        /// <param name="ShipSeparately">Ship this item in a separate box.</param>
         /// <param name="ShipSeparatelyAdditionalWeight">ShipSeparatelyAdditionalWeight.</param>
         /// <param name="ShipSeparatelyHeight">ShipSeparatelyHeight.</param>
         /// <param name="ShipSeparatelyLength">ShipSeparatelyLength.</param>
-        /// <param name="ShipSeparatelyPackageSpecialType">ShipSeparatelyPackageSpecialType.</param>
+        /// <param name="ShipSeparatelyPackageSpecialType">Ship separately package special type.</param>
         /// <param name="ShipSeparatelyWidth">ShipSeparatelyWidth.</param>
-        /// <param name="SpecialProductType">SpecialProductType.</param>
-        /// <param name="TrackInventory">TrackInventory.</param>
-        public ItemShipping(bool? AllowBackOrder = null, bool? AmazonFba = null, int? CaseInnerPacks = null, int? CaseUnits = null, List<ItemShippingCase> Cases = null, string CountryOfOrigin = null, string CustomsDescription = null, double? CustomsValue = null, bool? DeliveryOnFriday = null, bool? DeliveryOnMonday = null, bool? DeliveryOnSaturday = null, bool? DeliveryOnSunday = null, bool? DeliveryOnThursday = null, bool? DeliveryOnTuesday = null, bool? DeliveryOnWednesday = null, List<ItemShippingDestinationMarkup> DestinationMarkups = null, List<ItemShippingDestinationRestriction> DestinationRestrictions = null, List<ItemShippingDistributionCenter> DistributionCenters = null, string Eta = null, bool? FreeShipping = null, string FreightClass = null, bool? Hazmat = null, bool? MadeToOrder = null, int? MadeToOrderLeadTime = null, int? MaxDaysTimeInTransit = null, List<ItemShippingMethod> Methods = null, bool? NoShippingDiscount = null, List<ItemShippingPackageRequirement> PackageRequirements = null, int? PerishableClassOid = null, bool? Preorder = null, bool? RequireDeliveryDate = null, bool? RestrictShipmentOnFriday = null, bool? RestrictShipmentOnMonday = null, bool? RestrictShipmentOnSaturday = null, bool? RestrictShipmentOnSunday = null, bool? RestrictShipmentOnThursday = null, bool? RestrictShipmentOnTuesday = null, bool? RestrictShipmentOnWednesday = null, bool? ShipSeparately = null, Weight ShipSeparatelyAdditionalWeight = null, Distance ShipSeparatelyHeight = null, Distance ShipSeparatelyLength = null, string ShipSeparatelyPackageSpecialType = null, Distance ShipSeparatelyWidth = null, string SpecialProductType = null, bool? TrackInventory = null)
+        /// <param name="SpecialProductType">Special product type (USPS Media Mail).</param>
+        /// <param name="TrackInventory">Track inventory.</param>
+        public ItemShipping(bool? AllowBackOrder = null, bool? AmazonFba = null, int? CaseInnerPacks = null, int? CaseUnits = null, List<ItemShippingCase> Cases = null, string CountryCodeOfOrigin = null, string CustomsDescription = null, decimal? CustomsValue = null, bool? DeliveryOnFriday = null, bool? DeliveryOnMonday = null, bool? DeliveryOnSaturday = null, bool? DeliveryOnSunday = null, bool? DeliveryOnThursday = null, bool? DeliveryOnTuesday = null, bool? DeliveryOnWednesday = null, List<ItemShippingDestinationMarkup> DestinationMarkups = null, List<ItemShippingDestinationRestriction> DestinationRestrictions = null, List<ItemShippingDistributionCenter> DistributionCenters = null, string Eta = null, bool? FreeShipping = null, string FreightClass = null, bool? Hazmat = null, bool? MadeToOrder = null, int? MadeToOrderLeadTime = null, int? MaxDaysTimeInTransit = null, List<ItemShippingMethod> Methods = null, bool? NoShippingDiscount = null, List<ItemShippingPackageRequirement> PackageRequirements = null, string PerishableClassName = null, int? PerishableClassOid = null, bool? Preorder = null, bool? RequireDeliveryDate = null, bool? RestrictShipmentOnFriday = null, bool? RestrictShipmentOnMonday = null, bool? RestrictShipmentOnSaturday = null, bool? RestrictShipmentOnSunday = null, bool? RestrictShipmentOnThursday = null, bool? RestrictShipmentOnTuesday = null, bool? RestrictShipmentOnWednesday = null, bool? ShipSeparately = null, Weight ShipSeparatelyAdditionalWeight = null, Distance ShipSeparatelyHeight = null, Distance ShipSeparatelyLength = null, string ShipSeparatelyPackageSpecialType = null, Distance ShipSeparatelyWidth = null, string SpecialProductType = null, bool? TrackInventory = null)
         {
             this.AllowBackOrder = AllowBackOrder;
             this.AmazonFba = AmazonFba;
             this.CaseInnerPacks = CaseInnerPacks;
             this.CaseUnits = CaseUnits;
             this.Cases = Cases;
-            this.CountryOfOrigin = CountryOfOrigin;
+            this.CountryCodeOfOrigin = CountryCodeOfOrigin;
             this.CustomsDescription = CustomsDescription;
             this.CustomsValue = CustomsValue;
             this.DeliveryOnFriday = DeliveryOnFriday;
@@ -118,6 +119,7 @@ namespace com.ultracart.admin.v2.Model
             this.Methods = Methods;
             this.NoShippingDiscount = NoShippingDiscount;
             this.PackageRequirements = PackageRequirements;
+            this.PerishableClassName = PerishableClassName;
             this.PerishableClassOid = PerishableClassOid;
             this.Preorder = Preorder;
             this.RequireDeliveryDate = RequireDeliveryDate;
@@ -139,198 +141,243 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AllowBackOrder
+        /// Allow back order
         /// </summary>
+        /// <value>Allow back order</value>
         [DataMember(Name="allow_back_order", EmitDefaultValue=false)]
         public bool? AllowBackOrder { get; set; }
         /// <summary>
-        /// Gets or Sets AmazonFba
+        /// Fulfillment by Amazon.com
         /// </summary>
+        /// <value>Fulfillment by Amazon.com</value>
         [DataMember(Name="amazon_fba", EmitDefaultValue=false)]
         public bool? AmazonFba { get; set; }
         /// <summary>
-        /// Gets or Sets CaseInnerPacks
+        /// Case inner packs
         /// </summary>
+        /// <value>Case inner packs</value>
         [DataMember(Name="case_inner_packs", EmitDefaultValue=false)]
         public int? CaseInnerPacks { get; set; }
         /// <summary>
-        /// Gets or Sets CaseUnits
+        /// Case units
         /// </summary>
+        /// <value>Case units</value>
         [DataMember(Name="case_units", EmitDefaultValue=false)]
         public int? CaseUnits { get; set; }
         /// <summary>
-        /// Gets or Sets Cases
+        /// Cases
         /// </summary>
+        /// <value>Cases</value>
         [DataMember(Name="cases", EmitDefaultValue=false)]
         public List<ItemShippingCase> Cases { get; set; }
         /// <summary>
-        /// Gets or Sets CountryOfOrigin
+        /// Country code of origin for customs forms.  (ISO-3166 two letter code)
         /// </summary>
-        [DataMember(Name="country_of_origin", EmitDefaultValue=false)]
-        public string CountryOfOrigin { get; set; }
+        /// <value>Country code of origin for customs forms.  (ISO-3166 two letter code)</value>
+        [DataMember(Name="country_code_of_origin", EmitDefaultValue=false)]
+        public string CountryCodeOfOrigin { get; set; }
         /// <summary>
-        /// Gets or Sets CustomsDescription
+        /// Customs description
         /// </summary>
+        /// <value>Customs description</value>
         [DataMember(Name="customs_description", EmitDefaultValue=false)]
         public string CustomsDescription { get; set; }
         /// <summary>
-        /// Gets or Sets CustomsValue
+        /// Customs value
         /// </summary>
+        /// <value>Customs value</value>
         [DataMember(Name="customs_value", EmitDefaultValue=false)]
-        public double? CustomsValue { get; set; }
+        public decimal? CustomsValue { get; set; }
         /// <summary>
-        /// Gets or Sets DeliveryOnFriday
+        /// Delivery on Friday
         /// </summary>
+        /// <value>Delivery on Friday</value>
         [DataMember(Name="delivery_on_friday", EmitDefaultValue=false)]
         public bool? DeliveryOnFriday { get; set; }
         /// <summary>
-        /// Gets or Sets DeliveryOnMonday
+        /// Delivery on Monday
         /// </summary>
+        /// <value>Delivery on Monday</value>
         [DataMember(Name="delivery_on_monday", EmitDefaultValue=false)]
         public bool? DeliveryOnMonday { get; set; }
         /// <summary>
-        /// Gets or Sets DeliveryOnSaturday
+        /// Delivery on Saturday
         /// </summary>
+        /// <value>Delivery on Saturday</value>
         [DataMember(Name="delivery_on_saturday", EmitDefaultValue=false)]
         public bool? DeliveryOnSaturday { get; set; }
         /// <summary>
-        /// Gets or Sets DeliveryOnSunday
+        /// Delivery on Sunday
         /// </summary>
+        /// <value>Delivery on Sunday</value>
         [DataMember(Name="delivery_on_sunday", EmitDefaultValue=false)]
         public bool? DeliveryOnSunday { get; set; }
         /// <summary>
-        /// Gets or Sets DeliveryOnThursday
+        /// Delivery on Thursday
         /// </summary>
+        /// <value>Delivery on Thursday</value>
         [DataMember(Name="delivery_on_thursday", EmitDefaultValue=false)]
         public bool? DeliveryOnThursday { get; set; }
         /// <summary>
-        /// Gets or Sets DeliveryOnTuesday
+        /// Delivery on Tuesday
         /// </summary>
+        /// <value>Delivery on Tuesday</value>
         [DataMember(Name="delivery_on_tuesday", EmitDefaultValue=false)]
         public bool? DeliveryOnTuesday { get; set; }
         /// <summary>
-        /// Gets or Sets DeliveryOnWednesday
+        /// Delivery on Wednesday
         /// </summary>
+        /// <value>Delivery on Wednesday</value>
         [DataMember(Name="delivery_on_wednesday", EmitDefaultValue=false)]
         public bool? DeliveryOnWednesday { get; set; }
         /// <summary>
-        /// Gets or Sets DestinationMarkups
+        /// Destination markups
         /// </summary>
+        /// <value>Destination markups</value>
         [DataMember(Name="destination_markups", EmitDefaultValue=false)]
         public List<ItemShippingDestinationMarkup> DestinationMarkups { get; set; }
         /// <summary>
-        /// Gets or Sets DestinationRestrictions
+        /// Destination restrictions
         /// </summary>
+        /// <value>Destination restrictions</value>
         [DataMember(Name="destination_restrictions", EmitDefaultValue=false)]
         public List<ItemShippingDestinationRestriction> DestinationRestrictions { get; set; }
         /// <summary>
-        /// Gets or Sets DistributionCenters
+        /// Distribution centers
         /// </summary>
+        /// <value>Distribution centers</value>
         [DataMember(Name="distribution_centers", EmitDefaultValue=false)]
         public List<ItemShippingDistributionCenter> DistributionCenters { get; set; }
         /// <summary>
-        /// Gets or Sets Eta
+        /// Estimated time of arrival
         /// </summary>
+        /// <value>Estimated time of arrival</value>
         [DataMember(Name="eta", EmitDefaultValue=false)]
         public string Eta { get; set; }
         /// <summary>
-        /// Gets or Sets FreeShipping
+        /// Qualifies for free shipping
         /// </summary>
+        /// <value>Qualifies for free shipping</value>
         [DataMember(Name="free_shipping", EmitDefaultValue=false)]
         public bool? FreeShipping { get; set; }
         /// <summary>
-        /// Gets or Sets FreightClass
+        /// Freight class
         /// </summary>
+        /// <value>Freight class</value>
         [DataMember(Name="freight_class", EmitDefaultValue=false)]
         public string FreightClass { get; set; }
         /// <summary>
-        /// Gets or Sets Hazmat
+        /// Hazardous material
         /// </summary>
+        /// <value>Hazardous material</value>
         [DataMember(Name="hazmat", EmitDefaultValue=false)]
         public bool? Hazmat { get; set; }
         /// <summary>
-        /// Gets or Sets MadeToOrder
+        /// True if this item is made to order
         /// </summary>
+        /// <value>True if this item is made to order</value>
         [DataMember(Name="made_to_order", EmitDefaultValue=false)]
         public bool? MadeToOrder { get; set; }
         /// <summary>
-        /// Gets or Sets MadeToOrderLeadTime
+        /// Number of days lead time it takes to make the item before ite can ship
         /// </summary>
+        /// <value>Number of days lead time it takes to make the item before ite can ship</value>
         [DataMember(Name="made_to_order_lead_time", EmitDefaultValue=false)]
         public int? MadeToOrderLeadTime { get; set; }
         /// <summary>
-        /// Gets or Sets MaxDaysTimeInTransit
+        /// Maximum days allowed in transit
         /// </summary>
+        /// <value>Maximum days allowed in transit</value>
         [DataMember(Name="max_days_time_in_transit", EmitDefaultValue=false)]
         public int? MaxDaysTimeInTransit { get; set; }
         /// <summary>
-        /// Gets or Sets Methods
+        /// Methods
         /// </summary>
+        /// <value>Methods</value>
         [DataMember(Name="methods", EmitDefaultValue=false)]
         public List<ItemShippingMethod> Methods { get; set; }
         /// <summary>
-        /// Gets or Sets NoShippingDiscount
+        /// No shipping discounts
         /// </summary>
+        /// <value>No shipping discounts</value>
         [DataMember(Name="no_shipping_discount", EmitDefaultValue=false)]
         public bool? NoShippingDiscount { get; set; }
         /// <summary>
-        /// Gets or Sets PackageRequirements
+        /// Package requirements
         /// </summary>
+        /// <value>Package requirements</value>
         [DataMember(Name="package_requirements", EmitDefaultValue=false)]
         public List<ItemShippingPackageRequirement> PackageRequirements { get; set; }
         /// <summary>
-        /// Gets or Sets PerishableClassOid
+        /// Perishable class name
         /// </summary>
+        /// <value>Perishable class name</value>
+        [DataMember(Name="perishable_class_name", EmitDefaultValue=false)]
+        public string PerishableClassName { get; set; }
+        /// <summary>
+        /// Perishable class object identifier
+        /// </summary>
+        /// <value>Perishable class object identifier</value>
         [DataMember(Name="perishable_class_oid", EmitDefaultValue=false)]
         public int? PerishableClassOid { get; set; }
         /// <summary>
-        /// Gets or Sets Preorder
+        /// This item is on pre-order
         /// </summary>
+        /// <value>This item is on pre-order</value>
         [DataMember(Name="preorder", EmitDefaultValue=false)]
         public bool? Preorder { get; set; }
         /// <summary>
-        /// Gets or Sets RequireDeliveryDate
+        /// True to require customer to select a delivery date
         /// </summary>
+        /// <value>True to require customer to select a delivery date</value>
         [DataMember(Name="require_delivery_date", EmitDefaultValue=false)]
         public bool? RequireDeliveryDate { get; set; }
         /// <summary>
-        /// Gets or Sets RestrictShipmentOnFriday
+        /// Restrict shipment on Friday
         /// </summary>
+        /// <value>Restrict shipment on Friday</value>
         [DataMember(Name="restrict_shipment_on_friday", EmitDefaultValue=false)]
         public bool? RestrictShipmentOnFriday { get; set; }
         /// <summary>
-        /// Gets or Sets RestrictShipmentOnMonday
+        /// Restrict shipment on Monday
         /// </summary>
+        /// <value>Restrict shipment on Monday</value>
         [DataMember(Name="restrict_shipment_on_monday", EmitDefaultValue=false)]
         public bool? RestrictShipmentOnMonday { get; set; }
         /// <summary>
-        /// Gets or Sets RestrictShipmentOnSaturday
+        /// Restrict shipment on Saturday
         /// </summary>
+        /// <value>Restrict shipment on Saturday</value>
         [DataMember(Name="restrict_shipment_on_saturday", EmitDefaultValue=false)]
         public bool? RestrictShipmentOnSaturday { get; set; }
         /// <summary>
-        /// Gets or Sets RestrictShipmentOnSunday
+        /// Restrict shipment on Sunday
         /// </summary>
+        /// <value>Restrict shipment on Sunday</value>
         [DataMember(Name="restrict_shipment_on_sunday", EmitDefaultValue=false)]
         public bool? RestrictShipmentOnSunday { get; set; }
         /// <summary>
-        /// Gets or Sets RestrictShipmentOnThursday
+        /// Restrict shipment on Thursday
         /// </summary>
+        /// <value>Restrict shipment on Thursday</value>
         [DataMember(Name="restrict_shipment_on_thursday", EmitDefaultValue=false)]
         public bool? RestrictShipmentOnThursday { get; set; }
         /// <summary>
-        /// Gets or Sets RestrictShipmentOnTuesday
+        /// Restrict shipment on Tuesday
         /// </summary>
+        /// <value>Restrict shipment on Tuesday</value>
         [DataMember(Name="restrict_shipment_on_tuesday", EmitDefaultValue=false)]
         public bool? RestrictShipmentOnTuesday { get; set; }
         /// <summary>
-        /// Gets or Sets RestrictShipmentOnWednesday
+        /// Restrict shipment on Wednesday
         /// </summary>
+        /// <value>Restrict shipment on Wednesday</value>
         [DataMember(Name="restrict_shipment_on_wednesday", EmitDefaultValue=false)]
         public bool? RestrictShipmentOnWednesday { get; set; }
         /// <summary>
-        /// Gets or Sets ShipSeparately
+        /// Ship this item in a separate box
         /// </summary>
+        /// <value>Ship this item in a separate box</value>
         [DataMember(Name="ship_separately", EmitDefaultValue=false)]
         public bool? ShipSeparately { get; set; }
         /// <summary>
@@ -349,8 +396,9 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="ship_separately_length", EmitDefaultValue=false)]
         public Distance ShipSeparatelyLength { get; set; }
         /// <summary>
-        /// Gets or Sets ShipSeparatelyPackageSpecialType
+        /// Ship separately package special type
         /// </summary>
+        /// <value>Ship separately package special type</value>
         [DataMember(Name="ship_separately_package_special_type", EmitDefaultValue=false)]
         public string ShipSeparatelyPackageSpecialType { get; set; }
         /// <summary>
@@ -359,13 +407,15 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="ship_separately_width", EmitDefaultValue=false)]
         public Distance ShipSeparatelyWidth { get; set; }
         /// <summary>
-        /// Gets or Sets SpecialProductType
+        /// Special product type (USPS Media Mail)
         /// </summary>
+        /// <value>Special product type (USPS Media Mail)</value>
         [DataMember(Name="special_product_type", EmitDefaultValue=false)]
         public string SpecialProductType { get; set; }
         /// <summary>
-        /// Gets or Sets TrackInventory
+        /// Track inventory
         /// </summary>
+        /// <value>Track inventory</value>
         [DataMember(Name="track_inventory", EmitDefaultValue=false)]
         public bool? TrackInventory { get; set; }
         /// <summary>
@@ -381,7 +431,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CaseInnerPacks: ").Append(CaseInnerPacks).Append("\n");
             sb.Append("  CaseUnits: ").Append(CaseUnits).Append("\n");
             sb.Append("  Cases: ").Append(Cases).Append("\n");
-            sb.Append("  CountryOfOrigin: ").Append(CountryOfOrigin).Append("\n");
+            sb.Append("  CountryCodeOfOrigin: ").Append(CountryCodeOfOrigin).Append("\n");
             sb.Append("  CustomsDescription: ").Append(CustomsDescription).Append("\n");
             sb.Append("  CustomsValue: ").Append(CustomsValue).Append("\n");
             sb.Append("  DeliveryOnFriday: ").Append(DeliveryOnFriday).Append("\n");
@@ -404,6 +454,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Methods: ").Append(Methods).Append("\n");
             sb.Append("  NoShippingDiscount: ").Append(NoShippingDiscount).Append("\n");
             sb.Append("  PackageRequirements: ").Append(PackageRequirements).Append("\n");
+            sb.Append("  PerishableClassName: ").Append(PerishableClassName).Append("\n");
             sb.Append("  PerishableClassOid: ").Append(PerishableClassOid).Append("\n");
             sb.Append("  Preorder: ").Append(Preorder).Append("\n");
             sb.Append("  RequireDeliveryDate: ").Append(RequireDeliveryDate).Append("\n");
@@ -484,9 +535,9 @@ namespace com.ultracart.admin.v2.Model
                     this.Cases.SequenceEqual(other.Cases)
                 ) && 
                 (
-                    this.CountryOfOrigin == other.CountryOfOrigin ||
-                    this.CountryOfOrigin != null &&
-                    this.CountryOfOrigin.Equals(other.CountryOfOrigin)
+                    this.CountryCodeOfOrigin == other.CountryCodeOfOrigin ||
+                    this.CountryCodeOfOrigin != null &&
+                    this.CountryCodeOfOrigin.Equals(other.CountryCodeOfOrigin)
                 ) && 
                 (
                     this.CustomsDescription == other.CustomsDescription ||
@@ -597,6 +648,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PackageRequirements == other.PackageRequirements ||
                     this.PackageRequirements != null &&
                     this.PackageRequirements.SequenceEqual(other.PackageRequirements)
+                ) && 
+                (
+                    this.PerishableClassName == other.PerishableClassName ||
+                    this.PerishableClassName != null &&
+                    this.PerishableClassName.Equals(other.PerishableClassName)
                 ) && 
                 (
                     this.PerishableClassOid == other.PerishableClassOid ||
@@ -711,8 +767,8 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.CaseUnits.GetHashCode();
                 if (this.Cases != null)
                     hash = hash * 59 + this.Cases.GetHashCode();
-                if (this.CountryOfOrigin != null)
-                    hash = hash * 59 + this.CountryOfOrigin.GetHashCode();
+                if (this.CountryCodeOfOrigin != null)
+                    hash = hash * 59 + this.CountryCodeOfOrigin.GetHashCode();
                 if (this.CustomsDescription != null)
                     hash = hash * 59 + this.CustomsDescription.GetHashCode();
                 if (this.CustomsValue != null)
@@ -757,6 +813,8 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.NoShippingDiscount.GetHashCode();
                 if (this.PackageRequirements != null)
                     hash = hash * 59 + this.PackageRequirements.GetHashCode();
+                if (this.PerishableClassName != null)
+                    hash = hash * 59 + this.PerishableClassName.GetHashCode();
                 if (this.PerishableClassOid != null)
                     hash = hash * 59 + this.PerishableClassOid.GetHashCode();
                 if (this.Preorder != null)

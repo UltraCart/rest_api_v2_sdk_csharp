@@ -40,24 +40,57 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemShippingMethod :  IEquatable<ItemShippingMethod>
     {
         /// <summary>
+        /// Shipping method validity
+        /// </summary>
+        /// <value>Shipping method validity</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ShippingMethodValidityEnum
+        {
+            
+            /// <summary>
+            /// Enum Invalidfor for "invalid for"
+            /// </summary>
+            [EnumMember(Value = "invalid for")]
+            Invalidfor,
+            
+            /// <summary>
+            /// Enum Validfor for "valid for"
+            /// </summary>
+            [EnumMember(Value = "valid for")]
+            Validfor,
+            
+            /// <summary>
+            /// Enum Validonlyfor for "valid only for"
+            /// </summary>
+            [EnumMember(Value = "valid only for")]
+            Validonlyfor
+        }
+
+        /// <summary>
+        /// Shipping method validity
+        /// </summary>
+        /// <value>Shipping method validity</value>
+        [DataMember(Name="shipping_method_validity", EmitDefaultValue=false)]
+        public ShippingMethodValidityEnum? ShippingMethodValidity { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingMethod" /> class.
         /// </summary>
         /// <param name="Cost">Cost.</param>
-        /// <param name="EachAdditionalItemMarkup">EachAdditionalItemMarkup.</param>
-        /// <param name="FilterToIfAvailable">FilterToIfAvailable.</param>
-        /// <param name="FirstItemMarkup">FirstItemMarkup.</param>
-        /// <param name="FixedShippingCost">FixedShippingCost.</param>
-        /// <param name="FlatFeeMarkup">FlatFeeMarkup.</param>
-        /// <param name="FreeShipping">FreeShipping.</param>
-        /// <param name="PerItemFeeMarkup">PerItemFeeMarkup.</param>
-        /// <param name="PercentageMarkup">PercentageMarkup.</param>
-        /// <param name="PercentageOfItemMarkup">PercentageOfItemMarkup.</param>
-        /// <param name="RelaxRestrictionsOnUpsell">RelaxRestrictionsOnUpsell.</param>
-        /// <param name="ShippingMethod">ShippingMethod.</param>
-        /// <param name="ShippingMethodOid">ShippingMethodOid.</param>
-        /// <param name="ShippingMethodValidity">ShippingMethodValidity.</param>
-        /// <param name="SignatureRequired">SignatureRequired.</param>
-        public ItemShippingMethod(double? Cost = null, double? EachAdditionalItemMarkup = null, bool? FilterToIfAvailable = null, double? FirstItemMarkup = null, double? FixedShippingCost = null, double? FlatFeeMarkup = null, bool? FreeShipping = null, double? PerItemFeeMarkup = null, double? PercentageMarkup = null, double? PercentageOfItemMarkup = null, bool? RelaxRestrictionsOnUpsell = null, string ShippingMethod = null, int? ShippingMethodOid = null, string ShippingMethodValidity = null, bool? SignatureRequired = null)
+        /// <param name="EachAdditionalItemMarkup">Each additional item markup.</param>
+        /// <param name="FilterToIfAvailable">Filter to this method if available.</param>
+        /// <param name="FirstItemMarkup">First item markup.</param>
+        /// <param name="FixedShippingCost">Fixed shipping cost.</param>
+        /// <param name="FlatFeeMarkup">Flat fee markup.</param>
+        /// <param name="FreeShipping">Free shipping.</param>
+        /// <param name="PerItemFeeMarkup">Per item fee markup.</param>
+        /// <param name="PercentageMarkup">Percentage markup.</param>
+        /// <param name="PercentageOfItemMarkup">Percentage of item markup.</param>
+        /// <param name="RelaxRestrictionsOnUpsell">Relax restrictions on upsell.</param>
+        /// <param name="ShippingMethod">Shipping method name.</param>
+        /// <param name="ShippingMethodOid">Shipping method object identifier.</param>
+        /// <param name="ShippingMethodValidity">Shipping method validity.</param>
+        /// <param name="SignatureRequired">Signature required.</param>
+        public ItemShippingMethod(decimal? Cost = null, decimal? EachAdditionalItemMarkup = null, bool? FilterToIfAvailable = null, decimal? FirstItemMarkup = null, decimal? FixedShippingCost = null, decimal? FlatFeeMarkup = null, bool? FreeShipping = null, decimal? PerItemFeeMarkup = null, decimal? PercentageMarkup = null, decimal? PercentageOfItemMarkup = null, bool? RelaxRestrictionsOnUpsell = null, string ShippingMethod = null, int? ShippingMethodOid = null, ShippingMethodValidityEnum? ShippingMethodValidity = null, bool? SignatureRequired = null)
         {
             this.Cost = Cost;
             this.EachAdditionalItemMarkup = EachAdditionalItemMarkup;
@@ -77,78 +110,87 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Cost
+        /// Cost
         /// </summary>
+        /// <value>Cost</value>
         [DataMember(Name="cost", EmitDefaultValue=false)]
-        public double? Cost { get; set; }
+        public decimal? Cost { get; set; }
         /// <summary>
-        /// Gets or Sets EachAdditionalItemMarkup
+        /// Each additional item markup
         /// </summary>
+        /// <value>Each additional item markup</value>
         [DataMember(Name="each_additional_item_markup", EmitDefaultValue=false)]
-        public double? EachAdditionalItemMarkup { get; set; }
+        public decimal? EachAdditionalItemMarkup { get; set; }
         /// <summary>
-        /// Gets or Sets FilterToIfAvailable
+        /// Filter to this method if available
         /// </summary>
+        /// <value>Filter to this method if available</value>
         [DataMember(Name="filter_to_if_available", EmitDefaultValue=false)]
         public bool? FilterToIfAvailable { get; set; }
         /// <summary>
-        /// Gets or Sets FirstItemMarkup
+        /// First item markup
         /// </summary>
+        /// <value>First item markup</value>
         [DataMember(Name="first_item_markup", EmitDefaultValue=false)]
-        public double? FirstItemMarkup { get; set; }
+        public decimal? FirstItemMarkup { get; set; }
         /// <summary>
-        /// Gets or Sets FixedShippingCost
+        /// Fixed shipping cost
         /// </summary>
+        /// <value>Fixed shipping cost</value>
         [DataMember(Name="fixed_shipping_cost", EmitDefaultValue=false)]
-        public double? FixedShippingCost { get; set; }
+        public decimal? FixedShippingCost { get; set; }
         /// <summary>
-        /// Gets or Sets FlatFeeMarkup
+        /// Flat fee markup
         /// </summary>
+        /// <value>Flat fee markup</value>
         [DataMember(Name="flat_fee_markup", EmitDefaultValue=false)]
-        public double? FlatFeeMarkup { get; set; }
+        public decimal? FlatFeeMarkup { get; set; }
         /// <summary>
-        /// Gets or Sets FreeShipping
+        /// Free shipping
         /// </summary>
+        /// <value>Free shipping</value>
         [DataMember(Name="free_shipping", EmitDefaultValue=false)]
         public bool? FreeShipping { get; set; }
         /// <summary>
-        /// Gets or Sets PerItemFeeMarkup
+        /// Per item fee markup
         /// </summary>
+        /// <value>Per item fee markup</value>
         [DataMember(Name="per_item_fee_markup", EmitDefaultValue=false)]
-        public double? PerItemFeeMarkup { get; set; }
+        public decimal? PerItemFeeMarkup { get; set; }
         /// <summary>
-        /// Gets or Sets PercentageMarkup
+        /// Percentage markup
         /// </summary>
+        /// <value>Percentage markup</value>
         [DataMember(Name="percentage_markup", EmitDefaultValue=false)]
-        public double? PercentageMarkup { get; set; }
+        public decimal? PercentageMarkup { get; set; }
         /// <summary>
-        /// Gets or Sets PercentageOfItemMarkup
+        /// Percentage of item markup
         /// </summary>
+        /// <value>Percentage of item markup</value>
         [DataMember(Name="percentage_of_item_markup", EmitDefaultValue=false)]
-        public double? PercentageOfItemMarkup { get; set; }
+        public decimal? PercentageOfItemMarkup { get; set; }
         /// <summary>
-        /// Gets or Sets RelaxRestrictionsOnUpsell
+        /// Relax restrictions on upsell
         /// </summary>
+        /// <value>Relax restrictions on upsell</value>
         [DataMember(Name="relax_restrictions_on_upsell", EmitDefaultValue=false)]
         public bool? RelaxRestrictionsOnUpsell { get; set; }
         /// <summary>
-        /// Gets or Sets ShippingMethod
+        /// Shipping method name
         /// </summary>
+        /// <value>Shipping method name</value>
         [DataMember(Name="shipping_method", EmitDefaultValue=false)]
         public string ShippingMethod { get; set; }
         /// <summary>
-        /// Gets or Sets ShippingMethodOid
+        /// Shipping method object identifier
         /// </summary>
+        /// <value>Shipping method object identifier</value>
         [DataMember(Name="shipping_method_oid", EmitDefaultValue=false)]
         public int? ShippingMethodOid { get; set; }
         /// <summary>
-        /// Gets or Sets ShippingMethodValidity
+        /// Signature required
         /// </summary>
-        [DataMember(Name="shipping_method_validity", EmitDefaultValue=false)]
-        public string ShippingMethodValidity { get; set; }
-        /// <summary>
-        /// Gets or Sets SignatureRequired
-        /// </summary>
+        /// <value>Signature required</value>
         [DataMember(Name="signature_required", EmitDefaultValue=false)]
         public bool? SignatureRequired { get; set; }
         /// <summary>

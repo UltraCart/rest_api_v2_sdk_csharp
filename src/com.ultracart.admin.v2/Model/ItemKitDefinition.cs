@@ -49,8 +49,9 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Components
+        /// Components
         /// </summary>
+        /// <value>Components</value>
         [DataMember(Name="components", EmitDefaultValue=false)]
         public List<ItemKitComponent> Components { get; set; }
         /// <summary>

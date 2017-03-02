@@ -42,10 +42,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
-        /// <param name="DeveloperMessage">DeveloperMessage.</param>
-        /// <param name="ErrorCode">ErrorCode.</param>
-        /// <param name="MoreInfo">MoreInfo.</param>
-        /// <param name="UserMessage">UserMessage.</param>
+        /// <param name="DeveloperMessage">A technical message meant to be read by a developer.</param>
+        /// <param name="ErrorCode">HTTP status code.</param>
+        /// <param name="MoreInfo">Additional information often a link to additional documentation.</param>
+        /// <param name="UserMessage">An end-user friendly message suitable for display to the customer.</param>
         public Error(string DeveloperMessage = null, string ErrorCode = null, string MoreInfo = null, string UserMessage = null)
         {
             this.DeveloperMessage = DeveloperMessage;
@@ -55,23 +55,27 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets DeveloperMessage
+        /// A technical message meant to be read by a developer
         /// </summary>
+        /// <value>A technical message meant to be read by a developer</value>
         [DataMember(Name="developer_message", EmitDefaultValue=false)]
         public string DeveloperMessage { get; set; }
         /// <summary>
-        /// Gets or Sets ErrorCode
+        /// HTTP status code
         /// </summary>
+        /// <value>HTTP status code</value>
         [DataMember(Name="error_code", EmitDefaultValue=false)]
         public string ErrorCode { get; set; }
         /// <summary>
-        /// Gets or Sets MoreInfo
+        /// Additional information often a link to additional documentation
         /// </summary>
+        /// <value>Additional information often a link to additional documentation</value>
         [DataMember(Name="more_info", EmitDefaultValue=false)]
         public string MoreInfo { get; set; }
         /// <summary>
-        /// Gets or Sets UserMessage
+        /// An end-user friendly message suitable for display to the customer
         /// </summary>
+        /// <value>An end-user friendly message suitable for display to the customer</value>
         [DataMember(Name="user_message", EmitDefaultValue=false)]
         public string UserMessage { get; set; }
         /// <summary>

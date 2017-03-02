@@ -40,24 +40,51 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemAutoOrderStep :  IEquatable<ItemAutoOrderStep>
     {
         /// <summary>
+        /// Type of step (item or pause)
+        /// </summary>
+        /// <value>Type of step (item or pause)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Item for "item"
+            /// </summary>
+            [EnumMember(Value = "item")]
+            Item,
+            
+            /// <summary>
+            /// Enum Pause for "pause"
+            /// </summary>
+            [EnumMember(Value = "pause")]
+            Pause
+        }
+
+        /// <summary>
+        /// Type of step (item or pause)
+        /// </summary>
+        /// <value>Type of step (item or pause)</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemAutoOrderStep" /> class.
         /// </summary>
-        /// <param name="ArbitraryScheduleDays">ArbitraryScheduleDays.</param>
-        /// <param name="ArbitraryUnitCost">ArbitraryUnitCost.</param>
-        /// <param name="ArbitraryUnitCostSchedules">ArbitraryUnitCostSchedules.</param>
-        /// <param name="GrandfatherPricing">GrandfatherPricing.</param>
-        /// <param name="ManagedBy">ManagedBy.</param>
-        /// <param name="PauseDays">PauseDays.</param>
-        /// <param name="PauseUnitDate">PauseUnitDate.</param>
-        /// <param name="PreshipmentNoticeDays">PreshipmentNoticeDays.</param>
-        /// <param name="RecurringMerchantItemId">RecurringMerchantItemId.</param>
-        /// <param name="RecurringMerchantItemOid">RecurringMerchantItemOid.</param>
-        /// <param name="RepeatCount">RepeatCount.</param>
-        /// <param name="Schedule">Schedule.</param>
-        /// <param name="SubscribeEmailListName">SubscribeEmailListName.</param>
-        /// <param name="SubscribeEmailListOid">SubscribeEmailListOid.</param>
-        /// <param name="Type">Type.</param>
-        public ItemAutoOrderStep(int? ArbitraryScheduleDays = null, double? ArbitraryUnitCost = null, List<ItemAutoOrderStepArbitraryUnitCostSchedule> ArbitraryUnitCostSchedules = null, List<ItemAutoOrderStepGrandfatherPricing> GrandfatherPricing = null, string ManagedBy = null, int? PauseDays = null, string PauseUnitDate = null, int? PreshipmentNoticeDays = null, string RecurringMerchantItemId = null, int? RecurringMerchantItemOid = null, int? RepeatCount = null, string Schedule = null, string SubscribeEmailListName = null, int? SubscribeEmailListOid = null, string Type = null)
+        /// <param name="ArbitraryScheduleDays">If the schedule is arbitrary, then this is the number of days.</param>
+        /// <param name="ArbitraryUnitCost">Arbitrary unit cost used to override the regular item cost.</param>
+        /// <param name="ArbitraryUnitCostSchedules">Arbitrary unit costs schedules for more advanced discounting by rebill attempt.</param>
+        /// <param name="GrandfatherPricing">Grand-father pricing configuration if the rebill schedule has changed over time.</param>
+        /// <param name="ManagedBy">Managed by (defaults to UltraCart).</param>
+        /// <param name="PauseDays">Number of days to pause.</param>
+        /// <param name="PauseUntilDate">Wait for this step to happen until the specified date.</param>
+        /// <param name="PreshipmentNoticeDays">If set, a pre-shipment notice is sent to the customer this many days in advance.</param>
+        /// <param name="RecurringMerchantItemId">Item id to rebill.</param>
+        /// <param name="RecurringMerchantItemOid">Item object identifier to rebill.</param>
+        /// <param name="RepeatCount">Number of times to rebill.  Last step can be null for infinite.</param>
+        /// <param name="Schedule">Frequency of the rebill.</param>
+        /// <param name="SubscribeEmailListName">Email list name to subscribe the customer to when the rebill occurs.</param>
+        /// <param name="SubscribeEmailListOid">Email list identifier to subscribe the customer to when this rebill occurs.</param>
+        /// <param name="Type">Type of step (item or pause).</param>
+        public ItemAutoOrderStep(int? ArbitraryScheduleDays = null, decimal? ArbitraryUnitCost = null, List<ItemAutoOrderStepArbitraryUnitCostSchedule> ArbitraryUnitCostSchedules = null, List<ItemAutoOrderStepGrandfatherPricing> GrandfatherPricing = null, string ManagedBy = null, int? PauseDays = null, string PauseUntilDate = null, int? PreshipmentNoticeDays = null, string RecurringMerchantItemId = null, int? RecurringMerchantItemOid = null, int? RepeatCount = null, string Schedule = null, string SubscribeEmailListName = null, int? SubscribeEmailListOid = null, TypeEnum? Type = null)
         {
             this.ArbitraryScheduleDays = ArbitraryScheduleDays;
             this.ArbitraryUnitCost = ArbitraryUnitCost;
@@ -65,7 +92,7 @@ namespace com.ultracart.admin.v2.Model
             this.GrandfatherPricing = GrandfatherPricing;
             this.ManagedBy = ManagedBy;
             this.PauseDays = PauseDays;
-            this.PauseUnitDate = PauseUnitDate;
+            this.PauseUntilDate = PauseUntilDate;
             this.PreshipmentNoticeDays = PreshipmentNoticeDays;
             this.RecurringMerchantItemId = RecurringMerchantItemId;
             this.RecurringMerchantItemOid = RecurringMerchantItemOid;
@@ -77,80 +104,89 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets ArbitraryScheduleDays
+        /// If the schedule is arbitrary, then this is the number of days
         /// </summary>
+        /// <value>If the schedule is arbitrary, then this is the number of days</value>
         [DataMember(Name="arbitrary_schedule_days", EmitDefaultValue=false)]
         public int? ArbitraryScheduleDays { get; set; }
         /// <summary>
-        /// Gets or Sets ArbitraryUnitCost
+        /// Arbitrary unit cost used to override the regular item cost
         /// </summary>
+        /// <value>Arbitrary unit cost used to override the regular item cost</value>
         [DataMember(Name="arbitrary_unit_cost", EmitDefaultValue=false)]
-        public double? ArbitraryUnitCost { get; set; }
+        public decimal? ArbitraryUnitCost { get; set; }
         /// <summary>
-        /// Gets or Sets ArbitraryUnitCostSchedules
+        /// Arbitrary unit costs schedules for more advanced discounting by rebill attempt
         /// </summary>
+        /// <value>Arbitrary unit costs schedules for more advanced discounting by rebill attempt</value>
         [DataMember(Name="arbitrary_unit_cost_schedules", EmitDefaultValue=false)]
         public List<ItemAutoOrderStepArbitraryUnitCostSchedule> ArbitraryUnitCostSchedules { get; set; }
         /// <summary>
-        /// Gets or Sets GrandfatherPricing
+        /// Grand-father pricing configuration if the rebill schedule has changed over time
         /// </summary>
+        /// <value>Grand-father pricing configuration if the rebill schedule has changed over time</value>
         [DataMember(Name="grandfather_pricing", EmitDefaultValue=false)]
         public List<ItemAutoOrderStepGrandfatherPricing> GrandfatherPricing { get; set; }
         /// <summary>
-        /// Gets or Sets ManagedBy
+        /// Managed by (defaults to UltraCart)
         /// </summary>
+        /// <value>Managed by (defaults to UltraCart)</value>
         [DataMember(Name="managed_by", EmitDefaultValue=false)]
         public string ManagedBy { get; set; }
         /// <summary>
-        /// Gets or Sets PauseDays
+        /// Number of days to pause
         /// </summary>
+        /// <value>Number of days to pause</value>
         [DataMember(Name="pause_days", EmitDefaultValue=false)]
         public int? PauseDays { get; set; }
         /// <summary>
-        /// Gets or Sets PauseUnitDate
+        /// Wait for this step to happen until the specified date
         /// </summary>
-        [DataMember(Name="pause_unit_date", EmitDefaultValue=false)]
-        public string PauseUnitDate { get; set; }
+        /// <value>Wait for this step to happen until the specified date</value>
+        [DataMember(Name="pause_until_date", EmitDefaultValue=false)]
+        public string PauseUntilDate { get; set; }
         /// <summary>
-        /// Gets or Sets PreshipmentNoticeDays
+        /// If set, a pre-shipment notice is sent to the customer this many days in advance
         /// </summary>
+        /// <value>If set, a pre-shipment notice is sent to the customer this many days in advance</value>
         [DataMember(Name="preshipment_notice_days", EmitDefaultValue=false)]
         public int? PreshipmentNoticeDays { get; set; }
         /// <summary>
-        /// Gets or Sets RecurringMerchantItemId
+        /// Item id to rebill
         /// </summary>
+        /// <value>Item id to rebill</value>
         [DataMember(Name="recurring_merchant_item_id", EmitDefaultValue=false)]
         public string RecurringMerchantItemId { get; set; }
         /// <summary>
-        /// Gets or Sets RecurringMerchantItemOid
+        /// Item object identifier to rebill
         /// </summary>
+        /// <value>Item object identifier to rebill</value>
         [DataMember(Name="recurring_merchant_item_oid", EmitDefaultValue=false)]
         public int? RecurringMerchantItemOid { get; set; }
         /// <summary>
-        /// Gets or Sets RepeatCount
+        /// Number of times to rebill.  Last step can be null for infinite
         /// </summary>
+        /// <value>Number of times to rebill.  Last step can be null for infinite</value>
         [DataMember(Name="repeat_count", EmitDefaultValue=false)]
         public int? RepeatCount { get; set; }
         /// <summary>
-        /// Gets or Sets Schedule
+        /// Frequency of the rebill
         /// </summary>
+        /// <value>Frequency of the rebill</value>
         [DataMember(Name="schedule", EmitDefaultValue=false)]
         public string Schedule { get; set; }
         /// <summary>
-        /// Gets or Sets SubscribeEmailListName
+        /// Email list name to subscribe the customer to when the rebill occurs
         /// </summary>
+        /// <value>Email list name to subscribe the customer to when the rebill occurs</value>
         [DataMember(Name="subscribe_email_list_name", EmitDefaultValue=false)]
         public string SubscribeEmailListName { get; set; }
         /// <summary>
-        /// Gets or Sets SubscribeEmailListOid
+        /// Email list identifier to subscribe the customer to when this rebill occurs
         /// </summary>
+        /// <value>Email list identifier to subscribe the customer to when this rebill occurs</value>
         [DataMember(Name="subscribe_email_list_oid", EmitDefaultValue=false)]
         public int? SubscribeEmailListOid { get; set; }
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -165,7 +201,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  GrandfatherPricing: ").Append(GrandfatherPricing).Append("\n");
             sb.Append("  ManagedBy: ").Append(ManagedBy).Append("\n");
             sb.Append("  PauseDays: ").Append(PauseDays).Append("\n");
-            sb.Append("  PauseUnitDate: ").Append(PauseUnitDate).Append("\n");
+            sb.Append("  PauseUntilDate: ").Append(PauseUntilDate).Append("\n");
             sb.Append("  PreshipmentNoticeDays: ").Append(PreshipmentNoticeDays).Append("\n");
             sb.Append("  RecurringMerchantItemId: ").Append(RecurringMerchantItemId).Append("\n");
             sb.Append("  RecurringMerchantItemOid: ").Append(RecurringMerchantItemOid).Append("\n");
@@ -241,9 +277,9 @@ namespace com.ultracart.admin.v2.Model
                     this.PauseDays.Equals(other.PauseDays)
                 ) && 
                 (
-                    this.PauseUnitDate == other.PauseUnitDate ||
-                    this.PauseUnitDate != null &&
-                    this.PauseUnitDate.Equals(other.PauseUnitDate)
+                    this.PauseUntilDate == other.PauseUntilDate ||
+                    this.PauseUntilDate != null &&
+                    this.PauseUntilDate.Equals(other.PauseUntilDate)
                 ) && 
                 (
                     this.PreshipmentNoticeDays == other.PreshipmentNoticeDays ||
@@ -310,8 +346,8 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.ManagedBy.GetHashCode();
                 if (this.PauseDays != null)
                     hash = hash * 59 + this.PauseDays.GetHashCode();
-                if (this.PauseUnitDate != null)
-                    hash = hash * 59 + this.PauseUnitDate.GetHashCode();
+                if (this.PauseUntilDate != null)
+                    hash = hash * 59 + this.PauseUntilDate.GetHashCode();
                 if (this.PreshipmentNoticeDays != null)
                     hash = hash * 59 + this.PreshipmentNoticeDays.GetHashCode();
                 if (this.RecurringMerchantItemId != null)

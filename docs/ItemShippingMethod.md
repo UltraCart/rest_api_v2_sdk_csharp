@@ -3,21 +3,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Cost** | **double?** |  | [optional] 
-**EachAdditionalItemMarkup** | **double?** |  | [optional] 
-**FilterToIfAvailable** | **bool?** |  | [optional] 
-**FirstItemMarkup** | **double?** |  | [optional] 
-**FixedShippingCost** | **double?** |  | [optional] 
-**FlatFeeMarkup** | **double?** |  | [optional] 
-**FreeShipping** | **bool?** |  | [optional] 
-**PerItemFeeMarkup** | **double?** |  | [optional] 
-**PercentageMarkup** | **double?** |  | [optional] 
-**PercentageOfItemMarkup** | **double?** |  | [optional] 
-**RelaxRestrictionsOnUpsell** | **bool?** |  | [optional] 
-**ShippingMethod** | **string** |  | [optional] 
-**ShippingMethodOid** | **int?** |  | [optional] 
-**ShippingMethodValidity** | **string** |  | [optional] 
-**SignatureRequired** | **bool?** |  | [optional] 
+**Cost** | **decimal?** | Cost | [optional] 
+**EachAdditionalItemMarkup** | **decimal?** | Each additional item markup | [optional] 
+**FilterToIfAvailable** | **bool?** | Filter to this method if available | [optional] 
+**FirstItemMarkup** | **decimal?** | First item markup | [optional] 
+**FixedShippingCost** | **decimal?** | Fixed shipping cost | [optional] 
+**FlatFeeMarkup** | **decimal?** | Flat fee markup | [optional] 
+**FreeShipping** | **bool?** | Free shipping | [optional] 
+**PerItemFeeMarkup** | **decimal?** | Per item fee markup | [optional] 
+**PercentageMarkup** | **decimal?** | Percentage markup | [optional] 
+**PercentageOfItemMarkup** | **decimal?** | Percentage of item markup | [optional] 
+**RelaxRestrictionsOnUpsell** | **bool?** | Relax restrictions on upsell | [optional] 
+**ShippingMethod** | **string** | Shipping method name | [optional] 
+**ShippingMethodOid** | **int?** | Shipping method object identifier | [optional] 
+**ShippingMethodValidity** | **string** | Shipping method validity | [optional] 
+**SignatureRequired** | **bool?** | Signature required | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

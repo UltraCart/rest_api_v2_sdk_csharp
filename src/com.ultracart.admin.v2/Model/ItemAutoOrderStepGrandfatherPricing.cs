@@ -42,24 +42,26 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAutoOrderStepGrandfatherPricing" /> class.
         /// </summary>
-        /// <param name="OnOrBeforeDate">OnOrBeforeDate.</param>
-        /// <param name="UnitCost">UnitCost.</param>
-        public ItemAutoOrderStepGrandfatherPricing(string OnOrBeforeDate = null, double? UnitCost = null)
+        /// <param name="OnOrBeforeDate">On or before date.</param>
+        /// <param name="UnitCost">Unit cost.</param>
+        public ItemAutoOrderStepGrandfatherPricing(string OnOrBeforeDate = null, decimal? UnitCost = null)
         {
             this.OnOrBeforeDate = OnOrBeforeDate;
             this.UnitCost = UnitCost;
         }
         
         /// <summary>
-        /// Gets or Sets OnOrBeforeDate
+        /// On or before date
         /// </summary>
+        /// <value>On or before date</value>
         [DataMember(Name="on_or_before_date", EmitDefaultValue=false)]
         public string OnOrBeforeDate { get; set; }
         /// <summary>
-        /// Gets or Sets UnitCost
+        /// Unit cost
         /// </summary>
+        /// <value>Unit cost</value>
         [DataMember(Name="unit_cost", EmitDefaultValue=false)]
-        public double? UnitCost { get; set; }
+        public decimal? UnitCost { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

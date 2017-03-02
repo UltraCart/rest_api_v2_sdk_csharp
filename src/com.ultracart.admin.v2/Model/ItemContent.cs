@@ -42,17 +42,17 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemContent" /> class.
         /// </summary>
-        /// <param name="Assignments">Assignments.</param>
-        /// <param name="Attributes">Attributes.</param>
-        /// <param name="ExcludeFromSearch">ExcludeFromSearch.</param>
-        /// <param name="ExcludeFromTopSellers">ExcludeFromTopSellers.</param>
-        /// <param name="ExtendedDescription">ExtendedDescription.</param>
-        /// <param name="ExtendedDescriptionTranslatedTextInstanceOid">ExtendedDescriptionTranslatedTextInstanceOid.</param>
+        /// <param name="Assignments">StoreFront assignments.</param>
+        /// <param name="Attributes">StoreFront attributes.</param>
+        /// <param name="ExcludeFromSearch">Exclude from search.</param>
+        /// <param name="ExcludeFromTopSellers">Exclude from the top sellers list in the StoreFront.</param>
+        /// <param name="ExtendedDescription">Extended description (max 2000 characters).</param>
+        /// <param name="ExtendedDescriptionTranslatedTextInstanceOid">Extneded description text translation instance identifier.</param>
         /// <param name="Multimedia">Multimedia.</param>
-        /// <param name="NewItem">NewItem.</param>
-        /// <param name="NewItemEnd">NewItemEnd.</param>
-        /// <param name="NewItemStart">NewItemStart.</param>
-        /// <param name="ViewUrl">ViewUrl.</param>
+        /// <param name="NewItem">True if the item is new.</param>
+        /// <param name="NewItemEnd">The date the item should no longer be considered new.</param>
+        /// <param name="NewItemStart">The date the item should start being considered new.</param>
+        /// <param name="ViewUrl">Legacy view URL (not used by StoreFronts).</param>
         public ItemContent(List<ItemContentAssignment> Assignments = null, List<ItemContentAttribute> Attributes = null, bool? ExcludeFromSearch = null, bool? ExcludeFromTopSellers = null, string ExtendedDescription = null, int? ExtendedDescriptionTranslatedTextInstanceOid = null, List<ItemContentMultimedia> Multimedia = null, bool? NewItem = null, string NewItemEnd = null, string NewItemStart = null, string ViewUrl = null)
         {
             this.Assignments = Assignments;
@@ -69,58 +69,69 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Assignments
+        /// StoreFront assignments
         /// </summary>
+        /// <value>StoreFront assignments</value>
         [DataMember(Name="assignments", EmitDefaultValue=false)]
         public List<ItemContentAssignment> Assignments { get; set; }
         /// <summary>
-        /// Gets or Sets Attributes
+        /// StoreFront attributes
         /// </summary>
+        /// <value>StoreFront attributes</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public List<ItemContentAttribute> Attributes { get; set; }
         /// <summary>
-        /// Gets or Sets ExcludeFromSearch
+        /// Exclude from search
         /// </summary>
+        /// <value>Exclude from search</value>
         [DataMember(Name="exclude_from_search", EmitDefaultValue=false)]
         public bool? ExcludeFromSearch { get; set; }
         /// <summary>
-        /// Gets or Sets ExcludeFromTopSellers
+        /// Exclude from the top sellers list in the StoreFront
         /// </summary>
+        /// <value>Exclude from the top sellers list in the StoreFront</value>
         [DataMember(Name="exclude_from_top_sellers", EmitDefaultValue=false)]
         public bool? ExcludeFromTopSellers { get; set; }
         /// <summary>
-        /// Gets or Sets ExtendedDescription
+        /// Extended description (max 2000 characters)
         /// </summary>
+        /// <value>Extended description (max 2000 characters)</value>
         [DataMember(Name="extended_description", EmitDefaultValue=false)]
         public string ExtendedDescription { get; set; }
         /// <summary>
-        /// Gets or Sets ExtendedDescriptionTranslatedTextInstanceOid
+        /// Extneded description text translation instance identifier
         /// </summary>
+        /// <value>Extneded description text translation instance identifier</value>
         [DataMember(Name="extended_description_translated_text_instance_oid", EmitDefaultValue=false)]
         public int? ExtendedDescriptionTranslatedTextInstanceOid { get; set; }
         /// <summary>
-        /// Gets or Sets Multimedia
+        /// Multimedia
         /// </summary>
+        /// <value>Multimedia</value>
         [DataMember(Name="multimedia", EmitDefaultValue=false)]
         public List<ItemContentMultimedia> Multimedia { get; set; }
         /// <summary>
-        /// Gets or Sets NewItem
+        /// True if the item is new
         /// </summary>
+        /// <value>True if the item is new</value>
         [DataMember(Name="new_item", EmitDefaultValue=false)]
         public bool? NewItem { get; set; }
         /// <summary>
-        /// Gets or Sets NewItemEnd
+        /// The date the item should no longer be considered new
         /// </summary>
+        /// <value>The date the item should no longer be considered new</value>
         [DataMember(Name="new_item_end", EmitDefaultValue=false)]
         public string NewItemEnd { get; set; }
         /// <summary>
-        /// Gets or Sets NewItemStart
+        /// The date the item should start being considered new
         /// </summary>
+        /// <value>The date the item should start being considered new</value>
         [DataMember(Name="new_item_start", EmitDefaultValue=false)]
         public string NewItemStart { get; set; }
         /// <summary>
-        /// Gets or Sets ViewUrl
+        /// Legacy view URL (not used by StoreFronts)
         /// </summary>
+        /// <value>Legacy view URL (not used by StoreFronts)</value>
         [DataMember(Name="view_url", EmitDefaultValue=false)]
         public string ViewUrl { get; set; }
         /// <summary>

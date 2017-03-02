@@ -42,9 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemChargebackAdjustmentRequest" /> class.
         /// </summary>
-        /// <param name="ChargebackAdjustmentRequestOid">ChargebackAdjustmentRequestOid.</param>
+        /// <param name="ChargebackAdjustmentRequestOid">Chargeback adjustment request object identifier.</param>
         /// <param name="Description">Description.</param>
-        /// <param name="ReasonCode">ReasonCode.</param>
+        /// <param name="ReasonCode">Reason code.</param>
         public ItemChargebackAdjustmentRequest(int? ChargebackAdjustmentRequestOid = null, string Description = null, string ReasonCode = null)
         {
             this.ChargebackAdjustmentRequestOid = ChargebackAdjustmentRequestOid;
@@ -53,18 +53,21 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets ChargebackAdjustmentRequestOid
+        /// Chargeback adjustment request object identifier
         /// </summary>
+        /// <value>Chargeback adjustment request object identifier</value>
         [DataMember(Name="chargeback_adjustment_request_oid", EmitDefaultValue=false)]
         public int? ChargebackAdjustmentRequestOid { get; set; }
         /// <summary>
-        /// Gets or Sets Description
+        /// Description
         /// </summary>
+        /// <value>Description</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
         /// <summary>
-        /// Gets or Sets ReasonCode
+        /// Reason code
         /// </summary>
+        /// <value>Reason code</value>
         [DataMember(Name="reason_code", EmitDefaultValue=false)]
         public string ReasonCode { get; set; }
         /// <summary>

@@ -42,38 +42,58 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultSet" /> class.
         /// </summary>
-        /// <param name="Count">Count.</param>
-        /// <param name="Limit">Limit.</param>
-        /// <param name="More">More.</param>
-        /// <param name="Offset">Offset.</param>
-        public ResultSet(int? Count = null, int? Limit = null, bool? More = null, int? Offset = null)
+        /// <param name="Count">Number of results in this set.</param>
+        /// <param name="Limit">Maximum number of results that can be returned in a set.</param>
+        /// <param name="More">True if there are more results to query.</param>
+        /// <param name="NextOffset">The next offset that you should query to retrieve more results.</param>
+        /// <param name="Offset">Offset of this result set (zero based).</param>
+        /// <param name="TotalRecords">The total number of records in the result set.  May be null if the number is not known and the client should continue iterating as long as more is true..</param>
+        public ResultSet(int? Count = null, int? Limit = null, bool? More = null, int? NextOffset = null, int? Offset = null, int? TotalRecords = null)
         {
             this.Count = Count;
             this.Limit = Limit;
             this.More = More;
+            this.NextOffset = NextOffset;
             this.Offset = Offset;
+            this.TotalRecords = TotalRecords;
         }
         
         /// <summary>
-        /// Gets or Sets Count
+        /// Number of results in this set
         /// </summary>
+        /// <value>Number of results in this set</value>
         [DataMember(Name="count", EmitDefaultValue=false)]
         public int? Count { get; set; }
         /// <summary>
-        /// Gets or Sets Limit
+        /// Maximum number of results that can be returned in a set
         /// </summary>
+        /// <value>Maximum number of results that can be returned in a set</value>
         [DataMember(Name="limit", EmitDefaultValue=false)]
         public int? Limit { get; set; }
         /// <summary>
-        /// Gets or Sets More
+        /// True if there are more results to query
         /// </summary>
+        /// <value>True if there are more results to query</value>
         [DataMember(Name="more", EmitDefaultValue=false)]
         public bool? More { get; set; }
         /// <summary>
-        /// Gets or Sets Offset
+        /// The next offset that you should query to retrieve more results
         /// </summary>
+        /// <value>The next offset that you should query to retrieve more results</value>
+        [DataMember(Name="next_offset", EmitDefaultValue=false)]
+        public int? NextOffset { get; set; }
+        /// <summary>
+        /// Offset of this result set (zero based)
+        /// </summary>
+        /// <value>Offset of this result set (zero based)</value>
         [DataMember(Name="offset", EmitDefaultValue=false)]
         public int? Offset { get; set; }
+        /// <summary>
+        /// The total number of records in the result set.  May be null if the number is not known and the client should continue iterating as long as more is true.
+        /// </summary>
+        /// <value>The total number of records in the result set.  May be null if the number is not known and the client should continue iterating as long as more is true.</value>
+        [DataMember(Name="total_records", EmitDefaultValue=false)]
+        public int? TotalRecords { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,7 +105,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  More: ").Append(More).Append("\n");
+            sb.Append("  NextOffset: ").Append(NextOffset).Append("\n");
             sb.Append("  Offset: ").Append(Offset).Append("\n");
+            sb.Append("  TotalRecords: ").Append(TotalRecords).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,9 +160,19 @@ namespace com.ultracart.admin.v2.Model
                     this.More.Equals(other.More)
                 ) && 
                 (
+                    this.NextOffset == other.NextOffset ||
+                    this.NextOffset != null &&
+                    this.NextOffset.Equals(other.NextOffset)
+                ) && 
+                (
                     this.Offset == other.Offset ||
                     this.Offset != null &&
                     this.Offset.Equals(other.Offset)
+                ) && 
+                (
+                    this.TotalRecords == other.TotalRecords ||
+                    this.TotalRecords != null &&
+                    this.TotalRecords.Equals(other.TotalRecords)
                 );
         }
 
@@ -161,8 +193,12 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.Limit.GetHashCode();
                 if (this.More != null)
                     hash = hash * 59 + this.More.GetHashCode();
+                if (this.NextOffset != null)
+                    hash = hash * 59 + this.NextOffset.GetHashCode();
                 if (this.Offset != null)
                     hash = hash * 59 + this.Offset.GetHashCode();
+                if (this.TotalRecords != null)
+                    hash = hash * 59 + this.TotalRecords.GetHashCode();
                 return hash;
             }
         }

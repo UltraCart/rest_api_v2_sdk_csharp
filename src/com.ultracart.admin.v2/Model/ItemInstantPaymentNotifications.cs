@@ -49,8 +49,9 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Notifications
+        /// Notifications
         /// </summary>
+        /// <value>Notifications</value>
         [DataMember(Name="notifications", EmitDefaultValue=false)]
         public List<ItemInstantPaymentNotification> Notifications { get; set; }
         /// <summary>

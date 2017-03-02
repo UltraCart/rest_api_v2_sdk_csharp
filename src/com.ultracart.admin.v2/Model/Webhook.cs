@@ -40,26 +40,76 @@ namespace com.ultracart.admin.v2.Model
     public partial class Webhook :  IEquatable<Webhook>
     {
         /// <summary>
+        /// Version of the API objects that are sent in notifications
+        /// </summary>
+        /// <value>Version of the API objects that are sent in notifications</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ApiVersionEnum
+        {
+            
+            /// <summary>
+            /// Enum _01 for "2016-10-01"
+            /// </summary>
+            [EnumMember(Value = "2016-10-01")]
+            _01
+        }
+
+        /// <summary>
+        /// The type of authentication this webhook will use when communicating with your server
+        /// </summary>
+        /// <value>The type of authentication this webhook will use when communicating with your server</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AuthenticationTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum None for "none"
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None,
+            
+            /// <summary>
+            /// Enum Basic for "basic"
+            /// </summary>
+            [EnumMember(Value = "basic")]
+            Basic
+        }
+
+        /// <summary>
+        /// Version of the API objects that are sent in notifications
+        /// </summary>
+        /// <value>Version of the API objects that are sent in notifications</value>
+        [DataMember(Name="api_version", EmitDefaultValue=false)]
+        public ApiVersionEnum? ApiVersion { get; set; }
+        /// <summary>
+        /// The type of authentication this webhook will use when communicating with your server
+        /// </summary>
+        /// <value>The type of authentication this webhook will use when communicating with your server</value>
+        [DataMember(Name="authentication_type", EmitDefaultValue=false)]
+        public AuthenticationTypeEnum? AuthenticationType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Webhook" /> class.
         /// </summary>
-        /// <param name="ApiUserOid">ApiUserOid.</param>
+        /// <param name="ApiUserOid">Populated if webhook associated with an API user.</param>
+        /// <param name="ApiVersion">Version of the API objects that are sent in notifications.</param>
         /// <param name="ApplicationProfile">ApplicationProfile.</param>
-        /// <param name="AuthenticationType">AuthenticationType.</param>
-        /// <param name="BasicPassword">BasicPassword.</param>
-        /// <param name="BasicUsername">BasicUsername.</param>
-        /// <param name="ConsecutiveFailures">ConsecutiveFailures.</param>
-        /// <param name="Disabled">Disabled.</param>
-        /// <param name="EventCategories">EventCategories.</param>
-        /// <param name="MaximumEvents">MaximumEvents.</param>
-        /// <param name="MaximumSize">MaximumSize.</param>
-        /// <param name="MerchantId">MerchantId.</param>
-        /// <param name="NextRetryAfter">NextRetryAfter.</param>
-        /// <param name="Pending">Pending.</param>
-        /// <param name="WebhookOid">WebhookOid.</param>
-        /// <param name="WebhookUrl">WebhookUrl.</param>
-        public Webhook(int? ApiUserOid = null, ApiUserApplicationProfile ApplicationProfile = null, string AuthenticationType = null, string BasicPassword = null, string BasicUsername = null, int? ConsecutiveFailures = null, bool? Disabled = null, List<WebhookEventCategory> EventCategories = null, int? MaximumEvents = null, int? MaximumSize = null, string MerchantId = null, string NextRetryAfter = null, int? Pending = null, int? WebhookOid = null, string WebhookUrl = null)
+        /// <param name="AuthenticationType">The type of authentication this webhook will use when communicating with your server.</param>
+        /// <param name="BasicPassword">Basic authentication password.</param>
+        /// <param name="BasicUsername">Basic authentication user name.</param>
+        /// <param name="ConsecutiveFailures">The number of consecutive failures that have occurred trying to deliver notifications to the target server.</param>
+        /// <param name="Disabled">True if the webhook has been disabled.</param>
+        /// <param name="EventCategories">The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval..</param>
+        /// <param name="MaximumEvents">The maximum number of events in the payload that UltraCart will deliver.</param>
+        /// <param name="MaximumSize">The maximum size of the payload that UltraCart will deliver.</param>
+        /// <param name="MerchantId">The UltraCart merchant ID that owns this webhook.</param>
+        /// <param name="NextRetryAfter">The next time UltraCart will attempt delivery if failures have been occurring.</param>
+        /// <param name="Pending">The number of pending events for this webhook.</param>
+        /// <param name="WebhookOid">The object identifier for this webhook.</param>
+        /// <param name="WebhookUrl">The URL to deliver events to.  Must be HTTPS for customer related information..</param>
+        public Webhook(int? ApiUserOid = null, ApiVersionEnum? ApiVersion = null, ApiUserApplicationProfile ApplicationProfile = null, AuthenticationTypeEnum? AuthenticationType = null, string BasicPassword = null, string BasicUsername = null, int? ConsecutiveFailures = null, bool? Disabled = null, List<WebhookEventCategory> EventCategories = null, int? MaximumEvents = null, int? MaximumSize = null, string MerchantId = null, string NextRetryAfter = null, int? Pending = null, int? WebhookOid = null, string WebhookUrl = null)
         {
             this.ApiUserOid = ApiUserOid;
+            this.ApiVersion = ApiVersion;
             this.ApplicationProfile = ApplicationProfile;
             this.AuthenticationType = AuthenticationType;
             this.BasicPassword = BasicPassword;
@@ -77,8 +127,9 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets ApiUserOid
+        /// Populated if webhook associated with an API user
         /// </summary>
+        /// <value>Populated if webhook associated with an API user</value>
         [DataMember(Name="api_user_oid", EmitDefaultValue=false)]
         public int? ApiUserOid { get; set; }
         /// <summary>
@@ -87,68 +138,75 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="application_profile", EmitDefaultValue=false)]
         public ApiUserApplicationProfile ApplicationProfile { get; set; }
         /// <summary>
-        /// Gets or Sets AuthenticationType
+        /// Basic authentication password
         /// </summary>
-        [DataMember(Name="authentication_type", EmitDefaultValue=false)]
-        public string AuthenticationType { get; set; }
-        /// <summary>
-        /// Gets or Sets BasicPassword
-        /// </summary>
+        /// <value>Basic authentication password</value>
         [DataMember(Name="basic_password", EmitDefaultValue=false)]
         public string BasicPassword { get; set; }
         /// <summary>
-        /// Gets or Sets BasicUsername
+        /// Basic authentication user name
         /// </summary>
+        /// <value>Basic authentication user name</value>
         [DataMember(Name="basic_username", EmitDefaultValue=false)]
         public string BasicUsername { get; set; }
         /// <summary>
-        /// Gets or Sets ConsecutiveFailures
+        /// The number of consecutive failures that have occurred trying to deliver notifications to the target server
         /// </summary>
+        /// <value>The number of consecutive failures that have occurred trying to deliver notifications to the target server</value>
         [DataMember(Name="consecutive_failures", EmitDefaultValue=false)]
         public int? ConsecutiveFailures { get; set; }
         /// <summary>
-        /// Gets or Sets Disabled
+        /// True if the webhook has been disabled
         /// </summary>
+        /// <value>True if the webhook has been disabled</value>
         [DataMember(Name="disabled", EmitDefaultValue=false)]
         public bool? Disabled { get; set; }
         /// <summary>
-        /// Gets or Sets EventCategories
+        /// The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.
         /// </summary>
+        /// <value>The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.</value>
         [DataMember(Name="event_categories", EmitDefaultValue=false)]
         public List<WebhookEventCategory> EventCategories { get; set; }
         /// <summary>
-        /// Gets or Sets MaximumEvents
+        /// The maximum number of events in the payload that UltraCart will deliver
         /// </summary>
+        /// <value>The maximum number of events in the payload that UltraCart will deliver</value>
         [DataMember(Name="maximum_events", EmitDefaultValue=false)]
         public int? MaximumEvents { get; set; }
         /// <summary>
-        /// Gets or Sets MaximumSize
+        /// The maximum size of the payload that UltraCart will deliver
         /// </summary>
+        /// <value>The maximum size of the payload that UltraCart will deliver</value>
         [DataMember(Name="maximum_size", EmitDefaultValue=false)]
         public int? MaximumSize { get; set; }
         /// <summary>
-        /// Gets or Sets MerchantId
+        /// The UltraCart merchant ID that owns this webhook
         /// </summary>
+        /// <value>The UltraCart merchant ID that owns this webhook</value>
         [DataMember(Name="merchant_id", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
         /// <summary>
-        /// Gets or Sets NextRetryAfter
+        /// The next time UltraCart will attempt delivery if failures have been occurring
         /// </summary>
+        /// <value>The next time UltraCart will attempt delivery if failures have been occurring</value>
         [DataMember(Name="next_retry_after", EmitDefaultValue=false)]
         public string NextRetryAfter { get; set; }
         /// <summary>
-        /// Gets or Sets Pending
+        /// The number of pending events for this webhook
         /// </summary>
+        /// <value>The number of pending events for this webhook</value>
         [DataMember(Name="pending", EmitDefaultValue=false)]
         public int? Pending { get; set; }
         /// <summary>
-        /// Gets or Sets WebhookOid
+        /// The object identifier for this webhook
         /// </summary>
+        /// <value>The object identifier for this webhook</value>
         [DataMember(Name="webhook_oid", EmitDefaultValue=false)]
         public int? WebhookOid { get; set; }
         /// <summary>
-        /// Gets or Sets WebhookUrl
+        /// The URL to deliver events to.  Must be HTTPS for customer related information.
         /// </summary>
+        /// <value>The URL to deliver events to.  Must be HTTPS for customer related information.</value>
         [DataMember(Name="webhook_url", EmitDefaultValue=false)]
         public string WebhookUrl { get; set; }
         /// <summary>
@@ -160,6 +218,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class Webhook {\n");
             sb.Append("  ApiUserOid: ").Append(ApiUserOid).Append("\n");
+            sb.Append("  ApiVersion: ").Append(ApiVersion).Append("\n");
             sb.Append("  ApplicationProfile: ").Append(ApplicationProfile).Append("\n");
             sb.Append("  AuthenticationType: ").Append(AuthenticationType).Append("\n");
             sb.Append("  BasicPassword: ").Append(BasicPassword).Append("\n");
@@ -214,6 +273,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ApiUserOid == other.ApiUserOid ||
                     this.ApiUserOid != null &&
                     this.ApiUserOid.Equals(other.ApiUserOid)
+                ) && 
+                (
+                    this.ApiVersion == other.ApiVersion ||
+                    this.ApiVersion != null &&
+                    this.ApiVersion.Equals(other.ApiVersion)
                 ) && 
                 (
                     this.ApplicationProfile == other.ApplicationProfile ||
@@ -300,6 +364,8 @@ namespace com.ultracart.admin.v2.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ApiUserOid != null)
                     hash = hash * 59 + this.ApiUserOid.GetHashCode();
+                if (this.ApiVersion != null)
+                    hash = hash * 59 + this.ApiVersion.GetHashCode();
                 if (this.ApplicationProfile != null)
                     hash = hash * 59 + this.ApplicationProfile.GetHashCode();
                 if (this.AuthenticationType != null)

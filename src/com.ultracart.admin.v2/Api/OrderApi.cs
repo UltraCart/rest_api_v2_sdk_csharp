@@ -191,8 +191,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to update</param>
         /// <param name="orderId">The order id to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>OrderResponse</returns>
-        OrderResponse OrderOrdersOrderIdPut (Order order, string orderId);
+        OrderResponse OrderOrdersOrderIdPut (Order order, string orderId, string expand = null);
 
         /// <summary>
         /// Update an order
@@ -203,8 +204,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to update</param>
         /// <param name="orderId">The order id to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of OrderResponse</returns>
-        ApiResponse<OrderResponse> OrderOrdersOrderIdPutWithHttpInfo (Order order, string orderId);
+        ApiResponse<OrderResponse> OrderOrdersOrderIdPutWithHttpInfo (Order order, string orderId, string expand = null);
         /// <summary>
         /// Resend receipt
         /// </summary>
@@ -404,8 +406,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to update</param>
         /// <param name="orderId">The order id to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of OrderResponse</returns>
-        System.Threading.Tasks.Task<OrderResponse> OrderOrdersOrderIdPutAsync (Order order, string orderId);
+        System.Threading.Tasks.Task<OrderResponse> OrderOrdersOrderIdPutAsync (Order order, string orderId, string expand = null);
 
         /// <summary>
         /// Update an order
@@ -416,8 +419,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to update</param>
         /// <param name="orderId">The order id to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> OrderOrdersOrderIdPutAsyncWithHttpInfo (Order order, string orderId);
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> OrderOrdersOrderIdPutAsyncWithHttpInfo (Order order, string orderId, string expand = null);
         /// <summary>
         /// Resend receipt
         /// </summary>
@@ -1420,10 +1424,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to update</param>
         /// <param name="orderId">The order id to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>OrderResponse</returns>
-        public OrderResponse OrderOrdersOrderIdPut (Order order, string orderId)
+        public OrderResponse OrderOrdersOrderIdPut (Order order, string orderId, string expand = null)
         {
-             ApiResponse<OrderResponse> localVarResponse = OrderOrdersOrderIdPutWithHttpInfo(order, orderId);
+             ApiResponse<OrderResponse> localVarResponse = OrderOrdersOrderIdPutWithHttpInfo(order, orderId, expand);
              return localVarResponse.Data;
         }
 
@@ -1433,8 +1438,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to update</param>
         /// <param name="orderId">The order id to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of OrderResponse</returns>
-        public ApiResponse< OrderResponse > OrderOrdersOrderIdPutWithHttpInfo (Order order, string orderId)
+        public ApiResponse< OrderResponse > OrderOrdersOrderIdPutWithHttpInfo (Order order, string orderId, string expand = null)
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -1469,6 +1475,7 @@ namespace com.ultracart.admin.v2.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
             if (order != null && order.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(order); // http body (model) parameter
@@ -1516,10 +1523,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to update</param>
         /// <param name="orderId">The order id to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of OrderResponse</returns>
-        public async System.Threading.Tasks.Task<OrderResponse> OrderOrdersOrderIdPutAsync (Order order, string orderId)
+        public async System.Threading.Tasks.Task<OrderResponse> OrderOrdersOrderIdPutAsync (Order order, string orderId, string expand = null)
         {
-             ApiResponse<OrderResponse> localVarResponse = await OrderOrdersOrderIdPutAsyncWithHttpInfo(order, orderId);
+             ApiResponse<OrderResponse> localVarResponse = await OrderOrdersOrderIdPutAsyncWithHttpInfo(order, orderId, expand);
              return localVarResponse.Data;
 
         }
@@ -1530,8 +1538,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to update</param>
         /// <param name="orderId">The order id to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> OrderOrdersOrderIdPutAsyncWithHttpInfo (Order order, string orderId)
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> OrderOrdersOrderIdPutAsyncWithHttpInfo (Order order, string orderId, string expand = null)
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -1566,6 +1575,7 @@ namespace com.ultracart.admin.v2.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
             if (order != null && order.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(order); // http body (model) parameter

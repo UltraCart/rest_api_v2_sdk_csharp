@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 <a name="orderordersorderidput"></a>
 # **OrderOrdersOrderIdPut**
-> OrderResponse OrderOrdersOrderIdPut (Order order, string orderId)
+> OrderResponse OrderOrdersOrderIdPut (Order order, string orderId, string expand = null)
 
 Update an order
 
@@ -383,11 +383,12 @@ namespace Example
             var apiInstance = new OrderApi();
             var order = new Order(); // Order | Order to update
             var orderId = orderId_example;  // string | The order id to update.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
                 // Update an order
-                OrderResponse result = apiInstance.OrderOrdersOrderIdPut(order, orderId);
+                OrderResponse result = apiInstance.OrderOrdersOrderIdPut(order, orderId, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -405,6 +406,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**Order**](Order.md)| Order to update | 
  **orderId** | **string**| The order id to update. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 

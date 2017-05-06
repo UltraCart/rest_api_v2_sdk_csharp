@@ -48,9 +48,9 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum _01 for "2016-10-01"
+            /// Enum _01 for "2017-03-01"
             /// </summary>
-            [EnumMember(Value = "2016-10-01")]
+            [EnumMember(Value = "2017-03-01")]
             _01
         }
 

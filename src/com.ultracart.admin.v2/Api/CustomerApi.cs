@@ -37,6 +37,27 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Delete a customer
+        /// </summary>
+        /// <remarks>
+        /// Delete a customer on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
+        /// <returns>CustomerResponse</returns>
+        CustomerResponse CustomerCustomersCustomerProfileOidDelete (int? customerProfileOid);
+
+        /// <summary>
+        /// Delete a customer
+        /// </summary>
+        /// <remarks>
+        /// Delete a customer on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
+        /// <returns>ApiResponse of CustomerResponse</returns>
+        ApiResponse<CustomerResponse> CustomerCustomersCustomerProfileOidDeleteWithHttpInfo (int? customerProfileOid);
+        /// <summary>
         /// Retrieve a customer
         /// </summary>
         /// <remarks>
@@ -165,8 +186,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CustomersResponse</returns>
         ApiResponse<CustomersResponse> CustomerCustomersGetWithHttpInfo (string email = null, string qbClass = null, string quickbooksCode = null, string lastModifiedDtsStart = null, string lastModifiedDtsEnd = null, string signupDtsStart = null, string signupDtsEnd = null, string billingFirstName = null, string billingLastName = null, string billingCompany = null, string billingCity = null, string billingState = null, string billingPostalCode = null, string billingCountryCode = null, string billingDayPhone = null, string billingEveningPhone = null, string shippingFirstName = null, string shippingLastName = null, string shippingCompany = null, string shippingCity = null, string shippingState = null, string shippingPostalCode = null, string shippingCountryCode = null, string shippingDayPhone = null, string shippingEveningPhone = null, int? pricingTierOid = null, string pricingTierName = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        /// <summary>
+        /// Insert a customer
+        /// </summary>
+        /// <remarks>
+        /// Insert a customer on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to insert</param>
+        /// <returns>CustomerResponse</returns>
+        CustomerResponse CustomerCustomersPost (Customer customer);
+
+        /// <summary>
+        /// Insert a customer
+        /// </summary>
+        /// <remarks>
+        /// Insert a customer on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to insert</param>
+        /// <returns>ApiResponse of CustomerResponse</returns>
+        ApiResponse<CustomerResponse> CustomerCustomersPostWithHttpInfo (Customer customer);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Delete a customer
+        /// </summary>
+        /// <remarks>
+        /// Delete a customer on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
+        /// <returns>Task of CustomerResponse</returns>
+        System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersCustomerProfileOidDeleteAsync (int? customerProfileOid);
+
+        /// <summary>
+        /// Delete a customer
+        /// </summary>
+        /// <remarks>
+        /// Delete a customer on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
+        /// <returns>Task of ApiResponse (CustomerResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersCustomerProfileOidDeleteAsyncWithHttpInfo (int? customerProfileOid);
         /// <summary>
         /// Retrieve a customer
         /// </summary>
@@ -296,6 +359,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomersResponse>> CustomerCustomersGetAsyncWithHttpInfo (string email = null, string qbClass = null, string quickbooksCode = null, string lastModifiedDtsStart = null, string lastModifiedDtsEnd = null, string signupDtsStart = null, string signupDtsEnd = null, string billingFirstName = null, string billingLastName = null, string billingCompany = null, string billingCity = null, string billingState = null, string billingPostalCode = null, string billingCountryCode = null, string billingDayPhone = null, string billingEveningPhone = null, string shippingFirstName = null, string shippingLastName = null, string shippingCompany = null, string shippingCity = null, string shippingState = null, string shippingPostalCode = null, string shippingCountryCode = null, string shippingDayPhone = null, string shippingEveningPhone = null, int? pricingTierOid = null, string pricingTierName = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        /// <summary>
+        /// Insert a customer
+        /// </summary>
+        /// <remarks>
+        /// Insert a customer on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to insert</param>
+        /// <returns>Task of CustomerResponse</returns>
+        System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersPostAsync (Customer customer);
+
+        /// <summary>
+        /// Insert a customer
+        /// </summary>
+        /// <remarks>
+        /// Insert a customer on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to insert</param>
+        /// <returns>Task of ApiResponse (CustomerResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersPostAsyncWithHttpInfo (Customer customer);
         #endregion Asynchronous Operations
     }
 
@@ -406,6 +490,172 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Delete a customer Delete a customer on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
+        /// <returns>CustomerResponse</returns>
+        public CustomerResponse CustomerCustomersCustomerProfileOidDelete (int? customerProfileOid)
+        {
+             ApiResponse<CustomerResponse> localVarResponse = CustomerCustomersCustomerProfileOidDeleteWithHttpInfo(customerProfileOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete a customer Delete a customer on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
+        /// <returns>ApiResponse of CustomerResponse</returns>
+        public ApiResponse< CustomerResponse > CustomerCustomersCustomerProfileOidDeleteWithHttpInfo (int? customerProfileOid)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->CustomerCustomersCustomerProfileOidDelete");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CustomerCustomersCustomerProfileOidDelete", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerResponse)));
+            
+        }
+
+        /// <summary>
+        /// Delete a customer Delete a customer on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
+        /// <returns>Task of CustomerResponse</returns>
+        public async System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersCustomerProfileOidDeleteAsync (int? customerProfileOid)
+        {
+             ApiResponse<CustomerResponse> localVarResponse = await CustomerCustomersCustomerProfileOidDeleteAsyncWithHttpInfo(customerProfileOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete a customer Delete a customer on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
+        /// <returns>Task of ApiResponse (CustomerResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersCustomerProfileOidDeleteAsyncWithHttpInfo (int? customerProfileOid)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->CustomerCustomersCustomerProfileOidDelete");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CustomerCustomersCustomerProfileOidDelete", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerResponse)));
+            
         }
 
         /// <summary>
@@ -1115,6 +1365,186 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomersResponse)));
+            
+        }
+
+        /// <summary>
+        /// Insert a customer Insert a customer on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to insert</param>
+        /// <returns>CustomerResponse</returns>
+        public CustomerResponse CustomerCustomersPost (Customer customer)
+        {
+             ApiResponse<CustomerResponse> localVarResponse = CustomerCustomersPostWithHttpInfo(customer);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert a customer Insert a customer on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to insert</param>
+        /// <returns>ApiResponse of CustomerResponse</returns>
+        public ApiResponse< CustomerResponse > CustomerCustomersPostWithHttpInfo (Customer customer)
+        {
+            // verify the required parameter 'customer' is set
+            if (customer == null)
+                throw new ApiException(400, "Missing required parameter 'customer' when calling CustomerApi->CustomerCustomersPost");
+
+            var localVarPath = "/customer/customers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (customer != null && customer.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(customer); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = customer; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CustomerCustomersPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerResponse)));
+            
+        }
+
+        /// <summary>
+        /// Insert a customer Insert a customer on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to insert</param>
+        /// <returns>Task of CustomerResponse</returns>
+        public async System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersPostAsync (Customer customer)
+        {
+             ApiResponse<CustomerResponse> localVarResponse = await CustomerCustomersPostAsyncWithHttpInfo(customer);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert a customer Insert a customer on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to insert</param>
+        /// <returns>Task of ApiResponse (CustomerResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersPostAsyncWithHttpInfo (Customer customer)
+        {
+            // verify the required parameter 'customer' is set
+            if (customer == null)
+                throw new ApiException(400, "Missing required parameter 'customer' when calling CustomerApi->CustomerCustomersPost");
+
+            var localVarPath = "/customer/customers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (customer != null && customer.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(customer); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = customer; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CustomerCustomersPost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerResponse)));
             
         }
 

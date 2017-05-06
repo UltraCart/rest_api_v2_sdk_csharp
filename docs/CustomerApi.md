@@ -4,10 +4,81 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CustomerCustomersCustomerProfileOidDelete**](CustomerApi.md#customercustomerscustomerprofileoiddelete) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**CustomerCustomersCustomerProfileOidGet**](CustomerApi.md#customercustomerscustomerprofileoidget) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**CustomerCustomersCustomerProfileOidPut**](CustomerApi.md#customercustomerscustomerprofileoidput) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**CustomerCustomersGet**](CustomerApi.md#customercustomersget) | **GET** /customer/customers | Retrieve customers
+[**CustomerCustomersPost**](CustomerApi.md#customercustomerspost) | **POST** /customer/customers | Insert a customer
 
+
+<a name="customercustomerscustomerprofileoiddelete"></a>
+# **CustomerCustomersCustomerProfileOidDelete**
+> CustomerResponse CustomerCustomersCustomerProfileOidDelete (int? customerProfileOid)
+
+Delete a customer
+
+Delete a customer on the UltraCart account. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class CustomerCustomersCustomerProfileOidDeleteExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new CustomerApi();
+            var customerProfileOid = 56;  // int? | The customer_profile_oid to delete.
+
+            try
+            {
+                // Delete a customer
+                CustomerResponse result = apiInstance.CustomerCustomersCustomerProfileOidDelete(customerProfileOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CustomerApi.CustomerCustomersCustomerProfileOidDelete: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customerProfileOid** | **int?**| The customer_profile_oid to delete. | 
+
+### Return type
+
+[**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="customercustomerscustomerprofileoidget"></a>
 # **CustomerCustomersCustomerProfileOidGet**
@@ -278,6 +349,75 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="customercustomerspost"></a>
+# **CustomerCustomersPost**
+> CustomerResponse CustomerCustomersPost (Customer customer)
+
+Insert a customer
+
+Insert a customer on the UltraCart account. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class CustomerCustomersPostExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new CustomerApi();
+            var customer = new Customer(); // Customer | Customer to insert
+
+            try
+            {
+                // Insert a customer
+                CustomerResponse result = apiInstance.CustomerCustomersPost(customer);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CustomerApi.CustomerCustomersPost: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer** | [**Customer**](Customer.md)| Customer to insert | 
+
+### Return type
+
+[**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

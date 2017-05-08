@@ -89,8 +89,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to update</param>
         /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CustomerResponse</returns>
-        CustomerResponse CustomerCustomersCustomerProfileOidPut (Customer customer, int? customerProfileOid);
+        CustomerResponse CustomerCustomersCustomerProfileOidPut (Customer customer, int? customerProfileOid, string expand = null);
 
         /// <summary>
         /// Update a customer
@@ -101,8 +102,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to update</param>
         /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CustomerResponse</returns>
-        ApiResponse<CustomerResponse> CustomerCustomersCustomerProfileOidPutWithHttpInfo (Customer customer, int? customerProfileOid);
+        ApiResponse<CustomerResponse> CustomerCustomersCustomerProfileOidPutWithHttpInfo (Customer customer, int? customerProfileOid, string expand = null);
         /// <summary>
         /// Retrieve customers
         /// </summary>
@@ -194,8 +196,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CustomerResponse</returns>
-        CustomerResponse CustomerCustomersPost (Customer customer);
+        CustomerResponse CustomerCustomersPost (Customer customer, string expand = null);
 
         /// <summary>
         /// Insert a customer
@@ -205,8 +208,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CustomerResponse</returns>
-        ApiResponse<CustomerResponse> CustomerCustomersPostWithHttpInfo (Customer customer);
+        ApiResponse<CustomerResponse> CustomerCustomersPostWithHttpInfo (Customer customer, string expand = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -262,8 +266,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to update</param>
         /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CustomerResponse</returns>
-        System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersCustomerProfileOidPutAsync (Customer customer, int? customerProfileOid);
+        System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersCustomerProfileOidPutAsync (Customer customer, int? customerProfileOid, string expand = null);
 
         /// <summary>
         /// Update a customer
@@ -274,8 +279,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to update</param>
         /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomerResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersCustomerProfileOidPutAsyncWithHttpInfo (Customer customer, int? customerProfileOid);
+        System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersCustomerProfileOidPutAsyncWithHttpInfo (Customer customer, int? customerProfileOid, string expand = null);
         /// <summary>
         /// Retrieve customers
         /// </summary>
@@ -367,8 +373,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CustomerResponse</returns>
-        System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersPostAsync (Customer customer);
+        System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersPostAsync (Customer customer, string expand = null);
 
         /// <summary>
         /// Insert a customer
@@ -378,8 +385,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomerResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersPostAsyncWithHttpInfo (Customer customer);
+        System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersPostAsyncWithHttpInfo (Customer customer, string expand = null);
         #endregion Asynchronous Operations
     }
 
@@ -836,10 +844,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to update</param>
         /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CustomerResponse</returns>
-        public CustomerResponse CustomerCustomersCustomerProfileOidPut (Customer customer, int? customerProfileOid)
+        public CustomerResponse CustomerCustomersCustomerProfileOidPut (Customer customer, int? customerProfileOid, string expand = null)
         {
-             ApiResponse<CustomerResponse> localVarResponse = CustomerCustomersCustomerProfileOidPutWithHttpInfo(customer, customerProfileOid);
+             ApiResponse<CustomerResponse> localVarResponse = CustomerCustomersCustomerProfileOidPutWithHttpInfo(customer, customerProfileOid, expand);
              return localVarResponse.Data;
         }
 
@@ -849,8 +858,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to update</param>
         /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CustomerResponse</returns>
-        public ApiResponse< CustomerResponse > CustomerCustomersCustomerProfileOidPutWithHttpInfo (Customer customer, int? customerProfileOid)
+        public ApiResponse< CustomerResponse > CustomerCustomersCustomerProfileOidPutWithHttpInfo (Customer customer, int? customerProfileOid, string expand = null)
         {
             // verify the required parameter 'customer' is set
             if (customer == null)
@@ -885,6 +895,7 @@ namespace com.ultracart.admin.v2.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
             if (customer != null && customer.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(customer); // http body (model) parameter
@@ -932,10 +943,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to update</param>
         /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CustomerResponse</returns>
-        public async System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersCustomerProfileOidPutAsync (Customer customer, int? customerProfileOid)
+        public async System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersCustomerProfileOidPutAsync (Customer customer, int? customerProfileOid, string expand = null)
         {
-             ApiResponse<CustomerResponse> localVarResponse = await CustomerCustomersCustomerProfileOidPutAsyncWithHttpInfo(customer, customerProfileOid);
+             ApiResponse<CustomerResponse> localVarResponse = await CustomerCustomersCustomerProfileOidPutAsyncWithHttpInfo(customer, customerProfileOid, expand);
              return localVarResponse.Data;
 
         }
@@ -946,8 +958,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to update</param>
         /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomerResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersCustomerProfileOidPutAsyncWithHttpInfo (Customer customer, int? customerProfileOid)
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersCustomerProfileOidPutAsyncWithHttpInfo (Customer customer, int? customerProfileOid, string expand = null)
         {
             // verify the required parameter 'customer' is set
             if (customer == null)
@@ -982,6 +995,7 @@ namespace com.ultracart.admin.v2.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
             if (customer != null && customer.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(customer); // http body (model) parameter
@@ -1373,10 +1387,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CustomerResponse</returns>
-        public CustomerResponse CustomerCustomersPost (Customer customer)
+        public CustomerResponse CustomerCustomersPost (Customer customer, string expand = null)
         {
-             ApiResponse<CustomerResponse> localVarResponse = CustomerCustomersPostWithHttpInfo(customer);
+             ApiResponse<CustomerResponse> localVarResponse = CustomerCustomersPostWithHttpInfo(customer, expand);
              return localVarResponse.Data;
         }
 
@@ -1385,8 +1400,9 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CustomerResponse</returns>
-        public ApiResponse< CustomerResponse > CustomerCustomersPostWithHttpInfo (Customer customer)
+        public ApiResponse< CustomerResponse > CustomerCustomersPostWithHttpInfo (Customer customer, string expand = null)
         {
             // verify the required parameter 'customer' is set
             if (customer == null)
@@ -1417,6 +1433,7 @@ namespace com.ultracart.admin.v2.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
             if (customer != null && customer.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(customer); // http body (model) parameter
@@ -1463,10 +1480,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CustomerResponse</returns>
-        public async System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersPostAsync (Customer customer)
+        public async System.Threading.Tasks.Task<CustomerResponse> CustomerCustomersPostAsync (Customer customer, string expand = null)
         {
-             ApiResponse<CustomerResponse> localVarResponse = await CustomerCustomersPostAsyncWithHttpInfo(customer);
+             ApiResponse<CustomerResponse> localVarResponse = await CustomerCustomersPostAsyncWithHttpInfo(customer, expand);
              return localVarResponse.Data;
 
         }
@@ -1476,8 +1494,9 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">Customer to insert</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomerResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersPostAsyncWithHttpInfo (Customer customer)
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> CustomerCustomersPostAsyncWithHttpInfo (Customer customer, string expand = null)
         {
             // verify the required parameter 'customer' is set
             if (customer == null)
@@ -1508,6 +1527,7 @@ namespace com.ultracart.admin.v2.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
             if (customer != null && customer.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(customer); // http body (model) parameter

@@ -126,8 +126,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ItemResponse</returns>
-        ItemResponse ItemItemsMerchantItemOidPut (Item item, int? merchantItemOid);
+        ItemResponse ItemItemsMerchantItemOidPut (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null);
 
         /// <summary>
         /// Update an item
@@ -138,8 +140,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemResponse</returns>
-        ApiResponse<ItemResponse> ItemItemsMerchantItemOidPutWithHttpInfo (Item item, int? merchantItemOid);
+        ApiResponse<ItemResponse> ItemItemsMerchantItemOidPutWithHttpInfo (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null);
         /// <summary>
         /// Create an item
         /// </summary>
@@ -148,8 +152,10 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to create</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ItemResponse</returns>
-        ItemResponse ItemItemsPost (Item item);
+        ItemResponse ItemItemsPost (Item item, string expand = null, bool? placeholders = null);
 
         /// <summary>
         /// Create an item
@@ -159,8 +165,10 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to create</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemResponse</returns>
-        ApiResponse<ItemResponse> ItemItemsPostWithHttpInfo (Item item);
+        ApiResponse<ItemResponse> ItemItemsPostWithHttpInfo (Item item, string expand = null, bool? placeholders = null);
         /// <summary>
         /// Upload an image to the temporary multimedia.
         /// </summary>
@@ -274,8 +282,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ItemResponse</returns>
-        System.Threading.Tasks.Task<ItemResponse> ItemItemsMerchantItemOidPutAsync (Item item, int? merchantItemOid);
+        System.Threading.Tasks.Task<ItemResponse> ItemItemsMerchantItemOidPutAsync (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null);
 
         /// <summary>
         /// Update an item
@@ -286,8 +296,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemResponse>> ItemItemsMerchantItemOidPutAsyncWithHttpInfo (Item item, int? merchantItemOid);
+        System.Threading.Tasks.Task<ApiResponse<ItemResponse>> ItemItemsMerchantItemOidPutAsyncWithHttpInfo (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null);
         /// <summary>
         /// Create an item
         /// </summary>
@@ -296,8 +308,10 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to create</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ItemResponse</returns>
-        System.Threading.Tasks.Task<ItemResponse> ItemItemsPostAsync (Item item);
+        System.Threading.Tasks.Task<ItemResponse> ItemItemsPostAsync (Item item, string expand = null, bool? placeholders = null);
 
         /// <summary>
         /// Create an item
@@ -307,8 +321,10 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to create</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemResponse>> ItemItemsPostAsyncWithHttpInfo (Item item);
+        System.Threading.Tasks.Task<ApiResponse<ItemResponse>> ItemItemsPostAsyncWithHttpInfo (Item item, string expand = null, bool? placeholders = null);
         /// <summary>
         /// Upload an image to the temporary multimedia.
         /// </summary>
@@ -992,10 +1008,12 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ItemResponse</returns>
-        public ItemResponse ItemItemsMerchantItemOidPut (Item item, int? merchantItemOid)
+        public ItemResponse ItemItemsMerchantItemOidPut (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null)
         {
-             ApiResponse<ItemResponse> localVarResponse = ItemItemsMerchantItemOidPutWithHttpInfo(item, merchantItemOid);
+             ApiResponse<ItemResponse> localVarResponse = ItemItemsMerchantItemOidPutWithHttpInfo(item, merchantItemOid, expand, placeholders);
              return localVarResponse.Data;
         }
 
@@ -1005,8 +1023,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemResponse</returns>
-        public ApiResponse< ItemResponse > ItemItemsMerchantItemOidPutWithHttpInfo (Item item, int? merchantItemOid)
+        public ApiResponse< ItemResponse > ItemItemsMerchantItemOidPutWithHttpInfo (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null)
         {
             // verify the required parameter 'item' is set
             if (item == null)
@@ -1041,6 +1061,8 @@ namespace com.ultracart.admin.v2.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
             if (item != null && item.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(item); // http body (model) parameter
@@ -1088,10 +1110,12 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ItemResponse</returns>
-        public async System.Threading.Tasks.Task<ItemResponse> ItemItemsMerchantItemOidPutAsync (Item item, int? merchantItemOid)
+        public async System.Threading.Tasks.Task<ItemResponse> ItemItemsMerchantItemOidPutAsync (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null)
         {
-             ApiResponse<ItemResponse> localVarResponse = await ItemItemsMerchantItemOidPutAsyncWithHttpInfo(item, merchantItemOid);
+             ApiResponse<ItemResponse> localVarResponse = await ItemItemsMerchantItemOidPutAsyncWithHttpInfo(item, merchantItemOid, expand, placeholders);
              return localVarResponse.Data;
 
         }
@@ -1102,8 +1126,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to update</param>
         /// <param name="merchantItemOid">The item oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemResponse>> ItemItemsMerchantItemOidPutAsyncWithHttpInfo (Item item, int? merchantItemOid)
+        public async System.Threading.Tasks.Task<ApiResponse<ItemResponse>> ItemItemsMerchantItemOidPutAsyncWithHttpInfo (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null)
         {
             // verify the required parameter 'item' is set
             if (item == null)
@@ -1138,6 +1164,8 @@ namespace com.ultracart.admin.v2.Api
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
             if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
             if (item != null && item.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(item); // http body (model) parameter
@@ -1183,10 +1211,12 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to create</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ItemResponse</returns>
-        public ItemResponse ItemItemsPost (Item item)
+        public ItemResponse ItemItemsPost (Item item, string expand = null, bool? placeholders = null)
         {
-             ApiResponse<ItemResponse> localVarResponse = ItemItemsPostWithHttpInfo(item);
+             ApiResponse<ItemResponse> localVarResponse = ItemItemsPostWithHttpInfo(item, expand, placeholders);
              return localVarResponse.Data;
         }
 
@@ -1195,8 +1225,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to create</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemResponse</returns>
-        public ApiResponse< ItemResponse > ItemItemsPostWithHttpInfo (Item item)
+        public ApiResponse< ItemResponse > ItemItemsPostWithHttpInfo (Item item, string expand = null, bool? placeholders = null)
         {
             // verify the required parameter 'item' is set
             if (item == null)
@@ -1227,6 +1259,8 @@ namespace com.ultracart.admin.v2.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
             if (item != null && item.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(item); // http body (model) parameter
@@ -1273,10 +1307,12 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to create</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ItemResponse</returns>
-        public async System.Threading.Tasks.Task<ItemResponse> ItemItemsPostAsync (Item item)
+        public async System.Threading.Tasks.Task<ItemResponse> ItemItemsPostAsync (Item item, string expand = null, bool? placeholders = null)
         {
-             ApiResponse<ItemResponse> localVarResponse = await ItemItemsPostAsyncWithHttpInfo(item);
+             ApiResponse<ItemResponse> localVarResponse = await ItemItemsPostAsyncWithHttpInfo(item, expand, placeholders);
              return localVarResponse.Data;
 
         }
@@ -1286,8 +1322,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="item">Item to create</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemResponse>> ItemItemsPostAsyncWithHttpInfo (Item item)
+        public async System.Threading.Tasks.Task<ApiResponse<ItemResponse>> ItemItemsPostAsyncWithHttpInfo (Item item, string expand = null, bool? placeholders = null)
         {
             // verify the required parameter 'item' is set
             if (item == null)
@@ -1318,6 +1356,8 @@ namespace com.ultracart.admin.v2.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
             if (item != null && item.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(item); // http body (model) parameter

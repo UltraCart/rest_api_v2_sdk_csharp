@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 <a name="customercustomerscustomerprofileoidput"></a>
 # **CustomerCustomersCustomerProfileOidPut**
-> CustomerResponse CustomerCustomersCustomerProfileOidPut (Customer customer, int? customerProfileOid)
+> CustomerResponse CustomerCustomersCustomerProfileOidPut (Customer customer, int? customerProfileOid, string expand = null)
 
 Update a customer
 
@@ -184,11 +184,12 @@ namespace Example
             var apiInstance = new CustomerApi();
             var customer = new Customer(); // Customer | Customer to update
             var customerProfileOid = 56;  // int? | The customer_profile_oid to update.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
                 // Update a customer
-                CustomerResponse result = apiInstance.CustomerCustomersCustomerProfileOidPut(customer, customerProfileOid);
+                CustomerResponse result = apiInstance.CustomerCustomersCustomerProfileOidPut(customer, customerProfileOid, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -206,6 +207,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**Customer**](Customer.md)| Customer to update | 
  **customerProfileOid** | **int?**| The customer_profile_oid to update. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 
@@ -355,7 +357,7 @@ Name | Type | Description  | Notes
 
 <a name="customercustomerspost"></a>
 # **CustomerCustomersPost**
-> CustomerResponse CustomerCustomersPost (Customer customer)
+> CustomerResponse CustomerCustomersPost (Customer customer, string expand = null)
 
 Insert a customer
 
@@ -385,11 +387,12 @@ namespace Example
 
             var apiInstance = new CustomerApi();
             var customer = new Customer(); // Customer | Customer to insert
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
                 // Insert a customer
-                CustomerResponse result = apiInstance.CustomerCustomersPost(customer);
+                CustomerResponse result = apiInstance.CustomerCustomersPost(customer, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -406,6 +409,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**Customer**](Customer.md)| Customer to insert | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 

@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 <a name="chargebackchargebackschargebackdisputeoidput"></a>
 # **ChargebackChargebacksChargebackDisputeOidPut**
-> ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidPut (ChargebackDispute chargeback, int? chargebackDisputeOid)
+> ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidPut (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
 
 Update a chargeback
 
@@ -184,11 +184,12 @@ namespace Example
             var apiInstance = new ChargebackApi();
             var chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to update
             var chargebackDisputeOid = 56;  // int? | The chargeback_dispute_oid to update.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
                 // Update a chargeback
-                ChargebackDisputeResponse result = apiInstance.ChargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid);
+                ChargebackDisputeResponse result = apiInstance.ChargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -206,6 +207,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to update | 
  **chargebackDisputeOid** | **int?**| The chargeback_dispute_oid to update. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 
@@ -315,7 +317,7 @@ Name | Type | Description  | Notes
 
 <a name="chargebackchargebackspost"></a>
 # **ChargebackChargebacksPost**
-> ChargebackDisputeResponse ChargebackChargebacksPost (ChargebackDispute chargeback)
+> ChargebackDisputeResponse ChargebackChargebacksPost (ChargebackDispute chargeback, string expand = null)
 
 Insert a chargeback
 
@@ -345,11 +347,12 @@ namespace Example
 
             var apiInstance = new ChargebackApi();
             var chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to insert
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
                 // Insert a chargeback
-                ChargebackDisputeResponse result = apiInstance.ChargebackChargebacksPost(chargeback);
+                ChargebackDisputeResponse result = apiInstance.ChargebackChargebacksPost(chargeback, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -366,6 +369,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to insert | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 

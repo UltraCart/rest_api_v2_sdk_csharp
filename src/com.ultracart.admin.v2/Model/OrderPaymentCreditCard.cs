@@ -81,13 +81,7 @@ namespace com.ultracart.admin.v2.Model
             /// Enum VISA for "VISA"
             /// </summary>
             [EnumMember(Value = "VISA")]
-            VISA,
-            
-            /// <summary>
-            /// Enum Visa for "Visa"
-            /// </summary>
-            [EnumMember(Value = "Visa")]
-            Visa
+            VISA
         }
 
         /// <summary>

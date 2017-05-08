@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 <a name="itemitemsmerchantitemoidput"></a>
 # **ItemItemsMerchantItemOidPut**
-> ItemResponse ItemItemsMerchantItemOidPut (Item item, int? merchantItemOid)
+> ItemResponse ItemItemsMerchantItemOidPut (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null)
 
 Update an item
 
@@ -269,11 +269,13 @@ namespace Example
             var apiInstance = new ItemApi();
             var item = new Item(); // Item | Item to update
             var merchantItemOid = 56;  // int? | The item oid to update.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
             try
             {
                 // Update an item
-                ItemResponse result = apiInstance.ItemItemsMerchantItemOidPut(item, merchantItemOid);
+                ItemResponse result = apiInstance.ItemItemsMerchantItemOidPut(item, merchantItemOid, expand, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -291,6 +293,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item** | [**Item**](Item.md)| Item to update | 
  **merchantItemOid** | **int?**| The item oid to update. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 
@@ -309,7 +313,7 @@ Name | Type | Description  | Notes
 
 <a name="itemitemspost"></a>
 # **ItemItemsPost**
-> ItemResponse ItemItemsPost (Item item)
+> ItemResponse ItemItemsPost (Item item, string expand = null, bool? placeholders = null)
 
 Create an item
 
@@ -339,11 +343,13 @@ namespace Example
 
             var apiInstance = new ItemApi();
             var item = new Item(); // Item | Item to create
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
             try
             {
                 // Create an item
-                ItemResponse result = apiInstance.ItemItemsPost(item);
+                ItemResponse result = apiInstance.ItemItemsPost(item, expand, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -360,6 +366,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item** | [**Item**](Item.md)| Item to create | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 

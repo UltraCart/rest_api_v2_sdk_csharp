@@ -77,23 +77,10 @@ namespace com.ultracart.admin.v2.Test
 
         
         /// <summary>
-        /// Test OauthRevokePost
+        /// Test OauthAccessToken
         /// </summary>
         [Test]
-        public void OauthRevokePostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string clientId = null;
-            //string token = null;
-            //var response = instance.OauthRevokePost(clientId, token);
-            //Assert.IsInstanceOf<OauthRevokeSuccessResponse> (response, "response is OauthRevokeSuccessResponse");
-        }
-        
-        /// <summary>
-        /// Test OauthTokenPost
-        /// </summary>
-        [Test]
-        public void OauthTokenPostTest()
+        public void OauthAccessTokenTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string clientId = null;
@@ -101,8 +88,21 @@ namespace com.ultracart.admin.v2.Test
             //string code = null;
             //string redirectUri = null;
             //string refreshToken = null;
-            //var response = instance.OauthTokenPost(clientId, grantType, code, redirectUri, refreshToken);
+            //var response = instance.OauthAccessToken(clientId, grantType, code, redirectUri, refreshToken);
             //Assert.IsInstanceOf<OauthTokenResponse> (response, "response is OauthTokenResponse");
+        }
+        
+        /// <summary>
+        /// Test OauthRevoke
+        /// </summary>
+        [Test]
+        public void OauthRevokeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string clientId = null;
+            //string token = null;
+            //var response = instance.OauthRevoke(clientId, token);
+            //Assert.IsInstanceOf<OauthRevokeSuccessResponse> (response, "response is OauthRevokeSuccessResponse");
         }
         
     }

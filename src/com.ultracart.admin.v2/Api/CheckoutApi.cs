@@ -37,49 +37,26 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Setup Browser Application
+        /// City/State for Zip
         /// </summary>
         /// <remarks>
-        /// Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="browserKeyRequest">Setup browser key request</param>
-        /// <returns>CheckoutSetupBrowserKeyResponse</returns>
-        CheckoutSetupBrowserKeyResponse CheckoutBrowserKeyPut (CheckoutSetupBrowserKeyRequest browserKeyRequest);
+        /// <param name="cart">Cart</param>
+        /// <returns>ItemsResponse</returns>
+        ItemsResponse CityState (Cart cart);
 
         /// <summary>
-        /// Setup Browser Application
+        /// City/State for Zip
         /// </summary>
         /// <remarks>
-        /// Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="browserKeyRequest">Setup browser key request</param>
-        /// <returns>ApiResponse of CheckoutSetupBrowserKeyResponse</returns>
-        ApiResponse<CheckoutSetupBrowserKeyResponse> CheckoutBrowserKeyPutWithHttpInfo (CheckoutSetupBrowserKeyRequest browserKeyRequest);
-        /// <summary>
-        /// Get cart (by cart id)
-        /// </summary>
-        /// <remarks>
-        /// Get a cart specified by the cart_id parameter. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cartId">Cart ID to retrieve</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>CartResponse</returns>
-        CartResponse CheckoutCartCartIdGet (string cartId, string expand = null);
-
-        /// <summary>
-        /// Get cart (by cart id)
-        /// </summary>
-        /// <remarks>
-        /// Get a cart specified by the cart_id parameter. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cartId">Cart ID to retrieve</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of CartResponse</returns>
-        ApiResponse<CartResponse> CheckoutCartCartIdGetWithHttpInfo (string cartId, string expand = null);
+        /// <param name="cart">Cart</param>
+        /// <returns>ApiResponse of ItemsResponse</returns>
+        ApiResponse<ItemsResponse> CityStateWithHttpInfo (Cart cart);
         /// <summary>
         /// Finalize Order
         /// </summary>
@@ -89,7 +66,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="finalizeRequest">Finalize request</param>
         /// <returns>CartFinalizeOrderResponse</returns>
-        CartFinalizeOrderResponse CheckoutCartFinalizeOrderPost (CartFinalizeOrderRequest finalizeRequest);
+        CartFinalizeOrderResponse FinalizeOrder (CartFinalizeOrderRequest finalizeRequest);
 
         /// <summary>
         /// Finalize Order
@@ -100,7 +77,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="finalizeRequest">Finalize request</param>
         /// <returns>ApiResponse of CartFinalizeOrderResponse</returns>
-        ApiResponse<CartFinalizeOrderResponse> CheckoutCartFinalizeOrderPostWithHttpInfo (CartFinalizeOrderRequest finalizeRequest);
+        ApiResponse<CartFinalizeOrderResponse> FinalizeOrderWithHttpInfo (CartFinalizeOrderRequest finalizeRequest);
         /// <summary>
         /// Get cart
         /// </summary>
@@ -110,7 +87,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartResponse</returns>
-        CartResponse CheckoutCartGet (string expand = null);
+        CartResponse GetCart (string expand = null);
 
         /// <summary>
         /// Get cart
@@ -121,7 +98,53 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartResponse</returns>
-        ApiResponse<CartResponse> CheckoutCartGetWithHttpInfo (string expand = null);
+        ApiResponse<CartResponse> GetCartWithHttpInfo (string expand = null);
+        /// <summary>
+        /// Get cart (by cart id)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the cart_id parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CartResponse</returns>
+        CartResponse GetCartByCartId (string cartId, string expand = null);
+
+        /// <summary>
+        /// Get cart (by cart id)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the cart_id parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CartResponse</returns>
+        ApiResponse<CartResponse> GetCartByCartIdWithHttpInfo (string cartId, string expand = null);
+        /// <summary>
+        /// Get cart (by return code)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the return code parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnCode">Return code to lookup cart ID by</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CartResponse</returns>
+        CartResponse GetCartByReturnCode (string returnCode, string expand = null);
+
+        /// <summary>
+        /// Get cart (by return code)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the return code parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnCode">Return code to lookup cart ID by</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CartResponse</returns>
+        ApiResponse<CartResponse> GetCartByReturnCodeWithHttpInfo (string returnCode, string expand = null);
         /// <summary>
         /// Handoff cart
         /// </summary>
@@ -132,7 +155,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="handoffRequest">Handoff request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CheckoutHandoffResponse</returns>
-        CheckoutHandoffResponse CheckoutCartHandoffPost (CheckoutHandoffRequest handoffRequest, string expand = null);
+        CheckoutHandoffResponse HandoffCart (CheckoutHandoffRequest handoffRequest, string expand = null);
 
         /// <summary>
         /// Handoff cart
@@ -144,7 +167,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="handoffRequest">Handoff request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CheckoutHandoffResponse</returns>
-        ApiResponse<CheckoutHandoffResponse> CheckoutCartHandoffPostWithHttpInfo (CheckoutHandoffRequest handoffRequest, string expand = null);
+        ApiResponse<CheckoutHandoffResponse> HandoffCartWithHttpInfo (CheckoutHandoffRequest handoffRequest, string expand = null);
         /// <summary>
         /// Profile login
         /// </summary>
@@ -155,7 +178,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="loginRequest">Login request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartProfileLoginResponse</returns>
-        CartProfileLoginResponse CheckoutCartProfileLoginPost (CartProfileLoginRequest loginRequest, string expand = null);
+        CartProfileLoginResponse Login (CartProfileLoginRequest loginRequest, string expand = null);
 
         /// <summary>
         /// Profile login
@@ -167,7 +190,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="loginRequest">Login request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartProfileLoginResponse</returns>
-        ApiResponse<CartProfileLoginResponse> CheckoutCartProfileLoginPostWithHttpInfo (CartProfileLoginRequest loginRequest, string expand = null);
+        ApiResponse<CartProfileLoginResponse> LoginWithHttpInfo (CartProfileLoginRequest loginRequest, string expand = null);
         /// <summary>
         /// Profile logout
         /// </summary>
@@ -178,7 +201,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartResponse</returns>
-        CartResponse CheckoutCartProfileLogoutPost (Cart cart, string expand = null);
+        CartResponse Logout (Cart cart, string expand = null);
 
         /// <summary>
         /// Profile logout
@@ -190,7 +213,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartResponse</returns>
-        ApiResponse<CartResponse> CheckoutCartProfileLogoutPostWithHttpInfo (Cart cart, string expand = null);
+        ApiResponse<CartResponse> LogoutWithHttpInfo (Cart cart, string expand = null);
         /// <summary>
         /// Profile registration
         /// </summary>
@@ -201,7 +224,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="registerRequest">Register request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartProfileRegisterResponse</returns>
-        CartProfileRegisterResponse CheckoutCartProfileRegisterPost (CartProfileRegisterRequest registerRequest, string expand = null);
+        CartProfileRegisterResponse Register (CartProfileRegisterRequest registerRequest, string expand = null);
 
         /// <summary>
         /// Profile registration
@@ -213,7 +236,76 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="registerRequest">Register request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartProfileRegisterResponse</returns>
-        ApiResponse<CartProfileRegisterResponse> CheckoutCartProfileRegisterPostWithHttpInfo (CartProfileRegisterRequest registerRequest, string expand = null);
+        ApiResponse<CartProfileRegisterResponse> RegisterWithHttpInfo (CartProfileRegisterRequest registerRequest, string expand = null);
+        /// <summary>
+        /// Related items
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>ItemsResponse</returns>
+        ItemsResponse RelatedItemsForCart (Cart cart, string expand = null);
+
+        /// <summary>
+        /// Related items
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>ApiResponse of ItemsResponse</returns>
+        ApiResponse<ItemsResponse> RelatedItemsForCartWithHttpInfo (Cart cart, string expand = null);
+        /// <summary>
+        /// Related items (specific item)
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemId">Item ID to retrieve related items for</param>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>ItemsResponse</returns>
+        ItemsResponse RelatedItemsForItem (string itemId, Cart cart, string expand = null);
+
+        /// <summary>
+        /// Related items (specific item)
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemId">Item ID to retrieve related items for</param>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>ApiResponse of ItemsResponse</returns>
+        ApiResponse<ItemsResponse> RelatedItemsForItemWithHttpInfo (string itemId, Cart cart, string expand = null);
+        /// <summary>
+        /// Setup Browser Application
+        /// </summary>
+        /// <remarks>
+        /// Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="browserKeyRequest">Setup browser key request</param>
+        /// <returns>CheckoutSetupBrowserKeyResponse</returns>
+        CheckoutSetupBrowserKeyResponse SetupBrowserKey (CheckoutSetupBrowserKeyRequest browserKeyRequest);
+
+        /// <summary>
+        /// Setup Browser Application
+        /// </summary>
+        /// <remarks>
+        /// Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="browserKeyRequest">Setup browser key request</param>
+        /// <returns>ApiResponse of CheckoutSetupBrowserKeyResponse</returns>
+        ApiResponse<CheckoutSetupBrowserKeyResponse> SetupBrowserKeyWithHttpInfo (CheckoutSetupBrowserKeyRequest browserKeyRequest);
         /// <summary>
         /// Update cart
         /// </summary>
@@ -224,7 +316,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartResponse</returns>
-        CartResponse CheckoutCartPut (Cart cart, string expand = null);
+        CartResponse UpdateCart (Cart cart, string expand = null);
 
         /// <summary>
         /// Update cart
@@ -236,7 +328,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartResponse</returns>
-        ApiResponse<CartResponse> CheckoutCartPutWithHttpInfo (Cart cart, string expand = null);
+        ApiResponse<CartResponse> UpdateCartWithHttpInfo (Cart cart, string expand = null);
         /// <summary>
         /// Validate
         /// </summary>
@@ -247,7 +339,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="validationRequest">Validation request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartValidationResponse</returns>
-        CartValidationResponse CheckoutCartValidatePost (CartValidationRequest validationRequest, string expand = null);
+        CartValidationResponse ValidateCart (CartValidationRequest validationRequest, string expand = null);
 
         /// <summary>
         /// Validate
@@ -259,145 +351,30 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="validationRequest">Validation request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartValidationResponse</returns>
-        ApiResponse<CartValidationResponse> CheckoutCartValidatePostWithHttpInfo (CartValidationRequest validationRequest, string expand = null);
-        /// <summary>
-        /// City/State for Zip
-        /// </summary>
-        /// <remarks>
-        /// Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <returns>ItemsResponse</returns>
-        ItemsResponse CheckoutCityStatePost (Cart cart);
-
-        /// <summary>
-        /// City/State for Zip
-        /// </summary>
-        /// <remarks>
-        /// Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        ApiResponse<ItemsResponse> CheckoutCityStatePostWithHttpInfo (Cart cart);
-        /// <summary>
-        /// Related items (specific item)
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemId">Item ID to retrieve related items for</param>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>ItemsResponse</returns>
-        ItemsResponse CheckoutRelatedItemsItemIdPost (string itemId, Cart cart, string expand = null);
-
-        /// <summary>
-        /// Related items (specific item)
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemId">Item ID to retrieve related items for</param>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        ApiResponse<ItemsResponse> CheckoutRelatedItemsItemIdPostWithHttpInfo (string itemId, Cart cart, string expand = null);
-        /// <summary>
-        /// Related items
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>ItemsResponse</returns>
-        ItemsResponse CheckoutRelatedItemsPost (Cart cart, string expand = null);
-
-        /// <summary>
-        /// Related items
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        ApiResponse<ItemsResponse> CheckoutRelatedItemsPostWithHttpInfo (Cart cart, string expand = null);
-        /// <summary>
-        /// Get cart (by return code)
-        /// </summary>
-        /// <remarks>
-        /// Get a cart specified by the return code parameter. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="returnCode">Return code to lookup cart ID by</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>CartResponse</returns>
-        CartResponse CheckoutReturnReturnCodeGet (string returnCode, string expand = null);
-
-        /// <summary>
-        /// Get cart (by return code)
-        /// </summary>
-        /// <remarks>
-        /// Get a cart specified by the return code parameter. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="returnCode">Return code to lookup cart ID by</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of CartResponse</returns>
-        ApiResponse<CartResponse> CheckoutReturnReturnCodeGetWithHttpInfo (string returnCode, string expand = null);
+        ApiResponse<CartValidationResponse> ValidateCartWithHttpInfo (CartValidationRequest validationRequest, string expand = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Setup Browser Application
+        /// City/State for Zip
         /// </summary>
         /// <remarks>
-        /// Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="browserKeyRequest">Setup browser key request</param>
-        /// <returns>Task of CheckoutSetupBrowserKeyResponse</returns>
-        System.Threading.Tasks.Task<CheckoutSetupBrowserKeyResponse> CheckoutBrowserKeyPutAsync (CheckoutSetupBrowserKeyRequest browserKeyRequest);
+        /// <param name="cart">Cart</param>
+        /// <returns>Task of ItemsResponse</returns>
+        System.Threading.Tasks.Task<ItemsResponse> CityStateAsync (Cart cart);
 
         /// <summary>
-        /// Setup Browser Application
+        /// City/State for Zip
         /// </summary>
         /// <remarks>
-        /// Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="browserKeyRequest">Setup browser key request</param>
-        /// <returns>Task of ApiResponse (CheckoutSetupBrowserKeyResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CheckoutSetupBrowserKeyResponse>> CheckoutBrowserKeyPutAsyncWithHttpInfo (CheckoutSetupBrowserKeyRequest browserKeyRequest);
-        /// <summary>
-        /// Get cart (by cart id)
-        /// </summary>
-        /// <remarks>
-        /// Get a cart specified by the cart_id parameter. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cartId">Cart ID to retrieve</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of CartResponse</returns>
-        System.Threading.Tasks.Task<CartResponse> CheckoutCartCartIdGetAsync (string cartId, string expand = null);
-
-        /// <summary>
-        /// Get cart (by cart id)
-        /// </summary>
-        /// <remarks>
-        /// Get a cart specified by the cart_id parameter. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cartId">Cart ID to retrieve</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (CartResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CartResponse>> CheckoutCartCartIdGetAsyncWithHttpInfo (string cartId, string expand = null);
+        /// <param name="cart">Cart</param>
+        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> CityStateAsyncWithHttpInfo (Cart cart);
         /// <summary>
         /// Finalize Order
         /// </summary>
@@ -407,7 +384,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="finalizeRequest">Finalize request</param>
         /// <returns>Task of CartFinalizeOrderResponse</returns>
-        System.Threading.Tasks.Task<CartFinalizeOrderResponse> CheckoutCartFinalizeOrderPostAsync (CartFinalizeOrderRequest finalizeRequest);
+        System.Threading.Tasks.Task<CartFinalizeOrderResponse> FinalizeOrderAsync (CartFinalizeOrderRequest finalizeRequest);
 
         /// <summary>
         /// Finalize Order
@@ -418,7 +395,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="finalizeRequest">Finalize request</param>
         /// <returns>Task of ApiResponse (CartFinalizeOrderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CartFinalizeOrderResponse>> CheckoutCartFinalizeOrderPostAsyncWithHttpInfo (CartFinalizeOrderRequest finalizeRequest);
+        System.Threading.Tasks.Task<ApiResponse<CartFinalizeOrderResponse>> FinalizeOrderAsyncWithHttpInfo (CartFinalizeOrderRequest finalizeRequest);
         /// <summary>
         /// Get cart
         /// </summary>
@@ -428,7 +405,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartResponse</returns>
-        System.Threading.Tasks.Task<CartResponse> CheckoutCartGetAsync (string expand = null);
+        System.Threading.Tasks.Task<CartResponse> GetCartAsync (string expand = null);
 
         /// <summary>
         /// Get cart
@@ -439,7 +416,53 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CartResponse>> CheckoutCartGetAsyncWithHttpInfo (string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<CartResponse>> GetCartAsyncWithHttpInfo (string expand = null);
+        /// <summary>
+        /// Get cart (by cart id)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the cart_id parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CartResponse</returns>
+        System.Threading.Tasks.Task<CartResponse> GetCartByCartIdAsync (string cartId, string expand = null);
+
+        /// <summary>
+        /// Get cart (by cart id)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the cart_id parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CartResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CartResponse>> GetCartByCartIdAsyncWithHttpInfo (string cartId, string expand = null);
+        /// <summary>
+        /// Get cart (by return code)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the return code parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnCode">Return code to lookup cart ID by</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CartResponse</returns>
+        System.Threading.Tasks.Task<CartResponse> GetCartByReturnCodeAsync (string returnCode, string expand = null);
+
+        /// <summary>
+        /// Get cart (by return code)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the return code parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnCode">Return code to lookup cart ID by</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CartResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CartResponse>> GetCartByReturnCodeAsyncWithHttpInfo (string returnCode, string expand = null);
         /// <summary>
         /// Handoff cart
         /// </summary>
@@ -450,7 +473,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="handoffRequest">Handoff request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CheckoutHandoffResponse</returns>
-        System.Threading.Tasks.Task<CheckoutHandoffResponse> CheckoutCartHandoffPostAsync (CheckoutHandoffRequest handoffRequest, string expand = null);
+        System.Threading.Tasks.Task<CheckoutHandoffResponse> HandoffCartAsync (CheckoutHandoffRequest handoffRequest, string expand = null);
 
         /// <summary>
         /// Handoff cart
@@ -462,7 +485,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="handoffRequest">Handoff request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CheckoutHandoffResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CheckoutHandoffResponse>> CheckoutCartHandoffPostAsyncWithHttpInfo (CheckoutHandoffRequest handoffRequest, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<CheckoutHandoffResponse>> HandoffCartAsyncWithHttpInfo (CheckoutHandoffRequest handoffRequest, string expand = null);
         /// <summary>
         /// Profile login
         /// </summary>
@@ -473,7 +496,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="loginRequest">Login request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartProfileLoginResponse</returns>
-        System.Threading.Tasks.Task<CartProfileLoginResponse> CheckoutCartProfileLoginPostAsync (CartProfileLoginRequest loginRequest, string expand = null);
+        System.Threading.Tasks.Task<CartProfileLoginResponse> LoginAsync (CartProfileLoginRequest loginRequest, string expand = null);
 
         /// <summary>
         /// Profile login
@@ -485,7 +508,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="loginRequest">Login request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartProfileLoginResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CartProfileLoginResponse>> CheckoutCartProfileLoginPostAsyncWithHttpInfo (CartProfileLoginRequest loginRequest, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<CartProfileLoginResponse>> LoginAsyncWithHttpInfo (CartProfileLoginRequest loginRequest, string expand = null);
         /// <summary>
         /// Profile logout
         /// </summary>
@@ -496,7 +519,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartResponse</returns>
-        System.Threading.Tasks.Task<CartResponse> CheckoutCartProfileLogoutPostAsync (Cart cart, string expand = null);
+        System.Threading.Tasks.Task<CartResponse> LogoutAsync (Cart cart, string expand = null);
 
         /// <summary>
         /// Profile logout
@@ -508,7 +531,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CartResponse>> CheckoutCartProfileLogoutPostAsyncWithHttpInfo (Cart cart, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<CartResponse>> LogoutAsyncWithHttpInfo (Cart cart, string expand = null);
         /// <summary>
         /// Profile registration
         /// </summary>
@@ -519,7 +542,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="registerRequest">Register request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartProfileRegisterResponse</returns>
-        System.Threading.Tasks.Task<CartProfileRegisterResponse> CheckoutCartProfileRegisterPostAsync (CartProfileRegisterRequest registerRequest, string expand = null);
+        System.Threading.Tasks.Task<CartProfileRegisterResponse> RegisterAsync (CartProfileRegisterRequest registerRequest, string expand = null);
 
         /// <summary>
         /// Profile registration
@@ -531,7 +554,76 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="registerRequest">Register request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartProfileRegisterResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CartProfileRegisterResponse>> CheckoutCartProfileRegisterPostAsyncWithHttpInfo (CartProfileRegisterRequest registerRequest, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<CartProfileRegisterResponse>> RegisterAsyncWithHttpInfo (CartProfileRegisterRequest registerRequest, string expand = null);
+        /// <summary>
+        /// Related items
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>Task of ItemsResponse</returns>
+        System.Threading.Tasks.Task<ItemsResponse> RelatedItemsForCartAsync (Cart cart, string expand = null);
+
+        /// <summary>
+        /// Related items
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> RelatedItemsForCartAsyncWithHttpInfo (Cart cart, string expand = null);
+        /// <summary>
+        /// Related items (specific item)
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemId">Item ID to retrieve related items for</param>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>Task of ItemsResponse</returns>
+        System.Threading.Tasks.Task<ItemsResponse> RelatedItemsForItemAsync (string itemId, Cart cart, string expand = null);
+
+        /// <summary>
+        /// Related items (specific item)
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemId">Item ID to retrieve related items for</param>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> RelatedItemsForItemAsyncWithHttpInfo (string itemId, Cart cart, string expand = null);
+        /// <summary>
+        /// Setup Browser Application
+        /// </summary>
+        /// <remarks>
+        /// Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="browserKeyRequest">Setup browser key request</param>
+        /// <returns>Task of CheckoutSetupBrowserKeyResponse</returns>
+        System.Threading.Tasks.Task<CheckoutSetupBrowserKeyResponse> SetupBrowserKeyAsync (CheckoutSetupBrowserKeyRequest browserKeyRequest);
+
+        /// <summary>
+        /// Setup Browser Application
+        /// </summary>
+        /// <remarks>
+        /// Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="browserKeyRequest">Setup browser key request</param>
+        /// <returns>Task of ApiResponse (CheckoutSetupBrowserKeyResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CheckoutSetupBrowserKeyResponse>> SetupBrowserKeyAsyncWithHttpInfo (CheckoutSetupBrowserKeyRequest browserKeyRequest);
         /// <summary>
         /// Update cart
         /// </summary>
@@ -542,7 +634,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartResponse</returns>
-        System.Threading.Tasks.Task<CartResponse> CheckoutCartPutAsync (Cart cart, string expand = null);
+        System.Threading.Tasks.Task<CartResponse> UpdateCartAsync (Cart cart, string expand = null);
 
         /// <summary>
         /// Update cart
@@ -554,7 +646,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CartResponse>> CheckoutCartPutAsyncWithHttpInfo (Cart cart, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<CartResponse>> UpdateCartAsyncWithHttpInfo (Cart cart, string expand = null);
         /// <summary>
         /// Validate
         /// </summary>
@@ -565,7 +657,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="validationRequest">Validation request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartValidationResponse</returns>
-        System.Threading.Tasks.Task<CartValidationResponse> CheckoutCartValidatePostAsync (CartValidationRequest validationRequest, string expand = null);
+        System.Threading.Tasks.Task<CartValidationResponse> ValidateCartAsync (CartValidationRequest validationRequest, string expand = null);
 
         /// <summary>
         /// Validate
@@ -577,99 +669,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="validationRequest">Validation request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartValidationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CartValidationResponse>> CheckoutCartValidatePostAsyncWithHttpInfo (CartValidationRequest validationRequest, string expand = null);
-        /// <summary>
-        /// City/State for Zip
-        /// </summary>
-        /// <remarks>
-        /// Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <returns>Task of ItemsResponse</returns>
-        System.Threading.Tasks.Task<ItemsResponse> CheckoutCityStatePostAsync (Cart cart);
-
-        /// <summary>
-        /// City/State for Zip
-        /// </summary>
-        /// <remarks>
-        /// Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> CheckoutCityStatePostAsyncWithHttpInfo (Cart cart);
-        /// <summary>
-        /// Related items (specific item)
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemId">Item ID to retrieve related items for</param>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>Task of ItemsResponse</returns>
-        System.Threading.Tasks.Task<ItemsResponse> CheckoutRelatedItemsItemIdPostAsync (string itemId, Cart cart, string expand = null);
-
-        /// <summary>
-        /// Related items (specific item)
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemId">Item ID to retrieve related items for</param>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> CheckoutRelatedItemsItemIdPostAsyncWithHttpInfo (string itemId, Cart cart, string expand = null);
-        /// <summary>
-        /// Related items
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>Task of ItemsResponse</returns>
-        System.Threading.Tasks.Task<ItemsResponse> CheckoutRelatedItemsPostAsync (Cart cart, string expand = null);
-
-        /// <summary>
-        /// Related items
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> CheckoutRelatedItemsPostAsyncWithHttpInfo (Cart cart, string expand = null);
-        /// <summary>
-        /// Get cart (by return code)
-        /// </summary>
-        /// <remarks>
-        /// Get a cart specified by the return code parameter. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="returnCode">Return code to lookup cart ID by</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of CartResponse</returns>
-        System.Threading.Tasks.Task<CartResponse> CheckoutReturnReturnCodeGetAsync (string returnCode, string expand = null);
-
-        /// <summary>
-        /// Get cart (by return code)
-        /// </summary>
-        /// <remarks>
-        /// Get a cart specified by the return code parameter. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="returnCode">Return code to lookup cart ID by</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (CartResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CartResponse>> CheckoutReturnReturnCodeGetAsyncWithHttpInfo (string returnCode, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<CartValidationResponse>> ValidateCartAsyncWithHttpInfo (CartValidationRequest validationRequest, string expand = null);
         #endregion Asynchronous Operations
     }
 
@@ -783,30 +783,30 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Setup Browser Application Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// City/State for Zip Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="browserKeyRequest">Setup browser key request</param>
-        /// <returns>CheckoutSetupBrowserKeyResponse</returns>
-        public CheckoutSetupBrowserKeyResponse CheckoutBrowserKeyPut (CheckoutSetupBrowserKeyRequest browserKeyRequest)
+        /// <param name="cart">Cart</param>
+        /// <returns>ItemsResponse</returns>
+        public ItemsResponse CityState (Cart cart)
         {
-             ApiResponse<CheckoutSetupBrowserKeyResponse> localVarResponse = CheckoutBrowserKeyPutWithHttpInfo(browserKeyRequest);
+             ApiResponse<ItemsResponse> localVarResponse = CityStateWithHttpInfo(cart);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Setup Browser Application Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// City/State for Zip Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="browserKeyRequest">Setup browser key request</param>
-        /// <returns>ApiResponse of CheckoutSetupBrowserKeyResponse</returns>
-        public ApiResponse< CheckoutSetupBrowserKeyResponse > CheckoutBrowserKeyPutWithHttpInfo (CheckoutSetupBrowserKeyRequest browserKeyRequest)
+        /// <param name="cart">Cart</param>
+        /// <returns>ApiResponse of ItemsResponse</returns>
+        public ApiResponse< ItemsResponse > CityStateWithHttpInfo (Cart cart)
         {
-            // verify the required parameter 'browserKeyRequest' is set
-            if (browserKeyRequest == null)
-                throw new ApiException(400, "Missing required parameter 'browserKeyRequest' when calling CheckoutApi->CheckoutBrowserKeyPut");
+            // verify the required parameter 'cart' is set
+            if (cart == null)
+                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CityState");
 
-            var localVarPath = "/checkout/browser_key";
+            var localVarPath = "/checkout/city_state";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -831,190 +831,14 @@ namespace com.ultracart.admin.v2.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (browserKeyRequest != null && browserKeyRequest.GetType() != typeof(byte[]))
+            if (cart != null && cart.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(browserKeyRequest); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = browserKeyRequest; // byte array
+                localVarPostBody = cart; // byte array
             }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CheckoutBrowserKeyPut", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<CheckoutSetupBrowserKeyResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CheckoutSetupBrowserKeyResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CheckoutSetupBrowserKeyResponse)));
-            
-        }
-
-        /// <summary>
-        /// Setup Browser Application Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="browserKeyRequest">Setup browser key request</param>
-        /// <returns>Task of CheckoutSetupBrowserKeyResponse</returns>
-        public async System.Threading.Tasks.Task<CheckoutSetupBrowserKeyResponse> CheckoutBrowserKeyPutAsync (CheckoutSetupBrowserKeyRequest browserKeyRequest)
-        {
-             ApiResponse<CheckoutSetupBrowserKeyResponse> localVarResponse = await CheckoutBrowserKeyPutAsyncWithHttpInfo(browserKeyRequest);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Setup Browser Application Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="browserKeyRequest">Setup browser key request</param>
-        /// <returns>Task of ApiResponse (CheckoutSetupBrowserKeyResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CheckoutSetupBrowserKeyResponse>> CheckoutBrowserKeyPutAsyncWithHttpInfo (CheckoutSetupBrowserKeyRequest browserKeyRequest)
-        {
-            // verify the required parameter 'browserKeyRequest' is set
-            if (browserKeyRequest == null)
-                throw new ApiException(400, "Missing required parameter 'browserKeyRequest' when calling CheckoutApi->CheckoutBrowserKeyPut");
-
-            var localVarPath = "/checkout/browser_key";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (browserKeyRequest != null && browserKeyRequest.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(browserKeyRequest); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = browserKeyRequest; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CheckoutBrowserKeyPut", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<CheckoutSetupBrowserKeyResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CheckoutSetupBrowserKeyResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CheckoutSetupBrowserKeyResponse)));
-            
-        }
-
-        /// <summary>
-        /// Get cart (by cart id) Get a cart specified by the cart_id parameter. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cartId">Cart ID to retrieve</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>CartResponse</returns>
-        public CartResponse CheckoutCartCartIdGet (string cartId, string expand = null)
-        {
-             ApiResponse<CartResponse> localVarResponse = CheckoutCartCartIdGetWithHttpInfo(cartId, expand);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get cart (by cart id) Get a cart specified by the cart_id parameter. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cartId">Cart ID to retrieve</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of CartResponse</returns>
-        public ApiResponse< CartResponse > CheckoutCartCartIdGetWithHttpInfo (string cartId, string expand = null)
-        {
-            // verify the required parameter 'cartId' is set
-            if (cartId == null)
-                throw new ApiException(400, "Missing required parameter 'cartId' when calling CheckoutApi->CheckoutCartCartIdGet");
-
-            var localVarPath = "/checkout/cart/{cart_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (cartId != null) localVarPathParams.Add("cart_id", Configuration.ApiClient.ParameterToString(cartId)); // path parameter
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
 
             // authentication (ultraCartBrowserApiKey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
@@ -1037,51 +861,49 @@ namespace com.ultracart.admin.v2.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartCartIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("CityState", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CartResponse>(localVarStatusCode,
+            return new ApiResponse<ItemsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CartResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
+                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
             
         }
 
         /// <summary>
-        /// Get cart (by cart id) Get a cart specified by the cart_id parameter. 
+        /// City/State for Zip Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cartId">Cart ID to retrieve</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of CartResponse</returns>
-        public async System.Threading.Tasks.Task<CartResponse> CheckoutCartCartIdGetAsync (string cartId, string expand = null)
+        /// <param name="cart">Cart</param>
+        /// <returns>Task of ItemsResponse</returns>
+        public async System.Threading.Tasks.Task<ItemsResponse> CityStateAsync (Cart cart)
         {
-             ApiResponse<CartResponse> localVarResponse = await CheckoutCartCartIdGetAsyncWithHttpInfo(cartId, expand);
+             ApiResponse<ItemsResponse> localVarResponse = await CityStateAsyncWithHttpInfo(cart);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get cart (by cart id) Get a cart specified by the cart_id parameter. 
+        /// City/State for Zip Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cartId">Cart ID to retrieve</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (CartResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> CheckoutCartCartIdGetAsyncWithHttpInfo (string cartId, string expand = null)
+        /// <param name="cart">Cart</param>
+        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> CityStateAsyncWithHttpInfo (Cart cart)
         {
-            // verify the required parameter 'cartId' is set
-            if (cartId == null)
-                throw new ApiException(400, "Missing required parameter 'cartId' when calling CheckoutApi->CheckoutCartCartIdGet");
+            // verify the required parameter 'cart' is set
+            if (cart == null)
+                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CityState");
 
-            var localVarPath = "/checkout/cart/{cart_id}";
+            var localVarPath = "/checkout/city_state";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1106,8 +928,14 @@ namespace com.ultracart.admin.v2.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (cartId != null) localVarPathParams.Add("cart_id", Configuration.ApiClient.ParameterToString(cartId)); // path parameter
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (cart != null && cart.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cart; // byte array
+            }
 
             // authentication (ultraCartBrowserApiKey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
@@ -1128,20 +956,20 @@ namespace com.ultracart.admin.v2.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartCartIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("CityState", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CartResponse>(localVarStatusCode,
+            return new ApiResponse<ItemsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CartResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
+                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
             
         }
 
@@ -1151,9 +979,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="finalizeRequest">Finalize request</param>
         /// <returns>CartFinalizeOrderResponse</returns>
-        public CartFinalizeOrderResponse CheckoutCartFinalizeOrderPost (CartFinalizeOrderRequest finalizeRequest)
+        public CartFinalizeOrderResponse FinalizeOrder (CartFinalizeOrderRequest finalizeRequest)
         {
-             ApiResponse<CartFinalizeOrderResponse> localVarResponse = CheckoutCartFinalizeOrderPostWithHttpInfo(finalizeRequest);
+             ApiResponse<CartFinalizeOrderResponse> localVarResponse = FinalizeOrderWithHttpInfo(finalizeRequest);
              return localVarResponse.Data;
         }
 
@@ -1163,11 +991,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="finalizeRequest">Finalize request</param>
         /// <returns>ApiResponse of CartFinalizeOrderResponse</returns>
-        public ApiResponse< CartFinalizeOrderResponse > CheckoutCartFinalizeOrderPostWithHttpInfo (CartFinalizeOrderRequest finalizeRequest)
+        public ApiResponse< CartFinalizeOrderResponse > FinalizeOrderWithHttpInfo (CartFinalizeOrderRequest finalizeRequest)
         {
             // verify the required parameter 'finalizeRequest' is set
             if (finalizeRequest == null)
-                throw new ApiException(400, "Missing required parameter 'finalizeRequest' when calling CheckoutApi->CheckoutCartFinalizeOrderPost");
+                throw new ApiException(400, "Missing required parameter 'finalizeRequest' when calling CheckoutApi->FinalizeOrder");
 
             var localVarPath = "/checkout/cart/finalizeOrder";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1225,7 +1053,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartFinalizeOrderPost", localVarResponse);
+                Exception exception = ExceptionFactory("FinalizeOrder", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1241,9 +1069,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="finalizeRequest">Finalize request</param>
         /// <returns>Task of CartFinalizeOrderResponse</returns>
-        public async System.Threading.Tasks.Task<CartFinalizeOrderResponse> CheckoutCartFinalizeOrderPostAsync (CartFinalizeOrderRequest finalizeRequest)
+        public async System.Threading.Tasks.Task<CartFinalizeOrderResponse> FinalizeOrderAsync (CartFinalizeOrderRequest finalizeRequest)
         {
-             ApiResponse<CartFinalizeOrderResponse> localVarResponse = await CheckoutCartFinalizeOrderPostAsyncWithHttpInfo(finalizeRequest);
+             ApiResponse<CartFinalizeOrderResponse> localVarResponse = await FinalizeOrderAsyncWithHttpInfo(finalizeRequest);
              return localVarResponse.Data;
 
         }
@@ -1254,11 +1082,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="finalizeRequest">Finalize request</param>
         /// <returns>Task of ApiResponse (CartFinalizeOrderResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CartFinalizeOrderResponse>> CheckoutCartFinalizeOrderPostAsyncWithHttpInfo (CartFinalizeOrderRequest finalizeRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<CartFinalizeOrderResponse>> FinalizeOrderAsyncWithHttpInfo (CartFinalizeOrderRequest finalizeRequest)
         {
             // verify the required parameter 'finalizeRequest' is set
             if (finalizeRequest == null)
-                throw new ApiException(400, "Missing required parameter 'finalizeRequest' when calling CheckoutApi->CheckoutCartFinalizeOrderPost");
+                throw new ApiException(400, "Missing required parameter 'finalizeRequest' when calling CheckoutApi->FinalizeOrder");
 
             var localVarPath = "/checkout/cart/finalizeOrder";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1315,7 +1143,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartFinalizeOrderPost", localVarResponse);
+                Exception exception = ExceptionFactory("FinalizeOrder", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1331,9 +1159,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartResponse</returns>
-        public CartResponse CheckoutCartGet (string expand = null)
+        public CartResponse GetCart (string expand = null)
         {
-             ApiResponse<CartResponse> localVarResponse = CheckoutCartGetWithHttpInfo(expand);
+             ApiResponse<CartResponse> localVarResponse = GetCartWithHttpInfo(expand);
              return localVarResponse.Data;
         }
 
@@ -1343,7 +1171,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartResponse</returns>
-        public ApiResponse< CartResponse > CheckoutCartGetWithHttpInfo (string expand = null)
+        public ApiResponse< CartResponse > GetCartWithHttpInfo (string expand = null)
         {
 
             var localVarPath = "/checkout/cart";
@@ -1401,7 +1229,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetCart", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1417,9 +1245,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartResponse</returns>
-        public async System.Threading.Tasks.Task<CartResponse> CheckoutCartGetAsync (string expand = null)
+        public async System.Threading.Tasks.Task<CartResponse> GetCartAsync (string expand = null)
         {
-             ApiResponse<CartResponse> localVarResponse = await CheckoutCartGetAsyncWithHttpInfo(expand);
+             ApiResponse<CartResponse> localVarResponse = await GetCartAsyncWithHttpInfo(expand);
              return localVarResponse.Data;
 
         }
@@ -1430,7 +1258,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> CheckoutCartGetAsyncWithHttpInfo (string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> GetCartAsyncWithHttpInfo (string expand = null)
         {
 
             var localVarPath = "/checkout/cart";
@@ -1486,7 +1314,373 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetCart", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CartResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CartResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
+            
+        }
+
+        /// <summary>
+        /// Get cart (by cart id) Get a cart specified by the cart_id parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CartResponse</returns>
+        public CartResponse GetCartByCartId (string cartId, string expand = null)
+        {
+             ApiResponse<CartResponse> localVarResponse = GetCartByCartIdWithHttpInfo(cartId, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get cart (by cart id) Get a cart specified by the cart_id parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CartResponse</returns>
+        public ApiResponse< CartResponse > GetCartByCartIdWithHttpInfo (string cartId, string expand = null)
+        {
+            // verify the required parameter 'cartId' is set
+            if (cartId == null)
+                throw new ApiException(400, "Missing required parameter 'cartId' when calling CheckoutApi->GetCartByCartId");
+
+            var localVarPath = "/checkout/cart/{cart_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (cartId != null) localVarPathParams.Add("cart_id", Configuration.ApiClient.ParameterToString(cartId)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCartByCartId", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CartResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CartResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
+            
+        }
+
+        /// <summary>
+        /// Get cart (by cart id) Get a cart specified by the cart_id parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CartResponse</returns>
+        public async System.Threading.Tasks.Task<CartResponse> GetCartByCartIdAsync (string cartId, string expand = null)
+        {
+             ApiResponse<CartResponse> localVarResponse = await GetCartByCartIdAsyncWithHttpInfo(cartId, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get cart (by cart id) Get a cart specified by the cart_id parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CartResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> GetCartByCartIdAsyncWithHttpInfo (string cartId, string expand = null)
+        {
+            // verify the required parameter 'cartId' is set
+            if (cartId == null)
+                throw new ApiException(400, "Missing required parameter 'cartId' when calling CheckoutApi->GetCartByCartId");
+
+            var localVarPath = "/checkout/cart/{cart_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (cartId != null) localVarPathParams.Add("cart_id", Configuration.ApiClient.ParameterToString(cartId)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCartByCartId", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CartResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CartResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
+            
+        }
+
+        /// <summary>
+        /// Get cart (by return code) Get a cart specified by the return code parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnCode">Return code to lookup cart ID by</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CartResponse</returns>
+        public CartResponse GetCartByReturnCode (string returnCode, string expand = null)
+        {
+             ApiResponse<CartResponse> localVarResponse = GetCartByReturnCodeWithHttpInfo(returnCode, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get cart (by return code) Get a cart specified by the return code parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnCode">Return code to lookup cart ID by</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CartResponse</returns>
+        public ApiResponse< CartResponse > GetCartByReturnCodeWithHttpInfo (string returnCode, string expand = null)
+        {
+            // verify the required parameter 'returnCode' is set
+            if (returnCode == null)
+                throw new ApiException(400, "Missing required parameter 'returnCode' when calling CheckoutApi->GetCartByReturnCode");
+
+            var localVarPath = "/checkout/return/{return_code}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (returnCode != null) localVarPathParams.Add("return_code", Configuration.ApiClient.ParameterToString(returnCode)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCartByReturnCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CartResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CartResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
+            
+        }
+
+        /// <summary>
+        /// Get cart (by return code) Get a cart specified by the return code parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnCode">Return code to lookup cart ID by</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CartResponse</returns>
+        public async System.Threading.Tasks.Task<CartResponse> GetCartByReturnCodeAsync (string returnCode, string expand = null)
+        {
+             ApiResponse<CartResponse> localVarResponse = await GetCartByReturnCodeAsyncWithHttpInfo(returnCode, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get cart (by return code) Get a cart specified by the return code parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnCode">Return code to lookup cart ID by</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CartResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> GetCartByReturnCodeAsyncWithHttpInfo (string returnCode, string expand = null)
+        {
+            // verify the required parameter 'returnCode' is set
+            if (returnCode == null)
+                throw new ApiException(400, "Missing required parameter 'returnCode' when calling CheckoutApi->GetCartByReturnCode");
+
+            var localVarPath = "/checkout/return/{return_code}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (returnCode != null) localVarPathParams.Add("return_code", Configuration.ApiClient.ParameterToString(returnCode)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCartByReturnCode", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1503,9 +1697,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="handoffRequest">Handoff request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CheckoutHandoffResponse</returns>
-        public CheckoutHandoffResponse CheckoutCartHandoffPost (CheckoutHandoffRequest handoffRequest, string expand = null)
+        public CheckoutHandoffResponse HandoffCart (CheckoutHandoffRequest handoffRequest, string expand = null)
         {
-             ApiResponse<CheckoutHandoffResponse> localVarResponse = CheckoutCartHandoffPostWithHttpInfo(handoffRequest, expand);
+             ApiResponse<CheckoutHandoffResponse> localVarResponse = HandoffCartWithHttpInfo(handoffRequest, expand);
              return localVarResponse.Data;
         }
 
@@ -1516,11 +1710,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="handoffRequest">Handoff request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CheckoutHandoffResponse</returns>
-        public ApiResponse< CheckoutHandoffResponse > CheckoutCartHandoffPostWithHttpInfo (CheckoutHandoffRequest handoffRequest, string expand = null)
+        public ApiResponse< CheckoutHandoffResponse > HandoffCartWithHttpInfo (CheckoutHandoffRequest handoffRequest, string expand = null)
         {
             // verify the required parameter 'handoffRequest' is set
             if (handoffRequest == null)
-                throw new ApiException(400, "Missing required parameter 'handoffRequest' when calling CheckoutApi->CheckoutCartHandoffPost");
+                throw new ApiException(400, "Missing required parameter 'handoffRequest' when calling CheckoutApi->HandoffCart");
 
             var localVarPath = "/checkout/cart/handoff";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1585,7 +1779,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartHandoffPost", localVarResponse);
+                Exception exception = ExceptionFactory("HandoffCart", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1602,9 +1796,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="handoffRequest">Handoff request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CheckoutHandoffResponse</returns>
-        public async System.Threading.Tasks.Task<CheckoutHandoffResponse> CheckoutCartHandoffPostAsync (CheckoutHandoffRequest handoffRequest, string expand = null)
+        public async System.Threading.Tasks.Task<CheckoutHandoffResponse> HandoffCartAsync (CheckoutHandoffRequest handoffRequest, string expand = null)
         {
-             ApiResponse<CheckoutHandoffResponse> localVarResponse = await CheckoutCartHandoffPostAsyncWithHttpInfo(handoffRequest, expand);
+             ApiResponse<CheckoutHandoffResponse> localVarResponse = await HandoffCartAsyncWithHttpInfo(handoffRequest, expand);
              return localVarResponse.Data;
 
         }
@@ -1616,11 +1810,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="handoffRequest">Handoff request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CheckoutHandoffResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CheckoutHandoffResponse>> CheckoutCartHandoffPostAsyncWithHttpInfo (CheckoutHandoffRequest handoffRequest, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CheckoutHandoffResponse>> HandoffCartAsyncWithHttpInfo (CheckoutHandoffRequest handoffRequest, string expand = null)
         {
             // verify the required parameter 'handoffRequest' is set
             if (handoffRequest == null)
-                throw new ApiException(400, "Missing required parameter 'handoffRequest' when calling CheckoutApi->CheckoutCartHandoffPost");
+                throw new ApiException(400, "Missing required parameter 'handoffRequest' when calling CheckoutApi->HandoffCart");
 
             var localVarPath = "/checkout/cart/handoff";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1683,7 +1877,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartHandoffPost", localVarResponse);
+                Exception exception = ExceptionFactory("HandoffCart", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1700,9 +1894,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="loginRequest">Login request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartProfileLoginResponse</returns>
-        public CartProfileLoginResponse CheckoutCartProfileLoginPost (CartProfileLoginRequest loginRequest, string expand = null)
+        public CartProfileLoginResponse Login (CartProfileLoginRequest loginRequest, string expand = null)
         {
-             ApiResponse<CartProfileLoginResponse> localVarResponse = CheckoutCartProfileLoginPostWithHttpInfo(loginRequest, expand);
+             ApiResponse<CartProfileLoginResponse> localVarResponse = LoginWithHttpInfo(loginRequest, expand);
              return localVarResponse.Data;
         }
 
@@ -1713,11 +1907,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="loginRequest">Login request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartProfileLoginResponse</returns>
-        public ApiResponse< CartProfileLoginResponse > CheckoutCartProfileLoginPostWithHttpInfo (CartProfileLoginRequest loginRequest, string expand = null)
+        public ApiResponse< CartProfileLoginResponse > LoginWithHttpInfo (CartProfileLoginRequest loginRequest, string expand = null)
         {
             // verify the required parameter 'loginRequest' is set
             if (loginRequest == null)
-                throw new ApiException(400, "Missing required parameter 'loginRequest' when calling CheckoutApi->CheckoutCartProfileLoginPost");
+                throw new ApiException(400, "Missing required parameter 'loginRequest' when calling CheckoutApi->Login");
 
             var localVarPath = "/checkout/cart/profile/login";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1782,7 +1976,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartProfileLoginPost", localVarResponse);
+                Exception exception = ExceptionFactory("Login", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1799,9 +1993,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="loginRequest">Login request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartProfileLoginResponse</returns>
-        public async System.Threading.Tasks.Task<CartProfileLoginResponse> CheckoutCartProfileLoginPostAsync (CartProfileLoginRequest loginRequest, string expand = null)
+        public async System.Threading.Tasks.Task<CartProfileLoginResponse> LoginAsync (CartProfileLoginRequest loginRequest, string expand = null)
         {
-             ApiResponse<CartProfileLoginResponse> localVarResponse = await CheckoutCartProfileLoginPostAsyncWithHttpInfo(loginRequest, expand);
+             ApiResponse<CartProfileLoginResponse> localVarResponse = await LoginAsyncWithHttpInfo(loginRequest, expand);
              return localVarResponse.Data;
 
         }
@@ -1813,11 +2007,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="loginRequest">Login request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartProfileLoginResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CartProfileLoginResponse>> CheckoutCartProfileLoginPostAsyncWithHttpInfo (CartProfileLoginRequest loginRequest, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CartProfileLoginResponse>> LoginAsyncWithHttpInfo (CartProfileLoginRequest loginRequest, string expand = null)
         {
             // verify the required parameter 'loginRequest' is set
             if (loginRequest == null)
-                throw new ApiException(400, "Missing required parameter 'loginRequest' when calling CheckoutApi->CheckoutCartProfileLoginPost");
+                throw new ApiException(400, "Missing required parameter 'loginRequest' when calling CheckoutApi->Login");
 
             var localVarPath = "/checkout/cart/profile/login";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1880,7 +2074,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartProfileLoginPost", localVarResponse);
+                Exception exception = ExceptionFactory("Login", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1897,9 +2091,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartResponse</returns>
-        public CartResponse CheckoutCartProfileLogoutPost (Cart cart, string expand = null)
+        public CartResponse Logout (Cart cart, string expand = null)
         {
-             ApiResponse<CartResponse> localVarResponse = CheckoutCartProfileLogoutPostWithHttpInfo(cart, expand);
+             ApiResponse<CartResponse> localVarResponse = LogoutWithHttpInfo(cart, expand);
              return localVarResponse.Data;
         }
 
@@ -1910,11 +2104,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartResponse</returns>
-        public ApiResponse< CartResponse > CheckoutCartProfileLogoutPostWithHttpInfo (Cart cart, string expand = null)
+        public ApiResponse< CartResponse > LogoutWithHttpInfo (Cart cart, string expand = null)
         {
             // verify the required parameter 'cart' is set
             if (cart == null)
-                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CheckoutCartProfileLogoutPost");
+                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->Logout");
 
             var localVarPath = "/checkout/cart/profile/logout";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1979,7 +2173,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartProfileLogoutPost", localVarResponse);
+                Exception exception = ExceptionFactory("Logout", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1996,9 +2190,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartResponse</returns>
-        public async System.Threading.Tasks.Task<CartResponse> CheckoutCartProfileLogoutPostAsync (Cart cart, string expand = null)
+        public async System.Threading.Tasks.Task<CartResponse> LogoutAsync (Cart cart, string expand = null)
         {
-             ApiResponse<CartResponse> localVarResponse = await CheckoutCartProfileLogoutPostAsyncWithHttpInfo(cart, expand);
+             ApiResponse<CartResponse> localVarResponse = await LogoutAsyncWithHttpInfo(cart, expand);
              return localVarResponse.Data;
 
         }
@@ -2010,11 +2204,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> CheckoutCartProfileLogoutPostAsyncWithHttpInfo (Cart cart, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> LogoutAsyncWithHttpInfo (Cart cart, string expand = null)
         {
             // verify the required parameter 'cart' is set
             if (cart == null)
-                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CheckoutCartProfileLogoutPost");
+                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->Logout");
 
             var localVarPath = "/checkout/cart/profile/logout";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2077,7 +2271,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartProfileLogoutPost", localVarResponse);
+                Exception exception = ExceptionFactory("Logout", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2094,9 +2288,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="registerRequest">Register request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartProfileRegisterResponse</returns>
-        public CartProfileRegisterResponse CheckoutCartProfileRegisterPost (CartProfileRegisterRequest registerRequest, string expand = null)
+        public CartProfileRegisterResponse Register (CartProfileRegisterRequest registerRequest, string expand = null)
         {
-             ApiResponse<CartProfileRegisterResponse> localVarResponse = CheckoutCartProfileRegisterPostWithHttpInfo(registerRequest, expand);
+             ApiResponse<CartProfileRegisterResponse> localVarResponse = RegisterWithHttpInfo(registerRequest, expand);
              return localVarResponse.Data;
         }
 
@@ -2107,11 +2301,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="registerRequest">Register request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartProfileRegisterResponse</returns>
-        public ApiResponse< CartProfileRegisterResponse > CheckoutCartProfileRegisterPostWithHttpInfo (CartProfileRegisterRequest registerRequest, string expand = null)
+        public ApiResponse< CartProfileRegisterResponse > RegisterWithHttpInfo (CartProfileRegisterRequest registerRequest, string expand = null)
         {
             // verify the required parameter 'registerRequest' is set
             if (registerRequest == null)
-                throw new ApiException(400, "Missing required parameter 'registerRequest' when calling CheckoutApi->CheckoutCartProfileRegisterPost");
+                throw new ApiException(400, "Missing required parameter 'registerRequest' when calling CheckoutApi->Register");
 
             var localVarPath = "/checkout/cart/profile/register";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2176,7 +2370,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartProfileRegisterPost", localVarResponse);
+                Exception exception = ExceptionFactory("Register", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2193,9 +2387,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="registerRequest">Register request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartProfileRegisterResponse</returns>
-        public async System.Threading.Tasks.Task<CartProfileRegisterResponse> CheckoutCartProfileRegisterPostAsync (CartProfileRegisterRequest registerRequest, string expand = null)
+        public async System.Threading.Tasks.Task<CartProfileRegisterResponse> RegisterAsync (CartProfileRegisterRequest registerRequest, string expand = null)
         {
-             ApiResponse<CartProfileRegisterResponse> localVarResponse = await CheckoutCartProfileRegisterPostAsyncWithHttpInfo(registerRequest, expand);
+             ApiResponse<CartProfileRegisterResponse> localVarResponse = await RegisterAsyncWithHttpInfo(registerRequest, expand);
              return localVarResponse.Data;
 
         }
@@ -2207,11 +2401,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="registerRequest">Register request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartProfileRegisterResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CartProfileRegisterResponse>> CheckoutCartProfileRegisterPostAsyncWithHttpInfo (CartProfileRegisterRequest registerRequest, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CartProfileRegisterResponse>> RegisterAsyncWithHttpInfo (CartProfileRegisterRequest registerRequest, string expand = null)
         {
             // verify the required parameter 'registerRequest' is set
             if (registerRequest == null)
-                throw new ApiException(400, "Missing required parameter 'registerRequest' when calling CheckoutApi->CheckoutCartProfileRegisterPost");
+                throw new ApiException(400, "Missing required parameter 'registerRequest' when calling CheckoutApi->Register");
 
             var localVarPath = "/checkout/cart/profile/register";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2274,7 +2468,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartProfileRegisterPost", localVarResponse);
+                Exception exception = ExceptionFactory("Register", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2285,15 +2479,601 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Related items Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>ItemsResponse</returns>
+        public ItemsResponse RelatedItemsForCart (Cart cart, string expand = null)
+        {
+             ApiResponse<ItemsResponse> localVarResponse = RelatedItemsForCartWithHttpInfo(cart, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Related items Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>ApiResponse of ItemsResponse</returns>
+        public ApiResponse< ItemsResponse > RelatedItemsForCartWithHttpInfo (Cart cart, string expand = null)
+        {
+            // verify the required parameter 'cart' is set
+            if (cart == null)
+                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->RelatedItemsForCart");
+
+            var localVarPath = "/checkout/related_items";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (cart != null && cart.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cart; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RelatedItemsForCart", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+            
+        }
+
+        /// <summary>
+        /// Related items Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>Task of ItemsResponse</returns>
+        public async System.Threading.Tasks.Task<ItemsResponse> RelatedItemsForCartAsync (Cart cart, string expand = null)
+        {
+             ApiResponse<ItemsResponse> localVarResponse = await RelatedItemsForCartAsyncWithHttpInfo(cart, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Related items Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> RelatedItemsForCartAsyncWithHttpInfo (Cart cart, string expand = null)
+        {
+            // verify the required parameter 'cart' is set
+            if (cart == null)
+                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->RelatedItemsForCart");
+
+            var localVarPath = "/checkout/related_items";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (cart != null && cart.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cart; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RelatedItemsForCart", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+            
+        }
+
+        /// <summary>
+        /// Related items (specific item) Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemId">Item ID to retrieve related items for</param>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>ItemsResponse</returns>
+        public ItemsResponse RelatedItemsForItem (string itemId, Cart cart, string expand = null)
+        {
+             ApiResponse<ItemsResponse> localVarResponse = RelatedItemsForItemWithHttpInfo(itemId, cart, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Related items (specific item) Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemId">Item ID to retrieve related items for</param>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>ApiResponse of ItemsResponse</returns>
+        public ApiResponse< ItemsResponse > RelatedItemsForItemWithHttpInfo (string itemId, Cart cart, string expand = null)
+        {
+            // verify the required parameter 'itemId' is set
+            if (itemId == null)
+                throw new ApiException(400, "Missing required parameter 'itemId' when calling CheckoutApi->RelatedItemsForItem");
+            // verify the required parameter 'cart' is set
+            if (cart == null)
+                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->RelatedItemsForItem");
+
+            var localVarPath = "/checkout/relatedItems/{item_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (itemId != null) localVarPathParams.Add("item_id", Configuration.ApiClient.ParameterToString(itemId)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (cart != null && cart.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cart; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RelatedItemsForItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+            
+        }
+
+        /// <summary>
+        /// Related items (specific item) Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemId">Item ID to retrieve related items for</param>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>Task of ItemsResponse</returns>
+        public async System.Threading.Tasks.Task<ItemsResponse> RelatedItemsForItemAsync (string itemId, Cart cart, string expand = null)
+        {
+             ApiResponse<ItemsResponse> localVarResponse = await RelatedItemsForItemAsyncWithHttpInfo(itemId, cart, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Related items (specific item) Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemId">Item ID to retrieve related items for</param>
+        /// <param name="cart">Cart</param>
+        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> RelatedItemsForItemAsyncWithHttpInfo (string itemId, Cart cart, string expand = null)
+        {
+            // verify the required parameter 'itemId' is set
+            if (itemId == null)
+                throw new ApiException(400, "Missing required parameter 'itemId' when calling CheckoutApi->RelatedItemsForItem");
+            // verify the required parameter 'cart' is set
+            if (cart == null)
+                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->RelatedItemsForItem");
+
+            var localVarPath = "/checkout/relatedItems/{item_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (itemId != null) localVarPathParams.Add("item_id", Configuration.ApiClient.ParameterToString(itemId)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (cart != null && cart.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cart; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RelatedItemsForItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+            
+        }
+
+        /// <summary>
+        /// Setup Browser Application Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="browserKeyRequest">Setup browser key request</param>
+        /// <returns>CheckoutSetupBrowserKeyResponse</returns>
+        public CheckoutSetupBrowserKeyResponse SetupBrowserKey (CheckoutSetupBrowserKeyRequest browserKeyRequest)
+        {
+             ApiResponse<CheckoutSetupBrowserKeyResponse> localVarResponse = SetupBrowserKeyWithHttpInfo(browserKeyRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Setup Browser Application Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="browserKeyRequest">Setup browser key request</param>
+        /// <returns>ApiResponse of CheckoutSetupBrowserKeyResponse</returns>
+        public ApiResponse< CheckoutSetupBrowserKeyResponse > SetupBrowserKeyWithHttpInfo (CheckoutSetupBrowserKeyRequest browserKeyRequest)
+        {
+            // verify the required parameter 'browserKeyRequest' is set
+            if (browserKeyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'browserKeyRequest' when calling CheckoutApi->SetupBrowserKey");
+
+            var localVarPath = "/checkout/browser_key";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (browserKeyRequest != null && browserKeyRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(browserKeyRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = browserKeyRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetupBrowserKey", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CheckoutSetupBrowserKeyResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CheckoutSetupBrowserKeyResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CheckoutSetupBrowserKeyResponse)));
+            
+        }
+
+        /// <summary>
+        /// Setup Browser Application Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="browserKeyRequest">Setup browser key request</param>
+        /// <returns>Task of CheckoutSetupBrowserKeyResponse</returns>
+        public async System.Threading.Tasks.Task<CheckoutSetupBrowserKeyResponse> SetupBrowserKeyAsync (CheckoutSetupBrowserKeyRequest browserKeyRequest)
+        {
+             ApiResponse<CheckoutSetupBrowserKeyResponse> localVarResponse = await SetupBrowserKeyAsyncWithHttpInfo(browserKeyRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Setup Browser Application Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="browserKeyRequest">Setup browser key request</param>
+        /// <returns>Task of ApiResponse (CheckoutSetupBrowserKeyResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CheckoutSetupBrowserKeyResponse>> SetupBrowserKeyAsyncWithHttpInfo (CheckoutSetupBrowserKeyRequest browserKeyRequest)
+        {
+            // verify the required parameter 'browserKeyRequest' is set
+            if (browserKeyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'browserKeyRequest' when calling CheckoutApi->SetupBrowserKey");
+
+            var localVarPath = "/checkout/browser_key";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (browserKeyRequest != null && browserKeyRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(browserKeyRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = browserKeyRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetupBrowserKey", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CheckoutSetupBrowserKeyResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CheckoutSetupBrowserKeyResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CheckoutSetupBrowserKeyResponse)));
+            
+        }
+
+        /// <summary>
         /// Update cart Update the cart. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartResponse</returns>
-        public CartResponse CheckoutCartPut (Cart cart, string expand = null)
+        public CartResponse UpdateCart (Cart cart, string expand = null)
         {
-             ApiResponse<CartResponse> localVarResponse = CheckoutCartPutWithHttpInfo(cart, expand);
+             ApiResponse<CartResponse> localVarResponse = UpdateCartWithHttpInfo(cart, expand);
              return localVarResponse.Data;
         }
 
@@ -2304,11 +3084,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartResponse</returns>
-        public ApiResponse< CartResponse > CheckoutCartPutWithHttpInfo (Cart cart, string expand = null)
+        public ApiResponse< CartResponse > UpdateCartWithHttpInfo (Cart cart, string expand = null)
         {
             // verify the required parameter 'cart' is set
             if (cart == null)
-                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CheckoutCartPut");
+                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->UpdateCart");
 
             var localVarPath = "/checkout/cart";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2373,7 +3153,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateCart", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2390,9 +3170,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartResponse</returns>
-        public async System.Threading.Tasks.Task<CartResponse> CheckoutCartPutAsync (Cart cart, string expand = null)
+        public async System.Threading.Tasks.Task<CartResponse> UpdateCartAsync (Cart cart, string expand = null)
         {
-             ApiResponse<CartResponse> localVarResponse = await CheckoutCartPutAsyncWithHttpInfo(cart, expand);
+             ApiResponse<CartResponse> localVarResponse = await UpdateCartAsyncWithHttpInfo(cart, expand);
              return localVarResponse.Data;
 
         }
@@ -2404,11 +3184,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cart">Cart</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> CheckoutCartPutAsyncWithHttpInfo (Cart cart, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> UpdateCartAsyncWithHttpInfo (Cart cart, string expand = null)
         {
             // verify the required parameter 'cart' is set
             if (cart == null)
-                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CheckoutCartPut");
+                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->UpdateCart");
 
             var localVarPath = "/checkout/cart";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2471,7 +3251,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateCart", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2488,9 +3268,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="validationRequest">Validation request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CartValidationResponse</returns>
-        public CartValidationResponse CheckoutCartValidatePost (CartValidationRequest validationRequest, string expand = null)
+        public CartValidationResponse ValidateCart (CartValidationRequest validationRequest, string expand = null)
         {
-             ApiResponse<CartValidationResponse> localVarResponse = CheckoutCartValidatePostWithHttpInfo(validationRequest, expand);
+             ApiResponse<CartValidationResponse> localVarResponse = ValidateCartWithHttpInfo(validationRequest, expand);
              return localVarResponse.Data;
         }
 
@@ -2501,11 +3281,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="validationRequest">Validation request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartValidationResponse</returns>
-        public ApiResponse< CartValidationResponse > CheckoutCartValidatePostWithHttpInfo (CartValidationRequest validationRequest, string expand = null)
+        public ApiResponse< CartValidationResponse > ValidateCartWithHttpInfo (CartValidationRequest validationRequest, string expand = null)
         {
             // verify the required parameter 'validationRequest' is set
             if (validationRequest == null)
-                throw new ApiException(400, "Missing required parameter 'validationRequest' when calling CheckoutApi->CheckoutCartValidatePost");
+                throw new ApiException(400, "Missing required parameter 'validationRequest' when calling CheckoutApi->ValidateCart");
 
             var localVarPath = "/checkout/cart/validate";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2570,7 +3350,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartValidatePost", localVarResponse);
+                Exception exception = ExceptionFactory("ValidateCart", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2587,9 +3367,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="validationRequest">Validation request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CartValidationResponse</returns>
-        public async System.Threading.Tasks.Task<CartValidationResponse> CheckoutCartValidatePostAsync (CartValidationRequest validationRequest, string expand = null)
+        public async System.Threading.Tasks.Task<CartValidationResponse> ValidateCartAsync (CartValidationRequest validationRequest, string expand = null)
         {
-             ApiResponse<CartValidationResponse> localVarResponse = await CheckoutCartValidatePostAsyncWithHttpInfo(validationRequest, expand);
+             ApiResponse<CartValidationResponse> localVarResponse = await ValidateCartAsyncWithHttpInfo(validationRequest, expand);
              return localVarResponse.Data;
 
         }
@@ -2601,11 +3381,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="validationRequest">Validation request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartValidationResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CartValidationResponse>> CheckoutCartValidatePostAsyncWithHttpInfo (CartValidationRequest validationRequest, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CartValidationResponse>> ValidateCartAsyncWithHttpInfo (CartValidationRequest validationRequest, string expand = null)
         {
             // verify the required parameter 'validationRequest' is set
             if (validationRequest == null)
-                throw new ApiException(400, "Missing required parameter 'validationRequest' when calling CheckoutApi->CheckoutCartValidatePost");
+                throw new ApiException(400, "Missing required parameter 'validationRequest' when calling CheckoutApi->ValidateCart");
 
             var localVarPath = "/checkout/cart/validate";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2668,793 +3448,13 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CheckoutCartValidatePost", localVarResponse);
+                Exception exception = ExceptionFactory("ValidateCart", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<CartValidationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CartValidationResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartValidationResponse)));
-            
-        }
-
-        /// <summary>
-        /// City/State for Zip Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <returns>ItemsResponse</returns>
-        public ItemsResponse CheckoutCityStatePost (Cart cart)
-        {
-             ApiResponse<ItemsResponse> localVarResponse = CheckoutCityStatePostWithHttpInfo(cart);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// City/State for Zip Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        public ApiResponse< ItemsResponse > CheckoutCityStatePostWithHttpInfo (Cart cart)
-        {
-            // verify the required parameter 'cart' is set
-            if (cart == null)
-                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CheckoutCityStatePost");
-
-            var localVarPath = "/checkout/city_state";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (cart != null && cart.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = cart; // byte array
-            }
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CheckoutCityStatePost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
-            
-        }
-
-        /// <summary>
-        /// City/State for Zip Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <returns>Task of ItemsResponse</returns>
-        public async System.Threading.Tasks.Task<ItemsResponse> CheckoutCityStatePostAsync (Cart cart)
-        {
-             ApiResponse<ItemsResponse> localVarResponse = await CheckoutCityStatePostAsyncWithHttpInfo(cart);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// City/State for Zip Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> CheckoutCityStatePostAsyncWithHttpInfo (Cart cart)
-        {
-            // verify the required parameter 'cart' is set
-            if (cart == null)
-                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CheckoutCityStatePost");
-
-            var localVarPath = "/checkout/city_state";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (cart != null && cart.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = cart; // byte array
-            }
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CheckoutCityStatePost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
-            
-        }
-
-        /// <summary>
-        /// Related items (specific item) Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemId">Item ID to retrieve related items for</param>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>ItemsResponse</returns>
-        public ItemsResponse CheckoutRelatedItemsItemIdPost (string itemId, Cart cart, string expand = null)
-        {
-             ApiResponse<ItemsResponse> localVarResponse = CheckoutRelatedItemsItemIdPostWithHttpInfo(itemId, cart, expand);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Related items (specific item) Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemId">Item ID to retrieve related items for</param>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        public ApiResponse< ItemsResponse > CheckoutRelatedItemsItemIdPostWithHttpInfo (string itemId, Cart cart, string expand = null)
-        {
-            // verify the required parameter 'itemId' is set
-            if (itemId == null)
-                throw new ApiException(400, "Missing required parameter 'itemId' when calling CheckoutApi->CheckoutRelatedItemsItemIdPost");
-            // verify the required parameter 'cart' is set
-            if (cart == null)
-                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CheckoutRelatedItemsItemIdPost");
-
-            var localVarPath = "/checkout/relatedItems/{item_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (itemId != null) localVarPathParams.Add("item_id", Configuration.ApiClient.ParameterToString(itemId)); // path parameter
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
-            if (cart != null && cart.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = cart; // byte array
-            }
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CheckoutRelatedItemsItemIdPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
-            
-        }
-
-        /// <summary>
-        /// Related items (specific item) Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemId">Item ID to retrieve related items for</param>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>Task of ItemsResponse</returns>
-        public async System.Threading.Tasks.Task<ItemsResponse> CheckoutRelatedItemsItemIdPostAsync (string itemId, Cart cart, string expand = null)
-        {
-             ApiResponse<ItemsResponse> localVarResponse = await CheckoutRelatedItemsItemIdPostAsyncWithHttpInfo(itemId, cart, expand);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Related items (specific item) Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemId">Item ID to retrieve related items for</param>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> CheckoutRelatedItemsItemIdPostAsyncWithHttpInfo (string itemId, Cart cart, string expand = null)
-        {
-            // verify the required parameter 'itemId' is set
-            if (itemId == null)
-                throw new ApiException(400, "Missing required parameter 'itemId' when calling CheckoutApi->CheckoutRelatedItemsItemIdPost");
-            // verify the required parameter 'cart' is set
-            if (cart == null)
-                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CheckoutRelatedItemsItemIdPost");
-
-            var localVarPath = "/checkout/relatedItems/{item_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (itemId != null) localVarPathParams.Add("item_id", Configuration.ApiClient.ParameterToString(itemId)); // path parameter
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
-            if (cart != null && cart.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = cart; // byte array
-            }
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CheckoutRelatedItemsItemIdPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
-            
-        }
-
-        /// <summary>
-        /// Related items Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>ItemsResponse</returns>
-        public ItemsResponse CheckoutRelatedItemsPost (Cart cart, string expand = null)
-        {
-             ApiResponse<ItemsResponse> localVarResponse = CheckoutRelatedItemsPostWithHttpInfo(cart, expand);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Related items Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        public ApiResponse< ItemsResponse > CheckoutRelatedItemsPostWithHttpInfo (Cart cart, string expand = null)
-        {
-            // verify the required parameter 'cart' is set
-            if (cart == null)
-                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CheckoutRelatedItemsPost");
-
-            var localVarPath = "/checkout/related_items";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
-            if (cart != null && cart.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = cart; // byte array
-            }
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CheckoutRelatedItemsPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
-            
-        }
-
-        /// <summary>
-        /// Related items Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>Task of ItemsResponse</returns>
-        public async System.Threading.Tasks.Task<ItemsResponse> CheckoutRelatedItemsPostAsync (Cart cart, string expand = null)
-        {
-             ApiResponse<ItemsResponse> localVarResponse = await CheckoutRelatedItemsPostAsyncWithHttpInfo(cart, expand);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Related items Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cart">Cart</param>
-        /// <param name="expand">The object expansion to perform on the result.  See item resource documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> CheckoutRelatedItemsPostAsyncWithHttpInfo (Cart cart, string expand = null)
-        {
-            // verify the required parameter 'cart' is set
-            if (cart == null)
-                throw new ApiException(400, "Missing required parameter 'cart' when calling CheckoutApi->CheckoutRelatedItemsPost");
-
-            var localVarPath = "/checkout/related_items";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
-            if (cart != null && cart.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(cart); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = cart; // byte array
-            }
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CheckoutRelatedItemsPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
-            
-        }
-
-        /// <summary>
-        /// Get cart (by return code) Get a cart specified by the return code parameter. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="returnCode">Return code to lookup cart ID by</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>CartResponse</returns>
-        public CartResponse CheckoutReturnReturnCodeGet (string returnCode, string expand = null)
-        {
-             ApiResponse<CartResponse> localVarResponse = CheckoutReturnReturnCodeGetWithHttpInfo(returnCode, expand);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get cart (by return code) Get a cart specified by the return code parameter. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="returnCode">Return code to lookup cart ID by</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of CartResponse</returns>
-        public ApiResponse< CartResponse > CheckoutReturnReturnCodeGetWithHttpInfo (string returnCode, string expand = null)
-        {
-            // verify the required parameter 'returnCode' is set
-            if (returnCode == null)
-                throw new ApiException(400, "Missing required parameter 'returnCode' when calling CheckoutApi->CheckoutReturnReturnCodeGet");
-
-            var localVarPath = "/checkout/return/{return_code}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (returnCode != null) localVarPathParams.Add("return_code", Configuration.ApiClient.ParameterToString(returnCode)); // path parameter
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CheckoutReturnReturnCodeGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<CartResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CartResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
-            
-        }
-
-        /// <summary>
-        /// Get cart (by return code) Get a cart specified by the return code parameter. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="returnCode">Return code to lookup cart ID by</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of CartResponse</returns>
-        public async System.Threading.Tasks.Task<CartResponse> CheckoutReturnReturnCodeGetAsync (string returnCode, string expand = null)
-        {
-             ApiResponse<CartResponse> localVarResponse = await CheckoutReturnReturnCodeGetAsyncWithHttpInfo(returnCode, expand);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get cart (by return code) Get a cart specified by the return code parameter. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="returnCode">Return code to lookup cart ID by</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (CartResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> CheckoutReturnReturnCodeGetAsyncWithHttpInfo (string returnCode, string expand = null)
-        {
-            // verify the required parameter 'returnCode' is set
-            if (returnCode == null)
-                throw new ApiException(400, "Missing required parameter 'returnCode' when calling CheckoutApi->CheckoutReturnReturnCodeGet");
-
-            var localVarPath = "/checkout/return/{return_code}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (returnCode != null) localVarPathParams.Add("return_code", Configuration.ApiClient.ParameterToString(returnCode)); // path parameter
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CheckoutReturnReturnCodeGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<CartResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CartResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
             
         }
 

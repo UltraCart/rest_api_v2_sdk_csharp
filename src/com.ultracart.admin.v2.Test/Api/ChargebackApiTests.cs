@@ -77,48 +77,35 @@ namespace com.ultracart.admin.v2.Test
 
         
         /// <summary>
-        /// Test ChargebackChargebacksChargebackDisputeOidDelete
+        /// Test DeleteChargeback
         /// </summary>
         [Test]
-        public void ChargebackChargebacksChargebackDisputeOidDeleteTest()
+        public void DeleteChargebackTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? chargebackDisputeOid = null;
-            //var response = instance.ChargebackChargebacksChargebackDisputeOidDelete(chargebackDisputeOid);
+            //var response = instance.DeleteChargeback(chargebackDisputeOid);
             //Assert.IsInstanceOf<ChargebackDisputeResponse> (response, "response is ChargebackDisputeResponse");
         }
         
         /// <summary>
-        /// Test ChargebackChargebacksChargebackDisputeOidGet
+        /// Test GetChargebackDispute
         /// </summary>
         [Test]
-        public void ChargebackChargebacksChargebackDisputeOidGetTest()
+        public void GetChargebackDisputeTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? chargebackDisputeOid = null;
             //string expand = null;
-            //var response = instance.ChargebackChargebacksChargebackDisputeOidGet(chargebackDisputeOid, expand);
+            //var response = instance.GetChargebackDispute(chargebackDisputeOid, expand);
             //Assert.IsInstanceOf<ChargebackDisputeResponse> (response, "response is ChargebackDisputeResponse");
         }
         
         /// <summary>
-        /// Test ChargebackChargebacksChargebackDisputeOidPut
+        /// Test GetChargebackDisputes
         /// </summary>
         [Test]
-        public void ChargebackChargebacksChargebackDisputeOidPutTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //ChargebackDispute chargeback = null;
-            //int? chargebackDisputeOid = null;
-            //var response = instance.ChargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid);
-            //Assert.IsInstanceOf<ChargebackDisputeResponse> (response, "response is ChargebackDisputeResponse");
-        }
-        
-        /// <summary>
-        /// Test ChargebackChargebacksGet
-        /// </summary>
-        [Test]
-        public void ChargebackChargebacksGetTest()
+        public void GetChargebackDisputesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string orderId = null;
@@ -133,19 +120,34 @@ namespace com.ultracart.admin.v2.Test
             //string since = null;
             //string sort = null;
             //string expand = null;
-            //var response = instance.ChargebackChargebacksGet(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
+            //var response = instance.GetChargebackDisputes(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
             //Assert.IsInstanceOf<ChargebackDisputesResponse> (response, "response is ChargebackDisputesResponse");
         }
         
         /// <summary>
-        /// Test ChargebackChargebacksPost
+        /// Test InsertChargeback
         /// </summary>
         [Test]
-        public void ChargebackChargebacksPostTest()
+        public void InsertChargebackTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //ChargebackDispute chargeback = null;
-            //var response = instance.ChargebackChargebacksPost(chargeback);
+            //string expand = null;
+            //var response = instance.InsertChargeback(chargeback, expand);
+            //Assert.IsInstanceOf<ChargebackDisputeResponse> (response, "response is ChargebackDisputeResponse");
+        }
+        
+        /// <summary>
+        /// Test UpdateChargeback
+        /// </summary>
+        [Test]
+        public void UpdateChargebackTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //ChargebackDispute chargeback = null;
+            //int? chargebackDisputeOid = null;
+            //string expand = null;
+            //var response = instance.UpdateChargeback(chargeback, chargebackDisputeOid, expand);
             //Assert.IsInstanceOf<ChargebackDisputeResponse> (response, "response is ChargebackDisputeResponse");
         }
         

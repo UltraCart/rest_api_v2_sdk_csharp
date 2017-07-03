@@ -4,18 +4,226 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**OrderOrdersGet**](OrderApi.md#orderordersget) | **GET** /order/orders | Retrieve orders
-[**OrderOrdersOrderIdCancelPost**](OrderApi.md#orderordersorderidcancelpost) | **POST** /order/orders/{order_id}/cancel | Cancel an order
-[**OrderOrdersOrderIdDelete**](OrderApi.md#orderordersorderiddelete) | **DELETE** /order/orders/{order_id} | Delete an order
-[**OrderOrdersOrderIdGet**](OrderApi.md#orderordersorderidget) | **GET** /order/orders/{order_id} | Retrieve an order
-[**OrderOrdersOrderIdPut**](OrderApi.md#orderordersorderidput) | **PUT** /order/orders/{order_id} | Update an order
-[**OrderOrdersOrderIdResendReceiptPost**](OrderApi.md#orderordersorderidresendreceiptpost) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
-[**OrderOrdersOrderIdResendShipmentConfirmationPost**](OrderApi.md#orderordersorderidresendshipmentconfirmationpost) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+[**CancelOrder**](OrderApi.md#cancelorder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
+[**DeleteOrder**](OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
+[**GetOrder**](OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
+[**GetOrders**](OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
+[**ResendReceipt**](OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
+[**ResendShipmentConfirmation**](OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+[**UpdateOrder**](OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
 
 
-<a name="orderordersget"></a>
-# **OrderOrdersGet**
-> OrdersResponse OrderOrdersGet (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+<a name="cancelorder"></a>
+# **CancelOrder**
+> BaseResponse CancelOrder (string orderId)
+
+Cancel an order
+
+Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class CancelOrderExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new OrderApi();
+            var orderId = orderId_example;  // string | The order id to cancel.
+
+            try
+            {
+                // Cancel an order
+                BaseResponse result = apiInstance.CancelOrder(orderId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OrderApi.CancelOrder: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **string**| The order id to cancel. | 
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteorder"></a>
+# **DeleteOrder**
+> void DeleteOrder (string orderId)
+
+Delete an order
+
+Delete an order on the UltraCart account. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteOrderExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new OrderApi();
+            var orderId = orderId_example;  // string | The order id to delete.
+
+            try
+            {
+                // Delete an order
+                apiInstance.DeleteOrder(orderId);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OrderApi.DeleteOrder: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **string**| The order id to delete. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getorder"></a>
+# **GetOrder**
+> OrderResponse GetOrder (string orderId, string expand = null)
+
+Retrieve an order
+
+Retrieves a single order using the specified order id. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetOrderExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new OrderApi();
+            var orderId = orderId_example;  // string | The order id to retrieve.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Retrieve an order
+                OrderResponse result = apiInstance.GetOrder(orderId, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OrderApi.GetOrder: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **string**| The order id to retrieve. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getorders"></a>
+# **GetOrders**
+> OrdersResponse GetOrders (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
 
 Retrieve orders
 
@@ -31,7 +239,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class OrderOrdersGetExample
+    public class GetOrdersExample
     {
         public void main()
         {
@@ -79,12 +287,12 @@ namespace Example
             try
             {
                 // Retrieve orders
-                OrdersResponse result = apiInstance.OrderOrdersGet(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
+                OrdersResponse result = apiInstance.GetOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling OrderApi.OrderOrdersGet: " + e.Message );
+                Debug.Print("Exception when calling OrderApi.GetOrders: " + e.Message );
             }
         }
     }
@@ -142,290 +350,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="orderordersorderidcancelpost"></a>
-# **OrderOrdersOrderIdCancelPost**
-> BaseResponse OrderOrdersOrderIdCancelPost (string orderId)
-
-Cancel an order
-
-Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class OrderOrdersOrderIdCancelPostExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new OrderApi();
-            var orderId = orderId_example;  // string | The order id to cancel.
-
-            try
-            {
-                // Cancel an order
-                BaseResponse result = apiInstance.OrderOrdersOrderIdCancelPost(orderId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling OrderApi.OrderOrdersOrderIdCancelPost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **string**| The order id to cancel. | 
-
-### Return type
-
-[**BaseResponse**](BaseResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="orderordersorderiddelete"></a>
-# **OrderOrdersOrderIdDelete**
-> void OrderOrdersOrderIdDelete (string orderId)
-
-Delete an order
-
-Delete an order on the UltraCart account. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class OrderOrdersOrderIdDeleteExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new OrderApi();
-            var orderId = orderId_example;  // string | The order id to delete.
-
-            try
-            {
-                // Delete an order
-                apiInstance.OrderOrdersOrderIdDelete(orderId);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling OrderApi.OrderOrdersOrderIdDelete: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **string**| The order id to delete. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="orderordersorderidget"></a>
-# **OrderOrdersOrderIdGet**
-> OrderResponse OrderOrdersOrderIdGet (string orderId, string expand = null)
-
-Retrieve an order
-
-Retrieves a single order using the specified order id. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class OrderOrdersOrderIdGetExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new OrderApi();
-            var orderId = orderId_example;  // string | The order id to retrieve.
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Retrieve an order
-                OrderResponse result = apiInstance.OrderOrdersOrderIdGet(orderId, expand);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling OrderApi.OrderOrdersOrderIdGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderId** | **string**| The order id to retrieve. | 
- **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
-
-### Return type
-
-[**OrderResponse**](OrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="orderordersorderidput"></a>
-# **OrderOrdersOrderIdPut**
-> OrderResponse OrderOrdersOrderIdPut (Order order, string orderId, string expand = null)
-
-Update an order
-
-Update a new order on the UltraCart account. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class OrderOrdersOrderIdPutExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new OrderApi();
-            var order = new Order(); // Order | Order to update
-            var orderId = orderId_example;  // string | The order id to update.
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Update an order
-                OrderResponse result = apiInstance.OrderOrdersOrderIdPut(order, orderId, expand);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling OrderApi.OrderOrdersOrderIdPut: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order** | [**Order**](Order.md)| Order to update | 
- **orderId** | **string**| The order id to update. | 
- **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
-
-### Return type
-
-[**OrderResponse**](OrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="orderordersorderidresendreceiptpost"></a>
-# **OrderOrdersOrderIdResendReceiptPost**
-> BaseResponse OrderOrdersOrderIdResendReceiptPost (string orderId)
+<a name="resendreceipt"></a>
+# **ResendReceipt**
+> BaseResponse ResendReceipt (string orderId)
 
 Resend receipt
 
@@ -441,7 +368,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class OrderOrdersOrderIdResendReceiptPostExample
+    public class ResendReceiptExample
     {
         public void main()
         {
@@ -459,12 +386,12 @@ namespace Example
             try
             {
                 // Resend receipt
-                BaseResponse result = apiInstance.OrderOrdersOrderIdResendReceiptPost(orderId);
+                BaseResponse result = apiInstance.ResendReceipt(orderId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling OrderApi.OrderOrdersOrderIdResendReceiptPost: " + e.Message );
+                Debug.Print("Exception when calling OrderApi.ResendReceipt: " + e.Message );
             }
         }
     }
@@ -492,9 +419,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="orderordersorderidresendshipmentconfirmationpost"></a>
-# **OrderOrdersOrderIdResendShipmentConfirmationPost**
-> BaseResponse OrderOrdersOrderIdResendShipmentConfirmationPost (string orderId)
+<a name="resendshipmentconfirmation"></a>
+# **ResendShipmentConfirmation**
+> BaseResponse ResendShipmentConfirmation (string orderId)
 
 Resend shipment confirmation
 
@@ -510,7 +437,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class OrderOrdersOrderIdResendShipmentConfirmationPostExample
+    public class ResendShipmentConfirmationExample
     {
         public void main()
         {
@@ -528,12 +455,12 @@ namespace Example
             try
             {
                 // Resend shipment confirmation
-                BaseResponse result = apiInstance.OrderOrdersOrderIdResendShipmentConfirmationPost(orderId);
+                BaseResponse result = apiInstance.ResendShipmentConfirmation(orderId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling OrderApi.OrderOrdersOrderIdResendShipmentConfirmationPost: " + e.Message );
+                Debug.Print("Exception when calling OrderApi.ResendShipmentConfirmation: " + e.Message );
             }
         }
     }
@@ -557,6 +484,79 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateorder"></a>
+# **UpdateOrder**
+> OrderResponse UpdateOrder (Order order, string orderId, string expand = null)
+
+Update an order
+
+Update a new order on the UltraCart account. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateOrderExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new OrderApi();
+            var order = new Order(); // Order | Order to update
+            var orderId = orderId_example;  // string | The order id to update.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Update an order
+                OrderResponse result = apiInstance.UpdateOrder(order, orderId, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OrderApi.UpdateOrder: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order** | [**Order**](Order.md)| Order to update | 
+ **orderId** | **string**| The order id to update. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

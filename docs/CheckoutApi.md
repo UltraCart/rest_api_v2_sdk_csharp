@@ -4,29 +4,29 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CheckoutBrowserKeyPut**](CheckoutApi.md#checkoutbrowserkeyput) | **PUT** /checkout/browser_key | Setup Browser Application
-[**CheckoutCartCartIdGet**](CheckoutApi.md#checkoutcartcartidget) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
-[**CheckoutCartFinalizeOrderPost**](CheckoutApi.md#checkoutcartfinalizeorderpost) | **POST** /checkout/cart/finalizeOrder | Finalize Order
-[**CheckoutCartGet**](CheckoutApi.md#checkoutcartget) | **GET** /checkout/cart | Get cart
-[**CheckoutCartHandoffPost**](CheckoutApi.md#checkoutcarthandoffpost) | **POST** /checkout/cart/handoff | Handoff cart
-[**CheckoutCartProfileLoginPost**](CheckoutApi.md#checkoutcartprofileloginpost) | **POST** /checkout/cart/profile/login | Profile login
-[**CheckoutCartProfileLogoutPost**](CheckoutApi.md#checkoutcartprofilelogoutpost) | **POST** /checkout/cart/profile/logout | Profile logout
-[**CheckoutCartProfileRegisterPost**](CheckoutApi.md#checkoutcartprofileregisterpost) | **POST** /checkout/cart/profile/register | Profile registration
-[**CheckoutCartPut**](CheckoutApi.md#checkoutcartput) | **PUT** /checkout/cart | Update cart
-[**CheckoutCartValidatePost**](CheckoutApi.md#checkoutcartvalidatepost) | **POST** /checkout/cart/validate | Validate
-[**CheckoutCityStatePost**](CheckoutApi.md#checkoutcitystatepost) | **POST** /checkout/city_state | City/State for Zip
-[**CheckoutRelatedItemsItemIdPost**](CheckoutApi.md#checkoutrelateditemsitemidpost) | **POST** /checkout/relatedItems/{item_id} | Related items (specific item)
-[**CheckoutRelatedItemsPost**](CheckoutApi.md#checkoutrelateditemspost) | **POST** /checkout/related_items | Related items
-[**CheckoutReturnReturnCodeGet**](CheckoutApi.md#checkoutreturnreturncodeget) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+[**CityState**](CheckoutApi.md#citystate) | **POST** /checkout/city_state | City/State for Zip
+[**FinalizeOrder**](CheckoutApi.md#finalizeorder) | **POST** /checkout/cart/finalizeOrder | Finalize Order
+[**GetCart**](CheckoutApi.md#getcart) | **GET** /checkout/cart | Get cart
+[**GetCartByCartId**](CheckoutApi.md#getcartbycartid) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
+[**GetCartByReturnCode**](CheckoutApi.md#getcartbyreturncode) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+[**HandoffCart**](CheckoutApi.md#handoffcart) | **POST** /checkout/cart/handoff | Handoff cart
+[**Login**](CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
+[**Logout**](CheckoutApi.md#logout) | **POST** /checkout/cart/profile/logout | Profile logout
+[**Register**](CheckoutApi.md#register) | **POST** /checkout/cart/profile/register | Profile registration
+[**RelatedItemsForCart**](CheckoutApi.md#relateditemsforcart) | **POST** /checkout/related_items | Related items
+[**RelatedItemsForItem**](CheckoutApi.md#relateditemsforitem) | **POST** /checkout/relatedItems/{item_id} | Related items (specific item)
+[**SetupBrowserKey**](CheckoutApi.md#setupbrowserkey) | **PUT** /checkout/browser_key | Setup Browser Application
+[**UpdateCart**](CheckoutApi.md#updatecart) | **PUT** /checkout/cart | Update cart
+[**ValidateCart**](CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
 
 
-<a name="checkoutbrowserkeyput"></a>
-# **CheckoutBrowserKeyPut**
-> CheckoutSetupBrowserKeyResponse CheckoutBrowserKeyPut (CheckoutSetupBrowserKeyRequest browserKeyRequest)
+<a name="citystate"></a>
+# **CityState**
+> ItemsResponse CityState (Cart cart)
 
-Setup Browser Application
+City/State for Zip
 
-Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
+Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
 
 ### Example
 ```csharp
@@ -38,7 +38,80 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutBrowserKeyPutExample
+    public class CityStateExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: ultraCartBrowserApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new CheckoutApi();
+            var cart = new Cart(); // Cart | Cart
+
+            try
+            {
+                // City/State for Zip
+                ItemsResponse result = apiInstance.CityState(cart);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CheckoutApi.CityState: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cart** | [**Cart**](Cart.md)| Cart | 
+
+### Return type
+
+[**ItemsResponse**](ItemsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="finalizeorder"></a>
+# **FinalizeOrder**
+> CartFinalizeOrderResponse FinalizeOrder (CartFinalizeOrderRequest finalizeRequest)
+
+Finalize Order
+
+Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class FinalizeOrderExample
     {
         public void main()
         {
@@ -51,17 +124,17 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
-            var browserKeyRequest = new CheckoutSetupBrowserKeyRequest(); // CheckoutSetupBrowserKeyRequest | Setup browser key request
+            var finalizeRequest = new CartFinalizeOrderRequest(); // CartFinalizeOrderRequest | Finalize request
 
             try
             {
-                // Setup Browser Application
-                CheckoutSetupBrowserKeyResponse result = apiInstance.CheckoutBrowserKeyPut(browserKeyRequest);
+                // Finalize Order
+                CartFinalizeOrderResponse result = apiInstance.FinalizeOrder(finalizeRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutBrowserKeyPut: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.FinalizeOrder: " + e.Message );
             }
         }
     }
@@ -72,11 +145,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **browserKeyRequest** | [**CheckoutSetupBrowserKeyRequest**](CheckoutSetupBrowserKeyRequest.md)| Setup browser key request | 
+ **finalizeRequest** | [**CartFinalizeOrderRequest**](CartFinalizeOrderRequest.md)| Finalize request | 
 
 ### Return type
 
-[**CheckoutSetupBrowserKeyResponse**](CheckoutSetupBrowserKeyResponse.md)
+[**CartFinalizeOrderResponse**](CartFinalizeOrderResponse.md)
 
 ### Authorization
 
@@ -89,9 +162,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkoutcartcartidget"></a>
-# **CheckoutCartCartIdGet**
-> CartResponse CheckoutCartCartIdGet (string cartId, string expand = null)
+<a name="getcart"></a>
+# **GetCart**
+> CartResponse GetCart (string expand = null)
+
+Get cart
+
+If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetCartExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: ultraCartBrowserApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new CheckoutApi();
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Get cart
+                CartResponse result = apiInstance.GetCart(expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CheckoutApi.GetCart: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**CartResponse**](CartResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcartbycartid"></a>
+# **GetCartByCartId**
+> CartResponse GetCartByCartId (string cartId, string expand = null)
 
 Get cart (by cart id)
 
@@ -107,7 +253,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutCartCartIdGetExample
+    public class GetCartByCartIdExample
     {
         public void main()
         {
@@ -130,12 +276,12 @@ namespace Example
             try
             {
                 // Get cart (by cart id)
-                CartResponse result = apiInstance.CheckoutCartCartIdGet(cartId, expand);
+                CartResponse result = apiInstance.GetCartByCartId(cartId, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutCartCartIdGet: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.GetCartByCartId: " + e.Message );
             }
         }
     }
@@ -164,82 +310,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkoutcartfinalizeorderpost"></a>
-# **CheckoutCartFinalizeOrderPost**
-> CartFinalizeOrderResponse CheckoutCartFinalizeOrderPost (CartFinalizeOrderRequest finalizeRequest)
+<a name="getcartbyreturncode"></a>
+# **GetCartByReturnCode**
+> CartResponse GetCartByReturnCode (string returnCode, string expand = null)
 
-Finalize Order
+Get cart (by return code)
 
-Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CheckoutCartFinalizeOrderPostExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new CheckoutApi();
-            var finalizeRequest = new CartFinalizeOrderRequest(); // CartFinalizeOrderRequest | Finalize request
-
-            try
-            {
-                // Finalize Order
-                CartFinalizeOrderResponse result = apiInstance.CheckoutCartFinalizeOrderPost(finalizeRequest);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutCartFinalizeOrderPost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **finalizeRequest** | [**CartFinalizeOrderRequest**](CartFinalizeOrderRequest.md)| Finalize request | 
-
-### Return type
-
-[**CartFinalizeOrderResponse**](CartFinalizeOrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="checkoutcartget"></a>
-# **CheckoutCartGet**
-> CartResponse CheckoutCartGet (string expand = null)
-
-Get cart
-
-If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
+Get a cart specified by the return code parameter. 
 
 ### Example
 ```csharp
@@ -251,7 +328,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutCartGetExample
+    public class GetCartByReturnCodeExample
     {
         public void main()
         {
@@ -268,17 +345,18 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
+            var returnCode = returnCode_example;  // string | Return code to lookup cart ID by
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
-                // Get cart
-                CartResponse result = apiInstance.CheckoutCartGet(expand);
+                // Get cart (by return code)
+                CartResponse result = apiInstance.GetCartByReturnCode(returnCode, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutCartGet: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.GetCartByReturnCode: " + e.Message );
             }
         }
     }
@@ -289,6 +367,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **returnCode** | **string**| Return code to lookup cart ID by | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
@@ -306,9 +385,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkoutcarthandoffpost"></a>
-# **CheckoutCartHandoffPost**
-> CheckoutHandoffResponse CheckoutCartHandoffPost (CheckoutHandoffRequest handoffRequest, string expand = null)
+<a name="handoffcart"></a>
+# **HandoffCart**
+> CheckoutHandoffResponse HandoffCart (CheckoutHandoffRequest handoffRequest, string expand = null)
 
 Handoff cart
 
@@ -324,7 +403,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutCartHandoffPostExample
+    public class HandoffCartExample
     {
         public void main()
         {
@@ -347,12 +426,12 @@ namespace Example
             try
             {
                 // Handoff cart
-                CheckoutHandoffResponse result = apiInstance.CheckoutCartHandoffPost(handoffRequest, expand);
+                CheckoutHandoffResponse result = apiInstance.HandoffCart(handoffRequest, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutCartHandoffPost: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.HandoffCart: " + e.Message );
             }
         }
     }
@@ -381,9 +460,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkoutcartprofileloginpost"></a>
-# **CheckoutCartProfileLoginPost**
-> CartProfileLoginResponse CheckoutCartProfileLoginPost (CartProfileLoginRequest loginRequest, string expand = null)
+<a name="login"></a>
+# **Login**
+> CartProfileLoginResponse Login (CartProfileLoginRequest loginRequest, string expand = null)
 
 Profile login
 
@@ -399,7 +478,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutCartProfileLoginPostExample
+    public class LoginExample
     {
         public void main()
         {
@@ -422,12 +501,12 @@ namespace Example
             try
             {
                 // Profile login
-                CartProfileLoginResponse result = apiInstance.CheckoutCartProfileLoginPost(loginRequest, expand);
+                CartProfileLoginResponse result = apiInstance.Login(loginRequest, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutCartProfileLoginPost: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.Login: " + e.Message );
             }
         }
     }
@@ -456,9 +535,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkoutcartprofilelogoutpost"></a>
-# **CheckoutCartProfileLogoutPost**
-> CartResponse CheckoutCartProfileLogoutPost (Cart cart, string expand = null)
+<a name="logout"></a>
+# **Logout**
+> CartResponse Logout (Cart cart, string expand = null)
 
 Profile logout
 
@@ -474,7 +553,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutCartProfileLogoutPostExample
+    public class LogoutExample
     {
         public void main()
         {
@@ -497,12 +576,12 @@ namespace Example
             try
             {
                 // Profile logout
-                CartResponse result = apiInstance.CheckoutCartProfileLogoutPost(cart, expand);
+                CartResponse result = apiInstance.Logout(cart, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutCartProfileLogoutPost: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.Logout: " + e.Message );
             }
         }
     }
@@ -531,9 +610,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkoutcartprofileregisterpost"></a>
-# **CheckoutCartProfileRegisterPost**
-> CartProfileRegisterResponse CheckoutCartProfileRegisterPost (CartProfileRegisterRequest registerRequest, string expand = null)
+<a name="register"></a>
+# **Register**
+> CartProfileRegisterResponse Register (CartProfileRegisterRequest registerRequest, string expand = null)
 
 Profile registration
 
@@ -549,7 +628,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutCartProfileRegisterPostExample
+    public class RegisterExample
     {
         public void main()
         {
@@ -572,12 +651,12 @@ namespace Example
             try
             {
                 // Profile registration
-                CartProfileRegisterResponse result = apiInstance.CheckoutCartProfileRegisterPost(registerRequest, expand);
+                CartProfileRegisterResponse result = apiInstance.Register(registerRequest, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutCartProfileRegisterPost: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.Register: " + e.Message );
             }
         }
     }
@@ -606,13 +685,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkoutcartput"></a>
-# **CheckoutCartPut**
-> CartResponse CheckoutCartPut (Cart cart, string expand = null)
+<a name="relateditemsforcart"></a>
+# **RelatedItemsForCart**
+> ItemsResponse RelatedItemsForCart (Cart cart, string expand = null)
 
-Update cart
+Related items
 
-Update the cart. 
+Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
 
 ### Example
 ```csharp
@@ -624,7 +703,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutCartPutExample
+    public class RelatedItemsForCartExample
     {
         public void main()
         {
@@ -642,17 +721,17 @@ namespace Example
 
             var apiInstance = new CheckoutApi();
             var cart = new Cart(); // Cart | Cart
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See item resource documentation for examples (optional) 
 
             try
             {
-                // Update cart
-                CartResponse result = apiInstance.CheckoutCartPut(cart, expand);
+                // Related items
+                ItemsResponse result = apiInstance.RelatedItemsForCart(cart, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutCartPut: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.RelatedItemsForCart: " + e.Message );
             }
         }
     }
@@ -664,155 +743,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart** | [**Cart**](Cart.md)| Cart | 
- **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
-
-### Return type
-
-[**CartResponse**](CartResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="checkoutcartvalidatepost"></a>
-# **CheckoutCartValidatePost**
-> CartValidationResponse CheckoutCartValidatePost (CartValidationRequest validationRequest, string expand = null)
-
-Validate
-
-Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CheckoutCartValidatePostExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new CheckoutApi();
-            var validationRequest = new CartValidationRequest(); // CartValidationRequest | Validation request
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Validate
-                CartValidationResponse result = apiInstance.CheckoutCartValidatePost(validationRequest, expand);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutCartValidatePost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **validationRequest** | [**CartValidationRequest**](CartValidationRequest.md)| Validation request | 
- **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
-
-### Return type
-
-[**CartValidationResponse**](CartValidationResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="checkoutcitystatepost"></a>
-# **CheckoutCityStatePost**
-> ItemsResponse CheckoutCityStatePost (Cart cart)
-
-City/State for Zip
-
-Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CheckoutCityStatePostExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new CheckoutApi();
-            var cart = new Cart(); // Cart | Cart
-
-            try
-            {
-                // City/State for Zip
-                ItemsResponse result = apiInstance.CheckoutCityStatePost(cart);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutCityStatePost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cart** | [**Cart**](Cart.md)| Cart | 
+ **expand** | **string**| The object expansion to perform on the result.  See item resource documentation for examples | [optional] 
 
 ### Return type
 
@@ -829,9 +760,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkoutrelateditemsitemidpost"></a>
-# **CheckoutRelatedItemsItemIdPost**
-> ItemsResponse CheckoutRelatedItemsItemIdPost (string itemId, Cart cart, string expand = null)
+<a name="relateditemsforitem"></a>
+# **RelatedItemsForItem**
+> ItemsResponse RelatedItemsForItem (string itemId, Cart cart, string expand = null)
 
 Related items (specific item)
 
@@ -847,7 +778,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutRelatedItemsItemIdPostExample
+    public class RelatedItemsForItemExample
     {
         public void main()
         {
@@ -871,12 +802,12 @@ namespace Example
             try
             {
                 // Related items (specific item)
-                ItemsResponse result = apiInstance.CheckoutRelatedItemsItemIdPost(itemId, cart, expand);
+                ItemsResponse result = apiInstance.RelatedItemsForItem(itemId, cart, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutRelatedItemsItemIdPost: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.RelatedItemsForItem: " + e.Message );
             }
         }
     }
@@ -906,13 +837,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkoutrelateditemspost"></a>
-# **CheckoutRelatedItemsPost**
-> ItemsResponse CheckoutRelatedItemsPost (Cart cart, string expand = null)
+<a name="setupbrowserkey"></a>
+# **SetupBrowserKey**
+> CheckoutSetupBrowserKeyResponse SetupBrowserKey (CheckoutSetupBrowserKeyRequest browserKeyRequest)
 
-Related items
+Setup Browser Application
 
-Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
+Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
 
 ### Example
 ```csharp
@@ -924,7 +855,76 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutRelatedItemsPostExample
+    public class SetupBrowserKeyExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new CheckoutApi();
+            var browserKeyRequest = new CheckoutSetupBrowserKeyRequest(); // CheckoutSetupBrowserKeyRequest | Setup browser key request
+
+            try
+            {
+                // Setup Browser Application
+                CheckoutSetupBrowserKeyResponse result = apiInstance.SetupBrowserKey(browserKeyRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CheckoutApi.SetupBrowserKey: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **browserKeyRequest** | [**CheckoutSetupBrowserKeyRequest**](CheckoutSetupBrowserKeyRequest.md)| Setup browser key request | 
+
+### Return type
+
+[**CheckoutSetupBrowserKeyResponse**](CheckoutSetupBrowserKeyResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatecart"></a>
+# **UpdateCart**
+> CartResponse UpdateCart (Cart cart, string expand = null)
+
+Update cart
+
+Update the cart. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateCartExample
     {
         public void main()
         {
@@ -942,17 +942,17 @@ namespace Example
 
             var apiInstance = new CheckoutApi();
             var cart = new Cart(); // Cart | Cart
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See item resource documentation for examples (optional) 
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
-                // Related items
-                ItemsResponse result = apiInstance.CheckoutRelatedItemsPost(cart, expand);
+                // Update cart
+                CartResponse result = apiInstance.UpdateCart(cart, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutRelatedItemsPost: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.UpdateCart: " + e.Message );
             }
         }
     }
@@ -964,11 +964,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart** | [**Cart**](Cart.md)| Cart | 
- **expand** | **string**| The object expansion to perform on the result.  See item resource documentation for examples | [optional] 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 
-[**ItemsResponse**](ItemsResponse.md)
+[**CartResponse**](CartResponse.md)
 
 ### Authorization
 
@@ -981,13 +981,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkoutreturnreturncodeget"></a>
-# **CheckoutReturnReturnCodeGet**
-> CartResponse CheckoutReturnReturnCodeGet (string returnCode, string expand = null)
+<a name="validatecart"></a>
+# **ValidateCart**
+> CartValidationResponse ValidateCart (CartValidationRequest validationRequest, string expand = null)
 
-Get cart (by return code)
+Validate
 
-Get a cart specified by the return code parameter. 
+Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
 
 ### Example
 ```csharp
@@ -999,7 +999,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CheckoutReturnReturnCodeGetExample
+    public class ValidateCartExample
     {
         public void main()
         {
@@ -1016,18 +1016,18 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
-            var returnCode = returnCode_example;  // string | Return code to lookup cart ID by
+            var validationRequest = new CartValidationRequest(); // CartValidationRequest | Validation request
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
-                // Get cart (by return code)
-                CartResponse result = apiInstance.CheckoutReturnReturnCodeGet(returnCode, expand);
+                // Validate
+                CartValidationResponse result = apiInstance.ValidateCart(validationRequest, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CheckoutApi.CheckoutReturnReturnCodeGet: " + e.Message );
+                Debug.Print("Exception when calling CheckoutApi.ValidateCart: " + e.Message );
             }
         }
     }
@@ -1038,12 +1038,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **returnCode** | **string**| Return code to lookup cart ID by | 
+ **validationRequest** | [**CartValidationRequest**](CartValidationRequest.md)| Validation request | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
 
-[**CartResponse**](CartResponse.md)
+[**CartValidationResponse**](CartValidationResponse.md)
 
 ### Authorization
 

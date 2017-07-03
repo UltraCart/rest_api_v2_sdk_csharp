@@ -46,7 +46,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderIds">Orders to acknowledge receipt of (limit 100)</param>
         /// <returns></returns>
-        void FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut (string distributionCenterCode, List<string> orderIds);
+        void AcknowledgeOrders (string distributionCenterCode, List<string> orderIds);
 
         /// <summary>
         /// Acknowledge receipt of orders.
@@ -58,30 +58,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderIds">Orders to acknowledge receipt of (limit 100)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo (string distributionCenterCode, List<string> orderIds);
-        /// <summary>
-        /// Update inventory
-        /// </summary>
-        /// <remarks>
-        /// Update the inventory for items associated with this distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="distributionCenterCode">Distribution center code</param>
-        /// <param name="inventories">Inventory updates (limit 500)</param>
-        /// <returns></returns>
-        void FulfillmentDistributionCentersDistributionCenterCodeInventoryPost (string distributionCenterCode, List<FulfillmentInventory> inventories);
-
-        /// <summary>
-        /// Update inventory
-        /// </summary>
-        /// <remarks>
-        /// Update the inventory for items associated with this distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="distributionCenterCode">Distribution center code</param>
-        /// <param name="inventories">Inventory updates (limit 500)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> FulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo (string distributionCenterCode, List<FulfillmentInventory> inventories);
+        ApiResponse<Object> AcknowledgeOrdersWithHttpInfo (string distributionCenterCode, List<string> orderIds);
         /// <summary>
         /// Retrieve orders queued up for this distribution center.
         /// </summary>
@@ -91,7 +68,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <returns>OrdersResponse</returns>
-        OrdersResponse FulfillmentDistributionCentersDistributionCenterCodeOrdersGet (string distributionCenterCode);
+        OrdersResponse GetDistributionCenterOrders (string distributionCenterCode);
 
         /// <summary>
         /// Retrieve orders queued up for this distribution center.
@@ -102,7 +79,26 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <returns>ApiResponse of OrdersResponse</returns>
-        ApiResponse<OrdersResponse> FulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo (string distributionCenterCode);
+        ApiResponse<OrdersResponse> GetDistributionCenterOrdersWithHttpInfo (string distributionCenterCode);
+        /// <summary>
+        /// Retrieve distribution centers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the distribution centers that this user has access to. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>DistributionCentersResponse</returns>
+        DistributionCentersResponse GetDistributionCenters ();
+
+        /// <summary>
+        /// Retrieve distribution centers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the distribution centers that this user has access to. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of DistributionCentersResponse</returns>
+        ApiResponse<DistributionCentersResponse> GetDistributionCentersWithHttpInfo ();
         /// <summary>
         /// Mark orders as shipped
         /// </summary>
@@ -113,7 +109,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="shipments">Orders to mark shipped</param>
         /// <returns></returns>
-        void FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost (string distributionCenterCode, List<FulfillmentShipment> shipments);
+        void ShipOrders (string distributionCenterCode, List<FulfillmentShipment> shipments);
 
         /// <summary>
         /// Mark orders as shipped
@@ -125,26 +121,30 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="shipments">Orders to mark shipped</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo (string distributionCenterCode, List<FulfillmentShipment> shipments);
+        ApiResponse<Object> ShipOrdersWithHttpInfo (string distributionCenterCode, List<FulfillmentShipment> shipments);
         /// <summary>
-        /// Retrieve distribution centers
+        /// Update inventory
         /// </summary>
         /// <remarks>
-        /// Retrieves the distribution centers that this user has access to. 
+        /// Update the inventory for items associated with this distribution center 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>DistributionCentersResponse</returns>
-        DistributionCentersResponse FulfillmentDistributionCentersGet ();
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="inventories">Inventory updates (limit 500)</param>
+        /// <returns></returns>
+        void UpdateInventory (string distributionCenterCode, List<FulfillmentInventory> inventories);
 
         /// <summary>
-        /// Retrieve distribution centers
+        /// Update inventory
         /// </summary>
         /// <remarks>
-        /// Retrieves the distribution centers that this user has access to. 
+        /// Update the inventory for items associated with this distribution center 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of DistributionCentersResponse</returns>
-        ApiResponse<DistributionCentersResponse> FulfillmentDistributionCentersGetWithHttpInfo ();
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="inventories">Inventory updates (limit 500)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateInventoryWithHttpInfo (string distributionCenterCode, List<FulfillmentInventory> inventories);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -157,7 +157,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderIds">Orders to acknowledge receipt of (limit 100)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutAsync (string distributionCenterCode, List<string> orderIds);
+        System.Threading.Tasks.Task AcknowledgeOrdersAsync (string distributionCenterCode, List<string> orderIds);
 
         /// <summary>
         /// Acknowledge receipt of orders.
@@ -169,30 +169,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderIds">Orders to acknowledge receipt of (limit 100)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutAsyncWithHttpInfo (string distributionCenterCode, List<string> orderIds);
-        /// <summary>
-        /// Update inventory
-        /// </summary>
-        /// <remarks>
-        /// Update the inventory for items associated with this distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="distributionCenterCode">Distribution center code</param>
-        /// <param name="inventories">Inventory updates (limit 500)</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task FulfillmentDistributionCentersDistributionCenterCodeInventoryPostAsync (string distributionCenterCode, List<FulfillmentInventory> inventories);
-
-        /// <summary>
-        /// Update inventory
-        /// </summary>
-        /// <remarks>
-        /// Update the inventory for items associated with this distribution center 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="distributionCenterCode">Distribution center code</param>
-        /// <param name="inventories">Inventory updates (limit 500)</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FulfillmentDistributionCentersDistributionCenterCodeInventoryPostAsyncWithHttpInfo (string distributionCenterCode, List<FulfillmentInventory> inventories);
+        System.Threading.Tasks.Task<ApiResponse<Object>> AcknowledgeOrdersAsyncWithHttpInfo (string distributionCenterCode, List<string> orderIds);
         /// <summary>
         /// Retrieve orders queued up for this distribution center.
         /// </summary>
@@ -202,7 +179,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <returns>Task of OrdersResponse</returns>
-        System.Threading.Tasks.Task<OrdersResponse> FulfillmentDistributionCentersDistributionCenterCodeOrdersGetAsync (string distributionCenterCode);
+        System.Threading.Tasks.Task<OrdersResponse> GetDistributionCenterOrdersAsync (string distributionCenterCode);
 
         /// <summary>
         /// Retrieve orders queued up for this distribution center.
@@ -213,7 +190,26 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> FulfillmentDistributionCentersDistributionCenterCodeOrdersGetAsyncWithHttpInfo (string distributionCenterCode);
+        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetDistributionCenterOrdersAsyncWithHttpInfo (string distributionCenterCode);
+        /// <summary>
+        /// Retrieve distribution centers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the distribution centers that this user has access to. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of DistributionCentersResponse</returns>
+        System.Threading.Tasks.Task<DistributionCentersResponse> GetDistributionCentersAsync ();
+
+        /// <summary>
+        /// Retrieve distribution centers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the distribution centers that this user has access to. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (DistributionCentersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DistributionCentersResponse>> GetDistributionCentersAsyncWithHttpInfo ();
         /// <summary>
         /// Mark orders as shipped
         /// </summary>
@@ -224,7 +220,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="shipments">Orders to mark shipped</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostAsync (string distributionCenterCode, List<FulfillmentShipment> shipments);
+        System.Threading.Tasks.Task ShipOrdersAsync (string distributionCenterCode, List<FulfillmentShipment> shipments);
 
         /// <summary>
         /// Mark orders as shipped
@@ -236,26 +232,30 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="shipments">Orders to mark shipped</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostAsyncWithHttpInfo (string distributionCenterCode, List<FulfillmentShipment> shipments);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ShipOrdersAsyncWithHttpInfo (string distributionCenterCode, List<FulfillmentShipment> shipments);
         /// <summary>
-        /// Retrieve distribution centers
+        /// Update inventory
         /// </summary>
         /// <remarks>
-        /// Retrieves the distribution centers that this user has access to. 
+        /// Update the inventory for items associated with this distribution center 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of DistributionCentersResponse</returns>
-        System.Threading.Tasks.Task<DistributionCentersResponse> FulfillmentDistributionCentersGetAsync ();
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="inventories">Inventory updates (limit 500)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateInventoryAsync (string distributionCenterCode, List<FulfillmentInventory> inventories);
 
         /// <summary>
-        /// Retrieve distribution centers
+        /// Update inventory
         /// </summary>
         /// <remarks>
-        /// Retrieves the distribution centers that this user has access to. 
+        /// Update the inventory for items associated with this distribution center 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (DistributionCentersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DistributionCentersResponse>> FulfillmentDistributionCentersGetAsyncWithHttpInfo ();
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="inventories">Inventory updates (limit 500)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateInventoryAsyncWithHttpInfo (string distributionCenterCode, List<FulfillmentInventory> inventories);
         #endregion Asynchronous Operations
     }
 
@@ -375,9 +375,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderIds">Orders to acknowledge receipt of (limit 100)</param>
         /// <returns></returns>
-        public void FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut (string distributionCenterCode, List<string> orderIds)
+        public void AcknowledgeOrders (string distributionCenterCode, List<string> orderIds)
         {
-             FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo(distributionCenterCode, orderIds);
+             AcknowledgeOrdersWithHttpInfo(distributionCenterCode, orderIds);
         }
 
         /// <summary>
@@ -387,14 +387,14 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderIds">Orders to acknowledge receipt of (limit 100)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo (string distributionCenterCode, List<string> orderIds)
+        public ApiResponse<Object> AcknowledgeOrdersWithHttpInfo (string distributionCenterCode, List<string> orderIds)
         {
             // verify the required parameter 'distributionCenterCode' is set
             if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut");
+                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->AcknowledgeOrders");
             // verify the required parameter 'orderIds' is set
             if (orderIds == null)
-                throw new ApiException(400, "Missing required parameter 'orderIds' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut");
+                throw new ApiException(400, "Missing required parameter 'orderIds' when calling FulfillmentApi->AcknowledgeOrders");
 
             var localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/acknowledgements";
             var localVarPathParams = new Dictionary<String, String>();
@@ -453,7 +453,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut", localVarResponse);
+                Exception exception = ExceptionFactory("AcknowledgeOrders", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -470,9 +470,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderIds">Orders to acknowledge receipt of (limit 100)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutAsync (string distributionCenterCode, List<string> orderIds)
+        public async System.Threading.Tasks.Task AcknowledgeOrdersAsync (string distributionCenterCode, List<string> orderIds)
         {
-             await FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutAsyncWithHttpInfo(distributionCenterCode, orderIds);
+             await AcknowledgeOrdersAsyncWithHttpInfo(distributionCenterCode, orderIds);
 
         }
 
@@ -483,14 +483,14 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderIds">Orders to acknowledge receipt of (limit 100)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutAsyncWithHttpInfo (string distributionCenterCode, List<string> orderIds)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> AcknowledgeOrdersAsyncWithHttpInfo (string distributionCenterCode, List<string> orderIds)
         {
             // verify the required parameter 'distributionCenterCode' is set
             if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut");
+                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->AcknowledgeOrders");
             // verify the required parameter 'orderIds' is set
             if (orderIds == null)
-                throw new ApiException(400, "Missing required parameter 'orderIds' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut");
+                throw new ApiException(400, "Missing required parameter 'orderIds' when calling FulfillmentApi->AcknowledgeOrders");
 
             var localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/acknowledgements";
             var localVarPathParams = new Dictionary<String, String>();
@@ -548,197 +548,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
-        }
-
-        /// <summary>
-        /// Update inventory Update the inventory for items associated with this distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="distributionCenterCode">Distribution center code</param>
-        /// <param name="inventories">Inventory updates (limit 500)</param>
-        /// <returns></returns>
-        public void FulfillmentDistributionCentersDistributionCenterCodeInventoryPost (string distributionCenterCode, List<FulfillmentInventory> inventories)
-        {
-             FulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo(distributionCenterCode, inventories);
-        }
-
-        /// <summary>
-        /// Update inventory Update the inventory for items associated with this distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="distributionCenterCode">Distribution center code</param>
-        /// <param name="inventories">Inventory updates (limit 500)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> FulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo (string distributionCenterCode, List<FulfillmentInventory> inventories)
-        {
-            // verify the required parameter 'distributionCenterCode' is set
-            if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeInventoryPost");
-            // verify the required parameter 'inventories' is set
-            if (inventories == null)
-                throw new ApiException(400, "Missing required parameter 'inventories' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeInventoryPost");
-
-            var localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/inventory";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (distributionCenterCode != null) localVarPathParams.Add("distribution_center_code", Configuration.ApiClient.ParameterToString(distributionCenterCode)); // path parameter
-            if (inventories != null && inventories.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(inventories); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = inventories; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("FulfillmentDistributionCentersDistributionCenterCodeInventoryPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
-        }
-
-        /// <summary>
-        /// Update inventory Update the inventory for items associated with this distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="distributionCenterCode">Distribution center code</param>
-        /// <param name="inventories">Inventory updates (limit 500)</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task FulfillmentDistributionCentersDistributionCenterCodeInventoryPostAsync (string distributionCenterCode, List<FulfillmentInventory> inventories)
-        {
-             await FulfillmentDistributionCentersDistributionCenterCodeInventoryPostAsyncWithHttpInfo(distributionCenterCode, inventories);
-
-        }
-
-        /// <summary>
-        /// Update inventory Update the inventory for items associated with this distribution center 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="distributionCenterCode">Distribution center code</param>
-        /// <param name="inventories">Inventory updates (limit 500)</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> FulfillmentDistributionCentersDistributionCenterCodeInventoryPostAsyncWithHttpInfo (string distributionCenterCode, List<FulfillmentInventory> inventories)
-        {
-            // verify the required parameter 'distributionCenterCode' is set
-            if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeInventoryPost");
-            // verify the required parameter 'inventories' is set
-            if (inventories == null)
-                throw new ApiException(400, "Missing required parameter 'inventories' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeInventoryPost");
-
-            var localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/inventory";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (distributionCenterCode != null) localVarPathParams.Add("distribution_center_code", Configuration.ApiClient.ParameterToString(distributionCenterCode)); // path parameter
-            if (inventories != null && inventories.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(inventories); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = inventories; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("FulfillmentDistributionCentersDistributionCenterCodeInventoryPost", localVarResponse);
+                Exception exception = ExceptionFactory("AcknowledgeOrders", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -754,9 +564,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <returns>OrdersResponse</returns>
-        public OrdersResponse FulfillmentDistributionCentersDistributionCenterCodeOrdersGet (string distributionCenterCode)
+        public OrdersResponse GetDistributionCenterOrders (string distributionCenterCode)
         {
-             ApiResponse<OrdersResponse> localVarResponse = FulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo(distributionCenterCode);
+             ApiResponse<OrdersResponse> localVarResponse = GetDistributionCenterOrdersWithHttpInfo(distributionCenterCode);
              return localVarResponse.Data;
         }
 
@@ -766,11 +576,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <returns>ApiResponse of OrdersResponse</returns>
-        public ApiResponse< OrdersResponse > FulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo (string distributionCenterCode)
+        public ApiResponse< OrdersResponse > GetDistributionCenterOrdersWithHttpInfo (string distributionCenterCode)
         {
             // verify the required parameter 'distributionCenterCode' is set
             if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeOrdersGet");
+                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->GetDistributionCenterOrders");
 
             var localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/orders";
             var localVarPathParams = new Dictionary<String, String>();
@@ -821,7 +631,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FulfillmentDistributionCentersDistributionCenterCodeOrdersGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetDistributionCenterOrders", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -837,9 +647,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <returns>Task of OrdersResponse</returns>
-        public async System.Threading.Tasks.Task<OrdersResponse> FulfillmentDistributionCentersDistributionCenterCodeOrdersGetAsync (string distributionCenterCode)
+        public async System.Threading.Tasks.Task<OrdersResponse> GetDistributionCenterOrdersAsync (string distributionCenterCode)
         {
-             ApiResponse<OrdersResponse> localVarResponse = await FulfillmentDistributionCentersDistributionCenterCodeOrdersGetAsyncWithHttpInfo(distributionCenterCode);
+             ApiResponse<OrdersResponse> localVarResponse = await GetDistributionCenterOrdersAsyncWithHttpInfo(distributionCenterCode);
              return localVarResponse.Data;
 
         }
@@ -850,11 +660,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> FulfillmentDistributionCentersDistributionCenterCodeOrdersGetAsyncWithHttpInfo (string distributionCenterCode)
+        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetDistributionCenterOrdersAsyncWithHttpInfo (string distributionCenterCode)
         {
             // verify the required parameter 'distributionCenterCode' is set
             if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeOrdersGet");
+                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->GetDistributionCenterOrders");
 
             var localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/orders";
             var localVarPathParams = new Dictionary<String, String>();
@@ -904,7 +714,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FulfillmentDistributionCentersDistributionCenterCodeOrdersGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetDistributionCenterOrders", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -915,15 +725,169 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Retrieve distribution centers Retrieves the distribution centers that this user has access to. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>DistributionCentersResponse</returns>
+        public DistributionCentersResponse GetDistributionCenters ()
+        {
+             ApiResponse<DistributionCentersResponse> localVarResponse = GetDistributionCentersWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve distribution centers Retrieves the distribution centers that this user has access to. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of DistributionCentersResponse</returns>
+        public ApiResponse< DistributionCentersResponse > GetDistributionCentersWithHttpInfo ()
+        {
+
+            var localVarPath = "/fulfillment/distribution_centers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetDistributionCenters", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DistributionCentersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DistributionCentersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DistributionCentersResponse)));
+            
+        }
+
+        /// <summary>
+        /// Retrieve distribution centers Retrieves the distribution centers that this user has access to. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of DistributionCentersResponse</returns>
+        public async System.Threading.Tasks.Task<DistributionCentersResponse> GetDistributionCentersAsync ()
+        {
+             ApiResponse<DistributionCentersResponse> localVarResponse = await GetDistributionCentersAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve distribution centers Retrieves the distribution centers that this user has access to. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (DistributionCentersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DistributionCentersResponse>> GetDistributionCentersAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/fulfillment/distribution_centers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetDistributionCenters", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DistributionCentersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DistributionCentersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DistributionCentersResponse)));
+            
+        }
+
+        /// <summary>
         /// Mark orders as shipped Store the tracking information and mark the order shipped for this distribution center. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="shipments">Orders to mark shipped</param>
         /// <returns></returns>
-        public void FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost (string distributionCenterCode, List<FulfillmentShipment> shipments)
+        public void ShipOrders (string distributionCenterCode, List<FulfillmentShipment> shipments)
         {
-             FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo(distributionCenterCode, shipments);
+             ShipOrdersWithHttpInfo(distributionCenterCode, shipments);
         }
 
         /// <summary>
@@ -933,14 +897,14 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="shipments">Orders to mark shipped</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo (string distributionCenterCode, List<FulfillmentShipment> shipments)
+        public ApiResponse<Object> ShipOrdersWithHttpInfo (string distributionCenterCode, List<FulfillmentShipment> shipments)
         {
             // verify the required parameter 'distributionCenterCode' is set
             if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost");
+                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->ShipOrders");
             // verify the required parameter 'shipments' is set
             if (shipments == null)
-                throw new ApiException(400, "Missing required parameter 'shipments' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost");
+                throw new ApiException(400, "Missing required parameter 'shipments' when calling FulfillmentApi->ShipOrders");
 
             var localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/shipments";
             var localVarPathParams = new Dictionary<String, String>();
@@ -999,7 +963,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost", localVarResponse);
+                Exception exception = ExceptionFactory("ShipOrders", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1016,9 +980,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="shipments">Orders to mark shipped</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostAsync (string distributionCenterCode, List<FulfillmentShipment> shipments)
+        public async System.Threading.Tasks.Task ShipOrdersAsync (string distributionCenterCode, List<FulfillmentShipment> shipments)
         {
-             await FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostAsyncWithHttpInfo(distributionCenterCode, shipments);
+             await ShipOrdersAsyncWithHttpInfo(distributionCenterCode, shipments);
 
         }
 
@@ -1029,14 +993,14 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="shipments">Orders to mark shipped</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostAsyncWithHttpInfo (string distributionCenterCode, List<FulfillmentShipment> shipments)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ShipOrdersAsyncWithHttpInfo (string distributionCenterCode, List<FulfillmentShipment> shipments)
         {
             // verify the required parameter 'distributionCenterCode' is set
             if (distributionCenterCode == null)
-                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost");
+                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->ShipOrders");
             // verify the required parameter 'shipments' is set
             if (shipments == null)
-                throw new ApiException(400, "Missing required parameter 'shipments' when calling FulfillmentApi->FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost");
+                throw new ApiException(400, "Missing required parameter 'shipments' when calling FulfillmentApi->ShipOrders");
 
             var localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/shipments";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1094,7 +1058,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost", localVarResponse);
+                Exception exception = ExceptionFactory("ShipOrders", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1105,25 +1069,34 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve distribution centers Retrieves the distribution centers that this user has access to. 
+        /// Update inventory Update the inventory for items associated with this distribution center 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>DistributionCentersResponse</returns>
-        public DistributionCentersResponse FulfillmentDistributionCentersGet ()
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="inventories">Inventory updates (limit 500)</param>
+        /// <returns></returns>
+        public void UpdateInventory (string distributionCenterCode, List<FulfillmentInventory> inventories)
         {
-             ApiResponse<DistributionCentersResponse> localVarResponse = FulfillmentDistributionCentersGetWithHttpInfo();
-             return localVarResponse.Data;
+             UpdateInventoryWithHttpInfo(distributionCenterCode, inventories);
         }
 
         /// <summary>
-        /// Retrieve distribution centers Retrieves the distribution centers that this user has access to. 
+        /// Update inventory Update the inventory for items associated with this distribution center 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of DistributionCentersResponse</returns>
-        public ApiResponse< DistributionCentersResponse > FulfillmentDistributionCentersGetWithHttpInfo ()
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="inventories">Inventory updates (limit 500)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateInventoryWithHttpInfo (string distributionCenterCode, List<FulfillmentInventory> inventories)
         {
+            // verify the required parameter 'distributionCenterCode' is set
+            if (distributionCenterCode == null)
+                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->UpdateInventory");
+            // verify the required parameter 'inventories' is set
+            if (inventories == null)
+                throw new ApiException(400, "Missing required parameter 'inventories' when calling FulfillmentApi->UpdateInventory");
 
-            var localVarPath = "/fulfillment/distribution_centers";
+            var localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/inventory";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1148,6 +1121,15 @@ namespace com.ultracart.admin.v2.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (distributionCenterCode != null) localVarPathParams.Add("distribution_center_code", Configuration.ApiClient.ParameterToString(distributionCenterCode)); // path parameter
+            if (inventories != null && inventories.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(inventories); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inventories; // byte array
+            }
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -1164,44 +1146,53 @@ namespace com.ultracart.admin.v2.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FulfillmentDistributionCentersGet", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateInventory", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DistributionCentersResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (DistributionCentersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DistributionCentersResponse)));
             
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
-        /// Retrieve distribution centers Retrieves the distribution centers that this user has access to. 
+        /// Update inventory Update the inventory for items associated with this distribution center 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of DistributionCentersResponse</returns>
-        public async System.Threading.Tasks.Task<DistributionCentersResponse> FulfillmentDistributionCentersGetAsync ()
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="inventories">Inventory updates (limit 500)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateInventoryAsync (string distributionCenterCode, List<FulfillmentInventory> inventories)
         {
-             ApiResponse<DistributionCentersResponse> localVarResponse = await FulfillmentDistributionCentersGetAsyncWithHttpInfo();
-             return localVarResponse.Data;
+             await UpdateInventoryAsyncWithHttpInfo(distributionCenterCode, inventories);
 
         }
 
         /// <summary>
-        /// Retrieve distribution centers Retrieves the distribution centers that this user has access to. 
+        /// Update inventory Update the inventory for items associated with this distribution center 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (DistributionCentersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DistributionCentersResponse>> FulfillmentDistributionCentersGetAsyncWithHttpInfo ()
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="inventories">Inventory updates (limit 500)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateInventoryAsyncWithHttpInfo (string distributionCenterCode, List<FulfillmentInventory> inventories)
         {
+            // verify the required parameter 'distributionCenterCode' is set
+            if (distributionCenterCode == null)
+                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling FulfillmentApi->UpdateInventory");
+            // verify the required parameter 'inventories' is set
+            if (inventories == null)
+                throw new ApiException(400, "Missing required parameter 'inventories' when calling FulfillmentApi->UpdateInventory");
 
-            var localVarPath = "/fulfillment/distribution_centers";
+            var localVarPath = "/fulfillment/distribution_centers/{distribution_center_code}/inventory";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1226,6 +1217,15 @@ namespace com.ultracart.admin.v2.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (distributionCenterCode != null) localVarPathParams.Add("distribution_center_code", Configuration.ApiClient.ParameterToString(distributionCenterCode)); // path parameter
+            if (inventories != null && inventories.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(inventories); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inventories; // byte array
+            }
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -1241,21 +1241,21 @@ namespace com.ultracart.admin.v2.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FulfillmentDistributionCentersGet", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateInventory", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DistributionCentersResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (DistributionCentersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DistributionCentersResponse)));
             
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
     }

@@ -77,114 +77,98 @@ namespace com.ultracart.admin.v2.Test
 
         
         /// <summary>
-        /// Test WebhookWebhooksGet
+        /// Test DeleteWebhook
         /// </summary>
         [Test]
-        public void WebhookWebhooksGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.WebhookWebhooksGet();
-            //Assert.IsInstanceOf<WebhooksResponse> (response, "response is WebhooksResponse");
-        }
-        
-        /// <summary>
-        /// Test WebhookWebhooksPost
-        /// </summary>
-        [Test]
-        public void WebhookWebhooksPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //Webhook webhook = null;
-            //var response = instance.WebhookWebhooksPost(webhook);
-            //Assert.IsInstanceOf<WebhooksResponse> (response, "response is WebhooksResponse");
-        }
-        
-        /// <summary>
-        /// Test WebhookWebhooksWebhookOidDelete
-        /// </summary>
-        [Test]
-        public void WebhookWebhooksWebhookOidDeleteTest()
+        public void DeleteWebhookTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? webhookOid = null;
-            //instance.WebhookWebhooksWebhookOidDelete(webhookOid);
+            //instance.DeleteWebhook(webhookOid);
             
         }
         
         /// <summary>
-        /// Test WebhookWebhooksWebhookOidLogsGet
+        /// Test GetWebhookLog
         /// </summary>
         [Test]
-        public void WebhookWebhooksWebhookOidLogsGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? webhookOid = null;
-            //var response = instance.WebhookWebhooksWebhookOidLogsGet(webhookOid);
-            //Assert.IsInstanceOf<WebhookLogSummariesResponse> (response, "response is WebhookLogSummariesResponse");
-        }
-        
-        /// <summary>
-        /// Test WebhookWebhooksWebhookOidLogsRequestIdGet
-        /// </summary>
-        [Test]
-        public void WebhookWebhooksWebhookOidLogsRequestIdGetTest()
+        public void GetWebhookLogTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? webhookOid = null;
             //string requestId = null;
-            //var response = instance.WebhookWebhooksWebhookOidLogsRequestIdGet(webhookOid, requestId);
+            //var response = instance.GetWebhookLog(webhookOid, requestId);
             //Assert.IsInstanceOf<WebhookLogResponse> (response, "response is WebhookLogResponse");
         }
         
         /// <summary>
-        /// Test WebhookWebhooksWebhookOidPut
+        /// Test GetWebhookLogSummaries
         /// </summary>
         [Test]
-        public void WebhookWebhooksWebhookOidPutTest()
+        public void GetWebhookLogSummariesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Webhook webhook = null;
             //int? webhookOid = null;
-            //var response = instance.WebhookWebhooksWebhookOidPut(webhook, webhookOid);
+            //int? limit = null;
+            //int? offset = null;
+            //string since = null;
+            //var response = instance.GetWebhookLogSummaries(webhookOid, limit, offset, since);
+            //Assert.IsInstanceOf<WebhookLogSummariesResponse> (response, "response is WebhookLogSummariesResponse");
+        }
+        
+        /// <summary>
+        /// Test GetWebhooks
+        /// </summary>
+        [Test]
+        public void GetWebhooksTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? limit = null;
+            //int? offset = null;
+            //string sort = null;
+            //bool? placeholders = null;
+            //var response = instance.GetWebhooks(limit, offset, sort, placeholders);
             //Assert.IsInstanceOf<WebhooksResponse> (response, "response is WebhooksResponse");
         }
         
         /// <summary>
-        /// Test WebhookWebhooksWebhookOidReflowEventNamePost
+        /// Test InsertWebhook
         /// </summary>
         [Test]
-        public void WebhookWebhooksWebhookOidReflowEventNamePostTest()
+        public void InsertWebhookTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Webhook webhook = null;
+            //bool? placeholders = null;
+            //var response = instance.InsertWebhook(webhook, placeholders);
+            //Assert.IsInstanceOf<WebhookResponse> (response, "response is WebhookResponse");
+        }
+        
+        /// <summary>
+        /// Test ResendEvent
+        /// </summary>
+        [Test]
+        public void ResendEventTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? webhookOid = null;
             //string eventName = null;
-            //var response = instance.WebhookWebhooksWebhookOidReflowEventNamePost(webhookOid, eventName);
+            //var response = instance.ResendEvent(webhookOid, eventName);
             //Assert.IsInstanceOf<WebhookSampleRequestResponse> (response, "response is WebhookSampleRequestResponse");
         }
         
         /// <summary>
-        /// Test WebhookWebhooksWebhookOidSamplesGet
+        /// Test UpdateWebhook
         /// </summary>
         [Test]
-        public void WebhookWebhooksWebhookOidSamplesGetTest()
+        public void UpdateWebhookTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //Webhook webhook = null;
             //int? webhookOid = null;
-            //var response = instance.WebhookWebhooksWebhookOidSamplesGet(webhookOid);
-            //Assert.IsInstanceOf<WebhookSampleRequestResponse> (response, "response is WebhookSampleRequestResponse");
-        }
-        
-        /// <summary>
-        /// Test WebhookWebhooksWebhookOidValidatePost
-        /// </summary>
-        [Test]
-        public void WebhookWebhooksWebhookOidValidatePostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //WebhookSampleRequest samples = null;
-            //int? webhookOid = null;
-            //var response = instance.WebhookWebhooksWebhookOidValidatePost(samples, webhookOid);
-            //Assert.IsInstanceOf<WebhookLogResponse> (response, "response is WebhookLogResponse");
+            //bool? placeholders = null;
+            //var response = instance.UpdateWebhook(webhook, webhookOid, placeholders);
+            //Assert.IsInstanceOf<WebhookResponse> (response, "response is WebhookResponse");
         }
         
     }

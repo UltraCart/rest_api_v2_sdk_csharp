@@ -77,182 +77,182 @@ namespace com.ultracart.admin.v2.Test
 
         
         /// <summary>
-        /// Test CheckoutBrowserKeyPut
+        /// Test CityState
         /// </summary>
         [Test]
-        public void CheckoutBrowserKeyPutTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CheckoutSetupBrowserKeyRequest browserKeyRequest = null;
-            //var response = instance.CheckoutBrowserKeyPut(browserKeyRequest);
-            //Assert.IsInstanceOf<CheckoutSetupBrowserKeyResponse> (response, "response is CheckoutSetupBrowserKeyResponse");
-        }
-        
-        /// <summary>
-        /// Test CheckoutCartCartIdGet
-        /// </summary>
-        [Test]
-        public void CheckoutCartCartIdGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string cartId = null;
-            //string expand = null;
-            //var response = instance.CheckoutCartCartIdGet(cartId, expand);
-            //Assert.IsInstanceOf<CartResponse> (response, "response is CartResponse");
-        }
-        
-        /// <summary>
-        /// Test CheckoutCartFinalizeOrderPost
-        /// </summary>
-        [Test]
-        public void CheckoutCartFinalizeOrderPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CartFinalizeOrderRequest finalizeRequest = null;
-            //var response = instance.CheckoutCartFinalizeOrderPost(finalizeRequest);
-            //Assert.IsInstanceOf<CartFinalizeOrderResponse> (response, "response is CartFinalizeOrderResponse");
-        }
-        
-        /// <summary>
-        /// Test CheckoutCartGet
-        /// </summary>
-        [Test]
-        public void CheckoutCartGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string expand = null;
-            //var response = instance.CheckoutCartGet(expand);
-            //Assert.IsInstanceOf<CartResponse> (response, "response is CartResponse");
-        }
-        
-        /// <summary>
-        /// Test CheckoutCartHandoffPost
-        /// </summary>
-        [Test]
-        public void CheckoutCartHandoffPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CheckoutHandoffRequest handoffRequest = null;
-            //string expand = null;
-            //var response = instance.CheckoutCartHandoffPost(handoffRequest, expand);
-            //Assert.IsInstanceOf<CheckoutHandoffResponse> (response, "response is CheckoutHandoffResponse");
-        }
-        
-        /// <summary>
-        /// Test CheckoutCartProfileLoginPost
-        /// </summary>
-        [Test]
-        public void CheckoutCartProfileLoginPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CartProfileLoginRequest loginRequest = null;
-            //string expand = null;
-            //var response = instance.CheckoutCartProfileLoginPost(loginRequest, expand);
-            //Assert.IsInstanceOf<CartProfileLoginResponse> (response, "response is CartProfileLoginResponse");
-        }
-        
-        /// <summary>
-        /// Test CheckoutCartProfileLogoutPost
-        /// </summary>
-        [Test]
-        public void CheckoutCartProfileLogoutPostTest()
+        public void CityStateTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Cart cart = null;
-            //string expand = null;
-            //var response = instance.CheckoutCartProfileLogoutPost(cart, expand);
-            //Assert.IsInstanceOf<CartResponse> (response, "response is CartResponse");
-        }
-        
-        /// <summary>
-        /// Test CheckoutCartProfileRegisterPost
-        /// </summary>
-        [Test]
-        public void CheckoutCartProfileRegisterPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CartProfileRegisterRequest registerRequest = null;
-            //string expand = null;
-            //var response = instance.CheckoutCartProfileRegisterPost(registerRequest, expand);
-            //Assert.IsInstanceOf<CartProfileRegisterResponse> (response, "response is CartProfileRegisterResponse");
-        }
-        
-        /// <summary>
-        /// Test CheckoutCartPut
-        /// </summary>
-        [Test]
-        public void CheckoutCartPutTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //Cart cart = null;
-            //string expand = null;
-            //var response = instance.CheckoutCartPut(cart, expand);
-            //Assert.IsInstanceOf<CartResponse> (response, "response is CartResponse");
-        }
-        
-        /// <summary>
-        /// Test CheckoutCartValidatePost
-        /// </summary>
-        [Test]
-        public void CheckoutCartValidatePostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CartValidationRequest validationRequest = null;
-            //string expand = null;
-            //var response = instance.CheckoutCartValidatePost(validationRequest, expand);
-            //Assert.IsInstanceOf<CartValidationResponse> (response, "response is CartValidationResponse");
-        }
-        
-        /// <summary>
-        /// Test CheckoutCityStatePost
-        /// </summary>
-        [Test]
-        public void CheckoutCityStatePostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //Cart cart = null;
-            //var response = instance.CheckoutCityStatePost(cart);
+            //var response = instance.CityState(cart);
             //Assert.IsInstanceOf<ItemsResponse> (response, "response is ItemsResponse");
         }
         
         /// <summary>
-        /// Test CheckoutRelatedItemsItemIdPost
+        /// Test FinalizeOrder
         /// </summary>
         [Test]
-        public void CheckoutRelatedItemsItemIdPostTest()
+        public void FinalizeOrderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CartFinalizeOrderRequest finalizeRequest = null;
+            //var response = instance.FinalizeOrder(finalizeRequest);
+            //Assert.IsInstanceOf<CartFinalizeOrderResponse> (response, "response is CartFinalizeOrderResponse");
+        }
+        
+        /// <summary>
+        /// Test GetCart
+        /// </summary>
+        [Test]
+        public void GetCartTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string expand = null;
+            //var response = instance.GetCart(expand);
+            //Assert.IsInstanceOf<CartResponse> (response, "response is CartResponse");
+        }
+        
+        /// <summary>
+        /// Test GetCartByCartId
+        /// </summary>
+        [Test]
+        public void GetCartByCartIdTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string cartId = null;
+            //string expand = null;
+            //var response = instance.GetCartByCartId(cartId, expand);
+            //Assert.IsInstanceOf<CartResponse> (response, "response is CartResponse");
+        }
+        
+        /// <summary>
+        /// Test GetCartByReturnCode
+        /// </summary>
+        [Test]
+        public void GetCartByReturnCodeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string returnCode = null;
+            //string expand = null;
+            //var response = instance.GetCartByReturnCode(returnCode, expand);
+            //Assert.IsInstanceOf<CartResponse> (response, "response is CartResponse");
+        }
+        
+        /// <summary>
+        /// Test HandoffCart
+        /// </summary>
+        [Test]
+        public void HandoffCartTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CheckoutHandoffRequest handoffRequest = null;
+            //string expand = null;
+            //var response = instance.HandoffCart(handoffRequest, expand);
+            //Assert.IsInstanceOf<CheckoutHandoffResponse> (response, "response is CheckoutHandoffResponse");
+        }
+        
+        /// <summary>
+        /// Test Login
+        /// </summary>
+        [Test]
+        public void LoginTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CartProfileLoginRequest loginRequest = null;
+            //string expand = null;
+            //var response = instance.Login(loginRequest, expand);
+            //Assert.IsInstanceOf<CartProfileLoginResponse> (response, "response is CartProfileLoginResponse");
+        }
+        
+        /// <summary>
+        /// Test Logout
+        /// </summary>
+        [Test]
+        public void LogoutTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Cart cart = null;
+            //string expand = null;
+            //var response = instance.Logout(cart, expand);
+            //Assert.IsInstanceOf<CartResponse> (response, "response is CartResponse");
+        }
+        
+        /// <summary>
+        /// Test Register
+        /// </summary>
+        [Test]
+        public void RegisterTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CartProfileRegisterRequest registerRequest = null;
+            //string expand = null;
+            //var response = instance.Register(registerRequest, expand);
+            //Assert.IsInstanceOf<CartProfileRegisterResponse> (response, "response is CartProfileRegisterResponse");
+        }
+        
+        /// <summary>
+        /// Test RelatedItemsForCart
+        /// </summary>
+        [Test]
+        public void RelatedItemsForCartTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Cart cart = null;
+            //string expand = null;
+            //var response = instance.RelatedItemsForCart(cart, expand);
+            //Assert.IsInstanceOf<ItemsResponse> (response, "response is ItemsResponse");
+        }
+        
+        /// <summary>
+        /// Test RelatedItemsForItem
+        /// </summary>
+        [Test]
+        public void RelatedItemsForItemTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string itemId = null;
             //Cart cart = null;
             //string expand = null;
-            //var response = instance.CheckoutRelatedItemsItemIdPost(itemId, cart, expand);
+            //var response = instance.RelatedItemsForItem(itemId, cart, expand);
             //Assert.IsInstanceOf<ItemsResponse> (response, "response is ItemsResponse");
         }
         
         /// <summary>
-        /// Test CheckoutRelatedItemsPost
+        /// Test SetupBrowserKey
         /// </summary>
         [Test]
-        public void CheckoutRelatedItemsPostTest()
+        public void SetupBrowserKeyTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CheckoutSetupBrowserKeyRequest browserKeyRequest = null;
+            //var response = instance.SetupBrowserKey(browserKeyRequest);
+            //Assert.IsInstanceOf<CheckoutSetupBrowserKeyResponse> (response, "response is CheckoutSetupBrowserKeyResponse");
+        }
+        
+        /// <summary>
+        /// Test UpdateCart
+        /// </summary>
+        [Test]
+        public void UpdateCartTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Cart cart = null;
             //string expand = null;
-            //var response = instance.CheckoutRelatedItemsPost(cart, expand);
-            //Assert.IsInstanceOf<ItemsResponse> (response, "response is ItemsResponse");
+            //var response = instance.UpdateCart(cart, expand);
+            //Assert.IsInstanceOf<CartResponse> (response, "response is CartResponse");
         }
         
         /// <summary>
-        /// Test CheckoutReturnReturnCodeGet
+        /// Test ValidateCart
         /// </summary>
         [Test]
-        public void CheckoutReturnReturnCodeGetTest()
+        public void ValidateCartTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string returnCode = null;
+            //CartValidationRequest validationRequest = null;
             //string expand = null;
-            //var response = instance.CheckoutReturnReturnCodeGet(returnCode, expand);
-            //Assert.IsInstanceOf<CartResponse> (response, "response is CartResponse");
+            //var response = instance.ValidateCart(validationRequest, expand);
+            //Assert.IsInstanceOf<CartValidationResponse> (response, "response is CartValidationResponse");
         }
         
     }

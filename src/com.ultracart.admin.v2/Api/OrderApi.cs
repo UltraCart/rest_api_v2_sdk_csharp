@@ -37,6 +37,71 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Cancel an order
+        /// </summary>
+        /// <remarks>
+        /// Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse CancelOrder (string orderId);
+
+        /// <summary>
+        /// Cancel an order
+        /// </summary>
+        /// <remarks>
+        /// Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> CancelOrderWithHttpInfo (string orderId);
+        /// <summary>
+        /// Delete an order
+        /// </summary>
+        /// <remarks>
+        /// Delete an order on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to delete.</param>
+        /// <returns></returns>
+        void DeleteOrder (string orderId);
+
+        /// <summary>
+        /// Delete an order
+        /// </summary>
+        /// <remarks>
+        /// Delete an order on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to delete.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteOrderWithHttpInfo (string orderId);
+        /// <summary>
+        /// Retrieve an order
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the specified order id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        OrderResponse GetOrder (string orderId, string expand = null);
+
+        /// <summary>
+        /// Retrieve an order
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the specified order id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        ApiResponse<OrderResponse> GetOrderWithHttpInfo (string orderId, string expand = null);
+        /// <summary>
         /// Retrieve orders
         /// </summary>
         /// <remarks>
@@ -75,7 +140,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>OrdersResponse</returns>
-        OrdersResponse OrderOrdersGet (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        OrdersResponse GetOrders (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
 
         /// <summary>
         /// Retrieve orders
@@ -116,72 +181,49 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>ApiResponse of OrdersResponse</returns>
-        ApiResponse<OrdersResponse> OrderOrdersGetWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        ApiResponse<OrdersResponse> GetOrdersWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
         /// <summary>
-        /// Cancel an order
+        /// Resend receipt
         /// </summary>
         /// <remarks>
-        /// Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// Resend the receipt for an order on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="orderId">The order id to resend the receipt for.</param>
         /// <returns>BaseResponse</returns>
-        BaseResponse OrderOrdersOrderIdCancelPost (string orderId);
+        BaseResponse ResendReceipt (string orderId);
 
         /// <summary>
-        /// Cancel an order
+        /// Resend receipt
         /// </summary>
         /// <remarks>
-        /// Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// Resend the receipt for an order on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="orderId">The order id to resend the receipt for.</param>
         /// <returns>ApiResponse of BaseResponse</returns>
-        ApiResponse<BaseResponse> OrderOrdersOrderIdCancelPostWithHttpInfo (string orderId);
+        ApiResponse<BaseResponse> ResendReceiptWithHttpInfo (string orderId);
         /// <summary>
-        /// Delete an order
+        /// Resend shipment confirmation
         /// </summary>
         /// <remarks>
-        /// Delete an order on the UltraCart account. 
+        /// Resend shipment confirmation for an order on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to delete.</param>
-        /// <returns></returns>
-        void OrderOrdersOrderIdDelete (string orderId);
+        /// <param name="orderId">The order id to resend the shipment notification for.</param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse ResendShipmentConfirmation (string orderId);
 
         /// <summary>
-        /// Delete an order
+        /// Resend shipment confirmation
         /// </summary>
         /// <remarks>
-        /// Delete an order on the UltraCart account. 
+        /// Resend shipment confirmation for an order on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to delete.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> OrderOrdersOrderIdDeleteWithHttpInfo (string orderId);
-        /// <summary>
-        /// Retrieve an order
-        /// </summary>
-        /// <remarks>
-        /// Retrieves a single order using the specified order id. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to retrieve.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>OrderResponse</returns>
-        OrderResponse OrderOrdersOrderIdGet (string orderId, string expand = null);
-
-        /// <summary>
-        /// Retrieve an order
-        /// </summary>
-        /// <remarks>
-        /// Retrieves a single order using the specified order id. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to retrieve.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of OrderResponse</returns>
-        ApiResponse<OrderResponse> OrderOrdersOrderIdGetWithHttpInfo (string orderId, string expand = null);
+        /// <param name="orderId">The order id to resend the shipment notification for.</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> ResendShipmentConfirmationWithHttpInfo (string orderId);
         /// <summary>
         /// Update an order
         /// </summary>
@@ -193,7 +235,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to update.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>OrderResponse</returns>
-        OrderResponse OrderOrdersOrderIdPut (Order order, string orderId, string expand = null);
+        OrderResponse UpdateOrder (Order order, string orderId, string expand = null);
 
         /// <summary>
         /// Update an order
@@ -206,51 +248,74 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to update.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of OrderResponse</returns>
-        ApiResponse<OrderResponse> OrderOrdersOrderIdPutWithHttpInfo (Order order, string orderId, string expand = null);
-        /// <summary>
-        /// Resend receipt
-        /// </summary>
-        /// <remarks>
-        /// Resend the receipt for an order on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the receipt for.</param>
-        /// <returns>BaseResponse</returns>
-        BaseResponse OrderOrdersOrderIdResendReceiptPost (string orderId);
-
-        /// <summary>
-        /// Resend receipt
-        /// </summary>
-        /// <remarks>
-        /// Resend the receipt for an order on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the receipt for.</param>
-        /// <returns>ApiResponse of BaseResponse</returns>
-        ApiResponse<BaseResponse> OrderOrdersOrderIdResendReceiptPostWithHttpInfo (string orderId);
-        /// <summary>
-        /// Resend shipment confirmation
-        /// </summary>
-        /// <remarks>
-        /// Resend shipment confirmation for an order on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the shipment notification for.</param>
-        /// <returns>BaseResponse</returns>
-        BaseResponse OrderOrdersOrderIdResendShipmentConfirmationPost (string orderId);
-
-        /// <summary>
-        /// Resend shipment confirmation
-        /// </summary>
-        /// <remarks>
-        /// Resend shipment confirmation for an order on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the shipment notification for.</param>
-        /// <returns>ApiResponse of BaseResponse</returns>
-        ApiResponse<BaseResponse> OrderOrdersOrderIdResendShipmentConfirmationPostWithHttpInfo (string orderId);
+        ApiResponse<OrderResponse> UpdateOrderWithHttpInfo (Order order, string orderId, string expand = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Cancel an order
+        /// </summary>
+        /// <remarks>
+        /// Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> CancelOrderAsync (string orderId);
+
+        /// <summary>
+        /// Cancel an order
+        /// </summary>
+        /// <remarks>
+        /// Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> CancelOrderAsyncWithHttpInfo (string orderId);
+        /// <summary>
+        /// Delete an order
+        /// </summary>
+        /// <remarks>
+        /// Delete an order on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to delete.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteOrderAsync (string orderId);
+
+        /// <summary>
+        /// Delete an order
+        /// </summary>
+        /// <remarks>
+        /// Delete an order on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to delete.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteOrderAsyncWithHttpInfo (string orderId);
+        /// <summary>
+        /// Retrieve an order
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the specified order id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of OrderResponse</returns>
+        System.Threading.Tasks.Task<OrderResponse> GetOrderAsync (string orderId, string expand = null);
+
+        /// <summary>
+        /// Retrieve an order
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single order using the specified order id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> GetOrderAsyncWithHttpInfo (string orderId, string expand = null);
         /// <summary>
         /// Retrieve orders
         /// </summary>
@@ -290,7 +355,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>Task of OrdersResponse</returns>
-        System.Threading.Tasks.Task<OrdersResponse> OrderOrdersGetAsync (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        System.Threading.Tasks.Task<OrdersResponse> GetOrdersAsync (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
 
         /// <summary>
         /// Retrieve orders
@@ -331,72 +396,49 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> OrderOrdersGetAsyncWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersAsyncWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
         /// <summary>
-        /// Cancel an order
+        /// Resend receipt
         /// </summary>
         /// <remarks>
-        /// Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// Resend the receipt for an order on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="orderId">The order id to resend the receipt for.</param>
         /// <returns>Task of BaseResponse</returns>
-        System.Threading.Tasks.Task<BaseResponse> OrderOrdersOrderIdCancelPostAsync (string orderId);
+        System.Threading.Tasks.Task<BaseResponse> ResendReceiptAsync (string orderId);
 
         /// <summary>
-        /// Cancel an order
+        /// Resend receipt
         /// </summary>
         /// <remarks>
-        /// Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// Resend the receipt for an order on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="orderId">The order id to resend the receipt for.</param>
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> OrderOrdersOrderIdCancelPostAsyncWithHttpInfo (string orderId);
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> ResendReceiptAsyncWithHttpInfo (string orderId);
         /// <summary>
-        /// Delete an order
+        /// Resend shipment confirmation
         /// </summary>
         /// <remarks>
-        /// Delete an order on the UltraCart account. 
+        /// Resend shipment confirmation for an order on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to delete.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task OrderOrdersOrderIdDeleteAsync (string orderId);
+        /// <param name="orderId">The order id to resend the shipment notification for.</param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> ResendShipmentConfirmationAsync (string orderId);
 
         /// <summary>
-        /// Delete an order
+        /// Resend shipment confirmation
         /// </summary>
         /// <remarks>
-        /// Delete an order on the UltraCart account. 
+        /// Resend shipment confirmation for an order on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to delete.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> OrderOrdersOrderIdDeleteAsyncWithHttpInfo (string orderId);
-        /// <summary>
-        /// Retrieve an order
-        /// </summary>
-        /// <remarks>
-        /// Retrieves a single order using the specified order id. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to retrieve.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of OrderResponse</returns>
-        System.Threading.Tasks.Task<OrderResponse> OrderOrdersOrderIdGetAsync (string orderId, string expand = null);
-
-        /// <summary>
-        /// Retrieve an order
-        /// </summary>
-        /// <remarks>
-        /// Retrieves a single order using the specified order id. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to retrieve.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (OrderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> OrderOrdersOrderIdGetAsyncWithHttpInfo (string orderId, string expand = null);
+        /// <param name="orderId">The order id to resend the shipment notification for.</param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> ResendShipmentConfirmationAsyncWithHttpInfo (string orderId);
         /// <summary>
         /// Update an order
         /// </summary>
@@ -408,7 +450,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to update.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of OrderResponse</returns>
-        System.Threading.Tasks.Task<OrderResponse> OrderOrdersOrderIdPutAsync (Order order, string orderId, string expand = null);
+        System.Threading.Tasks.Task<OrderResponse> UpdateOrderAsync (Order order, string orderId, string expand = null);
 
         /// <summary>
         /// Update an order
@@ -421,49 +463,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to update.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> OrderOrdersOrderIdPutAsyncWithHttpInfo (Order order, string orderId, string expand = null);
-        /// <summary>
-        /// Resend receipt
-        /// </summary>
-        /// <remarks>
-        /// Resend the receipt for an order on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the receipt for.</param>
-        /// <returns>Task of BaseResponse</returns>
-        System.Threading.Tasks.Task<BaseResponse> OrderOrdersOrderIdResendReceiptPostAsync (string orderId);
-
-        /// <summary>
-        /// Resend receipt
-        /// </summary>
-        /// <remarks>
-        /// Resend the receipt for an order on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the receipt for.</param>
-        /// <returns>Task of ApiResponse (BaseResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> OrderOrdersOrderIdResendReceiptPostAsyncWithHttpInfo (string orderId);
-        /// <summary>
-        /// Resend shipment confirmation
-        /// </summary>
-        /// <remarks>
-        /// Resend shipment confirmation for an order on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the shipment notification for.</param>
-        /// <returns>Task of BaseResponse</returns>
-        System.Threading.Tasks.Task<BaseResponse> OrderOrdersOrderIdResendShipmentConfirmationPostAsync (string orderId);
-
-        /// <summary>
-        /// Resend shipment confirmation
-        /// </summary>
-        /// <remarks>
-        /// Resend shipment confirmation for an order on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the shipment notification for.</param>
-        /// <returns>Task of ApiResponse (BaseResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> OrderOrdersOrderIdResendShipmentConfirmationPostAsyncWithHttpInfo (string orderId);
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> UpdateOrderAsyncWithHttpInfo (Order order, string orderId, string expand = null);
         #endregion Asynchronous Operations
     }
 
@@ -577,6 +577,508 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Cancel an order Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse CancelOrder (string orderId)
+        {
+             ApiResponse<BaseResponse> localVarResponse = CancelOrderWithHttpInfo(orderId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Cancel an order Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse< BaseResponse > CancelOrderWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->CancelOrder");
+
+            var localVarPath = "/order/orders/{order_id}/cancel";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CancelOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+            
+        }
+
+        /// <summary>
+        /// Cancel an order Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> CancelOrderAsync (string orderId)
+        {
+             ApiResponse<BaseResponse> localVarResponse = await CancelOrderAsyncWithHttpInfo(orderId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Cancel an order Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> CancelOrderAsyncWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->CancelOrder");
+
+            var localVarPath = "/order/orders/{order_id}/cancel";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CancelOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+            
+        }
+
+        /// <summary>
+        /// Delete an order Delete an order on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to delete.</param>
+        /// <returns></returns>
+        public void DeleteOrder (string orderId)
+        {
+             DeleteOrderWithHttpInfo(orderId);
+        }
+
+        /// <summary>
+        /// Delete an order Delete an order on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to delete.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteOrderWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->DeleteOrder");
+
+            var localVarPath = "/order/orders/{order_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete an order Delete an order on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to delete.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteOrderAsync (string orderId)
+        {
+             await DeleteOrderAsyncWithHttpInfo(orderId);
+
+        }
+
+        /// <summary>
+        /// Delete an order Delete an order on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to delete.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteOrderAsyncWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->DeleteOrder");
+
+            var localVarPath = "/order/orders/{order_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Retrieve an order Retrieves a single order using the specified order id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        public OrderResponse GetOrder (string orderId, string expand = null)
+        {
+             ApiResponse<OrderResponse> localVarResponse = GetOrderWithHttpInfo(orderId, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve an order Retrieves a single order using the specified order id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        public ApiResponse< OrderResponse > GetOrderWithHttpInfo (string orderId, string expand = null)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GetOrder");
+
+            var localVarPath = "/order/orders/{order_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+            
+        }
+
+        /// <summary>
+        /// Retrieve an order Retrieves a single order using the specified order id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of OrderResponse</returns>
+        public async System.Threading.Tasks.Task<OrderResponse> GetOrderAsync (string orderId, string expand = null)
+        {
+             ApiResponse<OrderResponse> localVarResponse = await GetOrderAsyncWithHttpInfo(orderId, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve an order Retrieves a single order using the specified order id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> GetOrderAsyncWithHttpInfo (string orderId, string expand = null)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GetOrder");
+
+            var localVarPath = "/order/orders/{order_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+            
+        }
+
+        /// <summary>
         /// Retrieve orders Retrieves a group of orders from the account.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -612,9 +1114,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>OrdersResponse</returns>
-        public OrdersResponse OrderOrdersGet (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public OrdersResponse GetOrders (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
-             ApiResponse<OrdersResponse> localVarResponse = OrderOrdersGetWithHttpInfo(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
+             ApiResponse<OrdersResponse> localVarResponse = GetOrdersWithHttpInfo(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
              return localVarResponse.Data;
         }
 
@@ -654,7 +1156,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>ApiResponse of OrdersResponse</returns>
-        public ApiResponse< OrdersResponse > OrderOrdersGetWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public ApiResponse< OrdersResponse > GetOrdersWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
 
             var localVarPath = "/order/orders";
@@ -736,7 +1238,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("OrderOrdersGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetOrders", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -782,9 +1284,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>Task of OrdersResponse</returns>
-        public async System.Threading.Tasks.Task<OrdersResponse> OrderOrdersGetAsync (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public async System.Threading.Tasks.Task<OrdersResponse> GetOrdersAsync (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
-             ApiResponse<OrdersResponse> localVarResponse = await OrderOrdersGetAsyncWithHttpInfo(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
+             ApiResponse<OrdersResponse> localVarResponse = await GetOrdersAsyncWithHttpInfo(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
              return localVarResponse.Data;
 
         }
@@ -825,7 +1327,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> OrderOrdersGetAsyncWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersAsyncWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
 
             var localVarPath = "/order/orders";
@@ -906,7 +1408,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("OrderOrdersGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetOrders", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -917,30 +1419,30 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Cancel an order Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// Resend receipt Resend the receipt for an order on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="orderId">The order id to resend the receipt for.</param>
         /// <returns>BaseResponse</returns>
-        public BaseResponse OrderOrdersOrderIdCancelPost (string orderId)
+        public BaseResponse ResendReceipt (string orderId)
         {
-             ApiResponse<BaseResponse> localVarResponse = OrderOrdersOrderIdCancelPostWithHttpInfo(orderId);
+             ApiResponse<BaseResponse> localVarResponse = ResendReceiptWithHttpInfo(orderId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Cancel an order Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// Resend receipt Resend the receipt for an order on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="orderId">The order id to resend the receipt for.</param>
         /// <returns>ApiResponse of BaseResponse</returns>
-        public ApiResponse< BaseResponse > OrderOrdersOrderIdCancelPostWithHttpInfo (string orderId)
+        public ApiResponse< BaseResponse > ResendReceiptWithHttpInfo (string orderId)
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdCancelPost");
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->ResendReceipt");
 
-            var localVarPath = "/order/orders/{order_id}/cancel";
+            var localVarPath = "/order/orders/{order_id}/resend_receipt";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -989,7 +1491,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdCancelPost", localVarResponse);
+                Exception exception = ExceptionFactory("ResendReceipt", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1000,31 +1502,31 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Cancel an order Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// Resend receipt Resend the receipt for an order on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="orderId">The order id to resend the receipt for.</param>
         /// <returns>Task of BaseResponse</returns>
-        public async System.Threading.Tasks.Task<BaseResponse> OrderOrdersOrderIdCancelPostAsync (string orderId)
+        public async System.Threading.Tasks.Task<BaseResponse> ResendReceiptAsync (string orderId)
         {
-             ApiResponse<BaseResponse> localVarResponse = await OrderOrdersOrderIdCancelPostAsyncWithHttpInfo(orderId);
+             ApiResponse<BaseResponse> localVarResponse = await ResendReceiptAsyncWithHttpInfo(orderId);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Cancel an order Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
+        /// Resend receipt Resend the receipt for an order on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="orderId">The order id to resend the receipt for.</param>
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> OrderOrdersOrderIdCancelPostAsyncWithHttpInfo (string orderId)
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> ResendReceiptAsyncWithHttpInfo (string orderId)
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdCancelPost");
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->ResendReceipt");
 
-            var localVarPath = "/order/orders/{order_id}/cancel";
+            var localVarPath = "/order/orders/{order_id}/resend_receipt";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1072,7 +1574,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdCancelPost", localVarResponse);
+                Exception exception = ExceptionFactory("ResendReceipt", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1083,29 +1585,30 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Delete an order Delete an order on the UltraCart account. 
+        /// Resend shipment confirmation Resend shipment confirmation for an order on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to delete.</param>
-        /// <returns></returns>
-        public void OrderOrdersOrderIdDelete (string orderId)
+        /// <param name="orderId">The order id to resend the shipment notification for.</param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse ResendShipmentConfirmation (string orderId)
         {
-             OrderOrdersOrderIdDeleteWithHttpInfo(orderId);
+             ApiResponse<BaseResponse> localVarResponse = ResendShipmentConfirmationWithHttpInfo(orderId);
+             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete an order Delete an order on the UltraCart account. 
+        /// Resend shipment confirmation Resend shipment confirmation for an order on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to delete.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> OrderOrdersOrderIdDeleteWithHttpInfo (string orderId)
+        /// <param name="orderId">The order id to resend the shipment notification for.</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse< BaseResponse > ResendShipmentConfirmationWithHttpInfo (string orderId)
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdDelete");
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->ResendShipmentConfirmation");
 
-            var localVarPath = "/order/orders/{order_id}";
+            var localVarPath = "/order/orders/{order_id}/resend_shipment_confirmation";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1147,48 +1650,49 @@ namespace com.ultracart.admin.v2.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdDelete", localVarResponse);
+                Exception exception = ExceptionFactory("ResendShipmentConfirmation", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                (BaseResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+            
         }
 
         /// <summary>
-        /// Delete an order Delete an order on the UltraCart account. 
+        /// Resend shipment confirmation Resend shipment confirmation for an order on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to delete.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task OrderOrdersOrderIdDeleteAsync (string orderId)
+        /// <param name="orderId">The order id to resend the shipment notification for.</param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> ResendShipmentConfirmationAsync (string orderId)
         {
-             await OrderOrdersOrderIdDeleteAsyncWithHttpInfo(orderId);
+             ApiResponse<BaseResponse> localVarResponse = await ResendShipmentConfirmationAsyncWithHttpInfo(orderId);
+             return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Delete an order Delete an order on the UltraCart account. 
+        /// Resend shipment confirmation Resend shipment confirmation for an order on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to delete.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> OrderOrdersOrderIdDeleteAsyncWithHttpInfo (string orderId)
+        /// <param name="orderId">The order id to resend the shipment notification for.</param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> ResendShipmentConfirmationAsyncWithHttpInfo (string orderId)
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdDelete");
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->ResendShipmentConfirmation");
 
-            var localVarPath = "/order/orders/{order_id}";
+            var localVarPath = "/order/orders/{order_id}/resend_shipment_confirmation";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1229,192 +1733,20 @@ namespace com.ultracart.admin.v2.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdDelete", localVarResponse);
+                Exception exception = ExceptionFactory("ResendShipmentConfirmation", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
-        }
-
-        /// <summary>
-        /// Retrieve an order Retrieves a single order using the specified order id. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to retrieve.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>OrderResponse</returns>
-        public OrderResponse OrderOrdersOrderIdGet (string orderId, string expand = null)
-        {
-             ApiResponse<OrderResponse> localVarResponse = OrderOrdersOrderIdGetWithHttpInfo(orderId, expand);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve an order Retrieves a single order using the specified order id. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to retrieve.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of OrderResponse</returns>
-        public ApiResponse< OrderResponse > OrderOrdersOrderIdGetWithHttpInfo (string orderId, string expand = null)
-        {
-            // verify the required parameter 'orderId' is set
-            if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdGet");
-
-            var localVarPath = "/order/orders/{order_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<OrderResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OrderResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
-            
-        }
-
-        /// <summary>
-        /// Retrieve an order Retrieves a single order using the specified order id. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to retrieve.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of OrderResponse</returns>
-        public async System.Threading.Tasks.Task<OrderResponse> OrderOrdersOrderIdGetAsync (string orderId, string expand = null)
-        {
-             ApiResponse<OrderResponse> localVarResponse = await OrderOrdersOrderIdGetAsyncWithHttpInfo(orderId, expand);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Retrieve an order Retrieves a single order using the specified order id. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to retrieve.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (OrderResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> OrderOrdersOrderIdGetAsyncWithHttpInfo (string orderId, string expand = null)
-        {
-            // verify the required parameter 'orderId' is set
-            if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdGet");
-
-            var localVarPath = "/order/orders/{order_id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<OrderResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OrderResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+                (BaseResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
             
         }
 
@@ -1426,9 +1758,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to update.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>OrderResponse</returns>
-        public OrderResponse OrderOrdersOrderIdPut (Order order, string orderId, string expand = null)
+        public OrderResponse UpdateOrder (Order order, string orderId, string expand = null)
         {
-             ApiResponse<OrderResponse> localVarResponse = OrderOrdersOrderIdPutWithHttpInfo(order, orderId, expand);
+             ApiResponse<OrderResponse> localVarResponse = UpdateOrderWithHttpInfo(order, orderId, expand);
              return localVarResponse.Data;
         }
 
@@ -1440,14 +1772,14 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to update.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of OrderResponse</returns>
-        public ApiResponse< OrderResponse > OrderOrdersOrderIdPutWithHttpInfo (Order order, string orderId, string expand = null)
+        public ApiResponse< OrderResponse > UpdateOrderWithHttpInfo (Order order, string orderId, string expand = null)
         {
             // verify the required parameter 'order' is set
             if (order == null)
-                throw new ApiException(400, "Missing required parameter 'order' when calling OrderApi->OrderOrdersOrderIdPut");
+                throw new ApiException(400, "Missing required parameter 'order' when calling OrderApi->UpdateOrder");
             // verify the required parameter 'orderId' is set
             if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdPut");
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->UpdateOrder");
 
             var localVarPath = "/order/orders/{order_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1507,7 +1839,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateOrder", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1525,9 +1857,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to update.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of OrderResponse</returns>
-        public async System.Threading.Tasks.Task<OrderResponse> OrderOrdersOrderIdPutAsync (Order order, string orderId, string expand = null)
+        public async System.Threading.Tasks.Task<OrderResponse> UpdateOrderAsync (Order order, string orderId, string expand = null)
         {
-             ApiResponse<OrderResponse> localVarResponse = await OrderOrdersOrderIdPutAsyncWithHttpInfo(order, orderId, expand);
+             ApiResponse<OrderResponse> localVarResponse = await UpdateOrderAsyncWithHttpInfo(order, orderId, expand);
              return localVarResponse.Data;
 
         }
@@ -1540,14 +1872,14 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to update.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> OrderOrdersOrderIdPutAsyncWithHttpInfo (Order order, string orderId, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> UpdateOrderAsyncWithHttpInfo (Order order, string orderId, string expand = null)
         {
             // verify the required parameter 'order' is set
             if (order == null)
-                throw new ApiException(400, "Missing required parameter 'order' when calling OrderApi->OrderOrdersOrderIdPut");
+                throw new ApiException(400, "Missing required parameter 'order' when calling OrderApi->UpdateOrder");
             // verify the required parameter 'orderId' is set
             if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdPut");
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->UpdateOrder");
 
             var localVarPath = "/order/orders/{order_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1606,345 +1938,13 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateOrder", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<OrderResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (OrderResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
-            
-        }
-
-        /// <summary>
-        /// Resend receipt Resend the receipt for an order on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the receipt for.</param>
-        /// <returns>BaseResponse</returns>
-        public BaseResponse OrderOrdersOrderIdResendReceiptPost (string orderId)
-        {
-             ApiResponse<BaseResponse> localVarResponse = OrderOrdersOrderIdResendReceiptPostWithHttpInfo(orderId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Resend receipt Resend the receipt for an order on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the receipt for.</param>
-        /// <returns>ApiResponse of BaseResponse</returns>
-        public ApiResponse< BaseResponse > OrderOrdersOrderIdResendReceiptPostWithHttpInfo (string orderId)
-        {
-            // verify the required parameter 'orderId' is set
-            if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdResendReceiptPost");
-
-            var localVarPath = "/order/orders/{order_id}/resend_receipt";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdResendReceiptPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BaseResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BaseResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
-            
-        }
-
-        /// <summary>
-        /// Resend receipt Resend the receipt for an order on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the receipt for.</param>
-        /// <returns>Task of BaseResponse</returns>
-        public async System.Threading.Tasks.Task<BaseResponse> OrderOrdersOrderIdResendReceiptPostAsync (string orderId)
-        {
-             ApiResponse<BaseResponse> localVarResponse = await OrderOrdersOrderIdResendReceiptPostAsyncWithHttpInfo(orderId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Resend receipt Resend the receipt for an order on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the receipt for.</param>
-        /// <returns>Task of ApiResponse (BaseResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> OrderOrdersOrderIdResendReceiptPostAsyncWithHttpInfo (string orderId)
-        {
-            // verify the required parameter 'orderId' is set
-            if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdResendReceiptPost");
-
-            var localVarPath = "/order/orders/{order_id}/resend_receipt";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdResendReceiptPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BaseResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BaseResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
-            
-        }
-
-        /// <summary>
-        /// Resend shipment confirmation Resend shipment confirmation for an order on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the shipment notification for.</param>
-        /// <returns>BaseResponse</returns>
-        public BaseResponse OrderOrdersOrderIdResendShipmentConfirmationPost (string orderId)
-        {
-             ApiResponse<BaseResponse> localVarResponse = OrderOrdersOrderIdResendShipmentConfirmationPostWithHttpInfo(orderId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Resend shipment confirmation Resend shipment confirmation for an order on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the shipment notification for.</param>
-        /// <returns>ApiResponse of BaseResponse</returns>
-        public ApiResponse< BaseResponse > OrderOrdersOrderIdResendShipmentConfirmationPostWithHttpInfo (string orderId)
-        {
-            // verify the required parameter 'orderId' is set
-            if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdResendShipmentConfirmationPost");
-
-            var localVarPath = "/order/orders/{order_id}/resend_shipment_confirmation";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdResendShipmentConfirmationPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BaseResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BaseResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
-            
-        }
-
-        /// <summary>
-        /// Resend shipment confirmation Resend shipment confirmation for an order on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the shipment notification for.</param>
-        /// <returns>Task of BaseResponse</returns>
-        public async System.Threading.Tasks.Task<BaseResponse> OrderOrdersOrderIdResendShipmentConfirmationPostAsync (string orderId)
-        {
-             ApiResponse<BaseResponse> localVarResponse = await OrderOrdersOrderIdResendShipmentConfirmationPostAsyncWithHttpInfo(orderId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Resend shipment confirmation Resend shipment confirmation for an order on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">The order id to resend the shipment notification for.</param>
-        /// <returns>Task of ApiResponse (BaseResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> OrderOrdersOrderIdResendShipmentConfirmationPostAsyncWithHttpInfo (string orderId)
-        {
-            // verify the required parameter 'orderId' is set
-            if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->OrderOrdersOrderIdResendShipmentConfirmationPost");
-
-            var localVarPath = "/order/orders/{order_id}/resend_shipment_confirmation";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("OrderOrdersOrderIdResendShipmentConfirmationPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<BaseResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (BaseResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
             
         }
 

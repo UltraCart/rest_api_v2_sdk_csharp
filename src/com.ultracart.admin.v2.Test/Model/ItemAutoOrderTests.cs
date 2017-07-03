@@ -93,6 +93,14 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'AuthTestAmount'
         }
         /// <summary>
+        /// Test the property 'AutoOrderCancelItemId'
+        /// </summary>
+        [Test]
+        public void AutoOrderCancelItemIdTest()
+        {
+            // TODO unit test for the property 'AutoOrderCancelItemId'
+        }
+        /// <summary>
         /// Test the property 'AutoOrderCancelItemOid'
         /// </summary>
         [Test]
@@ -141,22 +149,6 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'AutoOrderUpsell'
         }
         /// <summary>
-        /// Test the property 'AutoOrderUpsellDelay'
-        /// </summary>
-        [Test]
-        public void AutoOrderUpsellDelayTest()
-        {
-            // TODO unit test for the property 'AutoOrderUpsellDelay'
-        }
-        /// <summary>
-        /// Test the property 'AutoOrderUpsellMerchantItemOid'
-        /// </summary>
-        [Test]
-        public void AutoOrderUpsellMerchantItemOidTest()
-        {
-            // TODO unit test for the property 'AutoOrderUpsellMerchantItemOid'
-        }
-        /// <summary>
         /// Test the property 'AutoOrderUpsellNoEasyCancel'
         /// </summary>
         [Test]
@@ -171,22 +163,6 @@ namespace com.ultracart.admin.v2.Test
         public void AutoOrderUpsellOnePerCustomerTest()
         {
             // TODO unit test for the property 'AutoOrderUpsellOnePerCustomer'
-        }
-        /// <summary>
-        /// Test the property 'AutoOrderUpsellRepeatCount'
-        /// </summary>
-        [Test]
-        public void AutoOrderUpsellRepeatCountTest()
-        {
-            // TODO unit test for the property 'AutoOrderUpsellRepeatCount'
-        }
-        /// <summary>
-        /// Test the property 'AutoOrderUpsellSchedule'
-        /// </summary>
-        [Test]
-        public void AutoOrderUpsellScheduleTest()
-        {
-            // TODO unit test for the property 'AutoOrderUpsellSchedule'
         }
         /// <summary>
         /// Test the property 'AutoOrderable'

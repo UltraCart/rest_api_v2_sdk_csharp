@@ -85,6 +85,14 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'ApiUserOid'
         }
         /// <summary>
+        /// Test the property 'ApiVersion'
+        /// </summary>
+        [Test]
+        public void ApiVersionTest()
+        {
+            // TODO unit test for the property 'ApiVersion'
+        }
+        /// <summary>
         /// Test the property 'ApplicationProfile'
         /// </summary>
         [Test]

@@ -37,56 +37,6 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Retrieve webhooks
-        /// </summary>
-        /// <remarks>
-        /// Retrieves the webhooks associated with this application. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>WebhooksResponse</returns>
-        WebhooksResponse WebhookWebhooksGet (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null);
-
-        /// <summary>
-        /// Retrieve webhooks
-        /// </summary>
-        /// <remarks>
-        /// Retrieves the webhooks associated with this application. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>ApiResponse of WebhooksResponse</returns>
-        ApiResponse<WebhooksResponse> WebhookWebhooksGetWithHttpInfo (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null);
-        /// <summary>
-        /// Add a webhook
-        /// </summary>
-        /// <remarks>
-        /// Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhook">Webhook to create</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>WebhookResponse</returns>
-        WebhookResponse WebhookWebhooksPost (Webhook webhook, bool? placeholders = null);
-
-        /// <summary>
-        /// Add a webhook
-        /// </summary>
-        /// <remarks>
-        /// Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhook">Webhook to create</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>ApiResponse of WebhookResponse</returns>
-        ApiResponse<WebhookResponse> WebhookWebhooksPostWithHttpInfo (Webhook webhook, bool? placeholders = null);
-        /// <summary>
         /// Delete a webhook
         /// </summary>
         /// <remarks>
@@ -95,7 +45,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to delete.</param>
         /// <returns></returns>
-        void WebhookWebhooksWebhookOidDelete (int? webhookOid);
+        void DeleteWebhook (int? webhookOid);
 
         /// <summary>
         /// Delete a webhook
@@ -106,7 +56,30 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to delete.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> WebhookWebhooksWebhookOidDeleteWithHttpInfo (int? webhookOid);
+        ApiResponse<Object> DeleteWebhookWithHttpInfo (int? webhookOid);
+        /// <summary>
+        /// Retrieve an individual log
+        /// </summary>
+        /// <remarks>
+        /// Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that owns the log.</param>
+        /// <param name="requestId">The request id associated with the log to view.</param>
+        /// <returns>WebhookLogResponse</returns>
+        WebhookLogResponse GetWebhookLog (int? webhookOid, string requestId);
+
+        /// <summary>
+        /// Retrieve an individual log
+        /// </summary>
+        /// <remarks>
+        /// Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that owns the log.</param>
+        /// <param name="requestId">The request id associated with the log to view.</param>
+        /// <returns>ApiResponse of WebhookLogResponse</returns>
+        ApiResponse<WebhookLogResponse> GetWebhookLogWithHttpInfo (int? webhookOid, string requestId);
         /// <summary>
         /// Retrieve the log summaries
         /// </summary>
@@ -119,7 +92,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>WebhookLogSummariesResponse</returns>
-        WebhookLogSummariesResponse WebhookWebhooksWebhookOidLogsGet (int? webhookOid, int? limit = null, int? offset = null, string since = null);
+        WebhookLogSummariesResponse GetWebhookLogSummaries (int? webhookOid, int? limit = null, int? offset = null, string since = null);
 
         /// <summary>
         /// Retrieve the log summaries
@@ -133,30 +106,80 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>ApiResponse of WebhookLogSummariesResponse</returns>
-        ApiResponse<WebhookLogSummariesResponse> WebhookWebhooksWebhookOidLogsGetWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null);
+        ApiResponse<WebhookLogSummariesResponse> GetWebhookLogSummariesWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null);
         /// <summary>
-        /// Retrieve an individual log
+        /// Retrieve webhooks
         /// </summary>
         /// <remarks>
-        /// Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// Retrieves the webhooks associated with this application. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that owns the log.</param>
-        /// <param name="requestId">The request id associated with the log to view.</param>
-        /// <returns>WebhookLogResponse</returns>
-        WebhookLogResponse WebhookWebhooksWebhookOidLogsRequestIdGet (int? webhookOid, string requestId);
+        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>WebhooksResponse</returns>
+        WebhooksResponse GetWebhooks (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null);
 
         /// <summary>
-        /// Retrieve an individual log
+        /// Retrieve webhooks
         /// </summary>
         /// <remarks>
-        /// Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// Retrieves the webhooks associated with this application. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that owns the log.</param>
-        /// <param name="requestId">The request id associated with the log to view.</param>
-        /// <returns>ApiResponse of WebhookLogResponse</returns>
-        ApiResponse<WebhookLogResponse> WebhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo (int? webhookOid, string requestId);
+        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of WebhooksResponse</returns>
+        ApiResponse<WebhooksResponse> GetWebhooksWithHttpInfo (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null);
+        /// <summary>
+        /// Add a webhook
+        /// </summary>
+        /// <remarks>
+        /// Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to create</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>WebhookResponse</returns>
+        WebhookResponse InsertWebhook (Webhook webhook, bool? placeholders = null);
+
+        /// <summary>
+        /// Add a webhook
+        /// </summary>
+        /// <remarks>
+        /// Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to create</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of WebhookResponse</returns>
+        ApiResponse<WebhookResponse> InsertWebhookWithHttpInfo (Webhook webhook, bool? placeholders = null);
+        /// <summary>
+        /// Resend events to the webhook endpoint.
+        /// </summary>
+        /// <remarks>
+        /// This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
+        /// <param name="eventName">The event to reflow.</param>
+        /// <returns>WebhookSampleRequestResponse</returns>
+        WebhookSampleRequestResponse ResendEvent (int? webhookOid, string eventName);
+
+        /// <summary>
+        /// Resend events to the webhook endpoint.
+        /// </summary>
+        /// <remarks>
+        /// This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
+        /// <param name="eventName">The event to reflow.</param>
+        /// <returns>ApiResponse of WebhookSampleRequestResponse</returns>
+        ApiResponse<WebhookSampleRequestResponse> ResendEventWithHttpInfo (int? webhookOid, string eventName);
         /// <summary>
         /// Update a webhook
         /// </summary>
@@ -168,7 +191,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="webhookOid">The webhook oid to update.</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>WebhookResponse</returns>
-        WebhookResponse WebhookWebhooksWebhookOidPut (Webhook webhook, int? webhookOid, bool? placeholders = null);
+        WebhookResponse UpdateWebhook (Webhook webhook, int? webhookOid, bool? placeholders = null);
 
         /// <summary>
         /// Update a webhook
@@ -181,82 +204,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="webhookOid">The webhook oid to update.</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of WebhookResponse</returns>
-        ApiResponse<WebhookResponse> WebhookWebhooksWebhookOidPutWithHttpInfo (Webhook webhook, int? webhookOid, bool? placeholders = null);
-        /// <summary>
-        /// Resend events to the webhook endpoint.
-        /// </summary>
-        /// <remarks>
-        /// This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
-        /// <param name="eventName">The event to reflow.</param>
-        /// <returns>WebhookSampleRequestResponse</returns>
-        WebhookSampleRequestResponse WebhookWebhooksWebhookOidReflowEventNamePost (int? webhookOid, string eventName);
-
-        /// <summary>
-        /// Resend events to the webhook endpoint.
-        /// </summary>
-        /// <remarks>
-        /// This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
-        /// <param name="eventName">The event to reflow.</param>
-        /// <returns>ApiResponse of WebhookSampleRequestResponse</returns>
-        ApiResponse<WebhookSampleRequestResponse> WebhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo (int? webhookOid, string eventName);
+        ApiResponse<WebhookResponse> UpdateWebhookWithHttpInfo (Webhook webhook, int? webhookOid, bool? placeholders = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
-        /// <summary>
-        /// Retrieve webhooks
-        /// </summary>
-        /// <remarks>
-        /// Retrieves the webhooks associated with this application. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>Task of WebhooksResponse</returns>
-        System.Threading.Tasks.Task<WebhooksResponse> WebhookWebhooksGetAsync (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null);
-
-        /// <summary>
-        /// Retrieve webhooks
-        /// </summary>
-        /// <remarks>
-        /// Retrieves the webhooks associated with this application. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>Task of ApiResponse (WebhooksResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebhooksResponse>> WebhookWebhooksGetAsyncWithHttpInfo (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null);
-        /// <summary>
-        /// Add a webhook
-        /// </summary>
-        /// <remarks>
-        /// Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhook">Webhook to create</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>Task of WebhookResponse</returns>
-        System.Threading.Tasks.Task<WebhookResponse> WebhookWebhooksPostAsync (Webhook webhook, bool? placeholders = null);
-
-        /// <summary>
-        /// Add a webhook
-        /// </summary>
-        /// <remarks>
-        /// Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhook">Webhook to create</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>Task of ApiResponse (WebhookResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> WebhookWebhooksPostAsyncWithHttpInfo (Webhook webhook, bool? placeholders = null);
         /// <summary>
         /// Delete a webhook
         /// </summary>
@@ -266,7 +216,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to delete.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task WebhookWebhooksWebhookOidDeleteAsync (int? webhookOid);
+        System.Threading.Tasks.Task DeleteWebhookAsync (int? webhookOid);
 
         /// <summary>
         /// Delete a webhook
@@ -277,7 +227,30 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to delete.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> WebhookWebhooksWebhookOidDeleteAsyncWithHttpInfo (int? webhookOid);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWebhookAsyncWithHttpInfo (int? webhookOid);
+        /// <summary>
+        /// Retrieve an individual log
+        /// </summary>
+        /// <remarks>
+        /// Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that owns the log.</param>
+        /// <param name="requestId">The request id associated with the log to view.</param>
+        /// <returns>Task of WebhookLogResponse</returns>
+        System.Threading.Tasks.Task<WebhookLogResponse> GetWebhookLogAsync (int? webhookOid, string requestId);
+
+        /// <summary>
+        /// Retrieve an individual log
+        /// </summary>
+        /// <remarks>
+        /// Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that owns the log.</param>
+        /// <param name="requestId">The request id associated with the log to view.</param>
+        /// <returns>Task of ApiResponse (WebhookLogResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WebhookLogResponse>> GetWebhookLogAsyncWithHttpInfo (int? webhookOid, string requestId);
         /// <summary>
         /// Retrieve the log summaries
         /// </summary>
@@ -290,7 +263,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>Task of WebhookLogSummariesResponse</returns>
-        System.Threading.Tasks.Task<WebhookLogSummariesResponse> WebhookWebhooksWebhookOidLogsGetAsync (int? webhookOid, int? limit = null, int? offset = null, string since = null);
+        System.Threading.Tasks.Task<WebhookLogSummariesResponse> GetWebhookLogSummariesAsync (int? webhookOid, int? limit = null, int? offset = null, string since = null);
 
         /// <summary>
         /// Retrieve the log summaries
@@ -304,30 +277,80 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>Task of ApiResponse (WebhookLogSummariesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebhookLogSummariesResponse>> WebhookWebhooksWebhookOidLogsGetAsyncWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null);
+        System.Threading.Tasks.Task<ApiResponse<WebhookLogSummariesResponse>> GetWebhookLogSummariesAsyncWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null);
         /// <summary>
-        /// Retrieve an individual log
+        /// Retrieve webhooks
         /// </summary>
         /// <remarks>
-        /// Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// Retrieves the webhooks associated with this application. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that owns the log.</param>
-        /// <param name="requestId">The request id associated with the log to view.</param>
-        /// <returns>Task of WebhookLogResponse</returns>
-        System.Threading.Tasks.Task<WebhookLogResponse> WebhookWebhooksWebhookOidLogsRequestIdGetAsync (int? webhookOid, string requestId);
+        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of WebhooksResponse</returns>
+        System.Threading.Tasks.Task<WebhooksResponse> GetWebhooksAsync (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null);
 
         /// <summary>
-        /// Retrieve an individual log
+        /// Retrieve webhooks
         /// </summary>
         /// <remarks>
-        /// Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// Retrieves the webhooks associated with this application. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that owns the log.</param>
-        /// <param name="requestId">The request id associated with the log to view.</param>
-        /// <returns>Task of ApiResponse (WebhookLogResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebhookLogResponse>> WebhookWebhooksWebhookOidLogsRequestIdGetAsyncWithHttpInfo (int? webhookOid, string requestId);
+        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (WebhooksResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WebhooksResponse>> GetWebhooksAsyncWithHttpInfo (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null);
+        /// <summary>
+        /// Add a webhook
+        /// </summary>
+        /// <remarks>
+        /// Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to create</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of WebhookResponse</returns>
+        System.Threading.Tasks.Task<WebhookResponse> InsertWebhookAsync (Webhook webhook, bool? placeholders = null);
+
+        /// <summary>
+        /// Add a webhook
+        /// </summary>
+        /// <remarks>
+        /// Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to create</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (WebhookResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> InsertWebhookAsyncWithHttpInfo (Webhook webhook, bool? placeholders = null);
+        /// <summary>
+        /// Resend events to the webhook endpoint.
+        /// </summary>
+        /// <remarks>
+        /// This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
+        /// <param name="eventName">The event to reflow.</param>
+        /// <returns>Task of WebhookSampleRequestResponse</returns>
+        System.Threading.Tasks.Task<WebhookSampleRequestResponse> ResendEventAsync (int? webhookOid, string eventName);
+
+        /// <summary>
+        /// Resend events to the webhook endpoint.
+        /// </summary>
+        /// <remarks>
+        /// This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
+        /// <param name="eventName">The event to reflow.</param>
+        /// <returns>Task of ApiResponse (WebhookSampleRequestResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WebhookSampleRequestResponse>> ResendEventAsyncWithHttpInfo (int? webhookOid, string eventName);
         /// <summary>
         /// Update a webhook
         /// </summary>
@@ -339,7 +362,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="webhookOid">The webhook oid to update.</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of WebhookResponse</returns>
-        System.Threading.Tasks.Task<WebhookResponse> WebhookWebhooksWebhookOidPutAsync (Webhook webhook, int? webhookOid, bool? placeholders = null);
+        System.Threading.Tasks.Task<WebhookResponse> UpdateWebhookAsync (Webhook webhook, int? webhookOid, bool? placeholders = null);
 
         /// <summary>
         /// Update a webhook
@@ -352,30 +375,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="webhookOid">The webhook oid to update.</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (WebhookResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> WebhookWebhooksWebhookOidPutAsyncWithHttpInfo (Webhook webhook, int? webhookOid, bool? placeholders = null);
-        /// <summary>
-        /// Resend events to the webhook endpoint.
-        /// </summary>
-        /// <remarks>
-        /// This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
-        /// <param name="eventName">The event to reflow.</param>
-        /// <returns>Task of WebhookSampleRequestResponse</returns>
-        System.Threading.Tasks.Task<WebhookSampleRequestResponse> WebhookWebhooksWebhookOidReflowEventNamePostAsync (int? webhookOid, string eventName);
-
-        /// <summary>
-        /// Resend events to the webhook endpoint.
-        /// </summary>
-        /// <remarks>
-        /// This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
-        /// <param name="eventName">The event to reflow.</param>
-        /// <returns>Task of ApiResponse (WebhookSampleRequestResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebhookSampleRequestResponse>> WebhookWebhooksWebhookOidReflowEventNamePostAsyncWithHttpInfo (int? webhookOid, string eventName);
+        System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> UpdateWebhookAsyncWithHttpInfo (Webhook webhook, int? webhookOid, bool? placeholders = null);
         #endregion Asynchronous Operations
     }
 
@@ -489,378 +489,14 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve webhooks Retrieves the webhooks associated with this application. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>WebhooksResponse</returns>
-        public WebhooksResponse WebhookWebhooksGet (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null)
-        {
-             ApiResponse<WebhooksResponse> localVarResponse = WebhookWebhooksGetWithHttpInfo(limit, offset, sort, placeholders);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve webhooks Retrieves the webhooks associated with this application. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>ApiResponse of WebhooksResponse</returns>
-        public ApiResponse< WebhooksResponse > WebhookWebhooksGetWithHttpInfo (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null)
-        {
-
-            var localVarPath = "/webhook/webhooks";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (limit != null) localVarQueryParams.Add("_limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (offset != null) localVarQueryParams.Add("_offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (sort != null) localVarQueryParams.Add("_sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
-            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("WebhookWebhooksGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<WebhooksResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebhooksResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhooksResponse)));
-            
-        }
-
-        /// <summary>
-        /// Retrieve webhooks Retrieves the webhooks associated with this application. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>Task of WebhooksResponse</returns>
-        public async System.Threading.Tasks.Task<WebhooksResponse> WebhookWebhooksGetAsync (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null)
-        {
-             ApiResponse<WebhooksResponse> localVarResponse = await WebhookWebhooksGetAsyncWithHttpInfo(limit, offset, sort, placeholders);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Retrieve webhooks Retrieves the webhooks associated with this application. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>Task of ApiResponse (WebhooksResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebhooksResponse>> WebhookWebhooksGetAsyncWithHttpInfo (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null)
-        {
-
-            var localVarPath = "/webhook/webhooks";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (limit != null) localVarQueryParams.Add("_limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (offset != null) localVarQueryParams.Add("_offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
-            if (sort != null) localVarQueryParams.Add("_sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
-            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("WebhookWebhooksGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<WebhooksResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebhooksResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhooksResponse)));
-            
-        }
-
-        /// <summary>
-        /// Add a webhook Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhook">Webhook to create</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>WebhookResponse</returns>
-        public WebhookResponse WebhookWebhooksPost (Webhook webhook, bool? placeholders = null)
-        {
-             ApiResponse<WebhookResponse> localVarResponse = WebhookWebhooksPostWithHttpInfo(webhook, placeholders);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Add a webhook Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhook">Webhook to create</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>ApiResponse of WebhookResponse</returns>
-        public ApiResponse< WebhookResponse > WebhookWebhooksPostWithHttpInfo (Webhook webhook, bool? placeholders = null)
-        {
-            // verify the required parameter 'webhook' is set
-            if (webhook == null)
-                throw new ApiException(400, "Missing required parameter 'webhook' when calling WebhookApi->WebhookWebhooksPost");
-
-            var localVarPath = "/webhook/webhooks";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json; charset=UTF-8"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
-            if (webhook != null && webhook.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(webhook); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = webhook; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("WebhookWebhooksPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<WebhookResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebhookResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookResponse)));
-            
-        }
-
-        /// <summary>
-        /// Add a webhook Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhook">Webhook to create</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>Task of WebhookResponse</returns>
-        public async System.Threading.Tasks.Task<WebhookResponse> WebhookWebhooksPostAsync (Webhook webhook, bool? placeholders = null)
-        {
-             ApiResponse<WebhookResponse> localVarResponse = await WebhookWebhooksPostAsyncWithHttpInfo(webhook, placeholders);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Add a webhook Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhook">Webhook to create</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
-        /// <returns>Task of ApiResponse (WebhookResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> WebhookWebhooksPostAsyncWithHttpInfo (Webhook webhook, bool? placeholders = null)
-        {
-            // verify the required parameter 'webhook' is set
-            if (webhook == null)
-                throw new ApiException(400, "Missing required parameter 'webhook' when calling WebhookApi->WebhookWebhooksPost");
-
-            var localVarPath = "/webhook/webhooks";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json; charset=UTF-8"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
-            if (webhook != null && webhook.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(webhook); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = webhook; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("WebhookWebhooksPost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<WebhookResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebhookResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookResponse)));
-            
-        }
-
-        /// <summary>
         /// Delete a webhook Delete a webhook on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to delete.</param>
         /// <returns></returns>
-        public void WebhookWebhooksWebhookOidDelete (int? webhookOid)
+        public void DeleteWebhook (int? webhookOid)
         {
-             WebhookWebhooksWebhookOidDeleteWithHttpInfo(webhookOid);
+             DeleteWebhookWithHttpInfo(webhookOid);
         }
 
         /// <summary>
@@ -869,11 +505,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to delete.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> WebhookWebhooksWebhookOidDeleteWithHttpInfo (int? webhookOid)
+        public ApiResponse<Object> DeleteWebhookWithHttpInfo (int? webhookOid)
         {
             // verify the required parameter 'webhookOid' is set
             if (webhookOid == null)
-                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->WebhookWebhooksWebhookOidDelete");
+                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->DeleteWebhook");
 
             var localVarPath = "/webhook/webhooks/{webhookOid}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -924,7 +560,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("WebhookWebhooksWebhookOidDelete", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteWebhook", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -940,9 +576,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to delete.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task WebhookWebhooksWebhookOidDeleteAsync (int? webhookOid)
+        public async System.Threading.Tasks.Task DeleteWebhookAsync (int? webhookOid)
         {
-             await WebhookWebhooksWebhookOidDeleteAsyncWithHttpInfo(webhookOid);
+             await DeleteWebhookAsyncWithHttpInfo(webhookOid);
 
         }
 
@@ -952,11 +588,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookOid">The webhook oid to delete.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> WebhookWebhooksWebhookOidDeleteAsyncWithHttpInfo (int? webhookOid)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWebhookAsyncWithHttpInfo (int? webhookOid)
         {
             // verify the required parameter 'webhookOid' is set
             if (webhookOid == null)
-                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->WebhookWebhooksWebhookOidDelete");
+                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->DeleteWebhook");
 
             var localVarPath = "/webhook/webhooks/{webhookOid}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1006,7 +642,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("WebhookWebhooksWebhookOidDelete", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteWebhook", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1014,6 +650,184 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// Retrieve an individual log Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that owns the log.</param>
+        /// <param name="requestId">The request id associated with the log to view.</param>
+        /// <returns>WebhookLogResponse</returns>
+        public WebhookLogResponse GetWebhookLog (int? webhookOid, string requestId)
+        {
+             ApiResponse<WebhookLogResponse> localVarResponse = GetWebhookLogWithHttpInfo(webhookOid, requestId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve an individual log Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that owns the log.</param>
+        /// <param name="requestId">The request id associated with the log to view.</param>
+        /// <returns>ApiResponse of WebhookLogResponse</returns>
+        public ApiResponse< WebhookLogResponse > GetWebhookLogWithHttpInfo (int? webhookOid, string requestId)
+        {
+            // verify the required parameter 'webhookOid' is set
+            if (webhookOid == null)
+                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->GetWebhookLog");
+            // verify the required parameter 'requestId' is set
+            if (requestId == null)
+                throw new ApiException(400, "Missing required parameter 'requestId' when calling WebhookApi->GetWebhookLog");
+
+            var localVarPath = "/webhook/webhooks/{webhookOid}/logs/{requestId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (webhookOid != null) localVarPathParams.Add("webhookOid", Configuration.ApiClient.ParameterToString(webhookOid)); // path parameter
+            if (requestId != null) localVarPathParams.Add("requestId", Configuration.ApiClient.ParameterToString(requestId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWebhookLog", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebhookLogResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WebhookLogResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookLogResponse)));
+            
+        }
+
+        /// <summary>
+        /// Retrieve an individual log Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that owns the log.</param>
+        /// <param name="requestId">The request id associated with the log to view.</param>
+        /// <returns>Task of WebhookLogResponse</returns>
+        public async System.Threading.Tasks.Task<WebhookLogResponse> GetWebhookLogAsync (int? webhookOid, string requestId)
+        {
+             ApiResponse<WebhookLogResponse> localVarResponse = await GetWebhookLogAsyncWithHttpInfo(webhookOid, requestId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve an individual log Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that owns the log.</param>
+        /// <param name="requestId">The request id associated with the log to view.</param>
+        /// <returns>Task of ApiResponse (WebhookLogResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WebhookLogResponse>> GetWebhookLogAsyncWithHttpInfo (int? webhookOid, string requestId)
+        {
+            // verify the required parameter 'webhookOid' is set
+            if (webhookOid == null)
+                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->GetWebhookLog");
+            // verify the required parameter 'requestId' is set
+            if (requestId == null)
+                throw new ApiException(400, "Missing required parameter 'requestId' when calling WebhookApi->GetWebhookLog");
+
+            var localVarPath = "/webhook/webhooks/{webhookOid}/logs/{requestId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (webhookOid != null) localVarPathParams.Add("webhookOid", Configuration.ApiClient.ParameterToString(webhookOid)); // path parameter
+            if (requestId != null) localVarPathParams.Add("requestId", Configuration.ApiClient.ParameterToString(requestId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWebhookLog", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebhookLogResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WebhookLogResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookLogResponse)));
+            
         }
 
         /// <summary>
@@ -1025,9 +839,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>WebhookLogSummariesResponse</returns>
-        public WebhookLogSummariesResponse WebhookWebhooksWebhookOidLogsGet (int? webhookOid, int? limit = null, int? offset = null, string since = null)
+        public WebhookLogSummariesResponse GetWebhookLogSummaries (int? webhookOid, int? limit = null, int? offset = null, string since = null)
         {
-             ApiResponse<WebhookLogSummariesResponse> localVarResponse = WebhookWebhooksWebhookOidLogsGetWithHttpInfo(webhookOid, limit, offset, since);
+             ApiResponse<WebhookLogSummariesResponse> localVarResponse = GetWebhookLogSummariesWithHttpInfo(webhookOid, limit, offset, since);
              return localVarResponse.Data;
         }
 
@@ -1040,11 +854,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>ApiResponse of WebhookLogSummariesResponse</returns>
-        public ApiResponse< WebhookLogSummariesResponse > WebhookWebhooksWebhookOidLogsGetWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null)
+        public ApiResponse< WebhookLogSummariesResponse > GetWebhookLogSummariesWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null)
         {
             // verify the required parameter 'webhookOid' is set
             if (webhookOid == null)
-                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->WebhookWebhooksWebhookOidLogsGet");
+                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->GetWebhookLogSummaries");
 
             var localVarPath = "/webhook/webhooks/{webhookOid}/logs";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1098,7 +912,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("WebhookWebhooksWebhookOidLogsGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetWebhookLogSummaries", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1117,9 +931,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>Task of WebhookLogSummariesResponse</returns>
-        public async System.Threading.Tasks.Task<WebhookLogSummariesResponse> WebhookWebhooksWebhookOidLogsGetAsync (int? webhookOid, int? limit = null, int? offset = null, string since = null)
+        public async System.Threading.Tasks.Task<WebhookLogSummariesResponse> GetWebhookLogSummariesAsync (int? webhookOid, int? limit = null, int? offset = null, string since = null)
         {
-             ApiResponse<WebhookLogSummariesResponse> localVarResponse = await WebhookWebhooksWebhookOidLogsGetAsyncWithHttpInfo(webhookOid, limit, offset, since);
+             ApiResponse<WebhookLogSummariesResponse> localVarResponse = await GetWebhookLogSummariesAsyncWithHttpInfo(webhookOid, limit, offset, since);
              return localVarResponse.Data;
 
         }
@@ -1133,11 +947,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="since">Fetch log summaries that have been delivered since this date/time. (optional)</param>
         /// <returns>Task of ApiResponse (WebhookLogSummariesResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebhookLogSummariesResponse>> WebhookWebhooksWebhookOidLogsGetAsyncWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhookLogSummariesResponse>> GetWebhookLogSummariesAsyncWithHttpInfo (int? webhookOid, int? limit = null, int? offset = null, string since = null)
         {
             // verify the required parameter 'webhookOid' is set
             if (webhookOid == null)
-                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->WebhookWebhooksWebhookOidLogsGet");
+                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->GetWebhookLogSummaries");
 
             var localVarPath = "/webhook/webhooks/{webhookOid}/logs";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1190,7 +1004,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("WebhookWebhooksWebhookOidLogsGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetWebhookLogSummaries", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1201,35 +1015,33 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an individual log Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// Retrieve webhooks Retrieves the webhooks associated with this application. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that owns the log.</param>
-        /// <param name="requestId">The request id associated with the log to view.</param>
-        /// <returns>WebhookLogResponse</returns>
-        public WebhookLogResponse WebhookWebhooksWebhookOidLogsRequestIdGet (int? webhookOid, string requestId)
+        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>WebhooksResponse</returns>
+        public WebhooksResponse GetWebhooks (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null)
         {
-             ApiResponse<WebhookLogResponse> localVarResponse = WebhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo(webhookOid, requestId);
+             ApiResponse<WebhooksResponse> localVarResponse = GetWebhooksWithHttpInfo(limit, offset, sort, placeholders);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve an individual log Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// Retrieve webhooks Retrieves the webhooks associated with this application. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that owns the log.</param>
-        /// <param name="requestId">The request id associated with the log to view.</param>
-        /// <returns>ApiResponse of WebhookLogResponse</returns>
-        public ApiResponse< WebhookLogResponse > WebhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo (int? webhookOid, string requestId)
+        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of WebhooksResponse</returns>
+        public ApiResponse< WebhooksResponse > GetWebhooksWithHttpInfo (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null)
         {
-            // verify the required parameter 'webhookOid' is set
-            if (webhookOid == null)
-                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->WebhookWebhooksWebhookOidLogsRequestIdGet");
-            // verify the required parameter 'requestId' is set
-            if (requestId == null)
-                throw new ApiException(400, "Missing required parameter 'requestId' when calling WebhookApi->WebhookWebhooksWebhookOidLogsRequestIdGet");
 
-            var localVarPath = "/webhook/webhooks/{webhookOid}/logs/{requestId}";
+            var localVarPath = "/webhook/webhooks";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1254,8 +1066,10 @@ namespace com.ultracart.admin.v2.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (webhookOid != null) localVarPathParams.Add("webhookOid", Configuration.ApiClient.ParameterToString(webhookOid)); // path parameter
-            if (requestId != null) localVarPathParams.Add("requestId", Configuration.ApiClient.ParameterToString(requestId)); // path parameter
+            if (limit != null) localVarQueryParams.Add("_limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            if (offset != null) localVarQueryParams.Add("_offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            if (sort != null) localVarQueryParams.Add("_sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
+            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -1279,47 +1093,45 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("WebhookWebhooksWebhookOidLogsRequestIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetWebhooks", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<WebhookLogResponse>(localVarStatusCode,
+            return new ApiResponse<WebhooksResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebhookLogResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookLogResponse)));
+                (WebhooksResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhooksResponse)));
             
         }
 
         /// <summary>
-        /// Retrieve an individual log Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// Retrieve webhooks Retrieves the webhooks associated with this application. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that owns the log.</param>
-        /// <param name="requestId">The request id associated with the log to view.</param>
-        /// <returns>Task of WebhookLogResponse</returns>
-        public async System.Threading.Tasks.Task<WebhookLogResponse> WebhookWebhooksWebhookOidLogsRequestIdGetAsync (int? webhookOid, string requestId)
+        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of WebhooksResponse</returns>
+        public async System.Threading.Tasks.Task<WebhooksResponse> GetWebhooksAsync (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null)
         {
-             ApiResponse<WebhookLogResponse> localVarResponse = await WebhookWebhooksWebhookOidLogsRequestIdGetAsyncWithHttpInfo(webhookOid, requestId);
+             ApiResponse<WebhooksResponse> localVarResponse = await GetWebhooksAsyncWithHttpInfo(limit, offset, sort, placeholders);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Retrieve an individual log Retrieves an individual log for a webhook given the webhook oid the request id. 
+        /// Retrieve webhooks Retrieves the webhooks associated with this application. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that owns the log.</param>
-        /// <param name="requestId">The request id associated with the log to view.</param>
-        /// <returns>Task of ApiResponse (WebhookLogResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebhookLogResponse>> WebhookWebhooksWebhookOidLogsRequestIdGetAsyncWithHttpInfo (int? webhookOid, string requestId)
+        /// <param name="limit">The maximum number of records to return on this one API call. (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the webhooks.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (WebhooksResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WebhooksResponse>> GetWebhooksAsyncWithHttpInfo (int? limit = null, int? offset = null, string sort = null, bool? placeholders = null)
         {
-            // verify the required parameter 'webhookOid' is set
-            if (webhookOid == null)
-                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->WebhookWebhooksWebhookOidLogsRequestIdGet");
-            // verify the required parameter 'requestId' is set
-            if (requestId == null)
-                throw new ApiException(400, "Missing required parameter 'requestId' when calling WebhookApi->WebhookWebhooksWebhookOidLogsRequestIdGet");
 
-            var localVarPath = "/webhook/webhooks/{webhookOid}/logs/{requestId}";
+            var localVarPath = "/webhook/webhooks";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1344,8 +1156,10 @@ namespace com.ultracart.admin.v2.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (webhookOid != null) localVarPathParams.Add("webhookOid", Configuration.ApiClient.ParameterToString(webhookOid)); // path parameter
-            if (requestId != null) localVarPathParams.Add("requestId", Configuration.ApiClient.ParameterToString(requestId)); // path parameter
+            if (limit != null) localVarQueryParams.Add("_limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            if (offset != null) localVarQueryParams.Add("_offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            if (sort != null) localVarQueryParams.Add("_sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
+            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -1368,13 +1182,377 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("WebhookWebhooksWebhookOidLogsRequestIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetWebhooks", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<WebhookLogResponse>(localVarStatusCode,
+            return new ApiResponse<WebhooksResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebhookLogResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookLogResponse)));
+                (WebhooksResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhooksResponse)));
+            
+        }
+
+        /// <summary>
+        /// Add a webhook Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to create</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>WebhookResponse</returns>
+        public WebhookResponse InsertWebhook (Webhook webhook, bool? placeholders = null)
+        {
+             ApiResponse<WebhookResponse> localVarResponse = InsertWebhookWithHttpInfo(webhook, placeholders);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add a webhook Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to create</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of WebhookResponse</returns>
+        public ApiResponse< WebhookResponse > InsertWebhookWithHttpInfo (Webhook webhook, bool? placeholders = null)
+        {
+            // verify the required parameter 'webhook' is set
+            if (webhook == null)
+                throw new ApiException(400, "Missing required parameter 'webhook' when calling WebhookApi->InsertWebhook");
+
+            var localVarPath = "/webhook/webhooks";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
+            if (webhook != null && webhook.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(webhook); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = webhook; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertWebhook", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebhookResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WebhookResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookResponse)));
+            
+        }
+
+        /// <summary>
+        /// Add a webhook Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to create</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of WebhookResponse</returns>
+        public async System.Threading.Tasks.Task<WebhookResponse> InsertWebhookAsync (Webhook webhook, bool? placeholders = null)
+        {
+             ApiResponse<WebhookResponse> localVarResponse = await InsertWebhookAsyncWithHttpInfo(webhook, placeholders);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Add a webhook Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to create</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (WebhookResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> InsertWebhookAsyncWithHttpInfo (Webhook webhook, bool? placeholders = null)
+        {
+            // verify the required parameter 'webhook' is set
+            if (webhook == null)
+                throw new ApiException(400, "Missing required parameter 'webhook' when calling WebhookApi->InsertWebhook");
+
+            var localVarPath = "/webhook/webhooks";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (placeholders != null) localVarQueryParams.Add("_placeholders", Configuration.ApiClient.ParameterToString(placeholders)); // query parameter
+            if (webhook != null && webhook.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(webhook); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = webhook; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertWebhook", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebhookResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WebhookResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookResponse)));
+            
+        }
+
+        /// <summary>
+        /// Resend events to the webhook endpoint. This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
+        /// <param name="eventName">The event to reflow.</param>
+        /// <returns>WebhookSampleRequestResponse</returns>
+        public WebhookSampleRequestResponse ResendEvent (int? webhookOid, string eventName)
+        {
+             ApiResponse<WebhookSampleRequestResponse> localVarResponse = ResendEventWithHttpInfo(webhookOid, eventName);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Resend events to the webhook endpoint. This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
+        /// <param name="eventName">The event to reflow.</param>
+        /// <returns>ApiResponse of WebhookSampleRequestResponse</returns>
+        public ApiResponse< WebhookSampleRequestResponse > ResendEventWithHttpInfo (int? webhookOid, string eventName)
+        {
+            // verify the required parameter 'webhookOid' is set
+            if (webhookOid == null)
+                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->ResendEvent");
+            // verify the required parameter 'eventName' is set
+            if (eventName == null)
+                throw new ApiException(400, "Missing required parameter 'eventName' when calling WebhookApi->ResendEvent");
+
+            var localVarPath = "/webhook/webhooks/{webhookOid}/reflow/{eventName}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (webhookOid != null) localVarPathParams.Add("webhookOid", Configuration.ApiClient.ParameterToString(webhookOid)); // path parameter
+            if (eventName != null) localVarPathParams.Add("eventName", Configuration.ApiClient.ParameterToString(eventName)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResendEvent", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebhookSampleRequestResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WebhookSampleRequestResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookSampleRequestResponse)));
+            
+        }
+
+        /// <summary>
+        /// Resend events to the webhook endpoint. This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
+        /// <param name="eventName">The event to reflow.</param>
+        /// <returns>Task of WebhookSampleRequestResponse</returns>
+        public async System.Threading.Tasks.Task<WebhookSampleRequestResponse> ResendEventAsync (int? webhookOid, string eventName)
+        {
+             ApiResponse<WebhookSampleRequestResponse> localVarResponse = await ResendEventAsyncWithHttpInfo(webhookOid, eventName);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Resend events to the webhook endpoint. This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
+        /// <param name="eventName">The event to reflow.</param>
+        /// <returns>Task of ApiResponse (WebhookSampleRequestResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WebhookSampleRequestResponse>> ResendEventAsyncWithHttpInfo (int? webhookOid, string eventName)
+        {
+            // verify the required parameter 'webhookOid' is set
+            if (webhookOid == null)
+                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->ResendEvent");
+            // verify the required parameter 'eventName' is set
+            if (eventName == null)
+                throw new ApiException(400, "Missing required parameter 'eventName' when calling WebhookApi->ResendEvent");
+
+            var localVarPath = "/webhook/webhooks/{webhookOid}/reflow/{eventName}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (webhookOid != null) localVarPathParams.Add("webhookOid", Configuration.ApiClient.ParameterToString(webhookOid)); // path parameter
+            if (eventName != null) localVarPathParams.Add("eventName", Configuration.ApiClient.ParameterToString(eventName)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResendEvent", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebhookSampleRequestResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WebhookSampleRequestResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookSampleRequestResponse)));
             
         }
 
@@ -1386,9 +1564,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="webhookOid">The webhook oid to update.</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>WebhookResponse</returns>
-        public WebhookResponse WebhookWebhooksWebhookOidPut (Webhook webhook, int? webhookOid, bool? placeholders = null)
+        public WebhookResponse UpdateWebhook (Webhook webhook, int? webhookOid, bool? placeholders = null)
         {
-             ApiResponse<WebhookResponse> localVarResponse = WebhookWebhooksWebhookOidPutWithHttpInfo(webhook, webhookOid, placeholders);
+             ApiResponse<WebhookResponse> localVarResponse = UpdateWebhookWithHttpInfo(webhook, webhookOid, placeholders);
              return localVarResponse.Data;
         }
 
@@ -1400,14 +1578,14 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="webhookOid">The webhook oid to update.</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of WebhookResponse</returns>
-        public ApiResponse< WebhookResponse > WebhookWebhooksWebhookOidPutWithHttpInfo (Webhook webhook, int? webhookOid, bool? placeholders = null)
+        public ApiResponse< WebhookResponse > UpdateWebhookWithHttpInfo (Webhook webhook, int? webhookOid, bool? placeholders = null)
         {
             // verify the required parameter 'webhook' is set
             if (webhook == null)
-                throw new ApiException(400, "Missing required parameter 'webhook' when calling WebhookApi->WebhookWebhooksWebhookOidPut");
+                throw new ApiException(400, "Missing required parameter 'webhook' when calling WebhookApi->UpdateWebhook");
             // verify the required parameter 'webhookOid' is set
             if (webhookOid == null)
-                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->WebhookWebhooksWebhookOidPut");
+                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->UpdateWebhook");
 
             var localVarPath = "/webhook/webhooks/{webhookOid}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1467,7 +1645,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("WebhookWebhooksWebhookOidPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateWebhook", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1485,9 +1663,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="webhookOid">The webhook oid to update.</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of WebhookResponse</returns>
-        public async System.Threading.Tasks.Task<WebhookResponse> WebhookWebhooksWebhookOidPutAsync (Webhook webhook, int? webhookOid, bool? placeholders = null)
+        public async System.Threading.Tasks.Task<WebhookResponse> UpdateWebhookAsync (Webhook webhook, int? webhookOid, bool? placeholders = null)
         {
-             ApiResponse<WebhookResponse> localVarResponse = await WebhookWebhooksWebhookOidPutAsyncWithHttpInfo(webhook, webhookOid, placeholders);
+             ApiResponse<WebhookResponse> localVarResponse = await UpdateWebhookAsyncWithHttpInfo(webhook, webhookOid, placeholders);
              return localVarResponse.Data;
 
         }
@@ -1500,14 +1678,14 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="webhookOid">The webhook oid to update.</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (WebhookResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> WebhookWebhooksWebhookOidPutAsyncWithHttpInfo (Webhook webhook, int? webhookOid, bool? placeholders = null)
+        public async System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> UpdateWebhookAsyncWithHttpInfo (Webhook webhook, int? webhookOid, bool? placeholders = null)
         {
             // verify the required parameter 'webhook' is set
             if (webhook == null)
-                throw new ApiException(400, "Missing required parameter 'webhook' when calling WebhookApi->WebhookWebhooksWebhookOidPut");
+                throw new ApiException(400, "Missing required parameter 'webhook' when calling WebhookApi->UpdateWebhook");
             // verify the required parameter 'webhookOid' is set
             if (webhookOid == null)
-                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->WebhookWebhooksWebhookOidPut");
+                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->UpdateWebhook");
 
             var localVarPath = "/webhook/webhooks/{webhookOid}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1566,191 +1744,13 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("WebhookWebhooksWebhookOidPut", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateWebhook", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<WebhookResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (WebhookResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookResponse)));
-            
-        }
-
-        /// <summary>
-        /// Resend events to the webhook endpoint. This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
-        /// <param name="eventName">The event to reflow.</param>
-        /// <returns>WebhookSampleRequestResponse</returns>
-        public WebhookSampleRequestResponse WebhookWebhooksWebhookOidReflowEventNamePost (int? webhookOid, string eventName)
-        {
-             ApiResponse<WebhookSampleRequestResponse> localVarResponse = WebhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo(webhookOid, eventName);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Resend events to the webhook endpoint. This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
-        /// <param name="eventName">The event to reflow.</param>
-        /// <returns>ApiResponse of WebhookSampleRequestResponse</returns>
-        public ApiResponse< WebhookSampleRequestResponse > WebhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo (int? webhookOid, string eventName)
-        {
-            // verify the required parameter 'webhookOid' is set
-            if (webhookOid == null)
-                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->WebhookWebhooksWebhookOidReflowEventNamePost");
-            // verify the required parameter 'eventName' is set
-            if (eventName == null)
-                throw new ApiException(400, "Missing required parameter 'eventName' when calling WebhookApi->WebhookWebhooksWebhookOidReflowEventNamePost");
-
-            var localVarPath = "/webhook/webhooks/{webhookOid}/reflow/{eventName}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json; charset=UTF-8"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (webhookOid != null) localVarPathParams.Add("webhookOid", Configuration.ApiClient.ParameterToString(webhookOid)); // path parameter
-            if (eventName != null) localVarPathParams.Add("eventName", Configuration.ApiClient.ParameterToString(eventName)); // path parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("WebhookWebhooksWebhookOidReflowEventNamePost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<WebhookSampleRequestResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebhookSampleRequestResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookSampleRequestResponse)));
-            
-        }
-
-        /// <summary>
-        /// Resend events to the webhook endpoint. This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
-        /// <param name="eventName">The event to reflow.</param>
-        /// <returns>Task of WebhookSampleRequestResponse</returns>
-        public async System.Threading.Tasks.Task<WebhookSampleRequestResponse> WebhookWebhooksWebhookOidReflowEventNamePostAsync (int? webhookOid, string eventName)
-        {
-             ApiResponse<WebhookSampleRequestResponse> localVarResponse = await WebhookWebhooksWebhookOidReflowEventNamePostAsyncWithHttpInfo(webhookOid, eventName);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Resend events to the webhook endpoint. This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookOid">The webhook oid that is receiving the reflowed events.</param>
-        /// <param name="eventName">The event to reflow.</param>
-        /// <returns>Task of ApiResponse (WebhookSampleRequestResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebhookSampleRequestResponse>> WebhookWebhooksWebhookOidReflowEventNamePostAsyncWithHttpInfo (int? webhookOid, string eventName)
-        {
-            // verify the required parameter 'webhookOid' is set
-            if (webhookOid == null)
-                throw new ApiException(400, "Missing required parameter 'webhookOid' when calling WebhookApi->WebhookWebhooksWebhookOidReflowEventNamePost");
-            // verify the required parameter 'eventName' is set
-            if (eventName == null)
-                throw new ApiException(400, "Missing required parameter 'eventName' when calling WebhookApi->WebhookWebhooksWebhookOidReflowEventNamePost");
-
-            var localVarPath = "/webhook/webhooks/{webhookOid}/reflow/{eventName}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json; charset=UTF-8"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (webhookOid != null) localVarPathParams.Add("webhookOid", Configuration.ApiClient.ParameterToString(webhookOid)); // path parameter
-            if (eventName != null) localVarPathParams.Add("eventName", Configuration.ApiClient.ParameterToString(eventName)); // path parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("WebhookWebhooksWebhookOidReflowEventNamePost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<WebhookSampleRequestResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (WebhookSampleRequestResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookSampleRequestResponse)));
             
         }
 

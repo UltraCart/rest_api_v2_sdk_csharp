@@ -4,14 +4,14 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AutoOrderAutoOrdersAutoOrderOidGet**](AutoorderApi.md#autoorderautoordersautoorderoidget) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-[**AutoOrderAutoOrdersAutoOrderOidPut**](AutoorderApi.md#autoorderautoordersautoorderoidput) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
-[**AutoOrderAutoOrdersGet**](AutoorderApi.md#autoorderautoordersget) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**GetAutoOrder**](AutoorderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
+[**GetAutoOrders**](AutoorderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**UpdateAutoOrder**](AutoorderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 
 
-<a name="autoorderautoordersautoorderoidget"></a>
-# **AutoOrderAutoOrdersAutoOrderOidGet**
-> AutoOrderResponse AutoOrderAutoOrdersAutoOrderOidGet (int? autoOrderOid, string expand = null)
+<a name="getautoorder"></a>
+# **GetAutoOrder**
+> AutoOrderResponse GetAutoOrder (int? autoOrderOid, string expand = null)
 
 Retrieve an auto order
 
@@ -27,7 +27,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class AutoOrderAutoOrdersAutoOrderOidGetExample
+    public class GetAutoOrderExample
     {
         public void main()
         {
@@ -46,12 +46,12 @@ namespace Example
             try
             {
                 // Retrieve an auto order
-                AutoOrderResponse result = apiInstance.AutoOrderAutoOrdersAutoOrderOidGet(autoOrderOid, expand);
+                AutoOrderResponse result = apiInstance.GetAutoOrder(autoOrderOid, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AutoorderApi.AutoOrderAutoOrdersAutoOrderOidGet: " + e.Message );
+                Debug.Print("Exception when calling AutoorderApi.GetAutoOrder: " + e.Message );
             }
         }
     }
@@ -80,80 +80,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="autoorderautoordersautoorderoidput"></a>
-# **AutoOrderAutoOrdersAutoOrderOidPut**
-> AutoOrderResponse AutoOrderAutoOrdersAutoOrderOidPut (AutoOrder autoOrder, int? autoOrderOid)
-
-Update an auto order
-
-Update an auto order on the UltraCart account. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class AutoOrderAutoOrdersAutoOrderOidPutExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new AutoorderApi();
-            var autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
-            var autoOrderOid = 56;  // int? | The auto order oid to update.
-
-            try
-            {
-                // Update an auto order
-                AutoOrderResponse result = apiInstance.AutoOrderAutoOrdersAutoOrderOidPut(autoOrder, autoOrderOid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling AutoorderApi.AutoOrderAutoOrdersAutoOrderOidPut: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update | 
- **autoOrderOid** | **int?**| The auto order oid to update. | 
-
-### Return type
-
-[**AutoOrderResponse**](AutoOrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="autoorderautoordersget"></a>
-# **AutoOrderAutoOrdersGet**
-> AutoOrdersResponse AutoOrderAutoOrdersGet (string autoOrderCode = null, string originalOrderId = null, string firstName = null, string lastName = null, string company = null, string city = null, string state = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string originalOrderDateBegin = null, string originalOrderDateEnd = null, string nextShipmentDateBegin = null, string nextShipmentDateEnd = null, string cardType = null, string itemId = null, string status = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+<a name="getautoorders"></a>
+# **GetAutoOrders**
+> AutoOrdersResponse GetAutoOrders (string autoOrderCode = null, string originalOrderId = null, string firstName = null, string lastName = null, string company = null, string city = null, string state = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string originalOrderDateBegin = null, string originalOrderDateEnd = null, string nextShipmentDateBegin = null, string nextShipmentDateEnd = null, string cardType = null, string itemId = null, string status = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
 
 Retrieve auto orders
 
@@ -169,7 +98,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class AutoOrderAutoOrdersGetExample
+    public class GetAutoOrdersExample
     {
         public void main()
         {
@@ -209,12 +138,12 @@ namespace Example
             try
             {
                 // Retrieve auto orders
-                AutoOrdersResponse result = apiInstance.AutoOrderAutoOrdersGet(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
+                AutoOrdersResponse result = apiInstance.GetAutoOrders(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AutoorderApi.AutoOrderAutoOrdersGet: " + e.Message );
+                Debug.Print("Exception when calling AutoorderApi.GetAutoOrders: " + e.Message );
             }
         }
     }
@@ -260,6 +189,79 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateautoorder"></a>
+# **UpdateAutoOrder**
+> AutoOrderResponse UpdateAutoOrder (AutoOrder autoOrder, int? autoOrderOid, string expand = null)
+
+Update an auto order
+
+Update an auto order on the UltraCart account. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateAutoOrderExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new AutoorderApi();
+            var autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
+            var autoOrderOid = 56;  // int? | The auto order oid to update.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Update an auto order
+                AutoOrderResponse result = apiInstance.UpdateAutoOrder(autoOrder, autoOrderOid, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AutoorderApi.UpdateAutoOrder: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update | 
+ **autoOrderOid** | **int?**| The auto order oid to update. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

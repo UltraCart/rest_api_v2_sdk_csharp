@@ -125,12 +125,12 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'PauseDays'
         }
         /// <summary>
-        /// Test the property 'PauseUnitDate'
+        /// Test the property 'PauseUntilDate'
         /// </summary>
         [Test]
-        public void PauseUnitDateTest()
+        public void PauseUntilDateTest()
         {
-            // TODO unit test for the property 'PauseUnitDate'
+            // TODO unit test for the property 'PauseUntilDate'
         }
         /// <summary>
         /// Test the property 'PreshipmentNoticeDays'

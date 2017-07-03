@@ -77,30 +77,6 @@ namespace com.ultracart.admin.v2.Test
         }
 
         /// <summary>
-        /// Test the property 'ITEM_META_DESCRIPTION'
-        /// </summary>
-        [Test]
-        public void ITEM_META_DESCRIPTIONTest()
-        {
-            // TODO unit test for the property 'ITEM_META_DESCRIPTION'
-        }
-        /// <summary>
-        /// Test the property 'ITEM_META_KEYWORDS'
-        /// </summary>
-        [Test]
-        public void ITEM_META_KEYWORDSTest()
-        {
-            // TODO unit test for the property 'ITEM_META_KEYWORDS'
-        }
-        /// <summary>
-        /// Test the property 'ITEM_META_TITLE'
-        /// </summary>
-        [Test]
-        public void ITEM_META_TITLETest()
-        {
-            // TODO unit test for the property 'ITEM_META_TITLE'
-        }
-        /// <summary>
         /// Test the property 'Name'
         /// </summary>
         [Test]

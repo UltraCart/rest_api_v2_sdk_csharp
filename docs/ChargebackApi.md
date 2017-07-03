@@ -4,16 +4,16 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ChargebackChargebacksChargebackDisputeOidDelete**](ChargebackApi.md#chargebackchargebackschargebackdisputeoiddelete) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
-[**ChargebackChargebacksChargebackDisputeOidGet**](ChargebackApi.md#chargebackchargebackschargebackdisputeoidget) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
-[**ChargebackChargebacksChargebackDisputeOidPut**](ChargebackApi.md#chargebackchargebackschargebackdisputeoidput) | **PUT** /chargeback/chargebacks/{chargeback_dispute_oid} | Update a chargeback
-[**ChargebackChargebacksGet**](ChargebackApi.md#chargebackchargebacksget) | **GET** /chargeback/chargebacks | Retrieve chargebacks
-[**ChargebackChargebacksPost**](ChargebackApi.md#chargebackchargebackspost) | **POST** /chargeback/chargebacks | Insert a chargeback
+[**DeleteChargeback**](ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
+[**GetChargebackDispute**](ChargebackApi.md#getchargebackdispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
+[**GetChargebackDisputes**](ChargebackApi.md#getchargebackdisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks
+[**InsertChargeback**](ChargebackApi.md#insertchargeback) | **POST** /chargeback/chargebacks | Insert a chargeback
+[**UpdateChargeback**](ChargebackApi.md#updatechargeback) | **PUT** /chargeback/chargebacks/{chargeback_dispute_oid} | Update a chargeback
 
 
-<a name="chargebackchargebackschargebackdisputeoiddelete"></a>
-# **ChargebackChargebacksChargebackDisputeOidDelete**
-> ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidDelete (int? chargebackDisputeOid)
+<a name="deletechargeback"></a>
+# **DeleteChargeback**
+> ChargebackDisputeResponse DeleteChargeback (int? chargebackDisputeOid)
 
 Delete a chargeback
 
@@ -29,7 +29,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class ChargebackChargebacksChargebackDisputeOidDeleteExample
+    public class DeleteChargebackExample
     {
         public void main()
         {
@@ -47,12 +47,12 @@ namespace Example
             try
             {
                 // Delete a chargeback
-                ChargebackDisputeResponse result = apiInstance.ChargebackChargebacksChargebackDisputeOidDelete(chargebackDisputeOid);
+                ChargebackDisputeResponse result = apiInstance.DeleteChargeback(chargebackDisputeOid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ChargebackApi.ChargebackChargebacksChargebackDisputeOidDelete: " + e.Message );
+                Debug.Print("Exception when calling ChargebackApi.DeleteChargeback: " + e.Message );
             }
         }
     }
@@ -80,9 +80,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="chargebackchargebackschargebackdisputeoidget"></a>
-# **ChargebackChargebacksChargebackDisputeOidGet**
-> ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidGet (int? chargebackDisputeOid, string expand = null)
+<a name="getchargebackdispute"></a>
+# **GetChargebackDispute**
+> ChargebackDisputeResponse GetChargebackDispute (int? chargebackDisputeOid, string expand = null)
 
 Retrieve a chargeback
 
@@ -98,7 +98,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class ChargebackChargebacksChargebackDisputeOidGetExample
+    public class GetChargebackDisputeExample
     {
         public void main()
         {
@@ -117,12 +117,12 @@ namespace Example
             try
             {
                 // Retrieve a chargeback
-                ChargebackDisputeResponse result = apiInstance.ChargebackChargebacksChargebackDisputeOidGet(chargebackDisputeOid, expand);
+                ChargebackDisputeResponse result = apiInstance.GetChargebackDispute(chargebackDisputeOid, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ChargebackApi.ChargebackChargebacksChargebackDisputeOidGet: " + e.Message );
+                Debug.Print("Exception when calling ChargebackApi.GetChargebackDispute: " + e.Message );
             }
         }
     }
@@ -151,82 +151,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="chargebackchargebackschargebackdisputeoidput"></a>
-# **ChargebackChargebacksChargebackDisputeOidPut**
-> ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidPut (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
-
-Update a chargeback
-
-Update a chargeback on the UltraCart account. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ChargebackChargebacksChargebackDisputeOidPutExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new ChargebackApi();
-            var chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to update
-            var chargebackDisputeOid = 56;  // int? | The chargeback_dispute_oid to update.
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Update a chargeback
-                ChargebackDisputeResponse result = apiInstance.ChargebackChargebacksChargebackDisputeOidPut(chargeback, chargebackDisputeOid, expand);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ChargebackApi.ChargebackChargebacksChargebackDisputeOidPut: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to update | 
- **chargebackDisputeOid** | **int?**| The chargeback_dispute_oid to update. | 
- **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
-
-### Return type
-
-[**ChargebackDisputeResponse**](ChargebackDisputeResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="chargebackchargebacksget"></a>
-# **ChargebackChargebacksGet**
-> ChargebackDisputesResponse ChargebackChargebacksGet (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+<a name="getchargebackdisputes"></a>
+# **GetChargebackDisputes**
+> ChargebackDisputesResponse GetChargebackDisputes (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
 
 Retrieve chargebacks
 
@@ -242,7 +169,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class ChargebackChargebacksGetExample
+    public class GetChargebackDisputesExample
     {
         public void main()
         {
@@ -271,12 +198,12 @@ namespace Example
             try
             {
                 // Retrieve chargebacks
-                ChargebackDisputesResponse result = apiInstance.ChargebackChargebacksGet(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
+                ChargebackDisputesResponse result = apiInstance.GetChargebackDisputes(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ChargebackApi.ChargebackChargebacksGet: " + e.Message );
+                Debug.Print("Exception when calling ChargebackApi.GetChargebackDisputes: " + e.Message );
             }
         }
     }
@@ -315,9 +242,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="chargebackchargebackspost"></a>
-# **ChargebackChargebacksPost**
-> ChargebackDisputeResponse ChargebackChargebacksPost (ChargebackDispute chargeback, string expand = null)
+<a name="insertchargeback"></a>
+# **InsertChargeback**
+> ChargebackDisputeResponse InsertChargeback (ChargebackDispute chargeback, string expand = null)
 
 Insert a chargeback
 
@@ -333,7 +260,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class ChargebackChargebacksPostExample
+    public class InsertChargebackExample
     {
         public void main()
         {
@@ -352,12 +279,12 @@ namespace Example
             try
             {
                 // Insert a chargeback
-                ChargebackDisputeResponse result = apiInstance.ChargebackChargebacksPost(chargeback, expand);
+                ChargebackDisputeResponse result = apiInstance.InsertChargeback(chargeback, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ChargebackApi.ChargebackChargebacksPost: " + e.Message );
+                Debug.Print("Exception when calling ChargebackApi.InsertChargeback: " + e.Message );
             }
         }
     }
@@ -369,6 +296,79 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to insert | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**ChargebackDisputeResponse**](ChargebackDisputeResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatechargeback"></a>
+# **UpdateChargeback**
+> ChargebackDisputeResponse UpdateChargeback (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
+
+Update a chargeback
+
+Update a chargeback on the UltraCart account. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateChargebackExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new ChargebackApi();
+            var chargeback = new ChargebackDispute(); // ChargebackDispute | Chargeback to update
+            var chargebackDisputeOid = 56;  // int? | The chargeback_dispute_oid to update.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Update a chargeback
+                ChargebackDisputeResponse result = apiInstance.UpdateChargeback(chargeback, chargebackDisputeOid, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ChargebackApi.UpdateChargeback: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **chargeback** | [**ChargebackDispute**](ChargebackDispute.md)| Chargeback to update | 
+ **chargebackDisputeOid** | **int?**| The chargeback_dispute_oid to update. | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

@@ -77,12 +77,12 @@ namespace com.ultracart.admin.v2.Test
         }
 
         /// <summary>
-        /// Test the property 'Country'
+        /// Test the property 'CountryCode'
         /// </summary>
         [Test]
-        public void CountryTest()
+        public void CountryCodeTest()
         {
-            // TODO unit test for the property 'Country'
+            // TODO unit test for the property 'CountryCode'
         }
         /// <summary>
         /// Test the property 'State'

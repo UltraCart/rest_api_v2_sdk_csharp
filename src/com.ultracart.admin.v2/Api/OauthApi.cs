@@ -37,29 +37,6 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Revoke this OAuth application.
-        /// </summary>
-        /// <remarks>
-        /// Revokes the OAuth application associated with the specified client_id and token. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
-        /// <returns>OauthRevokeSuccessResponse</returns>
-        OauthRevokeSuccessResponse OauthRevokePost (string clientId, string token);
-
-        /// <summary>
-        /// Revoke this OAuth application.
-        /// </summary>
-        /// <remarks>
-        /// Revokes the OAuth application associated with the specified client_id and token. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
-        /// <returns>ApiResponse of OauthRevokeSuccessResponse</returns>
-        ApiResponse<OauthRevokeSuccessResponse> OauthRevokePostWithHttpInfo (string clientId, string token);
-        /// <summary>
         /// Exchange authorization code for access token.
         /// </summary>
         /// <remarks>
@@ -72,7 +49,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>OauthTokenResponse</returns>
-        OauthTokenResponse OauthTokenPost (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null);
+        OauthTokenResponse OauthAccessToken (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null);
 
         /// <summary>
         /// Exchange authorization code for access token.
@@ -87,9 +64,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>ApiResponse of OauthTokenResponse</returns>
-        ApiResponse<OauthTokenResponse> OauthTokenPostWithHttpInfo (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null);
-        #endregion Synchronous Operations
-        #region Asynchronous Operations
+        ApiResponse<OauthTokenResponse> OauthAccessTokenWithHttpInfo (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null);
         /// <summary>
         /// Revoke this OAuth application.
         /// </summary>
@@ -99,8 +74,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="token">The OAuth access token that is to be revoked..</param>
-        /// <returns>Task of OauthRevokeSuccessResponse</returns>
-        System.Threading.Tasks.Task<OauthRevokeSuccessResponse> OauthRevokePostAsync (string clientId, string token);
+        /// <returns>OauthRevokeSuccessResponse</returns>
+        OauthRevokeSuccessResponse OauthRevoke (string clientId, string token);
 
         /// <summary>
         /// Revoke this OAuth application.
@@ -111,8 +86,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The OAuth application client_id.</param>
         /// <param name="token">The OAuth access token that is to be revoked..</param>
-        /// <returns>Task of ApiResponse (OauthRevokeSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OauthRevokeSuccessResponse>> OauthRevokePostAsyncWithHttpInfo (string clientId, string token);
+        /// <returns>ApiResponse of OauthRevokeSuccessResponse</returns>
+        ApiResponse<OauthRevokeSuccessResponse> OauthRevokeWithHttpInfo (string clientId, string token);
+        #endregion Synchronous Operations
+        #region Asynchronous Operations
         /// <summary>
         /// Exchange authorization code for access token.
         /// </summary>
@@ -126,7 +103,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>Task of OauthTokenResponse</returns>
-        System.Threading.Tasks.Task<OauthTokenResponse> OauthTokenPostAsync (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null);
+        System.Threading.Tasks.Task<OauthTokenResponse> OauthAccessTokenAsync (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null);
 
         /// <summary>
         /// Exchange authorization code for access token.
@@ -141,7 +118,30 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>Task of ApiResponse (OauthTokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OauthTokenResponse>> OauthTokenPostAsyncWithHttpInfo (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null);
+        System.Threading.Tasks.Task<ApiResponse<OauthTokenResponse>> OauthAccessTokenAsyncWithHttpInfo (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null);
+        /// <summary>
+        /// Revoke this OAuth application.
+        /// </summary>
+        /// <remarks>
+        /// Revokes the OAuth application associated with the specified client_id and token. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The OAuth application client_id.</param>
+        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <returns>Task of OauthRevokeSuccessResponse</returns>
+        System.Threading.Tasks.Task<OauthRevokeSuccessResponse> OauthRevokeAsync (string clientId, string token);
+
+        /// <summary>
+        /// Revoke this OAuth application.
+        /// </summary>
+        /// <remarks>
+        /// Revokes the OAuth application associated with the specified client_id and token. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The OAuth application client_id.</param>
+        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <returns>Task of ApiResponse (OauthRevokeSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OauthRevokeSuccessResponse>> OauthRevokeAsyncWithHttpInfo (string clientId, string token);
         #endregion Asynchronous Operations
     }
 
@@ -255,195 +255,6 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Revoke this OAuth application. Revokes the OAuth application associated with the specified client_id and token. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
-        /// <returns>OauthRevokeSuccessResponse</returns>
-        public OauthRevokeSuccessResponse OauthRevokePost (string clientId, string token)
-        {
-             ApiResponse<OauthRevokeSuccessResponse> localVarResponse = OauthRevokePostWithHttpInfo(clientId, token);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Revoke this OAuth application. Revokes the OAuth application associated with the specified client_id and token. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
-        /// <returns>ApiResponse of OauthRevokeSuccessResponse</returns>
-        public ApiResponse< OauthRevokeSuccessResponse > OauthRevokePostWithHttpInfo (string clientId, string token)
-        {
-            // verify the required parameter 'clientId' is set
-            if (clientId == null)
-                throw new ApiException(400, "Missing required parameter 'clientId' when calling OauthApi->OauthRevokePost");
-            // verify the required parameter 'token' is set
-            if (token == null)
-                throw new ApiException(400, "Missing required parameter 'token' when calling OauthApi->OauthRevokePost");
-
-            var localVarPath = "/oauth/revoke";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/x-www-form-urlencoded"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (clientId != null) localVarFormParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // form parameter
-            if (token != null) localVarFormParams.Add("token", Configuration.ApiClient.ParameterToString(token)); // form parameter
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("OauthRevokePost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<OauthRevokeSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OauthRevokeSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OauthRevokeSuccessResponse)));
-            
-        }
-
-        /// <summary>
-        /// Revoke this OAuth application. Revokes the OAuth application associated with the specified client_id and token. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
-        /// <returns>Task of OauthRevokeSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<OauthRevokeSuccessResponse> OauthRevokePostAsync (string clientId, string token)
-        {
-             ApiResponse<OauthRevokeSuccessResponse> localVarResponse = await OauthRevokePostAsyncWithHttpInfo(clientId, token);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Revoke this OAuth application. Revokes the OAuth application associated with the specified client_id and token. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The OAuth application client_id.</param>
-        /// <param name="token">The OAuth access token that is to be revoked..</param>
-        /// <returns>Task of ApiResponse (OauthRevokeSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OauthRevokeSuccessResponse>> OauthRevokePostAsyncWithHttpInfo (string clientId, string token)
-        {
-            // verify the required parameter 'clientId' is set
-            if (clientId == null)
-                throw new ApiException(400, "Missing required parameter 'clientId' when calling OauthApi->OauthRevokePost");
-            // verify the required parameter 'token' is set
-            if (token == null)
-                throw new ApiException(400, "Missing required parameter 'token' when calling OauthApi->OauthRevokePost");
-
-            var localVarPath = "/oauth/revoke";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/x-www-form-urlencoded"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (clientId != null) localVarFormParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // form parameter
-            if (token != null) localVarFormParams.Add("token", Configuration.ApiClient.ParameterToString(token)); // form parameter
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("OauthRevokePost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<OauthRevokeSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OauthRevokeSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OauthRevokeSuccessResponse)));
-            
-        }
-
-        /// <summary>
         /// Exchange authorization code for access token. The final leg in the OAuth process which exchanges the specified access token for the access code needed to make API calls. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -453,9 +264,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>OauthTokenResponse</returns>
-        public OauthTokenResponse OauthTokenPost (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null)
+        public OauthTokenResponse OauthAccessToken (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null)
         {
-             ApiResponse<OauthTokenResponse> localVarResponse = OauthTokenPostWithHttpInfo(clientId, grantType, code, redirectUri, refreshToken);
+             ApiResponse<OauthTokenResponse> localVarResponse = OauthAccessTokenWithHttpInfo(clientId, grantType, code, redirectUri, refreshToken);
              return localVarResponse.Data;
         }
 
@@ -469,14 +280,14 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>ApiResponse of OauthTokenResponse</returns>
-        public ApiResponse< OauthTokenResponse > OauthTokenPostWithHttpInfo (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null)
+        public ApiResponse< OauthTokenResponse > OauthAccessTokenWithHttpInfo (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new ApiException(400, "Missing required parameter 'clientId' when calling OauthApi->OauthTokenPost");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OauthApi->OauthAccessToken");
             // verify the required parameter 'grantType' is set
             if (grantType == null)
-                throw new ApiException(400, "Missing required parameter 'grantType' when calling OauthApi->OauthTokenPost");
+                throw new ApiException(400, "Missing required parameter 'grantType' when calling OauthApi->OauthAccessToken");
 
             var localVarPath = "/oauth/token";
             var localVarPathParams = new Dictionary<String, String>();
@@ -537,7 +348,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("OauthTokenPost", localVarResponse);
+                Exception exception = ExceptionFactory("OauthAccessToken", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -557,9 +368,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>Task of OauthTokenResponse</returns>
-        public async System.Threading.Tasks.Task<OauthTokenResponse> OauthTokenPostAsync (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null)
+        public async System.Threading.Tasks.Task<OauthTokenResponse> OauthAccessTokenAsync (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null)
         {
-             ApiResponse<OauthTokenResponse> localVarResponse = await OauthTokenPostAsyncWithHttpInfo(clientId, grantType, code, redirectUri, refreshToken);
+             ApiResponse<OauthTokenResponse> localVarResponse = await OauthAccessTokenAsyncWithHttpInfo(clientId, grantType, code, redirectUri, refreshToken);
              return localVarResponse.Data;
 
         }
@@ -574,14 +385,14 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="redirectUri">The URI that you redirect the browser to to start the authorization process (optional)</param>
         /// <param name="refreshToken">The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)</param>
         /// <returns>Task of ApiResponse (OauthTokenResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OauthTokenResponse>> OauthTokenPostAsyncWithHttpInfo (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null)
+        public async System.Threading.Tasks.Task<ApiResponse<OauthTokenResponse>> OauthAccessTokenAsyncWithHttpInfo (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null)
         {
             // verify the required parameter 'clientId' is set
             if (clientId == null)
-                throw new ApiException(400, "Missing required parameter 'clientId' when calling OauthApi->OauthTokenPost");
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OauthApi->OauthAccessToken");
             // verify the required parameter 'grantType' is set
             if (grantType == null)
-                throw new ApiException(400, "Missing required parameter 'grantType' when calling OauthApi->OauthTokenPost");
+                throw new ApiException(400, "Missing required parameter 'grantType' when calling OauthApi->OauthAccessToken");
 
             var localVarPath = "/oauth/token";
             var localVarPathParams = new Dictionary<String, String>();
@@ -640,13 +451,202 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("OauthTokenPost", localVarResponse);
+                Exception exception = ExceptionFactory("OauthAccessToken", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<OauthTokenResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (OauthTokenResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OauthTokenResponse)));
+            
+        }
+
+        /// <summary>
+        /// Revoke this OAuth application. Revokes the OAuth application associated with the specified client_id and token. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The OAuth application client_id.</param>
+        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <returns>OauthRevokeSuccessResponse</returns>
+        public OauthRevokeSuccessResponse OauthRevoke (string clientId, string token)
+        {
+             ApiResponse<OauthRevokeSuccessResponse> localVarResponse = OauthRevokeWithHttpInfo(clientId, token);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Revoke this OAuth application. Revokes the OAuth application associated with the specified client_id and token. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The OAuth application client_id.</param>
+        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <returns>ApiResponse of OauthRevokeSuccessResponse</returns>
+        public ApiResponse< OauthRevokeSuccessResponse > OauthRevokeWithHttpInfo (string clientId, string token)
+        {
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OauthApi->OauthRevoke");
+            // verify the required parameter 'token' is set
+            if (token == null)
+                throw new ApiException(400, "Missing required parameter 'token' when calling OauthApi->OauthRevoke");
+
+            var localVarPath = "/oauth/revoke";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (clientId != null) localVarFormParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // form parameter
+            if (token != null) localVarFormParams.Add("token", Configuration.ApiClient.ParameterToString(token)); // form parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("OauthRevoke", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OauthRevokeSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OauthRevokeSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OauthRevokeSuccessResponse)));
+            
+        }
+
+        /// <summary>
+        /// Revoke this OAuth application. Revokes the OAuth application associated with the specified client_id and token. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The OAuth application client_id.</param>
+        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <returns>Task of OauthRevokeSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<OauthRevokeSuccessResponse> OauthRevokeAsync (string clientId, string token)
+        {
+             ApiResponse<OauthRevokeSuccessResponse> localVarResponse = await OauthRevokeAsyncWithHttpInfo(clientId, token);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Revoke this OAuth application. Revokes the OAuth application associated with the specified client_id and token. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientId">The OAuth application client_id.</param>
+        /// <param name="token">The OAuth access token that is to be revoked..</param>
+        /// <returns>Task of ApiResponse (OauthRevokeSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OauthRevokeSuccessResponse>> OauthRevokeAsyncWithHttpInfo (string clientId, string token)
+        {
+            // verify the required parameter 'clientId' is set
+            if (clientId == null)
+                throw new ApiException(400, "Missing required parameter 'clientId' when calling OauthApi->OauthRevoke");
+            // verify the required parameter 'token' is set
+            if (token == null)
+                throw new ApiException(400, "Missing required parameter 'token' when calling OauthApi->OauthRevoke");
+
+            var localVarPath = "/oauth/revoke";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (clientId != null) localVarFormParams.Add("client_id", Configuration.ApiClient.ParameterToString(clientId)); // form parameter
+            if (token != null) localVarFormParams.Add("token", Configuration.ApiClient.ParameterToString(token)); // form parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("OauthRevoke", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OauthRevokeSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OauthRevokeSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OauthRevokeSuccessResponse)));
             
         }
 

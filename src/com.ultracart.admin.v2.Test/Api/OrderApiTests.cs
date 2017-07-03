@@ -77,10 +77,47 @@ namespace com.ultracart.admin.v2.Test
 
         
         /// <summary>
-        /// Test OrderOrdersGet
+        /// Test CancelOrder
         /// </summary>
         [Test]
-        public void OrderOrdersGetTest()
+        public void CancelOrderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string orderId = null;
+            //var response = instance.CancelOrder(orderId);
+            //Assert.IsInstanceOf<BaseResponse> (response, "response is BaseResponse");
+        }
+        
+        /// <summary>
+        /// Test DeleteOrder
+        /// </summary>
+        [Test]
+        public void DeleteOrderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string orderId = null;
+            //instance.DeleteOrder(orderId);
+            
+        }
+        
+        /// <summary>
+        /// Test GetOrder
+        /// </summary>
+        [Test]
+        public void GetOrderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string orderId = null;
+            //string expand = null;
+            //var response = instance.GetOrder(orderId, expand);
+            //Assert.IsInstanceOf<OrderResponse> (response, "response is OrderResponse");
+        }
+        
+        /// <summary>
+        /// Test GetOrders
+        /// </summary>
+        [Test]
+        public void GetOrdersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string orderId = null;
@@ -114,82 +151,46 @@ namespace com.ultracart.admin.v2.Test
             //int? offset = null;
             //string sort = null;
             //string expand = null;
-            //var response = instance.OrderOrdersGet(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
+            //var response = instance.GetOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
             //Assert.IsInstanceOf<OrdersResponse> (response, "response is OrdersResponse");
         }
         
         /// <summary>
-        /// Test OrderOrdersOrderIdCancelPost
+        /// Test ResendReceipt
         /// </summary>
         [Test]
-        public void OrderOrdersOrderIdCancelPostTest()
+        public void ResendReceiptTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string orderId = null;
-            //var response = instance.OrderOrdersOrderIdCancelPost(orderId);
+            //var response = instance.ResendReceipt(orderId);
             //Assert.IsInstanceOf<BaseResponse> (response, "response is BaseResponse");
         }
         
         /// <summary>
-        /// Test OrderOrdersOrderIdDelete
+        /// Test ResendShipmentConfirmation
         /// </summary>
         [Test]
-        public void OrderOrdersOrderIdDeleteTest()
+        public void ResendShipmentConfirmationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string orderId = null;
-            //instance.OrderOrdersOrderIdDelete(orderId);
-            
+            //var response = instance.ResendShipmentConfirmation(orderId);
+            //Assert.IsInstanceOf<BaseResponse> (response, "response is BaseResponse");
         }
         
         /// <summary>
-        /// Test OrderOrdersOrderIdGet
+        /// Test UpdateOrder
         /// </summary>
         [Test]
-        public void OrderOrdersOrderIdGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string orderId = null;
-            //string expand = null;
-            //var response = instance.OrderOrdersOrderIdGet(orderId, expand);
-            //Assert.IsInstanceOf<OrderResponse> (response, "response is OrderResponse");
-        }
-        
-        /// <summary>
-        /// Test OrderOrdersOrderIdPut
-        /// </summary>
-        [Test]
-        public void OrderOrdersOrderIdPutTest()
+        public void UpdateOrderTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Order order = null;
             //string orderId = null;
-            //var response = instance.OrderOrdersOrderIdPut(order, orderId);
+            //string expand = null;
+            //var response = instance.UpdateOrder(order, orderId, expand);
             //Assert.IsInstanceOf<OrderResponse> (response, "response is OrderResponse");
-        }
-        
-        /// <summary>
-        /// Test OrderOrdersOrderIdResendReceiptPost
-        /// </summary>
-        [Test]
-        public void OrderOrdersOrderIdResendReceiptPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string orderId = null;
-            //var response = instance.OrderOrdersOrderIdResendReceiptPost(orderId);
-            //Assert.IsInstanceOf<BaseResponse> (response, "response is BaseResponse");
-        }
-        
-        /// <summary>
-        /// Test OrderOrdersOrderIdResendShipmentConfirmationPost
-        /// </summary>
-        [Test]
-        public void OrderOrdersOrderIdResendShipmentConfirmationPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string orderId = null;
-            //var response = instance.OrderOrdersOrderIdResendShipmentConfirmationPost(orderId);
-            //Assert.IsInstanceOf<BaseResponse> (response, "response is BaseResponse");
         }
         
     }

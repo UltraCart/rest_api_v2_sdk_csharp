@@ -77,65 +77,65 @@ namespace com.ultracart.admin.v2.Test
 
         
         /// <summary>
-        /// Test FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut
+        /// Test AcknowledgeOrders
         /// </summary>
         [Test]
-        public void FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutTest()
+        public void AcknowledgeOrdersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string distributionCenterCode = null;
             //List<string> orderIds = null;
-            //instance.FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut(distributionCenterCode, orderIds);
+            //instance.AcknowledgeOrders(distributionCenterCode, orderIds);
             
         }
         
         /// <summary>
-        /// Test FulfillmentDistributionCentersDistributionCenterCodeInventoryPost
+        /// Test GetDistributionCenterOrders
         /// </summary>
         [Test]
-        public void FulfillmentDistributionCentersDistributionCenterCodeInventoryPostTest()
+        public void GetDistributionCenterOrdersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string distributionCenterCode = null;
-            //List<FulfillmentInventory> inventories = null;
-            //instance.FulfillmentDistributionCentersDistributionCenterCodeInventoryPost(distributionCenterCode, inventories);
-            
-        }
-        
-        /// <summary>
-        /// Test FulfillmentDistributionCentersDistributionCenterCodeOrdersGet
-        /// </summary>
-        [Test]
-        public void FulfillmentDistributionCentersDistributionCenterCodeOrdersGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string distributionCenterCode = null;
-            //var response = instance.FulfillmentDistributionCentersDistributionCenterCodeOrdersGet(distributionCenterCode);
+            //var response = instance.GetDistributionCenterOrders(distributionCenterCode);
             //Assert.IsInstanceOf<OrdersResponse> (response, "response is OrdersResponse");
         }
         
         /// <summary>
-        /// Test FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost
+        /// Test GetDistributionCenters
         /// </summary>
         [Test]
-        public void FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostTest()
+        public void GetDistributionCentersTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetDistributionCenters();
+            //Assert.IsInstanceOf<DistributionCentersResponse> (response, "response is DistributionCentersResponse");
+        }
+        
+        /// <summary>
+        /// Test ShipOrders
+        /// </summary>
+        [Test]
+        public void ShipOrdersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string distributionCenterCode = null;
             //List<FulfillmentShipment> shipments = null;
-            //instance.FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost(distributionCenterCode, shipments);
+            //instance.ShipOrders(distributionCenterCode, shipments);
             
         }
         
         /// <summary>
-        /// Test FulfillmentDistributionCentersGet
+        /// Test UpdateInventory
         /// </summary>
         [Test]
-        public void FulfillmentDistributionCentersGetTest()
+        public void UpdateInventoryTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.FulfillmentDistributionCentersGet();
-            //Assert.IsInstanceOf<DistributionCentersResponse> (response, "response is DistributionCentersResponse");
+            //string distributionCenterCode = null;
+            //List<FulfillmentInventory> inventories = null;
+            //instance.UpdateInventory(distributionCenterCode, inventories);
+            
         }
         
     }

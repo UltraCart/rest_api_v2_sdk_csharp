@@ -101,12 +101,28 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'More'
         }
         /// <summary>
+        /// Test the property 'NextOffset'
+        /// </summary>
+        [Test]
+        public void NextOffsetTest()
+        {
+            // TODO unit test for the property 'NextOffset'
+        }
+        /// <summary>
         /// Test the property 'Offset'
         /// </summary>
         [Test]
         public void OffsetTest()
         {
             // TODO unit test for the property 'Offset'
+        }
+        /// <summary>
+        /// Test the property 'TotalRecords'
+        /// </summary>
+        [Test]
+        public void TotalRecordsTest()
+        {
+            // TODO unit test for the property 'TotalRecords'
         }
 
     }

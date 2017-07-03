@@ -77,36 +77,23 @@ namespace com.ultracart.admin.v2.Test
 
         
         /// <summary>
-        /// Test AutoOrderAutoOrdersAutoOrderOidGet
+        /// Test GetAutoOrder
         /// </summary>
         [Test]
-        public void AutoOrderAutoOrdersAutoOrderOidGetTest()
+        public void GetAutoOrderTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? autoOrderOid = null;
             //string expand = null;
-            //var response = instance.AutoOrderAutoOrdersAutoOrderOidGet(autoOrderOid, expand);
+            //var response = instance.GetAutoOrder(autoOrderOid, expand);
             //Assert.IsInstanceOf<AutoOrderResponse> (response, "response is AutoOrderResponse");
         }
         
         /// <summary>
-        /// Test AutoOrderAutoOrdersAutoOrderOidPut
+        /// Test GetAutoOrders
         /// </summary>
         [Test]
-        public void AutoOrderAutoOrdersAutoOrderOidPutTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //AutoOrder autoOrder = null;
-            //int? autoOrderOid = null;
-            //var response = instance.AutoOrderAutoOrdersAutoOrderOidPut(autoOrder, autoOrderOid);
-            //Assert.IsInstanceOf<AutoOrderResponse> (response, "response is AutoOrderResponse");
-        }
-        
-        /// <summary>
-        /// Test AutoOrderAutoOrdersGet
-        /// </summary>
-        [Test]
-        public void AutoOrderAutoOrdersGetTest()
+        public void GetAutoOrdersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string autoOrderCode = null;
@@ -132,8 +119,22 @@ namespace com.ultracart.admin.v2.Test
             //string since = null;
             //string sort = null;
             //string expand = null;
-            //var response = instance.AutoOrderAutoOrdersGet(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
+            //var response = instance.GetAutoOrders(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
             //Assert.IsInstanceOf<AutoOrdersResponse> (response, "response is AutoOrdersResponse");
+        }
+        
+        /// <summary>
+        /// Test UpdateAutoOrder
+        /// </summary>
+        [Test]
+        public void UpdateAutoOrderTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //AutoOrder autoOrder = null;
+            //int? autoOrderOid = null;
+            //string expand = null;
+            //var response = instance.UpdateAutoOrder(autoOrder, autoOrderOid, expand);
+            //Assert.IsInstanceOf<AutoOrderResponse> (response, "response is AutoOrderResponse");
         }
         
     }

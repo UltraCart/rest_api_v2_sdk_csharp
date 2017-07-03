@@ -141,6 +141,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ArbitraryScheduleDays">The number of days to rebill if the frequency is set to an arbitrary number of days.</param>
         /// <param name="ArbitraryUnitCost">Arbitrary unit cost that rebills of this item should occur at.</param>
         /// <param name="ArbitraryUnitCostRemainingOrders">The number of rebills to give the arbitrary unit cost on before reverting to normal pricing..</param>
+        /// <param name="AutoOrderItemOid">Primary key of AutoOrderItem.</param>
         /// <param name="Frequency">Frequency of the rebill if not a fixed schedule.</param>
         /// <param name="LastOrderDts">Date/time of the last order of this item.</param>
         /// <param name="LifeTimeValue">The life time value of this item including the original purchase.</param>
@@ -151,10 +152,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Options">Options associated with this item.</param>
         /// <param name="OriginalItemId">The original item id purchased.</param>
         /// <param name="OriginalQuantity">The original quantity purchased.</param>
+        /// <param name="PaypalPayerId">The PayPal Payer ID tied to this item.</param>
+        /// <param name="PaypalRecurringPaymentProfileId">The PayPal Profile ID tied to this item.</param>
         /// <param name="PreshipmentNoticeSent">True if the preshipment notice associated with the next rebill has been sent.</param>
         /// <param name="RebillValue">The value of the rebills of this item.</param>
         /// <param name="RemainingRepeatCount">The number of rebills remaining before this item is complete.</param>
-        public AutoOrderItem(string ArbitraryItemId = null, decimal? ArbitraryPercentageDiscount = null, decimal? ArbitraryQuantity = null, int? ArbitraryScheduleDays = null, decimal? ArbitraryUnitCost = null, int? ArbitraryUnitCostRemainingOrders = null, FrequencyEnum? Frequency = null, string LastOrderDts = null, decimal? LifeTimeValue = null, string NextPreshipmentNoticeDts = null, string NextShipmentDts = null, string NoOrderAfterDts = null, int? NumberOfRebills = null, List<AutoOrderItemOption> Options = null, string OriginalItemId = null, decimal? OriginalQuantity = null, bool? PreshipmentNoticeSent = null, decimal? RebillValue = null, int? RemainingRepeatCount = null)
+        public AutoOrderItem(string ArbitraryItemId = null, decimal? ArbitraryPercentageDiscount = null, decimal? ArbitraryQuantity = null, int? ArbitraryScheduleDays = null, decimal? ArbitraryUnitCost = null, int? ArbitraryUnitCostRemainingOrders = null, int? AutoOrderItemOid = null, FrequencyEnum? Frequency = null, string LastOrderDts = null, decimal? LifeTimeValue = null, string NextPreshipmentNoticeDts = null, string NextShipmentDts = null, string NoOrderAfterDts = null, int? NumberOfRebills = null, List<AutoOrderItemOption> Options = null, string OriginalItemId = null, decimal? OriginalQuantity = null, string PaypalPayerId = null, string PaypalRecurringPaymentProfileId = null, bool? PreshipmentNoticeSent = null, decimal? RebillValue = null, int? RemainingRepeatCount = null)
         {
             this.ArbitraryItemId = ArbitraryItemId;
             this.ArbitraryPercentageDiscount = ArbitraryPercentageDiscount;
@@ -162,6 +165,7 @@ namespace com.ultracart.admin.v2.Model
             this.ArbitraryScheduleDays = ArbitraryScheduleDays;
             this.ArbitraryUnitCost = ArbitraryUnitCost;
             this.ArbitraryUnitCostRemainingOrders = ArbitraryUnitCostRemainingOrders;
+            this.AutoOrderItemOid = AutoOrderItemOid;
             this.Frequency = Frequency;
             this.LastOrderDts = LastOrderDts;
             this.LifeTimeValue = LifeTimeValue;
@@ -172,6 +176,8 @@ namespace com.ultracart.admin.v2.Model
             this.Options = Options;
             this.OriginalItemId = OriginalItemId;
             this.OriginalQuantity = OriginalQuantity;
+            this.PaypalPayerId = PaypalPayerId;
+            this.PaypalRecurringPaymentProfileId = PaypalRecurringPaymentProfileId;
             this.PreshipmentNoticeSent = PreshipmentNoticeSent;
             this.RebillValue = RebillValue;
             this.RemainingRepeatCount = RemainingRepeatCount;
@@ -213,6 +219,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The number of rebills to give the arbitrary unit cost on before reverting to normal pricing.</value>
         [DataMember(Name="arbitrary_unit_cost_remaining_orders", EmitDefaultValue=false)]
         public int? ArbitraryUnitCostRemainingOrders { get; set; }
+        /// <summary>
+        /// Primary key of AutoOrderItem
+        /// </summary>
+        /// <value>Primary key of AutoOrderItem</value>
+        [DataMember(Name="auto_order_item_oid", EmitDefaultValue=false)]
+        public int? AutoOrderItemOid { get; set; }
         /// <summary>
         /// Date/time of the last order of this item
         /// </summary>
@@ -268,6 +280,18 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="original_quantity", EmitDefaultValue=false)]
         public decimal? OriginalQuantity { get; set; }
         /// <summary>
+        /// The PayPal Payer ID tied to this item
+        /// </summary>
+        /// <value>The PayPal Payer ID tied to this item</value>
+        [DataMember(Name="paypal_payer_id", EmitDefaultValue=false)]
+        public string PaypalPayerId { get; set; }
+        /// <summary>
+        /// The PayPal Profile ID tied to this item
+        /// </summary>
+        /// <value>The PayPal Profile ID tied to this item</value>
+        [DataMember(Name="paypal_recurring_payment_profile_id", EmitDefaultValue=false)]
+        public string PaypalRecurringPaymentProfileId { get; set; }
+        /// <summary>
         /// True if the preshipment notice associated with the next rebill has been sent
         /// </summary>
         /// <value>True if the preshipment notice associated with the next rebill has been sent</value>
@@ -299,6 +323,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ArbitraryScheduleDays: ").Append(ArbitraryScheduleDays).Append("\n");
             sb.Append("  ArbitraryUnitCost: ").Append(ArbitraryUnitCost).Append("\n");
             sb.Append("  ArbitraryUnitCostRemainingOrders: ").Append(ArbitraryUnitCostRemainingOrders).Append("\n");
+            sb.Append("  AutoOrderItemOid: ").Append(AutoOrderItemOid).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("  LastOrderDts: ").Append(LastOrderDts).Append("\n");
             sb.Append("  LifeTimeValue: ").Append(LifeTimeValue).Append("\n");
@@ -309,6 +334,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("  OriginalItemId: ").Append(OriginalItemId).Append("\n");
             sb.Append("  OriginalQuantity: ").Append(OriginalQuantity).Append("\n");
+            sb.Append("  PaypalPayerId: ").Append(PaypalPayerId).Append("\n");
+            sb.Append("  PaypalRecurringPaymentProfileId: ").Append(PaypalRecurringPaymentProfileId).Append("\n");
             sb.Append("  PreshipmentNoticeSent: ").Append(PreshipmentNoticeSent).Append("\n");
             sb.Append("  RebillValue: ").Append(RebillValue).Append("\n");
             sb.Append("  RemainingRepeatCount: ").Append(RemainingRepeatCount).Append("\n");
@@ -379,6 +406,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ArbitraryUnitCostRemainingOrders.Equals(other.ArbitraryUnitCostRemainingOrders)
                 ) && 
                 (
+                    this.AutoOrderItemOid == other.AutoOrderItemOid ||
+                    this.AutoOrderItemOid != null &&
+                    this.AutoOrderItemOid.Equals(other.AutoOrderItemOid)
+                ) && 
+                (
                     this.Frequency == other.Frequency ||
                     this.Frequency != null &&
                     this.Frequency.Equals(other.Frequency)
@@ -429,6 +461,16 @@ namespace com.ultracart.admin.v2.Model
                     this.OriginalQuantity.Equals(other.OriginalQuantity)
                 ) && 
                 (
+                    this.PaypalPayerId == other.PaypalPayerId ||
+                    this.PaypalPayerId != null &&
+                    this.PaypalPayerId.Equals(other.PaypalPayerId)
+                ) && 
+                (
+                    this.PaypalRecurringPaymentProfileId == other.PaypalRecurringPaymentProfileId ||
+                    this.PaypalRecurringPaymentProfileId != null &&
+                    this.PaypalRecurringPaymentProfileId.Equals(other.PaypalRecurringPaymentProfileId)
+                ) && 
+                (
                     this.PreshipmentNoticeSent == other.PreshipmentNoticeSent ||
                     this.PreshipmentNoticeSent != null &&
                     this.PreshipmentNoticeSent.Equals(other.PreshipmentNoticeSent)
@@ -468,6 +510,8 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.ArbitraryUnitCost.GetHashCode();
                 if (this.ArbitraryUnitCostRemainingOrders != null)
                     hash = hash * 59 + this.ArbitraryUnitCostRemainingOrders.GetHashCode();
+                if (this.AutoOrderItemOid != null)
+                    hash = hash * 59 + this.AutoOrderItemOid.GetHashCode();
                 if (this.Frequency != null)
                     hash = hash * 59 + this.Frequency.GetHashCode();
                 if (this.LastOrderDts != null)
@@ -488,6 +532,10 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.OriginalItemId.GetHashCode();
                 if (this.OriginalQuantity != null)
                     hash = hash * 59 + this.OriginalQuantity.GetHashCode();
+                if (this.PaypalPayerId != null)
+                    hash = hash * 59 + this.PaypalPayerId.GetHashCode();
+                if (this.PaypalRecurringPaymentProfileId != null)
+                    hash = hash * 59 + this.PaypalRecurringPaymentProfileId.GetHashCode();
                 if (this.PreshipmentNoticeSent != null)
                     hash = hash * 59 + this.PreshipmentNoticeSent.GetHashCode();
                 if (this.RebillValue != null)

@@ -77,36 +77,35 @@ namespace com.ultracart.admin.v2.Test
 
         
         /// <summary>
-        /// Test CustomerCustomersCustomerProfileOidGet
+        /// Test DeleteCustomer
         /// </summary>
         [Test]
-        public void CustomerCustomersCustomerProfileOidGetTest()
+        public void DeleteCustomerTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? customerProfileOid = null;
+            //var response = instance.DeleteCustomer(customerProfileOid);
+            //Assert.IsInstanceOf<CustomerResponse> (response, "response is CustomerResponse");
+        }
+        
+        /// <summary>
+        /// Test GetCustomer
+        /// </summary>
+        [Test]
+        public void GetCustomerTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? customerProfileOid = null;
             //string expand = null;
-            //var response = instance.CustomerCustomersCustomerProfileOidGet(customerProfileOid, expand);
+            //var response = instance.GetCustomer(customerProfileOid, expand);
             //Assert.IsInstanceOf<CustomerResponse> (response, "response is CustomerResponse");
         }
         
         /// <summary>
-        /// Test CustomerCustomersCustomerProfileOidPut
+        /// Test GetCustomers
         /// </summary>
         [Test]
-        public void CustomerCustomersCustomerProfileOidPutTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //Customer customer = null;
-            //int? customerProfileOid = null;
-            //var response = instance.CustomerCustomersCustomerProfileOidPut(customer, customerProfileOid);
-            //Assert.IsInstanceOf<CustomerResponse> (response, "response is CustomerResponse");
-        }
-        
-        /// <summary>
-        /// Test CustomerCustomersGet
-        /// </summary>
-        [Test]
-        public void CustomerCustomersGetTest()
+        public void GetCustomersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string email = null;
@@ -141,8 +140,35 @@ namespace com.ultracart.admin.v2.Test
             //string since = null;
             //string sort = null;
             //string expand = null;
-            //var response = instance.CustomerCustomersGet(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand);
+            //var response = instance.GetCustomers(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand);
             //Assert.IsInstanceOf<CustomersResponse> (response, "response is CustomersResponse");
+        }
+        
+        /// <summary>
+        /// Test InsertCustomer
+        /// </summary>
+        [Test]
+        public void InsertCustomerTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Customer customer = null;
+            //string expand = null;
+            //var response = instance.InsertCustomer(customer, expand);
+            //Assert.IsInstanceOf<CustomerResponse> (response, "response is CustomerResponse");
+        }
+        
+        /// <summary>
+        /// Test UpdateCustomer
+        /// </summary>
+        [Test]
+        public void UpdateCustomerTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Customer customer = null;
+            //int? customerProfileOid = null;
+            //string expand = null;
+            //var response = instance.UpdateCustomer(customer, customerProfileOid, expand);
+            //Assert.IsInstanceOf<CustomerResponse> (response, "response is CustomerResponse");
         }
         
     }

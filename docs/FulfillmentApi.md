@@ -4,16 +4,16 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut**](FulfillmentApi.md#fulfillmentdistributioncentersdistributioncentercodeacknowledgementsput) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
-[**FulfillmentDistributionCentersDistributionCenterCodeInventoryPost**](FulfillmentApi.md#fulfillmentdistributioncentersdistributioncentercodeinventorypost) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
-[**FulfillmentDistributionCentersDistributionCenterCodeOrdersGet**](FulfillmentApi.md#fulfillmentdistributioncentersdistributioncentercodeordersget) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
-[**FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost**](FulfillmentApi.md#fulfillmentdistributioncentersdistributioncentercodeshipmentspost) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
-[**FulfillmentDistributionCentersGet**](FulfillmentApi.md#fulfillmentdistributioncentersget) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
+[**AcknowledgeOrders**](FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
+[**GetDistributionCenterOrders**](FulfillmentApi.md#getdistributioncenterorders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
+[**GetDistributionCenters**](FulfillmentApi.md#getdistributioncenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
+[**ShipOrders**](FulfillmentApi.md#shiporders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
+[**UpdateInventory**](FulfillmentApi.md#updateinventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
 
 
-<a name="fulfillmentdistributioncentersdistributioncentercodeacknowledgementsput"></a>
-# **FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut**
-> void FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut (string distributionCenterCode, List<string> orderIds)
+<a name="acknowledgeorders"></a>
+# **AcknowledgeOrders**
+> void AcknowledgeOrders (string distributionCenterCode, List<string> orderIds)
 
 Acknowledge receipt of orders.
 
@@ -29,7 +29,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutExample
+    public class AcknowledgeOrdersExample
     {
         public void main()
         {
@@ -48,11 +48,11 @@ namespace Example
             try
             {
                 // Acknowledge receipt of orders.
-                apiInstance.FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut(distributionCenterCode, orderIds);
+                apiInstance.AcknowledgeOrders(distributionCenterCode, orderIds);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling FulfillmentApi.FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut: " + e.Message );
+                Debug.Print("Exception when calling FulfillmentApi.AcknowledgeOrders: " + e.Message );
             }
         }
     }
@@ -81,79 +81,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="fulfillmentdistributioncentersdistributioncentercodeinventorypost"></a>
-# **FulfillmentDistributionCentersDistributionCenterCodeInventoryPost**
-> void FulfillmentDistributionCentersDistributionCenterCodeInventoryPost (string distributionCenterCode, List<FulfillmentInventory> inventories)
-
-Update inventory
-
-Update the inventory for items associated with this distribution center 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class FulfillmentDistributionCentersDistributionCenterCodeInventoryPostExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new FulfillmentApi();
-            var distributionCenterCode = distributionCenterCode_example;  // string | Distribution center code
-            var inventories = new List<FulfillmentInventory>(); // List<FulfillmentInventory> | Inventory updates (limit 500)
-
-            try
-            {
-                // Update inventory
-                apiInstance.FulfillmentDistributionCentersDistributionCenterCodeInventoryPost(distributionCenterCode, inventories);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling FulfillmentApi.FulfillmentDistributionCentersDistributionCenterCodeInventoryPost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **distributionCenterCode** | **string**| Distribution center code | 
- **inventories** | [**List<FulfillmentInventory>**](FulfillmentInventory.md)| Inventory updates (limit 500) | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="fulfillmentdistributioncentersdistributioncentercodeordersget"></a>
-# **FulfillmentDistributionCentersDistributionCenterCodeOrdersGet**
-> OrdersResponse FulfillmentDistributionCentersDistributionCenterCodeOrdersGet (string distributionCenterCode)
+<a name="getdistributioncenterorders"></a>
+# **GetDistributionCenterOrders**
+> OrdersResponse GetDistributionCenterOrders (string distributionCenterCode)
 
 Retrieve orders queued up for this distribution center.
 
@@ -169,7 +99,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class FulfillmentDistributionCentersDistributionCenterCodeOrdersGetExample
+    public class GetDistributionCenterOrdersExample
     {
         public void main()
         {
@@ -187,12 +117,12 @@ namespace Example
             try
             {
                 // Retrieve orders queued up for this distribution center.
-                OrdersResponse result = apiInstance.FulfillmentDistributionCentersDistributionCenterCodeOrdersGet(distributionCenterCode);
+                OrdersResponse result = apiInstance.GetDistributionCenterOrders(distributionCenterCode);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling FulfillmentApi.FulfillmentDistributionCentersDistributionCenterCodeOrdersGet: " + e.Message );
+                Debug.Print("Exception when calling FulfillmentApi.GetDistributionCenterOrders: " + e.Message );
             }
         }
     }
@@ -220,9 +150,74 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="fulfillmentdistributioncentersdistributioncentercodeshipmentspost"></a>
-# **FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost**
-> void FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost (string distributionCenterCode, List<FulfillmentShipment> shipments)
+<a name="getdistributioncenters"></a>
+# **GetDistributionCenters**
+> DistributionCentersResponse GetDistributionCenters ()
+
+Retrieve distribution centers
+
+Retrieves the distribution centers that this user has access to. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetDistributionCentersExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new FulfillmentApi();
+
+            try
+            {
+                // Retrieve distribution centers
+                DistributionCentersResponse result = apiInstance.GetDistributionCenters();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling FulfillmentApi.GetDistributionCenters: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DistributionCentersResponse**](DistributionCentersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="shiporders"></a>
+# **ShipOrders**
+> void ShipOrders (string distributionCenterCode, List<FulfillmentShipment> shipments)
 
 Mark orders as shipped
 
@@ -238,7 +233,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostExample
+    public class ShipOrdersExample
     {
         public void main()
         {
@@ -257,11 +252,11 @@ namespace Example
             try
             {
                 // Mark orders as shipped
-                apiInstance.FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost(distributionCenterCode, shipments);
+                apiInstance.ShipOrders(distributionCenterCode, shipments);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling FulfillmentApi.FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost: " + e.Message );
+                Debug.Print("Exception when calling FulfillmentApi.ShipOrders: " + e.Message );
             }
         }
     }
@@ -290,13 +285,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="fulfillmentdistributioncentersget"></a>
-# **FulfillmentDistributionCentersGet**
-> DistributionCentersResponse FulfillmentDistributionCentersGet ()
+<a name="updateinventory"></a>
+# **UpdateInventory**
+> void UpdateInventory (string distributionCenterCode, List<FulfillmentInventory> inventories)
 
-Retrieve distribution centers
+Update inventory
 
-Retrieves the distribution centers that this user has access to. 
+Update the inventory for items associated with this distribution center 
 
 ### Example
 ```csharp
@@ -308,7 +303,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class FulfillmentDistributionCentersGetExample
+    public class UpdateInventoryExample
     {
         public void main()
         {
@@ -321,16 +316,17 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new FulfillmentApi();
+            var distributionCenterCode = distributionCenterCode_example;  // string | Distribution center code
+            var inventories = new List<FulfillmentInventory>(); // List<FulfillmentInventory> | Inventory updates (limit 500)
 
             try
             {
-                // Retrieve distribution centers
-                DistributionCentersResponse result = apiInstance.FulfillmentDistributionCentersGet();
-                Debug.WriteLine(result);
+                // Update inventory
+                apiInstance.UpdateInventory(distributionCenterCode, inventories);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling FulfillmentApi.FulfillmentDistributionCentersGet: " + e.Message );
+                Debug.Print("Exception when calling FulfillmentApi.UpdateInventory: " + e.Message );
             }
         }
     }
@@ -338,11 +334,15 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **distributionCenterCode** | **string**| Distribution center code | 
+ **inventories** | [**List<FulfillmentInventory>**](FulfillmentInventory.md)| Inventory updates (limit 500) | 
 
 ### Return type
 
-[**DistributionCentersResponse**](DistributionCentersResponse.md)
+void (empty response body)
 
 ### Authorization
 

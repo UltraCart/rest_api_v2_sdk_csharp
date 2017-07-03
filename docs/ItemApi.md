@@ -4,17 +4,158 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ItemItemsGet**](ItemApi.md#itemitemsget) | **GET** /item/items | Retrieve items
-[**ItemItemsMerchantItemOidDelete**](ItemApi.md#itemitemsmerchantitemoiddelete) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
-[**ItemItemsMerchantItemOidGet**](ItemApi.md#itemitemsmerchantitemoidget) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
-[**ItemItemsMerchantItemOidPut**](ItemApi.md#itemitemsmerchantitemoidput) | **PUT** /item/items/{merchant_item_oid} | Update an item
-[**ItemItemsPost**](ItemApi.md#itemitemspost) | **POST** /item/items | Create an item
-[**ItemTempMultimediaPost**](ItemApi.md#itemtempmultimediapost) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
+[**DeleteItem**](ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**GetItem**](ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
+[**GetItems**](ItemApi.md#getitems) | **GET** /item/items | Retrieve items
+[**InsertItem**](ItemApi.md#insertitem) | **POST** /item/items | Create an item
+[**UpdateItem**](ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**UploadTemporaryMultimedia**](ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
-<a name="itemitemsget"></a>
-# **ItemItemsGet**
-> ItemsResponse ItemItemsGet (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+<a name="deleteitem"></a>
+# **DeleteItem**
+> void DeleteItem (int? merchantItemOid)
+
+Delete an item
+
+Delete an item on the UltraCart account. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteItemExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new ItemApi();
+            var merchantItemOid = 56;  // int? | The item oid to delete.
+
+            try
+            {
+                // Delete an item
+                apiInstance.DeleteItem(merchantItemOid);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.DeleteItem: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantItemOid** | **int?**| The item oid to delete. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getitem"></a>
+# **GetItem**
+> ItemResponse GetItem (int? merchantItemOid, string expand = null, bool? placeholders = null)
+
+Retrieve an item
+
+Retrieves a single item using the specified item oid. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetItemExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new ItemApi();
+            var merchantItemOid = 56;  // int? | The item oid to retrieve.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
+
+            try
+            {
+                // Retrieve an item
+                ItemResponse result = apiInstance.GetItem(merchantItemOid, expand, placeholders);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.GetItem: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantItemOid** | **int?**| The item oid to retrieve. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+
+### Return type
+
+[**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getitems"></a>
+# **GetItems**
+> ItemsResponse GetItems (int? parentCategoryId = null, string parentCategoryPath = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
 
 Retrieve items
 
@@ -30,7 +171,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class ItemItemsGetExample
+    public class GetItemsExample
     {
         public void main()
         {
@@ -55,12 +196,12 @@ namespace Example
             try
             {
                 // Retrieve items
-                ItemsResponse result = apiInstance.ItemItemsGet(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
+                ItemsResponse result = apiInstance.GetItems(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ItemApi.ItemItemsGet: " + e.Message );
+                Debug.Print("Exception when calling ItemApi.GetItems: " + e.Message );
             }
         }
     }
@@ -95,13 +236,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="itemitemsmerchantitemoiddelete"></a>
-# **ItemItemsMerchantItemOidDelete**
-> void ItemItemsMerchantItemOidDelete (int? merchantItemOid)
+<a name="insertitem"></a>
+# **InsertItem**
+> ItemResponse InsertItem (Item item, string expand = null, bool? placeholders = null)
 
-Delete an item
+Create an item
 
-Delete an item on the UltraCart account. 
+Create a new item on the UltraCart account. 
 
 ### Example
 ```csharp
@@ -113,7 +254,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class ItemItemsMerchantItemOidDeleteExample
+    public class InsertItemExample
     {
         public void main()
         {
@@ -126,87 +267,19 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new ItemApi();
-            var merchantItemOid = 56;  // int? | The item oid to delete.
-
-            try
-            {
-                // Delete an item
-                apiInstance.ItemItemsMerchantItemOidDelete(merchantItemOid);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ItemApi.ItemItemsMerchantItemOidDelete: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **merchantItemOid** | **int?**| The item oid to delete. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="itemitemsmerchantitemoidget"></a>
-# **ItemItemsMerchantItemOidGet**
-> ItemResponse ItemItemsMerchantItemOidGet (int? merchantItemOid, string expand = null, bool? placeholders = null)
-
-Retrieve an item
-
-Retrieves a single item using the specified item oid. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ItemItemsMerchantItemOidGetExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new ItemApi();
-            var merchantItemOid = 56;  // int? | The item oid to retrieve.
+            var item = new Item(); // Item | Item to create
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
             var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
             try
             {
-                // Retrieve an item
-                ItemResponse result = apiInstance.ItemItemsMerchantItemOidGet(merchantItemOid, expand, placeholders);
+                // Create an item
+                ItemResponse result = apiInstance.InsertItem(item, expand, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ItemApi.ItemItemsMerchantItemOidGet: " + e.Message );
+                Debug.Print("Exception when calling ItemApi.InsertItem: " + e.Message );
             }
         }
     }
@@ -217,7 +290,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **merchantItemOid** | **int?**| The item oid to retrieve. | 
+ **item** | [**Item**](Item.md)| Item to create | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
  **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
@@ -231,14 +304,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="itemitemsmerchantitemoidput"></a>
-# **ItemItemsMerchantItemOidPut**
-> ItemResponse ItemItemsMerchantItemOidPut (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null)
+<a name="updateitem"></a>
+# **UpdateItem**
+> ItemResponse UpdateItem (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null)
 
 Update an item
 
@@ -254,7 +327,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class ItemItemsMerchantItemOidPutExample
+    public class UpdateItemExample
     {
         public void main()
         {
@@ -275,12 +348,12 @@ namespace Example
             try
             {
                 // Update an item
-                ItemResponse result = apiInstance.ItemItemsMerchantItemOidPut(item, merchantItemOid, expand, placeholders);
+                ItemResponse result = apiInstance.UpdateItem(item, merchantItemOid, expand, placeholders);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ItemApi.ItemItemsMerchantItemOidPut: " + e.Message );
+                Debug.Print("Exception when calling ItemApi.UpdateItem: " + e.Message );
             }
         }
     }
@@ -311,82 +384,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="itemitemspost"></a>
-# **ItemItemsPost**
-> ItemResponse ItemItemsPost (Item item, string expand = null, bool? placeholders = null)
-
-Create an item
-
-Create a new item on the UltraCart account. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class ItemItemsPostExample
-    {
-        public void main()
-        {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new ItemApi();
-            var item = new Item(); // Item | Item to create
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
-
-            try
-            {
-                // Create an item
-                ItemResponse result = apiInstance.ItemItemsPost(item, expand, placeholders);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ItemApi.ItemItemsPost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item** | [**Item**](Item.md)| Item to create | 
- **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
- **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
-
-### Return type
-
-[**ItemResponse**](ItemResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="itemtempmultimediapost"></a>
-# **ItemTempMultimediaPost**
-> TempMultimediaResponse ItemTempMultimediaPost (System.IO.Stream file)
+<a name="uploadtemporarymultimedia"></a>
+# **UploadTemporaryMultimedia**
+> TempMultimediaResponse UploadTemporaryMultimedia (System.IO.Stream file)
 
 Upload an image to the temporary multimedia.
 
@@ -402,7 +402,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class ItemTempMultimediaPostExample
+    public class UploadTemporaryMultimediaExample
     {
         public void main()
         {
@@ -420,12 +420,12 @@ namespace Example
             try
             {
                 // Upload an image to the temporary multimedia.
-                TempMultimediaResponse result = apiInstance.ItemTempMultimediaPost(file);
+                TempMultimediaResponse result = apiInstance.UploadTemporaryMultimedia(file);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ItemApi.ItemTempMultimediaPost: " + e.Message );
+                Debug.Print("Exception when calling ItemApi.UploadTemporaryMultimedia: " + e.Message );
             }
         }
     }

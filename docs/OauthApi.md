@@ -4,88 +4,13 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**OauthRevokePost**](OauthApi.md#oauthrevokepost) | **POST** /oauth/revoke | Revoke this OAuth application.
-[**OauthTokenPost**](OauthApi.md#oauthtokenpost) | **POST** /oauth/token | Exchange authorization code for access token.
+[**OauthAccessToken**](OauthApi.md#oauthaccesstoken) | **POST** /oauth/token | Exchange authorization code for access token.
+[**OauthRevoke**](OauthApi.md#oauthrevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 
 
-<a name="oauthrevokepost"></a>
-# **OauthRevokePost**
-> OauthRevokeSuccessResponse OauthRevokePost (string clientId, string token)
-
-Revoke this OAuth application.
-
-Revokes the OAuth application associated with the specified client_id and token. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class OauthRevokePostExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
-
-            var apiInstance = new OauthApi();
-            var clientId = clientId_example;  // string | The OAuth application client_id.
-            var token = token_example;  // string | The OAuth access token that is to be revoked..
-
-            try
-            {
-                // Revoke this OAuth application.
-                OauthRevokeSuccessResponse result = apiInstance.OauthRevokePost(clientId, token);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling OauthApi.OauthRevokePost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientId** | **string**| The OAuth application client_id. | 
- **token** | **string**| The OAuth access token that is to be revoked.. | 
-
-### Return type
-
-[**OauthRevokeSuccessResponse**](OauthRevokeSuccessResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="oauthtokenpost"></a>
-# **OauthTokenPost**
-> OauthTokenResponse OauthTokenPost (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null)
+<a name="oauthaccesstoken"></a>
+# **OauthAccessToken**
+> OauthTokenResponse OauthAccessToken (string clientId, string grantType, string code = null, string redirectUri = null, string refreshToken = null)
 
 Exchange authorization code for access token.
 
@@ -101,7 +26,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class OauthTokenPostExample
+    public class OauthAccessTokenExample
     {
         public void main()
         {
@@ -127,12 +52,12 @@ namespace Example
             try
             {
                 // Exchange authorization code for access token.
-                OauthTokenResponse result = apiInstance.OauthTokenPost(clientId, grantType, code, redirectUri, refreshToken);
+                OauthTokenResponse result = apiInstance.OauthAccessToken(clientId, grantType, code, redirectUri, refreshToken);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling OauthApi.OauthTokenPost: " + e.Message );
+                Debug.Print("Exception when calling OauthApi.OauthAccessToken: " + e.Message );
             }
         }
     }
@@ -152,6 +77,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OauthTokenResponse**](OauthTokenResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="oauthrevoke"></a>
+# **OauthRevoke**
+> OauthRevokeSuccessResponse OauthRevoke (string clientId, string token)
+
+Revoke this OAuth application.
+
+Revokes the OAuth application associated with the specified client_id and token. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class OauthRevokeExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: ultraCartBrowserApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+
+            var apiInstance = new OauthApi();
+            var clientId = clientId_example;  // string | The OAuth application client_id.
+            var token = token_example;  // string | The OAuth access token that is to be revoked..
+
+            try
+            {
+                // Revoke this OAuth application.
+                OauthRevokeSuccessResponse result = apiInstance.OauthRevoke(clientId, token);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OauthApi.OauthRevoke: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientId** | **string**| The OAuth application client_id. | 
+ **token** | **string**| The OAuth access token that is to be revoked.. | 
+
+### Return type
+
+[**OauthRevokeSuccessResponse**](OauthRevokeSuccessResponse.md)
 
 ### Authorization
 

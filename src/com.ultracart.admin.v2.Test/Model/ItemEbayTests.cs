@@ -541,12 +541,12 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'MarketplaceProfitable'
         }
         /// <summary>
-        /// Test the property 'NextAttempDts'
+        /// Test the property 'NextAttemptDts'
         /// </summary>
         [Test]
-        public void NextAttempDtsTest()
+        public void NextAttemptDtsTest()
         {
-            // TODO unit test for the property 'NextAttempDts'
+            // TODO unit test for the property 'NextAttemptDts'
         }
         /// <summary>
         /// Test the property 'NextListingDuration'

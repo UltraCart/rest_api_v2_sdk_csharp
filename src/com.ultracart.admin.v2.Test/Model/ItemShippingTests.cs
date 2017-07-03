@@ -117,12 +117,12 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'Cases'
         }
         /// <summary>
-        /// Test the property 'CountryOfOrigin'
+        /// Test the property 'CountryCodeOfOrigin'
         /// </summary>
         [Test]
-        public void CountryOfOriginTest()
+        public void CountryCodeOfOriginTest()
         {
-            // TODO unit test for the property 'CountryOfOrigin'
+            // TODO unit test for the property 'CountryCodeOfOrigin'
         }
         /// <summary>
         /// Test the property 'CustomsDescription'
@@ -299,6 +299,14 @@ namespace com.ultracart.admin.v2.Test
         public void PackageRequirementsTest()
         {
             // TODO unit test for the property 'PackageRequirements'
+        }
+        /// <summary>
+        /// Test the property 'PerishableClassName'
+        /// </summary>
+        [Test]
+        public void PerishableClassNameTest()
+        {
+            // TODO unit test for the property 'PerishableClassName'
         }
         /// <summary>
         /// Test the property 'PerishableClassOid'

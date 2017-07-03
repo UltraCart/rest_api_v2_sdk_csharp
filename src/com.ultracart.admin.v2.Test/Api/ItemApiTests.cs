@@ -77,75 +77,88 @@ namespace com.ultracart.admin.v2.Test
 
         
         /// <summary>
-        /// Test ItemItemsGet
+        /// Test DeleteItem
         /// </summary>
         [Test]
-        public void ItemItemsGetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? parentCategoryId = null;
-            //var response = instance.ItemItemsGet(parentCategoryId);
-            //Assert.IsInstanceOf<ItemsResponse> (response, "response is ItemsResponse");
-        }
-        
-        /// <summary>
-        /// Test ItemItemsMerchantItemOidDelete
-        /// </summary>
-        [Test]
-        public void ItemItemsMerchantItemOidDeleteTest()
+        public void DeleteItemTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? merchantItemOid = null;
-            //instance.ItemItemsMerchantItemOidDelete(merchantItemOid);
+            //instance.DeleteItem(merchantItemOid);
             
         }
         
         /// <summary>
-        /// Test ItemItemsMerchantItemOidGet
+        /// Test GetItem
         /// </summary>
         [Test]
-        public void ItemItemsMerchantItemOidGetTest()
+        public void GetItemTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? merchantItemOid = null;
-            //var response = instance.ItemItemsMerchantItemOidGet(merchantItemOid);
+            //string expand = null;
+            //bool? placeholders = null;
+            //var response = instance.GetItem(merchantItemOid, expand, placeholders);
             //Assert.IsInstanceOf<ItemResponse> (response, "response is ItemResponse");
         }
         
         /// <summary>
-        /// Test ItemItemsMerchantItemOidPut
+        /// Test GetItems
         /// </summary>
         [Test]
-        public void ItemItemsMerchantItemOidPutTest()
+        public void GetItemsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? parentCategoryId = null;
+            //string parentCategoryPath = null;
+            //int? limit = null;
+            //int? offset = null;
+            //string since = null;
+            //string sort = null;
+            //string expand = null;
+            //bool? placeholders = null;
+            //var response = instance.GetItems(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
+            //Assert.IsInstanceOf<ItemsResponse> (response, "response is ItemsResponse");
+        }
+        
+        /// <summary>
+        /// Test InsertItem
+        /// </summary>
+        [Test]
+        public void InsertItemTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Item item = null;
+            //string expand = null;
+            //bool? placeholders = null;
+            //var response = instance.InsertItem(item, expand, placeholders);
+            //Assert.IsInstanceOf<ItemResponse> (response, "response is ItemResponse");
+        }
+        
+        /// <summary>
+        /// Test UpdateItem
+        /// </summary>
+        [Test]
+        public void UpdateItemTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Item item = null;
             //int? merchantItemOid = null;
-            //var response = instance.ItemItemsMerchantItemOidPut(item, merchantItemOid);
+            //string expand = null;
+            //bool? placeholders = null;
+            //var response = instance.UpdateItem(item, merchantItemOid, expand, placeholders);
             //Assert.IsInstanceOf<ItemResponse> (response, "response is ItemResponse");
         }
         
         /// <summary>
-        /// Test ItemItemsPost
+        /// Test UploadTemporaryMultimedia
         /// </summary>
         [Test]
-        public void ItemItemsPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //Item item = null;
-            //var response = instance.ItemItemsPost(item);
-            //Assert.IsInstanceOf<ItemResponse> (response, "response is ItemResponse");
-        }
-        
-        /// <summary>
-        /// Test ItemTempMultimediaPost
-        /// </summary>
-        [Test]
-        public void ItemTempMultimediaPostTest()
+        public void UploadTemporaryMultimediaTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //System.IO.Stream file = null;
-            //var response = instance.ItemTempMultimediaPost(file);
+            //var response = instance.UploadTemporaryMultimedia(file);
             //Assert.IsInstanceOf<TempMultimediaResponse> (response, "response is TempMultimediaResponse");
         }
         

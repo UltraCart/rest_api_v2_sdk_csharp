@@ -45,7 +45,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to delete.</param>
         /// <returns>ChargebackDisputeResponse</returns>
-        ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidDelete (int? chargebackDisputeOid);
+        ChargebackDisputeResponse DeleteChargeback (int? chargebackDisputeOid);
 
         /// <summary>
         /// Delete a chargeback
@@ -56,7 +56,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to delete.</param>
         /// <returns>ApiResponse of ChargebackDisputeResponse</returns>
-        ApiResponse<ChargebackDisputeResponse> ChargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo (int? chargebackDisputeOid);
+        ApiResponse<ChargebackDisputeResponse> DeleteChargebackWithHttpInfo (int? chargebackDisputeOid);
         /// <summary>
         /// Retrieve a chargeback
         /// </summary>
@@ -67,7 +67,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargebackDisputeOid">The chargeback dispute oid to retrieve.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ChargebackDisputeResponse</returns>
-        ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidGet (int? chargebackDisputeOid, string expand = null);
+        ChargebackDisputeResponse GetChargebackDispute (int? chargebackDisputeOid, string expand = null);
 
         /// <summary>
         /// Retrieve a chargeback
@@ -79,32 +79,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargebackDisputeOid">The chargeback dispute oid to retrieve.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of ChargebackDisputeResponse</returns>
-        ApiResponse<ChargebackDisputeResponse> ChargebackChargebacksChargebackDisputeOidGetWithHttpInfo (int? chargebackDisputeOid, string expand = null);
-        /// <summary>
-        /// Update a chargeback
-        /// </summary>
-        /// <remarks>
-        /// Update a chargeback on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chargeback">Chargeback to update</param>
-        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ChargebackDisputeResponse</returns>
-        ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidPut (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null);
-
-        /// <summary>
-        /// Update a chargeback
-        /// </summary>
-        /// <remarks>
-        /// Update a chargeback on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chargeback">Chargeback to update</param>
-        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of ChargebackDisputeResponse</returns>
-        ApiResponse<ChargebackDisputeResponse> ChargebackChargebacksChargebackDisputeOidPutWithHttpInfo (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null);
+        ApiResponse<ChargebackDisputeResponse> GetChargebackDisputeWithHttpInfo (int? chargebackDisputeOid, string expand = null);
         /// <summary>
         /// Retrieve chargebacks
         /// </summary>
@@ -125,7 +100,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ChargebackDisputesResponse</returns>
-        ChargebackDisputesResponse ChargebackChargebacksGet (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        ChargebackDisputesResponse GetChargebackDisputes (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
 
         /// <summary>
         /// Retrieve chargebacks
@@ -147,7 +122,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of ChargebackDisputesResponse</returns>
-        ApiResponse<ChargebackDisputesResponse> ChargebackChargebacksGetWithHttpInfo (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        ApiResponse<ChargebackDisputesResponse> GetChargebackDisputesWithHttpInfo (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
         /// <summary>
         /// Insert a chargeback
         /// </summary>
@@ -158,7 +133,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargeback">Chargeback to insert</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ChargebackDisputeResponse</returns>
-        ChargebackDisputeResponse ChargebackChargebacksPost (ChargebackDispute chargeback, string expand = null);
+        ChargebackDisputeResponse InsertChargeback (ChargebackDispute chargeback, string expand = null);
 
         /// <summary>
         /// Insert a chargeback
@@ -170,7 +145,32 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargeback">Chargeback to insert</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of ChargebackDisputeResponse</returns>
-        ApiResponse<ChargebackDisputeResponse> ChargebackChargebacksPostWithHttpInfo (ChargebackDispute chargeback, string expand = null);
+        ApiResponse<ChargebackDisputeResponse> InsertChargebackWithHttpInfo (ChargebackDispute chargeback, string expand = null);
+        /// <summary>
+        /// Update a chargeback
+        /// </summary>
+        /// <remarks>
+        /// Update a chargeback on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="chargeback">Chargeback to update</param>
+        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ChargebackDisputeResponse</returns>
+        ChargebackDisputeResponse UpdateChargeback (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null);
+
+        /// <summary>
+        /// Update a chargeback
+        /// </summary>
+        /// <remarks>
+        /// Update a chargeback on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="chargeback">Chargeback to update</param>
+        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of ChargebackDisputeResponse</returns>
+        ApiResponse<ChargebackDisputeResponse> UpdateChargebackWithHttpInfo (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -182,7 +182,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to delete.</param>
         /// <returns>Task of ChargebackDisputeResponse</returns>
-        System.Threading.Tasks.Task<ChargebackDisputeResponse> ChargebackChargebacksChargebackDisputeOidDeleteAsync (int? chargebackDisputeOid);
+        System.Threading.Tasks.Task<ChargebackDisputeResponse> DeleteChargebackAsync (int? chargebackDisputeOid);
 
         /// <summary>
         /// Delete a chargeback
@@ -193,7 +193,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to delete.</param>
         /// <returns>Task of ApiResponse (ChargebackDisputeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> ChargebackChargebacksChargebackDisputeOidDeleteAsyncWithHttpInfo (int? chargebackDisputeOid);
+        System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> DeleteChargebackAsyncWithHttpInfo (int? chargebackDisputeOid);
         /// <summary>
         /// Retrieve a chargeback
         /// </summary>
@@ -204,7 +204,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargebackDisputeOid">The chargeback dispute oid to retrieve.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ChargebackDisputeResponse</returns>
-        System.Threading.Tasks.Task<ChargebackDisputeResponse> ChargebackChargebacksChargebackDisputeOidGetAsync (int? chargebackDisputeOid, string expand = null);
+        System.Threading.Tasks.Task<ChargebackDisputeResponse> GetChargebackDisputeAsync (int? chargebackDisputeOid, string expand = null);
 
         /// <summary>
         /// Retrieve a chargeback
@@ -216,32 +216,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargebackDisputeOid">The chargeback dispute oid to retrieve.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (ChargebackDisputeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> ChargebackChargebacksChargebackDisputeOidGetAsyncWithHttpInfo (int? chargebackDisputeOid, string expand = null);
-        /// <summary>
-        /// Update a chargeback
-        /// </summary>
-        /// <remarks>
-        /// Update a chargeback on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chargeback">Chargeback to update</param>
-        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ChargebackDisputeResponse</returns>
-        System.Threading.Tasks.Task<ChargebackDisputeResponse> ChargebackChargebacksChargebackDisputeOidPutAsync (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null);
-
-        /// <summary>
-        /// Update a chargeback
-        /// </summary>
-        /// <remarks>
-        /// Update a chargeback on the UltraCart account. 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chargeback">Chargeback to update</param>
-        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (ChargebackDisputeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> ChargebackChargebacksChargebackDisputeOidPutAsyncWithHttpInfo (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> GetChargebackDisputeAsyncWithHttpInfo (int? chargebackDisputeOid, string expand = null);
         /// <summary>
         /// Retrieve chargebacks
         /// </summary>
@@ -262,7 +237,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ChargebackDisputesResponse</returns>
-        System.Threading.Tasks.Task<ChargebackDisputesResponse> ChargebackChargebacksGetAsync (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        System.Threading.Tasks.Task<ChargebackDisputesResponse> GetChargebackDisputesAsync (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
 
         /// <summary>
         /// Retrieve chargebacks
@@ -284,7 +259,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (ChargebackDisputesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChargebackDisputesResponse>> ChargebackChargebacksGetAsyncWithHttpInfo (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<ChargebackDisputesResponse>> GetChargebackDisputesAsyncWithHttpInfo (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
         /// <summary>
         /// Insert a chargeback
         /// </summary>
@@ -295,7 +270,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargeback">Chargeback to insert</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ChargebackDisputeResponse</returns>
-        System.Threading.Tasks.Task<ChargebackDisputeResponse> ChargebackChargebacksPostAsync (ChargebackDispute chargeback, string expand = null);
+        System.Threading.Tasks.Task<ChargebackDisputeResponse> InsertChargebackAsync (ChargebackDispute chargeback, string expand = null);
 
         /// <summary>
         /// Insert a chargeback
@@ -307,7 +282,32 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargeback">Chargeback to insert</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (ChargebackDisputeResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> ChargebackChargebacksPostAsyncWithHttpInfo (ChargebackDispute chargeback, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> InsertChargebackAsyncWithHttpInfo (ChargebackDispute chargeback, string expand = null);
+        /// <summary>
+        /// Update a chargeback
+        /// </summary>
+        /// <remarks>
+        /// Update a chargeback on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="chargeback">Chargeback to update</param>
+        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ChargebackDisputeResponse</returns>
+        System.Threading.Tasks.Task<ChargebackDisputeResponse> UpdateChargebackAsync (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null);
+
+        /// <summary>
+        /// Update a chargeback
+        /// </summary>
+        /// <remarks>
+        /// Update a chargeback on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="chargeback">Chargeback to update</param>
+        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (ChargebackDisputeResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> UpdateChargebackAsyncWithHttpInfo (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null);
         #endregion Asynchronous Operations
     }
 
@@ -426,9 +426,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to delete.</param>
         /// <returns>ChargebackDisputeResponse</returns>
-        public ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidDelete (int? chargebackDisputeOid)
+        public ChargebackDisputeResponse DeleteChargeback (int? chargebackDisputeOid)
         {
-             ApiResponse<ChargebackDisputeResponse> localVarResponse = ChargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo(chargebackDisputeOid);
+             ApiResponse<ChargebackDisputeResponse> localVarResponse = DeleteChargebackWithHttpInfo(chargebackDisputeOid);
              return localVarResponse.Data;
         }
 
@@ -438,11 +438,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to delete.</param>
         /// <returns>ApiResponse of ChargebackDisputeResponse</returns>
-        public ApiResponse< ChargebackDisputeResponse > ChargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo (int? chargebackDisputeOid)
+        public ApiResponse< ChargebackDisputeResponse > DeleteChargebackWithHttpInfo (int? chargebackDisputeOid)
         {
             // verify the required parameter 'chargebackDisputeOid' is set
             if (chargebackDisputeOid == null)
-                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->ChargebackChargebacksChargebackDisputeOidDelete");
+                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->DeleteChargeback");
 
             var localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -493,7 +493,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ChargebackChargebacksChargebackDisputeOidDelete", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteChargeback", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -509,9 +509,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to delete.</param>
         /// <returns>Task of ChargebackDisputeResponse</returns>
-        public async System.Threading.Tasks.Task<ChargebackDisputeResponse> ChargebackChargebacksChargebackDisputeOidDeleteAsync (int? chargebackDisputeOid)
+        public async System.Threading.Tasks.Task<ChargebackDisputeResponse> DeleteChargebackAsync (int? chargebackDisputeOid)
         {
-             ApiResponse<ChargebackDisputeResponse> localVarResponse = await ChargebackChargebacksChargebackDisputeOidDeleteAsyncWithHttpInfo(chargebackDisputeOid);
+             ApiResponse<ChargebackDisputeResponse> localVarResponse = await DeleteChargebackAsyncWithHttpInfo(chargebackDisputeOid);
              return localVarResponse.Data;
 
         }
@@ -522,11 +522,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to delete.</param>
         /// <returns>Task of ApiResponse (ChargebackDisputeResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> ChargebackChargebacksChargebackDisputeOidDeleteAsyncWithHttpInfo (int? chargebackDisputeOid)
+        public async System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> DeleteChargebackAsyncWithHttpInfo (int? chargebackDisputeOid)
         {
             // verify the required parameter 'chargebackDisputeOid' is set
             if (chargebackDisputeOid == null)
-                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->ChargebackChargebacksChargebackDisputeOidDelete");
+                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->DeleteChargeback");
 
             var localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -576,7 +576,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ChargebackChargebacksChargebackDisputeOidDelete", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteChargeback", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -593,9 +593,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargebackDisputeOid">The chargeback dispute oid to retrieve.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ChargebackDisputeResponse</returns>
-        public ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidGet (int? chargebackDisputeOid, string expand = null)
+        public ChargebackDisputeResponse GetChargebackDispute (int? chargebackDisputeOid, string expand = null)
         {
-             ApiResponse<ChargebackDisputeResponse> localVarResponse = ChargebackChargebacksChargebackDisputeOidGetWithHttpInfo(chargebackDisputeOid, expand);
+             ApiResponse<ChargebackDisputeResponse> localVarResponse = GetChargebackDisputeWithHttpInfo(chargebackDisputeOid, expand);
              return localVarResponse.Data;
         }
 
@@ -606,11 +606,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargebackDisputeOid">The chargeback dispute oid to retrieve.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of ChargebackDisputeResponse</returns>
-        public ApiResponse< ChargebackDisputeResponse > ChargebackChargebacksChargebackDisputeOidGetWithHttpInfo (int? chargebackDisputeOid, string expand = null)
+        public ApiResponse< ChargebackDisputeResponse > GetChargebackDisputeWithHttpInfo (int? chargebackDisputeOid, string expand = null)
         {
             // verify the required parameter 'chargebackDisputeOid' is set
             if (chargebackDisputeOid == null)
-                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->ChargebackChargebacksChargebackDisputeOidGet");
+                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->GetChargebackDispute");
 
             var localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -662,7 +662,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ChargebackChargebacksChargebackDisputeOidGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetChargebackDispute", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -679,9 +679,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargebackDisputeOid">The chargeback dispute oid to retrieve.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ChargebackDisputeResponse</returns>
-        public async System.Threading.Tasks.Task<ChargebackDisputeResponse> ChargebackChargebacksChargebackDisputeOidGetAsync (int? chargebackDisputeOid, string expand = null)
+        public async System.Threading.Tasks.Task<ChargebackDisputeResponse> GetChargebackDisputeAsync (int? chargebackDisputeOid, string expand = null)
         {
-             ApiResponse<ChargebackDisputeResponse> localVarResponse = await ChargebackChargebacksChargebackDisputeOidGetAsyncWithHttpInfo(chargebackDisputeOid, expand);
+             ApiResponse<ChargebackDisputeResponse> localVarResponse = await GetChargebackDisputeAsyncWithHttpInfo(chargebackDisputeOid, expand);
              return localVarResponse.Data;
 
         }
@@ -693,11 +693,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargebackDisputeOid">The chargeback dispute oid to retrieve.</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (ChargebackDisputeResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> ChargebackChargebacksChargebackDisputeOidGetAsyncWithHttpInfo (int? chargebackDisputeOid, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> GetChargebackDisputeAsyncWithHttpInfo (int? chargebackDisputeOid, string expand = null)
         {
             // verify the required parameter 'chargebackDisputeOid' is set
             if (chargebackDisputeOid == null)
-                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->ChargebackChargebacksChargebackDisputeOidGet");
+                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->GetChargebackDispute");
 
             var localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -748,205 +748,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ChargebackChargebacksChargebackDisputeOidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ChargebackDisputeResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ChargebackDisputeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChargebackDisputeResponse)));
-            
-        }
-
-        /// <summary>
-        /// Update a chargeback Update a chargeback on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chargeback">Chargeback to update</param>
-        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ChargebackDisputeResponse</returns>
-        public ChargebackDisputeResponse ChargebackChargebacksChargebackDisputeOidPut (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
-        {
-             ApiResponse<ChargebackDisputeResponse> localVarResponse = ChargebackChargebacksChargebackDisputeOidPutWithHttpInfo(chargeback, chargebackDisputeOid, expand);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update a chargeback Update a chargeback on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chargeback">Chargeback to update</param>
-        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of ChargebackDisputeResponse</returns>
-        public ApiResponse< ChargebackDisputeResponse > ChargebackChargebacksChargebackDisputeOidPutWithHttpInfo (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
-        {
-            // verify the required parameter 'chargeback' is set
-            if (chargeback == null)
-                throw new ApiException(400, "Missing required parameter 'chargeback' when calling ChargebackApi->ChargebackChargebacksChargebackDisputeOidPut");
-            // verify the required parameter 'chargebackDisputeOid' is set
-            if (chargebackDisputeOid == null)
-                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->ChargebackChargebacksChargebackDisputeOidPut");
-
-            var localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json; charset=UTF-8"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (chargebackDisputeOid != null) localVarPathParams.Add("chargeback_dispute_oid", Configuration.ApiClient.ParameterToString(chargebackDisputeOid)); // path parameter
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
-            if (chargeback != null && chargeback.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(chargeback); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = chargeback; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChargebackChargebacksChargebackDisputeOidPut", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ChargebackDisputeResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ChargebackDisputeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChargebackDisputeResponse)));
-            
-        }
-
-        /// <summary>
-        /// Update a chargeback Update a chargeback on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chargeback">Chargeback to update</param>
-        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ChargebackDisputeResponse</returns>
-        public async System.Threading.Tasks.Task<ChargebackDisputeResponse> ChargebackChargebacksChargebackDisputeOidPutAsync (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
-        {
-             ApiResponse<ChargebackDisputeResponse> localVarResponse = await ChargebackChargebacksChargebackDisputeOidPutAsyncWithHttpInfo(chargeback, chargebackDisputeOid, expand);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Update a chargeback Update a chargeback on the UltraCart account. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chargeback">Chargeback to update</param>
-        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (ChargebackDisputeResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> ChargebackChargebacksChargebackDisputeOidPutAsyncWithHttpInfo (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
-        {
-            // verify the required parameter 'chargeback' is set
-            if (chargeback == null)
-                throw new ApiException(400, "Missing required parameter 'chargeback' when calling ChargebackApi->ChargebackChargebacksChargebackDisputeOidPut");
-            // verify the required parameter 'chargebackDisputeOid' is set
-            if (chargebackDisputeOid == null)
-                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->ChargebackChargebacksChargebackDisputeOidPut");
-
-            var localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json; charset=UTF-8"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (chargebackDisputeOid != null) localVarPathParams.Add("chargeback_dispute_oid", Configuration.ApiClient.ParameterToString(chargebackDisputeOid)); // path parameter
-            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
-            if (chargeback != null && chargeback.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(chargeback); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = chargeback; // byte array
-            }
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ChargebackChargebacksChargebackDisputeOidPut", localVarResponse);
+                Exception exception = ExceptionFactory("GetChargebackDispute", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -973,9 +775,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ChargebackDisputesResponse</returns>
-        public ChargebackDisputesResponse ChargebackChargebacksGet (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        public ChargebackDisputesResponse GetChargebackDisputes (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
         {
-             ApiResponse<ChargebackDisputesResponse> localVarResponse = ChargebackChargebacksGetWithHttpInfo(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
+             ApiResponse<ChargebackDisputesResponse> localVarResponse = GetChargebackDisputesWithHttpInfo(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
              return localVarResponse.Data;
         }
 
@@ -996,7 +798,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of ChargebackDisputesResponse</returns>
-        public ApiResponse< ChargebackDisputesResponse > ChargebackChargebacksGetWithHttpInfo (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        public ApiResponse< ChargebackDisputesResponse > GetChargebackDisputesWithHttpInfo (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
         {
 
             var localVarPath = "/chargeback/chargebacks";
@@ -1059,7 +861,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ChargebackChargebacksGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetChargebackDisputes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1086,9 +888,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ChargebackDisputesResponse</returns>
-        public async System.Threading.Tasks.Task<ChargebackDisputesResponse> ChargebackChargebacksGetAsync (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        public async System.Threading.Tasks.Task<ChargebackDisputesResponse> GetChargebackDisputesAsync (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
         {
-             ApiResponse<ChargebackDisputesResponse> localVarResponse = await ChargebackChargebacksGetAsyncWithHttpInfo(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
+             ApiResponse<ChargebackDisputesResponse> localVarResponse = await GetChargebackDisputesAsyncWithHttpInfo(orderId, caseNumber, status, expirationDtsStart, expirationDtsEnd, chargebackDtsStart, chargebackDtsEnd, limit, offset, since, sort, expand);
              return localVarResponse.Data;
 
         }
@@ -1110,7 +912,7 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (ChargebackDisputesResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ChargebackDisputesResponse>> ChargebackChargebacksGetAsyncWithHttpInfo (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ChargebackDisputesResponse>> GetChargebackDisputesAsyncWithHttpInfo (string orderId = null, string caseNumber = null, string status = null, string expirationDtsStart = null, string expirationDtsEnd = null, string chargebackDtsStart = null, string chargebackDtsEnd = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
         {
 
             var localVarPath = "/chargeback/chargebacks";
@@ -1172,7 +974,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ChargebackChargebacksGet", localVarResponse);
+                Exception exception = ExceptionFactory("GetChargebackDisputes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1189,9 +991,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargeback">Chargeback to insert</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ChargebackDisputeResponse</returns>
-        public ChargebackDisputeResponse ChargebackChargebacksPost (ChargebackDispute chargeback, string expand = null)
+        public ChargebackDisputeResponse InsertChargeback (ChargebackDispute chargeback, string expand = null)
         {
-             ApiResponse<ChargebackDisputeResponse> localVarResponse = ChargebackChargebacksPostWithHttpInfo(chargeback, expand);
+             ApiResponse<ChargebackDisputeResponse> localVarResponse = InsertChargebackWithHttpInfo(chargeback, expand);
              return localVarResponse.Data;
         }
 
@@ -1202,11 +1004,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargeback">Chargeback to insert</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of ChargebackDisputeResponse</returns>
-        public ApiResponse< ChargebackDisputeResponse > ChargebackChargebacksPostWithHttpInfo (ChargebackDispute chargeback, string expand = null)
+        public ApiResponse< ChargebackDisputeResponse > InsertChargebackWithHttpInfo (ChargebackDispute chargeback, string expand = null)
         {
             // verify the required parameter 'chargeback' is set
             if (chargeback == null)
-                throw new ApiException(400, "Missing required parameter 'chargeback' when calling ChargebackApi->ChargebackChargebacksPost");
+                throw new ApiException(400, "Missing required parameter 'chargeback' when calling ChargebackApi->InsertChargeback");
 
             var localVarPath = "/chargeback/chargebacks";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1265,7 +1067,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ChargebackChargebacksPost", localVarResponse);
+                Exception exception = ExceptionFactory("InsertChargeback", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1282,9 +1084,9 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargeback">Chargeback to insert</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ChargebackDisputeResponse</returns>
-        public async System.Threading.Tasks.Task<ChargebackDisputeResponse> ChargebackChargebacksPostAsync (ChargebackDispute chargeback, string expand = null)
+        public async System.Threading.Tasks.Task<ChargebackDisputeResponse> InsertChargebackAsync (ChargebackDispute chargeback, string expand = null)
         {
-             ApiResponse<ChargebackDisputeResponse> localVarResponse = await ChargebackChargebacksPostAsyncWithHttpInfo(chargeback, expand);
+             ApiResponse<ChargebackDisputeResponse> localVarResponse = await InsertChargebackAsyncWithHttpInfo(chargeback, expand);
              return localVarResponse.Data;
 
         }
@@ -1296,11 +1098,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="chargeback">Chargeback to insert</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (ChargebackDisputeResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> ChargebackChargebacksPostAsyncWithHttpInfo (ChargebackDispute chargeback, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> InsertChargebackAsyncWithHttpInfo (ChargebackDispute chargeback, string expand = null)
         {
             // verify the required parameter 'chargeback' is set
             if (chargeback == null)
-                throw new ApiException(400, "Missing required parameter 'chargeback' when calling ChargebackApi->ChargebackChargebacksPost");
+                throw new ApiException(400, "Missing required parameter 'chargeback' when calling ChargebackApi->InsertChargeback");
 
             var localVarPath = "/chargeback/chargebacks";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1358,7 +1160,205 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ChargebackChargebacksPost", localVarResponse);
+                Exception exception = ExceptionFactory("InsertChargeback", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChargebackDisputeResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ChargebackDisputeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChargebackDisputeResponse)));
+            
+        }
+
+        /// <summary>
+        /// Update a chargeback Update a chargeback on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="chargeback">Chargeback to update</param>
+        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ChargebackDisputeResponse</returns>
+        public ChargebackDisputeResponse UpdateChargeback (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
+        {
+             ApiResponse<ChargebackDisputeResponse> localVarResponse = UpdateChargebackWithHttpInfo(chargeback, chargebackDisputeOid, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a chargeback Update a chargeback on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="chargeback">Chargeback to update</param>
+        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of ChargebackDisputeResponse</returns>
+        public ApiResponse< ChargebackDisputeResponse > UpdateChargebackWithHttpInfo (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
+        {
+            // verify the required parameter 'chargeback' is set
+            if (chargeback == null)
+                throw new ApiException(400, "Missing required parameter 'chargeback' when calling ChargebackApi->UpdateChargeback");
+            // verify the required parameter 'chargebackDisputeOid' is set
+            if (chargebackDisputeOid == null)
+                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->UpdateChargeback");
+
+            var localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (chargebackDisputeOid != null) localVarPathParams.Add("chargeback_dispute_oid", Configuration.ApiClient.ParameterToString(chargebackDisputeOid)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (chargeback != null && chargeback.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(chargeback); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = chargeback; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateChargeback", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChargebackDisputeResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ChargebackDisputeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChargebackDisputeResponse)));
+            
+        }
+
+        /// <summary>
+        /// Update a chargeback Update a chargeback on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="chargeback">Chargeback to update</param>
+        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ChargebackDisputeResponse</returns>
+        public async System.Threading.Tasks.Task<ChargebackDisputeResponse> UpdateChargebackAsync (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
+        {
+             ApiResponse<ChargebackDisputeResponse> localVarResponse = await UpdateChargebackAsyncWithHttpInfo(chargeback, chargebackDisputeOid, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a chargeback Update a chargeback on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="chargeback">Chargeback to update</param>
+        /// <param name="chargebackDisputeOid">The chargeback_dispute_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (ChargebackDisputeResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ChargebackDisputeResponse>> UpdateChargebackAsyncWithHttpInfo (ChargebackDispute chargeback, int? chargebackDisputeOid, string expand = null)
+        {
+            // verify the required parameter 'chargeback' is set
+            if (chargeback == null)
+                throw new ApiException(400, "Missing required parameter 'chargeback' when calling ChargebackApi->UpdateChargeback");
+            // verify the required parameter 'chargebackDisputeOid' is set
+            if (chargebackDisputeOid == null)
+                throw new ApiException(400, "Missing required parameter 'chargebackDisputeOid' when calling ChargebackApi->UpdateChargeback");
+
+            var localVarPath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (chargebackDisputeOid != null) localVarPathParams.Add("chargeback_dispute_oid", Configuration.ApiClient.ParameterToString(chargebackDisputeOid)); // path parameter
+            if (expand != null) localVarQueryParams.Add("_expand", Configuration.ApiClient.ParameterToString(expand)); // query parameter
+            if (chargeback != null && chargeback.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(chargeback); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = chargeback; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateChargeback", localVarResponse);
                 if (exception != null) throw exception;
             }
 

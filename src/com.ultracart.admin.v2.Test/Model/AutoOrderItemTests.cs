@@ -125,6 +125,14 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'ArbitraryUnitCostRemainingOrders'
         }
         /// <summary>
+        /// Test the property 'AutoOrderItemOid'
+        /// </summary>
+        [Test]
+        public void AutoOrderItemOidTest()
+        {
+            // TODO unit test for the property 'AutoOrderItemOid'
+        }
+        /// <summary>
         /// Test the property 'Frequency'
         /// </summary>
         [Test]
@@ -203,6 +211,22 @@ namespace com.ultracart.admin.v2.Test
         public void OriginalQuantityTest()
         {
             // TODO unit test for the property 'OriginalQuantity'
+        }
+        /// <summary>
+        /// Test the property 'PaypalPayerId'
+        /// </summary>
+        [Test]
+        public void PaypalPayerIdTest()
+        {
+            // TODO unit test for the property 'PaypalPayerId'
+        }
+        /// <summary>
+        /// Test the property 'PaypalRecurringPaymentProfileId'
+        /// </summary>
+        [Test]
+        public void PaypalRecurringPaymentProfileIdTest()
+        {
+            // TODO unit test for the property 'PaypalRecurringPaymentProfileId'
         }
         /// <summary>
         /// Test the property 'PreshipmentNoticeSent'

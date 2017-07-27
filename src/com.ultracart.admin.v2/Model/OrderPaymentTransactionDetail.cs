@@ -40,39 +40,12 @@ namespace com.ultracart.admin.v2.Model
     public partial class OrderPaymentTransactionDetail :  IEquatable<OrderPaymentTransactionDetail>
     {
         /// <summary>
-        /// Type
-        /// </summary>
-        /// <value>Type</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            
-            /// <summary>
-            /// Enum  for ""
-            /// </summary>
-            [EnumMember(Value = "")]
-            ,
-            
-            /// <summary>
-            /// Enum AuthTicket for "AuthTicket"
-            /// </summary>
-            [EnumMember(Value = "AuthTicket")]
-            AuthTicket
-        }
-
-        /// <summary>
-        /// Type
-        /// </summary>
-        /// <value>Type</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum? Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="OrderPaymentTransactionDetail" /> class.
         /// </summary>
         /// <param name="Name">Name.</param>
         /// <param name="Type">Type.</param>
         /// <param name="Value">Value.</param>
-        public OrderPaymentTransactionDetail(string Name = null, TypeEnum? Type = null, string Value = null)
+        public OrderPaymentTransactionDetail(string Name = null, string Type = null, string Value = null)
         {
             this.Name = Name;
             this.Type = Type;
@@ -85,6 +58,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Name</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+        /// <summary>
+        /// Type
+        /// </summary>
+        /// <value>Type</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
         /// <summary>
         /// Value
         /// </summary>

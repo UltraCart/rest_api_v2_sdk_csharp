@@ -73,50 +73,11 @@ namespace com.ultracart.admin.v2.Model
         }
 
         /// <summary>
-        /// Whether the customer's phone number is located in the area of the billing address
-        /// </summary>
-        /// <value>Whether the customer's phone number is located in the area of the billing address</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum CustomerPhoneInBillingLocationEnum
-        {
-            
-            /// <summary>
-            /// Enum  for ""
-            /// </summary>
-            [EnumMember(Value = "")]
-            ,
-            
-            /// <summary>
-            /// Enum No for "No"
-            /// </summary>
-            [EnumMember(Value = "No")]
-            No,
-            
-            /// <summary>
-            /// Enum NotFound for "NotFound"
-            /// </summary>
-            [EnumMember(Value = "NotFound")]
-            NotFound,
-            
-            /// <summary>
-            /// Enum Yes for "Yes"
-            /// </summary>
-            [EnumMember(Value = "Yes")]
-            Yes
-        }
-
-        /// <summary>
         /// Whether the BIN (first six digits) matched the country
         /// </summary>
         /// <value>Whether the BIN (first six digits) matched the country</value>
         [DataMember(Name="bin_match", EmitDefaultValue=false)]
         public BinMatchEnum? BinMatch { get; set; }
-        /// <summary>
-        /// Whether the customer's phone number is located in the area of the billing address
-        /// </summary>
-        /// <value>Whether the customer's phone number is located in the area of the billing address</value>
-        [DataMember(Name="customer_phone_in_billing_location", EmitDefaultValue=false)]
-        public CustomerPhoneInBillingLocationEnum? CustomerPhoneInBillingLocation { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderFraudScore" /> class.
         /// </summary>
@@ -140,7 +101,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ShipForwarder">True if the address is a known ship forwarding company.</param>
         /// <param name="SpamScore">Likelihood of the email address being associated with a spammer.</param>
         /// <param name="TransparentProxy">True if the IP address that placed the order is a transparent proxy server.</param>
-        public OrderFraudScore(bool? AnonymousProxy = null, BinMatchEnum? BinMatch = null, bool? CarderEmail = null, string CountryCode = null, bool? CountryMatch = null, CustomerPhoneInBillingLocationEnum? CustomerPhoneInBillingLocation = null, int? DistanceKm = null, bool? FreeEmail = null, bool? HighRiskCountry = null, string IpCity = null, string IpIsp = null, string IpLatitude = null, string IpLongitude = null, string IpOrg = null, string IpRegion = null, decimal? ProxyScore = null, decimal? Score = null, bool? ShipForwarder = null, decimal? SpamScore = null, bool? TransparentProxy = null)
+        public OrderFraudScore(bool? AnonymousProxy = null, BinMatchEnum? BinMatch = null, bool? CarderEmail = null, string CountryCode = null, bool? CountryMatch = null, string CustomerPhoneInBillingLocation = null, int? DistanceKm = null, bool? FreeEmail = null, bool? HighRiskCountry = null, string IpCity = null, string IpIsp = null, string IpLatitude = null, string IpLongitude = null, string IpOrg = null, string IpRegion = null, decimal? ProxyScore = null, decimal? Score = null, bool? ShipForwarder = null, decimal? SpamScore = null, bool? TransparentProxy = null)
         {
             this.AnonymousProxy = AnonymousProxy;
             this.BinMatch = BinMatch;
@@ -188,6 +149,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Country code matches BIN country</value>
         [DataMember(Name="country_match", EmitDefaultValue=false)]
         public bool? CountryMatch { get; set; }
+        /// <summary>
+        /// Whether the customer&#39;s phone number is located in the area of the billing address
+        /// </summary>
+        /// <value>Whether the customer&#39;s phone number is located in the area of the billing address</value>
+        [DataMember(Name="customer_phone_in_billing_location", EmitDefaultValue=false)]
+        public string CustomerPhoneInBillingLocation { get; set; }
         /// <summary>
         /// Distance in kilometers between the IP address and the BIN
         /// </summary>

@@ -47,13 +47,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CreditCard">CreditCard.</param>
         /// <param name="PaymentMethod">Payment method.</param>
         /// <param name="PurchaseOrder">PurchaseOrder.</param>
-        public CartPayment(CartPaymentAmazon Amazon = null, CartPaymentCheck Check = null, CartPaymentCreditCard CreditCard = null, string PaymentMethod = null, CartPaymentPurchaseOrder PurchaseOrder = null)
+        /// <param name="RtgCode">Rotating transaction gateway code.</param>
+        public CartPayment(CartPaymentAmazon Amazon = null, CartPaymentCheck Check = null, CartPaymentCreditCard CreditCard = null, string PaymentMethod = null, CartPaymentPurchaseOrder PurchaseOrder = null, string RtgCode = null)
         {
             this.Amazon = Amazon;
             this.Check = Check;
             this.CreditCard = CreditCard;
             this.PaymentMethod = PaymentMethod;
             this.PurchaseOrder = PurchaseOrder;
+            this.RtgCode = RtgCode;
         }
         
         /// <summary>
@@ -83,6 +85,12 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="purchase_order", EmitDefaultValue=false)]
         public CartPaymentPurchaseOrder PurchaseOrder { get; set; }
         /// <summary>
+        /// Rotating transaction gateway code
+        /// </summary>
+        /// <value>Rotating transaction gateway code</value>
+        [DataMember(Name="rtg_code", EmitDefaultValue=false)]
+        public string RtgCode { get; set; }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +103,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreditCard: ").Append(CreditCard).Append("\n");
             sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
             sb.Append("  PurchaseOrder: ").Append(PurchaseOrder).Append("\n");
+            sb.Append("  RtgCode: ").Append(RtgCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +164,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PurchaseOrder == other.PurchaseOrder ||
                     this.PurchaseOrder != null &&
                     this.PurchaseOrder.Equals(other.PurchaseOrder)
+                ) && 
+                (
+                    this.RtgCode == other.RtgCode ||
+                    this.RtgCode != null &&
+                    this.RtgCode.Equals(other.RtgCode)
                 );
         }
 
@@ -179,6 +193,8 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.PaymentMethod.GetHashCode();
                 if (this.PurchaseOrder != null)
                     hash = hash * 59 + this.PurchaseOrder.GetHashCode();
+                if (this.RtgCode != null)
+                    hash = hash * 59 + this.RtgCode.GetHashCode();
                 return hash;
             }
         }

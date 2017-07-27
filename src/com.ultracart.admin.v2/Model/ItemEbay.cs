@@ -40,45 +40,6 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemEbay :  IEquatable<ItemEbay>
     {
         /// <summary>
-        /// The type of e-Bay listing
-        /// </summary>
-        /// <value>The type of e-Bay listing</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ListingTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum  for ""
-            /// </summary>
-            [EnumMember(Value = "")]
-            ,
-            
-            /// <summary>
-            /// Enum Auction for "Auction"
-            /// </summary>
-            [EnumMember(Value = "Auction")]
-            Auction,
-            
-            /// <summary>
-            /// Enum Fixed for "Fixed"
-            /// </summary>
-            [EnumMember(Value = "Fixed")]
-            Fixed,
-            
-            /// <summary>
-            /// Enum Store for "Store"
-            /// </summary>
-            [EnumMember(Value = "Store")]
-            Store
-        }
-
-        /// <summary>
-        /// The type of e-Bay listing
-        /// </summary>
-        /// <value>The type of e-Bay listing</value>
-        [DataMember(Name="listing_type", EmitDefaultValue=false)]
-        public ListingTypeEnum? ListingType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="ItemEbay" /> class.
         /// </summary>
         /// <param name="Active">True if the item is active for listing.</param>
@@ -150,7 +111,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="StartTime">Date/time of the auction start.</param>
         /// <param name="Status">Status of the item&#39;s listing.</param>
         /// <param name="TargetDispatchTimeMax">Typical number of days it will take to ship the item.</param>
-        public ItemEbay(bool? Active = null, int? CategoryId = null, List<ItemEbayCategorySpecific> CategorySpecifics = null, string ConditionDescription = null, int? ConditionId = null, int? ConsecutiveFailures = null, long? CustomCategory1 = null, long? CustomCategory2 = null, int? DispatchTimeMax = null, decimal? Domestic1AdditionalCost = null, decimal? Domestic1FirstCost = null, decimal? Domestic2AdditionalCost = null, decimal? Domestic2FirstCost = null, decimal? Domestic3AdditionalCost = null, decimal? Domestic3FirstCost = null, decimal? Domestic4AdditionalCost = null, decimal? Domestic4FirstCost = null, string EbayAuctionId = null, int? EbaySpecificInventory = null, string EbayTemplateName = null, int? EbayTemplateOid = null, string EndTime = null, bool? FreeShipping = null, string FreeShippingMethod = null, decimal? International1AdditionalCost = null, decimal? International1FirstCost = null, decimal? International2AdditionalCost = null, decimal? International2FirstCost = null, decimal? International3AdditionalCost = null, decimal? International3FirstCost = null, decimal? International4AdditionalCost = null, decimal? International4FirstCost = null, string LastStatusDts = null, int? ListedDispatchTimeMax = null, int? ListedEbayTemplateOid = null, string ListingDts = null, string ListingDuration = null, decimal? ListingPrice = null, decimal? ListingPriceOverride = null, ListingTypeEnum? ListingType = null, ItemEbayMarketPlaceAnalysis MarketplaceAnalysis = null, bool? MarketplaceAnalysisPerform = null, decimal? MarketplaceFinalValueFeePercentage = null, string MarketplaceLastCheckDts = null, bool? MarketplaceLowest = null, bool? MarketplaceMapViolation = null, decimal? MarketplaceMultiplier = null, decimal? MarketplaceOtherPrice = null, string MarketplaceOtherSeller = null, decimal? MarketplaceOtherShipping = null, decimal? MarketplaceOtherTotal = null, decimal? MarketplaceOurAdditionalProfitPotential = null, decimal? MarketplaceOurPrice = null, decimal? MarketplaceOurProfit = null, decimal? MarketplaceOurShipping = null, decimal? MarketplaceOurTotal = null, decimal? MarketplaceOverhead = null, bool? MarketplaceProfitable = null, string NextAttemptDts = null, string NextListingDuration = null, bool? NoPromotionalShipping = null, decimal? PackagingHandlingCosts = null, string PreviousEbayAuctionId = null, int? Quantity = null, decimal? ReservePrice = null, string SendDimensionsAndWeight = null, string StartTime = null, string Status = null, int? TargetDispatchTimeMax = null)
+        public ItemEbay(bool? Active = null, int? CategoryId = null, List<ItemEbayCategorySpecific> CategorySpecifics = null, string ConditionDescription = null, int? ConditionId = null, int? ConsecutiveFailures = null, long? CustomCategory1 = null, long? CustomCategory2 = null, int? DispatchTimeMax = null, decimal? Domestic1AdditionalCost = null, decimal? Domestic1FirstCost = null, decimal? Domestic2AdditionalCost = null, decimal? Domestic2FirstCost = null, decimal? Domestic3AdditionalCost = null, decimal? Domestic3FirstCost = null, decimal? Domestic4AdditionalCost = null, decimal? Domestic4FirstCost = null, string EbayAuctionId = null, int? EbaySpecificInventory = null, string EbayTemplateName = null, int? EbayTemplateOid = null, string EndTime = null, bool? FreeShipping = null, string FreeShippingMethod = null, decimal? International1AdditionalCost = null, decimal? International1FirstCost = null, decimal? International2AdditionalCost = null, decimal? International2FirstCost = null, decimal? International3AdditionalCost = null, decimal? International3FirstCost = null, decimal? International4AdditionalCost = null, decimal? International4FirstCost = null, string LastStatusDts = null, int? ListedDispatchTimeMax = null, int? ListedEbayTemplateOid = null, string ListingDts = null, string ListingDuration = null, decimal? ListingPrice = null, decimal? ListingPriceOverride = null, string ListingType = null, ItemEbayMarketPlaceAnalysis MarketplaceAnalysis = null, bool? MarketplaceAnalysisPerform = null, decimal? MarketplaceFinalValueFeePercentage = null, string MarketplaceLastCheckDts = null, bool? MarketplaceLowest = null, bool? MarketplaceMapViolation = null, decimal? MarketplaceMultiplier = null, decimal? MarketplaceOtherPrice = null, string MarketplaceOtherSeller = null, decimal? MarketplaceOtherShipping = null, decimal? MarketplaceOtherTotal = null, decimal? MarketplaceOurAdditionalProfitPotential = null, decimal? MarketplaceOurPrice = null, decimal? MarketplaceOurProfit = null, decimal? MarketplaceOurShipping = null, decimal? MarketplaceOurTotal = null, decimal? MarketplaceOverhead = null, bool? MarketplaceProfitable = null, string NextAttemptDts = null, string NextListingDuration = null, bool? NoPromotionalShipping = null, decimal? PackagingHandlingCosts = null, string PreviousEbayAuctionId = null, int? Quantity = null, decimal? ReservePrice = null, string SendDimensionsAndWeight = null, string StartTime = null, string Status = null, int? TargetDispatchTimeMax = null)
         {
             this.Active = Active;
             this.CategoryId = CategoryId;
@@ -457,6 +418,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The price to list the item at if different than the regular UltraCart item price</value>
         [DataMember(Name="listing_price_override", EmitDefaultValue=false)]
         public decimal? ListingPriceOverride { get; set; }
+        /// <summary>
+        /// The type of e-Bay listing
+        /// </summary>
+        /// <value>The type of e-Bay listing</value>
+        [DataMember(Name="listing_type", EmitDefaultValue=false)]
+        public string ListingType { get; set; }
         /// <summary>
         /// Gets or Sets MarketplaceAnalysis
         /// </summary>

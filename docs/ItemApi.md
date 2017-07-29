@@ -34,13 +34,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new ItemApi();
             var merchantItemOid = 56;  // int? | The item oid to delete.
@@ -102,13 +101,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new ItemApi();
             var merchantItemOid = 56;  // int? | The item oid to retrieve.
@@ -175,13 +173,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new ItemApi();
             var parentCategoryId = 56;  // int? | The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 = root (optional) 
@@ -258,13 +255,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new ItemApi();
             var item = new Item(); // Item | Item to create
@@ -331,13 +327,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new ItemApi();
             var item = new Item(); // Item | Item to update
@@ -406,13 +401,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new ItemApi();
             var file = new System.IO.Stream(); // System.IO.Stream | File to upload

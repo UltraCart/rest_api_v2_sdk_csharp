@@ -33,13 +33,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new FulfillmentApi();
             var distributionCenterCode = distributionCenterCode_example;  // string | Distribution center code
@@ -64,7 +63,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **distributionCenterCode** | **string**| Distribution center code | 
- **orderIds** | **List<string>**| Orders to acknowledge receipt of (limit 100) | 
+ **orderIds** | **List&lt;string&gt;**| Orders to acknowledge receipt of (limit 100) | 
 
 ### Return type
 
@@ -103,13 +102,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new FulfillmentApi();
             var distributionCenterCode = distributionCenterCode_example;  // string | Distribution center code
@@ -172,13 +170,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new FulfillmentApi();
 
@@ -237,13 +234,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new FulfillmentApi();
             var distributionCenterCode = distributionCenterCode_example;  // string | Distribution center code
@@ -268,7 +264,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **distributionCenterCode** | **string**| Distribution center code | 
- **shipments** | [**List<FulfillmentShipment>**](FulfillmentShipment.md)| Orders to mark shipped | 
+ **shipments** | [**List&lt;FulfillmentShipment&gt;**](FulfillmentShipment.md)| Orders to mark shipped | 
 
 ### Return type
 
@@ -307,13 +303,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new FulfillmentApi();
             var distributionCenterCode = distributionCenterCode_example;  // string | Distribution center code
@@ -338,7 +333,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **distributionCenterCode** | **string**| Distribution center code | 
- **inventories** | [**List<FulfillmentInventory>**](FulfillmentInventory.md)| Inventory updates (limit 500) | 
+ **inventories** | [**List&lt;FulfillmentInventory&gt;**](FulfillmentInventory.md)| Inventory updates (limit 500) | 
 
 ### Return type
 

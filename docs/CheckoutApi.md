@@ -42,17 +42,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var cart = new Cart(); // Cart | Cart
@@ -115,13 +114,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var finalizeRequest = new CartFinalizeOrderRequest(); // CartFinalizeOrderRequest | Finalize request
@@ -184,17 +182,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
@@ -257,17 +254,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var cartId = cartId_example;  // string | Cart ID to retrieve
@@ -332,17 +328,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var returnCode = returnCode_example;  // string | Return code to lookup cart ID by
@@ -407,17 +402,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var handoffRequest = new CheckoutHandoffRequest(); // CheckoutHandoffRequest | Handoff request
@@ -482,17 +476,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var loginRequest = new CartProfileLoginRequest(); // CartProfileLoginRequest | Login request
@@ -557,17 +550,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var cart = new Cart(); // Cart | Cart
@@ -632,17 +624,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var registerRequest = new CartProfileRegisterRequest(); // CartProfileRegisterRequest | Register request
@@ -707,17 +698,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var cart = new Cart(); // Cart | Cart
@@ -782,17 +772,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var itemId = itemId_example;  // string | Item ID to retrieve related items for
@@ -859,13 +848,12 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var browserKeyRequest = new CheckoutSetupBrowserKeyRequest(); // CheckoutSetupBrowserKeyRequest | Setup browser key request
@@ -928,17 +916,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var cart = new Cart(); // Cart | Cart
@@ -1003,17 +990,16 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-browser-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-browser-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
             // Configure OAuth2 access token for authorization: ultraCartOauth
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
             var apiInstance = new CheckoutApi();
             var validationRequest = new CartValidationRequest(); // CartValidationRequest | Validation request

@@ -160,12 +160,6 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Uom (string) maxLength
-            if(this.Uom != null && this.Uom.Length > 2)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Uom, length must be less than 2.", new [] { "Uom" });
-            }
-
             yield break;
         }
     }

@@ -335,22 +335,10 @@ namespace com.ultracart.admin.v2.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BankAccountNumber, length must be less than 50.", new [] { "BankAccountNumber" });
             }
 
-            // BankAccountType (string) maxLength
-            if(this.BankAccountType != null && this.BankAccountType.Length > 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BankAccountType, length must be less than 8.", new [] { "BankAccountType" });
-            }
-
             // BankName (string) maxLength
             if(this.BankName != null && this.BankName.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BankName, length must be less than 50.", new [] { "BankName" });
-            }
-
-            // BankOwnerType (string) maxLength
-            if(this.BankOwnerType != null && this.BankOwnerType.Length > 8)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BankOwnerType, length must be less than 8.", new [] { "BankOwnerType" });
             }
 
             // CustomerTaxId (string) maxLength

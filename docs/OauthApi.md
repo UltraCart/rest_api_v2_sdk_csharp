@@ -30,16 +30,41 @@ namespace Example
     {
         public void main()
         {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
             // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
 
             var apiInstance = new OauthApi();
             var clientId = clientId_example;  // string | The OAuth application client_id.
@@ -110,16 +135,41 @@ namespace Example
     {
         public void main()
         {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
             // Configure API key authorization: ultraCartBrowserApiKey
-            Configuration.Default.AddApiKey("x-ultracart-browser-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-browser-key", "Bearer");
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
             // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
             // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
 
             var apiInstance = new OauthApi();
             var clientId = clientId_example;  // string | The OAuth application client_id.

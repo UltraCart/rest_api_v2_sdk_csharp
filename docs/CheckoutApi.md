@@ -27,9 +27,9 @@ Method | HTTP request | Description
 City/State for Zip
 
 Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -94,6 +94,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -124,9 +125,9 @@ Name | Type | Description  | Notes
 Finalize Order
 
 Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -182,6 +183,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -212,9 +214,9 @@ Name | Type | Description  | Notes
 Get cart
 
 If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -279,6 +281,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -309,9 +312,9 @@ Name | Type | Description  | Notes
 Get cart (by cart id)
 
 Get a cart specified by the cart_id parameter. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -377,6 +380,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -408,9 +412,9 @@ Name | Type | Description  | Notes
 Get cart (by return code)
 
 Get a cart specified by the return code parameter. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -476,6 +480,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -507,9 +512,9 @@ Name | Type | Description  | Notes
 Handoff cart
 
 Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -575,6 +580,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -606,9 +612,9 @@ Name | Type | Description  | Notes
 Profile login
 
 Login in to the customer profile specified by cart.billing.email and password 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -674,6 +680,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -705,9 +712,9 @@ Name | Type | Description  | Notes
 Profile logout
 
 Log the cart out of the current profile.  No error will occur if they are not logged in. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -773,6 +780,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -804,9 +812,9 @@ Name | Type | Description  | Notes
 Profile registration
 
 Register a new customer profile.  Requires the cart.billing object to be populated along with the password. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -872,6 +880,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -903,9 +912,9 @@ Name | Type | Description  | Notes
 Related items
 
 Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -971,6 +980,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -1002,9 +1012,9 @@ Name | Type | Description  | Notes
 Related items (specific item)
 
 Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -1071,6 +1081,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -1103,9 +1114,9 @@ Name | Type | Description  | Notes
 Setup Browser Application
 
 Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -1161,6 +1172,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -1191,9 +1203,9 @@ Name | Type | Description  | Notes
 Update cart
 
 Update the cart. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -1259,6 +1271,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -1290,9 +1303,9 @@ Name | Type | Description  | Notes
 Validate
 
 Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -1358,6 +1371,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters

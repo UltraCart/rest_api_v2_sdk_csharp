@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **CustomerProfileCreditCardId** | **int?** | Unique identifier for this stored card | [optional] 
 **LastUsedDate** | **string** | Last used | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

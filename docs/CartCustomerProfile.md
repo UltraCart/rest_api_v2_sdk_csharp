@@ -25,5 +25,6 @@ Name | Type | Description | Notes
 **TaxExempt** | **bool?** | True if this profile is exempt from sales tax | [optional] 
 **UpsAccountNumber** | **string** | UPS account number on file | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

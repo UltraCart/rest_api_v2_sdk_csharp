@@ -18,9 +18,9 @@ Method | HTTP request | Description
 Acknowledge receipt of orders.
 
 Acknowledge receipt of orders so that they are removed from the fulfillment queue.  This method must be called after receiving and order (via webhook) or retrieving (via retrieve orders method). 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -76,6 +76,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -107,9 +108,9 @@ void (empty response body)
 Retrieve orders queued up for this distribution center.
 
 Retrieves up to 100 orders that are queued up in this distribution center.  You must acknowledge them before additional new orders will be returned.  There is NO record chunking.  You'll get the same 100 records again and again until you acknowledge orders.  The orders that are returned contain only items for this distribution center and are by default completely expanded with billing, buysafe, channel_partner, checkout, coupons, customer_profile, edi, gift, gift_certificate, internal, items, payment, shipping, summary, taxes. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -165,6 +166,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -195,9 +197,9 @@ Name | Type | Description  | Notes
 Retrieve distribution centers
 
 Retrieves the distribution centers that this user has access to. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -252,6 +254,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -279,9 +282,9 @@ This endpoint does not need any parameter.
 Mark orders as shipped
 
 Store the tracking information and mark the order shipped for this distribution center. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -337,6 +340,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -368,9 +372,9 @@ void (empty response body)
 Update inventory
 
 Update the inventory for items associated with this distribution center 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -426,6 +430,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters

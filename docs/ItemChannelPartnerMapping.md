@@ -21,5 +21,6 @@ Name | Type | Description | Notes
 **VendorNumber** | **string** | Vendor number (EDI only) | [optional] 
 **VendorStyleNumber** | **string** | Vendor style number (EDI only) | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

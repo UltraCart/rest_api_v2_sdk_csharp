@@ -20,5 +20,6 @@ Name | Type | Description | Notes
 **WebhookOid** | **int?** | The object identifier for this webhook | [optional] 
 **WebhookUrl** | **string** | The URL to deliver events to.  Must be HTTPS for customer related information. | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -90,7 +90,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum LeastCostRouting for "Least Cost Routing"
             /// </summary>
             [EnumMember(Value = "Least Cost Routing")]
-            LeastCostRouting
+            LeastCostRouting,
+            
+            /// <summary>
+            /// Enum Unknown for "Unknown"
+            /// </summary>
+            [EnumMember(Value = "Unknown")]
+            Unknown
         }
 
         /// <summary>

@@ -21,5 +21,6 @@ Name | Type | Description | Notes
 **SaleStart** | **string** | Sale start | [optional] 
 **Tiers** | [**List&lt;ItemPricingTier&gt;**](ItemPricingTier.md) | Tiers | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

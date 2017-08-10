@@ -73,5 +73,6 @@ Name | Type | Description | Notes
 **Status** | **string** | Status of the item&#39;s listing | [optional] 
 **TargetDispatchTimeMax** | **int?** | Typical number of days it will take to ship the item | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

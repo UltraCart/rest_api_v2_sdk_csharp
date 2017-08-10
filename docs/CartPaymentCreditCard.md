@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **CustomerProfileCreditCardId** | **int?** | ID of the stored credit card to use | [optional] 
 **StoreCreditCard** | **bool?** | True if the customer wants to store the card on their profile for future re-use | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **Terms** | **string** | Terms for purchasing this item | [optional] 
 **TermsTranslatedTextInstanceOid** | **int?** | Terms translated text instance identifier | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

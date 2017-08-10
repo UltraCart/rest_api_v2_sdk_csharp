@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **CreditCardTypes** | **List&lt;string&gt;** | Available credit card types | [optional] 
 **HostedFieldsShoppingCartToken** | **string** | The shoppingCartToken needed for proper initialization of hosted fields collection | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

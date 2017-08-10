@@ -16,9 +16,9 @@ Method | HTTP request | Description
 Retrieve an auto order
 
 Retrieves a single auto order using the specified auto order oid. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -75,6 +75,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -106,9 +107,9 @@ Name | Type | Description  | Notes
 Retrieve auto orders
 
 Retrieves auto orders from the account.  If no parameters are specified, all auto orders will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -186,6 +187,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -238,9 +240,9 @@ Name | Type | Description  | Notes
 Update an auto order
 
 Update an auto order on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -298,6 +300,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters

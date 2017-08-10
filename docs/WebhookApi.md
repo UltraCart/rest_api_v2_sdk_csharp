@@ -20,9 +20,9 @@ Method | HTTP request | Description
 Delete a webhook
 
 Delete a webhook on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -77,6 +77,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -107,9 +108,9 @@ void (empty response body)
 Retrieve an individual log
 
 Retrieves an individual log for a webhook given the webhook oid the request id. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -166,6 +167,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -197,9 +199,9 @@ Name | Type | Description  | Notes
 Retrieve the log summaries
 
 Retrieves the log summary information for a given webhook.  This is useful for displaying all the various logs that can be viewed. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -258,6 +260,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -291,9 +294,9 @@ Name | Type | Description  | Notes
 Retrieve webhooks
 
 Retrieves the webhooks associated with this application. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -352,6 +355,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -385,9 +389,9 @@ Name | Type | Description  | Notes
 Add a webhook
 
 Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -444,6 +448,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -475,9 +480,9 @@ Name | Type | Description  | Notes
 Resend events to the webhook endpoint.
 
 This method will resend events to the webhook endpoint.  This method can be used for example to send all the existing items on an account to a webhook. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -534,6 +539,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -565,9 +571,9 @@ Name | Type | Description  | Notes
 Update a webhook
 
 Update a webhook on the account 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -625,6 +631,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters

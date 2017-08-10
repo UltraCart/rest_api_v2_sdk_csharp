@@ -26,5 +26,6 @@ Name | Type | Description | Notes
 **RebillValue** | **decimal?** | The value of the rebills of this item | [optional] 
 **RemainingRepeatCount** | **int?** | The number of rebills remaining before this item is complete | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

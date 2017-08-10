@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **MoreInfo** | **string** | Additional information often a link to additional documentation | [optional] 
 **UserMessage** | **string** | An end-user friendly message suitable for display to the customer | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

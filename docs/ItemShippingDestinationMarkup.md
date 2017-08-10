@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **ShippingMethod** | **string** | Shipping method | [optional] 
 **State** | **string** | State | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

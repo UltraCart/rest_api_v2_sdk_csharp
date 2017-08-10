@@ -29,5 +29,6 @@ Name | Type | Description | Notes
 **TrackingNumbers** | **List&lt;string&gt;** | Tracking numbers | [optional] 
 **Weight** | [**Weight**](Weight.md) |  | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

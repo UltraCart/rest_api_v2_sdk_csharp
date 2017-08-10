@@ -36,5 +36,6 @@ Name | Type | Description | Notes
 **Summary** | [**OrderSummary**](OrderSummary.md) |  | [optional] 
 **Taxes** | [**OrderTaxes**](OrderTaxes.md) |  | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

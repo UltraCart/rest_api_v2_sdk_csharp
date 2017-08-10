@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **StoreCompleted** | **bool?** | True the order in the completed stage | [optional] 
 **StoreIfPaymentDeclines** | **bool?** | Store the order in accounts receivable if the payment declines | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

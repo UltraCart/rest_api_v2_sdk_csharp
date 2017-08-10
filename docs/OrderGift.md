@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **GiftWrapRefunded** | [**Currency**](Currency.md) |  | [optional] 
 **GiftWrapTitle** | **string** | Title of the gift wrap that the customer wants used | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -51,5 +51,6 @@ Name | Type | Description | Notes
 **SpecialProductType** | **string** | Special product type (USPS Media Mail) | [optional] 
 **TrackInventory** | **bool?** | Track inventory | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

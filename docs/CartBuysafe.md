@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **CartDisplayText** | **string** | Recommend text to display to the customer | [optional] 
 **CartDisplayUrl** | **string** | URL associated with the recommended text | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

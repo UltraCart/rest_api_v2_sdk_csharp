@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **OnePerCustomer** | **bool?** | One per customer | [optional] 
 **PurchaseSeparately** | **bool?** | Purchase separately | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

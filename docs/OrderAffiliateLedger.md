@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **TransactionPercentage** | **decimal?** | The percentage earned on the transaction | [optional] 
 **TransactionState** | **string** | The state of the transaction | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

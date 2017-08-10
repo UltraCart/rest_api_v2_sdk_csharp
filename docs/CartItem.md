@@ -33,5 +33,6 @@ Name | Type | Description | Notes
 **Variations** | [**List&lt;CartItemVariationSelection&gt;**](CartItemVariationSelection.md) | Variations | [optional] 
 **ViewUrl** | **string** | URL to view the product on the site | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

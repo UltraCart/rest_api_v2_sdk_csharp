@@ -27,5 +27,6 @@ Name | Type | Description | Notes
 **Status** | **string** | Status | [optional] 
 **WebsiteUrl** | **string** | Website URL | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

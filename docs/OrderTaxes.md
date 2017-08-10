@@ -16,5 +16,6 @@ Name | Type | Description | Notes
 **TaxRateState** | **decimal?** | Tax rate at the state level | [optional] 
 **TaxStateAccountingCode** | **string** | QuickBOoks tax state code | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

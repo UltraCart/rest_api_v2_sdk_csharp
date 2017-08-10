@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **DriversLicenseNumber** | **string** | Driver license number (masked to last 4) | [optional] 
 **DriversLicenseState** | **string** | Driver license state | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

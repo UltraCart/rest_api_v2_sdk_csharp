@@ -48,5 +48,6 @@ Name | Type | Description | Notes
 **UpsAccountNumber** | **string** | UPS account number | [optional] 
 **WebsiteUrl** | **string** | Website url | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

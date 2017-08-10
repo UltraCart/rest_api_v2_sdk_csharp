@@ -23,5 +23,6 @@ Name | Type | Description | Notes
 **StateRegion** | **string** | State/Region | [optional] 
 **Title** | **string** | Title | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

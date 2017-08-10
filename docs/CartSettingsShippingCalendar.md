@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **Require** | **bool?** | True if the customer is required to select a date | [optional] 
 **Show** | **bool?** | True if this calendar should be shown to the customer | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

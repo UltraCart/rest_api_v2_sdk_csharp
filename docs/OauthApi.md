@@ -15,9 +15,9 @@ Method | HTTP request | Description
 Exchange authorization code for access token.
 
 The final leg in the OAuth process which exchanges the specified access token for the access code needed to make API calls. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -86,6 +86,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -120,9 +121,9 @@ Name | Type | Description  | Notes
 Revoke this OAuth application.
 
 Revokes the OAuth application associated with the specified client_id and token. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -188,6 +189,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters

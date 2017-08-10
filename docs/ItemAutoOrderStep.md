@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 **SubscribeEmailListOid** | **int?** | Email list identifier to subscribe the customer to when this rebill occurs | [optional] 
 **Type** | **string** | Type of step (item or pause) | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

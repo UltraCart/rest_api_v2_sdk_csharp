@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **SupportsQuoteRequest** | **bool?** | True if quote requests payments are available on this order | [optional] 
 **SupportsWireTransfer** | **bool?** | True if wire transfer payments are available on this order | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

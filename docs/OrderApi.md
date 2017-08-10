@@ -20,9 +20,9 @@ Method | HTTP request | Description
 Cancel an order
 
 Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -78,6 +78,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -108,9 +109,9 @@ Name | Type | Description  | Notes
 Delete an order
 
 Delete an order on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -165,6 +166,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -195,9 +197,9 @@ void (empty response body)
 Retrieve an order
 
 Retrieves a single order using the specified order id. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -254,6 +256,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -285,9 +288,9 @@ Name | Type | Description  | Notes
 Retrieve orders
 
 Retrieves a group of orders from the account.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -373,6 +376,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -433,9 +437,9 @@ Name | Type | Description  | Notes
 Resend receipt
 
 Resend the receipt for an order on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -491,6 +495,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -521,9 +526,9 @@ Name | Type | Description  | Notes
 Resend shipment confirmation
 
 Resend shipment confirmation for an order on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -579,6 +584,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -609,9 +615,9 @@ Name | Type | Description  | Notes
 Update an order
 
 Update a new order on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -669,6 +675,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters

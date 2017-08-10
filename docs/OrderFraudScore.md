@@ -24,5 +24,6 @@ Name | Type | Description | Notes
 **SpamScore** | **decimal?** | Likelihood of the email address being associated with a spammer | [optional] 
 **TransparentProxy** | **bool?** | True if the IP address that placed the order is a transparent proxy server | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

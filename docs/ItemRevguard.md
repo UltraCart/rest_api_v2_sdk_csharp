@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **RevguardIvrPromptGroup** | **long?** | IVR prompt group | [optional] 
 **RevguardWebPromptGroup** | **long?** | Web prompt group | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **RemainingDownloads** | **int?** | Remaining number of downloads | [optional] 
 **Url** | **string** | URL that the customer can click to download the specific digital item | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

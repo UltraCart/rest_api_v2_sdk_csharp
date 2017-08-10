@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **FinalizeAfterMinutes** | **int?** | The amount of inactivity in minutes after which the cart should be finalized into an order.  This will calculate the finalize_after_dts field. | [optional] 
 **UpsellPathCode** | **string** | Upsell path code | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

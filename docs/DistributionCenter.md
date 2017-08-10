@@ -37,5 +37,6 @@ Name | Type | Description | Notes
 **State** | **string** | State of the distribution center | [optional] 
 **Transport** | **string** | Transport mechanism for this distribution center | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **GiftWrapCost** | [**Currency**](Currency.md) |  | [optional] 
 **GiftWrapTitle** | **string** | Title of the selected gift wrap | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

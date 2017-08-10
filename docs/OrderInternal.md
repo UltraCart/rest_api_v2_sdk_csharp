@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **RefundByUser** | **string** | User that issued the refund | [optional] 
 **SalesRepCode** | **string** | Sales rep code associated with the order | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

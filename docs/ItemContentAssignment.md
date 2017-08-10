@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **SortOrder** | **int?** | Sort order (optional) | [optional] 
 **UrlPart** | **string** | URL part if the item id is not used | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

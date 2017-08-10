@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **Success** | **bool?** | True if the delivery was successful | [optional] 
 **Uri** | **string** | URI of the webhook delivered to | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

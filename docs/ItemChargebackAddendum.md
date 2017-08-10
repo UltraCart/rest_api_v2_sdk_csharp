@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **FileSize** | **int?** | Size of the file | [optional] 
 **Pages** | **int?** | Number of pages | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 **ShippingMethodValidity** | **string** | Shipping method validity | [optional] 
 **SignatureRequired** | **bool?** | Signature required | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -18,5 +18,6 @@ Name | Type | Description | Notes
 **Type** | **string** | Type of option | [optional] 
 **Values** | [**List&lt;ItemOptionValue&gt;**](ItemOptionValue.md) | Values | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

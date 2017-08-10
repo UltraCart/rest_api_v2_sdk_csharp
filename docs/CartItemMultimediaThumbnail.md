@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **Url** | **string** | URL for the thumbnail | [optional] 
 **Width** | **int?** | Width in pixels | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

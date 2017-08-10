@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **ChannelPartnerOid** | **int?** | Channel partner object identifier | [optional] 
 **ChannelPartnerOrderId** | **string** | The order ID assigned by the channel partner for this order | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

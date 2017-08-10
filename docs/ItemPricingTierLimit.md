@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **IndividualOrderLimit** | **int?** | Individual order limit | [optional] 
 **MultipleQuantity** | **int?** | Multiple quantity | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

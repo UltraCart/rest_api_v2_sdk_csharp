@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **ActivationCodeType** | **string** | Type of activation code | [optional] 
 **DigitalItems** | [**List&lt;ItemDigitalItem&gt;**](ItemDigitalItem.md) | Digital items that customer can download when this item is purchased | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

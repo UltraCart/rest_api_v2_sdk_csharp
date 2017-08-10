@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **DisplayOrder** | **int?** | Display order of the option value | [optional] 
 **Value** | **string** | Value of the option the customer can select | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

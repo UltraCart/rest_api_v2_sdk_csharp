@@ -19,9 +19,9 @@ Method | HTTP request | Description
 Delete an item
 
 Delete an item on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -76,6 +76,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -106,9 +107,9 @@ void (empty response body)
 Retrieve an item
 
 Retrieves a single item using the specified item oid. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -166,6 +167,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -198,9 +200,9 @@ Name | Type | Description  | Notes
 Retrieve items
 
 Retrieves a group of items from the account.  If no parameters are specified, all items will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -263,6 +265,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -300,9 +303,9 @@ Name | Type | Description  | Notes
 Create an item
 
 Create a new item on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -360,6 +363,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -392,9 +396,9 @@ Name | Type | Description  | Notes
 Update an item
 
 Update a new item on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -453,6 +457,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -486,9 +491,9 @@ Name | Type | Description  | Notes
 Upload an image to the temporary multimedia.
 
 Uploads an image and returns back meta information about the image as well as the identifier needed for the item update. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -544,6 +549,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters

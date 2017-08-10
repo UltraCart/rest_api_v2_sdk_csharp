@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **VariationOptions** | **List&lt;string&gt;** | Variation options | [optional] 
 **Variations** | **List&lt;string&gt;** | Variations | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

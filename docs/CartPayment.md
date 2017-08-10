@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **PurchaseOrder** | [**CartPaymentPurchaseOrder**](CartPaymentPurchaseOrder.md) |  | [optional] 
 **RtgCode** | **string** | Rotating transaction gateway code | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

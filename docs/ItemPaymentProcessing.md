@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **PaymentMethodValidity** | **List&lt;string&gt;** | Payment method validity | [optional] 
 **RotatingTransactionGatewayCodes** | **List&lt;string&gt;** | Rotating transaction gateway codes | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

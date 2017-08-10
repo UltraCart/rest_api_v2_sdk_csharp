@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **SubscribeLists** | **List&lt;string&gt;** | Subscribe to lists | [optional] 
 **UnsubscribeLists** | **List&lt;string&gt;** | Unsubscribe from lists | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

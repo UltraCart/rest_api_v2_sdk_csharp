@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **PaypalReturnUrl** | **string** | The URl to return the customers browser to after they have completed the PayPal process. | [optional] 
 **SecureHostName** | **string** | The desired secure host name to perform the handoff on.  This should match the desired StoreFront. | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

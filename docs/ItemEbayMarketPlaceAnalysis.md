@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **Overhead** | **decimal?** | Overhead | [optional] 
 **ProfitPotential** | **decimal?** | Profit potential | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

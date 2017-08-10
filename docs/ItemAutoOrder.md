@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 **FreeShippingAutoOrder** | **bool?** | True if the customer should be given free shipping | [optional] 
 **Steps** | [**List&lt;ItemAutoOrderStep&gt;**](ItemAutoOrderStep.md) | The rebill steps if this auto order is an upsell | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

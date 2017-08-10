@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **Square** | **bool?** | True if the thumbnail is square | [optional] 
 **Width** | **int?** | Width of the thumbnail | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **NewItemStart** | **string** | The date the item should start being considered new | [optional] 
 **ViewUrl** | **string** | Legacy view URL (not used by StoreFronts) | [optional] 
 
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

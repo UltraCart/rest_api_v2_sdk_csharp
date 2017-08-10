@@ -18,9 +18,9 @@ Method | HTTP request | Description
 Delete a chargeback
 
 Delete a chargeback on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -76,6 +76,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -106,9 +107,9 @@ Name | Type | Description  | Notes
 Retrieve a chargeback
 
 Retrieves a single chargeback using the specified chargeback dispute oid. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -165,6 +166,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -196,9 +198,9 @@ Name | Type | Description  | Notes
 Retrieve chargebacks
 
 Retrieves chargebacks from the account.  If no parameters are specified, all chargebacks will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -265,6 +267,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -306,9 +309,9 @@ Name | Type | Description  | Notes
 Insert a chargeback
 
 Insert a chargeback on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -365,6 +368,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -396,9 +400,9 @@ Name | Type | Description  | Notes
 Update a chargeback
 
 Update a chargeback on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -456,6 +460,7 @@ namespace Example
         }
     }
 }
+
 ```
 
 ### Parameters

@@ -448,12 +448,6 @@ namespace com.ultracart.admin.v2.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be less than 30.", new [] { "LastName" });
             }
 
-            // LastUsedDts (string) maxLength
-            if(this.LastUsedDts != null && this.LastUsedDts.Length > 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastUsedDts, length must be less than 25.", new [] { "LastUsedDts" });
-            }
-
             // PostalCode (string) maxLength
             if(this.PostalCode != null && this.PostalCode.Length > 20)
             {

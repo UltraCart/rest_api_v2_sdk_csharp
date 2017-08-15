@@ -40,7 +40,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CardType">Card type.</param>
         /// <param name="CustomerProfileCreditCardId">ID of the stored credit card to use.</param>
         /// <param name="CustomerProfileOid">Customer profile object identifier.</param>
-        public CustomerCard(int? CardExpirationMonth = default(int?), int? CardExpirationYear = default(int?), string CardNumber = default(string), string CardNumberToken = default(string), string CardType = default(string), int? CustomerProfileCreditCardId = default(int?), int? CustomerProfileOid = default(int?))
+        /// <param name="LastUsedDts">Last used date.</param>
+        public CustomerCard(int? CardExpirationMonth = default(int?), int? CardExpirationYear = default(int?), string CardNumber = default(string), string CardNumberToken = default(string), string CardType = default(string), int? CustomerProfileCreditCardId = default(int?), int? CustomerProfileOid = default(int?), string LastUsedDts = default(string))
         {
             this.CardExpirationMonth = CardExpirationMonth;
             this.CardExpirationYear = CardExpirationYear;
@@ -49,6 +50,7 @@ namespace com.ultracart.admin.v2.Model
             this.CardType = CardType;
             this.CustomerProfileCreditCardId = CustomerProfileCreditCardId;
             this.CustomerProfileOid = CustomerProfileOid;
+            this.LastUsedDts = LastUsedDts;
         }
         
         /// <summary>
@@ -101,6 +103,13 @@ namespace com.ultracart.admin.v2.Model
         public int? CustomerProfileOid { get; set; }
 
         /// <summary>
+        /// Last used date
+        /// </summary>
+        /// <value>Last used date</value>
+        [DataMember(Name="last_used_dts", EmitDefaultValue=false)]
+        public string LastUsedDts { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +124,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CardType: ").Append(CardType).Append("\n");
             sb.Append("  CustomerProfileCreditCardId: ").Append(CustomerProfileCreditCardId).Append("\n");
             sb.Append("  CustomerProfileOid: ").Append(CustomerProfileOid).Append("\n");
+            sb.Append("  LastUsedDts: ").Append(LastUsedDts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -185,6 +195,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CustomerProfileOid == other.CustomerProfileOid ||
                     this.CustomerProfileOid != null &&
                     this.CustomerProfileOid.Equals(other.CustomerProfileOid)
+                ) && 
+                (
+                    this.LastUsedDts == other.LastUsedDts ||
+                    this.LastUsedDts != null &&
+                    this.LastUsedDts.Equals(other.LastUsedDts)
                 );
         }
 
@@ -213,6 +228,8 @@ namespace com.ultracart.admin.v2.Model
                     hash = hash * 59 + this.CustomerProfileCreditCardId.GetHashCode();
                 if (this.CustomerProfileOid != null)
                     hash = hash * 59 + this.CustomerProfileOid.GetHashCode();
+                if (this.LastUsedDts != null)
+                    hash = hash * 59 + this.LastUsedDts.GetHashCode();
                 return hash;
             }
         }

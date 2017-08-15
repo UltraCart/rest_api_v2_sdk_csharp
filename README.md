@@ -270,6 +270,7 @@ Class | Method | HTTP request | Description
  - [Model.CheckoutHandoffResponse](docs/CheckoutHandoffResponse.md)
  - [Model.CheckoutSetupBrowserKeyRequest](docs/CheckoutSetupBrowserKeyRequest.md)
  - [Model.CheckoutSetupBrowserKeyResponse](docs/CheckoutSetupBrowserKeyResponse.md)
+ - [Model.CityStateZip](docs/CityStateZip.md)
  - [Model.Currency](docs/Currency.md)
  - [Model.Customer](docs/Customer.md)
  - [Model.CustomerBilling](docs/CustomerBilling.md)

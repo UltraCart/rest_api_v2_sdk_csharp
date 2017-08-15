@@ -200,94 +200,61 @@ Retrieve customers
 Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 ### Example
 ```csharp
-
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
+using NUnit.Framework;
 
-namespace Example
-{
-    public class GetCustomersExample
-    {
-        public void main()
-        {
+namespace SDKSample {
+  [TestFixture]
+  public class CustomerApiTest {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+    private static List<Customer> GetCustomerChunk(ICustomerApi api, int offset = 0, int limit = 200) {
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
+      // string expand = null; // no expansion.  bare bones.
+      const string expand = "shipping,billing"; // shipping and billing addresses
+      // string expand = "shipping,billing,cards,pricing_tiers"; // everything.
 
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
+      var customerResponse = api.GetCustomers(offset: offset, limit: limit, expand: expand);
+      // TODO if the response is not success, handle errors here.
+      return customerResponse.Success == true ? customerResponse.Customers : new List<Customer>();
 
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new CustomerApi();
-            var email = email_example;  // string | Email (optional) 
-            var qbClass = qbClass_example;  // string | Quickbooks class (optional) 
-            var quickbooksCode = quickbooksCode_example;  // string | Quickbooks code (optional) 
-            var lastModifiedDtsStart = lastModifiedDtsStart_example;  // string | Last modified date start (optional) 
-            var lastModifiedDtsEnd = lastModifiedDtsEnd_example;  // string | Last modified date end (optional) 
-            var signupDtsStart = signupDtsStart_example;  // string | Signup date start (optional) 
-            var signupDtsEnd = signupDtsEnd_example;  // string | Signup date end (optional) 
-            var billingFirstName = billingFirstName_example;  // string | Billing first name (optional) 
-            var billingLastName = billingLastName_example;  // string | Billing last name (optional) 
-            var billingCompany = billingCompany_example;  // string | Billing company (optional) 
-            var billingCity = billingCity_example;  // string | Billing city (optional) 
-            var billingState = billingState_example;  // string | Billing state (optional) 
-            var billingPostalCode = billingPostalCode_example;  // string | Billing postal code (optional) 
-            var billingCountryCode = billingCountryCode_example;  // string | Billing country code (optional) 
-            var billingDayPhone = billingDayPhone_example;  // string | Billing day phone (optional) 
-            var billingEveningPhone = billingEveningPhone_example;  // string | Billing evening phone (optional) 
-            var shippingFirstName = shippingFirstName_example;  // string | Shipping first name (optional) 
-            var shippingLastName = shippingLastName_example;  // string | Shipping last name (optional) 
-            var shippingCompany = shippingCompany_example;  // string | Shipping company (optional) 
-            var shippingCity = shippingCity_example;  // string | Shipping city (optional) 
-            var shippingState = shippingState_example;  // string | Shipping state (optional) 
-            var shippingPostalCode = shippingPostalCode_example;  // string | Shipping postal code (optional) 
-            var shippingCountryCode = shippingCountryCode_example;  // string | Shipping country code (optional) 
-            var shippingDayPhone = shippingDayPhone_example;  // string | Shipping day phone (optional) 
-            var shippingEveningPhone = shippingEveningPhone_example;  // string | Shipping evening phone (optional) 
-            var pricingTierOid = 56;  // int? | Pricing tier oid (optional) 
-            var pricingTierName = pricingTierName_example;  // string | Pricing tier name (optional) 
-            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
-            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var since = since_example;  // string | Fetch customers that have been created/modified since this date/time. (optional) 
-            var sort = sort_example;  // string | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Retrieve customers
-                CustomersResponse result = apiInstance.GetCustomers(email, qbClass, quickbooksCode, lastModifiedDtsStart, lastModifiedDtsEnd, signupDtsStart, signupDtsEnd, billingFirstName, billingLastName, billingCompany, billingCity, billingState, billingPostalCode, billingCountryCode, billingDayPhone, billingEveningPhone, shippingFirstName, shippingLastName, shippingCompany, shippingCity, shippingState, shippingPostalCode, shippingCountryCode, shippingDayPhone, shippingEveningPhone, pricingTierOid, pricingTierName, limit, offset, since, sort, expand);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CustomerApi.GetCustomers: " + e.Message );
-            }
-        }
     }
-}
 
+
+    [Test]
+    public void GetCustomersTest() {
+
+
+      // See https://secure.ultracart.com/merchant/configuration/apiManagementApp.do
+      const string simpleKey = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+      Configuration.Default.ApiKey.Add("x-ultracart-simple-key", simpleKey);
+      Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+      var api = new CustomerApi();
+      var offset = 0;
+      const int limit = 100; // why 100?  Just to show more looping.  200 is the max and a better choice.
+      var stillMoreRecords = true;
+      var customers = new List<Customer>();
+
+      while (stillMoreRecords) {
+        var chunkOfCustomers = GetCustomerChunk(api, offset, limit);
+        Console.WriteLine($"{chunkOfCustomers.Count} customers retrieved.");
+        customers.AddRange(chunkOfCustomers);
+        offset += limit;
+        stillMoreRecords = chunkOfCustomers.Count == limit;
+
+      }
+
+      Console.WriteLine($"{customers.Count} total customers retrieved.");
+
+    }
+
+
+  }
+}
 ```
 
 ### Parameters

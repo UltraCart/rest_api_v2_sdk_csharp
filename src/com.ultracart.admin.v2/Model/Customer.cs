@@ -877,12 +877,6 @@ namespace com.ultracart.admin.v2.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastModifiedBy, length must be less than 100.", new [] { "LastModifiedBy" });
             }
 
-            // LastModifiedDts (string) maxLength
-            if(this.LastModifiedDts != null && this.LastModifiedDts.Length > 25)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastModifiedDts, length must be less than 25.", new [] { "LastModifiedDts" });
-            }
-
             // Password (string) maxLength
             if(this.Password != null && this.Password.Length > 30)
             {

@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 <a name="citystate"></a>
 # **CityState**
-> ItemsResponse CityState (Cart cart)
+> CityStateZip CityState (Cart cart)
 
 City/State for Zip
 
@@ -84,7 +84,7 @@ namespace Example
             try
             {
                 // City/State for Zip
-                ItemsResponse result = apiInstance.CityState(cart);
+                CityStateZip result = apiInstance.CityState(cart);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ItemsResponse**](ItemsResponse.md)
+[**CityStateZip**](CityStateZip.md)
 
 ### Authorization
 

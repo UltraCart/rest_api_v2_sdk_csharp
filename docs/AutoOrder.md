@@ -22,10 +22,6 @@ Name | Type | Description | Notes
 **RebillOrders** | [**List&lt;Order&gt;**](Order.md) | Rebill orders that have taken place on this auto order | [optional] 
 **RotatingTransactionGatewayCode** | **string** | The RTG code associated with this order for future rebills | [optional] 
 
-  ### Example
-  ```csharp
-  // hello gov'ner!
-  ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

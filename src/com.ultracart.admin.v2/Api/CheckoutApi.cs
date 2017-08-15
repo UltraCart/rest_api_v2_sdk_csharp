@@ -32,8 +32,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cart">Cart</param>
-        /// <returns>ItemsResponse</returns>
-        ItemsResponse CityState (Cart cart);
+        /// <returns>CityStateZip</returns>
+        CityStateZip CityState (Cart cart);
 
         /// <summary>
         /// City/State for Zip
@@ -43,8 +43,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cart">Cart</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        ApiResponse<ItemsResponse> CityStateWithHttpInfo (Cart cart);
+        /// <returns>ApiResponse of CityStateZip</returns>
+        ApiResponse<CityStateZip> CityStateWithHttpInfo (Cart cart);
         /// <summary>
         /// Finalize Order
         /// </summary>
@@ -350,8 +350,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cart">Cart</param>
-        /// <returns>Task of ItemsResponse</returns>
-        System.Threading.Tasks.Task<ItemsResponse> CityStateAsync (Cart cart);
+        /// <returns>Task of CityStateZip</returns>
+        System.Threading.Tasks.Task<CityStateZip> CityStateAsync (Cart cart);
 
         /// <summary>
         /// City/State for Zip
@@ -361,8 +361,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cart">Cart</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> CityStateAsyncWithHttpInfo (Cart cart);
+        /// <returns>Task of ApiResponse (CityStateZip)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CityStateZip>> CityStateAsyncWithHttpInfo (Cart cart);
         /// <summary>
         /// Finalize Order
         /// </summary>
@@ -763,10 +763,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cart">Cart</param>
-        /// <returns>ItemsResponse</returns>
-        public ItemsResponse CityState (Cart cart)
+        /// <returns>CityStateZip</returns>
+        public CityStateZip CityState (Cart cart)
         {
-             ApiResponse<ItemsResponse> localVarResponse = CityStateWithHttpInfo(cart);
+             ApiResponse<CityStateZip> localVarResponse = CityStateWithHttpInfo(cart);
              return localVarResponse.Data;
         }
 
@@ -775,8 +775,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cart">Cart</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        public ApiResponse< ItemsResponse > CityStateWithHttpInfo (Cart cart)
+        /// <returns>ApiResponse of CityStateZip</returns>
+        public ApiResponse< CityStateZip > CityStateWithHttpInfo (Cart cart)
         {
             // verify the required parameter 'cart' is set
             if (cart == null)
@@ -843,9 +843,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+            return new ApiResponse<CityStateZip>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+                (CityStateZip) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CityStateZip)));
         }
 
         /// <summary>
@@ -853,10 +853,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cart">Cart</param>
-        /// <returns>Task of ItemsResponse</returns>
-        public async System.Threading.Tasks.Task<ItemsResponse> CityStateAsync (Cart cart)
+        /// <returns>Task of CityStateZip</returns>
+        public async System.Threading.Tasks.Task<CityStateZip> CityStateAsync (Cart cart)
         {
-             ApiResponse<ItemsResponse> localVarResponse = await CityStateAsyncWithHttpInfo(cart);
+             ApiResponse<CityStateZip> localVarResponse = await CityStateAsyncWithHttpInfo(cart);
              return localVarResponse.Data;
 
         }
@@ -866,8 +866,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cart">Cart</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> CityStateAsyncWithHttpInfo (Cart cart)
+        /// <returns>Task of ApiResponse (CityStateZip)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CityStateZip>> CityStateAsyncWithHttpInfo (Cart cart)
         {
             // verify the required parameter 'cart' is set
             if (cart == null)
@@ -934,9 +934,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+            return new ApiResponse<CityStateZip>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+                (CityStateZip) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CityStateZip)));
         }
 
         /// <summary>

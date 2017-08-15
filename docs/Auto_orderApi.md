@@ -18,64 +18,96 @@ Retrieve an auto order
 Retrieves a single auto order using the specified auto order oid. 
 ### Example
 ```csharp
-
 using System;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
+using NUnit.Framework;
 
-namespace Example
-{
-    public class GetAutoOrderExample
-    {
-        public void main()
-        {
-
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
-
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
+namespace SDKSample {
+  [TestFixture]
+  public class AutoOrderUpdateTest {
 
 
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
+    [Test]
+    public void UpdateAutoOrder() {
 
-            var apiInstance = new Auto_orderApi();
-            var autoOrderOid = 56;  // int? | The auto order oid to retrieve.
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
-            try
-            {
-                // Retrieve an auto order
-                AutoOrderResponse result = apiInstance.GetAutoOrder(autoOrderOid, expand);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling Auto_orderApi.GetAutoOrder: " + e.Message );
-            }
-        }
+      // See https://secure.ultracart.com/merchant/configuration/apiManagementApp.do
+      const string simpleKey = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+      Configuration.Default.ApiKey.Add("x-ultracart-simple-key", simpleKey);
+      Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+      var api = new AutoorderApi();
+
+      const int autoOrderOid = 3268342;
+      const string expansion = "items";
+      var autoOrderResponse = api.GetAutoOrder(autoOrderOid, expansion);
+      var autoOrder = autoOrderResponse.AutoOrder;
+
+      var items = autoOrder.Items;
+
+      // for the new item, set the next shipment date equal to the shipment date of the current items.
+      // in case there are no items on this auto order (should *never* happen), start with a default of one month out.
+      var nextShipmentDate =
+        DateTime.UtcNow.AddMonths(1).ToString("s", System.Globalization.CultureInfo.InvariantCulture);
+
+      if (items.Count > 0) {
+        nextShipmentDate = items[0].NextShipmentDts;
+      }
+
+
+      var autoOrderItem = new AutoOrderItem {
+        OriginalItemId = "PDF",
+        OriginalQuantity = 2,
+        RebillValue = decimal.Parse("34.23"),
+        NextShipmentDts = nextShipmentDate
+      };
+      items.Add(autoOrderItem);
+
+      autoOrderResponse = api.UpdateAutoOrder(autoOrder, autoOrderOid, expansion);
+      autoOrder = autoOrderResponse.AutoOrder;
+
+      Console.WriteLine(autoOrder);
+
+
     }
-}
 
+
+    [Test]
+    public void DeleteAutoOrderItem() {
+
+
+      // See https://secure.ultracart.com/merchant/configuration/apiManagementApp.do
+      const string simpleKey = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+      Configuration.Default.ApiKey.Add("x-ultracart-simple-key", simpleKey);
+      Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+      var api = new AutoorderApi();
+
+      const int autoOrderOid = 3268342;
+      const string expansion = "items";
+      var autoOrderResponse = api.GetAutoOrder(autoOrderOid, expansion);
+      var autoOrder = autoOrderResponse.AutoOrder;
+
+      var items = autoOrder.Items;
+
+
+      if (items.Count > 0) {
+        items.Remove(items[items.Count - 1]);
+      }
+
+
+      autoOrderResponse = api.UpdateAutoOrder(autoOrder, autoOrderOid, expansion);
+      autoOrder = autoOrderResponse.AutoOrder;
+
+      Console.WriteLine(autoOrder);
+
+    }
+
+
+  }
+}
 ```
 
 ### Parameters
@@ -109,85 +141,82 @@ Retrieve auto orders
 Retrieves auto orders from the account.  If no parameters are specified, all auto orders will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 ### Example
 ```csharp
+// You must create your own Simple API key for this example to work.
+// See the comments below.
 
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
+using NUnit.Framework;
 
-namespace Example
-{
-    public class GetAutoOrdersExample
-    {
-        public void main()
-        {
+namespace SDKSample {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+  [TestFixture]
+  public class QueryAutoOrdersByEmail {
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
+    /// <summary>
+    /// Helper method to loop through a (possibly, be extremely doubtful) large auto order set and return back a chunk of it.
+    /// See the Main method for its usage.
+    /// See https://www.ultracart.com/api/#resource_auto_order.html
+    /// </summary>
+    /// <param name="api">AutoorderApi reference</param>
+    /// <param name="email">email to filter by</param>
+    /// <param name="offset">The record offset.  First execution this will be zero, and then increment
+    /// by the number of records returned each iteration.</param>
+    /// <param name="limit">Default and maximum is 200 records.  The example below uses 100.</param>
+    /// <returns>
+    /// A list of UltraCart AutoOrders.
+    /// </returns>
+    private static List<AutoOrder> GetAutOrdersChunk(AutoorderApi api, string email, int offset = 0, int limit = 200) {
 
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
+      const string expand = "items,rebill_orders,original_order";
 
+      var autoOrderResponse = api.GetAutoOrders(email: email, offset: offset, limit: limit, expand: expand);
+      // TODO if the response is not success, handle errors here.
+      return autoOrderResponse.Success == true ? autoOrderResponse.AutoOrders : new List<AutoOrder>();
 
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new Auto_orderApi();
-            var autoOrderCode = autoOrderCode_example;  // string | Auto order code (optional) 
-            var originalOrderId = originalOrderId_example;  // string | Original order id (optional) 
-            var firstName = firstName_example;  // string | First name (optional) 
-            var lastName = lastName_example;  // string | Last name (optional) 
-            var company = company_example;  // string | Company (optional) 
-            var city = city_example;  // string | City (optional) 
-            var state = state_example;  // string | State (optional) 
-            var postalCode = postalCode_example;  // string | Postal code (optional) 
-            var countryCode = countryCode_example;  // string | Country code (ISO-3166 two letter) (optional) 
-            var phone = phone_example;  // string | Phone (optional) 
-            var email = email_example;  // string | Email (optional) 
-            var originalOrderDateBegin = originalOrderDateBegin_example;  // string | Original order date begin (optional) 
-            var originalOrderDateEnd = originalOrderDateEnd_example;  // string | Original order date end (optional) 
-            var nextShipmentDateBegin = nextShipmentDateBegin_example;  // string | Next shipment date begin (optional) 
-            var nextShipmentDateEnd = nextShipmentDateEnd_example;  // string | Next shipment date end (optional) 
-            var cardType = cardType_example;  // string | Card type (optional) 
-            var itemId = itemId_example;  // string | Item ID (optional) 
-            var status = status_example;  // string | Status (optional) 
-            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
-            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var since = since_example;  // string | Fetch auto orders that have been created/modified since this date/time. (optional) 
-            var sort = sort_example;  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-
-            try
-            {
-                // Retrieve auto orders
-                AutoOrdersResponse result = apiInstance.GetAutoOrders(autoOrderCode, originalOrderId, firstName, lastName, company, city, state, postalCode, countryCode, phone, email, originalOrderDateBegin, originalOrderDateEnd, nextShipmentDateBegin, nextShipmentDateEnd, cardType, itemId, status, limit, offset, since, sort, expand);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling Auto_orderApi.GetAutoOrders: " + e.Message );
-            }
-        }
     }
-}
 
+
+    [Test]
+    public void GetAutoOrders() {
+
+      // API Simple Keys Documentation
+      // https://ultracart.atlassian.net/wiki/display/ucdoc/API+Simple+Key
+      //
+      // This is the backend screen where API keys are created.
+      // See https://secure.ultracart.com/merchant/configuration/apiManagementApp.do
+      const string simpleKey = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+      Configuration.Default.ApiKey.Add("x-ultracart-simple-key", simpleKey);
+
+      // This is required.  Search for 'Versioning' on this page:
+      // https://www.ultracart.com/api/versioning.html
+      Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+      var api = new AutoorderApi();
+      var offset = 0;
+      const int limit = 100; // why 100?  Just to show more looping.  200 is the max and a better choice.
+      var stillMoreRecords = true;
+      var autoOrders = new List<AutoOrder>();
+      const string email = "test@test.com";
+
+      while (stillMoreRecords) {
+        var chunkOfAutoOrders = GetAutOrdersChunk(api, email, offset, limit);
+        Console.WriteLine($"{chunkOfAutoOrders.Count} auto orders retrieved.");
+        autoOrders.AddRange(chunkOfAutoOrders);
+        offset += limit;
+        stillMoreRecords = chunkOfAutoOrders.Count == limit;
+
+      }
+
+      Console.WriteLine($"{autoOrders.Count} total auto orders retrieved.");
+
+    }
+
+  }
+}
 ```
 
 ### Parameters
@@ -242,65 +271,96 @@ Update an auto order
 Update an auto order on the UltraCart account. 
 ### Example
 ```csharp
-
 using System;
-using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
+using NUnit.Framework;
 
-namespace Example
-{
-    public class UpdateAutoOrderExample
-    {
-        public void main()
-        {
-
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
-
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
+namespace SDKSample {
+  [TestFixture]
+  public class AutoOrderUpdateTest {
 
 
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
+    [Test]
+    public void UpdateAutoOrder() {
 
-            var apiInstance = new Auto_orderApi();
-            var autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
-            var autoOrderOid = 56;  // int? | The auto order oid to update.
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
-            try
-            {
-                // Update an auto order
-                AutoOrderResponse result = apiInstance.UpdateAutoOrder(autoOrder, autoOrderOid, expand);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling Auto_orderApi.UpdateAutoOrder: " + e.Message );
-            }
-        }
+      // See https://secure.ultracart.com/merchant/configuration/apiManagementApp.do
+      const string simpleKey = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+      Configuration.Default.ApiKey.Add("x-ultracart-simple-key", simpleKey);
+      Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+      var api = new AutoorderApi();
+
+      const int autoOrderOid = 3268342;
+      const string expansion = "items";
+      var autoOrderResponse = api.GetAutoOrder(autoOrderOid, expansion);
+      var autoOrder = autoOrderResponse.AutoOrder;
+
+      var items = autoOrder.Items;
+
+      // for the new item, set the next shipment date equal to the shipment date of the current items.
+      // in case there are no items on this auto order (should *never* happen), start with a default of one month out.
+      var nextShipmentDate =
+        DateTime.UtcNow.AddMonths(1).ToString("s", System.Globalization.CultureInfo.InvariantCulture);
+
+      if (items.Count > 0) {
+        nextShipmentDate = items[0].NextShipmentDts;
+      }
+
+
+      var autoOrderItem = new AutoOrderItem {
+        OriginalItemId = "PDF",
+        OriginalQuantity = 2,
+        RebillValue = decimal.Parse("34.23"),
+        NextShipmentDts = nextShipmentDate
+      };
+      items.Add(autoOrderItem);
+
+      autoOrderResponse = api.UpdateAutoOrder(autoOrder, autoOrderOid, expansion);
+      autoOrder = autoOrderResponse.AutoOrder;
+
+      Console.WriteLine(autoOrder);
+
+
     }
-}
 
+
+    [Test]
+    public void DeleteAutoOrderItem() {
+
+
+      // See https://secure.ultracart.com/merchant/configuration/apiManagementApp.do
+      const string simpleKey = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+      Configuration.Default.ApiKey.Add("x-ultracart-simple-key", simpleKey);
+      Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+      var api = new AutoorderApi();
+
+      const int autoOrderOid = 3268342;
+      const string expansion = "items";
+      var autoOrderResponse = api.GetAutoOrder(autoOrderOid, expansion);
+      var autoOrder = autoOrderResponse.AutoOrder;
+
+      var items = autoOrder.Items;
+
+
+      if (items.Count > 0) {
+        items.Remove(items[items.Count - 1]);
+      }
+
+
+      autoOrderResponse = api.UpdateAutoOrder(autoOrder, autoOrderOid, expansion);
+      autoOrder = autoOrderResponse.AutoOrder;
+
+      Console.WriteLine(autoOrder);
+
+    }
+
+
+  }
+}
 ```
 
 ### Parameters

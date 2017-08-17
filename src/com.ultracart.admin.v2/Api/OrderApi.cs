@@ -171,6 +171,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrdersResponse</returns>
         ApiResponse<OrdersResponse> GetOrdersWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
         /// <summary>
+        /// Retrieve orders
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderQuery">Order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>OrdersResponse</returns>
+        OrdersResponse GetOrdersByQuery (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
+
+        /// <summary>
+        /// Retrieve orders
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderQuery">Order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>ApiResponse of OrdersResponse</returns>
+        ApiResponse<OrdersResponse> GetOrdersByQueryWithHttpInfo (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        /// <summary>
         /// Resend receipt
         /// </summary>
         /// <remarks>
@@ -385,6 +414,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>Task of ApiResponse (OrdersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersAsyncWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        /// <summary>
+        /// Retrieve orders
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderQuery">Order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>Task of OrdersResponse</returns>
+        System.Threading.Tasks.Task<OrdersResponse> GetOrdersByQueryAsync (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
+
+        /// <summary>
+        /// Retrieve orders
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderQuery">Order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersByQueryAsyncWithHttpInfo (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
         /// <summary>
         /// Resend receipt
         /// </summary>
@@ -1350,6 +1408,201 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetOrders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrdersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve orders Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderQuery">Order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>OrdersResponse</returns>
+        public OrdersResponse GetOrdersByQuery (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        {
+             ApiResponse<OrdersResponse> localVarResponse = GetOrdersByQueryWithHttpInfo(orderQuery, limit, offset, sort, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve orders Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderQuery">Order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>ApiResponse of OrdersResponse</returns>
+        public ApiResponse< OrdersResponse > GetOrdersByQueryWithHttpInfo (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        {
+            // verify the required parameter 'orderQuery' is set
+            if (orderQuery == null)
+                throw new ApiException(400, "Missing required parameter 'orderQuery' when calling OrderApi->GetOrdersByQuery");
+
+            var localVarPath = "/order/orders/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (orderQuery != null && orderQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(orderQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = orderQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrdersByQuery", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrdersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve orders Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderQuery">Order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>Task of OrdersResponse</returns>
+        public async System.Threading.Tasks.Task<OrdersResponse> GetOrdersByQueryAsync (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        {
+             ApiResponse<OrdersResponse> localVarResponse = await GetOrdersByQueryAsyncWithHttpInfo(orderQuery, limit, offset, sort, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve orders Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderQuery">Order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersByQueryAsyncWithHttpInfo (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        {
+            // verify the required parameter 'orderQuery' is set
+            if (orderQuery == null)
+                throw new ApiException(400, "Missing required parameter 'orderQuery' when calling OrderApi->GetOrdersByQuery");
+
+            var localVarPath = "/order/orders/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (orderQuery != null && orderQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(orderQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = orderQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetOrdersByQuery", localVarResponse);
                 if (exception != null) throw exception;
             }
 

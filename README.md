@@ -187,6 +187,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**DeleteOrder**](docs/OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**GetOrder**](docs/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**GetOrders**](docs/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
+*OrderApi* | [**GetOrdersByQuery**](docs/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders
 *OrderApi* | [**ResendReceipt**](docs/OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**ResendShipmentConfirmation**](docs/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 *OrderApi* | [**UpdateOrder**](docs/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
@@ -389,6 +390,7 @@ Class | Method | HTTP request | Description
  - [Model.OrderPaymentPurchaseOrder](docs/OrderPaymentPurchaseOrder.md)
  - [Model.OrderPaymentTransaction](docs/OrderPaymentTransaction.md)
  - [Model.OrderPaymentTransactionDetail](docs/OrderPaymentTransactionDetail.md)
+ - [Model.OrderQuery](docs/OrderQuery.md)
  - [Model.OrderQuote](docs/OrderQuote.md)
  - [Model.OrderResponse](docs/OrderResponse.md)
  - [Model.OrderSalesforce](docs/OrderSalesforce.md)

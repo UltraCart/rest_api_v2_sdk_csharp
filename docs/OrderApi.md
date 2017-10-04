@@ -581,11 +581,11 @@ namespace Example
             var apiInstance = new OrderApi();
             var order = new Order(); // Order | Order to refund
             var orderId = orderId_example;  // string | The order id to refund.
-            var rejectAfterRefund = true;  // bool? | Reject order after refund (optional) 
-            var skipCustomerNotification = true;  // bool? | Skip customer email notification (optional) 
-            var autoOrderCancel = true;  // bool? | Cancel associated auto orders (optional) 
-            var manualRefund = true;  // bool? | Consider a manual refund done externally (optional) 
-            var reverseAffiliateTransactions = true;  // bool? | Reverse affiliate transactions (optional) 
+            var rejectAfterRefund = true;  // bool? | Reject order after refund (optional)  (default to false)
+            var skipCustomerNotification = true;  // bool? | Skip customer email notification (optional)  (default to false)
+            var autoOrderCancel = true;  // bool? | Cancel associated auto orders (optional)  (default to false)
+            var manualRefund = true;  // bool? | Consider a manual refund done externally (optional)  (default to false)
+            var reverseAffiliateTransactions = true;  // bool? | Reverse affiliate transactions (optional)  (default to true)
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
@@ -610,11 +610,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**Order**](Order.md)| Order to refund | 
  **orderId** | **string**| The order id to refund. | 
- **rejectAfterRefund** | **bool?**| Reject order after refund | [optional] 
- **skipCustomerNotification** | **bool?**| Skip customer email notification | [optional] 
- **autoOrderCancel** | **bool?**| Cancel associated auto orders | [optional] 
- **manualRefund** | **bool?**| Consider a manual refund done externally | [optional] 
- **reverseAffiliateTransactions** | **bool?**| Reverse affiliate transactions | [optional] 
+ **rejectAfterRefund** | **bool?**| Reject order after refund | [optional] [default to false]
+ **skipCustomerNotification** | **bool?**| Skip customer email notification | [optional] [default to false]
+ **autoOrderCancel** | **bool?**| Cancel associated auto orders | [optional] [default to false]
+ **manualRefund** | **bool?**| Consider a manual refund done externally | [optional] [default to false]
+ **reverseAffiliateTransactions** | **bool?**| Reverse affiliate transactions | [optional] [default to true]
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

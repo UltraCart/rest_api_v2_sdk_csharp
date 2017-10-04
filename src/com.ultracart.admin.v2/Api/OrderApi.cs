@@ -208,11 +208,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
         /// <param name="orderId">The order id to refund.</param>
-        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
-        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
-        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
-        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
-        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>OrderResponse</returns>
         OrderResponse RefundOrder (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null);
@@ -226,11 +226,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
         /// <param name="orderId">The order id to refund.</param>
-        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
-        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
-        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
-        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
-        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of OrderResponse</returns>
         ApiResponse<OrderResponse> RefundOrderWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null);
@@ -487,11 +487,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
         /// <param name="orderId">The order id to refund.</param>
-        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
-        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
-        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
-        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
-        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of OrderResponse</returns>
         System.Threading.Tasks.Task<OrderResponse> RefundOrderAsync (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null);
@@ -505,11 +505,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
         /// <param name="orderId">The order id to refund.</param>
-        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
-        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
-        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
-        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
-        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderAsyncWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null);
@@ -1687,11 +1687,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
         /// <param name="orderId">The order id to refund.</param>
-        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
-        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
-        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
-        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
-        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>OrderResponse</returns>
         public OrderResponse RefundOrder (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null)
@@ -1706,11 +1706,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
         /// <param name="orderId">The order id to refund.</param>
-        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
-        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
-        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
-        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
-        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of OrderResponse</returns>
         public ApiResponse< OrderResponse > RefundOrderWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null)
@@ -1796,11 +1796,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
         /// <param name="orderId">The order id to refund.</param>
-        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
-        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
-        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
-        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
-        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of OrderResponse</returns>
         public async System.Threading.Tasks.Task<OrderResponse> RefundOrderAsync (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null)
@@ -1816,11 +1816,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
         /// <param name="orderId">The order id to refund.</param>
-        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
-        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
-        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
-        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
-        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional, default to false)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional, default to false)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderAsyncWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null)

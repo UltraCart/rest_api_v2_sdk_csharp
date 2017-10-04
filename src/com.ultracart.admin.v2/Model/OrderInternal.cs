@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderInternal);
+            return this.Equals(input as OrderInternal);
         }
 
         /// <summary>
         /// Returns true if OrderInternal instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderInternal to be compared</param>
+        /// <param name="input">Instance of OrderInternal to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderInternal other)
+        public bool Equals(OrderInternal input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ExportedToAccounting == other.ExportedToAccounting ||
-                    this.ExportedToAccounting != null &&
-                    this.ExportedToAccounting.Equals(other.ExportedToAccounting)
+                    this.ExportedToAccounting == input.ExportedToAccounting ||
+                    (this.ExportedToAccounting != null &&
+                    this.ExportedToAccounting.Equals(input.ExportedToAccounting))
                 ) && 
                 (
-                    this.MerchantNotes == other.MerchantNotes ||
-                    this.MerchantNotes != null &&
-                    this.MerchantNotes.Equals(other.MerchantNotes)
+                    this.MerchantNotes == input.MerchantNotes ||
+                    (this.MerchantNotes != null &&
+                    this.MerchantNotes.Equals(input.MerchantNotes))
                 ) && 
                 (
-                    this.PlacedByUser == other.PlacedByUser ||
-                    this.PlacedByUser != null &&
-                    this.PlacedByUser.Equals(other.PlacedByUser)
+                    this.PlacedByUser == input.PlacedByUser ||
+                    (this.PlacedByUser != null &&
+                    this.PlacedByUser.Equals(input.PlacedByUser))
                 ) && 
                 (
-                    this.RefundByUser == other.RefundByUser ||
-                    this.RefundByUser != null &&
-                    this.RefundByUser.Equals(other.RefundByUser)
+                    this.RefundByUser == input.RefundByUser ||
+                    (this.RefundByUser != null &&
+                    this.RefundByUser.Equals(input.RefundByUser))
                 ) && 
                 (
-                    this.SalesRepCode == other.SalesRepCode ||
-                    this.SalesRepCode != null &&
-                    this.SalesRepCode.Equals(other.SalesRepCode)
+                    this.SalesRepCode == input.SalesRepCode ||
+                    (this.SalesRepCode != null &&
+                    this.SalesRepCode.Equals(input.SalesRepCode))
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ExportedToAccounting != null)
-                    hash = hash * 59 + this.ExportedToAccounting.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExportedToAccounting.GetHashCode();
                 if (this.MerchantNotes != null)
-                    hash = hash * 59 + this.MerchantNotes.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantNotes.GetHashCode();
                 if (this.PlacedByUser != null)
-                    hash = hash * 59 + this.PlacedByUser.GetHashCode();
+                    hashCode = hashCode * 59 + this.PlacedByUser.GetHashCode();
                 if (this.RefundByUser != null)
-                    hash = hash * 59 + this.RefundByUser.GetHashCode();
+                    hashCode = hashCode * 59 + this.RefundByUser.GetHashCode();
                 if (this.SalesRepCode != null)
-                    hash = hash * 59 + this.SalesRepCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.SalesRepCode.GetHashCode();
+                return hashCode;
             }
         }
 

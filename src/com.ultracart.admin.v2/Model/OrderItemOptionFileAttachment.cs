@@ -101,45 +101,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderItemOptionFileAttachment);
+            return this.Equals(input as OrderItemOptionFileAttachment);
         }
 
         /// <summary>
         /// Returns true if OrderItemOptionFileAttachment instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderItemOptionFileAttachment to be compared</param>
+        /// <param name="input">Instance of OrderItemOptionFileAttachment to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderItemOptionFileAttachment other)
+        public bool Equals(OrderItemOptionFileAttachment input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ExpirationDts == other.ExpirationDts ||
-                    this.ExpirationDts != null &&
-                    this.ExpirationDts.Equals(other.ExpirationDts)
+                    this.ExpirationDts == input.ExpirationDts ||
+                    (this.ExpirationDts != null &&
+                    this.ExpirationDts.Equals(input.ExpirationDts))
                 ) && 
                 (
-                    this.FileName == other.FileName ||
-                    this.FileName != null &&
-                    this.FileName.Equals(other.FileName)
+                    this.FileName == input.FileName ||
+                    (this.FileName != null &&
+                    this.FileName.Equals(input.FileName))
                 ) && 
                 (
-                    this.MimeType == other.MimeType ||
-                    this.MimeType != null &&
-                    this.MimeType.Equals(other.MimeType)
+                    this.MimeType == input.MimeType ||
+                    (this.MimeType != null &&
+                    this.MimeType.Equals(input.MimeType))
                 ) && 
                 (
-                    this.Size == other.Size ||
-                    this.Size != null &&
-                    this.Size.Equals(other.Size)
+                    this.Size == input.Size ||
+                    (this.Size != null &&
+                    this.Size.Equals(input.Size))
                 );
         }
 
@@ -149,20 +147,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ExpirationDts != null)
-                    hash = hash * 59 + this.ExpirationDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExpirationDts.GetHashCode();
                 if (this.FileName != null)
-                    hash = hash * 59 + this.FileName.GetHashCode();
+                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
                 if (this.MimeType != null)
-                    hash = hash * 59 + this.MimeType.GetHashCode();
+                    hashCode = hashCode * 59 + this.MimeType.GetHashCode();
                 if (this.Size != null)
-                    hash = hash * 59 + this.Size.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Size.GetHashCode();
+                return hashCode;
             }
         }
 

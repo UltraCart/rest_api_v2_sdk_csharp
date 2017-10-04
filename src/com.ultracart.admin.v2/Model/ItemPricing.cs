@@ -231,110 +231,108 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemPricing);
+            return this.Equals(input as ItemPricing);
         }
 
         /// <summary>
         /// Returns true if ItemPricing instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemPricing to be compared</param>
+        /// <param name="input">Instance of ItemPricing to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemPricing other)
+        public bool Equals(ItemPricing input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AllowArbitraryCost == other.AllowArbitraryCost ||
-                    this.AllowArbitraryCost != null &&
-                    this.AllowArbitraryCost.Equals(other.AllowArbitraryCost)
+                    this.AllowArbitraryCost == input.AllowArbitraryCost ||
+                    (this.AllowArbitraryCost != null &&
+                    this.AllowArbitraryCost.Equals(input.AllowArbitraryCost))
                 ) && 
                 (
-                    this.ArbitraryCostVelocityCode == other.ArbitraryCostVelocityCode ||
-                    this.ArbitraryCostVelocityCode != null &&
-                    this.ArbitraryCostVelocityCode.Equals(other.ArbitraryCostVelocityCode)
+                    this.ArbitraryCostVelocityCode == input.ArbitraryCostVelocityCode ||
+                    (this.ArbitraryCostVelocityCode != null &&
+                    this.ArbitraryCostVelocityCode.Equals(input.ArbitraryCostVelocityCode))
                 ) && 
                 (
-                    this.AutomaticPricingTierName == other.AutomaticPricingTierName ||
-                    this.AutomaticPricingTierName != null &&
-                    this.AutomaticPricingTierName.Equals(other.AutomaticPricingTierName)
+                    this.AutomaticPricingTierName == input.AutomaticPricingTierName ||
+                    (this.AutomaticPricingTierName != null &&
+                    this.AutomaticPricingTierName.Equals(input.AutomaticPricingTierName))
                 ) && 
                 (
-                    this.AutomaticPricingTierOid == other.AutomaticPricingTierOid ||
-                    this.AutomaticPricingTierOid != null &&
-                    this.AutomaticPricingTierOid.Equals(other.AutomaticPricingTierOid)
+                    this.AutomaticPricingTierOid == input.AutomaticPricingTierOid ||
+                    (this.AutomaticPricingTierOid != null &&
+                    this.AutomaticPricingTierOid.Equals(input.AutomaticPricingTierOid))
                 ) && 
                 (
-                    this.Cogs == other.Cogs ||
-                    this.Cogs != null &&
-                    this.Cogs.Equals(other.Cogs)
+                    this.Cogs == input.Cogs ||
+                    (this.Cogs != null &&
+                    this.Cogs.Equals(input.Cogs))
                 ) && 
                 (
-                    this.Cost == other.Cost ||
-                    this.Cost != null &&
-                    this.Cost.Equals(other.Cost)
+                    this.Cost == input.Cost ||
+                    (this.Cost != null &&
+                    this.Cost.Equals(input.Cost))
                 ) && 
                 (
-                    this.CurrencyCode == other.CurrencyCode ||
-                    this.CurrencyCode != null &&
-                    this.CurrencyCode.Equals(other.CurrencyCode)
+                    this.CurrencyCode == input.CurrencyCode ||
+                    (this.CurrencyCode != null &&
+                    this.CurrencyCode.Equals(input.CurrencyCode))
                 ) && 
                 (
-                    this.ManufacturerSuggestedRetailPrice == other.ManufacturerSuggestedRetailPrice ||
-                    this.ManufacturerSuggestedRetailPrice != null &&
-                    this.ManufacturerSuggestedRetailPrice.Equals(other.ManufacturerSuggestedRetailPrice)
+                    this.ManufacturerSuggestedRetailPrice == input.ManufacturerSuggestedRetailPrice ||
+                    (this.ManufacturerSuggestedRetailPrice != null &&
+                    this.ManufacturerSuggestedRetailPrice.Equals(input.ManufacturerSuggestedRetailPrice))
                 ) && 
                 (
-                    this.MaximumArbitraryCost == other.MaximumArbitraryCost ||
-                    this.MaximumArbitraryCost != null &&
-                    this.MaximumArbitraryCost.Equals(other.MaximumArbitraryCost)
+                    this.MaximumArbitraryCost == input.MaximumArbitraryCost ||
+                    (this.MaximumArbitraryCost != null &&
+                    this.MaximumArbitraryCost.Equals(input.MaximumArbitraryCost))
                 ) && 
                 (
-                    this.MinimumAdvertisedPrice == other.MinimumAdvertisedPrice ||
-                    this.MinimumAdvertisedPrice != null &&
-                    this.MinimumAdvertisedPrice.Equals(other.MinimumAdvertisedPrice)
+                    this.MinimumAdvertisedPrice == input.MinimumAdvertisedPrice ||
+                    (this.MinimumAdvertisedPrice != null &&
+                    this.MinimumAdvertisedPrice.Equals(input.MinimumAdvertisedPrice))
                 ) && 
                 (
-                    this.MinimumArbitraryCost == other.MinimumArbitraryCost ||
-                    this.MinimumArbitraryCost != null &&
-                    this.MinimumArbitraryCost.Equals(other.MinimumArbitraryCost)
+                    this.MinimumArbitraryCost == input.MinimumArbitraryCost ||
+                    (this.MinimumArbitraryCost != null &&
+                    this.MinimumArbitraryCost.Equals(input.MinimumArbitraryCost))
                 ) && 
                 (
-                    this.MixAndMatchGroup == other.MixAndMatchGroup ||
-                    this.MixAndMatchGroup != null &&
-                    this.MixAndMatchGroup.Equals(other.MixAndMatchGroup)
+                    this.MixAndMatchGroup == input.MixAndMatchGroup ||
+                    (this.MixAndMatchGroup != null &&
+                    this.MixAndMatchGroup.Equals(input.MixAndMatchGroup))
                 ) && 
                 (
-                    this.MixAndMatchGroupOid == other.MixAndMatchGroupOid ||
-                    this.MixAndMatchGroupOid != null &&
-                    this.MixAndMatchGroupOid.Equals(other.MixAndMatchGroupOid)
+                    this.MixAndMatchGroupOid == input.MixAndMatchGroupOid ||
+                    (this.MixAndMatchGroupOid != null &&
+                    this.MixAndMatchGroupOid.Equals(input.MixAndMatchGroupOid))
                 ) && 
                 (
-                    this.SaleCost == other.SaleCost ||
-                    this.SaleCost != null &&
-                    this.SaleCost.Equals(other.SaleCost)
+                    this.SaleCost == input.SaleCost ||
+                    (this.SaleCost != null &&
+                    this.SaleCost.Equals(input.SaleCost))
                 ) && 
                 (
-                    this.SaleEnd == other.SaleEnd ||
-                    this.SaleEnd != null &&
-                    this.SaleEnd.Equals(other.SaleEnd)
+                    this.SaleEnd == input.SaleEnd ||
+                    (this.SaleEnd != null &&
+                    this.SaleEnd.Equals(input.SaleEnd))
                 ) && 
                 (
-                    this.SaleStart == other.SaleStart ||
-                    this.SaleStart != null &&
-                    this.SaleStart.Equals(other.SaleStart)
+                    this.SaleStart == input.SaleStart ||
+                    (this.SaleStart != null &&
+                    this.SaleStart.Equals(input.SaleStart))
                 ) && 
                 (
-                    this.Tiers == other.Tiers ||
+                    this.Tiers == input.Tiers ||
                     this.Tiers != null &&
-                    this.Tiers.SequenceEqual(other.Tiers)
+                    this.Tiers.SequenceEqual(input.Tiers)
                 );
         }
 
@@ -344,46 +342,44 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AllowArbitraryCost != null)
-                    hash = hash * 59 + this.AllowArbitraryCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.AllowArbitraryCost.GetHashCode();
                 if (this.ArbitraryCostVelocityCode != null)
-                    hash = hash * 59 + this.ArbitraryCostVelocityCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryCostVelocityCode.GetHashCode();
                 if (this.AutomaticPricingTierName != null)
-                    hash = hash * 59 + this.AutomaticPricingTierName.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutomaticPricingTierName.GetHashCode();
                 if (this.AutomaticPricingTierOid != null)
-                    hash = hash * 59 + this.AutomaticPricingTierOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutomaticPricingTierOid.GetHashCode();
                 if (this.Cogs != null)
-                    hash = hash * 59 + this.Cogs.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cogs.GetHashCode();
                 if (this.Cost != null)
-                    hash = hash * 59 + this.Cost.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cost.GetHashCode();
                 if (this.CurrencyCode != null)
-                    hash = hash * 59 + this.CurrencyCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CurrencyCode.GetHashCode();
                 if (this.ManufacturerSuggestedRetailPrice != null)
-                    hash = hash * 59 + this.ManufacturerSuggestedRetailPrice.GetHashCode();
+                    hashCode = hashCode * 59 + this.ManufacturerSuggestedRetailPrice.GetHashCode();
                 if (this.MaximumArbitraryCost != null)
-                    hash = hash * 59 + this.MaximumArbitraryCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaximumArbitraryCost.GetHashCode();
                 if (this.MinimumAdvertisedPrice != null)
-                    hash = hash * 59 + this.MinimumAdvertisedPrice.GetHashCode();
+                    hashCode = hashCode * 59 + this.MinimumAdvertisedPrice.GetHashCode();
                 if (this.MinimumArbitraryCost != null)
-                    hash = hash * 59 + this.MinimumArbitraryCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.MinimumArbitraryCost.GetHashCode();
                 if (this.MixAndMatchGroup != null)
-                    hash = hash * 59 + this.MixAndMatchGroup.GetHashCode();
+                    hashCode = hashCode * 59 + this.MixAndMatchGroup.GetHashCode();
                 if (this.MixAndMatchGroupOid != null)
-                    hash = hash * 59 + this.MixAndMatchGroupOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.MixAndMatchGroupOid.GetHashCode();
                 if (this.SaleCost != null)
-                    hash = hash * 59 + this.SaleCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.SaleCost.GetHashCode();
                 if (this.SaleEnd != null)
-                    hash = hash * 59 + this.SaleEnd.GetHashCode();
+                    hashCode = hashCode * 59 + this.SaleEnd.GetHashCode();
                 if (this.SaleStart != null)
-                    hash = hash * 59 + this.SaleStart.GetHashCode();
+                    hashCode = hashCode * 59 + this.SaleStart.GetHashCode();
                 if (this.Tiers != null)
-                    hash = hash * 59 + this.Tiers.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Tiers.GetHashCode();
+                return hashCode;
             }
         }
 

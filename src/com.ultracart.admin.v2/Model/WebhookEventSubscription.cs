@@ -40,8 +40,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="EventName">Event name.</param>
         /// <param name="Expansion">The expand string for the notification object.  See the individual resource _expand documentation for valid values..</param>
         /// <param name="Subscribed">True if this is event is subscribed to.</param>
+        /// <param name="SupportsReflow">True if the event can be triggered to reflow existing records.</param>
         /// <param name="WebhookEventOid">The webhook event object identifier.</param>
-        public WebhookEventSubscription(string Comments = default(string), bool? DeprecatedFlag = default(bool?), bool? DiscontinuedFlag = default(bool?), string EventDescription = default(string), string EventName = default(string), string Expansion = default(string), bool? Subscribed = default(bool?), int? WebhookEventOid = default(int?))
+        public WebhookEventSubscription(string Comments = default(string), bool? DeprecatedFlag = default(bool?), bool? DiscontinuedFlag = default(bool?), string EventDescription = default(string), string EventName = default(string), string Expansion = default(string), bool? Subscribed = default(bool?), bool? SupportsReflow = default(bool?), int? WebhookEventOid = default(int?))
         {
             this.Comments = Comments;
             this.DeprecatedFlag = DeprecatedFlag;
@@ -50,6 +51,7 @@ namespace com.ultracart.admin.v2.Model
             this.EventName = EventName;
             this.Expansion = Expansion;
             this.Subscribed = Subscribed;
+            this.SupportsReflow = SupportsReflow;
             this.WebhookEventOid = WebhookEventOid;
         }
         
@@ -103,6 +105,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? Subscribed { get; set; }
 
         /// <summary>
+        /// True if the event can be triggered to reflow existing records
+        /// </summary>
+        /// <value>True if the event can be triggered to reflow existing records</value>
+        [DataMember(Name="supports_reflow", EmitDefaultValue=false)]
+        public bool? SupportsReflow { get; set; }
+
+        /// <summary>
         /// The webhook event object identifier
         /// </summary>
         /// <value>The webhook event object identifier</value>
@@ -124,6 +133,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EventName: ").Append(EventName).Append("\n");
             sb.Append("  Expansion: ").Append(Expansion).Append("\n");
             sb.Append("  Subscribed: ").Append(Subscribed).Append("\n");
+            sb.Append("  SupportsReflow: ").Append(SupportsReflow).Append("\n");
             sb.Append("  WebhookEventOid: ").Append(WebhookEventOid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -141,65 +151,68 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as WebhookEventSubscription);
+            return this.Equals(input as WebhookEventSubscription);
         }
 
         /// <summary>
         /// Returns true if WebhookEventSubscription instances are equal
         /// </summary>
-        /// <param name="other">Instance of WebhookEventSubscription to be compared</param>
+        /// <param name="input">Instance of WebhookEventSubscription to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WebhookEventSubscription other)
+        public bool Equals(WebhookEventSubscription input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Comments == other.Comments ||
-                    this.Comments != null &&
-                    this.Comments.Equals(other.Comments)
+                    this.Comments == input.Comments ||
+                    (this.Comments != null &&
+                    this.Comments.Equals(input.Comments))
                 ) && 
                 (
-                    this.DeprecatedFlag == other.DeprecatedFlag ||
-                    this.DeprecatedFlag != null &&
-                    this.DeprecatedFlag.Equals(other.DeprecatedFlag)
+                    this.DeprecatedFlag == input.DeprecatedFlag ||
+                    (this.DeprecatedFlag != null &&
+                    this.DeprecatedFlag.Equals(input.DeprecatedFlag))
                 ) && 
                 (
-                    this.DiscontinuedFlag == other.DiscontinuedFlag ||
-                    this.DiscontinuedFlag != null &&
-                    this.DiscontinuedFlag.Equals(other.DiscontinuedFlag)
+                    this.DiscontinuedFlag == input.DiscontinuedFlag ||
+                    (this.DiscontinuedFlag != null &&
+                    this.DiscontinuedFlag.Equals(input.DiscontinuedFlag))
                 ) && 
                 (
-                    this.EventDescription == other.EventDescription ||
-                    this.EventDescription != null &&
-                    this.EventDescription.Equals(other.EventDescription)
+                    this.EventDescription == input.EventDescription ||
+                    (this.EventDescription != null &&
+                    this.EventDescription.Equals(input.EventDescription))
                 ) && 
                 (
-                    this.EventName == other.EventName ||
-                    this.EventName != null &&
-                    this.EventName.Equals(other.EventName)
+                    this.EventName == input.EventName ||
+                    (this.EventName != null &&
+                    this.EventName.Equals(input.EventName))
                 ) && 
                 (
-                    this.Expansion == other.Expansion ||
-                    this.Expansion != null &&
-                    this.Expansion.Equals(other.Expansion)
+                    this.Expansion == input.Expansion ||
+                    (this.Expansion != null &&
+                    this.Expansion.Equals(input.Expansion))
                 ) && 
                 (
-                    this.Subscribed == other.Subscribed ||
-                    this.Subscribed != null &&
-                    this.Subscribed.Equals(other.Subscribed)
+                    this.Subscribed == input.Subscribed ||
+                    (this.Subscribed != null &&
+                    this.Subscribed.Equals(input.Subscribed))
                 ) && 
                 (
-                    this.WebhookEventOid == other.WebhookEventOid ||
-                    this.WebhookEventOid != null &&
-                    this.WebhookEventOid.Equals(other.WebhookEventOid)
+                    this.SupportsReflow == input.SupportsReflow ||
+                    (this.SupportsReflow != null &&
+                    this.SupportsReflow.Equals(input.SupportsReflow))
+                ) && 
+                (
+                    this.WebhookEventOid == input.WebhookEventOid ||
+                    (this.WebhookEventOid != null &&
+                    this.WebhookEventOid.Equals(input.WebhookEventOid))
                 );
         }
 
@@ -209,28 +222,28 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Comments != null)
-                    hash = hash * 59 + this.Comments.GetHashCode();
+                    hashCode = hashCode * 59 + this.Comments.GetHashCode();
                 if (this.DeprecatedFlag != null)
-                    hash = hash * 59 + this.DeprecatedFlag.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeprecatedFlag.GetHashCode();
                 if (this.DiscontinuedFlag != null)
-                    hash = hash * 59 + this.DiscontinuedFlag.GetHashCode();
+                    hashCode = hashCode * 59 + this.DiscontinuedFlag.GetHashCode();
                 if (this.EventDescription != null)
-                    hash = hash * 59 + this.EventDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.EventDescription.GetHashCode();
                 if (this.EventName != null)
-                    hash = hash * 59 + this.EventName.GetHashCode();
+                    hashCode = hashCode * 59 + this.EventName.GetHashCode();
                 if (this.Expansion != null)
-                    hash = hash * 59 + this.Expansion.GetHashCode();
+                    hashCode = hashCode * 59 + this.Expansion.GetHashCode();
                 if (this.Subscribed != null)
-                    hash = hash * 59 + this.Subscribed.GetHashCode();
+                    hashCode = hashCode * 59 + this.Subscribed.GetHashCode();
+                if (this.SupportsReflow != null)
+                    hashCode = hashCode * 59 + this.SupportsReflow.GetHashCode();
                 if (this.WebhookEventOid != null)
-                    hash = hash * 59 + this.WebhookEventOid.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.WebhookEventOid.GetHashCode();
+                return hashCode;
             }
         }
 

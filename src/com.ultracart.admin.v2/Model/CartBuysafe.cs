@@ -120,55 +120,53 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartBuysafe);
+            return this.Equals(input as CartBuysafe);
         }
 
         /// <summary>
         /// Returns true if CartBuysafe instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartBuysafe to be compared</param>
+        /// <param name="input">Instance of CartBuysafe to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartBuysafe other)
+        public bool Equals(CartBuysafe input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.BondAvailable == other.BondAvailable ||
-                    this.BondAvailable != null &&
-                    this.BondAvailable.Equals(other.BondAvailable)
+                    this.BondAvailable == input.BondAvailable ||
+                    (this.BondAvailable != null &&
+                    this.BondAvailable.Equals(input.BondAvailable))
                 ) && 
                 (
-                    this.BondCost == other.BondCost ||
-                    this.BondCost != null &&
-                    this.BondCost.Equals(other.BondCost)
+                    this.BondCost == input.BondCost ||
+                    (this.BondCost != null &&
+                    this.BondCost.Equals(input.BondCost))
                 ) && 
                 (
-                    this.BondFree == other.BondFree ||
-                    this.BondFree != null &&
-                    this.BondFree.Equals(other.BondFree)
+                    this.BondFree == input.BondFree ||
+                    (this.BondFree != null &&
+                    this.BondFree.Equals(input.BondFree))
                 ) && 
                 (
-                    this.BondWanted == other.BondWanted ||
-                    this.BondWanted != null &&
-                    this.BondWanted.Equals(other.BondWanted)
+                    this.BondWanted == input.BondWanted ||
+                    (this.BondWanted != null &&
+                    this.BondWanted.Equals(input.BondWanted))
                 ) && 
                 (
-                    this.CartDisplayText == other.CartDisplayText ||
-                    this.CartDisplayText != null &&
-                    this.CartDisplayText.Equals(other.CartDisplayText)
+                    this.CartDisplayText == input.CartDisplayText ||
+                    (this.CartDisplayText != null &&
+                    this.CartDisplayText.Equals(input.CartDisplayText))
                 ) && 
                 (
-                    this.CartDisplayUrl == other.CartDisplayUrl ||
-                    this.CartDisplayUrl != null &&
-                    this.CartDisplayUrl.Equals(other.CartDisplayUrl)
+                    this.CartDisplayUrl == input.CartDisplayUrl ||
+                    (this.CartDisplayUrl != null &&
+                    this.CartDisplayUrl.Equals(input.CartDisplayUrl))
                 );
         }
 
@@ -178,24 +176,22 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.BondAvailable != null)
-                    hash = hash * 59 + this.BondAvailable.GetHashCode();
+                    hashCode = hashCode * 59 + this.BondAvailable.GetHashCode();
                 if (this.BondCost != null)
-                    hash = hash * 59 + this.BondCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.BondCost.GetHashCode();
                 if (this.BondFree != null)
-                    hash = hash * 59 + this.BondFree.GetHashCode();
+                    hashCode = hashCode * 59 + this.BondFree.GetHashCode();
                 if (this.BondWanted != null)
-                    hash = hash * 59 + this.BondWanted.GetHashCode();
+                    hashCode = hashCode * 59 + this.BondWanted.GetHashCode();
                 if (this.CartDisplayText != null)
-                    hash = hash * 59 + this.CartDisplayText.GetHashCode();
+                    hashCode = hashCode * 59 + this.CartDisplayText.GetHashCode();
                 if (this.CartDisplayUrl != null)
-                    hash = hash * 59 + this.CartDisplayUrl.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.CartDisplayUrl.GetHashCode();
+                return hashCode;
             }
         }
 

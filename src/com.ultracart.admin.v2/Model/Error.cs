@@ -101,45 +101,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Error);
+            return this.Equals(input as Error);
         }
 
         /// <summary>
         /// Returns true if Error instances are equal
         /// </summary>
-        /// <param name="other">Instance of Error to be compared</param>
+        /// <param name="input">Instance of Error to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Error other)
+        public bool Equals(Error input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.DeveloperMessage == other.DeveloperMessage ||
-                    this.DeveloperMessage != null &&
-                    this.DeveloperMessage.Equals(other.DeveloperMessage)
+                    this.DeveloperMessage == input.DeveloperMessage ||
+                    (this.DeveloperMessage != null &&
+                    this.DeveloperMessage.Equals(input.DeveloperMessage))
                 ) && 
                 (
-                    this.ErrorCode == other.ErrorCode ||
-                    this.ErrorCode != null &&
-                    this.ErrorCode.Equals(other.ErrorCode)
+                    this.ErrorCode == input.ErrorCode ||
+                    (this.ErrorCode != null &&
+                    this.ErrorCode.Equals(input.ErrorCode))
                 ) && 
                 (
-                    this.MoreInfo == other.MoreInfo ||
-                    this.MoreInfo != null &&
-                    this.MoreInfo.Equals(other.MoreInfo)
+                    this.MoreInfo == input.MoreInfo ||
+                    (this.MoreInfo != null &&
+                    this.MoreInfo.Equals(input.MoreInfo))
                 ) && 
                 (
-                    this.UserMessage == other.UserMessage ||
-                    this.UserMessage != null &&
-                    this.UserMessage.Equals(other.UserMessage)
+                    this.UserMessage == input.UserMessage ||
+                    (this.UserMessage != null &&
+                    this.UserMessage.Equals(input.UserMessage))
                 );
         }
 
@@ -149,20 +147,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.DeveloperMessage != null)
-                    hash = hash * 59 + this.DeveloperMessage.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeveloperMessage.GetHashCode();
                 if (this.ErrorCode != null)
-                    hash = hash * 59 + this.ErrorCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.ErrorCode.GetHashCode();
                 if (this.MoreInfo != null)
-                    hash = hash * 59 + this.MoreInfo.GetHashCode();
+                    hashCode = hashCode * 59 + this.MoreInfo.GetHashCode();
                 if (this.UserMessage != null)
-                    hash = hash * 59 + this.UserMessage.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UserMessage.GetHashCode();
+                return hashCode;
             }
         }
 

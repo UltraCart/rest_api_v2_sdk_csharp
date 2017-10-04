@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderItemEdiLot);
+            return this.Equals(input as OrderItemEdiLot);
         }
 
         /// <summary>
         /// Returns true if OrderItemEdiLot instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderItemEdiLot to be compared</param>
+        /// <param name="input">Instance of OrderItemEdiLot to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderItemEdiLot other)
+        public bool Equals(OrderItemEdiLot input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.LotExpiration == other.LotExpiration ||
-                    this.LotExpiration != null &&
-                    this.LotExpiration.Equals(other.LotExpiration)
+                    this.LotExpiration == input.LotExpiration ||
+                    (this.LotExpiration != null &&
+                    this.LotExpiration.Equals(input.LotExpiration))
                 ) && 
                 (
-                    this.LotNumber == other.LotNumber ||
-                    this.LotNumber != null &&
-                    this.LotNumber.Equals(other.LotNumber)
+                    this.LotNumber == input.LotNumber ||
+                    (this.LotNumber != null &&
+                    this.LotNumber.Equals(input.LotNumber))
                 ) && 
                 (
-                    this.LotQuantity == other.LotQuantity ||
-                    this.LotQuantity != null &&
-                    this.LotQuantity.Equals(other.LotQuantity)
+                    this.LotQuantity == input.LotQuantity ||
+                    (this.LotQuantity != null &&
+                    this.LotQuantity.Equals(input.LotQuantity))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.LotExpiration != null)
-                    hash = hash * 59 + this.LotExpiration.GetHashCode();
+                    hashCode = hashCode * 59 + this.LotExpiration.GetHashCode();
                 if (this.LotNumber != null)
-                    hash = hash * 59 + this.LotNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.LotNumber.GetHashCode();
                 if (this.LotQuantity != null)
-                    hash = hash * 59 + this.LotQuantity.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.LotQuantity.GetHashCode();
+                return hashCode;
             }
         }
 

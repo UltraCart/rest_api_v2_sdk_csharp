@@ -121,55 +121,53 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemVariantItem);
+            return this.Equals(input as ItemVariantItem);
         }
 
         /// <summary>
         /// Returns true if ItemVariantItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemVariantItem to be compared</param>
+        /// <param name="input">Instance of ItemVariantItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemVariantItem other)
+        public bool Equals(ItemVariantItem input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.MerchantItemMultimediaOid == other.MerchantItemMultimediaOid ||
-                    this.MerchantItemMultimediaOid != null &&
-                    this.MerchantItemMultimediaOid.Equals(other.MerchantItemMultimediaOid)
+                    this.MerchantItemMultimediaOid == input.MerchantItemMultimediaOid ||
+                    (this.MerchantItemMultimediaOid != null &&
+                    this.MerchantItemMultimediaOid.Equals(input.MerchantItemMultimediaOid))
                 ) && 
                 (
-                    this.VariantMerchantItemId == other.VariantMerchantItemId ||
-                    this.VariantMerchantItemId != null &&
-                    this.VariantMerchantItemId.Equals(other.VariantMerchantItemId)
+                    this.VariantMerchantItemId == input.VariantMerchantItemId ||
+                    (this.VariantMerchantItemId != null &&
+                    this.VariantMerchantItemId.Equals(input.VariantMerchantItemId))
                 ) && 
                 (
-                    this.VariantMerchantItemOid == other.VariantMerchantItemOid ||
-                    this.VariantMerchantItemOid != null &&
-                    this.VariantMerchantItemOid.Equals(other.VariantMerchantItemOid)
+                    this.VariantMerchantItemOid == input.VariantMerchantItemOid ||
+                    (this.VariantMerchantItemOid != null &&
+                    this.VariantMerchantItemOid.Equals(input.VariantMerchantItemOid))
                 ) && 
                 (
-                    this.VariationOptions == other.VariationOptions ||
+                    this.VariationOptions == input.VariationOptions ||
                     this.VariationOptions != null &&
-                    this.VariationOptions.SequenceEqual(other.VariationOptions)
+                    this.VariationOptions.SequenceEqual(input.VariationOptions)
                 ) && 
                 (
-                    this.Variations == other.Variations ||
+                    this.Variations == input.Variations ||
                     this.Variations != null &&
-                    this.Variations.SequenceEqual(other.Variations)
+                    this.Variations.SequenceEqual(input.Variations)
                 );
         }
 
@@ -179,24 +177,22 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.MerchantItemMultimediaOid != null)
-                    hash = hash * 59 + this.MerchantItemMultimediaOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantItemMultimediaOid.GetHashCode();
                 if (this.VariantMerchantItemId != null)
-                    hash = hash * 59 + this.VariantMerchantItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.VariantMerchantItemId.GetHashCode();
                 if (this.VariantMerchantItemOid != null)
-                    hash = hash * 59 + this.VariantMerchantItemOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.VariantMerchantItemOid.GetHashCode();
                 if (this.VariationOptions != null)
-                    hash = hash * 59 + this.VariationOptions.GetHashCode();
+                    hashCode = hashCode * 59 + this.VariationOptions.GetHashCode();
                 if (this.Variations != null)
-                    hash = hash * 59 + this.Variations.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Variations.GetHashCode();
+                return hashCode;
             }
         }
 

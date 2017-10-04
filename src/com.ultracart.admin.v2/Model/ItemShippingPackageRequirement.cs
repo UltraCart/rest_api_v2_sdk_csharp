@@ -81,35 +81,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemShippingPackageRequirement);
+            return this.Equals(input as ItemShippingPackageRequirement);
         }
 
         /// <summary>
         /// Returns true if ItemShippingPackageRequirement instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemShippingPackageRequirement to be compared</param>
+        /// <param name="input">Instance of ItemShippingPackageRequirement to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemShippingPackageRequirement other)
+        public bool Equals(ItemShippingPackageRequirement input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.PackageName == other.PackageName ||
-                    this.PackageName != null &&
-                    this.PackageName.Equals(other.PackageName)
+                    this.PackageName == input.PackageName ||
+                    (this.PackageName != null &&
+                    this.PackageName.Equals(input.PackageName))
                 ) && 
                 (
-                    this.PackageOid == other.PackageOid ||
-                    this.PackageOid != null &&
-                    this.PackageOid.Equals(other.PackageOid)
+                    this.PackageOid == input.PackageOid ||
+                    (this.PackageOid != null &&
+                    this.PackageOid.Equals(input.PackageOid))
                 );
         }
 
@@ -119,16 +117,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.PackageName != null)
-                    hash = hash * 59 + this.PackageName.GetHashCode();
+                    hashCode = hashCode * 59 + this.PackageName.GetHashCode();
                 if (this.PackageOid != null)
-                    hash = hash * 59 + this.PackageOid.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.PackageOid.GetHashCode();
+                return hashCode;
             }
         }
 

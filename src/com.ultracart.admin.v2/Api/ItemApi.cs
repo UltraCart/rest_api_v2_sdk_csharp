@@ -71,6 +71,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ItemResponse</returns>
         ApiResponse<ItemResponse> GetItemWithHttpInfo (int? merchantItemOid, string expand = null, bool? placeholders = null);
         /// <summary>
+        /// Retrieve an item by item id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single item using the specified item id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId">The item id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ItemResponse</returns>
+        ItemResponse GetItemByMerchantItemId (string merchantItemId, string expand = null, bool? placeholders = null);
+
+        /// <summary>
+        /// Retrieve an item by item id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single item using the specified item id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId">The item id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of ItemResponse</returns>
+        ApiResponse<ItemResponse> GetItemByMerchantItemIdWithHttpInfo (string merchantItemId, string expand = null, bool? placeholders = null);
+        /// <summary>
         /// Retrieve items
         /// </summary>
         /// <remarks>
@@ -226,6 +251,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemResponse>> GetItemAsyncWithHttpInfo (int? merchantItemOid, string expand = null, bool? placeholders = null);
+        /// <summary>
+        /// Retrieve an item by item id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single item using the specified item id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId">The item id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ItemResponse</returns>
+        System.Threading.Tasks.Task<ItemResponse> GetItemByMerchantItemIdAsync (string merchantItemId, string expand = null, bool? placeholders = null);
+
+        /// <summary>
+        /// Retrieve an item by item id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single item using the specified item id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId">The item id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (ItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemResponse>> GetItemByMerchantItemIdAsyncWithHttpInfo (string merchantItemId, string expand = null, bool? placeholders = null);
         /// <summary>
         /// Retrieve items
         /// </summary>
@@ -750,6 +800,175 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve an item by item id Retrieves a single item using the specified item id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId">The item id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ItemResponse</returns>
+        public ItemResponse GetItemByMerchantItemId (string merchantItemId, string expand = null, bool? placeholders = null)
+        {
+             ApiResponse<ItemResponse> localVarResponse = GetItemByMerchantItemIdWithHttpInfo(merchantItemId, expand, placeholders);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve an item by item id Retrieves a single item using the specified item id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId">The item id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of ItemResponse</returns>
+        public ApiResponse< ItemResponse > GetItemByMerchantItemIdWithHttpInfo (string merchantItemId, string expand = null, bool? placeholders = null)
+        {
+            // verify the required parameter 'merchantItemId' is set
+            if (merchantItemId == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemId' when calling ItemApi->GetItemByMerchantItemId");
+
+            var localVarPath = "/item/items/merchant_item_id/{merchant_item_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemId != null) localVarPathParams.Add("merchant_item_id", Configuration.ApiClient.ParameterToString(merchantItemId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetItemByMerchantItemId", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve an item by item id Retrieves a single item using the specified item id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId">The item id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ItemResponse</returns>
+        public async System.Threading.Tasks.Task<ItemResponse> GetItemByMerchantItemIdAsync (string merchantItemId, string expand = null, bool? placeholders = null)
+        {
+             ApiResponse<ItemResponse> localVarResponse = await GetItemByMerchantItemIdAsyncWithHttpInfo(merchantItemId, expand, placeholders);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve an item by item id Retrieves a single item using the specified item id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemId">The item id to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (ItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemResponse>> GetItemByMerchantItemIdAsyncWithHttpInfo (string merchantItemId, string expand = null, bool? placeholders = null)
+        {
+            // verify the required parameter 'merchantItemId' is set
+            if (merchantItemId == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemId' when calling ItemApi->GetItemByMerchantItemId");
+
+            var localVarPath = "/item/items/merchant_item_id/{merchant_item_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemId != null) localVarPathParams.Add("merchant_item_id", Configuration.ApiClient.ParameterToString(merchantItemId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetItemByMerchantItemId", localVarResponse);
                 if (exception != null) throw exception;
             }
 

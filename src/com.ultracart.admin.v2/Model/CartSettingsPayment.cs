@@ -188,90 +188,88 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSettingsPayment);
+            return this.Equals(input as CartSettingsPayment);
         }
 
         /// <summary>
         /// Returns true if CartSettingsPayment instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSettingsPayment to be compared</param>
+        /// <param name="input">Instance of CartSettingsPayment to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSettingsPayment other)
+        public bool Equals(CartSettingsPayment input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Amazon == other.Amazon ||
-                    this.Amazon != null &&
-                    this.Amazon.Equals(other.Amazon)
+                    this.Amazon == input.Amazon ||
+                    (this.Amazon != null &&
+                    this.Amazon.Equals(input.Amazon))
                 ) && 
                 (
-                    this.CreditCard == other.CreditCard ||
-                    this.CreditCard != null &&
-                    this.CreditCard.Equals(other.CreditCard)
+                    this.CreditCard == input.CreditCard ||
+                    (this.CreditCard != null &&
+                    this.CreditCard.Equals(input.CreditCard))
                 ) && 
                 (
-                    this.NeedPayment == other.NeedPayment ||
-                    this.NeedPayment != null &&
-                    this.NeedPayment.Equals(other.NeedPayment)
+                    this.NeedPayment == input.NeedPayment ||
+                    (this.NeedPayment != null &&
+                    this.NeedPayment.Equals(input.NeedPayment))
                 ) && 
                 (
-                    this.Paypal == other.Paypal ||
-                    this.Paypal != null &&
-                    this.Paypal.Equals(other.Paypal)
+                    this.Paypal == input.Paypal ||
+                    (this.Paypal != null &&
+                    this.Paypal.Equals(input.Paypal))
                 ) && 
                 (
-                    this.SupportsAmazon == other.SupportsAmazon ||
-                    this.SupportsAmazon != null &&
-                    this.SupportsAmazon.Equals(other.SupportsAmazon)
+                    this.SupportsAmazon == input.SupportsAmazon ||
+                    (this.SupportsAmazon != null &&
+                    this.SupportsAmazon.Equals(input.SupportsAmazon))
                 ) && 
                 (
-                    this.SupportsCheck == other.SupportsCheck ||
-                    this.SupportsCheck != null &&
-                    this.SupportsCheck.Equals(other.SupportsCheck)
+                    this.SupportsCheck == input.SupportsCheck ||
+                    (this.SupportsCheck != null &&
+                    this.SupportsCheck.Equals(input.SupportsCheck))
                 ) && 
                 (
-                    this.SupportsCod == other.SupportsCod ||
-                    this.SupportsCod != null &&
-                    this.SupportsCod.Equals(other.SupportsCod)
+                    this.SupportsCod == input.SupportsCod ||
+                    (this.SupportsCod != null &&
+                    this.SupportsCod.Equals(input.SupportsCod))
                 ) && 
                 (
-                    this.SupportsCreditCard == other.SupportsCreditCard ||
-                    this.SupportsCreditCard != null &&
-                    this.SupportsCreditCard.Equals(other.SupportsCreditCard)
+                    this.SupportsCreditCard == input.SupportsCreditCard ||
+                    (this.SupportsCreditCard != null &&
+                    this.SupportsCreditCard.Equals(input.SupportsCreditCard))
                 ) && 
                 (
-                    this.SupportsMoneyOrder == other.SupportsMoneyOrder ||
-                    this.SupportsMoneyOrder != null &&
-                    this.SupportsMoneyOrder.Equals(other.SupportsMoneyOrder)
+                    this.SupportsMoneyOrder == input.SupportsMoneyOrder ||
+                    (this.SupportsMoneyOrder != null &&
+                    this.SupportsMoneyOrder.Equals(input.SupportsMoneyOrder))
                 ) && 
                 (
-                    this.SupportsPaypal == other.SupportsPaypal ||
-                    this.SupportsPaypal != null &&
-                    this.SupportsPaypal.Equals(other.SupportsPaypal)
+                    this.SupportsPaypal == input.SupportsPaypal ||
+                    (this.SupportsPaypal != null &&
+                    this.SupportsPaypal.Equals(input.SupportsPaypal))
                 ) && 
                 (
-                    this.SupportsPurchaseOrder == other.SupportsPurchaseOrder ||
-                    this.SupportsPurchaseOrder != null &&
-                    this.SupportsPurchaseOrder.Equals(other.SupportsPurchaseOrder)
+                    this.SupportsPurchaseOrder == input.SupportsPurchaseOrder ||
+                    (this.SupportsPurchaseOrder != null &&
+                    this.SupportsPurchaseOrder.Equals(input.SupportsPurchaseOrder))
                 ) && 
                 (
-                    this.SupportsQuoteRequest == other.SupportsQuoteRequest ||
-                    this.SupportsQuoteRequest != null &&
-                    this.SupportsQuoteRequest.Equals(other.SupportsQuoteRequest)
+                    this.SupportsQuoteRequest == input.SupportsQuoteRequest ||
+                    (this.SupportsQuoteRequest != null &&
+                    this.SupportsQuoteRequest.Equals(input.SupportsQuoteRequest))
                 ) && 
                 (
-                    this.SupportsWireTransfer == other.SupportsWireTransfer ||
-                    this.SupportsWireTransfer != null &&
-                    this.SupportsWireTransfer.Equals(other.SupportsWireTransfer)
+                    this.SupportsWireTransfer == input.SupportsWireTransfer ||
+                    (this.SupportsWireTransfer != null &&
+                    this.SupportsWireTransfer.Equals(input.SupportsWireTransfer))
                 );
         }
 
@@ -281,38 +279,36 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Amazon != null)
-                    hash = hash * 59 + this.Amazon.GetHashCode();
+                    hashCode = hashCode * 59 + this.Amazon.GetHashCode();
                 if (this.CreditCard != null)
-                    hash = hash * 59 + this.CreditCard.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreditCard.GetHashCode();
                 if (this.NeedPayment != null)
-                    hash = hash * 59 + this.NeedPayment.GetHashCode();
+                    hashCode = hashCode * 59 + this.NeedPayment.GetHashCode();
                 if (this.Paypal != null)
-                    hash = hash * 59 + this.Paypal.GetHashCode();
+                    hashCode = hashCode * 59 + this.Paypal.GetHashCode();
                 if (this.SupportsAmazon != null)
-                    hash = hash * 59 + this.SupportsAmazon.GetHashCode();
+                    hashCode = hashCode * 59 + this.SupportsAmazon.GetHashCode();
                 if (this.SupportsCheck != null)
-                    hash = hash * 59 + this.SupportsCheck.GetHashCode();
+                    hashCode = hashCode * 59 + this.SupportsCheck.GetHashCode();
                 if (this.SupportsCod != null)
-                    hash = hash * 59 + this.SupportsCod.GetHashCode();
+                    hashCode = hashCode * 59 + this.SupportsCod.GetHashCode();
                 if (this.SupportsCreditCard != null)
-                    hash = hash * 59 + this.SupportsCreditCard.GetHashCode();
+                    hashCode = hashCode * 59 + this.SupportsCreditCard.GetHashCode();
                 if (this.SupportsMoneyOrder != null)
-                    hash = hash * 59 + this.SupportsMoneyOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.SupportsMoneyOrder.GetHashCode();
                 if (this.SupportsPaypal != null)
-                    hash = hash * 59 + this.SupportsPaypal.GetHashCode();
+                    hashCode = hashCode * 59 + this.SupportsPaypal.GetHashCode();
                 if (this.SupportsPurchaseOrder != null)
-                    hash = hash * 59 + this.SupportsPurchaseOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.SupportsPurchaseOrder.GetHashCode();
                 if (this.SupportsQuoteRequest != null)
-                    hash = hash * 59 + this.SupportsQuoteRequest.GetHashCode();
+                    hashCode = hashCode * 59 + this.SupportsQuoteRequest.GetHashCode();
                 if (this.SupportsWireTransfer != null)
-                    hash = hash * 59 + this.SupportsWireTransfer.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.SupportsWireTransfer.GetHashCode();
+                return hashCode;
             }
         }
 

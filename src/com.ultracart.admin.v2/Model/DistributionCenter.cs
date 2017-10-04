@@ -391,190 +391,188 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as DistributionCenter);
+            return this.Equals(input as DistributionCenter);
         }
 
         /// <summary>
         /// Returns true if DistributionCenter instances are equal
         /// </summary>
-        /// <param name="other">Instance of DistributionCenter to be compared</param>
+        /// <param name="input">Instance of DistributionCenter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DistributionCenter other)
+        public bool Equals(DistributionCenter input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Address1 == other.Address1 ||
-                    this.Address1 != null &&
-                    this.Address1.Equals(other.Address1)
+                    this.Address1 == input.Address1 ||
+                    (this.Address1 != null &&
+                    this.Address1.Equals(input.Address1))
                 ) && 
                 (
-                    this.Address2 == other.Address2 ||
-                    this.Address2 != null &&
-                    this.Address2.Equals(other.Address2)
+                    this.Address2 == input.Address2 ||
+                    (this.Address2 != null &&
+                    this.Address2.Equals(input.Address2))
                 ) && 
                 (
-                    this.City == other.City ||
-                    this.City != null &&
-                    this.City.Equals(other.City)
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
                 ) && 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.CountryCode == other.CountryCode ||
-                    this.CountryCode != null &&
-                    this.CountryCode.Equals(other.CountryCode)
+                    this.CountryCode == input.CountryCode ||
+                    (this.CountryCode != null &&
+                    this.CountryCode.Equals(input.CountryCode))
                 ) && 
                 (
-                    this.DefaultCenter == other.DefaultCenter ||
-                    this.DefaultCenter != null &&
-                    this.DefaultCenter.Equals(other.DefaultCenter)
+                    this.DefaultCenter == input.DefaultCenter ||
+                    (this.DefaultCenter != null &&
+                    this.DefaultCenter.Equals(input.DefaultCenter))
                 ) && 
                 (
-                    this.DefaultHandlesAllItems == other.DefaultHandlesAllItems ||
-                    this.DefaultHandlesAllItems != null &&
-                    this.DefaultHandlesAllItems.Equals(other.DefaultHandlesAllItems)
+                    this.DefaultHandlesAllItems == input.DefaultHandlesAllItems ||
+                    (this.DefaultHandlesAllItems != null &&
+                    this.DefaultHandlesAllItems.Equals(input.DefaultHandlesAllItems))
                 ) && 
                 (
-                    this.DistributionCenterOid == other.DistributionCenterOid ||
-                    this.DistributionCenterOid != null &&
-                    this.DistributionCenterOid.Equals(other.DistributionCenterOid)
+                    this.DistributionCenterOid == input.DistributionCenterOid ||
+                    (this.DistributionCenterOid != null &&
+                    this.DistributionCenterOid.Equals(input.DistributionCenterOid))
                 ) && 
                 (
-                    this.Duns == other.Duns ||
-                    this.Duns != null &&
-                    this.Duns.Equals(other.Duns)
+                    this.Duns == input.Duns ||
+                    (this.Duns != null &&
+                    this.Duns.Equals(input.Duns))
                 ) && 
                 (
-                    this.EstimateFromDistributionCenterOid == other.EstimateFromDistributionCenterOid ||
-                    this.EstimateFromDistributionCenterOid != null &&
-                    this.EstimateFromDistributionCenterOid.Equals(other.EstimateFromDistributionCenterOid)
+                    this.EstimateFromDistributionCenterOid == input.EstimateFromDistributionCenterOid ||
+                    (this.EstimateFromDistributionCenterOid != null &&
+                    this.EstimateFromDistributionCenterOid.Equals(input.EstimateFromDistributionCenterOid))
                 ) && 
                 (
-                    this.FtpPassword == other.FtpPassword ||
-                    this.FtpPassword != null &&
-                    this.FtpPassword.Equals(other.FtpPassword)
+                    this.FtpPassword == input.FtpPassword ||
+                    (this.FtpPassword != null &&
+                    this.FtpPassword.Equals(input.FtpPassword))
                 ) && 
                 (
-                    this.HoldBeforeShipmentMinutes == other.HoldBeforeShipmentMinutes ||
-                    this.HoldBeforeShipmentMinutes != null &&
-                    this.HoldBeforeShipmentMinutes.Equals(other.HoldBeforeShipmentMinutes)
+                    this.HoldBeforeShipmentMinutes == input.HoldBeforeShipmentMinutes ||
+                    (this.HoldBeforeShipmentMinutes != null &&
+                    this.HoldBeforeShipmentMinutes.Equals(input.HoldBeforeShipmentMinutes))
                 ) && 
                 (
-                    this.HoldBeforeTransmission == other.HoldBeforeTransmission ||
-                    this.HoldBeforeTransmission != null &&
-                    this.HoldBeforeTransmission.Equals(other.HoldBeforeTransmission)
+                    this.HoldBeforeTransmission == input.HoldBeforeTransmission ||
+                    (this.HoldBeforeTransmission != null &&
+                    this.HoldBeforeTransmission.Equals(input.HoldBeforeTransmission))
                 ) && 
                 (
-                    this.Latitude == other.Latitude ||
-                    this.Latitude != null &&
-                    this.Latitude.Equals(other.Latitude)
+                    this.Latitude == input.Latitude ||
+                    (this.Latitude != null &&
+                    this.Latitude.Equals(input.Latitude))
                 ) && 
                 (
-                    this.Longitude == other.Longitude ||
-                    this.Longitude != null &&
-                    this.Longitude.Equals(other.Longitude)
+                    this.Longitude == input.Longitude ||
+                    (this.Longitude != null &&
+                    this.Longitude.Equals(input.Longitude))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.NoCustomerDirectShipments == other.NoCustomerDirectShipments ||
-                    this.NoCustomerDirectShipments != null &&
-                    this.NoCustomerDirectShipments.Equals(other.NoCustomerDirectShipments)
+                    this.NoCustomerDirectShipments == input.NoCustomerDirectShipments ||
+                    (this.NoCustomerDirectShipments != null &&
+                    this.NoCustomerDirectShipments.Equals(input.NoCustomerDirectShipments))
                 ) && 
                 (
-                    this.NoSplitShipment == other.NoSplitShipment ||
-                    this.NoSplitShipment != null &&
-                    this.NoSplitShipment.Equals(other.NoSplitShipment)
+                    this.NoSplitShipment == input.NoSplitShipment ||
+                    (this.NoSplitShipment != null &&
+                    this.NoSplitShipment.Equals(input.NoSplitShipment))
                 ) && 
                 (
-                    this.PostalCode == other.PostalCode ||
-                    this.PostalCode != null &&
-                    this.PostalCode.Equals(other.PostalCode)
+                    this.PostalCode == input.PostalCode ||
+                    (this.PostalCode != null &&
+                    this.PostalCode.Equals(input.PostalCode))
                 ) && 
                 (
-                    this.ProcessDays == other.ProcessDays ||
-                    this.ProcessDays != null &&
-                    this.ProcessDays.Equals(other.ProcessDays)
+                    this.ProcessDays == input.ProcessDays ||
+                    (this.ProcessDays != null &&
+                    this.ProcessDays.Equals(input.ProcessDays))
                 ) && 
                 (
-                    this.ProcessInventoryStartTime == other.ProcessInventoryStartTime ||
-                    this.ProcessInventoryStartTime != null &&
-                    this.ProcessInventoryStartTime.Equals(other.ProcessInventoryStartTime)
+                    this.ProcessInventoryStartTime == input.ProcessInventoryStartTime ||
+                    (this.ProcessInventoryStartTime != null &&
+                    this.ProcessInventoryStartTime.Equals(input.ProcessInventoryStartTime))
                 ) && 
                 (
-                    this.ProcessInventoryStopTime == other.ProcessInventoryStopTime ||
-                    this.ProcessInventoryStopTime != null &&
-                    this.ProcessInventoryStopTime.Equals(other.ProcessInventoryStopTime)
+                    this.ProcessInventoryStopTime == input.ProcessInventoryStopTime ||
+                    (this.ProcessInventoryStopTime != null &&
+                    this.ProcessInventoryStopTime.Equals(input.ProcessInventoryStopTime))
                 ) && 
                 (
-                    this.RequireAsn == other.RequireAsn ||
-                    this.RequireAsn != null &&
-                    this.RequireAsn.Equals(other.RequireAsn)
+                    this.RequireAsn == input.RequireAsn ||
+                    (this.RequireAsn != null &&
+                    this.RequireAsn.Equals(input.RequireAsn))
                 ) && 
                 (
-                    this.SendKitInsteadOfComponents == other.SendKitInsteadOfComponents ||
-                    this.SendKitInsteadOfComponents != null &&
-                    this.SendKitInsteadOfComponents.Equals(other.SendKitInsteadOfComponents)
+                    this.SendKitInsteadOfComponents == input.SendKitInsteadOfComponents ||
+                    (this.SendKitInsteadOfComponents != null &&
+                    this.SendKitInsteadOfComponents.Equals(input.SendKitInsteadOfComponents))
                 ) && 
                 (
-                    this.ShipmentCutoffTimeFriday == other.ShipmentCutoffTimeFriday ||
-                    this.ShipmentCutoffTimeFriday != null &&
-                    this.ShipmentCutoffTimeFriday.Equals(other.ShipmentCutoffTimeFriday)
+                    this.ShipmentCutoffTimeFriday == input.ShipmentCutoffTimeFriday ||
+                    (this.ShipmentCutoffTimeFriday != null &&
+                    this.ShipmentCutoffTimeFriday.Equals(input.ShipmentCutoffTimeFriday))
                 ) && 
                 (
-                    this.ShipmentCutoffTimeMonday == other.ShipmentCutoffTimeMonday ||
-                    this.ShipmentCutoffTimeMonday != null &&
-                    this.ShipmentCutoffTimeMonday.Equals(other.ShipmentCutoffTimeMonday)
+                    this.ShipmentCutoffTimeMonday == input.ShipmentCutoffTimeMonday ||
+                    (this.ShipmentCutoffTimeMonday != null &&
+                    this.ShipmentCutoffTimeMonday.Equals(input.ShipmentCutoffTimeMonday))
                 ) && 
                 (
-                    this.ShipmentCutoffTimeSaturday == other.ShipmentCutoffTimeSaturday ||
-                    this.ShipmentCutoffTimeSaturday != null &&
-                    this.ShipmentCutoffTimeSaturday.Equals(other.ShipmentCutoffTimeSaturday)
+                    this.ShipmentCutoffTimeSaturday == input.ShipmentCutoffTimeSaturday ||
+                    (this.ShipmentCutoffTimeSaturday != null &&
+                    this.ShipmentCutoffTimeSaturday.Equals(input.ShipmentCutoffTimeSaturday))
                 ) && 
                 (
-                    this.ShipmentCutoffTimeSunday == other.ShipmentCutoffTimeSunday ||
-                    this.ShipmentCutoffTimeSunday != null &&
-                    this.ShipmentCutoffTimeSunday.Equals(other.ShipmentCutoffTimeSunday)
+                    this.ShipmentCutoffTimeSunday == input.ShipmentCutoffTimeSunday ||
+                    (this.ShipmentCutoffTimeSunday != null &&
+                    this.ShipmentCutoffTimeSunday.Equals(input.ShipmentCutoffTimeSunday))
                 ) && 
                 (
-                    this.ShipmentCutoffTimeThursday == other.ShipmentCutoffTimeThursday ||
-                    this.ShipmentCutoffTimeThursday != null &&
-                    this.ShipmentCutoffTimeThursday.Equals(other.ShipmentCutoffTimeThursday)
+                    this.ShipmentCutoffTimeThursday == input.ShipmentCutoffTimeThursday ||
+                    (this.ShipmentCutoffTimeThursday != null &&
+                    this.ShipmentCutoffTimeThursday.Equals(input.ShipmentCutoffTimeThursday))
                 ) && 
                 (
-                    this.ShipmentCutoffTimeTuesday == other.ShipmentCutoffTimeTuesday ||
-                    this.ShipmentCutoffTimeTuesday != null &&
-                    this.ShipmentCutoffTimeTuesday.Equals(other.ShipmentCutoffTimeTuesday)
+                    this.ShipmentCutoffTimeTuesday == input.ShipmentCutoffTimeTuesday ||
+                    (this.ShipmentCutoffTimeTuesday != null &&
+                    this.ShipmentCutoffTimeTuesday.Equals(input.ShipmentCutoffTimeTuesday))
                 ) && 
                 (
-                    this.ShipmentCutoffTimeWednesday == other.ShipmentCutoffTimeWednesday ||
-                    this.ShipmentCutoffTimeWednesday != null &&
-                    this.ShipmentCutoffTimeWednesday.Equals(other.ShipmentCutoffTimeWednesday)
+                    this.ShipmentCutoffTimeWednesday == input.ShipmentCutoffTimeWednesday ||
+                    (this.ShipmentCutoffTimeWednesday != null &&
+                    this.ShipmentCutoffTimeWednesday.Equals(input.ShipmentCutoffTimeWednesday))
                 ) && 
                 (
-                    this.State == other.State ||
-                    this.State != null &&
-                    this.State.Equals(other.State)
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
                 ) && 
                 (
-                    this.Transport == other.Transport ||
-                    this.Transport != null &&
-                    this.Transport.Equals(other.Transport)
+                    this.Transport == input.Transport ||
+                    (this.Transport != null &&
+                    this.Transport.Equals(input.Transport))
                 );
         }
 
@@ -584,78 +582,76 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Address1 != null)
-                    hash = hash * 59 + this.Address1.GetHashCode();
+                    hashCode = hashCode * 59 + this.Address1.GetHashCode();
                 if (this.Address2 != null)
-                    hash = hash * 59 + this.Address2.GetHashCode();
+                    hashCode = hashCode * 59 + this.Address2.GetHashCode();
                 if (this.City != null)
-                    hash = hash * 59 + this.City.GetHashCode();
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
                 if (this.CountryCode != null)
-                    hash = hash * 59 + this.CountryCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.DefaultCenter != null)
-                    hash = hash * 59 + this.DefaultCenter.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultCenter.GetHashCode();
                 if (this.DefaultHandlesAllItems != null)
-                    hash = hash * 59 + this.DefaultHandlesAllItems.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultHandlesAllItems.GetHashCode();
                 if (this.DistributionCenterOid != null)
-                    hash = hash * 59 + this.DistributionCenterOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.DistributionCenterOid.GetHashCode();
                 if (this.Duns != null)
-                    hash = hash * 59 + this.Duns.GetHashCode();
+                    hashCode = hashCode * 59 + this.Duns.GetHashCode();
                 if (this.EstimateFromDistributionCenterOid != null)
-                    hash = hash * 59 + this.EstimateFromDistributionCenterOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.EstimateFromDistributionCenterOid.GetHashCode();
                 if (this.FtpPassword != null)
-                    hash = hash * 59 + this.FtpPassword.GetHashCode();
+                    hashCode = hashCode * 59 + this.FtpPassword.GetHashCode();
                 if (this.HoldBeforeShipmentMinutes != null)
-                    hash = hash * 59 + this.HoldBeforeShipmentMinutes.GetHashCode();
+                    hashCode = hashCode * 59 + this.HoldBeforeShipmentMinutes.GetHashCode();
                 if (this.HoldBeforeTransmission != null)
-                    hash = hash * 59 + this.HoldBeforeTransmission.GetHashCode();
+                    hashCode = hashCode * 59 + this.HoldBeforeTransmission.GetHashCode();
                 if (this.Latitude != null)
-                    hash = hash * 59 + this.Latitude.GetHashCode();
+                    hashCode = hashCode * 59 + this.Latitude.GetHashCode();
                 if (this.Longitude != null)
-                    hash = hash * 59 + this.Longitude.GetHashCode();
+                    hashCode = hashCode * 59 + this.Longitude.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.NoCustomerDirectShipments != null)
-                    hash = hash * 59 + this.NoCustomerDirectShipments.GetHashCode();
+                    hashCode = hashCode * 59 + this.NoCustomerDirectShipments.GetHashCode();
                 if (this.NoSplitShipment != null)
-                    hash = hash * 59 + this.NoSplitShipment.GetHashCode();
+                    hashCode = hashCode * 59 + this.NoSplitShipment.GetHashCode();
                 if (this.PostalCode != null)
-                    hash = hash * 59 + this.PostalCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.ProcessDays != null)
-                    hash = hash * 59 + this.ProcessDays.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProcessDays.GetHashCode();
                 if (this.ProcessInventoryStartTime != null)
-                    hash = hash * 59 + this.ProcessInventoryStartTime.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProcessInventoryStartTime.GetHashCode();
                 if (this.ProcessInventoryStopTime != null)
-                    hash = hash * 59 + this.ProcessInventoryStopTime.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProcessInventoryStopTime.GetHashCode();
                 if (this.RequireAsn != null)
-                    hash = hash * 59 + this.RequireAsn.GetHashCode();
+                    hashCode = hashCode * 59 + this.RequireAsn.GetHashCode();
                 if (this.SendKitInsteadOfComponents != null)
-                    hash = hash * 59 + this.SendKitInsteadOfComponents.GetHashCode();
+                    hashCode = hashCode * 59 + this.SendKitInsteadOfComponents.GetHashCode();
                 if (this.ShipmentCutoffTimeFriday != null)
-                    hash = hash * 59 + this.ShipmentCutoffTimeFriday.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipmentCutoffTimeFriday.GetHashCode();
                 if (this.ShipmentCutoffTimeMonday != null)
-                    hash = hash * 59 + this.ShipmentCutoffTimeMonday.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipmentCutoffTimeMonday.GetHashCode();
                 if (this.ShipmentCutoffTimeSaturday != null)
-                    hash = hash * 59 + this.ShipmentCutoffTimeSaturday.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipmentCutoffTimeSaturday.GetHashCode();
                 if (this.ShipmentCutoffTimeSunday != null)
-                    hash = hash * 59 + this.ShipmentCutoffTimeSunday.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipmentCutoffTimeSunday.GetHashCode();
                 if (this.ShipmentCutoffTimeThursday != null)
-                    hash = hash * 59 + this.ShipmentCutoffTimeThursday.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipmentCutoffTimeThursday.GetHashCode();
                 if (this.ShipmentCutoffTimeTuesday != null)
-                    hash = hash * 59 + this.ShipmentCutoffTimeTuesday.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipmentCutoffTimeTuesday.GetHashCode();
                 if (this.ShipmentCutoffTimeWednesday != null)
-                    hash = hash * 59 + this.ShipmentCutoffTimeWednesday.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipmentCutoffTimeWednesday.GetHashCode();
                 if (this.State != null)
-                    hash = hash * 59 + this.State.GetHashCode();
+                    hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.Transport != null)
-                    hash = hash * 59 + this.Transport.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Transport.GetHashCode();
+                return hashCode;
             }
         }
 

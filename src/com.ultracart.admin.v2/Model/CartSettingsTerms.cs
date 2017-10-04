@@ -81,35 +81,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSettingsTerms);
+            return this.Equals(input as CartSettingsTerms);
         }
 
         /// <summary>
         /// Returns true if CartSettingsTerms instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSettingsTerms to be compared</param>
+        /// <param name="input">Instance of CartSettingsTerms to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSettingsTerms other)
+        public bool Equals(CartSettingsTerms input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Html == other.Html ||
-                    this.Html != null &&
-                    this.Html.Equals(other.Html)
+                    this.Html == input.Html ||
+                    (this.Html != null &&
+                    this.Html.Equals(input.Html))
                 ) && 
                 (
-                    this.Text == other.Text ||
-                    this.Text != null &&
-                    this.Text.Equals(other.Text)
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
                 );
         }
 
@@ -119,16 +117,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Html != null)
-                    hash = hash * 59 + this.Html.GetHashCode();
+                    hashCode = hashCode * 59 + this.Html.GetHashCode();
                 if (this.Text != null)
-                    hash = hash * 59 + this.Text.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                return hashCode;
             }
         }
 

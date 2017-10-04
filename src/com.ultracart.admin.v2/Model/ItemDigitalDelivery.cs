@@ -121,55 +121,53 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemDigitalDelivery);
+            return this.Equals(input as ItemDigitalDelivery);
         }
 
         /// <summary>
         /// Returns true if ItemDigitalDelivery instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemDigitalDelivery to be compared</param>
+        /// <param name="input">Instance of ItemDigitalDelivery to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemDigitalDelivery other)
+        public bool Equals(ItemDigitalDelivery input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ActivationCodeDescription == other.ActivationCodeDescription ||
-                    this.ActivationCodeDescription != null &&
-                    this.ActivationCodeDescription.Equals(other.ActivationCodeDescription)
+                    this.ActivationCodeDescription == input.ActivationCodeDescription ||
+                    (this.ActivationCodeDescription != null &&
+                    this.ActivationCodeDescription.Equals(input.ActivationCodeDescription))
                 ) && 
                 (
-                    this.ActivationCodeLowWarning == other.ActivationCodeLowWarning ||
-                    this.ActivationCodeLowWarning != null &&
-                    this.ActivationCodeLowWarning.Equals(other.ActivationCodeLowWarning)
+                    this.ActivationCodeLowWarning == input.ActivationCodeLowWarning ||
+                    (this.ActivationCodeLowWarning != null &&
+                    this.ActivationCodeLowWarning.Equals(input.ActivationCodeLowWarning))
                 ) && 
                 (
-                    this.ActivationCodeRealtimeUrl == other.ActivationCodeRealtimeUrl ||
-                    this.ActivationCodeRealtimeUrl != null &&
-                    this.ActivationCodeRealtimeUrl.Equals(other.ActivationCodeRealtimeUrl)
+                    this.ActivationCodeRealtimeUrl == input.ActivationCodeRealtimeUrl ||
+                    (this.ActivationCodeRealtimeUrl != null &&
+                    this.ActivationCodeRealtimeUrl.Equals(input.ActivationCodeRealtimeUrl))
                 ) && 
                 (
-                    this.ActivationCodeSharedSecret == other.ActivationCodeSharedSecret ||
-                    this.ActivationCodeSharedSecret != null &&
-                    this.ActivationCodeSharedSecret.Equals(other.ActivationCodeSharedSecret)
+                    this.ActivationCodeSharedSecret == input.ActivationCodeSharedSecret ||
+                    (this.ActivationCodeSharedSecret != null &&
+                    this.ActivationCodeSharedSecret.Equals(input.ActivationCodeSharedSecret))
                 ) && 
                 (
-                    this.ActivationCodeType == other.ActivationCodeType ||
-                    this.ActivationCodeType != null &&
-                    this.ActivationCodeType.Equals(other.ActivationCodeType)
+                    this.ActivationCodeType == input.ActivationCodeType ||
+                    (this.ActivationCodeType != null &&
+                    this.ActivationCodeType.Equals(input.ActivationCodeType))
                 ) && 
                 (
-                    this.DigitalItems == other.DigitalItems ||
+                    this.DigitalItems == input.DigitalItems ||
                     this.DigitalItems != null &&
-                    this.DigitalItems.SequenceEqual(other.DigitalItems)
+                    this.DigitalItems.SequenceEqual(input.DigitalItems)
                 );
         }
 
@@ -179,24 +177,22 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ActivationCodeDescription != null)
-                    hash = hash * 59 + this.ActivationCodeDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActivationCodeDescription.GetHashCode();
                 if (this.ActivationCodeLowWarning != null)
-                    hash = hash * 59 + this.ActivationCodeLowWarning.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActivationCodeLowWarning.GetHashCode();
                 if (this.ActivationCodeRealtimeUrl != null)
-                    hash = hash * 59 + this.ActivationCodeRealtimeUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActivationCodeRealtimeUrl.GetHashCode();
                 if (this.ActivationCodeSharedSecret != null)
-                    hash = hash * 59 + this.ActivationCodeSharedSecret.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActivationCodeSharedSecret.GetHashCode();
                 if (this.ActivationCodeType != null)
-                    hash = hash * 59 + this.ActivationCodeType.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActivationCodeType.GetHashCode();
                 if (this.DigitalItems != null)
-                    hash = hash * 59 + this.DigitalItems.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.DigitalItems.GetHashCode();
+                return hashCode;
             }
         }
 

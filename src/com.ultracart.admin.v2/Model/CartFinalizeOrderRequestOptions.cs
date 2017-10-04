@@ -191,90 +191,88 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartFinalizeOrderRequestOptions);
+            return this.Equals(input as CartFinalizeOrderRequestOptions);
         }
 
         /// <summary>
         /// Returns true if CartFinalizeOrderRequestOptions instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartFinalizeOrderRequestOptions to be compared</param>
+        /// <param name="input">Instance of CartFinalizeOrderRequestOptions to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartFinalizeOrderRequestOptions other)
+        public bool Equals(CartFinalizeOrderRequestOptions input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AutoApprovePurchaseOrder == other.AutoApprovePurchaseOrder ||
-                    this.AutoApprovePurchaseOrder != null &&
-                    this.AutoApprovePurchaseOrder.Equals(other.AutoApprovePurchaseOrder)
+                    this.AutoApprovePurchaseOrder == input.AutoApprovePurchaseOrder ||
+                    (this.AutoApprovePurchaseOrder != null &&
+                    this.AutoApprovePurchaseOrder.Equals(input.AutoApprovePurchaseOrder))
                 ) && 
                 (
-                    this.ChannelPartnerCode == other.ChannelPartnerCode ||
-                    this.ChannelPartnerCode != null &&
-                    this.ChannelPartnerCode.Equals(other.ChannelPartnerCode)
+                    this.ChannelPartnerCode == input.ChannelPartnerCode ||
+                    (this.ChannelPartnerCode != null &&
+                    this.ChannelPartnerCode.Equals(input.ChannelPartnerCode))
                 ) && 
                 (
-                    this.ChannelPartnerOid == other.ChannelPartnerOid ||
-                    this.ChannelPartnerOid != null &&
-                    this.ChannelPartnerOid.Equals(other.ChannelPartnerOid)
+                    this.ChannelPartnerOid == input.ChannelPartnerOid ||
+                    (this.ChannelPartnerOid != null &&
+                    this.ChannelPartnerOid.Equals(input.ChannelPartnerOid))
                 ) && 
                 (
-                    this.ChannelPartnerOrderId == other.ChannelPartnerOrderId ||
-                    this.ChannelPartnerOrderId != null &&
-                    this.ChannelPartnerOrderId.Equals(other.ChannelPartnerOrderId)
+                    this.ChannelPartnerOrderId == input.ChannelPartnerOrderId ||
+                    (this.ChannelPartnerOrderId != null &&
+                    this.ChannelPartnerOrderId.Equals(input.ChannelPartnerOrderId))
                 ) && 
                 (
-                    this.ConsiderRecurring == other.ConsiderRecurring ||
-                    this.ConsiderRecurring != null &&
-                    this.ConsiderRecurring.Equals(other.ConsiderRecurring)
+                    this.ConsiderRecurring == input.ConsiderRecurring ||
+                    (this.ConsiderRecurring != null &&
+                    this.ConsiderRecurring.Equals(input.ConsiderRecurring))
                 ) && 
                 (
-                    this.CreditCardAuthorizationAmount == other.CreditCardAuthorizationAmount ||
-                    this.CreditCardAuthorizationAmount != null &&
-                    this.CreditCardAuthorizationAmount.Equals(other.CreditCardAuthorizationAmount)
+                    this.CreditCardAuthorizationAmount == input.CreditCardAuthorizationAmount ||
+                    (this.CreditCardAuthorizationAmount != null &&
+                    this.CreditCardAuthorizationAmount.Equals(input.CreditCardAuthorizationAmount))
                 ) && 
                 (
-                    this.CreditCardAuthorizationDate == other.CreditCardAuthorizationDate ||
-                    this.CreditCardAuthorizationDate != null &&
-                    this.CreditCardAuthorizationDate.Equals(other.CreditCardAuthorizationDate)
+                    this.CreditCardAuthorizationDate == input.CreditCardAuthorizationDate ||
+                    (this.CreditCardAuthorizationDate != null &&
+                    this.CreditCardAuthorizationDate.Equals(input.CreditCardAuthorizationDate))
                 ) && 
                 (
-                    this.CreditCardAuthorizationReferenceNumber == other.CreditCardAuthorizationReferenceNumber ||
-                    this.CreditCardAuthorizationReferenceNumber != null &&
-                    this.CreditCardAuthorizationReferenceNumber.Equals(other.CreditCardAuthorizationReferenceNumber)
+                    this.CreditCardAuthorizationReferenceNumber == input.CreditCardAuthorizationReferenceNumber ||
+                    (this.CreditCardAuthorizationReferenceNumber != null &&
+                    this.CreditCardAuthorizationReferenceNumber.Equals(input.CreditCardAuthorizationReferenceNumber))
                 ) && 
                 (
-                    this.NoRealtimePaymentProcessing == other.NoRealtimePaymentProcessing ||
-                    this.NoRealtimePaymentProcessing != null &&
-                    this.NoRealtimePaymentProcessing.Equals(other.NoRealtimePaymentProcessing)
+                    this.NoRealtimePaymentProcessing == input.NoRealtimePaymentProcessing ||
+                    (this.NoRealtimePaymentProcessing != null &&
+                    this.NoRealtimePaymentProcessing.Equals(input.NoRealtimePaymentProcessing))
                 ) && 
                 (
-                    this.SetupNextCart == other.SetupNextCart ||
-                    this.SetupNextCart != null &&
-                    this.SetupNextCart.Equals(other.SetupNextCart)
+                    this.SetupNextCart == input.SetupNextCart ||
+                    (this.SetupNextCart != null &&
+                    this.SetupNextCart.Equals(input.SetupNextCart))
                 ) && 
                 (
-                    this.SkipPaymentProcessing == other.SkipPaymentProcessing ||
-                    this.SkipPaymentProcessing != null &&
-                    this.SkipPaymentProcessing.Equals(other.SkipPaymentProcessing)
+                    this.SkipPaymentProcessing == input.SkipPaymentProcessing ||
+                    (this.SkipPaymentProcessing != null &&
+                    this.SkipPaymentProcessing.Equals(input.SkipPaymentProcessing))
                 ) && 
                 (
-                    this.StoreCompleted == other.StoreCompleted ||
-                    this.StoreCompleted != null &&
-                    this.StoreCompleted.Equals(other.StoreCompleted)
+                    this.StoreCompleted == input.StoreCompleted ||
+                    (this.StoreCompleted != null &&
+                    this.StoreCompleted.Equals(input.StoreCompleted))
                 ) && 
                 (
-                    this.StoreIfPaymentDeclines == other.StoreIfPaymentDeclines ||
-                    this.StoreIfPaymentDeclines != null &&
-                    this.StoreIfPaymentDeclines.Equals(other.StoreIfPaymentDeclines)
+                    this.StoreIfPaymentDeclines == input.StoreIfPaymentDeclines ||
+                    (this.StoreIfPaymentDeclines != null &&
+                    this.StoreIfPaymentDeclines.Equals(input.StoreIfPaymentDeclines))
                 );
         }
 
@@ -284,38 +282,36 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AutoApprovePurchaseOrder != null)
-                    hash = hash * 59 + this.AutoApprovePurchaseOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoApprovePurchaseOrder.GetHashCode();
                 if (this.ChannelPartnerCode != null)
-                    hash = hash * 59 + this.ChannelPartnerCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelPartnerCode.GetHashCode();
                 if (this.ChannelPartnerOid != null)
-                    hash = hash * 59 + this.ChannelPartnerOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelPartnerOid.GetHashCode();
                 if (this.ChannelPartnerOrderId != null)
-                    hash = hash * 59 + this.ChannelPartnerOrderId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelPartnerOrderId.GetHashCode();
                 if (this.ConsiderRecurring != null)
-                    hash = hash * 59 + this.ConsiderRecurring.GetHashCode();
+                    hashCode = hashCode * 59 + this.ConsiderRecurring.GetHashCode();
                 if (this.CreditCardAuthorizationAmount != null)
-                    hash = hash * 59 + this.CreditCardAuthorizationAmount.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreditCardAuthorizationAmount.GetHashCode();
                 if (this.CreditCardAuthorizationDate != null)
-                    hash = hash * 59 + this.CreditCardAuthorizationDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreditCardAuthorizationDate.GetHashCode();
                 if (this.CreditCardAuthorizationReferenceNumber != null)
-                    hash = hash * 59 + this.CreditCardAuthorizationReferenceNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreditCardAuthorizationReferenceNumber.GetHashCode();
                 if (this.NoRealtimePaymentProcessing != null)
-                    hash = hash * 59 + this.NoRealtimePaymentProcessing.GetHashCode();
+                    hashCode = hashCode * 59 + this.NoRealtimePaymentProcessing.GetHashCode();
                 if (this.SetupNextCart != null)
-                    hash = hash * 59 + this.SetupNextCart.GetHashCode();
+                    hashCode = hashCode * 59 + this.SetupNextCart.GetHashCode();
                 if (this.SkipPaymentProcessing != null)
-                    hash = hash * 59 + this.SkipPaymentProcessing.GetHashCode();
+                    hashCode = hashCode * 59 + this.SkipPaymentProcessing.GetHashCode();
                 if (this.StoreCompleted != null)
-                    hash = hash * 59 + this.StoreCompleted.GetHashCode();
+                    hashCode = hashCode * 59 + this.StoreCompleted.GetHashCode();
                 if (this.StoreIfPaymentDeclines != null)
-                    hash = hash * 59 + this.StoreIfPaymentDeclines.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.StoreIfPaymentDeclines.GetHashCode();
+                return hashCode;
             }
         }
 

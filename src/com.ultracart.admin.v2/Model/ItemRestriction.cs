@@ -141,65 +141,63 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemRestriction);
+            return this.Equals(input as ItemRestriction);
         }
 
         /// <summary>
         /// Returns true if ItemRestriction instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemRestriction to be compared</param>
+        /// <param name="input">Instance of ItemRestriction to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemRestriction other)
+        public bool Equals(ItemRestriction input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ExcludeCoupon == other.ExcludeCoupon ||
-                    this.ExcludeCoupon != null &&
-                    this.ExcludeCoupon.Equals(other.ExcludeCoupon)
+                    this.ExcludeCoupon == input.ExcludeCoupon ||
+                    (this.ExcludeCoupon != null &&
+                    this.ExcludeCoupon.Equals(input.ExcludeCoupon))
                 ) && 
                 (
-                    this.ExcludeFromFreePromotion == other.ExcludeFromFreePromotion ||
-                    this.ExcludeFromFreePromotion != null &&
-                    this.ExcludeFromFreePromotion.Equals(other.ExcludeFromFreePromotion)
+                    this.ExcludeFromFreePromotion == input.ExcludeFromFreePromotion ||
+                    (this.ExcludeFromFreePromotion != null &&
+                    this.ExcludeFromFreePromotion.Equals(input.ExcludeFromFreePromotion))
                 ) && 
                 (
-                    this.Items == other.Items ||
+                    this.Items == input.Items ||
                     this.Items != null &&
-                    this.Items.SequenceEqual(other.Items)
+                    this.Items.SequenceEqual(input.Items)
                 ) && 
                 (
-                    this.MaximumQuantity == other.MaximumQuantity ||
-                    this.MaximumQuantity != null &&
-                    this.MaximumQuantity.Equals(other.MaximumQuantity)
+                    this.MaximumQuantity == input.MaximumQuantity ||
+                    (this.MaximumQuantity != null &&
+                    this.MaximumQuantity.Equals(input.MaximumQuantity))
                 ) && 
                 (
-                    this.MinimumQuantity == other.MinimumQuantity ||
-                    this.MinimumQuantity != null &&
-                    this.MinimumQuantity.Equals(other.MinimumQuantity)
+                    this.MinimumQuantity == input.MinimumQuantity ||
+                    (this.MinimumQuantity != null &&
+                    this.MinimumQuantity.Equals(input.MinimumQuantity))
                 ) && 
                 (
-                    this.MultipleQuantity == other.MultipleQuantity ||
-                    this.MultipleQuantity != null &&
-                    this.MultipleQuantity.Equals(other.MultipleQuantity)
+                    this.MultipleQuantity == input.MultipleQuantity ||
+                    (this.MultipleQuantity != null &&
+                    this.MultipleQuantity.Equals(input.MultipleQuantity))
                 ) && 
                 (
-                    this.OnePerCustomer == other.OnePerCustomer ||
-                    this.OnePerCustomer != null &&
-                    this.OnePerCustomer.Equals(other.OnePerCustomer)
+                    this.OnePerCustomer == input.OnePerCustomer ||
+                    (this.OnePerCustomer != null &&
+                    this.OnePerCustomer.Equals(input.OnePerCustomer))
                 ) && 
                 (
-                    this.PurchaseSeparately == other.PurchaseSeparately ||
-                    this.PurchaseSeparately != null &&
-                    this.PurchaseSeparately.Equals(other.PurchaseSeparately)
+                    this.PurchaseSeparately == input.PurchaseSeparately ||
+                    (this.PurchaseSeparately != null &&
+                    this.PurchaseSeparately.Equals(input.PurchaseSeparately))
                 );
         }
 
@@ -209,28 +207,26 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ExcludeCoupon != null)
-                    hash = hash * 59 + this.ExcludeCoupon.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExcludeCoupon.GetHashCode();
                 if (this.ExcludeFromFreePromotion != null)
-                    hash = hash * 59 + this.ExcludeFromFreePromotion.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExcludeFromFreePromotion.GetHashCode();
                 if (this.Items != null)
-                    hash = hash * 59 + this.Items.GetHashCode();
+                    hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.MaximumQuantity != null)
-                    hash = hash * 59 + this.MaximumQuantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaximumQuantity.GetHashCode();
                 if (this.MinimumQuantity != null)
-                    hash = hash * 59 + this.MinimumQuantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.MinimumQuantity.GetHashCode();
                 if (this.MultipleQuantity != null)
-                    hash = hash * 59 + this.MultipleQuantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.MultipleQuantity.GetHashCode();
                 if (this.OnePerCustomer != null)
-                    hash = hash * 59 + this.OnePerCustomer.GetHashCode();
+                    hashCode = hashCode * 59 + this.OnePerCustomer.GetHashCode();
                 if (this.PurchaseSeparately != null)
-                    hash = hash * 59 + this.PurchaseSeparately.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.PurchaseSeparately.GetHashCode();
+                return hashCode;
             }
         }
 

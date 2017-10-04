@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartTaxes);
+            return this.Equals(input as CartTaxes);
         }
 
         /// <summary>
         /// Returns true if CartTaxes instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartTaxes to be compared</param>
+        /// <param name="input">Instance of CartTaxes to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartTaxes other)
+        public bool Equals(CartTaxes input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.County == other.County ||
-                    this.County != null &&
-                    this.County.Equals(other.County)
+                    this.County == input.County ||
+                    (this.County != null &&
+                    this.County.Equals(input.County))
                 ) && 
                 (
-                    this.Exempt == other.Exempt ||
-                    this.Exempt != null &&
-                    this.Exempt.Equals(other.Exempt)
+                    this.Exempt == input.Exempt ||
+                    (this.Exempt != null &&
+                    this.Exempt.Equals(input.Exempt))
                 ) && 
                 (
-                    this.Rate == other.Rate ||
-                    this.Rate != null &&
-                    this.Rate.Equals(other.Rate)
+                    this.Rate == input.Rate ||
+                    (this.Rate != null &&
+                    this.Rate.Equals(input.Rate))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.County != null)
-                    hash = hash * 59 + this.County.GetHashCode();
+                    hashCode = hashCode * 59 + this.County.GetHashCode();
                 if (this.Exempt != null)
-                    hash = hash * 59 + this.Exempt.GetHashCode();
+                    hashCode = hashCode * 59 + this.Exempt.GetHashCode();
                 if (this.Rate != null)
-                    hash = hash * 59 + this.Rate.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Rate.GetHashCode();
+                return hashCode;
             }
         }
 

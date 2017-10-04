@@ -81,35 +81,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemChargeback);
+            return this.Equals(input as ItemChargeback);
         }
 
         /// <summary>
         /// Returns true if ItemChargeback instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemChargeback to be compared</param>
+        /// <param name="input">Instance of ItemChargeback to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemChargeback other)
+        public bool Equals(ItemChargeback input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Addendums == other.Addendums ||
+                    this.Addendums == input.Addendums ||
                     this.Addendums != null &&
-                    this.Addendums.SequenceEqual(other.Addendums)
+                    this.Addendums.SequenceEqual(input.Addendums)
                 ) && 
                 (
-                    this.AdjustmentRequests == other.AdjustmentRequests ||
+                    this.AdjustmentRequests == input.AdjustmentRequests ||
                     this.AdjustmentRequests != null &&
-                    this.AdjustmentRequests.SequenceEqual(other.AdjustmentRequests)
+                    this.AdjustmentRequests.SequenceEqual(input.AdjustmentRequests)
                 );
         }
 
@@ -119,16 +117,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Addendums != null)
-                    hash = hash * 59 + this.Addendums.GetHashCode();
+                    hashCode = hashCode * 59 + this.Addendums.GetHashCode();
                 if (this.AdjustmentRequests != null)
-                    hash = hash * 59 + this.AdjustmentRequests.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.AdjustmentRequests.GetHashCode();
+                return hashCode;
             }
         }
 

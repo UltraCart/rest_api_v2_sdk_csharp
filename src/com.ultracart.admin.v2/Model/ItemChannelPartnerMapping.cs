@@ -37,6 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="BarcodeUc">Barcode UC (EDI only).</param>
         /// <param name="BarcodeUi">Barcode UI (EDI only).</param>
         /// <param name="BarcodeUk">Barcode UK (EDI only).</param>
+        /// <param name="BuyerCatalogNumber">Buyer catalog number (EDI only).</param>
         /// <param name="BuyerDpci">Buyer DPCI (EDI only).</param>
         /// <param name="BuyerItemNumber">Buyer item number (EDI only).</param>
         /// <param name="ChannelPartnerCode">Channel partner code.</param>
@@ -50,12 +51,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="UnitOfMeasure">Unit of measure.</param>
         /// <param name="VendorNumber">Vendor number (EDI only).</param>
         /// <param name="VendorStyleNumber">Vendor style number (EDI only).</param>
-        public ItemChannelPartnerMapping(string BarcodeUa = default(string), string BarcodeUc = default(string), string BarcodeUi = default(string), string BarcodeUk = default(string), string BuyerDpci = default(string), string BuyerItemNumber = default(string), string ChannelPartnerCode = default(string), int? ChannelPartnerOid = default(int?), string FromItemId = default(string), string FromSku = default(string), string MutuallyDefinedNumber = default(string), int? QuantityRatioCp = default(int?), int? QuantityRatioUc = default(int?), string Sku = default(string), string UnitOfMeasure = default(string), string VendorNumber = default(string), string VendorStyleNumber = default(string))
+        public ItemChannelPartnerMapping(string BarcodeUa = default(string), string BarcodeUc = default(string), string BarcodeUi = default(string), string BarcodeUk = default(string), string BuyerCatalogNumber = default(string), string BuyerDpci = default(string), string BuyerItemNumber = default(string), string ChannelPartnerCode = default(string), int? ChannelPartnerOid = default(int?), string FromItemId = default(string), string FromSku = default(string), string MutuallyDefinedNumber = default(string), int? QuantityRatioCp = default(int?), int? QuantityRatioUc = default(int?), string Sku = default(string), string UnitOfMeasure = default(string), string VendorNumber = default(string), string VendorStyleNumber = default(string))
         {
             this.BarcodeUa = BarcodeUa;
             this.BarcodeUc = BarcodeUc;
             this.BarcodeUi = BarcodeUi;
             this.BarcodeUk = BarcodeUk;
+            this.BuyerCatalogNumber = BuyerCatalogNumber;
             this.BuyerDpci = BuyerDpci;
             this.BuyerItemNumber = BuyerItemNumber;
             this.ChannelPartnerCode = ChannelPartnerCode;
@@ -98,6 +100,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Barcode UK (EDI only)</value>
         [DataMember(Name="barcode_uk", EmitDefaultValue=false)]
         public string BarcodeUk { get; set; }
+
+        /// <summary>
+        /// Buyer catalog number (EDI only)
+        /// </summary>
+        /// <value>Buyer catalog number (EDI only)</value>
+        [DataMember(Name="buyer_catalog_number", EmitDefaultValue=false)]
+        public string BuyerCatalogNumber { get; set; }
 
         /// <summary>
         /// Buyer DPCI (EDI only)
@@ -202,6 +211,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  BarcodeUc: ").Append(BarcodeUc).Append("\n");
             sb.Append("  BarcodeUi: ").Append(BarcodeUi).Append("\n");
             sb.Append("  BarcodeUk: ").Append(BarcodeUk).Append("\n");
+            sb.Append("  BuyerCatalogNumber: ").Append(BuyerCatalogNumber).Append("\n");
             sb.Append("  BuyerDpci: ").Append(BuyerDpci).Append("\n");
             sb.Append("  BuyerItemNumber: ").Append(BuyerItemNumber).Append("\n");
             sb.Append("  ChannelPartnerCode: ").Append(ChannelPartnerCode).Append("\n");
@@ -231,110 +241,113 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemChannelPartnerMapping);
+            return this.Equals(input as ItemChannelPartnerMapping);
         }
 
         /// <summary>
         /// Returns true if ItemChannelPartnerMapping instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemChannelPartnerMapping to be compared</param>
+        /// <param name="input">Instance of ItemChannelPartnerMapping to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemChannelPartnerMapping other)
+        public bool Equals(ItemChannelPartnerMapping input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.BarcodeUa == other.BarcodeUa ||
-                    this.BarcodeUa != null &&
-                    this.BarcodeUa.Equals(other.BarcodeUa)
+                    this.BarcodeUa == input.BarcodeUa ||
+                    (this.BarcodeUa != null &&
+                    this.BarcodeUa.Equals(input.BarcodeUa))
                 ) && 
                 (
-                    this.BarcodeUc == other.BarcodeUc ||
-                    this.BarcodeUc != null &&
-                    this.BarcodeUc.Equals(other.BarcodeUc)
+                    this.BarcodeUc == input.BarcodeUc ||
+                    (this.BarcodeUc != null &&
+                    this.BarcodeUc.Equals(input.BarcodeUc))
                 ) && 
                 (
-                    this.BarcodeUi == other.BarcodeUi ||
-                    this.BarcodeUi != null &&
-                    this.BarcodeUi.Equals(other.BarcodeUi)
+                    this.BarcodeUi == input.BarcodeUi ||
+                    (this.BarcodeUi != null &&
+                    this.BarcodeUi.Equals(input.BarcodeUi))
                 ) && 
                 (
-                    this.BarcodeUk == other.BarcodeUk ||
-                    this.BarcodeUk != null &&
-                    this.BarcodeUk.Equals(other.BarcodeUk)
+                    this.BarcodeUk == input.BarcodeUk ||
+                    (this.BarcodeUk != null &&
+                    this.BarcodeUk.Equals(input.BarcodeUk))
                 ) && 
                 (
-                    this.BuyerDpci == other.BuyerDpci ||
-                    this.BuyerDpci != null &&
-                    this.BuyerDpci.Equals(other.BuyerDpci)
+                    this.BuyerCatalogNumber == input.BuyerCatalogNumber ||
+                    (this.BuyerCatalogNumber != null &&
+                    this.BuyerCatalogNumber.Equals(input.BuyerCatalogNumber))
                 ) && 
                 (
-                    this.BuyerItemNumber == other.BuyerItemNumber ||
-                    this.BuyerItemNumber != null &&
-                    this.BuyerItemNumber.Equals(other.BuyerItemNumber)
+                    this.BuyerDpci == input.BuyerDpci ||
+                    (this.BuyerDpci != null &&
+                    this.BuyerDpci.Equals(input.BuyerDpci))
                 ) && 
                 (
-                    this.ChannelPartnerCode == other.ChannelPartnerCode ||
-                    this.ChannelPartnerCode != null &&
-                    this.ChannelPartnerCode.Equals(other.ChannelPartnerCode)
+                    this.BuyerItemNumber == input.BuyerItemNumber ||
+                    (this.BuyerItemNumber != null &&
+                    this.BuyerItemNumber.Equals(input.BuyerItemNumber))
                 ) && 
                 (
-                    this.ChannelPartnerOid == other.ChannelPartnerOid ||
-                    this.ChannelPartnerOid != null &&
-                    this.ChannelPartnerOid.Equals(other.ChannelPartnerOid)
+                    this.ChannelPartnerCode == input.ChannelPartnerCode ||
+                    (this.ChannelPartnerCode != null &&
+                    this.ChannelPartnerCode.Equals(input.ChannelPartnerCode))
                 ) && 
                 (
-                    this.FromItemId == other.FromItemId ||
-                    this.FromItemId != null &&
-                    this.FromItemId.Equals(other.FromItemId)
+                    this.ChannelPartnerOid == input.ChannelPartnerOid ||
+                    (this.ChannelPartnerOid != null &&
+                    this.ChannelPartnerOid.Equals(input.ChannelPartnerOid))
                 ) && 
                 (
-                    this.FromSku == other.FromSku ||
-                    this.FromSku != null &&
-                    this.FromSku.Equals(other.FromSku)
+                    this.FromItemId == input.FromItemId ||
+                    (this.FromItemId != null &&
+                    this.FromItemId.Equals(input.FromItemId))
                 ) && 
                 (
-                    this.MutuallyDefinedNumber == other.MutuallyDefinedNumber ||
-                    this.MutuallyDefinedNumber != null &&
-                    this.MutuallyDefinedNumber.Equals(other.MutuallyDefinedNumber)
+                    this.FromSku == input.FromSku ||
+                    (this.FromSku != null &&
+                    this.FromSku.Equals(input.FromSku))
                 ) && 
                 (
-                    this.QuantityRatioCp == other.QuantityRatioCp ||
-                    this.QuantityRatioCp != null &&
-                    this.QuantityRatioCp.Equals(other.QuantityRatioCp)
+                    this.MutuallyDefinedNumber == input.MutuallyDefinedNumber ||
+                    (this.MutuallyDefinedNumber != null &&
+                    this.MutuallyDefinedNumber.Equals(input.MutuallyDefinedNumber))
                 ) && 
                 (
-                    this.QuantityRatioUc == other.QuantityRatioUc ||
-                    this.QuantityRatioUc != null &&
-                    this.QuantityRatioUc.Equals(other.QuantityRatioUc)
+                    this.QuantityRatioCp == input.QuantityRatioCp ||
+                    (this.QuantityRatioCp != null &&
+                    this.QuantityRatioCp.Equals(input.QuantityRatioCp))
                 ) && 
                 (
-                    this.Sku == other.Sku ||
-                    this.Sku != null &&
-                    this.Sku.Equals(other.Sku)
+                    this.QuantityRatioUc == input.QuantityRatioUc ||
+                    (this.QuantityRatioUc != null &&
+                    this.QuantityRatioUc.Equals(input.QuantityRatioUc))
                 ) && 
                 (
-                    this.UnitOfMeasure == other.UnitOfMeasure ||
-                    this.UnitOfMeasure != null &&
-                    this.UnitOfMeasure.Equals(other.UnitOfMeasure)
+                    this.Sku == input.Sku ||
+                    (this.Sku != null &&
+                    this.Sku.Equals(input.Sku))
                 ) && 
                 (
-                    this.VendorNumber == other.VendorNumber ||
-                    this.VendorNumber != null &&
-                    this.VendorNumber.Equals(other.VendorNumber)
+                    this.UnitOfMeasure == input.UnitOfMeasure ||
+                    (this.UnitOfMeasure != null &&
+                    this.UnitOfMeasure.Equals(input.UnitOfMeasure))
                 ) && 
                 (
-                    this.VendorStyleNumber == other.VendorStyleNumber ||
-                    this.VendorStyleNumber != null &&
-                    this.VendorStyleNumber.Equals(other.VendorStyleNumber)
+                    this.VendorNumber == input.VendorNumber ||
+                    (this.VendorNumber != null &&
+                    this.VendorNumber.Equals(input.VendorNumber))
+                ) && 
+                (
+                    this.VendorStyleNumber == input.VendorStyleNumber ||
+                    (this.VendorStyleNumber != null &&
+                    this.VendorStyleNumber.Equals(input.VendorStyleNumber))
                 );
         }
 
@@ -344,46 +357,46 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.BarcodeUa != null)
-                    hash = hash * 59 + this.BarcodeUa.GetHashCode();
+                    hashCode = hashCode * 59 + this.BarcodeUa.GetHashCode();
                 if (this.BarcodeUc != null)
-                    hash = hash * 59 + this.BarcodeUc.GetHashCode();
+                    hashCode = hashCode * 59 + this.BarcodeUc.GetHashCode();
                 if (this.BarcodeUi != null)
-                    hash = hash * 59 + this.BarcodeUi.GetHashCode();
+                    hashCode = hashCode * 59 + this.BarcodeUi.GetHashCode();
                 if (this.BarcodeUk != null)
-                    hash = hash * 59 + this.BarcodeUk.GetHashCode();
+                    hashCode = hashCode * 59 + this.BarcodeUk.GetHashCode();
+                if (this.BuyerCatalogNumber != null)
+                    hashCode = hashCode * 59 + this.BuyerCatalogNumber.GetHashCode();
                 if (this.BuyerDpci != null)
-                    hash = hash * 59 + this.BuyerDpci.GetHashCode();
+                    hashCode = hashCode * 59 + this.BuyerDpci.GetHashCode();
                 if (this.BuyerItemNumber != null)
-                    hash = hash * 59 + this.BuyerItemNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.BuyerItemNumber.GetHashCode();
                 if (this.ChannelPartnerCode != null)
-                    hash = hash * 59 + this.ChannelPartnerCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelPartnerCode.GetHashCode();
                 if (this.ChannelPartnerOid != null)
-                    hash = hash * 59 + this.ChannelPartnerOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelPartnerOid.GetHashCode();
                 if (this.FromItemId != null)
-                    hash = hash * 59 + this.FromItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.FromItemId.GetHashCode();
                 if (this.FromSku != null)
-                    hash = hash * 59 + this.FromSku.GetHashCode();
+                    hashCode = hashCode * 59 + this.FromSku.GetHashCode();
                 if (this.MutuallyDefinedNumber != null)
-                    hash = hash * 59 + this.MutuallyDefinedNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.MutuallyDefinedNumber.GetHashCode();
                 if (this.QuantityRatioCp != null)
-                    hash = hash * 59 + this.QuantityRatioCp.GetHashCode();
+                    hashCode = hashCode * 59 + this.QuantityRatioCp.GetHashCode();
                 if (this.QuantityRatioUc != null)
-                    hash = hash * 59 + this.QuantityRatioUc.GetHashCode();
+                    hashCode = hashCode * 59 + this.QuantityRatioUc.GetHashCode();
                 if (this.Sku != null)
-                    hash = hash * 59 + this.Sku.GetHashCode();
+                    hashCode = hashCode * 59 + this.Sku.GetHashCode();
                 if (this.UnitOfMeasure != null)
-                    hash = hash * 59 + this.UnitOfMeasure.GetHashCode();
+                    hashCode = hashCode * 59 + this.UnitOfMeasure.GetHashCode();
                 if (this.VendorNumber != null)
-                    hash = hash * 59 + this.VendorNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.VendorNumber.GetHashCode();
                 if (this.VendorStyleNumber != null)
-                    hash = hash * 59 + this.VendorStyleNumber.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.VendorStyleNumber.GetHashCode();
+                return hashCode;
             }
         }
 

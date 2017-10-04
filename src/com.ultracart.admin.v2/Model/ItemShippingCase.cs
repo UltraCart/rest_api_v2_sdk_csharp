@@ -101,45 +101,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemShippingCase);
+            return this.Equals(input as ItemShippingCase);
         }
 
         /// <summary>
         /// Returns true if ItemShippingCase instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemShippingCase to be compared</param>
+        /// <param name="input">Instance of ItemShippingCase to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemShippingCase other)
+        public bool Equals(ItemShippingCase input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CaseLabel == other.CaseLabel ||
-                    this.CaseLabel != null &&
-                    this.CaseLabel.Equals(other.CaseLabel)
+                    this.CaseLabel == input.CaseLabel ||
+                    (this.CaseLabel != null &&
+                    this.CaseLabel.Equals(input.CaseLabel))
                 ) && 
                 (
-                    this.CaseMerchantItemId == other.CaseMerchantItemId ||
-                    this.CaseMerchantItemId != null &&
-                    this.CaseMerchantItemId.Equals(other.CaseMerchantItemId)
+                    this.CaseMerchantItemId == input.CaseMerchantItemId ||
+                    (this.CaseMerchantItemId != null &&
+                    this.CaseMerchantItemId.Equals(input.CaseMerchantItemId))
                 ) && 
                 (
-                    this.CaseMerchantItemOid == other.CaseMerchantItemOid ||
-                    this.CaseMerchantItemOid != null &&
-                    this.CaseMerchantItemOid.Equals(other.CaseMerchantItemOid)
+                    this.CaseMerchantItemOid == input.CaseMerchantItemOid ||
+                    (this.CaseMerchantItemOid != null &&
+                    this.CaseMerchantItemOid.Equals(input.CaseMerchantItemOid))
                 ) && 
                 (
-                    this.Quantity == other.Quantity ||
-                    this.Quantity != null &&
-                    this.Quantity.Equals(other.Quantity)
+                    this.Quantity == input.Quantity ||
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
                 );
         }
 
@@ -149,20 +147,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CaseLabel != null)
-                    hash = hash * 59 + this.CaseLabel.GetHashCode();
+                    hashCode = hashCode * 59 + this.CaseLabel.GetHashCode();
                 if (this.CaseMerchantItemId != null)
-                    hash = hash * 59 + this.CaseMerchantItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.CaseMerchantItemId.GetHashCode();
                 if (this.CaseMerchantItemOid != null)
-                    hash = hash * 59 + this.CaseMerchantItemOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.CaseMerchantItemOid.GetHashCode();
                 if (this.Quantity != null)
-                    hash = hash * 59 + this.Quantity.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Quantity.GetHashCode();
+                return hashCode;
             }
         }
 

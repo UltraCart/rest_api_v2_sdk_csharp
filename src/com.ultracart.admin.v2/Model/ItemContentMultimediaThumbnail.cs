@@ -121,55 +121,53 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemContentMultimediaThumbnail);
+            return this.Equals(input as ItemContentMultimediaThumbnail);
         }
 
         /// <summary>
         /// Returns true if ItemContentMultimediaThumbnail instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemContentMultimediaThumbnail to be compared</param>
+        /// <param name="input">Instance of ItemContentMultimediaThumbnail to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemContentMultimediaThumbnail other)
+        public bool Equals(ItemContentMultimediaThumbnail input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Height == other.Height ||
-                    this.Height != null &&
-                    this.Height.Equals(other.Height)
+                    this.Height == input.Height ||
+                    (this.Height != null &&
+                    this.Height.Equals(input.Height))
                 ) && 
                 (
-                    this.HttpUrl == other.HttpUrl ||
-                    this.HttpUrl != null &&
-                    this.HttpUrl.Equals(other.HttpUrl)
+                    this.HttpUrl == input.HttpUrl ||
+                    (this.HttpUrl != null &&
+                    this.HttpUrl.Equals(input.HttpUrl))
                 ) && 
                 (
-                    this.HttpsUrl == other.HttpsUrl ||
-                    this.HttpsUrl != null &&
-                    this.HttpsUrl.Equals(other.HttpsUrl)
+                    this.HttpsUrl == input.HttpsUrl ||
+                    (this.HttpsUrl != null &&
+                    this.HttpsUrl.Equals(input.HttpsUrl))
                 ) && 
                 (
-                    this.PngFormat == other.PngFormat ||
-                    this.PngFormat != null &&
-                    this.PngFormat.Equals(other.PngFormat)
+                    this.PngFormat == input.PngFormat ||
+                    (this.PngFormat != null &&
+                    this.PngFormat.Equals(input.PngFormat))
                 ) && 
                 (
-                    this.Square == other.Square ||
-                    this.Square != null &&
-                    this.Square.Equals(other.Square)
+                    this.Square == input.Square ||
+                    (this.Square != null &&
+                    this.Square.Equals(input.Square))
                 ) && 
                 (
-                    this.Width == other.Width ||
-                    this.Width != null &&
-                    this.Width.Equals(other.Width)
+                    this.Width == input.Width ||
+                    (this.Width != null &&
+                    this.Width.Equals(input.Width))
                 );
         }
 
@@ -179,24 +177,22 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Height != null)
-                    hash = hash * 59 + this.Height.GetHashCode();
+                    hashCode = hashCode * 59 + this.Height.GetHashCode();
                 if (this.HttpUrl != null)
-                    hash = hash * 59 + this.HttpUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.HttpUrl.GetHashCode();
                 if (this.HttpsUrl != null)
-                    hash = hash * 59 + this.HttpsUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.HttpsUrl.GetHashCode();
                 if (this.PngFormat != null)
-                    hash = hash * 59 + this.PngFormat.GetHashCode();
+                    hashCode = hashCode * 59 + this.PngFormat.GetHashCode();
                 if (this.Square != null)
-                    hash = hash * 59 + this.Square.GetHashCode();
+                    hashCode = hashCode * 59 + this.Square.GetHashCode();
                 if (this.Width != null)
-                    hash = hash * 59 + this.Width.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Width.GetHashCode();
+                return hashCode;
             }
         }
 

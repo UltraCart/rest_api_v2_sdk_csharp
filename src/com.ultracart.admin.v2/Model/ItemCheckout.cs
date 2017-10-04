@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemCheckout);
+            return this.Equals(input as ItemCheckout);
         }
 
         /// <summary>
         /// Returns true if ItemCheckout instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemCheckout to be compared</param>
+        /// <param name="input">Instance of ItemCheckout to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemCheckout other)
+        public bool Equals(ItemCheckout input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.SuppressBuysafe == other.SuppressBuysafe ||
-                    this.SuppressBuysafe != null &&
-                    this.SuppressBuysafe.Equals(other.SuppressBuysafe)
+                    this.SuppressBuysafe == input.SuppressBuysafe ||
+                    (this.SuppressBuysafe != null &&
+                    this.SuppressBuysafe.Equals(input.SuppressBuysafe))
                 ) && 
                 (
-                    this.Terms == other.Terms ||
-                    this.Terms != null &&
-                    this.Terms.Equals(other.Terms)
+                    this.Terms == input.Terms ||
+                    (this.Terms != null &&
+                    this.Terms.Equals(input.Terms))
                 ) && 
                 (
-                    this.TermsTranslatedTextInstanceOid == other.TermsTranslatedTextInstanceOid ||
-                    this.TermsTranslatedTextInstanceOid != null &&
-                    this.TermsTranslatedTextInstanceOid.Equals(other.TermsTranslatedTextInstanceOid)
+                    this.TermsTranslatedTextInstanceOid == input.TermsTranslatedTextInstanceOid ||
+                    (this.TermsTranslatedTextInstanceOid != null &&
+                    this.TermsTranslatedTextInstanceOid.Equals(input.TermsTranslatedTextInstanceOid))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.SuppressBuysafe != null)
-                    hash = hash * 59 + this.SuppressBuysafe.GetHashCode();
+                    hashCode = hashCode * 59 + this.SuppressBuysafe.GetHashCode();
                 if (this.Terms != null)
-                    hash = hash * 59 + this.Terms.GetHashCode();
+                    hashCode = hashCode * 59 + this.Terms.GetHashCode();
                 if (this.TermsTranslatedTextInstanceOid != null)
-                    hash = hash * 59 + this.TermsTranslatedTextInstanceOid.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TermsTranslatedTextInstanceOid.GetHashCode();
+                return hashCode;
             }
         }
 

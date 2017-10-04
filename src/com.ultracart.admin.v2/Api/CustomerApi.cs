@@ -152,6 +152,37 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CustomersResponse</returns>
         ApiResponse<CustomersResponse> GetCustomersWithHttpInfo (string email = null, string qbClass = null, string quickbooksCode = null, string lastModifiedDtsStart = null, string lastModifiedDtsEnd = null, string signupDtsStart = null, string signupDtsEnd = null, string billingFirstName = null, string billingLastName = null, string billingCompany = null, string billingCity = null, string billingState = null, string billingPostalCode = null, string billingCountryCode = null, string billingDayPhone = null, string billingEveningPhone = null, string shippingFirstName = null, string shippingLastName = null, string shippingCompany = null, string shippingCity = null, string shippingState = null, string shippingPostalCode = null, string shippingCountryCode = null, string shippingDayPhone = null, string shippingEveningPhone = null, int? pricingTierOid = null, string pricingTierName = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
         /// <summary>
+        /// Retrieve customers by query
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerQuery">Customer query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CustomersResponse</returns>
+        CustomersResponse GetCustomersByQuery (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+
+        /// <summary>
+        /// Retrieve customers by query
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerQuery">Customer query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CustomersResponse</returns>
+        ApiResponse<CustomersResponse> GetCustomersByQueryWithHttpInfo (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        /// <summary>
         /// Insert a customer
         /// </summary>
         /// <remarks>
@@ -328,6 +359,37 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomersResponse>> GetCustomersAsyncWithHttpInfo (string email = null, string qbClass = null, string quickbooksCode = null, string lastModifiedDtsStart = null, string lastModifiedDtsEnd = null, string signupDtsStart = null, string signupDtsEnd = null, string billingFirstName = null, string billingLastName = null, string billingCompany = null, string billingCity = null, string billingState = null, string billingPostalCode = null, string billingCountryCode = null, string billingDayPhone = null, string billingEveningPhone = null, string shippingFirstName = null, string shippingLastName = null, string shippingCompany = null, string shippingCity = null, string shippingState = null, string shippingPostalCode = null, string shippingCountryCode = null, string shippingDayPhone = null, string shippingEveningPhone = null, int? pricingTierOid = null, string pricingTierName = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        /// <summary>
+        /// Retrieve customers by query
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerQuery">Customer query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CustomersResponse</returns>
+        System.Threading.Tasks.Task<CustomersResponse> GetCustomersByQueryAsync (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+
+        /// <summary>
+        /// Retrieve customers by query
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerQuery">Customer query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CustomersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomersResponse>> GetCustomersByQueryAsyncWithHttpInfo (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
         /// <summary>
         /// Insert a customer
         /// </summary>
@@ -1125,6 +1187,207 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetCustomers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve customers by query Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerQuery">Customer query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CustomersResponse</returns>
+        public CustomersResponse GetCustomersByQuery (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        {
+             ApiResponse<CustomersResponse> localVarResponse = GetCustomersByQueryWithHttpInfo(customerQuery, limit, offset, since, sort, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve customers by query Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerQuery">Customer query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CustomersResponse</returns>
+        public ApiResponse< CustomersResponse > GetCustomersByQueryWithHttpInfo (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        {
+            // verify the required parameter 'customerQuery' is set
+            if (customerQuery == null)
+                throw new ApiException(400, "Missing required parameter 'customerQuery' when calling CustomerApi->GetCustomersByQuery");
+
+            var localVarPath = "/customer/customers/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (customerQuery != null && customerQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(customerQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = customerQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomersByQuery", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve customers by query Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerQuery">Customer query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CustomersResponse</returns>
+        public async System.Threading.Tasks.Task<CustomersResponse> GetCustomersByQueryAsync (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        {
+             ApiResponse<CustomersResponse> localVarResponse = await GetCustomersByQueryAsyncWithHttpInfo(customerQuery, limit, offset, since, sort, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve customers by query Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerQuery">Customer query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch customers that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CustomersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomersResponse>> GetCustomersByQueryAsyncWithHttpInfo (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null)
+        {
+            // verify the required parameter 'customerQuery' is set
+            if (customerQuery == null)
+                throw new ApiException(400, "Missing required parameter 'customerQuery' when calling CustomerApi->GetCustomersByQuery");
+
+            var localVarPath = "/customer/customers/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (customerQuery != null && customerQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(customerQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = customerQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomersByQuery", localVarResponse);
                 if (exception != null) throw exception;
             }
 

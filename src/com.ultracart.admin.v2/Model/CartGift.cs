@@ -119,55 +119,53 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartGift);
+            return this.Equals(input as CartGift);
         }
 
         /// <summary>
         /// Returns true if CartGift instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartGift to be compared</param>
+        /// <param name="input">Instance of CartGift to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartGift other)
+        public bool Equals(CartGift input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Gift == other.Gift ||
-                    this.Gift != null &&
-                    this.Gift.Equals(other.Gift)
+                    this.Gift == input.Gift ||
+                    (this.Gift != null &&
+                    this.Gift.Equals(input.Gift))
                 ) && 
                 (
-                    this.GiftCharge == other.GiftCharge ||
-                    this.GiftCharge != null &&
-                    this.GiftCharge.Equals(other.GiftCharge)
+                    this.GiftCharge == input.GiftCharge ||
+                    (this.GiftCharge != null &&
+                    this.GiftCharge.Equals(input.GiftCharge))
                 ) && 
                 (
-                    this.GiftEmail == other.GiftEmail ||
-                    this.GiftEmail != null &&
-                    this.GiftEmail.Equals(other.GiftEmail)
+                    this.GiftEmail == input.GiftEmail ||
+                    (this.GiftEmail != null &&
+                    this.GiftEmail.Equals(input.GiftEmail))
                 ) && 
                 (
-                    this.GiftMessage == other.GiftMessage ||
-                    this.GiftMessage != null &&
-                    this.GiftMessage.Equals(other.GiftMessage)
+                    this.GiftMessage == input.GiftMessage ||
+                    (this.GiftMessage != null &&
+                    this.GiftMessage.Equals(input.GiftMessage))
                 ) && 
                 (
-                    this.GiftWrapCost == other.GiftWrapCost ||
-                    this.GiftWrapCost != null &&
-                    this.GiftWrapCost.Equals(other.GiftWrapCost)
+                    this.GiftWrapCost == input.GiftWrapCost ||
+                    (this.GiftWrapCost != null &&
+                    this.GiftWrapCost.Equals(input.GiftWrapCost))
                 ) && 
                 (
-                    this.GiftWrapTitle == other.GiftWrapTitle ||
-                    this.GiftWrapTitle != null &&
-                    this.GiftWrapTitle.Equals(other.GiftWrapTitle)
+                    this.GiftWrapTitle == input.GiftWrapTitle ||
+                    (this.GiftWrapTitle != null &&
+                    this.GiftWrapTitle.Equals(input.GiftWrapTitle))
                 );
         }
 
@@ -177,24 +175,22 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Gift != null)
-                    hash = hash * 59 + this.Gift.GetHashCode();
+                    hashCode = hashCode * 59 + this.Gift.GetHashCode();
                 if (this.GiftCharge != null)
-                    hash = hash * 59 + this.GiftCharge.GetHashCode();
+                    hashCode = hashCode * 59 + this.GiftCharge.GetHashCode();
                 if (this.GiftEmail != null)
-                    hash = hash * 59 + this.GiftEmail.GetHashCode();
+                    hashCode = hashCode * 59 + this.GiftEmail.GetHashCode();
                 if (this.GiftMessage != null)
-                    hash = hash * 59 + this.GiftMessage.GetHashCode();
+                    hashCode = hashCode * 59 + this.GiftMessage.GetHashCode();
                 if (this.GiftWrapCost != null)
-                    hash = hash * 59 + this.GiftWrapCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.GiftWrapCost.GetHashCode();
                 if (this.GiftWrapTitle != null)
-                    hash = hash * 59 + this.GiftWrapTitle.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.GiftWrapTitle.GetHashCode();
+                return hashCode;
             }
         }
 

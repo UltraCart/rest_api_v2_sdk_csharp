@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemPaymentProcessing);
+            return this.Equals(input as ItemPaymentProcessing);
         }
 
         /// <summary>
         /// Returns true if ItemPaymentProcessing instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemPaymentProcessing to be compared</param>
+        /// <param name="input">Instance of ItemPaymentProcessing to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemPaymentProcessing other)
+        public bool Equals(ItemPaymentProcessing input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.BlockPrepaid == other.BlockPrepaid ||
-                    this.BlockPrepaid != null &&
-                    this.BlockPrepaid.Equals(other.BlockPrepaid)
+                    this.BlockPrepaid == input.BlockPrepaid ||
+                    (this.BlockPrepaid != null &&
+                    this.BlockPrepaid.Equals(input.BlockPrepaid))
                 ) && 
                 (
-                    this.CreditCardTransactionType == other.CreditCardTransactionType ||
-                    this.CreditCardTransactionType != null &&
-                    this.CreditCardTransactionType.Equals(other.CreditCardTransactionType)
+                    this.CreditCardTransactionType == input.CreditCardTransactionType ||
+                    (this.CreditCardTransactionType != null &&
+                    this.CreditCardTransactionType.Equals(input.CreditCardTransactionType))
                 ) && 
                 (
-                    this.NoRealtimeCharge == other.NoRealtimeCharge ||
-                    this.NoRealtimeCharge != null &&
-                    this.NoRealtimeCharge.Equals(other.NoRealtimeCharge)
+                    this.NoRealtimeCharge == input.NoRealtimeCharge ||
+                    (this.NoRealtimeCharge != null &&
+                    this.NoRealtimeCharge.Equals(input.NoRealtimeCharge))
                 ) && 
                 (
-                    this.PaymentMethodValidity == other.PaymentMethodValidity ||
+                    this.PaymentMethodValidity == input.PaymentMethodValidity ||
                     this.PaymentMethodValidity != null &&
-                    this.PaymentMethodValidity.SequenceEqual(other.PaymentMethodValidity)
+                    this.PaymentMethodValidity.SequenceEqual(input.PaymentMethodValidity)
                 ) && 
                 (
-                    this.RotatingTransactionGatewayCodes == other.RotatingTransactionGatewayCodes ||
+                    this.RotatingTransactionGatewayCodes == input.RotatingTransactionGatewayCodes ||
                     this.RotatingTransactionGatewayCodes != null &&
-                    this.RotatingTransactionGatewayCodes.SequenceEqual(other.RotatingTransactionGatewayCodes)
+                    this.RotatingTransactionGatewayCodes.SequenceEqual(input.RotatingTransactionGatewayCodes)
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.BlockPrepaid != null)
-                    hash = hash * 59 + this.BlockPrepaid.GetHashCode();
+                    hashCode = hashCode * 59 + this.BlockPrepaid.GetHashCode();
                 if (this.CreditCardTransactionType != null)
-                    hash = hash * 59 + this.CreditCardTransactionType.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreditCardTransactionType.GetHashCode();
                 if (this.NoRealtimeCharge != null)
-                    hash = hash * 59 + this.NoRealtimeCharge.GetHashCode();
+                    hashCode = hashCode * 59 + this.NoRealtimeCharge.GetHashCode();
                 if (this.PaymentMethodValidity != null)
-                    hash = hash * 59 + this.PaymentMethodValidity.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaymentMethodValidity.GetHashCode();
                 if (this.RotatingTransactionGatewayCodes != null)
-                    hash = hash * 59 + this.RotatingTransactionGatewayCodes.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RotatingTransactionGatewayCodes.GetHashCode();
+                return hashCode;
             }
         }
 

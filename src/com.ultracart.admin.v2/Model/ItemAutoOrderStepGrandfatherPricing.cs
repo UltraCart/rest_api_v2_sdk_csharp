@@ -81,35 +81,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemAutoOrderStepGrandfatherPricing);
+            return this.Equals(input as ItemAutoOrderStepGrandfatherPricing);
         }
 
         /// <summary>
         /// Returns true if ItemAutoOrderStepGrandfatherPricing instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemAutoOrderStepGrandfatherPricing to be compared</param>
+        /// <param name="input">Instance of ItemAutoOrderStepGrandfatherPricing to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemAutoOrderStepGrandfatherPricing other)
+        public bool Equals(ItemAutoOrderStepGrandfatherPricing input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.OnOrBeforeDate == other.OnOrBeforeDate ||
-                    this.OnOrBeforeDate != null &&
-                    this.OnOrBeforeDate.Equals(other.OnOrBeforeDate)
+                    this.OnOrBeforeDate == input.OnOrBeforeDate ||
+                    (this.OnOrBeforeDate != null &&
+                    this.OnOrBeforeDate.Equals(input.OnOrBeforeDate))
                 ) && 
                 (
-                    this.UnitCost == other.UnitCost ||
-                    this.UnitCost != null &&
-                    this.UnitCost.Equals(other.UnitCost)
+                    this.UnitCost == input.UnitCost ||
+                    (this.UnitCost != null &&
+                    this.UnitCost.Equals(input.UnitCost))
                 );
         }
 
@@ -119,16 +117,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.OnOrBeforeDate != null)
-                    hash = hash * 59 + this.OnOrBeforeDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.OnOrBeforeDate.GetHashCode();
                 if (this.UnitCost != null)
-                    hash = hash * 59 + this.UnitCost.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UnitCost.GetHashCode();
+                return hashCode;
             }
         }
 

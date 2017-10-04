@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **BarcodeUc** | **string** | Barcode UC (EDI only) | [optional] 
 **BarcodeUi** | **string** | Barcode UI (EDI only) | [optional] 
 **BarcodeUk** | **string** | Barcode UK (EDI only) | [optional] 
+**BuyerCatalogNumber** | **string** | Buyer catalog number (EDI only) | [optional] 
 **BuyerDpci** | **string** | Buyer DPCI (EDI only) | [optional] 
 **BuyerItemNumber** | **string** | Buyer item number (EDI only) | [optional] 
 **ChannelPartnerCode** | **string** | Channel partner code | [optional] 

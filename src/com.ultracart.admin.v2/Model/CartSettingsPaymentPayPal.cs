@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSettingsPaymentPayPal);
+            return this.Equals(input as CartSettingsPaymentPayPal);
         }
 
         /// <summary>
         /// Returns true if CartSettingsPaymentPayPal instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSettingsPaymentPayPal to be compared</param>
+        /// <param name="input">Instance of CartSettingsPaymentPayPal to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSettingsPaymentPayPal other)
+        public bool Equals(CartSettingsPaymentPayPal input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.PaypalButtonAltText == other.PaypalButtonAltText ||
-                    this.PaypalButtonAltText != null &&
-                    this.PaypalButtonAltText.Equals(other.PaypalButtonAltText)
+                    this.PaypalButtonAltText == input.PaypalButtonAltText ||
+                    (this.PaypalButtonAltText != null &&
+                    this.PaypalButtonAltText.Equals(input.PaypalButtonAltText))
                 ) && 
                 (
-                    this.PaypalButtonUrl == other.PaypalButtonUrl ||
-                    this.PaypalButtonUrl != null &&
-                    this.PaypalButtonUrl.Equals(other.PaypalButtonUrl)
+                    this.PaypalButtonUrl == input.PaypalButtonUrl ||
+                    (this.PaypalButtonUrl != null &&
+                    this.PaypalButtonUrl.Equals(input.PaypalButtonUrl))
                 ) && 
                 (
-                    this.PaypalCreditButtonUrl == other.PaypalCreditButtonUrl ||
-                    this.PaypalCreditButtonUrl != null &&
-                    this.PaypalCreditButtonUrl.Equals(other.PaypalCreditButtonUrl)
+                    this.PaypalCreditButtonUrl == input.PaypalCreditButtonUrl ||
+                    (this.PaypalCreditButtonUrl != null &&
+                    this.PaypalCreditButtonUrl.Equals(input.PaypalCreditButtonUrl))
                 ) && 
                 (
-                    this.PaypalCreditLegalImageUrl == other.PaypalCreditLegalImageUrl ||
-                    this.PaypalCreditLegalImageUrl != null &&
-                    this.PaypalCreditLegalImageUrl.Equals(other.PaypalCreditLegalImageUrl)
+                    this.PaypalCreditLegalImageUrl == input.PaypalCreditLegalImageUrl ||
+                    (this.PaypalCreditLegalImageUrl != null &&
+                    this.PaypalCreditLegalImageUrl.Equals(input.PaypalCreditLegalImageUrl))
                 ) && 
                 (
-                    this.PaypalCreditLegalUrl == other.PaypalCreditLegalUrl ||
-                    this.PaypalCreditLegalUrl != null &&
-                    this.PaypalCreditLegalUrl.Equals(other.PaypalCreditLegalUrl)
+                    this.PaypalCreditLegalUrl == input.PaypalCreditLegalUrl ||
+                    (this.PaypalCreditLegalUrl != null &&
+                    this.PaypalCreditLegalUrl.Equals(input.PaypalCreditLegalUrl))
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.PaypalButtonAltText != null)
-                    hash = hash * 59 + this.PaypalButtonAltText.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaypalButtonAltText.GetHashCode();
                 if (this.PaypalButtonUrl != null)
-                    hash = hash * 59 + this.PaypalButtonUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaypalButtonUrl.GetHashCode();
                 if (this.PaypalCreditButtonUrl != null)
-                    hash = hash * 59 + this.PaypalCreditButtonUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaypalCreditButtonUrl.GetHashCode();
                 if (this.PaypalCreditLegalImageUrl != null)
-                    hash = hash * 59 + this.PaypalCreditLegalImageUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaypalCreditLegalImageUrl.GetHashCode();
                 if (this.PaypalCreditLegalUrl != null)
-                    hash = hash * 59 + this.PaypalCreditLegalUrl.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.PaypalCreditLegalUrl.GetHashCode();
+                return hashCode;
             }
         }
 

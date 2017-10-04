@@ -71,30 +71,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSettingsBilling);
+            return this.Equals(input as CartSettingsBilling);
         }
 
         /// <summary>
         /// Returns true if CartSettingsBilling instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSettingsBilling to be compared</param>
+        /// <param name="input">Instance of CartSettingsBilling to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSettingsBilling other)
+        public bool Equals(CartSettingsBilling input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Provinces == other.Provinces ||
+                    this.Provinces == input.Provinces ||
                     this.Provinces != null &&
-                    this.Provinces.SequenceEqual(other.Provinces)
+                    this.Provinces.SequenceEqual(input.Provinces)
                 );
         }
 
@@ -104,14 +102,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Provinces != null)
-                    hash = hash * 59 + this.Provinces.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Provinces.GetHashCode();
+                return hashCode;
             }
         }
 

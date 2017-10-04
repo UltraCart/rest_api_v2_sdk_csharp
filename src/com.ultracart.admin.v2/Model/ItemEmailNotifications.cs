@@ -81,35 +81,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemEmailNotifications);
+            return this.Equals(input as ItemEmailNotifications);
         }
 
         /// <summary>
         /// Returns true if ItemEmailNotifications instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemEmailNotifications to be compared</param>
+        /// <param name="input">Instance of ItemEmailNotifications to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemEmailNotifications other)
+        public bool Equals(ItemEmailNotifications input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.SkipReceipt == other.SkipReceipt ||
-                    this.SkipReceipt != null &&
-                    this.SkipReceipt.Equals(other.SkipReceipt)
+                    this.SkipReceipt == input.SkipReceipt ||
+                    (this.SkipReceipt != null &&
+                    this.SkipReceipt.Equals(input.SkipReceipt))
                 ) && 
                 (
-                    this.SkipShipmentNotification == other.SkipShipmentNotification ||
-                    this.SkipShipmentNotification != null &&
-                    this.SkipShipmentNotification.Equals(other.SkipShipmentNotification)
+                    this.SkipShipmentNotification == input.SkipShipmentNotification ||
+                    (this.SkipShipmentNotification != null &&
+                    this.SkipShipmentNotification.Equals(input.SkipShipmentNotification))
                 );
         }
 
@@ -119,16 +117,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.SkipReceipt != null)
-                    hash = hash * 59 + this.SkipReceipt.GetHashCode();
+                    hashCode = hashCode * 59 + this.SkipReceipt.GetHashCode();
                 if (this.SkipShipmentNotification != null)
-                    hash = hash * 59 + this.SkipShipmentNotification.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.SkipShipmentNotification.GetHashCode();
+                return hashCode;
             }
         }
 

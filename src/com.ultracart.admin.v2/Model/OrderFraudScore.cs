@@ -294,125 +294,123 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderFraudScore);
+            return this.Equals(input as OrderFraudScore);
         }
 
         /// <summary>
         /// Returns true if OrderFraudScore instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderFraudScore to be compared</param>
+        /// <param name="input">Instance of OrderFraudScore to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderFraudScore other)
+        public bool Equals(OrderFraudScore input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AnonymousProxy == other.AnonymousProxy ||
-                    this.AnonymousProxy != null &&
-                    this.AnonymousProxy.Equals(other.AnonymousProxy)
+                    this.AnonymousProxy == input.AnonymousProxy ||
+                    (this.AnonymousProxy != null &&
+                    this.AnonymousProxy.Equals(input.AnonymousProxy))
                 ) && 
                 (
-                    this.BinMatch == other.BinMatch ||
-                    this.BinMatch != null &&
-                    this.BinMatch.Equals(other.BinMatch)
+                    this.BinMatch == input.BinMatch ||
+                    (this.BinMatch != null &&
+                    this.BinMatch.Equals(input.BinMatch))
                 ) && 
                 (
-                    this.CarderEmail == other.CarderEmail ||
-                    this.CarderEmail != null &&
-                    this.CarderEmail.Equals(other.CarderEmail)
+                    this.CarderEmail == input.CarderEmail ||
+                    (this.CarderEmail != null &&
+                    this.CarderEmail.Equals(input.CarderEmail))
                 ) && 
                 (
-                    this.CountryCode == other.CountryCode ||
-                    this.CountryCode != null &&
-                    this.CountryCode.Equals(other.CountryCode)
+                    this.CountryCode == input.CountryCode ||
+                    (this.CountryCode != null &&
+                    this.CountryCode.Equals(input.CountryCode))
                 ) && 
                 (
-                    this.CountryMatch == other.CountryMatch ||
-                    this.CountryMatch != null &&
-                    this.CountryMatch.Equals(other.CountryMatch)
+                    this.CountryMatch == input.CountryMatch ||
+                    (this.CountryMatch != null &&
+                    this.CountryMatch.Equals(input.CountryMatch))
                 ) && 
                 (
-                    this.CustomerPhoneInBillingLocation == other.CustomerPhoneInBillingLocation ||
-                    this.CustomerPhoneInBillingLocation != null &&
-                    this.CustomerPhoneInBillingLocation.Equals(other.CustomerPhoneInBillingLocation)
+                    this.CustomerPhoneInBillingLocation == input.CustomerPhoneInBillingLocation ||
+                    (this.CustomerPhoneInBillingLocation != null &&
+                    this.CustomerPhoneInBillingLocation.Equals(input.CustomerPhoneInBillingLocation))
                 ) && 
                 (
-                    this.DistanceKm == other.DistanceKm ||
-                    this.DistanceKm != null &&
-                    this.DistanceKm.Equals(other.DistanceKm)
+                    this.DistanceKm == input.DistanceKm ||
+                    (this.DistanceKm != null &&
+                    this.DistanceKm.Equals(input.DistanceKm))
                 ) && 
                 (
-                    this.FreeEmail == other.FreeEmail ||
-                    this.FreeEmail != null &&
-                    this.FreeEmail.Equals(other.FreeEmail)
+                    this.FreeEmail == input.FreeEmail ||
+                    (this.FreeEmail != null &&
+                    this.FreeEmail.Equals(input.FreeEmail))
                 ) && 
                 (
-                    this.HighRiskCountry == other.HighRiskCountry ||
-                    this.HighRiskCountry != null &&
-                    this.HighRiskCountry.Equals(other.HighRiskCountry)
+                    this.HighRiskCountry == input.HighRiskCountry ||
+                    (this.HighRiskCountry != null &&
+                    this.HighRiskCountry.Equals(input.HighRiskCountry))
                 ) && 
                 (
-                    this.IpCity == other.IpCity ||
-                    this.IpCity != null &&
-                    this.IpCity.Equals(other.IpCity)
+                    this.IpCity == input.IpCity ||
+                    (this.IpCity != null &&
+                    this.IpCity.Equals(input.IpCity))
                 ) && 
                 (
-                    this.IpIsp == other.IpIsp ||
-                    this.IpIsp != null &&
-                    this.IpIsp.Equals(other.IpIsp)
+                    this.IpIsp == input.IpIsp ||
+                    (this.IpIsp != null &&
+                    this.IpIsp.Equals(input.IpIsp))
                 ) && 
                 (
-                    this.IpLatitude == other.IpLatitude ||
-                    this.IpLatitude != null &&
-                    this.IpLatitude.Equals(other.IpLatitude)
+                    this.IpLatitude == input.IpLatitude ||
+                    (this.IpLatitude != null &&
+                    this.IpLatitude.Equals(input.IpLatitude))
                 ) && 
                 (
-                    this.IpLongitude == other.IpLongitude ||
-                    this.IpLongitude != null &&
-                    this.IpLongitude.Equals(other.IpLongitude)
+                    this.IpLongitude == input.IpLongitude ||
+                    (this.IpLongitude != null &&
+                    this.IpLongitude.Equals(input.IpLongitude))
                 ) && 
                 (
-                    this.IpOrg == other.IpOrg ||
-                    this.IpOrg != null &&
-                    this.IpOrg.Equals(other.IpOrg)
+                    this.IpOrg == input.IpOrg ||
+                    (this.IpOrg != null &&
+                    this.IpOrg.Equals(input.IpOrg))
                 ) && 
                 (
-                    this.IpRegion == other.IpRegion ||
-                    this.IpRegion != null &&
-                    this.IpRegion.Equals(other.IpRegion)
+                    this.IpRegion == input.IpRegion ||
+                    (this.IpRegion != null &&
+                    this.IpRegion.Equals(input.IpRegion))
                 ) && 
                 (
-                    this.ProxyScore == other.ProxyScore ||
-                    this.ProxyScore != null &&
-                    this.ProxyScore.Equals(other.ProxyScore)
+                    this.ProxyScore == input.ProxyScore ||
+                    (this.ProxyScore != null &&
+                    this.ProxyScore.Equals(input.ProxyScore))
                 ) && 
                 (
-                    this.Score == other.Score ||
-                    this.Score != null &&
-                    this.Score.Equals(other.Score)
+                    this.Score == input.Score ||
+                    (this.Score != null &&
+                    this.Score.Equals(input.Score))
                 ) && 
                 (
-                    this.ShipForwarder == other.ShipForwarder ||
-                    this.ShipForwarder != null &&
-                    this.ShipForwarder.Equals(other.ShipForwarder)
+                    this.ShipForwarder == input.ShipForwarder ||
+                    (this.ShipForwarder != null &&
+                    this.ShipForwarder.Equals(input.ShipForwarder))
                 ) && 
                 (
-                    this.SpamScore == other.SpamScore ||
-                    this.SpamScore != null &&
-                    this.SpamScore.Equals(other.SpamScore)
+                    this.SpamScore == input.SpamScore ||
+                    (this.SpamScore != null &&
+                    this.SpamScore.Equals(input.SpamScore))
                 ) && 
                 (
-                    this.TransparentProxy == other.TransparentProxy ||
-                    this.TransparentProxy != null &&
-                    this.TransparentProxy.Equals(other.TransparentProxy)
+                    this.TransparentProxy == input.TransparentProxy ||
+                    (this.TransparentProxy != null &&
+                    this.TransparentProxy.Equals(input.TransparentProxy))
                 );
         }
 
@@ -422,52 +420,50 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AnonymousProxy != null)
-                    hash = hash * 59 + this.AnonymousProxy.GetHashCode();
+                    hashCode = hashCode * 59 + this.AnonymousProxy.GetHashCode();
                 if (this.BinMatch != null)
-                    hash = hash * 59 + this.BinMatch.GetHashCode();
+                    hashCode = hashCode * 59 + this.BinMatch.GetHashCode();
                 if (this.CarderEmail != null)
-                    hash = hash * 59 + this.CarderEmail.GetHashCode();
+                    hashCode = hashCode * 59 + this.CarderEmail.GetHashCode();
                 if (this.CountryCode != null)
-                    hash = hash * 59 + this.CountryCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.CountryMatch != null)
-                    hash = hash * 59 + this.CountryMatch.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryMatch.GetHashCode();
                 if (this.CustomerPhoneInBillingLocation != null)
-                    hash = hash * 59 + this.CustomerPhoneInBillingLocation.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomerPhoneInBillingLocation.GetHashCode();
                 if (this.DistanceKm != null)
-                    hash = hash * 59 + this.DistanceKm.GetHashCode();
+                    hashCode = hashCode * 59 + this.DistanceKm.GetHashCode();
                 if (this.FreeEmail != null)
-                    hash = hash * 59 + this.FreeEmail.GetHashCode();
+                    hashCode = hashCode * 59 + this.FreeEmail.GetHashCode();
                 if (this.HighRiskCountry != null)
-                    hash = hash * 59 + this.HighRiskCountry.GetHashCode();
+                    hashCode = hashCode * 59 + this.HighRiskCountry.GetHashCode();
                 if (this.IpCity != null)
-                    hash = hash * 59 + this.IpCity.GetHashCode();
+                    hashCode = hashCode * 59 + this.IpCity.GetHashCode();
                 if (this.IpIsp != null)
-                    hash = hash * 59 + this.IpIsp.GetHashCode();
+                    hashCode = hashCode * 59 + this.IpIsp.GetHashCode();
                 if (this.IpLatitude != null)
-                    hash = hash * 59 + this.IpLatitude.GetHashCode();
+                    hashCode = hashCode * 59 + this.IpLatitude.GetHashCode();
                 if (this.IpLongitude != null)
-                    hash = hash * 59 + this.IpLongitude.GetHashCode();
+                    hashCode = hashCode * 59 + this.IpLongitude.GetHashCode();
                 if (this.IpOrg != null)
-                    hash = hash * 59 + this.IpOrg.GetHashCode();
+                    hashCode = hashCode * 59 + this.IpOrg.GetHashCode();
                 if (this.IpRegion != null)
-                    hash = hash * 59 + this.IpRegion.GetHashCode();
+                    hashCode = hashCode * 59 + this.IpRegion.GetHashCode();
                 if (this.ProxyScore != null)
-                    hash = hash * 59 + this.ProxyScore.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProxyScore.GetHashCode();
                 if (this.Score != null)
-                    hash = hash * 59 + this.Score.GetHashCode();
+                    hashCode = hashCode * 59 + this.Score.GetHashCode();
                 if (this.ShipForwarder != null)
-                    hash = hash * 59 + this.ShipForwarder.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipForwarder.GetHashCode();
                 if (this.SpamScore != null)
-                    hash = hash * 59 + this.SpamScore.GetHashCode();
+                    hashCode = hashCode * 59 + this.SpamScore.GetHashCode();
                 if (this.TransparentProxy != null)
-                    hash = hash * 59 + this.TransparentProxy.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TransparentProxy.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -38,6 +38,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CaseInnerPacks">Case inner packs.</param>
         /// <param name="CaseUnits">Case units.</param>
         /// <param name="Cases">Cases.</param>
+        /// <param name="CollectSerialNumbers">This item is on pre-order.</param>
         /// <param name="CountryCodeOfOrigin">Country code of origin for customs forms.  (ISO-3166 two letter code).</param>
         /// <param name="CustomsDescription">Customs description.</param>
         /// <param name="CustomsValue">Customs value.</param>
@@ -80,13 +81,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ShipSeparatelyWidth">ShipSeparatelyWidth.</param>
         /// <param name="SpecialProductType">Special product type (USPS Media Mail).</param>
         /// <param name="TrackInventory">Track inventory.</param>
-        public ItemShipping(bool? AllowBackOrder = default(bool?), bool? AmazonFba = default(bool?), int? CaseInnerPacks = default(int?), int? CaseUnits = default(int?), List<ItemShippingCase> Cases = default(List<ItemShippingCase>), string CountryCodeOfOrigin = default(string), string CustomsDescription = default(string), decimal? CustomsValue = default(decimal?), bool? DeliveryOnFriday = default(bool?), bool? DeliveryOnMonday = default(bool?), bool? DeliveryOnSaturday = default(bool?), bool? DeliveryOnSunday = default(bool?), bool? DeliveryOnThursday = default(bool?), bool? DeliveryOnTuesday = default(bool?), bool? DeliveryOnWednesday = default(bool?), List<ItemShippingDestinationMarkup> DestinationMarkups = default(List<ItemShippingDestinationMarkup>), List<ItemShippingDestinationRestriction> DestinationRestrictions = default(List<ItemShippingDestinationRestriction>), List<ItemShippingDistributionCenter> DistributionCenters = default(List<ItemShippingDistributionCenter>), string Eta = default(string), bool? FreeShipping = default(bool?), string FreightClass = default(string), bool? Hazmat = default(bool?), bool? MadeToOrder = default(bool?), int? MadeToOrderLeadTime = default(int?), int? MaxDaysTimeInTransit = default(int?), List<ItemShippingMethod> Methods = default(List<ItemShippingMethod>), bool? NoShippingDiscount = default(bool?), List<ItemShippingPackageRequirement> PackageRequirements = default(List<ItemShippingPackageRequirement>), string PerishableClassName = default(string), int? PerishableClassOid = default(int?), bool? Preorder = default(bool?), bool? RequireDeliveryDate = default(bool?), bool? RestrictShipmentOnFriday = default(bool?), bool? RestrictShipmentOnMonday = default(bool?), bool? RestrictShipmentOnSaturday = default(bool?), bool? RestrictShipmentOnSunday = default(bool?), bool? RestrictShipmentOnThursday = default(bool?), bool? RestrictShipmentOnTuesday = default(bool?), bool? RestrictShipmentOnWednesday = default(bool?), bool? ShipSeparately = default(bool?), Weight ShipSeparatelyAdditionalWeight = default(Weight), Distance ShipSeparatelyHeight = default(Distance), Distance ShipSeparatelyLength = default(Distance), string ShipSeparatelyPackageSpecialType = default(string), Distance ShipSeparatelyWidth = default(Distance), string SpecialProductType = default(string), bool? TrackInventory = default(bool?))
+        public ItemShipping(bool? AllowBackOrder = default(bool?), bool? AmazonFba = default(bool?), int? CaseInnerPacks = default(int?), int? CaseUnits = default(int?), List<ItemShippingCase> Cases = default(List<ItemShippingCase>), bool? CollectSerialNumbers = default(bool?), string CountryCodeOfOrigin = default(string), string CustomsDescription = default(string), decimal? CustomsValue = default(decimal?), bool? DeliveryOnFriday = default(bool?), bool? DeliveryOnMonday = default(bool?), bool? DeliveryOnSaturday = default(bool?), bool? DeliveryOnSunday = default(bool?), bool? DeliveryOnThursday = default(bool?), bool? DeliveryOnTuesday = default(bool?), bool? DeliveryOnWednesday = default(bool?), List<ItemShippingDestinationMarkup> DestinationMarkups = default(List<ItemShippingDestinationMarkup>), List<ItemShippingDestinationRestriction> DestinationRestrictions = default(List<ItemShippingDestinationRestriction>), List<ItemShippingDistributionCenter> DistributionCenters = default(List<ItemShippingDistributionCenter>), string Eta = default(string), bool? FreeShipping = default(bool?), string FreightClass = default(string), bool? Hazmat = default(bool?), bool? MadeToOrder = default(bool?), int? MadeToOrderLeadTime = default(int?), int? MaxDaysTimeInTransit = default(int?), List<ItemShippingMethod> Methods = default(List<ItemShippingMethod>), bool? NoShippingDiscount = default(bool?), List<ItemShippingPackageRequirement> PackageRequirements = default(List<ItemShippingPackageRequirement>), string PerishableClassName = default(string), int? PerishableClassOid = default(int?), bool? Preorder = default(bool?), bool? RequireDeliveryDate = default(bool?), bool? RestrictShipmentOnFriday = default(bool?), bool? RestrictShipmentOnMonday = default(bool?), bool? RestrictShipmentOnSaturday = default(bool?), bool? RestrictShipmentOnSunday = default(bool?), bool? RestrictShipmentOnThursday = default(bool?), bool? RestrictShipmentOnTuesday = default(bool?), bool? RestrictShipmentOnWednesday = default(bool?), bool? ShipSeparately = default(bool?), Weight ShipSeparatelyAdditionalWeight = default(Weight), Distance ShipSeparatelyHeight = default(Distance), Distance ShipSeparatelyLength = default(Distance), string ShipSeparatelyPackageSpecialType = default(string), Distance ShipSeparatelyWidth = default(Distance), string SpecialProductType = default(string), bool? TrackInventory = default(bool?))
         {
             this.AllowBackOrder = AllowBackOrder;
             this.AmazonFba = AmazonFba;
             this.CaseInnerPacks = CaseInnerPacks;
             this.CaseUnits = CaseUnits;
             this.Cases = Cases;
+            this.CollectSerialNumbers = CollectSerialNumbers;
             this.CountryCodeOfOrigin = CountryCodeOfOrigin;
             this.CustomsDescription = CustomsDescription;
             this.CustomsValue = CustomsValue;
@@ -165,6 +167,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Cases</value>
         [DataMember(Name="cases", EmitDefaultValue=false)]
         public List<ItemShippingCase> Cases { get; set; }
+
+        /// <summary>
+        /// This item is on pre-order
+        /// </summary>
+        /// <value>This item is on pre-order</value>
+        [DataMember(Name="collect_serial_numbers", EmitDefaultValue=false)]
+        public bool? CollectSerialNumbers { get; set; }
 
         /// <summary>
         /// Country code of origin for customs forms.  (ISO-3166 two letter code)
@@ -469,6 +478,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CaseInnerPacks: ").Append(CaseInnerPacks).Append("\n");
             sb.Append("  CaseUnits: ").Append(CaseUnits).Append("\n");
             sb.Append("  Cases: ").Append(Cases).Append("\n");
+            sb.Append("  CollectSerialNumbers: ").Append(CollectSerialNumbers).Append("\n");
             sb.Append("  CountryCodeOfOrigin: ").Append(CountryCodeOfOrigin).Append("\n");
             sb.Append("  CustomsDescription: ").Append(CustomsDescription).Append("\n");
             sb.Append("  CustomsValue: ").Append(CustomsValue).Append("\n");
@@ -527,260 +537,263 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemShipping);
+            return this.Equals(input as ItemShipping);
         }
 
         /// <summary>
         /// Returns true if ItemShipping instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemShipping to be compared</param>
+        /// <param name="input">Instance of ItemShipping to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemShipping other)
+        public bool Equals(ItemShipping input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AllowBackOrder == other.AllowBackOrder ||
-                    this.AllowBackOrder != null &&
-                    this.AllowBackOrder.Equals(other.AllowBackOrder)
+                    this.AllowBackOrder == input.AllowBackOrder ||
+                    (this.AllowBackOrder != null &&
+                    this.AllowBackOrder.Equals(input.AllowBackOrder))
                 ) && 
                 (
-                    this.AmazonFba == other.AmazonFba ||
-                    this.AmazonFba != null &&
-                    this.AmazonFba.Equals(other.AmazonFba)
+                    this.AmazonFba == input.AmazonFba ||
+                    (this.AmazonFba != null &&
+                    this.AmazonFba.Equals(input.AmazonFba))
                 ) && 
                 (
-                    this.CaseInnerPacks == other.CaseInnerPacks ||
-                    this.CaseInnerPacks != null &&
-                    this.CaseInnerPacks.Equals(other.CaseInnerPacks)
+                    this.CaseInnerPacks == input.CaseInnerPacks ||
+                    (this.CaseInnerPacks != null &&
+                    this.CaseInnerPacks.Equals(input.CaseInnerPacks))
                 ) && 
                 (
-                    this.CaseUnits == other.CaseUnits ||
-                    this.CaseUnits != null &&
-                    this.CaseUnits.Equals(other.CaseUnits)
+                    this.CaseUnits == input.CaseUnits ||
+                    (this.CaseUnits != null &&
+                    this.CaseUnits.Equals(input.CaseUnits))
                 ) && 
                 (
-                    this.Cases == other.Cases ||
+                    this.Cases == input.Cases ||
                     this.Cases != null &&
-                    this.Cases.SequenceEqual(other.Cases)
+                    this.Cases.SequenceEqual(input.Cases)
                 ) && 
                 (
-                    this.CountryCodeOfOrigin == other.CountryCodeOfOrigin ||
-                    this.CountryCodeOfOrigin != null &&
-                    this.CountryCodeOfOrigin.Equals(other.CountryCodeOfOrigin)
+                    this.CollectSerialNumbers == input.CollectSerialNumbers ||
+                    (this.CollectSerialNumbers != null &&
+                    this.CollectSerialNumbers.Equals(input.CollectSerialNumbers))
                 ) && 
                 (
-                    this.CustomsDescription == other.CustomsDescription ||
-                    this.CustomsDescription != null &&
-                    this.CustomsDescription.Equals(other.CustomsDescription)
+                    this.CountryCodeOfOrigin == input.CountryCodeOfOrigin ||
+                    (this.CountryCodeOfOrigin != null &&
+                    this.CountryCodeOfOrigin.Equals(input.CountryCodeOfOrigin))
                 ) && 
                 (
-                    this.CustomsValue == other.CustomsValue ||
-                    this.CustomsValue != null &&
-                    this.CustomsValue.Equals(other.CustomsValue)
+                    this.CustomsDescription == input.CustomsDescription ||
+                    (this.CustomsDescription != null &&
+                    this.CustomsDescription.Equals(input.CustomsDescription))
                 ) && 
                 (
-                    this.DeliveryOnFriday == other.DeliveryOnFriday ||
-                    this.DeliveryOnFriday != null &&
-                    this.DeliveryOnFriday.Equals(other.DeliveryOnFriday)
+                    this.CustomsValue == input.CustomsValue ||
+                    (this.CustomsValue != null &&
+                    this.CustomsValue.Equals(input.CustomsValue))
                 ) && 
                 (
-                    this.DeliveryOnMonday == other.DeliveryOnMonday ||
-                    this.DeliveryOnMonday != null &&
-                    this.DeliveryOnMonday.Equals(other.DeliveryOnMonday)
+                    this.DeliveryOnFriday == input.DeliveryOnFriday ||
+                    (this.DeliveryOnFriday != null &&
+                    this.DeliveryOnFriday.Equals(input.DeliveryOnFriday))
                 ) && 
                 (
-                    this.DeliveryOnSaturday == other.DeliveryOnSaturday ||
-                    this.DeliveryOnSaturday != null &&
-                    this.DeliveryOnSaturday.Equals(other.DeliveryOnSaturday)
+                    this.DeliveryOnMonday == input.DeliveryOnMonday ||
+                    (this.DeliveryOnMonday != null &&
+                    this.DeliveryOnMonday.Equals(input.DeliveryOnMonday))
                 ) && 
                 (
-                    this.DeliveryOnSunday == other.DeliveryOnSunday ||
-                    this.DeliveryOnSunday != null &&
-                    this.DeliveryOnSunday.Equals(other.DeliveryOnSunday)
+                    this.DeliveryOnSaturday == input.DeliveryOnSaturday ||
+                    (this.DeliveryOnSaturday != null &&
+                    this.DeliveryOnSaturday.Equals(input.DeliveryOnSaturday))
                 ) && 
                 (
-                    this.DeliveryOnThursday == other.DeliveryOnThursday ||
-                    this.DeliveryOnThursday != null &&
-                    this.DeliveryOnThursday.Equals(other.DeliveryOnThursday)
+                    this.DeliveryOnSunday == input.DeliveryOnSunday ||
+                    (this.DeliveryOnSunday != null &&
+                    this.DeliveryOnSunday.Equals(input.DeliveryOnSunday))
                 ) && 
                 (
-                    this.DeliveryOnTuesday == other.DeliveryOnTuesday ||
-                    this.DeliveryOnTuesday != null &&
-                    this.DeliveryOnTuesday.Equals(other.DeliveryOnTuesday)
+                    this.DeliveryOnThursday == input.DeliveryOnThursday ||
+                    (this.DeliveryOnThursday != null &&
+                    this.DeliveryOnThursday.Equals(input.DeliveryOnThursday))
                 ) && 
                 (
-                    this.DeliveryOnWednesday == other.DeliveryOnWednesday ||
-                    this.DeliveryOnWednesday != null &&
-                    this.DeliveryOnWednesday.Equals(other.DeliveryOnWednesday)
+                    this.DeliveryOnTuesday == input.DeliveryOnTuesday ||
+                    (this.DeliveryOnTuesday != null &&
+                    this.DeliveryOnTuesday.Equals(input.DeliveryOnTuesday))
                 ) && 
                 (
-                    this.DestinationMarkups == other.DestinationMarkups ||
+                    this.DeliveryOnWednesday == input.DeliveryOnWednesday ||
+                    (this.DeliveryOnWednesday != null &&
+                    this.DeliveryOnWednesday.Equals(input.DeliveryOnWednesday))
+                ) && 
+                (
+                    this.DestinationMarkups == input.DestinationMarkups ||
                     this.DestinationMarkups != null &&
-                    this.DestinationMarkups.SequenceEqual(other.DestinationMarkups)
+                    this.DestinationMarkups.SequenceEqual(input.DestinationMarkups)
                 ) && 
                 (
-                    this.DestinationRestrictions == other.DestinationRestrictions ||
+                    this.DestinationRestrictions == input.DestinationRestrictions ||
                     this.DestinationRestrictions != null &&
-                    this.DestinationRestrictions.SequenceEqual(other.DestinationRestrictions)
+                    this.DestinationRestrictions.SequenceEqual(input.DestinationRestrictions)
                 ) && 
                 (
-                    this.DistributionCenters == other.DistributionCenters ||
+                    this.DistributionCenters == input.DistributionCenters ||
                     this.DistributionCenters != null &&
-                    this.DistributionCenters.SequenceEqual(other.DistributionCenters)
+                    this.DistributionCenters.SequenceEqual(input.DistributionCenters)
                 ) && 
                 (
-                    this.Eta == other.Eta ||
-                    this.Eta != null &&
-                    this.Eta.Equals(other.Eta)
+                    this.Eta == input.Eta ||
+                    (this.Eta != null &&
+                    this.Eta.Equals(input.Eta))
                 ) && 
                 (
-                    this.FreeShipping == other.FreeShipping ||
-                    this.FreeShipping != null &&
-                    this.FreeShipping.Equals(other.FreeShipping)
+                    this.FreeShipping == input.FreeShipping ||
+                    (this.FreeShipping != null &&
+                    this.FreeShipping.Equals(input.FreeShipping))
                 ) && 
                 (
-                    this.FreightClass == other.FreightClass ||
-                    this.FreightClass != null &&
-                    this.FreightClass.Equals(other.FreightClass)
+                    this.FreightClass == input.FreightClass ||
+                    (this.FreightClass != null &&
+                    this.FreightClass.Equals(input.FreightClass))
                 ) && 
                 (
-                    this.Hazmat == other.Hazmat ||
-                    this.Hazmat != null &&
-                    this.Hazmat.Equals(other.Hazmat)
+                    this.Hazmat == input.Hazmat ||
+                    (this.Hazmat != null &&
+                    this.Hazmat.Equals(input.Hazmat))
                 ) && 
                 (
-                    this.MadeToOrder == other.MadeToOrder ||
-                    this.MadeToOrder != null &&
-                    this.MadeToOrder.Equals(other.MadeToOrder)
+                    this.MadeToOrder == input.MadeToOrder ||
+                    (this.MadeToOrder != null &&
+                    this.MadeToOrder.Equals(input.MadeToOrder))
                 ) && 
                 (
-                    this.MadeToOrderLeadTime == other.MadeToOrderLeadTime ||
-                    this.MadeToOrderLeadTime != null &&
-                    this.MadeToOrderLeadTime.Equals(other.MadeToOrderLeadTime)
+                    this.MadeToOrderLeadTime == input.MadeToOrderLeadTime ||
+                    (this.MadeToOrderLeadTime != null &&
+                    this.MadeToOrderLeadTime.Equals(input.MadeToOrderLeadTime))
                 ) && 
                 (
-                    this.MaxDaysTimeInTransit == other.MaxDaysTimeInTransit ||
-                    this.MaxDaysTimeInTransit != null &&
-                    this.MaxDaysTimeInTransit.Equals(other.MaxDaysTimeInTransit)
+                    this.MaxDaysTimeInTransit == input.MaxDaysTimeInTransit ||
+                    (this.MaxDaysTimeInTransit != null &&
+                    this.MaxDaysTimeInTransit.Equals(input.MaxDaysTimeInTransit))
                 ) && 
                 (
-                    this.Methods == other.Methods ||
+                    this.Methods == input.Methods ||
                     this.Methods != null &&
-                    this.Methods.SequenceEqual(other.Methods)
+                    this.Methods.SequenceEqual(input.Methods)
                 ) && 
                 (
-                    this.NoShippingDiscount == other.NoShippingDiscount ||
-                    this.NoShippingDiscount != null &&
-                    this.NoShippingDiscount.Equals(other.NoShippingDiscount)
+                    this.NoShippingDiscount == input.NoShippingDiscount ||
+                    (this.NoShippingDiscount != null &&
+                    this.NoShippingDiscount.Equals(input.NoShippingDiscount))
                 ) && 
                 (
-                    this.PackageRequirements == other.PackageRequirements ||
+                    this.PackageRequirements == input.PackageRequirements ||
                     this.PackageRequirements != null &&
-                    this.PackageRequirements.SequenceEqual(other.PackageRequirements)
+                    this.PackageRequirements.SequenceEqual(input.PackageRequirements)
                 ) && 
                 (
-                    this.PerishableClassName == other.PerishableClassName ||
-                    this.PerishableClassName != null &&
-                    this.PerishableClassName.Equals(other.PerishableClassName)
+                    this.PerishableClassName == input.PerishableClassName ||
+                    (this.PerishableClassName != null &&
+                    this.PerishableClassName.Equals(input.PerishableClassName))
                 ) && 
                 (
-                    this.PerishableClassOid == other.PerishableClassOid ||
-                    this.PerishableClassOid != null &&
-                    this.PerishableClassOid.Equals(other.PerishableClassOid)
+                    this.PerishableClassOid == input.PerishableClassOid ||
+                    (this.PerishableClassOid != null &&
+                    this.PerishableClassOid.Equals(input.PerishableClassOid))
                 ) && 
                 (
-                    this.Preorder == other.Preorder ||
-                    this.Preorder != null &&
-                    this.Preorder.Equals(other.Preorder)
+                    this.Preorder == input.Preorder ||
+                    (this.Preorder != null &&
+                    this.Preorder.Equals(input.Preorder))
                 ) && 
                 (
-                    this.RequireDeliveryDate == other.RequireDeliveryDate ||
-                    this.RequireDeliveryDate != null &&
-                    this.RequireDeliveryDate.Equals(other.RequireDeliveryDate)
+                    this.RequireDeliveryDate == input.RequireDeliveryDate ||
+                    (this.RequireDeliveryDate != null &&
+                    this.RequireDeliveryDate.Equals(input.RequireDeliveryDate))
                 ) && 
                 (
-                    this.RestrictShipmentOnFriday == other.RestrictShipmentOnFriday ||
-                    this.RestrictShipmentOnFriday != null &&
-                    this.RestrictShipmentOnFriday.Equals(other.RestrictShipmentOnFriday)
+                    this.RestrictShipmentOnFriday == input.RestrictShipmentOnFriday ||
+                    (this.RestrictShipmentOnFriday != null &&
+                    this.RestrictShipmentOnFriday.Equals(input.RestrictShipmentOnFriday))
                 ) && 
                 (
-                    this.RestrictShipmentOnMonday == other.RestrictShipmentOnMonday ||
-                    this.RestrictShipmentOnMonday != null &&
-                    this.RestrictShipmentOnMonday.Equals(other.RestrictShipmentOnMonday)
+                    this.RestrictShipmentOnMonday == input.RestrictShipmentOnMonday ||
+                    (this.RestrictShipmentOnMonday != null &&
+                    this.RestrictShipmentOnMonday.Equals(input.RestrictShipmentOnMonday))
                 ) && 
                 (
-                    this.RestrictShipmentOnSaturday == other.RestrictShipmentOnSaturday ||
-                    this.RestrictShipmentOnSaturday != null &&
-                    this.RestrictShipmentOnSaturday.Equals(other.RestrictShipmentOnSaturday)
+                    this.RestrictShipmentOnSaturday == input.RestrictShipmentOnSaturday ||
+                    (this.RestrictShipmentOnSaturday != null &&
+                    this.RestrictShipmentOnSaturday.Equals(input.RestrictShipmentOnSaturday))
                 ) && 
                 (
-                    this.RestrictShipmentOnSunday == other.RestrictShipmentOnSunday ||
-                    this.RestrictShipmentOnSunday != null &&
-                    this.RestrictShipmentOnSunday.Equals(other.RestrictShipmentOnSunday)
+                    this.RestrictShipmentOnSunday == input.RestrictShipmentOnSunday ||
+                    (this.RestrictShipmentOnSunday != null &&
+                    this.RestrictShipmentOnSunday.Equals(input.RestrictShipmentOnSunday))
                 ) && 
                 (
-                    this.RestrictShipmentOnThursday == other.RestrictShipmentOnThursday ||
-                    this.RestrictShipmentOnThursday != null &&
-                    this.RestrictShipmentOnThursday.Equals(other.RestrictShipmentOnThursday)
+                    this.RestrictShipmentOnThursday == input.RestrictShipmentOnThursday ||
+                    (this.RestrictShipmentOnThursday != null &&
+                    this.RestrictShipmentOnThursday.Equals(input.RestrictShipmentOnThursday))
                 ) && 
                 (
-                    this.RestrictShipmentOnTuesday == other.RestrictShipmentOnTuesday ||
-                    this.RestrictShipmentOnTuesday != null &&
-                    this.RestrictShipmentOnTuesday.Equals(other.RestrictShipmentOnTuesday)
+                    this.RestrictShipmentOnTuesday == input.RestrictShipmentOnTuesday ||
+                    (this.RestrictShipmentOnTuesday != null &&
+                    this.RestrictShipmentOnTuesday.Equals(input.RestrictShipmentOnTuesday))
                 ) && 
                 (
-                    this.RestrictShipmentOnWednesday == other.RestrictShipmentOnWednesday ||
-                    this.RestrictShipmentOnWednesday != null &&
-                    this.RestrictShipmentOnWednesday.Equals(other.RestrictShipmentOnWednesday)
+                    this.RestrictShipmentOnWednesday == input.RestrictShipmentOnWednesday ||
+                    (this.RestrictShipmentOnWednesday != null &&
+                    this.RestrictShipmentOnWednesday.Equals(input.RestrictShipmentOnWednesday))
                 ) && 
                 (
-                    this.ShipSeparately == other.ShipSeparately ||
-                    this.ShipSeparately != null &&
-                    this.ShipSeparately.Equals(other.ShipSeparately)
+                    this.ShipSeparately == input.ShipSeparately ||
+                    (this.ShipSeparately != null &&
+                    this.ShipSeparately.Equals(input.ShipSeparately))
                 ) && 
                 (
-                    this.ShipSeparatelyAdditionalWeight == other.ShipSeparatelyAdditionalWeight ||
-                    this.ShipSeparatelyAdditionalWeight != null &&
-                    this.ShipSeparatelyAdditionalWeight.Equals(other.ShipSeparatelyAdditionalWeight)
+                    this.ShipSeparatelyAdditionalWeight == input.ShipSeparatelyAdditionalWeight ||
+                    (this.ShipSeparatelyAdditionalWeight != null &&
+                    this.ShipSeparatelyAdditionalWeight.Equals(input.ShipSeparatelyAdditionalWeight))
                 ) && 
                 (
-                    this.ShipSeparatelyHeight == other.ShipSeparatelyHeight ||
-                    this.ShipSeparatelyHeight != null &&
-                    this.ShipSeparatelyHeight.Equals(other.ShipSeparatelyHeight)
+                    this.ShipSeparatelyHeight == input.ShipSeparatelyHeight ||
+                    (this.ShipSeparatelyHeight != null &&
+                    this.ShipSeparatelyHeight.Equals(input.ShipSeparatelyHeight))
                 ) && 
                 (
-                    this.ShipSeparatelyLength == other.ShipSeparatelyLength ||
-                    this.ShipSeparatelyLength != null &&
-                    this.ShipSeparatelyLength.Equals(other.ShipSeparatelyLength)
+                    this.ShipSeparatelyLength == input.ShipSeparatelyLength ||
+                    (this.ShipSeparatelyLength != null &&
+                    this.ShipSeparatelyLength.Equals(input.ShipSeparatelyLength))
                 ) && 
                 (
-                    this.ShipSeparatelyPackageSpecialType == other.ShipSeparatelyPackageSpecialType ||
-                    this.ShipSeparatelyPackageSpecialType != null &&
-                    this.ShipSeparatelyPackageSpecialType.Equals(other.ShipSeparatelyPackageSpecialType)
+                    this.ShipSeparatelyPackageSpecialType == input.ShipSeparatelyPackageSpecialType ||
+                    (this.ShipSeparatelyPackageSpecialType != null &&
+                    this.ShipSeparatelyPackageSpecialType.Equals(input.ShipSeparatelyPackageSpecialType))
                 ) && 
                 (
-                    this.ShipSeparatelyWidth == other.ShipSeparatelyWidth ||
-                    this.ShipSeparatelyWidth != null &&
-                    this.ShipSeparatelyWidth.Equals(other.ShipSeparatelyWidth)
+                    this.ShipSeparatelyWidth == input.ShipSeparatelyWidth ||
+                    (this.ShipSeparatelyWidth != null &&
+                    this.ShipSeparatelyWidth.Equals(input.ShipSeparatelyWidth))
                 ) && 
                 (
-                    this.SpecialProductType == other.SpecialProductType ||
-                    this.SpecialProductType != null &&
-                    this.SpecialProductType.Equals(other.SpecialProductType)
+                    this.SpecialProductType == input.SpecialProductType ||
+                    (this.SpecialProductType != null &&
+                    this.SpecialProductType.Equals(input.SpecialProductType))
                 ) && 
                 (
-                    this.TrackInventory == other.TrackInventory ||
-                    this.TrackInventory != null &&
-                    this.TrackInventory.Equals(other.TrackInventory)
+                    this.TrackInventory == input.TrackInventory ||
+                    (this.TrackInventory != null &&
+                    this.TrackInventory.Equals(input.TrackInventory))
                 );
         }
 
@@ -790,106 +803,106 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AllowBackOrder != null)
-                    hash = hash * 59 + this.AllowBackOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.AllowBackOrder.GetHashCode();
                 if (this.AmazonFba != null)
-                    hash = hash * 59 + this.AmazonFba.GetHashCode();
+                    hashCode = hashCode * 59 + this.AmazonFba.GetHashCode();
                 if (this.CaseInnerPacks != null)
-                    hash = hash * 59 + this.CaseInnerPacks.GetHashCode();
+                    hashCode = hashCode * 59 + this.CaseInnerPacks.GetHashCode();
                 if (this.CaseUnits != null)
-                    hash = hash * 59 + this.CaseUnits.GetHashCode();
+                    hashCode = hashCode * 59 + this.CaseUnits.GetHashCode();
                 if (this.Cases != null)
-                    hash = hash * 59 + this.Cases.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cases.GetHashCode();
+                if (this.CollectSerialNumbers != null)
+                    hashCode = hashCode * 59 + this.CollectSerialNumbers.GetHashCode();
                 if (this.CountryCodeOfOrigin != null)
-                    hash = hash * 59 + this.CountryCodeOfOrigin.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryCodeOfOrigin.GetHashCode();
                 if (this.CustomsDescription != null)
-                    hash = hash * 59 + this.CustomsDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomsDescription.GetHashCode();
                 if (this.CustomsValue != null)
-                    hash = hash * 59 + this.CustomsValue.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomsValue.GetHashCode();
                 if (this.DeliveryOnFriday != null)
-                    hash = hash * 59 + this.DeliveryOnFriday.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliveryOnFriday.GetHashCode();
                 if (this.DeliveryOnMonday != null)
-                    hash = hash * 59 + this.DeliveryOnMonday.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliveryOnMonday.GetHashCode();
                 if (this.DeliveryOnSaturday != null)
-                    hash = hash * 59 + this.DeliveryOnSaturday.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliveryOnSaturday.GetHashCode();
                 if (this.DeliveryOnSunday != null)
-                    hash = hash * 59 + this.DeliveryOnSunday.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliveryOnSunday.GetHashCode();
                 if (this.DeliveryOnThursday != null)
-                    hash = hash * 59 + this.DeliveryOnThursday.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliveryOnThursday.GetHashCode();
                 if (this.DeliveryOnTuesday != null)
-                    hash = hash * 59 + this.DeliveryOnTuesday.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliveryOnTuesday.GetHashCode();
                 if (this.DeliveryOnWednesday != null)
-                    hash = hash * 59 + this.DeliveryOnWednesday.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliveryOnWednesday.GetHashCode();
                 if (this.DestinationMarkups != null)
-                    hash = hash * 59 + this.DestinationMarkups.GetHashCode();
+                    hashCode = hashCode * 59 + this.DestinationMarkups.GetHashCode();
                 if (this.DestinationRestrictions != null)
-                    hash = hash * 59 + this.DestinationRestrictions.GetHashCode();
+                    hashCode = hashCode * 59 + this.DestinationRestrictions.GetHashCode();
                 if (this.DistributionCenters != null)
-                    hash = hash * 59 + this.DistributionCenters.GetHashCode();
+                    hashCode = hashCode * 59 + this.DistributionCenters.GetHashCode();
                 if (this.Eta != null)
-                    hash = hash * 59 + this.Eta.GetHashCode();
+                    hashCode = hashCode * 59 + this.Eta.GetHashCode();
                 if (this.FreeShipping != null)
-                    hash = hash * 59 + this.FreeShipping.GetHashCode();
+                    hashCode = hashCode * 59 + this.FreeShipping.GetHashCode();
                 if (this.FreightClass != null)
-                    hash = hash * 59 + this.FreightClass.GetHashCode();
+                    hashCode = hashCode * 59 + this.FreightClass.GetHashCode();
                 if (this.Hazmat != null)
-                    hash = hash * 59 + this.Hazmat.GetHashCode();
+                    hashCode = hashCode * 59 + this.Hazmat.GetHashCode();
                 if (this.MadeToOrder != null)
-                    hash = hash * 59 + this.MadeToOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.MadeToOrder.GetHashCode();
                 if (this.MadeToOrderLeadTime != null)
-                    hash = hash * 59 + this.MadeToOrderLeadTime.GetHashCode();
+                    hashCode = hashCode * 59 + this.MadeToOrderLeadTime.GetHashCode();
                 if (this.MaxDaysTimeInTransit != null)
-                    hash = hash * 59 + this.MaxDaysTimeInTransit.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxDaysTimeInTransit.GetHashCode();
                 if (this.Methods != null)
-                    hash = hash * 59 + this.Methods.GetHashCode();
+                    hashCode = hashCode * 59 + this.Methods.GetHashCode();
                 if (this.NoShippingDiscount != null)
-                    hash = hash * 59 + this.NoShippingDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.NoShippingDiscount.GetHashCode();
                 if (this.PackageRequirements != null)
-                    hash = hash * 59 + this.PackageRequirements.GetHashCode();
+                    hashCode = hashCode * 59 + this.PackageRequirements.GetHashCode();
                 if (this.PerishableClassName != null)
-                    hash = hash * 59 + this.PerishableClassName.GetHashCode();
+                    hashCode = hashCode * 59 + this.PerishableClassName.GetHashCode();
                 if (this.PerishableClassOid != null)
-                    hash = hash * 59 + this.PerishableClassOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.PerishableClassOid.GetHashCode();
                 if (this.Preorder != null)
-                    hash = hash * 59 + this.Preorder.GetHashCode();
+                    hashCode = hashCode * 59 + this.Preorder.GetHashCode();
                 if (this.RequireDeliveryDate != null)
-                    hash = hash * 59 + this.RequireDeliveryDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.RequireDeliveryDate.GetHashCode();
                 if (this.RestrictShipmentOnFriday != null)
-                    hash = hash * 59 + this.RestrictShipmentOnFriday.GetHashCode();
+                    hashCode = hashCode * 59 + this.RestrictShipmentOnFriday.GetHashCode();
                 if (this.RestrictShipmentOnMonday != null)
-                    hash = hash * 59 + this.RestrictShipmentOnMonday.GetHashCode();
+                    hashCode = hashCode * 59 + this.RestrictShipmentOnMonday.GetHashCode();
                 if (this.RestrictShipmentOnSaturday != null)
-                    hash = hash * 59 + this.RestrictShipmentOnSaturday.GetHashCode();
+                    hashCode = hashCode * 59 + this.RestrictShipmentOnSaturday.GetHashCode();
                 if (this.RestrictShipmentOnSunday != null)
-                    hash = hash * 59 + this.RestrictShipmentOnSunday.GetHashCode();
+                    hashCode = hashCode * 59 + this.RestrictShipmentOnSunday.GetHashCode();
                 if (this.RestrictShipmentOnThursday != null)
-                    hash = hash * 59 + this.RestrictShipmentOnThursday.GetHashCode();
+                    hashCode = hashCode * 59 + this.RestrictShipmentOnThursday.GetHashCode();
                 if (this.RestrictShipmentOnTuesday != null)
-                    hash = hash * 59 + this.RestrictShipmentOnTuesday.GetHashCode();
+                    hashCode = hashCode * 59 + this.RestrictShipmentOnTuesday.GetHashCode();
                 if (this.RestrictShipmentOnWednesday != null)
-                    hash = hash * 59 + this.RestrictShipmentOnWednesday.GetHashCode();
+                    hashCode = hashCode * 59 + this.RestrictShipmentOnWednesday.GetHashCode();
                 if (this.ShipSeparately != null)
-                    hash = hash * 59 + this.ShipSeparately.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipSeparately.GetHashCode();
                 if (this.ShipSeparatelyAdditionalWeight != null)
-                    hash = hash * 59 + this.ShipSeparatelyAdditionalWeight.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipSeparatelyAdditionalWeight.GetHashCode();
                 if (this.ShipSeparatelyHeight != null)
-                    hash = hash * 59 + this.ShipSeparatelyHeight.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipSeparatelyHeight.GetHashCode();
                 if (this.ShipSeparatelyLength != null)
-                    hash = hash * 59 + this.ShipSeparatelyLength.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipSeparatelyLength.GetHashCode();
                 if (this.ShipSeparatelyPackageSpecialType != null)
-                    hash = hash * 59 + this.ShipSeparatelyPackageSpecialType.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipSeparatelyPackageSpecialType.GetHashCode();
                 if (this.ShipSeparatelyWidth != null)
-                    hash = hash * 59 + this.ShipSeparatelyWidth.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipSeparatelyWidth.GetHashCode();
                 if (this.SpecialProductType != null)
-                    hash = hash * 59 + this.SpecialProductType.GetHashCode();
+                    hashCode = hashCode * 59 + this.SpecialProductType.GetHashCode();
                 if (this.TrackInventory != null)
-                    hash = hash * 59 + this.TrackInventory.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TrackInventory.GetHashCode();
+                return hashCode;
             }
         }
 

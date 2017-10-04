@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemPricingTierLimit);
+            return this.Equals(input as ItemPricingTierLimit);
         }
 
         /// <summary>
         /// Returns true if ItemPricingTierLimit instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemPricingTierLimit to be compared</param>
+        /// <param name="input">Instance of ItemPricingTierLimit to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemPricingTierLimit other)
+        public bool Equals(ItemPricingTierLimit input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CumulativeOrderLimit == other.CumulativeOrderLimit ||
-                    this.CumulativeOrderLimit != null &&
-                    this.CumulativeOrderLimit.Equals(other.CumulativeOrderLimit)
+                    this.CumulativeOrderLimit == input.CumulativeOrderLimit ||
+                    (this.CumulativeOrderLimit != null &&
+                    this.CumulativeOrderLimit.Equals(input.CumulativeOrderLimit))
                 ) && 
                 (
-                    this.IndividualOrderLimit == other.IndividualOrderLimit ||
-                    this.IndividualOrderLimit != null &&
-                    this.IndividualOrderLimit.Equals(other.IndividualOrderLimit)
+                    this.IndividualOrderLimit == input.IndividualOrderLimit ||
+                    (this.IndividualOrderLimit != null &&
+                    this.IndividualOrderLimit.Equals(input.IndividualOrderLimit))
                 ) && 
                 (
-                    this.MultipleQuantity == other.MultipleQuantity ||
-                    this.MultipleQuantity != null &&
-                    this.MultipleQuantity.Equals(other.MultipleQuantity)
+                    this.MultipleQuantity == input.MultipleQuantity ||
+                    (this.MultipleQuantity != null &&
+                    this.MultipleQuantity.Equals(input.MultipleQuantity))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CumulativeOrderLimit != null)
-                    hash = hash * 59 + this.CumulativeOrderLimit.GetHashCode();
+                    hashCode = hashCode * 59 + this.CumulativeOrderLimit.GetHashCode();
                 if (this.IndividualOrderLimit != null)
-                    hash = hash * 59 + this.IndividualOrderLimit.GetHashCode();
+                    hashCode = hashCode * 59 + this.IndividualOrderLimit.GetHashCode();
                 if (this.MultipleQuantity != null)
-                    hash = hash * 59 + this.MultipleQuantity.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.MultipleQuantity.GetHashCode();
+                return hashCode;
             }
         }
 

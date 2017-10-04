@@ -71,30 +71,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemEnrollment123);
+            return this.Equals(input as ItemEnrollment123);
         }
 
         /// <summary>
         /// Returns true if ItemEnrollment123 instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemEnrollment123 to be compared</param>
+        /// <param name="input">Instance of ItemEnrollment123 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemEnrollment123 other)
+        public bool Equals(ItemEnrollment123 input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Enrollment123ProductCode == other.Enrollment123ProductCode ||
-                    this.Enrollment123ProductCode != null &&
-                    this.Enrollment123ProductCode.Equals(other.Enrollment123ProductCode)
+                    this.Enrollment123ProductCode == input.Enrollment123ProductCode ||
+                    (this.Enrollment123ProductCode != null &&
+                    this.Enrollment123ProductCode.Equals(input.Enrollment123ProductCode))
                 );
         }
 
@@ -104,14 +102,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Enrollment123ProductCode != null)
-                    hash = hash * 59 + this.Enrollment123ProductCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Enrollment123ProductCode.GetHashCode();
+                return hashCode;
             }
         }
 

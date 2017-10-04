@@ -101,45 +101,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as WebhookSampleRequest);
+            return this.Equals(input as WebhookSampleRequest);
         }
 
         /// <summary>
         /// Returns true if WebhookSampleRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of WebhookSampleRequest to be compared</param>
+        /// <param name="input">Instance of WebhookSampleRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WebhookSampleRequest other)
+        public bool Equals(WebhookSampleRequest input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Request == other.Request ||
-                    this.Request != null &&
-                    this.Request.Equals(other.Request)
+                    this.Request == input.Request ||
+                    (this.Request != null &&
+                    this.Request.Equals(input.Request))
                 ) && 
                 (
-                    this.RequestHeaders == other.RequestHeaders ||
+                    this.RequestHeaders == input.RequestHeaders ||
                     this.RequestHeaders != null &&
-                    this.RequestHeaders.SequenceEqual(other.RequestHeaders)
+                    this.RequestHeaders.SequenceEqual(input.RequestHeaders)
                 ) && 
                 (
-                    this.RequestId == other.RequestId ||
-                    this.RequestId != null &&
-                    this.RequestId.Equals(other.RequestId)
+                    this.RequestId == input.RequestId ||
+                    (this.RequestId != null &&
+                    this.RequestId.Equals(input.RequestId))
                 ) && 
                 (
-                    this.Uri == other.Uri ||
-                    this.Uri != null &&
-                    this.Uri.Equals(other.Uri)
+                    this.Uri == input.Uri ||
+                    (this.Uri != null &&
+                    this.Uri.Equals(input.Uri))
                 );
         }
 
@@ -149,20 +147,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Request != null)
-                    hash = hash * 59 + this.Request.GetHashCode();
+                    hashCode = hashCode * 59 + this.Request.GetHashCode();
                 if (this.RequestHeaders != null)
-                    hash = hash * 59 + this.RequestHeaders.GetHashCode();
+                    hashCode = hashCode * 59 + this.RequestHeaders.GetHashCode();
                 if (this.RequestId != null)
-                    hash = hash * 59 + this.RequestId.GetHashCode();
+                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
                 if (this.Uri != null)
-                    hash = hash * 59 + this.Uri.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Uri.GetHashCode();
+                return hashCode;
             }
         }
 

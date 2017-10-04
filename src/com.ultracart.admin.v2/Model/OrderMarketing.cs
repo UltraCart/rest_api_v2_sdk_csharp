@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderMarketing);
+            return this.Equals(input as OrderMarketing);
         }
 
         /// <summary>
         /// Returns true if OrderMarketing instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderMarketing to be compared</param>
+        /// <param name="input">Instance of OrderMarketing to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderMarketing other)
+        public bool Equals(OrderMarketing input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AdvertisingSource == other.AdvertisingSource ||
-                    this.AdvertisingSource != null &&
-                    this.AdvertisingSource.Equals(other.AdvertisingSource)
+                    this.AdvertisingSource == input.AdvertisingSource ||
+                    (this.AdvertisingSource != null &&
+                    this.AdvertisingSource.Equals(input.AdvertisingSource))
                 ) && 
                 (
-                    this.MailingList == other.MailingList ||
-                    this.MailingList != null &&
-                    this.MailingList.Equals(other.MailingList)
+                    this.MailingList == input.MailingList ||
+                    (this.MailingList != null &&
+                    this.MailingList.Equals(input.MailingList))
                 ) && 
                 (
-                    this.ReferralCode == other.ReferralCode ||
-                    this.ReferralCode != null &&
-                    this.ReferralCode.Equals(other.ReferralCode)
+                    this.ReferralCode == input.ReferralCode ||
+                    (this.ReferralCode != null &&
+                    this.ReferralCode.Equals(input.ReferralCode))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AdvertisingSource != null)
-                    hash = hash * 59 + this.AdvertisingSource.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdvertisingSource.GetHashCode();
                 if (this.MailingList != null)
-                    hash = hash * 59 + this.MailingList.GetHashCode();
+                    hashCode = hashCode * 59 + this.MailingList.GetHashCode();
                 if (this.ReferralCode != null)
-                    hash = hash * 59 + this.ReferralCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ReferralCode.GetHashCode();
+                return hashCode;
             }
         }
 

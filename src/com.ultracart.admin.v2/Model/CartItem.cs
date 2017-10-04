@@ -343,170 +343,168 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartItem);
+            return this.Equals(input as CartItem);
         }
 
         /// <summary>
         /// Returns true if CartItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartItem to be compared</param>
+        /// <param name="input">Instance of CartItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartItem other)
+        public bool Equals(CartItem input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ArbitraryUnitCost == other.ArbitraryUnitCost ||
-                    this.ArbitraryUnitCost != null &&
-                    this.ArbitraryUnitCost.Equals(other.ArbitraryUnitCost)
+                    this.ArbitraryUnitCost == input.ArbitraryUnitCost ||
+                    (this.ArbitraryUnitCost != null &&
+                    this.ArbitraryUnitCost.Equals(input.ArbitraryUnitCost))
                 ) && 
                 (
-                    this.Attributes == other.Attributes ||
+                    this.Attributes == input.Attributes ||
                     this.Attributes != null &&
-                    this.Attributes.SequenceEqual(other.Attributes)
+                    this.Attributes.SequenceEqual(input.Attributes)
                 ) && 
                 (
-                    this.AutoOrderSchedule == other.AutoOrderSchedule ||
-                    this.AutoOrderSchedule != null &&
-                    this.AutoOrderSchedule.Equals(other.AutoOrderSchedule)
+                    this.AutoOrderSchedule == input.AutoOrderSchedule ||
+                    (this.AutoOrderSchedule != null &&
+                    this.AutoOrderSchedule.Equals(input.AutoOrderSchedule))
                 ) && 
                 (
-                    this.DefaultImageUrl == other.DefaultImageUrl ||
-                    this.DefaultImageUrl != null &&
-                    this.DefaultImageUrl.Equals(other.DefaultImageUrl)
+                    this.DefaultImageUrl == input.DefaultImageUrl ||
+                    (this.DefaultImageUrl != null &&
+                    this.DefaultImageUrl.Equals(input.DefaultImageUrl))
                 ) && 
                 (
-                    this.DefaultThumbnailUrl == other.DefaultThumbnailUrl ||
-                    this.DefaultThumbnailUrl != null &&
-                    this.DefaultThumbnailUrl.Equals(other.DefaultThumbnailUrl)
+                    this.DefaultThumbnailUrl == input.DefaultThumbnailUrl ||
+                    (this.DefaultThumbnailUrl != null &&
+                    this.DefaultThumbnailUrl.Equals(input.DefaultThumbnailUrl))
                 ) && 
                 (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.Discount == other.Discount ||
-                    this.Discount != null &&
-                    this.Discount.Equals(other.Discount)
+                    this.Discount == input.Discount ||
+                    (this.Discount != null &&
+                    this.Discount.Equals(input.Discount))
                 ) && 
                 (
-                    this.ExtendedDescription == other.ExtendedDescription ||
-                    this.ExtendedDescription != null &&
-                    this.ExtendedDescription.Equals(other.ExtendedDescription)
+                    this.ExtendedDescription == input.ExtendedDescription ||
+                    (this.ExtendedDescription != null &&
+                    this.ExtendedDescription.Equals(input.ExtendedDescription))
                 ) && 
                 (
-                    this.ItemId == other.ItemId ||
-                    this.ItemId != null &&
-                    this.ItemId.Equals(other.ItemId)
+                    this.ItemId == input.ItemId ||
+                    (this.ItemId != null &&
+                    this.ItemId.Equals(input.ItemId))
                 ) && 
                 (
-                    this.ItemOid == other.ItemOid ||
-                    this.ItemOid != null &&
-                    this.ItemOid.Equals(other.ItemOid)
+                    this.ItemOid == input.ItemOid ||
+                    (this.ItemOid != null &&
+                    this.ItemOid.Equals(input.ItemOid))
                 ) && 
                 (
-                    this.Kit == other.Kit ||
-                    this.Kit != null &&
-                    this.Kit.Equals(other.Kit)
+                    this.Kit == input.Kit ||
+                    (this.Kit != null &&
+                    this.Kit.Equals(input.Kit))
                 ) && 
                 (
-                    this.KitComponentOptions == other.KitComponentOptions ||
+                    this.KitComponentOptions == input.KitComponentOptions ||
                     this.KitComponentOptions != null &&
-                    this.KitComponentOptions.SequenceEqual(other.KitComponentOptions)
+                    this.KitComponentOptions.SequenceEqual(input.KitComponentOptions)
                 ) && 
                 (
-                    this.ManufacturerSuggestedRetailPrice == other.ManufacturerSuggestedRetailPrice ||
-                    this.ManufacturerSuggestedRetailPrice != null &&
-                    this.ManufacturerSuggestedRetailPrice.Equals(other.ManufacturerSuggestedRetailPrice)
+                    this.ManufacturerSuggestedRetailPrice == input.ManufacturerSuggestedRetailPrice ||
+                    (this.ManufacturerSuggestedRetailPrice != null &&
+                    this.ManufacturerSuggestedRetailPrice.Equals(input.ManufacturerSuggestedRetailPrice))
                 ) && 
                 (
-                    this.MaximumQuantity == other.MaximumQuantity ||
-                    this.MaximumQuantity != null &&
-                    this.MaximumQuantity.Equals(other.MaximumQuantity)
+                    this.MaximumQuantity == input.MaximumQuantity ||
+                    (this.MaximumQuantity != null &&
+                    this.MaximumQuantity.Equals(input.MaximumQuantity))
                 ) && 
                 (
-                    this.MinimumQuantity == other.MinimumQuantity ||
-                    this.MinimumQuantity != null &&
-                    this.MinimumQuantity.Equals(other.MinimumQuantity)
+                    this.MinimumQuantity == input.MinimumQuantity ||
+                    (this.MinimumQuantity != null &&
+                    this.MinimumQuantity.Equals(input.MinimumQuantity))
                 ) && 
                 (
-                    this.Multimedia == other.Multimedia ||
+                    this.Multimedia == input.Multimedia ||
                     this.Multimedia != null &&
-                    this.Multimedia.SequenceEqual(other.Multimedia)
+                    this.Multimedia.SequenceEqual(input.Multimedia)
                 ) && 
                 (
-                    this.Options == other.Options ||
+                    this.Options == input.Options ||
                     this.Options != null &&
-                    this.Options.SequenceEqual(other.Options)
+                    this.Options.SequenceEqual(input.Options)
                 ) && 
                 (
-                    this.Phsyical == other.Phsyical ||
-                    this.Phsyical != null &&
-                    this.Phsyical.Equals(other.Phsyical)
+                    this.Phsyical == input.Phsyical ||
+                    (this.Phsyical != null &&
+                    this.Phsyical.Equals(input.Phsyical))
                 ) && 
                 (
-                    this.Position == other.Position ||
-                    this.Position != null &&
-                    this.Position.Equals(other.Position)
+                    this.Position == input.Position ||
+                    (this.Position != null &&
+                    this.Position.Equals(input.Position))
                 ) && 
                 (
-                    this.Preorder == other.Preorder ||
-                    this.Preorder != null &&
-                    this.Preorder.Equals(other.Preorder)
+                    this.Preorder == input.Preorder ||
+                    (this.Preorder != null &&
+                    this.Preorder.Equals(input.Preorder))
                 ) && 
                 (
-                    this.Quantity == other.Quantity ||
-                    this.Quantity != null &&
-                    this.Quantity.Equals(other.Quantity)
+                    this.Quantity == input.Quantity ||
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
                 ) && 
                 (
-                    this.Schedules == other.Schedules ||
+                    this.Schedules == input.Schedules ||
                     this.Schedules != null &&
-                    this.Schedules.SequenceEqual(other.Schedules)
+                    this.Schedules.SequenceEqual(input.Schedules)
                 ) && 
                 (
-                    this.TotalCost == other.TotalCost ||
-                    this.TotalCost != null &&
-                    this.TotalCost.Equals(other.TotalCost)
+                    this.TotalCost == input.TotalCost ||
+                    (this.TotalCost != null &&
+                    this.TotalCost.Equals(input.TotalCost))
                 ) && 
                 (
-                    this.TotalCostWithDiscount == other.TotalCostWithDiscount ||
-                    this.TotalCostWithDiscount != null &&
-                    this.TotalCostWithDiscount.Equals(other.TotalCostWithDiscount)
+                    this.TotalCostWithDiscount == input.TotalCostWithDiscount ||
+                    (this.TotalCostWithDiscount != null &&
+                    this.TotalCostWithDiscount.Equals(input.TotalCostWithDiscount))
                 ) && 
                 (
-                    this.UnitCost == other.UnitCost ||
-                    this.UnitCost != null &&
-                    this.UnitCost.Equals(other.UnitCost)
+                    this.UnitCost == input.UnitCost ||
+                    (this.UnitCost != null &&
+                    this.UnitCost.Equals(input.UnitCost))
                 ) && 
                 (
-                    this.UnitCostWithDiscount == other.UnitCostWithDiscount ||
-                    this.UnitCostWithDiscount != null &&
-                    this.UnitCostWithDiscount.Equals(other.UnitCostWithDiscount)
+                    this.UnitCostWithDiscount == input.UnitCostWithDiscount ||
+                    (this.UnitCostWithDiscount != null &&
+                    this.UnitCostWithDiscount.Equals(input.UnitCostWithDiscount))
                 ) && 
                 (
-                    this.Upsell == other.Upsell ||
-                    this.Upsell != null &&
-                    this.Upsell.Equals(other.Upsell)
+                    this.Upsell == input.Upsell ||
+                    (this.Upsell != null &&
+                    this.Upsell.Equals(input.Upsell))
                 ) && 
                 (
-                    this.Variations == other.Variations ||
+                    this.Variations == input.Variations ||
                     this.Variations != null &&
-                    this.Variations.SequenceEqual(other.Variations)
+                    this.Variations.SequenceEqual(input.Variations)
                 ) && 
                 (
-                    this.ViewUrl == other.ViewUrl ||
-                    this.ViewUrl != null &&
-                    this.ViewUrl.Equals(other.ViewUrl)
+                    this.ViewUrl == input.ViewUrl ||
+                    (this.ViewUrl != null &&
+                    this.ViewUrl.Equals(input.ViewUrl))
                 );
         }
 
@@ -516,70 +514,68 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ArbitraryUnitCost != null)
-                    hash = hash * 59 + this.ArbitraryUnitCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCost.GetHashCode();
                 if (this.Attributes != null)
-                    hash = hash * 59 + this.Attributes.GetHashCode();
+                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.AutoOrderSchedule != null)
-                    hash = hash * 59 + this.AutoOrderSchedule.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderSchedule.GetHashCode();
                 if (this.DefaultImageUrl != null)
-                    hash = hash * 59 + this.DefaultImageUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultImageUrl.GetHashCode();
                 if (this.DefaultThumbnailUrl != null)
-                    hash = hash * 59 + this.DefaultThumbnailUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultThumbnailUrl.GetHashCode();
                 if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Discount != null)
-                    hash = hash * 59 + this.Discount.GetHashCode();
+                    hashCode = hashCode * 59 + this.Discount.GetHashCode();
                 if (this.ExtendedDescription != null)
-                    hash = hash * 59 + this.ExtendedDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExtendedDescription.GetHashCode();
                 if (this.ItemId != null)
-                    hash = hash * 59 + this.ItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ItemId.GetHashCode();
                 if (this.ItemOid != null)
-                    hash = hash * 59 + this.ItemOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ItemOid.GetHashCode();
                 if (this.Kit != null)
-                    hash = hash * 59 + this.Kit.GetHashCode();
+                    hashCode = hashCode * 59 + this.Kit.GetHashCode();
                 if (this.KitComponentOptions != null)
-                    hash = hash * 59 + this.KitComponentOptions.GetHashCode();
+                    hashCode = hashCode * 59 + this.KitComponentOptions.GetHashCode();
                 if (this.ManufacturerSuggestedRetailPrice != null)
-                    hash = hash * 59 + this.ManufacturerSuggestedRetailPrice.GetHashCode();
+                    hashCode = hashCode * 59 + this.ManufacturerSuggestedRetailPrice.GetHashCode();
                 if (this.MaximumQuantity != null)
-                    hash = hash * 59 + this.MaximumQuantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaximumQuantity.GetHashCode();
                 if (this.MinimumQuantity != null)
-                    hash = hash * 59 + this.MinimumQuantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.MinimumQuantity.GetHashCode();
                 if (this.Multimedia != null)
-                    hash = hash * 59 + this.Multimedia.GetHashCode();
+                    hashCode = hashCode * 59 + this.Multimedia.GetHashCode();
                 if (this.Options != null)
-                    hash = hash * 59 + this.Options.GetHashCode();
+                    hashCode = hashCode * 59 + this.Options.GetHashCode();
                 if (this.Phsyical != null)
-                    hash = hash * 59 + this.Phsyical.GetHashCode();
+                    hashCode = hashCode * 59 + this.Phsyical.GetHashCode();
                 if (this.Position != null)
-                    hash = hash * 59 + this.Position.GetHashCode();
+                    hashCode = hashCode * 59 + this.Position.GetHashCode();
                 if (this.Preorder != null)
-                    hash = hash * 59 + this.Preorder.GetHashCode();
+                    hashCode = hashCode * 59 + this.Preorder.GetHashCode();
                 if (this.Quantity != null)
-                    hash = hash * 59 + this.Quantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.Quantity.GetHashCode();
                 if (this.Schedules != null)
-                    hash = hash * 59 + this.Schedules.GetHashCode();
+                    hashCode = hashCode * 59 + this.Schedules.GetHashCode();
                 if (this.TotalCost != null)
-                    hash = hash * 59 + this.TotalCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.TotalCost.GetHashCode();
                 if (this.TotalCostWithDiscount != null)
-                    hash = hash * 59 + this.TotalCostWithDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.TotalCostWithDiscount.GetHashCode();
                 if (this.UnitCost != null)
-                    hash = hash * 59 + this.UnitCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.UnitCost.GetHashCode();
                 if (this.UnitCostWithDiscount != null)
-                    hash = hash * 59 + this.UnitCostWithDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.UnitCostWithDiscount.GetHashCode();
                 if (this.Upsell != null)
-                    hash = hash * 59 + this.Upsell.GetHashCode();
+                    hashCode = hashCode * 59 + this.Upsell.GetHashCode();
                 if (this.Variations != null)
-                    hash = hash * 59 + this.Variations.GetHashCode();
+                    hashCode = hashCode * 59 + this.Variations.GetHashCode();
                 if (this.ViewUrl != null)
-                    hash = hash * 59 + this.ViewUrl.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ViewUrl.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -531,260 +531,258 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemGoogleProductSearch);
+            return this.Equals(input as ItemGoogleProductSearch);
         }
 
         /// <summary>
         /// Returns true if ItemGoogleProductSearch instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemGoogleProductSearch to be compared</param>
+        /// <param name="input">Instance of ItemGoogleProductSearch to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemGoogleProductSearch other)
+        public bool Equals(ItemGoogleProductSearch input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AdwordsGrouping == other.AdwordsGrouping ||
-                    this.AdwordsGrouping != null &&
-                    this.AdwordsGrouping.Equals(other.AdwordsGrouping)
+                    this.AdwordsGrouping == input.AdwordsGrouping ||
+                    (this.AdwordsGrouping != null &&
+                    this.AdwordsGrouping.Equals(input.AdwordsGrouping))
                 ) && 
                 (
-                    this.AdwordsLabel1 == other.AdwordsLabel1 ||
-                    this.AdwordsLabel1 != null &&
-                    this.AdwordsLabel1.Equals(other.AdwordsLabel1)
+                    this.AdwordsLabel1 == input.AdwordsLabel1 ||
+                    (this.AdwordsLabel1 != null &&
+                    this.AdwordsLabel1.Equals(input.AdwordsLabel1))
                 ) && 
                 (
-                    this.AdwordsLabel2 == other.AdwordsLabel2 ||
-                    this.AdwordsLabel2 != null &&
-                    this.AdwordsLabel2.Equals(other.AdwordsLabel2)
+                    this.AdwordsLabel2 == input.AdwordsLabel2 ||
+                    (this.AdwordsLabel2 != null &&
+                    this.AdwordsLabel2.Equals(input.AdwordsLabel2))
                 ) && 
                 (
-                    this.AdwordsLabel3 == other.AdwordsLabel3 ||
-                    this.AdwordsLabel3 != null &&
-                    this.AdwordsLabel3.Equals(other.AdwordsLabel3)
+                    this.AdwordsLabel3 == input.AdwordsLabel3 ||
+                    (this.AdwordsLabel3 != null &&
+                    this.AdwordsLabel3.Equals(input.AdwordsLabel3))
                 ) && 
                 (
-                    this.AdwordsLabel4 == other.AdwordsLabel4 ||
-                    this.AdwordsLabel4 != null &&
-                    this.AdwordsLabel4.Equals(other.AdwordsLabel4)
+                    this.AdwordsLabel4 == input.AdwordsLabel4 ||
+                    (this.AdwordsLabel4 != null &&
+                    this.AdwordsLabel4.Equals(input.AdwordsLabel4))
                 ) && 
                 (
-                    this.AdwordsLabel5 == other.AdwordsLabel5 ||
-                    this.AdwordsLabel5 != null &&
-                    this.AdwordsLabel5.Equals(other.AdwordsLabel5)
+                    this.AdwordsLabel5 == input.AdwordsLabel5 ||
+                    (this.AdwordsLabel5 != null &&
+                    this.AdwordsLabel5.Equals(input.AdwordsLabel5))
                 ) && 
                 (
-                    this.AgeGroup == other.AgeGroup ||
-                    this.AgeGroup != null &&
-                    this.AgeGroup.Equals(other.AgeGroup)
+                    this.AgeGroup == input.AgeGroup ||
+                    (this.AgeGroup != null &&
+                    this.AgeGroup.Equals(input.AgeGroup))
                 ) && 
                 (
-                    this.AvailableAtPhysicalStore == other.AvailableAtPhysicalStore ||
-                    this.AvailableAtPhysicalStore != null &&
-                    this.AvailableAtPhysicalStore.Equals(other.AvailableAtPhysicalStore)
+                    this.AvailableAtPhysicalStore == input.AvailableAtPhysicalStore ||
+                    (this.AvailableAtPhysicalStore != null &&
+                    this.AvailableAtPhysicalStore.Equals(input.AvailableAtPhysicalStore))
                 ) && 
                 (
-                    this.BookAuthor == other.BookAuthor ||
-                    this.BookAuthor != null &&
-                    this.BookAuthor.Equals(other.BookAuthor)
+                    this.BookAuthor == input.BookAuthor ||
+                    (this.BookAuthor != null &&
+                    this.BookAuthor.Equals(input.BookAuthor))
                 ) && 
                 (
-                    this.BookFormat == other.BookFormat ||
-                    this.BookFormat != null &&
-                    this.BookFormat.Equals(other.BookFormat)
+                    this.BookFormat == input.BookFormat ||
+                    (this.BookFormat != null &&
+                    this.BookFormat.Equals(input.BookFormat))
                 ) && 
                 (
-                    this.BookIsbn == other.BookIsbn ||
-                    this.BookIsbn != null &&
-                    this.BookIsbn.Equals(other.BookIsbn)
+                    this.BookIsbn == input.BookIsbn ||
+                    (this.BookIsbn != null &&
+                    this.BookIsbn.Equals(input.BookIsbn))
                 ) && 
                 (
-                    this.BookPublisher == other.BookPublisher ||
-                    this.BookPublisher != null &&
-                    this.BookPublisher.Equals(other.BookPublisher)
+                    this.BookPublisher == input.BookPublisher ||
+                    (this.BookPublisher != null &&
+                    this.BookPublisher.Equals(input.BookPublisher))
                 ) && 
                 (
-                    this.CategoryDescription == other.CategoryDescription ||
-                    this.CategoryDescription != null &&
-                    this.CategoryDescription.Equals(other.CategoryDescription)
+                    this.CategoryDescription == input.CategoryDescription ||
+                    (this.CategoryDescription != null &&
+                    this.CategoryDescription.Equals(input.CategoryDescription))
                 ) && 
                 (
-                    this.Color == other.Color ||
-                    this.Color != null &&
-                    this.Color.Equals(other.Color)
+                    this.Color == input.Color ||
+                    (this.Color != null &&
+                    this.Color.Equals(input.Color))
                 ) && 
                 (
-                    this.Condition == other.Condition ||
-                    this.Condition != null &&
-                    this.Condition.Equals(other.Condition)
+                    this.Condition == input.Condition ||
+                    (this.Condition != null &&
+                    this.Condition.Equals(input.Condition))
                 ) && 
                 (
-                    this.CustomLabel0 == other.CustomLabel0 ||
-                    this.CustomLabel0 != null &&
-                    this.CustomLabel0.Equals(other.CustomLabel0)
+                    this.CustomLabel0 == input.CustomLabel0 ||
+                    (this.CustomLabel0 != null &&
+                    this.CustomLabel0.Equals(input.CustomLabel0))
                 ) && 
                 (
-                    this.CustomLabel1 == other.CustomLabel1 ||
-                    this.CustomLabel1 != null &&
-                    this.CustomLabel1.Equals(other.CustomLabel1)
+                    this.CustomLabel1 == input.CustomLabel1 ||
+                    (this.CustomLabel1 != null &&
+                    this.CustomLabel1.Equals(input.CustomLabel1))
                 ) && 
                 (
-                    this.CustomLabel2 == other.CustomLabel2 ||
-                    this.CustomLabel2 != null &&
-                    this.CustomLabel2.Equals(other.CustomLabel2)
+                    this.CustomLabel2 == input.CustomLabel2 ||
+                    (this.CustomLabel2 != null &&
+                    this.CustomLabel2.Equals(input.CustomLabel2))
                 ) && 
                 (
-                    this.CustomLabel3 == other.CustomLabel3 ||
-                    this.CustomLabel3 != null &&
-                    this.CustomLabel3.Equals(other.CustomLabel3)
+                    this.CustomLabel3 == input.CustomLabel3 ||
+                    (this.CustomLabel3 != null &&
+                    this.CustomLabel3.Equals(input.CustomLabel3))
                 ) && 
                 (
-                    this.CustomLabel4 == other.CustomLabel4 ||
-                    this.CustomLabel4 != null &&
-                    this.CustomLabel4.Equals(other.CustomLabel4)
+                    this.CustomLabel4 == input.CustomLabel4 ||
+                    (this.CustomLabel4 != null &&
+                    this.CustomLabel4.Equals(input.CustomLabel4))
                 ) && 
                 (
-                    this.Gender == other.Gender ||
-                    this.Gender != null &&
-                    this.Gender.Equals(other.Gender)
+                    this.Gender == input.Gender ||
+                    (this.Gender != null &&
+                    this.Gender.Equals(input.Gender))
                 ) && 
                 (
-                    this.GoogleProductCategory == other.GoogleProductCategory ||
-                    this.GoogleProductCategory != null &&
-                    this.GoogleProductCategory.Equals(other.GoogleProductCategory)
+                    this.GoogleProductCategory == input.GoogleProductCategory ||
+                    (this.GoogleProductCategory != null &&
+                    this.GoogleProductCategory.Equals(input.GoogleProductCategory))
                 ) && 
                 (
-                    this.MusicArtist == other.MusicArtist ||
-                    this.MusicArtist != null &&
-                    this.MusicArtist.Equals(other.MusicArtist)
+                    this.MusicArtist == input.MusicArtist ||
+                    (this.MusicArtist != null &&
+                    this.MusicArtist.Equals(input.MusicArtist))
                 ) && 
                 (
-                    this.MusicFormat == other.MusicFormat ||
-                    this.MusicFormat != null &&
-                    this.MusicFormat.Equals(other.MusicFormat)
+                    this.MusicFormat == input.MusicFormat ||
+                    (this.MusicFormat != null &&
+                    this.MusicFormat.Equals(input.MusicFormat))
                 ) && 
                 (
-                    this.MusicReleaseDate == other.MusicReleaseDate ||
-                    this.MusicReleaseDate != null &&
-                    this.MusicReleaseDate.Equals(other.MusicReleaseDate)
+                    this.MusicReleaseDate == input.MusicReleaseDate ||
+                    (this.MusicReleaseDate != null &&
+                    this.MusicReleaseDate.Equals(input.MusicReleaseDate))
                 ) && 
                 (
-                    this.OmitFromFeed == other.OmitFromFeed ||
-                    this.OmitFromFeed != null &&
-                    this.OmitFromFeed.Equals(other.OmitFromFeed)
+                    this.OmitFromFeed == input.OmitFromFeed ||
+                    (this.OmitFromFeed != null &&
+                    this.OmitFromFeed.Equals(input.OmitFromFeed))
                 ) && 
                 (
-                    this.ProductType == other.ProductType ||
-                    this.ProductType != null &&
-                    this.ProductType.Equals(other.ProductType)
+                    this.ProductType == input.ProductType ||
+                    (this.ProductType != null &&
+                    this.ProductType.Equals(input.ProductType))
                 ) && 
                 (
-                    this.PromotionId1 == other.PromotionId1 ||
-                    this.PromotionId1 != null &&
-                    this.PromotionId1.Equals(other.PromotionId1)
+                    this.PromotionId1 == input.PromotionId1 ||
+                    (this.PromotionId1 != null &&
+                    this.PromotionId1.Equals(input.PromotionId1))
                 ) && 
                 (
-                    this.PromotionId10 == other.PromotionId10 ||
-                    this.PromotionId10 != null &&
-                    this.PromotionId10.Equals(other.PromotionId10)
+                    this.PromotionId10 == input.PromotionId10 ||
+                    (this.PromotionId10 != null &&
+                    this.PromotionId10.Equals(input.PromotionId10))
                 ) && 
                 (
-                    this.PromotionId2 == other.PromotionId2 ||
-                    this.PromotionId2 != null &&
-                    this.PromotionId2.Equals(other.PromotionId2)
+                    this.PromotionId2 == input.PromotionId2 ||
+                    (this.PromotionId2 != null &&
+                    this.PromotionId2.Equals(input.PromotionId2))
                 ) && 
                 (
-                    this.PromotionId3 == other.PromotionId3 ||
-                    this.PromotionId3 != null &&
-                    this.PromotionId3.Equals(other.PromotionId3)
+                    this.PromotionId3 == input.PromotionId3 ||
+                    (this.PromotionId3 != null &&
+                    this.PromotionId3.Equals(input.PromotionId3))
                 ) && 
                 (
-                    this.PromotionId4 == other.PromotionId4 ||
-                    this.PromotionId4 != null &&
-                    this.PromotionId4.Equals(other.PromotionId4)
+                    this.PromotionId4 == input.PromotionId4 ||
+                    (this.PromotionId4 != null &&
+                    this.PromotionId4.Equals(input.PromotionId4))
                 ) && 
                 (
-                    this.PromotionId5 == other.PromotionId5 ||
-                    this.PromotionId5 != null &&
-                    this.PromotionId5.Equals(other.PromotionId5)
+                    this.PromotionId5 == input.PromotionId5 ||
+                    (this.PromotionId5 != null &&
+                    this.PromotionId5.Equals(input.PromotionId5))
                 ) && 
                 (
-                    this.PromotionId6 == other.PromotionId6 ||
-                    this.PromotionId6 != null &&
-                    this.PromotionId6.Equals(other.PromotionId6)
+                    this.PromotionId6 == input.PromotionId6 ||
+                    (this.PromotionId6 != null &&
+                    this.PromotionId6.Equals(input.PromotionId6))
                 ) && 
                 (
-                    this.PromotionId7 == other.PromotionId7 ||
-                    this.PromotionId7 != null &&
-                    this.PromotionId7.Equals(other.PromotionId7)
+                    this.PromotionId7 == input.PromotionId7 ||
+                    (this.PromotionId7 != null &&
+                    this.PromotionId7.Equals(input.PromotionId7))
                 ) && 
                 (
-                    this.PromotionId8 == other.PromotionId8 ||
-                    this.PromotionId8 != null &&
-                    this.PromotionId8.Equals(other.PromotionId8)
+                    this.PromotionId8 == input.PromotionId8 ||
+                    (this.PromotionId8 != null &&
+                    this.PromotionId8.Equals(input.PromotionId8))
                 ) && 
                 (
-                    this.PromotionId9 == other.PromotionId9 ||
-                    this.PromotionId9 != null &&
-                    this.PromotionId9.Equals(other.PromotionId9)
+                    this.PromotionId9 == input.PromotionId9 ||
+                    (this.PromotionId9 != null &&
+                    this.PromotionId9.Equals(input.PromotionId9))
                 ) && 
                 (
-                    this.SearchDts == other.SearchDts ||
-                    this.SearchDts != null &&
-                    this.SearchDts.Equals(other.SearchDts)
+                    this.SearchDts == input.SearchDts ||
+                    (this.SearchDts != null &&
+                    this.SearchDts.Equals(input.SearchDts))
                 ) && 
                 (
-                    this.SearchLowestPrice == other.SearchLowestPrice ||
-                    this.SearchLowestPrice != null &&
-                    this.SearchLowestPrice.Equals(other.SearchLowestPrice)
+                    this.SearchLowestPrice == input.SearchLowestPrice ||
+                    (this.SearchLowestPrice != null &&
+                    this.SearchLowestPrice.Equals(input.SearchLowestPrice))
                 ) && 
                 (
-                    this.SearchLowestUrl == other.SearchLowestUrl ||
-                    this.SearchLowestUrl != null &&
-                    this.SearchLowestUrl.Equals(other.SearchLowestUrl)
+                    this.SearchLowestUrl == input.SearchLowestUrl ||
+                    (this.SearchLowestUrl != null &&
+                    this.SearchLowestUrl.Equals(input.SearchLowestUrl))
                 ) && 
                 (
-                    this.SearchPosition == other.SearchPosition ||
-                    this.SearchPosition != null &&
-                    this.SearchPosition.Equals(other.SearchPosition)
+                    this.SearchPosition == input.SearchPosition ||
+                    (this.SearchPosition != null &&
+                    this.SearchPosition.Equals(input.SearchPosition))
                 ) && 
                 (
-                    this.Size == other.Size ||
-                    this.Size != null &&
-                    this.Size.Equals(other.Size)
+                    this.Size == input.Size ||
+                    (this.Size != null &&
+                    this.Size.Equals(input.Size))
                 ) && 
                 (
-                    this.VideoDirector == other.VideoDirector ||
-                    this.VideoDirector != null &&
-                    this.VideoDirector.Equals(other.VideoDirector)
+                    this.VideoDirector == input.VideoDirector ||
+                    (this.VideoDirector != null &&
+                    this.VideoDirector.Equals(input.VideoDirector))
                 ) && 
                 (
-                    this.VideoFormat == other.VideoFormat ||
-                    this.VideoFormat != null &&
-                    this.VideoFormat.Equals(other.VideoFormat)
+                    this.VideoFormat == input.VideoFormat ||
+                    (this.VideoFormat != null &&
+                    this.VideoFormat.Equals(input.VideoFormat))
                 ) && 
                 (
-                    this.VideoRating == other.VideoRating ||
-                    this.VideoRating != null &&
-                    this.VideoRating.Equals(other.VideoRating)
+                    this.VideoRating == input.VideoRating ||
+                    (this.VideoRating != null &&
+                    this.VideoRating.Equals(input.VideoRating))
                 ) && 
                 (
-                    this.VideoReleaseDate == other.VideoReleaseDate ||
-                    this.VideoReleaseDate != null &&
-                    this.VideoReleaseDate.Equals(other.VideoReleaseDate)
+                    this.VideoReleaseDate == input.VideoReleaseDate ||
+                    (this.VideoReleaseDate != null &&
+                    this.VideoReleaseDate.Equals(input.VideoReleaseDate))
                 ) && 
                 (
-                    this.VideoStarring == other.VideoStarring ||
-                    this.VideoStarring != null &&
-                    this.VideoStarring.Equals(other.VideoStarring)
+                    this.VideoStarring == input.VideoStarring ||
+                    (this.VideoStarring != null &&
+                    this.VideoStarring.Equals(input.VideoStarring))
                 );
         }
 
@@ -794,106 +792,104 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AdwordsGrouping != null)
-                    hash = hash * 59 + this.AdwordsGrouping.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdwordsGrouping.GetHashCode();
                 if (this.AdwordsLabel1 != null)
-                    hash = hash * 59 + this.AdwordsLabel1.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdwordsLabel1.GetHashCode();
                 if (this.AdwordsLabel2 != null)
-                    hash = hash * 59 + this.AdwordsLabel2.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdwordsLabel2.GetHashCode();
                 if (this.AdwordsLabel3 != null)
-                    hash = hash * 59 + this.AdwordsLabel3.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdwordsLabel3.GetHashCode();
                 if (this.AdwordsLabel4 != null)
-                    hash = hash * 59 + this.AdwordsLabel4.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdwordsLabel4.GetHashCode();
                 if (this.AdwordsLabel5 != null)
-                    hash = hash * 59 + this.AdwordsLabel5.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdwordsLabel5.GetHashCode();
                 if (this.AgeGroup != null)
-                    hash = hash * 59 + this.AgeGroup.GetHashCode();
+                    hashCode = hashCode * 59 + this.AgeGroup.GetHashCode();
                 if (this.AvailableAtPhysicalStore != null)
-                    hash = hash * 59 + this.AvailableAtPhysicalStore.GetHashCode();
+                    hashCode = hashCode * 59 + this.AvailableAtPhysicalStore.GetHashCode();
                 if (this.BookAuthor != null)
-                    hash = hash * 59 + this.BookAuthor.GetHashCode();
+                    hashCode = hashCode * 59 + this.BookAuthor.GetHashCode();
                 if (this.BookFormat != null)
-                    hash = hash * 59 + this.BookFormat.GetHashCode();
+                    hashCode = hashCode * 59 + this.BookFormat.GetHashCode();
                 if (this.BookIsbn != null)
-                    hash = hash * 59 + this.BookIsbn.GetHashCode();
+                    hashCode = hashCode * 59 + this.BookIsbn.GetHashCode();
                 if (this.BookPublisher != null)
-                    hash = hash * 59 + this.BookPublisher.GetHashCode();
+                    hashCode = hashCode * 59 + this.BookPublisher.GetHashCode();
                 if (this.CategoryDescription != null)
-                    hash = hash * 59 + this.CategoryDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.CategoryDescription.GetHashCode();
                 if (this.Color != null)
-                    hash = hash * 59 + this.Color.GetHashCode();
+                    hashCode = hashCode * 59 + this.Color.GetHashCode();
                 if (this.Condition != null)
-                    hash = hash * 59 + this.Condition.GetHashCode();
+                    hashCode = hashCode * 59 + this.Condition.GetHashCode();
                 if (this.CustomLabel0 != null)
-                    hash = hash * 59 + this.CustomLabel0.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomLabel0.GetHashCode();
                 if (this.CustomLabel1 != null)
-                    hash = hash * 59 + this.CustomLabel1.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomLabel1.GetHashCode();
                 if (this.CustomLabel2 != null)
-                    hash = hash * 59 + this.CustomLabel2.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomLabel2.GetHashCode();
                 if (this.CustomLabel3 != null)
-                    hash = hash * 59 + this.CustomLabel3.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomLabel3.GetHashCode();
                 if (this.CustomLabel4 != null)
-                    hash = hash * 59 + this.CustomLabel4.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomLabel4.GetHashCode();
                 if (this.Gender != null)
-                    hash = hash * 59 + this.Gender.GetHashCode();
+                    hashCode = hashCode * 59 + this.Gender.GetHashCode();
                 if (this.GoogleProductCategory != null)
-                    hash = hash * 59 + this.GoogleProductCategory.GetHashCode();
+                    hashCode = hashCode * 59 + this.GoogleProductCategory.GetHashCode();
                 if (this.MusicArtist != null)
-                    hash = hash * 59 + this.MusicArtist.GetHashCode();
+                    hashCode = hashCode * 59 + this.MusicArtist.GetHashCode();
                 if (this.MusicFormat != null)
-                    hash = hash * 59 + this.MusicFormat.GetHashCode();
+                    hashCode = hashCode * 59 + this.MusicFormat.GetHashCode();
                 if (this.MusicReleaseDate != null)
-                    hash = hash * 59 + this.MusicReleaseDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.MusicReleaseDate.GetHashCode();
                 if (this.OmitFromFeed != null)
-                    hash = hash * 59 + this.OmitFromFeed.GetHashCode();
+                    hashCode = hashCode * 59 + this.OmitFromFeed.GetHashCode();
                 if (this.ProductType != null)
-                    hash = hash * 59 + this.ProductType.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProductType.GetHashCode();
                 if (this.PromotionId1 != null)
-                    hash = hash * 59 + this.PromotionId1.GetHashCode();
+                    hashCode = hashCode * 59 + this.PromotionId1.GetHashCode();
                 if (this.PromotionId10 != null)
-                    hash = hash * 59 + this.PromotionId10.GetHashCode();
+                    hashCode = hashCode * 59 + this.PromotionId10.GetHashCode();
                 if (this.PromotionId2 != null)
-                    hash = hash * 59 + this.PromotionId2.GetHashCode();
+                    hashCode = hashCode * 59 + this.PromotionId2.GetHashCode();
                 if (this.PromotionId3 != null)
-                    hash = hash * 59 + this.PromotionId3.GetHashCode();
+                    hashCode = hashCode * 59 + this.PromotionId3.GetHashCode();
                 if (this.PromotionId4 != null)
-                    hash = hash * 59 + this.PromotionId4.GetHashCode();
+                    hashCode = hashCode * 59 + this.PromotionId4.GetHashCode();
                 if (this.PromotionId5 != null)
-                    hash = hash * 59 + this.PromotionId5.GetHashCode();
+                    hashCode = hashCode * 59 + this.PromotionId5.GetHashCode();
                 if (this.PromotionId6 != null)
-                    hash = hash * 59 + this.PromotionId6.GetHashCode();
+                    hashCode = hashCode * 59 + this.PromotionId6.GetHashCode();
                 if (this.PromotionId7 != null)
-                    hash = hash * 59 + this.PromotionId7.GetHashCode();
+                    hashCode = hashCode * 59 + this.PromotionId7.GetHashCode();
                 if (this.PromotionId8 != null)
-                    hash = hash * 59 + this.PromotionId8.GetHashCode();
+                    hashCode = hashCode * 59 + this.PromotionId8.GetHashCode();
                 if (this.PromotionId9 != null)
-                    hash = hash * 59 + this.PromotionId9.GetHashCode();
+                    hashCode = hashCode * 59 + this.PromotionId9.GetHashCode();
                 if (this.SearchDts != null)
-                    hash = hash * 59 + this.SearchDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.SearchDts.GetHashCode();
                 if (this.SearchLowestPrice != null)
-                    hash = hash * 59 + this.SearchLowestPrice.GetHashCode();
+                    hashCode = hashCode * 59 + this.SearchLowestPrice.GetHashCode();
                 if (this.SearchLowestUrl != null)
-                    hash = hash * 59 + this.SearchLowestUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.SearchLowestUrl.GetHashCode();
                 if (this.SearchPosition != null)
-                    hash = hash * 59 + this.SearchPosition.GetHashCode();
+                    hashCode = hashCode * 59 + this.SearchPosition.GetHashCode();
                 if (this.Size != null)
-                    hash = hash * 59 + this.Size.GetHashCode();
+                    hashCode = hashCode * 59 + this.Size.GetHashCode();
                 if (this.VideoDirector != null)
-                    hash = hash * 59 + this.VideoDirector.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoDirector.GetHashCode();
                 if (this.VideoFormat != null)
-                    hash = hash * 59 + this.VideoFormat.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoFormat.GetHashCode();
                 if (this.VideoRating != null)
-                    hash = hash * 59 + this.VideoRating.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoRating.GetHashCode();
                 if (this.VideoReleaseDate != null)
-                    hash = hash * 59 + this.VideoReleaseDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.VideoReleaseDate.GetHashCode();
                 if (this.VideoStarring != null)
-                    hash = hash * 59 + this.VideoStarring.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.VideoStarring.GetHashCode();
+                return hashCode;
             }
         }
 

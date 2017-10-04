@@ -160,75 +160,73 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemEbayMarketPlaceAnalysis);
+            return this.Equals(input as ItemEbayMarketPlaceAnalysis);
         }
 
         /// <summary>
         /// Returns true if ItemEbayMarketPlaceAnalysis instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemEbayMarketPlaceAnalysis to be compared</param>
+        /// <param name="input">Instance of ItemEbayMarketPlaceAnalysis to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemEbayMarketPlaceAnalysis other)
+        public bool Equals(ItemEbayMarketPlaceAnalysis input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AdjustedPrice == other.AdjustedPrice ||
-                    this.AdjustedPrice != null &&
-                    this.AdjustedPrice.Equals(other.AdjustedPrice)
+                    this.AdjustedPrice == input.AdjustedPrice ||
+                    (this.AdjustedPrice != null &&
+                    this.AdjustedPrice.Equals(input.AdjustedPrice))
                 ) && 
                 (
-                    this.AdjustedShipping == other.AdjustedShipping ||
-                    this.AdjustedShipping != null &&
-                    this.AdjustedShipping.Equals(other.AdjustedShipping)
+                    this.AdjustedShipping == input.AdjustedShipping ||
+                    (this.AdjustedShipping != null &&
+                    this.AdjustedShipping.Equals(input.AdjustedShipping))
                 ) && 
                 (
-                    this.AdjustedTotal == other.AdjustedTotal ||
-                    this.AdjustedTotal != null &&
-                    this.AdjustedTotal.Equals(other.AdjustedTotal)
+                    this.AdjustedTotal == input.AdjustedTotal ||
+                    (this.AdjustedTotal != null &&
+                    this.AdjustedTotal.Equals(input.AdjustedTotal))
                 ) && 
                 (
-                    this.Cogs == other.Cogs ||
-                    this.Cogs != null &&
-                    this.Cogs.Equals(other.Cogs)
+                    this.Cogs == input.Cogs ||
+                    (this.Cogs != null &&
+                    this.Cogs.Equals(input.Cogs))
                 ) && 
                 (
-                    this.FinalValueFee == other.FinalValueFee ||
-                    this.FinalValueFee != null &&
-                    this.FinalValueFee.Equals(other.FinalValueFee)
+                    this.FinalValueFee == input.FinalValueFee ||
+                    (this.FinalValueFee != null &&
+                    this.FinalValueFee.Equals(input.FinalValueFee))
                 ) && 
                 (
-                    this.MinimumAdvertisedPrice == other.MinimumAdvertisedPrice ||
-                    this.MinimumAdvertisedPrice != null &&
-                    this.MinimumAdvertisedPrice.Equals(other.MinimumAdvertisedPrice)
+                    this.MinimumAdvertisedPrice == input.MinimumAdvertisedPrice ||
+                    (this.MinimumAdvertisedPrice != null &&
+                    this.MinimumAdvertisedPrice.Equals(input.MinimumAdvertisedPrice))
                 ) && 
                 (
-                    this.OtherListings == other.OtherListings ||
+                    this.OtherListings == input.OtherListings ||
                     this.OtherListings != null &&
-                    this.OtherListings.SequenceEqual(other.OtherListings)
+                    this.OtherListings.SequenceEqual(input.OtherListings)
                 ) && 
                 (
-                    this.OurListing == other.OurListing ||
-                    this.OurListing != null &&
-                    this.OurListing.Equals(other.OurListing)
+                    this.OurListing == input.OurListing ||
+                    (this.OurListing != null &&
+                    this.OurListing.Equals(input.OurListing))
                 ) && 
                 (
-                    this.Overhead == other.Overhead ||
-                    this.Overhead != null &&
-                    this.Overhead.Equals(other.Overhead)
+                    this.Overhead == input.Overhead ||
+                    (this.Overhead != null &&
+                    this.Overhead.Equals(input.Overhead))
                 ) && 
                 (
-                    this.ProfitPotential == other.ProfitPotential ||
-                    this.ProfitPotential != null &&
-                    this.ProfitPotential.Equals(other.ProfitPotential)
+                    this.ProfitPotential == input.ProfitPotential ||
+                    (this.ProfitPotential != null &&
+                    this.ProfitPotential.Equals(input.ProfitPotential))
                 );
         }
 
@@ -238,32 +236,30 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AdjustedPrice != null)
-                    hash = hash * 59 + this.AdjustedPrice.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdjustedPrice.GetHashCode();
                 if (this.AdjustedShipping != null)
-                    hash = hash * 59 + this.AdjustedShipping.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdjustedShipping.GetHashCode();
                 if (this.AdjustedTotal != null)
-                    hash = hash * 59 + this.AdjustedTotal.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdjustedTotal.GetHashCode();
                 if (this.Cogs != null)
-                    hash = hash * 59 + this.Cogs.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cogs.GetHashCode();
                 if (this.FinalValueFee != null)
-                    hash = hash * 59 + this.FinalValueFee.GetHashCode();
+                    hashCode = hashCode * 59 + this.FinalValueFee.GetHashCode();
                 if (this.MinimumAdvertisedPrice != null)
-                    hash = hash * 59 + this.MinimumAdvertisedPrice.GetHashCode();
+                    hashCode = hashCode * 59 + this.MinimumAdvertisedPrice.GetHashCode();
                 if (this.OtherListings != null)
-                    hash = hash * 59 + this.OtherListings.GetHashCode();
+                    hashCode = hashCode * 59 + this.OtherListings.GetHashCode();
                 if (this.OurListing != null)
-                    hash = hash * 59 + this.OurListing.GetHashCode();
+                    hashCode = hashCode * 59 + this.OurListing.GetHashCode();
                 if (this.Overhead != null)
-                    hash = hash * 59 + this.Overhead.GetHashCode();
+                    hashCode = hashCode * 59 + this.Overhead.GetHashCode();
                 if (this.ProfitPotential != null)
-                    hash = hash * 59 + this.ProfitPotential.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ProfitPotential.GetHashCode();
+                return hashCode;
             }
         }
 

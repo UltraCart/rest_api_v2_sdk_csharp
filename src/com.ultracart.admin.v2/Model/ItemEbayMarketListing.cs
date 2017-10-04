@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemEbayMarketListing);
+            return this.Equals(input as ItemEbayMarketListing);
         }
 
         /// <summary>
         /// Returns true if ItemEbayMarketListing instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemEbayMarketListing to be compared</param>
+        /// <param name="input">Instance of ItemEbayMarketListing to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemEbayMarketListing other)
+        public bool Equals(ItemEbayMarketListing input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AuctionId == other.AuctionId ||
-                    this.AuctionId != null &&
-                    this.AuctionId.Equals(other.AuctionId)
+                    this.AuctionId == input.AuctionId ||
+                    (this.AuctionId != null &&
+                    this.AuctionId.Equals(input.AuctionId))
                 ) && 
                 (
-                    this.Price == other.Price ||
-                    this.Price != null &&
-                    this.Price.Equals(other.Price)
+                    this.Price == input.Price ||
+                    (this.Price != null &&
+                    this.Price.Equals(input.Price))
                 ) && 
                 (
-                    this.Seller == other.Seller ||
-                    this.Seller != null &&
-                    this.Seller.Equals(other.Seller)
+                    this.Seller == input.Seller ||
+                    (this.Seller != null &&
+                    this.Seller.Equals(input.Seller))
                 ) && 
                 (
-                    this.Shipping == other.Shipping ||
-                    this.Shipping != null &&
-                    this.Shipping.Equals(other.Shipping)
+                    this.Shipping == input.Shipping ||
+                    (this.Shipping != null &&
+                    this.Shipping.Equals(input.Shipping))
                 ) && 
                 (
-                    this.Total == other.Total ||
-                    this.Total != null &&
-                    this.Total.Equals(other.Total)
+                    this.Total == input.Total ||
+                    (this.Total != null &&
+                    this.Total.Equals(input.Total))
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AuctionId != null)
-                    hash = hash * 59 + this.AuctionId.GetHashCode();
+                    hashCode = hashCode * 59 + this.AuctionId.GetHashCode();
                 if (this.Price != null)
-                    hash = hash * 59 + this.Price.GetHashCode();
+                    hashCode = hashCode * 59 + this.Price.GetHashCode();
                 if (this.Seller != null)
-                    hash = hash * 59 + this.Seller.GetHashCode();
+                    hashCode = hashCode * 59 + this.Seller.GetHashCode();
                 if (this.Shipping != null)
-                    hash = hash * 59 + this.Shipping.GetHashCode();
+                    hashCode = hashCode * 59 + this.Shipping.GetHashCode();
                 if (this.Total != null)
-                    hash = hash * 59 + this.Total.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Total.GetHashCode();
+                return hashCode;
             }
         }
 

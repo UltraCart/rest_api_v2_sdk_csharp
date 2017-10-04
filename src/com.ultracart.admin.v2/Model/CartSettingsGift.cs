@@ -100,45 +100,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSettingsGift);
+            return this.Equals(input as CartSettingsGift);
         }
 
         /// <summary>
         /// Returns true if CartSettingsGift instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSettingsGift to be compared</param>
+        /// <param name="input">Instance of CartSettingsGift to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSettingsGift other)
+        public bool Equals(CartSettingsGift input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AllowGifts == other.AllowGifts ||
-                    this.AllowGifts != null &&
-                    this.AllowGifts.Equals(other.AllowGifts)
+                    this.AllowGifts == input.AllowGifts ||
+                    (this.AllowGifts != null &&
+                    this.AllowGifts.Equals(input.AllowGifts))
                 ) && 
                 (
-                    this.GiftCharge == other.GiftCharge ||
-                    this.GiftCharge != null &&
-                    this.GiftCharge.Equals(other.GiftCharge)
+                    this.GiftCharge == input.GiftCharge ||
+                    (this.GiftCharge != null &&
+                    this.GiftCharge.Equals(input.GiftCharge))
                 ) && 
                 (
-                    this.GiftWraps == other.GiftWraps ||
+                    this.GiftWraps == input.GiftWraps ||
                     this.GiftWraps != null &&
-                    this.GiftWraps.SequenceEqual(other.GiftWraps)
+                    this.GiftWraps.SequenceEqual(input.GiftWraps)
                 ) && 
                 (
-                    this.MaxMessageLength == other.MaxMessageLength ||
-                    this.MaxMessageLength != null &&
-                    this.MaxMessageLength.Equals(other.MaxMessageLength)
+                    this.MaxMessageLength == input.MaxMessageLength ||
+                    (this.MaxMessageLength != null &&
+                    this.MaxMessageLength.Equals(input.MaxMessageLength))
                 );
         }
 
@@ -148,20 +146,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AllowGifts != null)
-                    hash = hash * 59 + this.AllowGifts.GetHashCode();
+                    hashCode = hashCode * 59 + this.AllowGifts.GetHashCode();
                 if (this.GiftCharge != null)
-                    hash = hash * 59 + this.GiftCharge.GetHashCode();
+                    hashCode = hashCode * 59 + this.GiftCharge.GetHashCode();
                 if (this.GiftWraps != null)
-                    hash = hash * 59 + this.GiftWraps.GetHashCode();
+                    hashCode = hashCode * 59 + this.GiftWraps.GetHashCode();
                 if (this.MaxMessageLength != null)
-                    hash = hash * 59 + this.MaxMessageLength.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.MaxMessageLength.GetHashCode();
+                return hashCode;
             }
         }
 

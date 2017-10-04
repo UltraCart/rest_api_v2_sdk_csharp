@@ -131,60 +131,58 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemReviews);
+            return this.Equals(input as ItemReviews);
         }
 
         /// <summary>
         /// Returns true if ItemReviews instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemReviews to be compared</param>
+        /// <param name="input">Instance of ItemReviews to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemReviews other)
+        public bool Equals(ItemReviews input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.HasApprovedReview == other.HasApprovedReview ||
-                    this.HasApprovedReview != null &&
-                    this.HasApprovedReview.Equals(other.HasApprovedReview)
+                    this.HasApprovedReview == input.HasApprovedReview ||
+                    (this.HasApprovedReview != null &&
+                    this.HasApprovedReview.Equals(input.HasApprovedReview))
                 ) && 
                 (
-                    this.HasReview == other.HasReview ||
-                    this.HasReview != null &&
-                    this.HasReview.Equals(other.HasReview)
+                    this.HasReview == input.HasReview ||
+                    (this.HasReview != null &&
+                    this.HasReview.Equals(input.HasReview))
                 ) && 
                 (
-                    this.ReviewCount == other.ReviewCount ||
-                    this.ReviewCount != null &&
-                    this.ReviewCount.Equals(other.ReviewCount)
+                    this.ReviewCount == input.ReviewCount ||
+                    (this.ReviewCount != null &&
+                    this.ReviewCount.Equals(input.ReviewCount))
                 ) && 
                 (
-                    this.ReviewOverall == other.ReviewOverall ||
-                    this.ReviewOverall != null &&
-                    this.ReviewOverall.Equals(other.ReviewOverall)
+                    this.ReviewOverall == input.ReviewOverall ||
+                    (this.ReviewOverall != null &&
+                    this.ReviewOverall.Equals(input.ReviewOverall))
                 ) && 
                 (
-                    this.ReviewTemplateName == other.ReviewTemplateName ||
-                    this.ReviewTemplateName != null &&
-                    this.ReviewTemplateName.Equals(other.ReviewTemplateName)
+                    this.ReviewTemplateName == input.ReviewTemplateName ||
+                    (this.ReviewTemplateName != null &&
+                    this.ReviewTemplateName.Equals(input.ReviewTemplateName))
                 ) && 
                 (
-                    this.ReviewTemplateOid == other.ReviewTemplateOid ||
-                    this.ReviewTemplateOid != null &&
-                    this.ReviewTemplateOid.Equals(other.ReviewTemplateOid)
+                    this.ReviewTemplateOid == input.ReviewTemplateOid ||
+                    (this.ReviewTemplateOid != null &&
+                    this.ReviewTemplateOid.Equals(input.ReviewTemplateOid))
                 ) && 
                 (
-                    this.Reviewable == other.Reviewable ||
-                    this.Reviewable != null &&
-                    this.Reviewable.Equals(other.Reviewable)
+                    this.Reviewable == input.Reviewable ||
+                    (this.Reviewable != null &&
+                    this.Reviewable.Equals(input.Reviewable))
                 );
         }
 
@@ -194,26 +192,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.HasApprovedReview != null)
-                    hash = hash * 59 + this.HasApprovedReview.GetHashCode();
+                    hashCode = hashCode * 59 + this.HasApprovedReview.GetHashCode();
                 if (this.HasReview != null)
-                    hash = hash * 59 + this.HasReview.GetHashCode();
+                    hashCode = hashCode * 59 + this.HasReview.GetHashCode();
                 if (this.ReviewCount != null)
-                    hash = hash * 59 + this.ReviewCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReviewCount.GetHashCode();
                 if (this.ReviewOverall != null)
-                    hash = hash * 59 + this.ReviewOverall.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReviewOverall.GetHashCode();
                 if (this.ReviewTemplateName != null)
-                    hash = hash * 59 + this.ReviewTemplateName.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReviewTemplateName.GetHashCode();
                 if (this.ReviewTemplateOid != null)
-                    hash = hash * 59 + this.ReviewTemplateOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReviewTemplateOid.GetHashCode();
                 if (this.Reviewable != null)
-                    hash = hash * 59 + this.Reviewable.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Reviewable.GetHashCode();
+                return hashCode;
             }
         }
 

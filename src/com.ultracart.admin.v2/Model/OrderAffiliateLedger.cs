@@ -196,70 +196,68 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderAffiliateLedger);
+            return this.Equals(input as OrderAffiliateLedger);
         }
 
         /// <summary>
         /// Returns true if OrderAffiliateLedger instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderAffiliateLedger to be compared</param>
+        /// <param name="input">Instance of OrderAffiliateLedger to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderAffiliateLedger other)
+        public bool Equals(OrderAffiliateLedger input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AssignedByUser == other.AssignedByUser ||
-                    this.AssignedByUser != null &&
-                    this.AssignedByUser.Equals(other.AssignedByUser)
+                    this.AssignedByUser == input.AssignedByUser ||
+                    (this.AssignedByUser != null &&
+                    this.AssignedByUser.Equals(input.AssignedByUser))
                 ) && 
                 (
-                    this.ItemId == other.ItemId ||
-                    this.ItemId != null &&
-                    this.ItemId.Equals(other.ItemId)
+                    this.ItemId == input.ItemId ||
+                    (this.ItemId != null &&
+                    this.ItemId.Equals(input.ItemId))
                 ) && 
                 (
-                    this.TierNumber == other.TierNumber ||
-                    this.TierNumber != null &&
-                    this.TierNumber.Equals(other.TierNumber)
+                    this.TierNumber == input.TierNumber ||
+                    (this.TierNumber != null &&
+                    this.TierNumber.Equals(input.TierNumber))
                 ) && 
                 (
-                    this.TransactionAmount == other.TransactionAmount ||
-                    this.TransactionAmount != null &&
-                    this.TransactionAmount.Equals(other.TransactionAmount)
+                    this.TransactionAmount == input.TransactionAmount ||
+                    (this.TransactionAmount != null &&
+                    this.TransactionAmount.Equals(input.TransactionAmount))
                 ) && 
                 (
-                    this.TransactionAmountPaid == other.TransactionAmountPaid ||
-                    this.TransactionAmountPaid != null &&
-                    this.TransactionAmountPaid.Equals(other.TransactionAmountPaid)
+                    this.TransactionAmountPaid == input.TransactionAmountPaid ||
+                    (this.TransactionAmountPaid != null &&
+                    this.TransactionAmountPaid.Equals(input.TransactionAmountPaid))
                 ) && 
                 (
-                    this.TransactionDts == other.TransactionDts ||
-                    this.TransactionDts != null &&
-                    this.TransactionDts.Equals(other.TransactionDts)
+                    this.TransactionDts == input.TransactionDts ||
+                    (this.TransactionDts != null &&
+                    this.TransactionDts.Equals(input.TransactionDts))
                 ) && 
                 (
-                    this.TransactionMemo == other.TransactionMemo ||
-                    this.TransactionMemo != null &&
-                    this.TransactionMemo.Equals(other.TransactionMemo)
+                    this.TransactionMemo == input.TransactionMemo ||
+                    (this.TransactionMemo != null &&
+                    this.TransactionMemo.Equals(input.TransactionMemo))
                 ) && 
                 (
-                    this.TransactionPercentage == other.TransactionPercentage ||
-                    this.TransactionPercentage != null &&
-                    this.TransactionPercentage.Equals(other.TransactionPercentage)
+                    this.TransactionPercentage == input.TransactionPercentage ||
+                    (this.TransactionPercentage != null &&
+                    this.TransactionPercentage.Equals(input.TransactionPercentage))
                 ) && 
                 (
-                    this.TransactionState == other.TransactionState ||
-                    this.TransactionState != null &&
-                    this.TransactionState.Equals(other.TransactionState)
+                    this.TransactionState == input.TransactionState ||
+                    (this.TransactionState != null &&
+                    this.TransactionState.Equals(input.TransactionState))
                 );
         }
 
@@ -269,30 +267,28 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AssignedByUser != null)
-                    hash = hash * 59 + this.AssignedByUser.GetHashCode();
+                    hashCode = hashCode * 59 + this.AssignedByUser.GetHashCode();
                 if (this.ItemId != null)
-                    hash = hash * 59 + this.ItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ItemId.GetHashCode();
                 if (this.TierNumber != null)
-                    hash = hash * 59 + this.TierNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.TierNumber.GetHashCode();
                 if (this.TransactionAmount != null)
-                    hash = hash * 59 + this.TransactionAmount.GetHashCode();
+                    hashCode = hashCode * 59 + this.TransactionAmount.GetHashCode();
                 if (this.TransactionAmountPaid != null)
-                    hash = hash * 59 + this.TransactionAmountPaid.GetHashCode();
+                    hashCode = hashCode * 59 + this.TransactionAmountPaid.GetHashCode();
                 if (this.TransactionDts != null)
-                    hash = hash * 59 + this.TransactionDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.TransactionDts.GetHashCode();
                 if (this.TransactionMemo != null)
-                    hash = hash * 59 + this.TransactionMemo.GetHashCode();
+                    hashCode = hashCode * 59 + this.TransactionMemo.GetHashCode();
                 if (this.TransactionPercentage != null)
-                    hash = hash * 59 + this.TransactionPercentage.GetHashCode();
+                    hashCode = hashCode * 59 + this.TransactionPercentage.GetHashCode();
                 if (this.TransactionState != null)
-                    hash = hash * 59 + this.TransactionState.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TransactionState.GetHashCode();
+                return hashCode;
             }
         }
 

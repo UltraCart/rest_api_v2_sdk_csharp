@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemTaxExemption);
+            return this.Equals(input as ItemTaxExemption);
         }
 
         /// <summary>
         /// Returns true if ItemTaxExemption instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemTaxExemption to be compared</param>
+        /// <param name="input">Instance of ItemTaxExemption to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemTaxExemption other)
+        public bool Equals(ItemTaxExemption input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.City == other.City ||
-                    this.City != null &&
-                    this.City.Equals(other.City)
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
                 ) && 
                 (
-                    this.CountryCode == other.CountryCode ||
-                    this.CountryCode != null &&
-                    this.CountryCode.Equals(other.CountryCode)
+                    this.CountryCode == input.CountryCode ||
+                    (this.CountryCode != null &&
+                    this.CountryCode.Equals(input.CountryCode))
                 ) && 
                 (
-                    this.County == other.County ||
-                    this.County != null &&
-                    this.County.Equals(other.County)
+                    this.County == input.County ||
+                    (this.County != null &&
+                    this.County.Equals(input.County))
                 ) && 
                 (
-                    this.PostalCode == other.PostalCode ||
-                    this.PostalCode != null &&
-                    this.PostalCode.Equals(other.PostalCode)
+                    this.PostalCode == input.PostalCode ||
+                    (this.PostalCode != null &&
+                    this.PostalCode.Equals(input.PostalCode))
                 ) && 
                 (
-                    this.StateCode == other.StateCode ||
-                    this.StateCode != null &&
-                    this.StateCode.Equals(other.StateCode)
+                    this.StateCode == input.StateCode ||
+                    (this.StateCode != null &&
+                    this.StateCode.Equals(input.StateCode))
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.City != null)
-                    hash = hash * 59 + this.City.GetHashCode();
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.CountryCode != null)
-                    hash = hash * 59 + this.CountryCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.County != null)
-                    hash = hash * 59 + this.County.GetHashCode();
+                    hashCode = hashCode * 59 + this.County.GetHashCode();
                 if (this.PostalCode != null)
-                    hash = hash * 59 + this.PostalCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.StateCode != null)
-                    hash = hash * 59 + this.StateCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.StateCode.GetHashCode();
+                return hashCode;
             }
         }
 

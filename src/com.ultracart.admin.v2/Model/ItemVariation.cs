@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemVariation);
+            return this.Equals(input as ItemVariation);
         }
 
         /// <summary>
         /// Returns true if ItemVariation instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemVariation to be compared</param>
+        /// <param name="input">Instance of ItemVariation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemVariation other)
+        public bool Equals(ItemVariation input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.DefaultText == other.DefaultText ||
-                    this.DefaultText != null &&
-                    this.DefaultText.Equals(other.DefaultText)
+                    this.DefaultText == input.DefaultText ||
+                    (this.DefaultText != null &&
+                    this.DefaultText.Equals(input.DefaultText))
                 ) && 
                 (
-                    this.DefaultTextTranslatedTextInstanceOid == other.DefaultTextTranslatedTextInstanceOid ||
-                    this.DefaultTextTranslatedTextInstanceOid != null &&
-                    this.DefaultTextTranslatedTextInstanceOid.Equals(other.DefaultTextTranslatedTextInstanceOid)
+                    this.DefaultTextTranslatedTextInstanceOid == input.DefaultTextTranslatedTextInstanceOid ||
+                    (this.DefaultTextTranslatedTextInstanceOid != null &&
+                    this.DefaultTextTranslatedTextInstanceOid.Equals(input.DefaultTextTranslatedTextInstanceOid))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.NameTranslatedTextInstanceOid == other.NameTranslatedTextInstanceOid ||
-                    this.NameTranslatedTextInstanceOid != null &&
-                    this.NameTranslatedTextInstanceOid.Equals(other.NameTranslatedTextInstanceOid)
+                    this.NameTranslatedTextInstanceOid == input.NameTranslatedTextInstanceOid ||
+                    (this.NameTranslatedTextInstanceOid != null &&
+                    this.NameTranslatedTextInstanceOid.Equals(input.NameTranslatedTextInstanceOid))
                 ) && 
                 (
-                    this.Options == other.Options ||
+                    this.Options == input.Options ||
                     this.Options != null &&
-                    this.Options.SequenceEqual(other.Options)
+                    this.Options.SequenceEqual(input.Options)
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.DefaultText != null)
-                    hash = hash * 59 + this.DefaultText.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultText.GetHashCode();
                 if (this.DefaultTextTranslatedTextInstanceOid != null)
-                    hash = hash * 59 + this.DefaultTextTranslatedTextInstanceOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultTextTranslatedTextInstanceOid.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.NameTranslatedTextInstanceOid != null)
-                    hash = hash * 59 + this.NameTranslatedTextInstanceOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.NameTranslatedTextInstanceOid.GetHashCode();
                 if (this.Options != null)
-                    hash = hash * 59 + this.Options.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Options.GetHashCode();
+                return hashCode;
             }
         }
 

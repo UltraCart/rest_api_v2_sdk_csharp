@@ -192,80 +192,78 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderItemOption);
+            return this.Equals(input as OrderItemOption);
         }
 
         /// <summary>
         /// Returns true if OrderItemOption instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderItemOption to be compared</param>
+        /// <param name="input">Instance of OrderItemOption to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderItemOption other)
+        public bool Equals(OrderItemOption input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AdditionalDimensionApplication == other.AdditionalDimensionApplication ||
-                    this.AdditionalDimensionApplication != null &&
-                    this.AdditionalDimensionApplication.Equals(other.AdditionalDimensionApplication)
+                    this.AdditionalDimensionApplication == input.AdditionalDimensionApplication ||
+                    (this.AdditionalDimensionApplication != null &&
+                    this.AdditionalDimensionApplication.Equals(input.AdditionalDimensionApplication))
                 ) && 
                 (
-                    this.CostChange == other.CostChange ||
-                    this.CostChange != null &&
-                    this.CostChange.Equals(other.CostChange)
+                    this.CostChange == input.CostChange ||
+                    (this.CostChange != null &&
+                    this.CostChange.Equals(input.CostChange))
                 ) && 
                 (
-                    this.FileAttachment == other.FileAttachment ||
-                    this.FileAttachment != null &&
-                    this.FileAttachment.Equals(other.FileAttachment)
+                    this.FileAttachment == input.FileAttachment ||
+                    (this.FileAttachment != null &&
+                    this.FileAttachment.Equals(input.FileAttachment))
                 ) && 
                 (
-                    this.Height == other.Height ||
-                    this.Height != null &&
-                    this.Height.Equals(other.Height)
+                    this.Height == input.Height ||
+                    (this.Height != null &&
+                    this.Height.Equals(input.Height))
                 ) && 
                 (
-                    this.Hidden == other.Hidden ||
-                    this.Hidden != null &&
-                    this.Hidden.Equals(other.Hidden)
+                    this.Hidden == input.Hidden ||
+                    (this.Hidden != null &&
+                    this.Hidden.Equals(input.Hidden))
                 ) && 
                 (
-                    this.Label == other.Label ||
-                    this.Label != null &&
-                    this.Label.Equals(other.Label)
+                    this.Label == input.Label ||
+                    (this.Label != null &&
+                    this.Label.Equals(input.Label))
                 ) && 
                 (
-                    this.Length == other.Length ||
-                    this.Length != null &&
-                    this.Length.Equals(other.Length)
+                    this.Length == input.Length ||
+                    (this.Length != null &&
+                    this.Length.Equals(input.Length))
                 ) && 
                 (
-                    this.OneTimeFee == other.OneTimeFee ||
-                    this.OneTimeFee != null &&
-                    this.OneTimeFee.Equals(other.OneTimeFee)
+                    this.OneTimeFee == input.OneTimeFee ||
+                    (this.OneTimeFee != null &&
+                    this.OneTimeFee.Equals(input.OneTimeFee))
                 ) && 
                 (
-                    this.Value == other.Value ||
-                    this.Value != null &&
-                    this.Value.Equals(other.Value)
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 ) && 
                 (
-                    this.WeightChange == other.WeightChange ||
-                    this.WeightChange != null &&
-                    this.WeightChange.Equals(other.WeightChange)
+                    this.WeightChange == input.WeightChange ||
+                    (this.WeightChange != null &&
+                    this.WeightChange.Equals(input.WeightChange))
                 ) && 
                 (
-                    this.Width == other.Width ||
-                    this.Width != null &&
-                    this.Width.Equals(other.Width)
+                    this.Width == input.Width ||
+                    (this.Width != null &&
+                    this.Width.Equals(input.Width))
                 );
         }
 
@@ -275,34 +273,32 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AdditionalDimensionApplication != null)
-                    hash = hash * 59 + this.AdditionalDimensionApplication.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdditionalDimensionApplication.GetHashCode();
                 if (this.CostChange != null)
-                    hash = hash * 59 + this.CostChange.GetHashCode();
+                    hashCode = hashCode * 59 + this.CostChange.GetHashCode();
                 if (this.FileAttachment != null)
-                    hash = hash * 59 + this.FileAttachment.GetHashCode();
+                    hashCode = hashCode * 59 + this.FileAttachment.GetHashCode();
                 if (this.Height != null)
-                    hash = hash * 59 + this.Height.GetHashCode();
+                    hashCode = hashCode * 59 + this.Height.GetHashCode();
                 if (this.Hidden != null)
-                    hash = hash * 59 + this.Hidden.GetHashCode();
+                    hashCode = hashCode * 59 + this.Hidden.GetHashCode();
                 if (this.Label != null)
-                    hash = hash * 59 + this.Label.GetHashCode();
+                    hashCode = hashCode * 59 + this.Label.GetHashCode();
                 if (this.Length != null)
-                    hash = hash * 59 + this.Length.GetHashCode();
+                    hashCode = hashCode * 59 + this.Length.GetHashCode();
                 if (this.OneTimeFee != null)
-                    hash = hash * 59 + this.OneTimeFee.GetHashCode();
+                    hashCode = hashCode * 59 + this.OneTimeFee.GetHashCode();
                 if (this.Value != null)
-                    hash = hash * 59 + this.Value.GetHashCode();
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.WeightChange != null)
-                    hash = hash * 59 + this.WeightChange.GetHashCode();
+                    hashCode = hashCode * 59 + this.WeightChange.GetHashCode();
                 if (this.Width != null)
-                    hash = hash * 59 + this.Width.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Width.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -234,100 +234,98 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemOptionValue);
+            return this.Equals(input as ItemOptionValue);
         }
 
         /// <summary>
         /// Returns true if ItemOptionValue instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemOptionValue to be compared</param>
+        /// <param name="input">Instance of ItemOptionValue to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemOptionValue other)
+        public bool Equals(ItemOptionValue input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AdditionalDimensionApplication == other.AdditionalDimensionApplication ||
-                    this.AdditionalDimensionApplication != null &&
-                    this.AdditionalDimensionApplication.Equals(other.AdditionalDimensionApplication)
+                    this.AdditionalDimensionApplication == input.AdditionalDimensionApplication ||
+                    (this.AdditionalDimensionApplication != null &&
+                    this.AdditionalDimensionApplication.Equals(input.AdditionalDimensionApplication))
                 ) && 
                 (
-                    this.AdditionalItems == other.AdditionalItems ||
+                    this.AdditionalItems == input.AdditionalItems ||
                     this.AdditionalItems != null &&
-                    this.AdditionalItems.SequenceEqual(other.AdditionalItems)
+                    this.AdditionalItems.SequenceEqual(input.AdditionalItems)
                 ) && 
                 (
-                    this.CostChange == other.CostChange ||
-                    this.CostChange != null &&
-                    this.CostChange.Equals(other.CostChange)
+                    this.CostChange == input.CostChange ||
+                    (this.CostChange != null &&
+                    this.CostChange.Equals(input.CostChange))
                 ) && 
                 (
-                    this.DefaultValue == other.DefaultValue ||
-                    this.DefaultValue != null &&
-                    this.DefaultValue.Equals(other.DefaultValue)
+                    this.DefaultValue == input.DefaultValue ||
+                    (this.DefaultValue != null &&
+                    this.DefaultValue.Equals(input.DefaultValue))
                 ) && 
                 (
-                    this.DigitalItems == other.DigitalItems ||
+                    this.DigitalItems == input.DigitalItems ||
                     this.DigitalItems != null &&
-                    this.DigitalItems.SequenceEqual(other.DigitalItems)
+                    this.DigitalItems.SequenceEqual(input.DigitalItems)
                 ) && 
                 (
-                    this.Height == other.Height ||
-                    this.Height != null &&
-                    this.Height.Equals(other.Height)
+                    this.Height == input.Height ||
+                    (this.Height != null &&
+                    this.Height.Equals(input.Height))
                 ) && 
                 (
-                    this.Length == other.Length ||
-                    this.Length != null &&
-                    this.Length.Equals(other.Length)
+                    this.Length == input.Length ||
+                    (this.Length != null &&
+                    this.Length.Equals(input.Length))
                 ) && 
                 (
-                    this.MerchantItemMultimediaOid == other.MerchantItemMultimediaOid ||
-                    this.MerchantItemMultimediaOid != null &&
-                    this.MerchantItemMultimediaOid.Equals(other.MerchantItemMultimediaOid)
+                    this.MerchantItemMultimediaOid == input.MerchantItemMultimediaOid ||
+                    (this.MerchantItemMultimediaOid != null &&
+                    this.MerchantItemMultimediaOid.Equals(input.MerchantItemMultimediaOid))
                 ) && 
                 (
-                    this.OptionValueOid == other.OptionValueOid ||
-                    this.OptionValueOid != null &&
-                    this.OptionValueOid.Equals(other.OptionValueOid)
+                    this.OptionValueOid == input.OptionValueOid ||
+                    (this.OptionValueOid != null &&
+                    this.OptionValueOid.Equals(input.OptionValueOid))
                 ) && 
                 (
-                    this.PercentCostChange == other.PercentCostChange ||
-                    this.PercentCostChange != null &&
-                    this.PercentCostChange.Equals(other.PercentCostChange)
+                    this.PercentCostChange == input.PercentCostChange ||
+                    (this.PercentCostChange != null &&
+                    this.PercentCostChange.Equals(input.PercentCostChange))
                 ) && 
                 (
-                    this.TranslatedTextInstanceOid == other.TranslatedTextInstanceOid ||
-                    this.TranslatedTextInstanceOid != null &&
-                    this.TranslatedTextInstanceOid.Equals(other.TranslatedTextInstanceOid)
+                    this.TranslatedTextInstanceOid == input.TranslatedTextInstanceOid ||
+                    (this.TranslatedTextInstanceOid != null &&
+                    this.TranslatedTextInstanceOid.Equals(input.TranslatedTextInstanceOid))
                 ) && 
                 (
-                    this.Value == other.Value ||
-                    this.Value != null &&
-                    this.Value.Equals(other.Value)
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 ) && 
                 (
-                    this.WeightChange == other.WeightChange ||
-                    this.WeightChange != null &&
-                    this.WeightChange.Equals(other.WeightChange)
+                    this.WeightChange == input.WeightChange ||
+                    (this.WeightChange != null &&
+                    this.WeightChange.Equals(input.WeightChange))
                 ) && 
                 (
-                    this.WeightChangePercent == other.WeightChangePercent ||
-                    this.WeightChangePercent != null &&
-                    this.WeightChangePercent.Equals(other.WeightChangePercent)
+                    this.WeightChangePercent == input.WeightChangePercent ||
+                    (this.WeightChangePercent != null &&
+                    this.WeightChangePercent.Equals(input.WeightChangePercent))
                 ) && 
                 (
-                    this.Width == other.Width ||
-                    this.Width != null &&
-                    this.Width.Equals(other.Width)
+                    this.Width == input.Width ||
+                    (this.Width != null &&
+                    this.Width.Equals(input.Width))
                 );
         }
 
@@ -337,42 +335,40 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AdditionalDimensionApplication != null)
-                    hash = hash * 59 + this.AdditionalDimensionApplication.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdditionalDimensionApplication.GetHashCode();
                 if (this.AdditionalItems != null)
-                    hash = hash * 59 + this.AdditionalItems.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdditionalItems.GetHashCode();
                 if (this.CostChange != null)
-                    hash = hash * 59 + this.CostChange.GetHashCode();
+                    hashCode = hashCode * 59 + this.CostChange.GetHashCode();
                 if (this.DefaultValue != null)
-                    hash = hash * 59 + this.DefaultValue.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultValue.GetHashCode();
                 if (this.DigitalItems != null)
-                    hash = hash * 59 + this.DigitalItems.GetHashCode();
+                    hashCode = hashCode * 59 + this.DigitalItems.GetHashCode();
                 if (this.Height != null)
-                    hash = hash * 59 + this.Height.GetHashCode();
+                    hashCode = hashCode * 59 + this.Height.GetHashCode();
                 if (this.Length != null)
-                    hash = hash * 59 + this.Length.GetHashCode();
+                    hashCode = hashCode * 59 + this.Length.GetHashCode();
                 if (this.MerchantItemMultimediaOid != null)
-                    hash = hash * 59 + this.MerchantItemMultimediaOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantItemMultimediaOid.GetHashCode();
                 if (this.OptionValueOid != null)
-                    hash = hash * 59 + this.OptionValueOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.OptionValueOid.GetHashCode();
                 if (this.PercentCostChange != null)
-                    hash = hash * 59 + this.PercentCostChange.GetHashCode();
+                    hashCode = hashCode * 59 + this.PercentCostChange.GetHashCode();
                 if (this.TranslatedTextInstanceOid != null)
-                    hash = hash * 59 + this.TranslatedTextInstanceOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.TranslatedTextInstanceOid.GetHashCode();
                 if (this.Value != null)
-                    hash = hash * 59 + this.Value.GetHashCode();
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.WeightChange != null)
-                    hash = hash * 59 + this.WeightChange.GetHashCode();
+                    hashCode = hashCode * 59 + this.WeightChange.GetHashCode();
                 if (this.WeightChangePercent != null)
-                    hash = hash * 59 + this.WeightChangePercent.GetHashCode();
+                    hashCode = hashCode * 59 + this.WeightChangePercent.GetHashCode();
                 if (this.Width != null)
-                    hash = hash * 59 + this.Width.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Width.GetHashCode();
+                return hashCode;
             }
         }
 

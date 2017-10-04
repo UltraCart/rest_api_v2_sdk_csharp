@@ -161,75 +161,73 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as WebhookLog);
+            return this.Equals(input as WebhookLog);
         }
 
         /// <summary>
         /// Returns true if WebhookLog instances are equal
         /// </summary>
-        /// <param name="other">Instance of WebhookLog to be compared</param>
+        /// <param name="input">Instance of WebhookLog to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WebhookLog other)
+        public bool Equals(WebhookLog input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.DeliveryDts == other.DeliveryDts ||
-                    this.DeliveryDts != null &&
-                    this.DeliveryDts.Equals(other.DeliveryDts)
+                    this.DeliveryDts == input.DeliveryDts ||
+                    (this.DeliveryDts != null &&
+                    this.DeliveryDts.Equals(input.DeliveryDts))
                 ) && 
                 (
-                    this.Duration == other.Duration ||
-                    this.Duration != null &&
-                    this.Duration.Equals(other.Duration)
+                    this.Duration == input.Duration ||
+                    (this.Duration != null &&
+                    this.Duration.Equals(input.Duration))
                 ) && 
                 (
-                    this.Request == other.Request ||
-                    this.Request != null &&
-                    this.Request.Equals(other.Request)
+                    this.Request == input.Request ||
+                    (this.Request != null &&
+                    this.Request.Equals(input.Request))
                 ) && 
                 (
-                    this.RequestHeaders == other.RequestHeaders ||
+                    this.RequestHeaders == input.RequestHeaders ||
                     this.RequestHeaders != null &&
-                    this.RequestHeaders.SequenceEqual(other.RequestHeaders)
+                    this.RequestHeaders.SequenceEqual(input.RequestHeaders)
                 ) && 
                 (
-                    this.RequestId == other.RequestId ||
-                    this.RequestId != null &&
-                    this.RequestId.Equals(other.RequestId)
+                    this.RequestId == input.RequestId ||
+                    (this.RequestId != null &&
+                    this.RequestId.Equals(input.RequestId))
                 ) && 
                 (
-                    this.Response == other.Response ||
-                    this.Response != null &&
-                    this.Response.Equals(other.Response)
+                    this.Response == input.Response ||
+                    (this.Response != null &&
+                    this.Response.Equals(input.Response))
                 ) && 
                 (
-                    this.ResponseHeaders == other.ResponseHeaders ||
+                    this.ResponseHeaders == input.ResponseHeaders ||
                     this.ResponseHeaders != null &&
-                    this.ResponseHeaders.SequenceEqual(other.ResponseHeaders)
+                    this.ResponseHeaders.SequenceEqual(input.ResponseHeaders)
                 ) && 
                 (
-                    this.StatusCode == other.StatusCode ||
-                    this.StatusCode != null &&
-                    this.StatusCode.Equals(other.StatusCode)
+                    this.StatusCode == input.StatusCode ||
+                    (this.StatusCode != null &&
+                    this.StatusCode.Equals(input.StatusCode))
                 ) && 
                 (
-                    this.Success == other.Success ||
-                    this.Success != null &&
-                    this.Success.Equals(other.Success)
+                    this.Success == input.Success ||
+                    (this.Success != null &&
+                    this.Success.Equals(input.Success))
                 ) && 
                 (
-                    this.Uri == other.Uri ||
-                    this.Uri != null &&
-                    this.Uri.Equals(other.Uri)
+                    this.Uri == input.Uri ||
+                    (this.Uri != null &&
+                    this.Uri.Equals(input.Uri))
                 );
         }
 
@@ -239,32 +237,30 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.DeliveryDts != null)
-                    hash = hash * 59 + this.DeliveryDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliveryDts.GetHashCode();
                 if (this.Duration != null)
-                    hash = hash * 59 + this.Duration.GetHashCode();
+                    hashCode = hashCode * 59 + this.Duration.GetHashCode();
                 if (this.Request != null)
-                    hash = hash * 59 + this.Request.GetHashCode();
+                    hashCode = hashCode * 59 + this.Request.GetHashCode();
                 if (this.RequestHeaders != null)
-                    hash = hash * 59 + this.RequestHeaders.GetHashCode();
+                    hashCode = hashCode * 59 + this.RequestHeaders.GetHashCode();
                 if (this.RequestId != null)
-                    hash = hash * 59 + this.RequestId.GetHashCode();
+                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
                 if (this.Response != null)
-                    hash = hash * 59 + this.Response.GetHashCode();
+                    hashCode = hashCode * 59 + this.Response.GetHashCode();
                 if (this.ResponseHeaders != null)
-                    hash = hash * 59 + this.ResponseHeaders.GetHashCode();
+                    hashCode = hashCode * 59 + this.ResponseHeaders.GetHashCode();
                 if (this.StatusCode != null)
-                    hash = hash * 59 + this.StatusCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
                 if (this.Success != null)
-                    hash = hash * 59 + this.Success.GetHashCode();
+                    hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Uri != null)
-                    hash = hash * 59 + this.Uri.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Uri.GetHashCode();
+                return hashCode;
             }
         }
 

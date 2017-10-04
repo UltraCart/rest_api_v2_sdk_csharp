@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemContentAssignment);
+            return this.Equals(input as ItemContentAssignment);
         }
 
         /// <summary>
         /// Returns true if ItemContentAssignment instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemContentAssignment to be compared</param>
+        /// <param name="input">Instance of ItemContentAssignment to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemContentAssignment other)
+        public bool Equals(ItemContentAssignment input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.GroupOid == other.GroupOid ||
-                    this.GroupOid != null &&
-                    this.GroupOid.Equals(other.GroupOid)
+                    this.GroupOid == input.GroupOid ||
+                    (this.GroupOid != null &&
+                    this.GroupOid.Equals(input.GroupOid))
                 ) && 
                 (
-                    this.GroupPath == other.GroupPath ||
-                    this.GroupPath != null &&
-                    this.GroupPath.Equals(other.GroupPath)
+                    this.GroupPath == input.GroupPath ||
+                    (this.GroupPath != null &&
+                    this.GroupPath.Equals(input.GroupPath))
                 ) && 
                 (
-                    this.Host == other.Host ||
-                    this.Host != null &&
-                    this.Host.Equals(other.Host)
+                    this.Host == input.Host ||
+                    (this.Host != null &&
+                    this.Host.Equals(input.Host))
                 ) && 
                 (
-                    this.SortOrder == other.SortOrder ||
-                    this.SortOrder != null &&
-                    this.SortOrder.Equals(other.SortOrder)
+                    this.SortOrder == input.SortOrder ||
+                    (this.SortOrder != null &&
+                    this.SortOrder.Equals(input.SortOrder))
                 ) && 
                 (
-                    this.UrlPart == other.UrlPart ||
-                    this.UrlPart != null &&
-                    this.UrlPart.Equals(other.UrlPart)
+                    this.UrlPart == input.UrlPart ||
+                    (this.UrlPart != null &&
+                    this.UrlPart.Equals(input.UrlPart))
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.GroupOid != null)
-                    hash = hash * 59 + this.GroupOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.GroupOid.GetHashCode();
                 if (this.GroupPath != null)
-                    hash = hash * 59 + this.GroupPath.GetHashCode();
+                    hashCode = hashCode * 59 + this.GroupPath.GetHashCode();
                 if (this.Host != null)
-                    hash = hash * 59 + this.Host.GetHashCode();
+                    hashCode = hashCode * 59 + this.Host.GetHashCode();
                 if (this.SortOrder != null)
-                    hash = hash * 59 + this.SortOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.SortOrder.GetHashCode();
                 if (this.UrlPart != null)
-                    hash = hash * 59 + this.UrlPart.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UrlPart.GetHashCode();
+                return hashCode;
             }
         }
 

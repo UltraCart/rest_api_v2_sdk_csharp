@@ -382,110 +382,108 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderPayment);
+            return this.Equals(input as OrderPayment);
         }
 
         /// <summary>
         /// Returns true if OrderPayment instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderPayment to be compared</param>
+        /// <param name="input">Instance of OrderPayment to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderPayment other)
+        public bool Equals(OrderPayment input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Check == other.Check ||
-                    this.Check != null &&
-                    this.Check.Equals(other.Check)
+                    this.Check == input.Check ||
+                    (this.Check != null &&
+                    this.Check.Equals(input.Check))
                 ) && 
                 (
-                    this.CreditCard == other.CreditCard ||
-                    this.CreditCard != null &&
-                    this.CreditCard.Equals(other.CreditCard)
+                    this.CreditCard == input.CreditCard ||
+                    (this.CreditCard != null &&
+                    this.CreditCard.Equals(input.CreditCard))
                 ) && 
                 (
-                    this.Echeck == other.Echeck ||
-                    this.Echeck != null &&
-                    this.Echeck.Equals(other.Echeck)
+                    this.Echeck == input.Echeck ||
+                    (this.Echeck != null &&
+                    this.Echeck.Equals(input.Echeck))
                 ) && 
                 (
-                    this.HoldForFraudReview == other.HoldForFraudReview ||
-                    this.HoldForFraudReview != null &&
-                    this.HoldForFraudReview.Equals(other.HoldForFraudReview)
+                    this.HoldForFraudReview == input.HoldForFraudReview ||
+                    (this.HoldForFraudReview != null &&
+                    this.HoldForFraudReview.Equals(input.HoldForFraudReview))
                 ) && 
                 (
-                    this.PaymentDts == other.PaymentDts ||
-                    this.PaymentDts != null &&
-                    this.PaymentDts.Equals(other.PaymentDts)
+                    this.PaymentDts == input.PaymentDts ||
+                    (this.PaymentDts != null &&
+                    this.PaymentDts.Equals(input.PaymentDts))
                 ) && 
                 (
-                    this.PaymentMethod == other.PaymentMethod ||
-                    this.PaymentMethod != null &&
-                    this.PaymentMethod.Equals(other.PaymentMethod)
+                    this.PaymentMethod == input.PaymentMethod ||
+                    (this.PaymentMethod != null &&
+                    this.PaymentMethod.Equals(input.PaymentMethod))
                 ) && 
                 (
-                    this.PaymentMethodAccountingCode == other.PaymentMethodAccountingCode ||
-                    this.PaymentMethodAccountingCode != null &&
-                    this.PaymentMethodAccountingCode.Equals(other.PaymentMethodAccountingCode)
+                    this.PaymentMethodAccountingCode == input.PaymentMethodAccountingCode ||
+                    (this.PaymentMethodAccountingCode != null &&
+                    this.PaymentMethodAccountingCode.Equals(input.PaymentMethodAccountingCode))
                 ) && 
                 (
-                    this.PaymentMethodDepositToAccount == other.PaymentMethodDepositToAccount ||
-                    this.PaymentMethodDepositToAccount != null &&
-                    this.PaymentMethodDepositToAccount.Equals(other.PaymentMethodDepositToAccount)
+                    this.PaymentMethodDepositToAccount == input.PaymentMethodDepositToAccount ||
+                    (this.PaymentMethodDepositToAccount != null &&
+                    this.PaymentMethodDepositToAccount.Equals(input.PaymentMethodDepositToAccount))
                 ) && 
                 (
-                    this.PaymentStatus == other.PaymentStatus ||
-                    this.PaymentStatus != null &&
-                    this.PaymentStatus.Equals(other.PaymentStatus)
+                    this.PaymentStatus == input.PaymentStatus ||
+                    (this.PaymentStatus != null &&
+                    this.PaymentStatus.Equals(input.PaymentStatus))
                 ) && 
                 (
-                    this.PurchaseOrder == other.PurchaseOrder ||
-                    this.PurchaseOrder != null &&
-                    this.PurchaseOrder.Equals(other.PurchaseOrder)
+                    this.PurchaseOrder == input.PurchaseOrder ||
+                    (this.PurchaseOrder != null &&
+                    this.PurchaseOrder.Equals(input.PurchaseOrder))
                 ) && 
                 (
-                    this.RotatingTransactionGatewayCode == other.RotatingTransactionGatewayCode ||
-                    this.RotatingTransactionGatewayCode != null &&
-                    this.RotatingTransactionGatewayCode.Equals(other.RotatingTransactionGatewayCode)
+                    this.RotatingTransactionGatewayCode == input.RotatingTransactionGatewayCode ||
+                    (this.RotatingTransactionGatewayCode != null &&
+                    this.RotatingTransactionGatewayCode.Equals(input.RotatingTransactionGatewayCode))
                 ) && 
                 (
-                    this.Surcharge == other.Surcharge ||
-                    this.Surcharge != null &&
-                    this.Surcharge.Equals(other.Surcharge)
+                    this.Surcharge == input.Surcharge ||
+                    (this.Surcharge != null &&
+                    this.Surcharge.Equals(input.Surcharge))
                 ) && 
                 (
-                    this.SurchargeAccountingCode == other.SurchargeAccountingCode ||
-                    this.SurchargeAccountingCode != null &&
-                    this.SurchargeAccountingCode.Equals(other.SurchargeAccountingCode)
+                    this.SurchargeAccountingCode == input.SurchargeAccountingCode ||
+                    (this.SurchargeAccountingCode != null &&
+                    this.SurchargeAccountingCode.Equals(input.SurchargeAccountingCode))
                 ) && 
                 (
-                    this.SurchargeTransactionFee == other.SurchargeTransactionFee ||
-                    this.SurchargeTransactionFee != null &&
-                    this.SurchargeTransactionFee.Equals(other.SurchargeTransactionFee)
+                    this.SurchargeTransactionFee == input.SurchargeTransactionFee ||
+                    (this.SurchargeTransactionFee != null &&
+                    this.SurchargeTransactionFee.Equals(input.SurchargeTransactionFee))
                 ) && 
                 (
-                    this.SurchargeTransactionPercentage == other.SurchargeTransactionPercentage ||
-                    this.SurchargeTransactionPercentage != null &&
-                    this.SurchargeTransactionPercentage.Equals(other.SurchargeTransactionPercentage)
+                    this.SurchargeTransactionPercentage == input.SurchargeTransactionPercentage ||
+                    (this.SurchargeTransactionPercentage != null &&
+                    this.SurchargeTransactionPercentage.Equals(input.SurchargeTransactionPercentage))
                 ) && 
                 (
-                    this.TestOrder == other.TestOrder ||
-                    this.TestOrder != null &&
-                    this.TestOrder.Equals(other.TestOrder)
+                    this.TestOrder == input.TestOrder ||
+                    (this.TestOrder != null &&
+                    this.TestOrder.Equals(input.TestOrder))
                 ) && 
                 (
-                    this.Transactions == other.Transactions ||
+                    this.Transactions == input.Transactions ||
                     this.Transactions != null &&
-                    this.Transactions.SequenceEqual(other.Transactions)
+                    this.Transactions.SequenceEqual(input.Transactions)
                 );
         }
 
@@ -495,46 +493,44 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Check != null)
-                    hash = hash * 59 + this.Check.GetHashCode();
+                    hashCode = hashCode * 59 + this.Check.GetHashCode();
                 if (this.CreditCard != null)
-                    hash = hash * 59 + this.CreditCard.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreditCard.GetHashCode();
                 if (this.Echeck != null)
-                    hash = hash * 59 + this.Echeck.GetHashCode();
+                    hashCode = hashCode * 59 + this.Echeck.GetHashCode();
                 if (this.HoldForFraudReview != null)
-                    hash = hash * 59 + this.HoldForFraudReview.GetHashCode();
+                    hashCode = hashCode * 59 + this.HoldForFraudReview.GetHashCode();
                 if (this.PaymentDts != null)
-                    hash = hash * 59 + this.PaymentDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaymentDts.GetHashCode();
                 if (this.PaymentMethod != null)
-                    hash = hash * 59 + this.PaymentMethod.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
                 if (this.PaymentMethodAccountingCode != null)
-                    hash = hash * 59 + this.PaymentMethodAccountingCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaymentMethodAccountingCode.GetHashCode();
                 if (this.PaymentMethodDepositToAccount != null)
-                    hash = hash * 59 + this.PaymentMethodDepositToAccount.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaymentMethodDepositToAccount.GetHashCode();
                 if (this.PaymentStatus != null)
-                    hash = hash * 59 + this.PaymentStatus.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaymentStatus.GetHashCode();
                 if (this.PurchaseOrder != null)
-                    hash = hash * 59 + this.PurchaseOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.PurchaseOrder.GetHashCode();
                 if (this.RotatingTransactionGatewayCode != null)
-                    hash = hash * 59 + this.RotatingTransactionGatewayCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.RotatingTransactionGatewayCode.GetHashCode();
                 if (this.Surcharge != null)
-                    hash = hash * 59 + this.Surcharge.GetHashCode();
+                    hashCode = hashCode * 59 + this.Surcharge.GetHashCode();
                 if (this.SurchargeAccountingCode != null)
-                    hash = hash * 59 + this.SurchargeAccountingCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.SurchargeAccountingCode.GetHashCode();
                 if (this.SurchargeTransactionFee != null)
-                    hash = hash * 59 + this.SurchargeTransactionFee.GetHashCode();
+                    hashCode = hashCode * 59 + this.SurchargeTransactionFee.GetHashCode();
                 if (this.SurchargeTransactionPercentage != null)
-                    hash = hash * 59 + this.SurchargeTransactionPercentage.GetHashCode();
+                    hashCode = hashCode * 59 + this.SurchargeTransactionPercentage.GetHashCode();
                 if (this.TestOrder != null)
-                    hash = hash * 59 + this.TestOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.TestOrder.GetHashCode();
                 if (this.Transactions != null)
-                    hash = hash * 59 + this.Transactions.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Transactions.GetHashCode();
+                return hashCode;
             }
         }
 

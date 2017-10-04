@@ -271,130 +271,128 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartCustomerProfile);
+            return this.Equals(input as CartCustomerProfile);
         }
 
         /// <summary>
         /// Returns true if CartCustomerProfile instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartCustomerProfile to be compared</param>
+        /// <param name="input">Instance of CartCustomerProfile to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartCustomerProfile other)
+        public bool Equals(CartCustomerProfile input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Allow3rdPartyBilling == other.Allow3rdPartyBilling ||
-                    this.Allow3rdPartyBilling != null &&
-                    this.Allow3rdPartyBilling.Equals(other.Allow3rdPartyBilling)
+                    this.Allow3rdPartyBilling == input.Allow3rdPartyBilling ||
+                    (this.Allow3rdPartyBilling != null &&
+                    this.Allow3rdPartyBilling.Equals(input.Allow3rdPartyBilling))
                 ) && 
                 (
-                    this.AllowCod == other.AllowCod ||
-                    this.AllowCod != null &&
-                    this.AllowCod.Equals(other.AllowCod)
+                    this.AllowCod == input.AllowCod ||
+                    (this.AllowCod != null &&
+                    this.AllowCod.Equals(input.AllowCod))
                 ) && 
                 (
-                    this.AllowPurchaseOrder == other.AllowPurchaseOrder ||
-                    this.AllowPurchaseOrder != null &&
-                    this.AllowPurchaseOrder.Equals(other.AllowPurchaseOrder)
+                    this.AllowPurchaseOrder == input.AllowPurchaseOrder ||
+                    (this.AllowPurchaseOrder != null &&
+                    this.AllowPurchaseOrder.Equals(input.AllowPurchaseOrder))
                 ) && 
                 (
-                    this.BillingAddresses == other.BillingAddresses ||
+                    this.BillingAddresses == input.BillingAddresses ||
                     this.BillingAddresses != null &&
-                    this.BillingAddresses.SequenceEqual(other.BillingAddresses)
+                    this.BillingAddresses.SequenceEqual(input.BillingAddresses)
                 ) && 
                 (
-                    this.CreditCards == other.CreditCards ||
+                    this.CreditCards == input.CreditCards ||
                     this.CreditCards != null &&
-                    this.CreditCards.SequenceEqual(other.CreditCards)
+                    this.CreditCards.SequenceEqual(input.CreditCards)
                 ) && 
                 (
-                    this.CustomerProfileOid == other.CustomerProfileOid ||
-                    this.CustomerProfileOid != null &&
-                    this.CustomerProfileOid.Equals(other.CustomerProfileOid)
+                    this.CustomerProfileOid == input.CustomerProfileOid ||
+                    (this.CustomerProfileOid != null &&
+                    this.CustomerProfileOid.Equals(input.CustomerProfileOid))
                 ) && 
                 (
-                    this.DhlAccountNumber == other.DhlAccountNumber ||
-                    this.DhlAccountNumber != null &&
-                    this.DhlAccountNumber.Equals(other.DhlAccountNumber)
+                    this.DhlAccountNumber == input.DhlAccountNumber ||
+                    (this.DhlAccountNumber != null &&
+                    this.DhlAccountNumber.Equals(input.DhlAccountNumber))
                 ) && 
                 (
-                    this.Email == other.Email ||
-                    this.Email != null &&
-                    this.Email.Equals(other.Email)
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 ) && 
                 (
-                    this.FedexAccountNumber == other.FedexAccountNumber ||
-                    this.FedexAccountNumber != null &&
-                    this.FedexAccountNumber.Equals(other.FedexAccountNumber)
+                    this.FedexAccountNumber == input.FedexAccountNumber ||
+                    (this.FedexAccountNumber != null &&
+                    this.FedexAccountNumber.Equals(input.FedexAccountNumber))
                 ) && 
                 (
-                    this.FreeShipping == other.FreeShipping ||
-                    this.FreeShipping != null &&
-                    this.FreeShipping.Equals(other.FreeShipping)
+                    this.FreeShipping == input.FreeShipping ||
+                    (this.FreeShipping != null &&
+                    this.FreeShipping.Equals(input.FreeShipping))
                 ) && 
                 (
-                    this.FreeShippingMinimum == other.FreeShippingMinimum ||
-                    this.FreeShippingMinimum != null &&
-                    this.FreeShippingMinimum.Equals(other.FreeShippingMinimum)
+                    this.FreeShippingMinimum == input.FreeShippingMinimum ||
+                    (this.FreeShippingMinimum != null &&
+                    this.FreeShippingMinimum.Equals(input.FreeShippingMinimum))
                 ) && 
                 (
-                    this.MaximumItemCount == other.MaximumItemCount ||
-                    this.MaximumItemCount != null &&
-                    this.MaximumItemCount.Equals(other.MaximumItemCount)
+                    this.MaximumItemCount == input.MaximumItemCount ||
+                    (this.MaximumItemCount != null &&
+                    this.MaximumItemCount.Equals(input.MaximumItemCount))
                 ) && 
                 (
-                    this.MinimumItemCount == other.MinimumItemCount ||
-                    this.MinimumItemCount != null &&
-                    this.MinimumItemCount.Equals(other.MinimumItemCount)
+                    this.MinimumItemCount == input.MinimumItemCount ||
+                    (this.MinimumItemCount != null &&
+                    this.MinimumItemCount.Equals(input.MinimumItemCount))
                 ) && 
                 (
-                    this.MinimumSubtotal == other.MinimumSubtotal ||
-                    this.MinimumSubtotal != null &&
-                    this.MinimumSubtotal.Equals(other.MinimumSubtotal)
+                    this.MinimumSubtotal == input.MinimumSubtotal ||
+                    (this.MinimumSubtotal != null &&
+                    this.MinimumSubtotal.Equals(input.MinimumSubtotal))
                 ) && 
                 (
-                    this.NoCoupons == other.NoCoupons ||
-                    this.NoCoupons != null &&
-                    this.NoCoupons.Equals(other.NoCoupons)
+                    this.NoCoupons == input.NoCoupons ||
+                    (this.NoCoupons != null &&
+                    this.NoCoupons.Equals(input.NoCoupons))
                 ) && 
                 (
-                    this.NoFreeShipping == other.NoFreeShipping ||
-                    this.NoFreeShipping != null &&
-                    this.NoFreeShipping.Equals(other.NoFreeShipping)
+                    this.NoFreeShipping == input.NoFreeShipping ||
+                    (this.NoFreeShipping != null &&
+                    this.NoFreeShipping.Equals(input.NoFreeShipping))
                 ) && 
                 (
-                    this.NoRealtimeCharge == other.NoRealtimeCharge ||
-                    this.NoRealtimeCharge != null &&
-                    this.NoRealtimeCharge.Equals(other.NoRealtimeCharge)
+                    this.NoRealtimeCharge == input.NoRealtimeCharge ||
+                    (this.NoRealtimeCharge != null &&
+                    this.NoRealtimeCharge.Equals(input.NoRealtimeCharge))
                 ) && 
                 (
-                    this.PricingTiers == other.PricingTiers ||
+                    this.PricingTiers == input.PricingTiers ||
                     this.PricingTiers != null &&
-                    this.PricingTiers.SequenceEqual(other.PricingTiers)
+                    this.PricingTiers.SequenceEqual(input.PricingTiers)
                 ) && 
                 (
-                    this.ShippingAddresses == other.ShippingAddresses ||
+                    this.ShippingAddresses == input.ShippingAddresses ||
                     this.ShippingAddresses != null &&
-                    this.ShippingAddresses.SequenceEqual(other.ShippingAddresses)
+                    this.ShippingAddresses.SequenceEqual(input.ShippingAddresses)
                 ) && 
                 (
-                    this.TaxExempt == other.TaxExempt ||
-                    this.TaxExempt != null &&
-                    this.TaxExempt.Equals(other.TaxExempt)
+                    this.TaxExempt == input.TaxExempt ||
+                    (this.TaxExempt != null &&
+                    this.TaxExempt.Equals(input.TaxExempt))
                 ) && 
                 (
-                    this.UpsAccountNumber == other.UpsAccountNumber ||
-                    this.UpsAccountNumber != null &&
-                    this.UpsAccountNumber.Equals(other.UpsAccountNumber)
+                    this.UpsAccountNumber == input.UpsAccountNumber ||
+                    (this.UpsAccountNumber != null &&
+                    this.UpsAccountNumber.Equals(input.UpsAccountNumber))
                 );
         }
 
@@ -404,54 +402,52 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Allow3rdPartyBilling != null)
-                    hash = hash * 59 + this.Allow3rdPartyBilling.GetHashCode();
+                    hashCode = hashCode * 59 + this.Allow3rdPartyBilling.GetHashCode();
                 if (this.AllowCod != null)
-                    hash = hash * 59 + this.AllowCod.GetHashCode();
+                    hashCode = hashCode * 59 + this.AllowCod.GetHashCode();
                 if (this.AllowPurchaseOrder != null)
-                    hash = hash * 59 + this.AllowPurchaseOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.AllowPurchaseOrder.GetHashCode();
                 if (this.BillingAddresses != null)
-                    hash = hash * 59 + this.BillingAddresses.GetHashCode();
+                    hashCode = hashCode * 59 + this.BillingAddresses.GetHashCode();
                 if (this.CreditCards != null)
-                    hash = hash * 59 + this.CreditCards.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreditCards.GetHashCode();
                 if (this.CustomerProfileOid != null)
-                    hash = hash * 59 + this.CustomerProfileOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomerProfileOid.GetHashCode();
                 if (this.DhlAccountNumber != null)
-                    hash = hash * 59 + this.DhlAccountNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.DhlAccountNumber.GetHashCode();
                 if (this.Email != null)
-                    hash = hash * 59 + this.Email.GetHashCode();
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.FedexAccountNumber != null)
-                    hash = hash * 59 + this.FedexAccountNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.FedexAccountNumber.GetHashCode();
                 if (this.FreeShipping != null)
-                    hash = hash * 59 + this.FreeShipping.GetHashCode();
+                    hashCode = hashCode * 59 + this.FreeShipping.GetHashCode();
                 if (this.FreeShippingMinimum != null)
-                    hash = hash * 59 + this.FreeShippingMinimum.GetHashCode();
+                    hashCode = hashCode * 59 + this.FreeShippingMinimum.GetHashCode();
                 if (this.MaximumItemCount != null)
-                    hash = hash * 59 + this.MaximumItemCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaximumItemCount.GetHashCode();
                 if (this.MinimumItemCount != null)
-                    hash = hash * 59 + this.MinimumItemCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.MinimumItemCount.GetHashCode();
                 if (this.MinimumSubtotal != null)
-                    hash = hash * 59 + this.MinimumSubtotal.GetHashCode();
+                    hashCode = hashCode * 59 + this.MinimumSubtotal.GetHashCode();
                 if (this.NoCoupons != null)
-                    hash = hash * 59 + this.NoCoupons.GetHashCode();
+                    hashCode = hashCode * 59 + this.NoCoupons.GetHashCode();
                 if (this.NoFreeShipping != null)
-                    hash = hash * 59 + this.NoFreeShipping.GetHashCode();
+                    hashCode = hashCode * 59 + this.NoFreeShipping.GetHashCode();
                 if (this.NoRealtimeCharge != null)
-                    hash = hash * 59 + this.NoRealtimeCharge.GetHashCode();
+                    hashCode = hashCode * 59 + this.NoRealtimeCharge.GetHashCode();
                 if (this.PricingTiers != null)
-                    hash = hash * 59 + this.PricingTiers.GetHashCode();
+                    hashCode = hashCode * 59 + this.PricingTiers.GetHashCode();
                 if (this.ShippingAddresses != null)
-                    hash = hash * 59 + this.ShippingAddresses.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingAddresses.GetHashCode();
                 if (this.TaxExempt != null)
-                    hash = hash * 59 + this.TaxExempt.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxExempt.GetHashCode();
                 if (this.UpsAccountNumber != null)
-                    hash = hash * 59 + this.UpsAccountNumber.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UpsAccountNumber.GetHashCode();
+                return hashCode;
             }
         }
 

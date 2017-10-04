@@ -101,45 +101,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemChargebackAddendum);
+            return this.Equals(input as ItemChargebackAddendum);
         }
 
         /// <summary>
         /// Returns true if ItemChargebackAddendum instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemChargebackAddendum to be compared</param>
+        /// <param name="input">Instance of ItemChargebackAddendum to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemChargebackAddendum other)
+        public bool Equals(ItemChargebackAddendum input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ChargebackAddendumOid == other.ChargebackAddendumOid ||
-                    this.ChargebackAddendumOid != null &&
-                    this.ChargebackAddendumOid.Equals(other.ChargebackAddendumOid)
+                    this.ChargebackAddendumOid == input.ChargebackAddendumOid ||
+                    (this.ChargebackAddendumOid != null &&
+                    this.ChargebackAddendumOid.Equals(input.ChargebackAddendumOid))
                 ) && 
                 (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.FileSize == other.FileSize ||
-                    this.FileSize != null &&
-                    this.FileSize.Equals(other.FileSize)
+                    this.FileSize == input.FileSize ||
+                    (this.FileSize != null &&
+                    this.FileSize.Equals(input.FileSize))
                 ) && 
                 (
-                    this.Pages == other.Pages ||
-                    this.Pages != null &&
-                    this.Pages.Equals(other.Pages)
+                    this.Pages == input.Pages ||
+                    (this.Pages != null &&
+                    this.Pages.Equals(input.Pages))
                 );
         }
 
@@ -149,20 +147,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ChargebackAddendumOid != null)
-                    hash = hash * 59 + this.ChargebackAddendumOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChargebackAddendumOid.GetHashCode();
                 if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.FileSize != null)
-                    hash = hash * 59 + this.FileSize.GetHashCode();
+                    hashCode = hashCode * 59 + this.FileSize.GetHashCode();
                 if (this.Pages != null)
-                    hash = hash * 59 + this.Pages.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Pages.GetHashCode();
+                return hashCode;
             }
         }
 

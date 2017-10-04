@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSettingsShippingCalendar);
+            return this.Equals(input as CartSettingsShippingCalendar);
         }
 
         /// <summary>
         /// Returns true if CartSettingsShippingCalendar instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSettingsShippingCalendar to be compared</param>
+        /// <param name="input">Instance of CartSettingsShippingCalendar to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSettingsShippingCalendar other)
+        public bool Equals(CartSettingsShippingCalendar input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Blackouts == other.Blackouts ||
-                    this.Blackouts != null &&
-                    this.Blackouts.Equals(other.Blackouts)
+                    this.Blackouts == input.Blackouts ||
+                    (this.Blackouts != null &&
+                    this.Blackouts.Equals(input.Blackouts))
                 ) && 
                 (
-                    this.DaysOfWeek == other.DaysOfWeek ||
+                    this.DaysOfWeek == input.DaysOfWeek ||
                     this.DaysOfWeek != null &&
-                    this.DaysOfWeek.SequenceEqual(other.DaysOfWeek)
+                    this.DaysOfWeek.SequenceEqual(input.DaysOfWeek)
                 ) && 
                 (
-                    this.Earliest == other.Earliest ||
-                    this.Earliest != null &&
-                    this.Earliest.Equals(other.Earliest)
+                    this.Earliest == input.Earliest ||
+                    (this.Earliest != null &&
+                    this.Earliest.Equals(input.Earliest))
                 ) && 
                 (
-                    this.Require == other.Require ||
-                    this.Require != null &&
-                    this.Require.Equals(other.Require)
+                    this.Require == input.Require ||
+                    (this.Require != null &&
+                    this.Require.Equals(input.Require))
                 ) && 
                 (
-                    this.Show == other.Show ||
-                    this.Show != null &&
-                    this.Show.Equals(other.Show)
+                    this.Show == input.Show ||
+                    (this.Show != null &&
+                    this.Show.Equals(input.Show))
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Blackouts != null)
-                    hash = hash * 59 + this.Blackouts.GetHashCode();
+                    hashCode = hashCode * 59 + this.Blackouts.GetHashCode();
                 if (this.DaysOfWeek != null)
-                    hash = hash * 59 + this.DaysOfWeek.GetHashCode();
+                    hashCode = hashCode * 59 + this.DaysOfWeek.GetHashCode();
                 if (this.Earliest != null)
-                    hash = hash * 59 + this.Earliest.GetHashCode();
+                    hashCode = hashCode * 59 + this.Earliest.GetHashCode();
                 if (this.Require != null)
-                    hash = hash * 59 + this.Require.GetHashCode();
+                    hashCode = hashCode * 59 + this.Require.GetHashCode();
                 if (this.Show != null)
-                    hash = hash * 59 + this.Show.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Show.GetHashCode();
+                return hashCode;
             }
         }
 

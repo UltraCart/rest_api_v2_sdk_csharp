@@ -112,40 +112,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemShippingDestinationRestriction);
+            return this.Equals(input as ItemShippingDestinationRestriction);
         }
 
         /// <summary>
         /// Returns true if ItemShippingDestinationRestriction instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemShippingDestinationRestriction to be compared</param>
+        /// <param name="input">Instance of ItemShippingDestinationRestriction to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemShippingDestinationRestriction other)
+        public bool Equals(ItemShippingDestinationRestriction input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CountryCode == other.CountryCode ||
-                    this.CountryCode != null &&
-                    this.CountryCode.Equals(other.CountryCode)
+                    this.CountryCode == input.CountryCode ||
+                    (this.CountryCode != null &&
+                    this.CountryCode.Equals(input.CountryCode))
                 ) && 
                 (
-                    this.State == other.State ||
-                    this.State != null &&
-                    this.State.Equals(other.State)
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
                 ) && 
                 (
-                    this.Validity == other.Validity ||
-                    this.Validity != null &&
-                    this.Validity.Equals(other.Validity)
+                    this.Validity == input.Validity ||
+                    (this.Validity != null &&
+                    this.Validity.Equals(input.Validity))
                 );
         }
 
@@ -155,18 +153,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CountryCode != null)
-                    hash = hash * 59 + this.CountryCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.State != null)
-                    hash = hash * 59 + this.State.GetHashCode();
+                    hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.Validity != null)
-                    hash = hash * 59 + this.Validity.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Validity.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -101,45 +101,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderChannelPartner);
+            return this.Equals(input as OrderChannelPartner);
         }
 
         /// <summary>
         /// Returns true if OrderChannelPartner instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderChannelPartner to be compared</param>
+        /// <param name="input">Instance of OrderChannelPartner to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderChannelPartner other)
+        public bool Equals(OrderChannelPartner input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ChannelPartnerCode == other.ChannelPartnerCode ||
-                    this.ChannelPartnerCode != null &&
-                    this.ChannelPartnerCode.Equals(other.ChannelPartnerCode)
+                    this.ChannelPartnerCode == input.ChannelPartnerCode ||
+                    (this.ChannelPartnerCode != null &&
+                    this.ChannelPartnerCode.Equals(input.ChannelPartnerCode))
                 ) && 
                 (
-                    this.ChannelPartnerData == other.ChannelPartnerData ||
-                    this.ChannelPartnerData != null &&
-                    this.ChannelPartnerData.Equals(other.ChannelPartnerData)
+                    this.ChannelPartnerData == input.ChannelPartnerData ||
+                    (this.ChannelPartnerData != null &&
+                    this.ChannelPartnerData.Equals(input.ChannelPartnerData))
                 ) && 
                 (
-                    this.ChannelPartnerOid == other.ChannelPartnerOid ||
-                    this.ChannelPartnerOid != null &&
-                    this.ChannelPartnerOid.Equals(other.ChannelPartnerOid)
+                    this.ChannelPartnerOid == input.ChannelPartnerOid ||
+                    (this.ChannelPartnerOid != null &&
+                    this.ChannelPartnerOid.Equals(input.ChannelPartnerOid))
                 ) && 
                 (
-                    this.ChannelPartnerOrderId == other.ChannelPartnerOrderId ||
-                    this.ChannelPartnerOrderId != null &&
-                    this.ChannelPartnerOrderId.Equals(other.ChannelPartnerOrderId)
+                    this.ChannelPartnerOrderId == input.ChannelPartnerOrderId ||
+                    (this.ChannelPartnerOrderId != null &&
+                    this.ChannelPartnerOrderId.Equals(input.ChannelPartnerOrderId))
                 );
         }
 
@@ -149,20 +147,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ChannelPartnerCode != null)
-                    hash = hash * 59 + this.ChannelPartnerCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelPartnerCode.GetHashCode();
                 if (this.ChannelPartnerData != null)
-                    hash = hash * 59 + this.ChannelPartnerData.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelPartnerData.GetHashCode();
                 if (this.ChannelPartnerOid != null)
-                    hash = hash * 59 + this.ChannelPartnerOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelPartnerOid.GetHashCode();
                 if (this.ChannelPartnerOrderId != null)
-                    hash = hash * 59 + this.ChannelPartnerOrderId.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ChannelPartnerOrderId.GetHashCode();
+                return hashCode;
             }
         }
 

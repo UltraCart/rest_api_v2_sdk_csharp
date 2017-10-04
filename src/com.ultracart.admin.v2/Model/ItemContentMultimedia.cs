@@ -250,100 +250,98 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemContentMultimedia);
+            return this.Equals(input as ItemContentMultimedia);
         }
 
         /// <summary>
         /// Returns true if ItemContentMultimedia instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemContentMultimedia to be compared</param>
+        /// <param name="input">Instance of ItemContentMultimedia to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemContentMultimedia other)
+        public bool Equals(ItemContentMultimedia input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CloudUrl == other.CloudUrl ||
-                    this.CloudUrl != null &&
-                    this.CloudUrl.Equals(other.CloudUrl)
+                    this.CloudUrl == input.CloudUrl ||
+                    (this.CloudUrl != null &&
+                    this.CloudUrl.Equals(input.CloudUrl))
                 ) && 
                 (
-                    this.CloudUrlExpiration == other.CloudUrlExpiration ||
-                    this.CloudUrlExpiration != null &&
-                    this.CloudUrlExpiration.Equals(other.CloudUrlExpiration)
+                    this.CloudUrlExpiration == input.CloudUrlExpiration ||
+                    (this.CloudUrlExpiration != null &&
+                    this.CloudUrlExpiration.Equals(input.CloudUrlExpiration))
                 ) && 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.ExcludeFromGallery == other.ExcludeFromGallery ||
-                    this.ExcludeFromGallery != null &&
-                    this.ExcludeFromGallery.Equals(other.ExcludeFromGallery)
+                    this.ExcludeFromGallery == input.ExcludeFromGallery ||
+                    (this.ExcludeFromGallery != null &&
+                    this.ExcludeFromGallery.Equals(input.ExcludeFromGallery))
                 ) && 
                 (
-                    this.FileName == other.FileName ||
-                    this.FileName != null &&
-                    this.FileName.Equals(other.FileName)
+                    this.FileName == input.FileName ||
+                    (this.FileName != null &&
+                    this.FileName.Equals(input.FileName))
                 ) && 
                 (
-                    this.Height == other.Height ||
-                    this.Height != null &&
-                    this.Height.Equals(other.Height)
+                    this.Height == input.Height ||
+                    (this.Height != null &&
+                    this.Height.Equals(input.Height))
                 ) && 
                 (
-                    this.MerchantItemMultimediaOid == other.MerchantItemMultimediaOid ||
-                    this.MerchantItemMultimediaOid != null &&
-                    this.MerchantItemMultimediaOid.Equals(other.MerchantItemMultimediaOid)
+                    this.MerchantItemMultimediaOid == input.MerchantItemMultimediaOid ||
+                    (this.MerchantItemMultimediaOid != null &&
+                    this.MerchantItemMultimediaOid.Equals(input.MerchantItemMultimediaOid))
                 ) && 
                 (
-                    this.Orphan == other.Orphan ||
-                    this.Orphan != null &&
-                    this.Orphan.Equals(other.Orphan)
+                    this.Orphan == input.Orphan ||
+                    (this.Orphan != null &&
+                    this.Orphan.Equals(input.Orphan))
                 ) && 
                 (
-                    this.Placeholder == other.Placeholder ||
-                    this.Placeholder != null &&
-                    this.Placeholder.Equals(other.Placeholder)
+                    this.Placeholder == input.Placeholder ||
+                    (this.Placeholder != null &&
+                    this.Placeholder.Equals(input.Placeholder))
                 ) && 
                 (
-                    this.TempMultimediaOid == other.TempMultimediaOid ||
-                    this.TempMultimediaOid != null &&
-                    this.TempMultimediaOid.Equals(other.TempMultimediaOid)
+                    this.TempMultimediaOid == input.TempMultimediaOid ||
+                    (this.TempMultimediaOid != null &&
+                    this.TempMultimediaOid.Equals(input.TempMultimediaOid))
                 ) && 
                 (
-                    this.Thumbnails == other.Thumbnails ||
+                    this.Thumbnails == input.Thumbnails ||
                     this.Thumbnails != null &&
-                    this.Thumbnails.SequenceEqual(other.Thumbnails)
+                    this.Thumbnails.SequenceEqual(input.Thumbnails)
                 ) && 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Url == other.Url ||
-                    this.Url != null &&
-                    this.Url.Equals(other.Url)
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 ) && 
                 (
-                    this.Width == other.Width ||
-                    this.Width != null &&
-                    this.Width.Equals(other.Width)
+                    this.Width == input.Width ||
+                    (this.Width != null &&
+                    this.Width.Equals(input.Width))
                 );
         }
 
@@ -353,42 +351,40 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CloudUrl != null)
-                    hash = hash * 59 + this.CloudUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.CloudUrl.GetHashCode();
                 if (this.CloudUrlExpiration != null)
-                    hash = hash * 59 + this.CloudUrlExpiration.GetHashCode();
+                    hashCode = hashCode * 59 + this.CloudUrlExpiration.GetHashCode();
                 if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
                 if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.ExcludeFromGallery != null)
-                    hash = hash * 59 + this.ExcludeFromGallery.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExcludeFromGallery.GetHashCode();
                 if (this.FileName != null)
-                    hash = hash * 59 + this.FileName.GetHashCode();
+                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
                 if (this.Height != null)
-                    hash = hash * 59 + this.Height.GetHashCode();
+                    hashCode = hashCode * 59 + this.Height.GetHashCode();
                 if (this.MerchantItemMultimediaOid != null)
-                    hash = hash * 59 + this.MerchantItemMultimediaOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantItemMultimediaOid.GetHashCode();
                 if (this.Orphan != null)
-                    hash = hash * 59 + this.Orphan.GetHashCode();
+                    hashCode = hashCode * 59 + this.Orphan.GetHashCode();
                 if (this.Placeholder != null)
-                    hash = hash * 59 + this.Placeholder.GetHashCode();
+                    hashCode = hashCode * 59 + this.Placeholder.GetHashCode();
                 if (this.TempMultimediaOid != null)
-                    hash = hash * 59 + this.TempMultimediaOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.TempMultimediaOid.GetHashCode();
                 if (this.Thumbnails != null)
-                    hash = hash * 59 + this.Thumbnails.GetHashCode();
+                    hashCode = hashCode * 59 + this.Thumbnails.GetHashCode();
                 if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Url != null)
-                    hash = hash * 59 + this.Url.GetHashCode();
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.Width != null)
-                    hash = hash * 59 + this.Width.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Width.GetHashCode();
+                return hashCode;
             }
         }
 

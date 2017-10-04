@@ -80,35 +80,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartValidationRequest);
+            return this.Equals(input as CartValidationRequest);
         }
 
         /// <summary>
         /// Returns true if CartValidationRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartValidationRequest to be compared</param>
+        /// <param name="input">Instance of CartValidationRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartValidationRequest other)
+        public bool Equals(CartValidationRequest input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Cart == other.Cart ||
-                    this.Cart != null &&
-                    this.Cart.Equals(other.Cart)
+                    this.Cart == input.Cart ||
+                    (this.Cart != null &&
+                    this.Cart.Equals(input.Cart))
                 ) && 
                 (
-                    this.Checks == other.Checks ||
+                    this.Checks == input.Checks ||
                     this.Checks != null &&
-                    this.Checks.SequenceEqual(other.Checks)
+                    this.Checks.SequenceEqual(input.Checks)
                 );
         }
 
@@ -118,16 +116,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Cart != null)
-                    hash = hash * 59 + this.Cart.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cart.GetHashCode();
                 if (this.Checks != null)
-                    hash = hash * 59 + this.Checks.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Checks.GetHashCode();
+                return hashCode;
             }
         }
 

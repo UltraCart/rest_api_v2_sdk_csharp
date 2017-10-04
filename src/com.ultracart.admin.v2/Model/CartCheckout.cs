@@ -161,75 +161,73 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartCheckout);
+            return this.Equals(input as CartCheckout);
         }
 
         /// <summary>
         /// Returns true if CartCheckout instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartCheckout to be compared</param>
+        /// <param name="input">Instance of CartCheckout to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartCheckout other)
+        public bool Equals(CartCheckout input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Comments == other.Comments ||
-                    this.Comments != null &&
-                    this.Comments.Equals(other.Comments)
+                    this.Comments == input.Comments ||
+                    (this.Comments != null &&
+                    this.Comments.Equals(input.Comments))
                 ) && 
                 (
-                    this.CustomField1 == other.CustomField1 ||
-                    this.CustomField1 != null &&
-                    this.CustomField1.Equals(other.CustomField1)
+                    this.CustomField1 == input.CustomField1 ||
+                    (this.CustomField1 != null &&
+                    this.CustomField1.Equals(input.CustomField1))
                 ) && 
                 (
-                    this.CustomField2 == other.CustomField2 ||
-                    this.CustomField2 != null &&
-                    this.CustomField2.Equals(other.CustomField2)
+                    this.CustomField2 == input.CustomField2 ||
+                    (this.CustomField2 != null &&
+                    this.CustomField2.Equals(input.CustomField2))
                 ) && 
                 (
-                    this.CustomField3 == other.CustomField3 ||
-                    this.CustomField3 != null &&
-                    this.CustomField3.Equals(other.CustomField3)
+                    this.CustomField3 == input.CustomField3 ||
+                    (this.CustomField3 != null &&
+                    this.CustomField3.Equals(input.CustomField3))
                 ) && 
                 (
-                    this.CustomField4 == other.CustomField4 ||
-                    this.CustomField4 != null &&
-                    this.CustomField4.Equals(other.CustomField4)
+                    this.CustomField4 == input.CustomField4 ||
+                    (this.CustomField4 != null &&
+                    this.CustomField4.Equals(input.CustomField4))
                 ) && 
                 (
-                    this.CustomField5 == other.CustomField5 ||
-                    this.CustomField5 != null &&
-                    this.CustomField5.Equals(other.CustomField5)
+                    this.CustomField5 == input.CustomField5 ||
+                    (this.CustomField5 != null &&
+                    this.CustomField5.Equals(input.CustomField5))
                 ) && 
                 (
-                    this.CustomField6 == other.CustomField6 ||
-                    this.CustomField6 != null &&
-                    this.CustomField6.Equals(other.CustomField6)
+                    this.CustomField6 == input.CustomField6 ||
+                    (this.CustomField6 != null &&
+                    this.CustomField6.Equals(input.CustomField6))
                 ) && 
                 (
-                    this.CustomField7 == other.CustomField7 ||
-                    this.CustomField7 != null &&
-                    this.CustomField7.Equals(other.CustomField7)
+                    this.CustomField7 == input.CustomField7 ||
+                    (this.CustomField7 != null &&
+                    this.CustomField7.Equals(input.CustomField7))
                 ) && 
                 (
-                    this.IpAddress == other.IpAddress ||
-                    this.IpAddress != null &&
-                    this.IpAddress.Equals(other.IpAddress)
+                    this.IpAddress == input.IpAddress ||
+                    (this.IpAddress != null &&
+                    this.IpAddress.Equals(input.IpAddress))
                 ) && 
                 (
-                    this.ScreenBrandingThemeCode == other.ScreenBrandingThemeCode ||
-                    this.ScreenBrandingThemeCode != null &&
-                    this.ScreenBrandingThemeCode.Equals(other.ScreenBrandingThemeCode)
+                    this.ScreenBrandingThemeCode == input.ScreenBrandingThemeCode ||
+                    (this.ScreenBrandingThemeCode != null &&
+                    this.ScreenBrandingThemeCode.Equals(input.ScreenBrandingThemeCode))
                 );
         }
 
@@ -239,32 +237,30 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Comments != null)
-                    hash = hash * 59 + this.Comments.GetHashCode();
+                    hashCode = hashCode * 59 + this.Comments.GetHashCode();
                 if (this.CustomField1 != null)
-                    hash = hash * 59 + this.CustomField1.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomField1.GetHashCode();
                 if (this.CustomField2 != null)
-                    hash = hash * 59 + this.CustomField2.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomField2.GetHashCode();
                 if (this.CustomField3 != null)
-                    hash = hash * 59 + this.CustomField3.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomField3.GetHashCode();
                 if (this.CustomField4 != null)
-                    hash = hash * 59 + this.CustomField4.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomField4.GetHashCode();
                 if (this.CustomField5 != null)
-                    hash = hash * 59 + this.CustomField5.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomField5.GetHashCode();
                 if (this.CustomField6 != null)
-                    hash = hash * 59 + this.CustomField6.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomField6.GetHashCode();
                 if (this.CustomField7 != null)
-                    hash = hash * 59 + this.CustomField7.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomField7.GetHashCode();
                 if (this.IpAddress != null)
-                    hash = hash * 59 + this.IpAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.IpAddress.GetHashCode();
                 if (this.ScreenBrandingThemeCode != null)
-                    hash = hash * 59 + this.ScreenBrandingThemeCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ScreenBrandingThemeCode.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as WebhookEventCategory);
+            return this.Equals(input as WebhookEventCategory);
         }
 
         /// <summary>
         /// Returns true if WebhookEventCategory instances are equal
         /// </summary>
-        /// <param name="other">Instance of WebhookEventCategory to be compared</param>
+        /// <param name="input">Instance of WebhookEventCategory to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WebhookEventCategory other)
+        public bool Equals(WebhookEventCategory input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.EventCategory == other.EventCategory ||
-                    this.EventCategory != null &&
-                    this.EventCategory.Equals(other.EventCategory)
+                    this.EventCategory == input.EventCategory ||
+                    (this.EventCategory != null &&
+                    this.EventCategory.Equals(input.EventCategory))
                 ) && 
                 (
-                    this.Events == other.Events ||
+                    this.Events == input.Events ||
                     this.Events != null &&
-                    this.Events.SequenceEqual(other.Events)
+                    this.Events.SequenceEqual(input.Events)
                 ) && 
                 (
-                    this.Subscribed == other.Subscribed ||
-                    this.Subscribed != null &&
-                    this.Subscribed.Equals(other.Subscribed)
+                    this.Subscribed == input.Subscribed ||
+                    (this.Subscribed != null &&
+                    this.Subscribed.Equals(input.Subscribed))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.EventCategory != null)
-                    hash = hash * 59 + this.EventCategory.GetHashCode();
+                    hashCode = hashCode * 59 + this.EventCategory.GetHashCode();
                 if (this.Events != null)
-                    hash = hash * 59 + this.Events.GetHashCode();
+                    hashCode = hashCode * 59 + this.Events.GetHashCode();
                 if (this.Subscribed != null)
-                    hash = hash * 59 + this.Subscribed.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Subscribed.GetHashCode();
+                return hashCode;
             }
         }
 

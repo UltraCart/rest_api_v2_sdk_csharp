@@ -143,9 +143,9 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Auto_orderApi* | [**GetAutoOrder**](docs/Auto_orderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-*Auto_orderApi* | [**GetAutoOrders**](docs/Auto_orderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
-*Auto_orderApi* | [**UpdateAutoOrder**](docs/Auto_orderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+*AutoOrderApi* | [**GetAutoOrder**](docs/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
+*AutoOrderApi* | [**GetAutoOrders**](docs/AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+*AutoOrderApi* | [**UpdateAutoOrder**](docs/AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *ChargebackApi* | [**DeleteChargeback**](docs/ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**GetChargebackDispute**](docs/ChargebackApi.md#getchargebackdispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
 *ChargebackApi* | [**GetChargebackDisputes**](docs/ChargebackApi.md#getchargebackdisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks
@@ -168,6 +168,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**DeleteCustomer**](docs/CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**GetCustomer**](docs/CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**GetCustomers**](docs/CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
+*CustomerApi* | [**GetCustomersByQuery**](docs/CustomerApi.md#getcustomersbyquery) | **GET** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**InsertCustomer**](docs/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**UpdateCustomer**](docs/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *FulfillmentApi* | [**AcknowledgeOrders**](docs/FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
@@ -177,6 +178,7 @@ Class | Method | HTTP request | Description
 *FulfillmentApi* | [**UpdateInventory**](docs/FulfillmentApi.md#updateinventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
 *ItemApi* | [**DeleteItem**](docs/ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 *ItemApi* | [**GetItem**](docs/ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
+*ItemApi* | [**GetItemByMerchantItemId**](docs/ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**GetItems**](docs/ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**InsertItem**](docs/ItemApi.md#insertitem) | **POST** /item/items | Create an item
 *ItemApi* | [**UpdateItem**](docs/ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
@@ -188,6 +190,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**GetOrder**](docs/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**GetOrders**](docs/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**GetOrdersByQuery**](docs/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders
+*OrderApi* | [**RefundOrder**](docs/OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
 *OrderApi* | [**ResendReceipt**](docs/OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**ResendShipmentConfirmation**](docs/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 *OrderApi* | [**UpdateOrder**](docs/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
@@ -277,6 +280,7 @@ Class | Method | HTTP request | Description
  - [Model.CustomerBilling](docs/CustomerBilling.md)
  - [Model.CustomerCard](docs/CustomerCard.md)
  - [Model.CustomerPricingTier](docs/CustomerPricingTier.md)
+ - [Model.CustomerQuery](docs/CustomerQuery.md)
  - [Model.CustomerResponse](docs/CustomerResponse.md)
  - [Model.CustomerShipping](docs/CustomerShipping.md)
  - [Model.CustomersResponse](docs/CustomersResponse.md)

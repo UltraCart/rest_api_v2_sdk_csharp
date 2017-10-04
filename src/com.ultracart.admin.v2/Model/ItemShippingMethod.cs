@@ -238,100 +238,98 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemShippingMethod);
+            return this.Equals(input as ItemShippingMethod);
         }
 
         /// <summary>
         /// Returns true if ItemShippingMethod instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemShippingMethod to be compared</param>
+        /// <param name="input">Instance of ItemShippingMethod to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemShippingMethod other)
+        public bool Equals(ItemShippingMethod input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Cost == other.Cost ||
-                    this.Cost != null &&
-                    this.Cost.Equals(other.Cost)
+                    this.Cost == input.Cost ||
+                    (this.Cost != null &&
+                    this.Cost.Equals(input.Cost))
                 ) && 
                 (
-                    this.EachAdditionalItemMarkup == other.EachAdditionalItemMarkup ||
-                    this.EachAdditionalItemMarkup != null &&
-                    this.EachAdditionalItemMarkup.Equals(other.EachAdditionalItemMarkup)
+                    this.EachAdditionalItemMarkup == input.EachAdditionalItemMarkup ||
+                    (this.EachAdditionalItemMarkup != null &&
+                    this.EachAdditionalItemMarkup.Equals(input.EachAdditionalItemMarkup))
                 ) && 
                 (
-                    this.FilterToIfAvailable == other.FilterToIfAvailable ||
-                    this.FilterToIfAvailable != null &&
-                    this.FilterToIfAvailable.Equals(other.FilterToIfAvailable)
+                    this.FilterToIfAvailable == input.FilterToIfAvailable ||
+                    (this.FilterToIfAvailable != null &&
+                    this.FilterToIfAvailable.Equals(input.FilterToIfAvailable))
                 ) && 
                 (
-                    this.FirstItemMarkup == other.FirstItemMarkup ||
-                    this.FirstItemMarkup != null &&
-                    this.FirstItemMarkup.Equals(other.FirstItemMarkup)
+                    this.FirstItemMarkup == input.FirstItemMarkup ||
+                    (this.FirstItemMarkup != null &&
+                    this.FirstItemMarkup.Equals(input.FirstItemMarkup))
                 ) && 
                 (
-                    this.FixedShippingCost == other.FixedShippingCost ||
-                    this.FixedShippingCost != null &&
-                    this.FixedShippingCost.Equals(other.FixedShippingCost)
+                    this.FixedShippingCost == input.FixedShippingCost ||
+                    (this.FixedShippingCost != null &&
+                    this.FixedShippingCost.Equals(input.FixedShippingCost))
                 ) && 
                 (
-                    this.FlatFeeMarkup == other.FlatFeeMarkup ||
-                    this.FlatFeeMarkup != null &&
-                    this.FlatFeeMarkup.Equals(other.FlatFeeMarkup)
+                    this.FlatFeeMarkup == input.FlatFeeMarkup ||
+                    (this.FlatFeeMarkup != null &&
+                    this.FlatFeeMarkup.Equals(input.FlatFeeMarkup))
                 ) && 
                 (
-                    this.FreeShipping == other.FreeShipping ||
-                    this.FreeShipping != null &&
-                    this.FreeShipping.Equals(other.FreeShipping)
+                    this.FreeShipping == input.FreeShipping ||
+                    (this.FreeShipping != null &&
+                    this.FreeShipping.Equals(input.FreeShipping))
                 ) && 
                 (
-                    this.PerItemFeeMarkup == other.PerItemFeeMarkup ||
-                    this.PerItemFeeMarkup != null &&
-                    this.PerItemFeeMarkup.Equals(other.PerItemFeeMarkup)
+                    this.PerItemFeeMarkup == input.PerItemFeeMarkup ||
+                    (this.PerItemFeeMarkup != null &&
+                    this.PerItemFeeMarkup.Equals(input.PerItemFeeMarkup))
                 ) && 
                 (
-                    this.PercentageMarkup == other.PercentageMarkup ||
-                    this.PercentageMarkup != null &&
-                    this.PercentageMarkup.Equals(other.PercentageMarkup)
+                    this.PercentageMarkup == input.PercentageMarkup ||
+                    (this.PercentageMarkup != null &&
+                    this.PercentageMarkup.Equals(input.PercentageMarkup))
                 ) && 
                 (
-                    this.PercentageOfItemMarkup == other.PercentageOfItemMarkup ||
-                    this.PercentageOfItemMarkup != null &&
-                    this.PercentageOfItemMarkup.Equals(other.PercentageOfItemMarkup)
+                    this.PercentageOfItemMarkup == input.PercentageOfItemMarkup ||
+                    (this.PercentageOfItemMarkup != null &&
+                    this.PercentageOfItemMarkup.Equals(input.PercentageOfItemMarkup))
                 ) && 
                 (
-                    this.RelaxRestrictionsOnUpsell == other.RelaxRestrictionsOnUpsell ||
-                    this.RelaxRestrictionsOnUpsell != null &&
-                    this.RelaxRestrictionsOnUpsell.Equals(other.RelaxRestrictionsOnUpsell)
+                    this.RelaxRestrictionsOnUpsell == input.RelaxRestrictionsOnUpsell ||
+                    (this.RelaxRestrictionsOnUpsell != null &&
+                    this.RelaxRestrictionsOnUpsell.Equals(input.RelaxRestrictionsOnUpsell))
                 ) && 
                 (
-                    this.ShippingMethod == other.ShippingMethod ||
-                    this.ShippingMethod != null &&
-                    this.ShippingMethod.Equals(other.ShippingMethod)
+                    this.ShippingMethod == input.ShippingMethod ||
+                    (this.ShippingMethod != null &&
+                    this.ShippingMethod.Equals(input.ShippingMethod))
                 ) && 
                 (
-                    this.ShippingMethodOid == other.ShippingMethodOid ||
-                    this.ShippingMethodOid != null &&
-                    this.ShippingMethodOid.Equals(other.ShippingMethodOid)
+                    this.ShippingMethodOid == input.ShippingMethodOid ||
+                    (this.ShippingMethodOid != null &&
+                    this.ShippingMethodOid.Equals(input.ShippingMethodOid))
                 ) && 
                 (
-                    this.ShippingMethodValidity == other.ShippingMethodValidity ||
-                    this.ShippingMethodValidity != null &&
-                    this.ShippingMethodValidity.Equals(other.ShippingMethodValidity)
+                    this.ShippingMethodValidity == input.ShippingMethodValidity ||
+                    (this.ShippingMethodValidity != null &&
+                    this.ShippingMethodValidity.Equals(input.ShippingMethodValidity))
                 ) && 
                 (
-                    this.SignatureRequired == other.SignatureRequired ||
-                    this.SignatureRequired != null &&
-                    this.SignatureRequired.Equals(other.SignatureRequired)
+                    this.SignatureRequired == input.SignatureRequired ||
+                    (this.SignatureRequired != null &&
+                    this.SignatureRequired.Equals(input.SignatureRequired))
                 );
         }
 
@@ -341,42 +339,40 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Cost != null)
-                    hash = hash * 59 + this.Cost.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cost.GetHashCode();
                 if (this.EachAdditionalItemMarkup != null)
-                    hash = hash * 59 + this.EachAdditionalItemMarkup.GetHashCode();
+                    hashCode = hashCode * 59 + this.EachAdditionalItemMarkup.GetHashCode();
                 if (this.FilterToIfAvailable != null)
-                    hash = hash * 59 + this.FilterToIfAvailable.GetHashCode();
+                    hashCode = hashCode * 59 + this.FilterToIfAvailable.GetHashCode();
                 if (this.FirstItemMarkup != null)
-                    hash = hash * 59 + this.FirstItemMarkup.GetHashCode();
+                    hashCode = hashCode * 59 + this.FirstItemMarkup.GetHashCode();
                 if (this.FixedShippingCost != null)
-                    hash = hash * 59 + this.FixedShippingCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.FixedShippingCost.GetHashCode();
                 if (this.FlatFeeMarkup != null)
-                    hash = hash * 59 + this.FlatFeeMarkup.GetHashCode();
+                    hashCode = hashCode * 59 + this.FlatFeeMarkup.GetHashCode();
                 if (this.FreeShipping != null)
-                    hash = hash * 59 + this.FreeShipping.GetHashCode();
+                    hashCode = hashCode * 59 + this.FreeShipping.GetHashCode();
                 if (this.PerItemFeeMarkup != null)
-                    hash = hash * 59 + this.PerItemFeeMarkup.GetHashCode();
+                    hashCode = hashCode * 59 + this.PerItemFeeMarkup.GetHashCode();
                 if (this.PercentageMarkup != null)
-                    hash = hash * 59 + this.PercentageMarkup.GetHashCode();
+                    hashCode = hashCode * 59 + this.PercentageMarkup.GetHashCode();
                 if (this.PercentageOfItemMarkup != null)
-                    hash = hash * 59 + this.PercentageOfItemMarkup.GetHashCode();
+                    hashCode = hashCode * 59 + this.PercentageOfItemMarkup.GetHashCode();
                 if (this.RelaxRestrictionsOnUpsell != null)
-                    hash = hash * 59 + this.RelaxRestrictionsOnUpsell.GetHashCode();
+                    hashCode = hashCode * 59 + this.RelaxRestrictionsOnUpsell.GetHashCode();
                 if (this.ShippingMethod != null)
-                    hash = hash * 59 + this.ShippingMethod.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingMethod.GetHashCode();
                 if (this.ShippingMethodOid != null)
-                    hash = hash * 59 + this.ShippingMethodOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingMethodOid.GetHashCode();
                 if (this.ShippingMethodValidity != null)
-                    hash = hash * 59 + this.ShippingMethodValidity.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingMethodValidity.GetHashCode();
                 if (this.SignatureRequired != null)
-                    hash = hash * 59 + this.SignatureRequired.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.SignatureRequired.GetHashCode();
+                return hashCode;
             }
         }
 

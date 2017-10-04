@@ -181,85 +181,83 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderTaxes);
+            return this.Equals(input as OrderTaxes);
         }
 
         /// <summary>
         /// Returns true if OrderTaxes instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderTaxes to be compared</param>
+        /// <param name="input">Instance of OrderTaxes to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderTaxes other)
+        public bool Equals(OrderTaxes input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.TaxCityAccountingCode == other.TaxCityAccountingCode ||
-                    this.TaxCityAccountingCode != null &&
-                    this.TaxCityAccountingCode.Equals(other.TaxCityAccountingCode)
+                    this.TaxCityAccountingCode == input.TaxCityAccountingCode ||
+                    (this.TaxCityAccountingCode != null &&
+                    this.TaxCityAccountingCode.Equals(input.TaxCityAccountingCode))
                 ) && 
                 (
-                    this.TaxCountryAccountingCode == other.TaxCountryAccountingCode ||
-                    this.TaxCountryAccountingCode != null &&
-                    this.TaxCountryAccountingCode.Equals(other.TaxCountryAccountingCode)
+                    this.TaxCountryAccountingCode == input.TaxCountryAccountingCode ||
+                    (this.TaxCountryAccountingCode != null &&
+                    this.TaxCountryAccountingCode.Equals(input.TaxCountryAccountingCode))
                 ) && 
                 (
-                    this.TaxCounty == other.TaxCounty ||
-                    this.TaxCounty != null &&
-                    this.TaxCounty.Equals(other.TaxCounty)
+                    this.TaxCounty == input.TaxCounty ||
+                    (this.TaxCounty != null &&
+                    this.TaxCounty.Equals(input.TaxCounty))
                 ) && 
                 (
-                    this.TaxCountyAccountingCode == other.TaxCountyAccountingCode ||
-                    this.TaxCountyAccountingCode != null &&
-                    this.TaxCountyAccountingCode.Equals(other.TaxCountyAccountingCode)
+                    this.TaxCountyAccountingCode == input.TaxCountyAccountingCode ||
+                    (this.TaxCountyAccountingCode != null &&
+                    this.TaxCountyAccountingCode.Equals(input.TaxCountyAccountingCode))
                 ) && 
                 (
-                    this.TaxPostalCodeAccountingCode == other.TaxPostalCodeAccountingCode ||
-                    this.TaxPostalCodeAccountingCode != null &&
-                    this.TaxPostalCodeAccountingCode.Equals(other.TaxPostalCodeAccountingCode)
+                    this.TaxPostalCodeAccountingCode == input.TaxPostalCodeAccountingCode ||
+                    (this.TaxPostalCodeAccountingCode != null &&
+                    this.TaxPostalCodeAccountingCode.Equals(input.TaxPostalCodeAccountingCode))
                 ) && 
                 (
-                    this.TaxRate == other.TaxRate ||
-                    this.TaxRate != null &&
-                    this.TaxRate.Equals(other.TaxRate)
+                    this.TaxRate == input.TaxRate ||
+                    (this.TaxRate != null &&
+                    this.TaxRate.Equals(input.TaxRate))
                 ) && 
                 (
-                    this.TaxRateCity == other.TaxRateCity ||
-                    this.TaxRateCity != null &&
-                    this.TaxRateCity.Equals(other.TaxRateCity)
+                    this.TaxRateCity == input.TaxRateCity ||
+                    (this.TaxRateCity != null &&
+                    this.TaxRateCity.Equals(input.TaxRateCity))
                 ) && 
                 (
-                    this.TaxRateCountry == other.TaxRateCountry ||
-                    this.TaxRateCountry != null &&
-                    this.TaxRateCountry.Equals(other.TaxRateCountry)
+                    this.TaxRateCountry == input.TaxRateCountry ||
+                    (this.TaxRateCountry != null &&
+                    this.TaxRateCountry.Equals(input.TaxRateCountry))
                 ) && 
                 (
-                    this.TaxRateCounty == other.TaxRateCounty ||
-                    this.TaxRateCounty != null &&
-                    this.TaxRateCounty.Equals(other.TaxRateCounty)
+                    this.TaxRateCounty == input.TaxRateCounty ||
+                    (this.TaxRateCounty != null &&
+                    this.TaxRateCounty.Equals(input.TaxRateCounty))
                 ) && 
                 (
-                    this.TaxRatePostalCode == other.TaxRatePostalCode ||
-                    this.TaxRatePostalCode != null &&
-                    this.TaxRatePostalCode.Equals(other.TaxRatePostalCode)
+                    this.TaxRatePostalCode == input.TaxRatePostalCode ||
+                    (this.TaxRatePostalCode != null &&
+                    this.TaxRatePostalCode.Equals(input.TaxRatePostalCode))
                 ) && 
                 (
-                    this.TaxRateState == other.TaxRateState ||
-                    this.TaxRateState != null &&
-                    this.TaxRateState.Equals(other.TaxRateState)
+                    this.TaxRateState == input.TaxRateState ||
+                    (this.TaxRateState != null &&
+                    this.TaxRateState.Equals(input.TaxRateState))
                 ) && 
                 (
-                    this.TaxStateAccountingCode == other.TaxStateAccountingCode ||
-                    this.TaxStateAccountingCode != null &&
-                    this.TaxStateAccountingCode.Equals(other.TaxStateAccountingCode)
+                    this.TaxStateAccountingCode == input.TaxStateAccountingCode ||
+                    (this.TaxStateAccountingCode != null &&
+                    this.TaxStateAccountingCode.Equals(input.TaxStateAccountingCode))
                 );
         }
 
@@ -269,36 +267,34 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.TaxCityAccountingCode != null)
-                    hash = hash * 59 + this.TaxCityAccountingCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxCityAccountingCode.GetHashCode();
                 if (this.TaxCountryAccountingCode != null)
-                    hash = hash * 59 + this.TaxCountryAccountingCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxCountryAccountingCode.GetHashCode();
                 if (this.TaxCounty != null)
-                    hash = hash * 59 + this.TaxCounty.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxCounty.GetHashCode();
                 if (this.TaxCountyAccountingCode != null)
-                    hash = hash * 59 + this.TaxCountyAccountingCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxCountyAccountingCode.GetHashCode();
                 if (this.TaxPostalCodeAccountingCode != null)
-                    hash = hash * 59 + this.TaxPostalCodeAccountingCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxPostalCodeAccountingCode.GetHashCode();
                 if (this.TaxRate != null)
-                    hash = hash * 59 + this.TaxRate.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxRate.GetHashCode();
                 if (this.TaxRateCity != null)
-                    hash = hash * 59 + this.TaxRateCity.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxRateCity.GetHashCode();
                 if (this.TaxRateCountry != null)
-                    hash = hash * 59 + this.TaxRateCountry.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxRateCountry.GetHashCode();
                 if (this.TaxRateCounty != null)
-                    hash = hash * 59 + this.TaxRateCounty.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxRateCounty.GetHashCode();
                 if (this.TaxRatePostalCode != null)
-                    hash = hash * 59 + this.TaxRatePostalCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxRatePostalCode.GetHashCode();
                 if (this.TaxRateState != null)
-                    hash = hash * 59 + this.TaxRateState.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxRateState.GetHashCode();
                 if (this.TaxStateAccountingCode != null)
-                    hash = hash * 59 + this.TaxStateAccountingCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TaxStateAccountingCode.GetHashCode();
+                return hashCode;
             }
         }
 

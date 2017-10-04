@@ -101,45 +101,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderPaymentTransaction);
+            return this.Equals(input as OrderPaymentTransaction);
         }
 
         /// <summary>
         /// Returns true if OrderPaymentTransaction instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderPaymentTransaction to be compared</param>
+        /// <param name="input">Instance of OrderPaymentTransaction to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderPaymentTransaction other)
+        public bool Equals(OrderPaymentTransaction input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Details == other.Details ||
+                    this.Details == input.Details ||
                     this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.Details.SequenceEqual(input.Details)
                 ) && 
                 (
-                    this.Successful == other.Successful ||
-                    this.Successful != null &&
-                    this.Successful.Equals(other.Successful)
+                    this.Successful == input.Successful ||
+                    (this.Successful != null &&
+                    this.Successful.Equals(input.Successful))
                 ) && 
                 (
-                    this.TransactionGateway == other.TransactionGateway ||
-                    this.TransactionGateway != null &&
-                    this.TransactionGateway.Equals(other.TransactionGateway)
+                    this.TransactionGateway == input.TransactionGateway ||
+                    (this.TransactionGateway != null &&
+                    this.TransactionGateway.Equals(input.TransactionGateway))
                 ) && 
                 (
-                    this.TransactionTimestamp == other.TransactionTimestamp ||
-                    this.TransactionTimestamp != null &&
-                    this.TransactionTimestamp.Equals(other.TransactionTimestamp)
+                    this.TransactionTimestamp == input.TransactionTimestamp ||
+                    (this.TransactionTimestamp != null &&
+                    this.TransactionTimestamp.Equals(input.TransactionTimestamp))
                 );
         }
 
@@ -149,20 +147,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
+                    hashCode = hashCode * 59 + this.Details.GetHashCode();
                 if (this.Successful != null)
-                    hash = hash * 59 + this.Successful.GetHashCode();
+                    hashCode = hashCode * 59 + this.Successful.GetHashCode();
                 if (this.TransactionGateway != null)
-                    hash = hash * 59 + this.TransactionGateway.GetHashCode();
+                    hashCode = hashCode * 59 + this.TransactionGateway.GetHashCode();
                 if (this.TransactionTimestamp != null)
-                    hash = hash * 59 + this.TransactionTimestamp.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TransactionTimestamp.GetHashCode();
+                return hashCode;
             }
         }
 

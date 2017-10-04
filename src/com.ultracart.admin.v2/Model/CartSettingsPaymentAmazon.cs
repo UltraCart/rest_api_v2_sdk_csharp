@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSettingsPaymentAmazon);
+            return this.Equals(input as CartSettingsPaymentAmazon);
         }
 
         /// <summary>
         /// Returns true if CartSettingsPaymentAmazon instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSettingsPaymentAmazon to be compared</param>
+        /// <param name="input">Instance of CartSettingsPaymentAmazon to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSettingsPaymentAmazon other)
+        public bool Equals(CartSettingsPaymentAmazon input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AmazonButtonUrl == other.AmazonButtonUrl ||
-                    this.AmazonButtonUrl != null &&
-                    this.AmazonButtonUrl.Equals(other.AmazonButtonUrl)
+                    this.AmazonButtonUrl == input.AmazonButtonUrl ||
+                    (this.AmazonButtonUrl != null &&
+                    this.AmazonButtonUrl.Equals(input.AmazonButtonUrl))
                 ) && 
                 (
-                    this.AmazonMerchantId == other.AmazonMerchantId ||
-                    this.AmazonMerchantId != null &&
-                    this.AmazonMerchantId.Equals(other.AmazonMerchantId)
+                    this.AmazonMerchantId == input.AmazonMerchantId ||
+                    (this.AmazonMerchantId != null &&
+                    this.AmazonMerchantId.Equals(input.AmazonMerchantId))
                 ) && 
                 (
-                    this.AmazonWidgetUrl == other.AmazonWidgetUrl ||
-                    this.AmazonWidgetUrl != null &&
-                    this.AmazonWidgetUrl.Equals(other.AmazonWidgetUrl)
+                    this.AmazonWidgetUrl == input.AmazonWidgetUrl ||
+                    (this.AmazonWidgetUrl != null &&
+                    this.AmazonWidgetUrl.Equals(input.AmazonWidgetUrl))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AmazonButtonUrl != null)
-                    hash = hash * 59 + this.AmazonButtonUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.AmazonButtonUrl.GetHashCode();
                 if (this.AmazonMerchantId != null)
-                    hash = hash * 59 + this.AmazonMerchantId.GetHashCode();
+                    hashCode = hashCode * 59 + this.AmazonMerchantId.GetHashCode();
                 if (this.AmazonWidgetUrl != null)
-                    hash = hash * 59 + this.AmazonWidgetUrl.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.AmazonWidgetUrl.GetHashCode();
+                return hashCode;
             }
         }
 

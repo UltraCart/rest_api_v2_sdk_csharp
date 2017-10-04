@@ -121,55 +121,53 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ResultSet);
+            return this.Equals(input as ResultSet);
         }
 
         /// <summary>
         /// Returns true if ResultSet instances are equal
         /// </summary>
-        /// <param name="other">Instance of ResultSet to be compared</param>
+        /// <param name="input">Instance of ResultSet to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResultSet other)
+        public bool Equals(ResultSet input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Count == other.Count ||
-                    this.Count != null &&
-                    this.Count.Equals(other.Count)
+                    this.Count == input.Count ||
+                    (this.Count != null &&
+                    this.Count.Equals(input.Count))
                 ) && 
                 (
-                    this.Limit == other.Limit ||
-                    this.Limit != null &&
-                    this.Limit.Equals(other.Limit)
+                    this.Limit == input.Limit ||
+                    (this.Limit != null &&
+                    this.Limit.Equals(input.Limit))
                 ) && 
                 (
-                    this.More == other.More ||
-                    this.More != null &&
-                    this.More.Equals(other.More)
+                    this.More == input.More ||
+                    (this.More != null &&
+                    this.More.Equals(input.More))
                 ) && 
                 (
-                    this.NextOffset == other.NextOffset ||
-                    this.NextOffset != null &&
-                    this.NextOffset.Equals(other.NextOffset)
+                    this.NextOffset == input.NextOffset ||
+                    (this.NextOffset != null &&
+                    this.NextOffset.Equals(input.NextOffset))
                 ) && 
                 (
-                    this.Offset == other.Offset ||
-                    this.Offset != null &&
-                    this.Offset.Equals(other.Offset)
+                    this.Offset == input.Offset ||
+                    (this.Offset != null &&
+                    this.Offset.Equals(input.Offset))
                 ) && 
                 (
-                    this.TotalRecords == other.TotalRecords ||
-                    this.TotalRecords != null &&
-                    this.TotalRecords.Equals(other.TotalRecords)
+                    this.TotalRecords == input.TotalRecords ||
+                    (this.TotalRecords != null &&
+                    this.TotalRecords.Equals(input.TotalRecords))
                 );
         }
 
@@ -179,24 +177,22 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Count != null)
-                    hash = hash * 59 + this.Count.GetHashCode();
+                    hashCode = hashCode * 59 + this.Count.GetHashCode();
                 if (this.Limit != null)
-                    hash = hash * 59 + this.Limit.GetHashCode();
+                    hashCode = hashCode * 59 + this.Limit.GetHashCode();
                 if (this.More != null)
-                    hash = hash * 59 + this.More.GetHashCode();
+                    hashCode = hashCode * 59 + this.More.GetHashCode();
                 if (this.NextOffset != null)
-                    hash = hash * 59 + this.NextOffset.GetHashCode();
+                    hashCode = hashCode * 59 + this.NextOffset.GetHashCode();
                 if (this.Offset != null)
-                    hash = hash * 59 + this.Offset.GetHashCode();
+                    hashCode = hashCode * 59 + this.Offset.GetHashCode();
                 if (this.TotalRecords != null)
-                    hash = hash * 59 + this.TotalRecords.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TotalRecords.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartUpsellAfter);
+            return this.Equals(input as CartUpsellAfter);
         }
 
         /// <summary>
         /// Returns true if CartUpsellAfter instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartUpsellAfter to be compared</param>
+        /// <param name="input">Instance of CartUpsellAfter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartUpsellAfter other)
+        public bool Equals(CartUpsellAfter input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.FinalizeAfterDts == other.FinalizeAfterDts ||
-                    this.FinalizeAfterDts != null &&
-                    this.FinalizeAfterDts.Equals(other.FinalizeAfterDts)
+                    this.FinalizeAfterDts == input.FinalizeAfterDts ||
+                    (this.FinalizeAfterDts != null &&
+                    this.FinalizeAfterDts.Equals(input.FinalizeAfterDts))
                 ) && 
                 (
-                    this.FinalizeAfterMinutes == other.FinalizeAfterMinutes ||
-                    this.FinalizeAfterMinutes != null &&
-                    this.FinalizeAfterMinutes.Equals(other.FinalizeAfterMinutes)
+                    this.FinalizeAfterMinutes == input.FinalizeAfterMinutes ||
+                    (this.FinalizeAfterMinutes != null &&
+                    this.FinalizeAfterMinutes.Equals(input.FinalizeAfterMinutes))
                 ) && 
                 (
-                    this.UpsellPathCode == other.UpsellPathCode ||
-                    this.UpsellPathCode != null &&
-                    this.UpsellPathCode.Equals(other.UpsellPathCode)
+                    this.UpsellPathCode == input.UpsellPathCode ||
+                    (this.UpsellPathCode != null &&
+                    this.UpsellPathCode.Equals(input.UpsellPathCode))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.FinalizeAfterDts != null)
-                    hash = hash * 59 + this.FinalizeAfterDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.FinalizeAfterDts.GetHashCode();
                 if (this.FinalizeAfterMinutes != null)
-                    hash = hash * 59 + this.FinalizeAfterMinutes.GetHashCode();
+                    hashCode = hashCode * 59 + this.FinalizeAfterMinutes.GetHashCode();
                 if (this.UpsellPathCode != null)
-                    hash = hash * 59 + this.UpsellPathCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UpsellPathCode.GetHashCode();
+                return hashCode;
             }
         }
 

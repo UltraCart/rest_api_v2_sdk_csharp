@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ApiUserApplicationProfile);
+            return this.Equals(input as ApiUserApplicationProfile);
         }
 
         /// <summary>
         /// Returns true if ApiUserApplicationProfile instances are equal
         /// </summary>
-        /// <param name="other">Instance of ApiUserApplicationProfile to be compared</param>
+        /// <param name="input">Instance of ApiUserApplicationProfile to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ApiUserApplicationProfile other)
+        public bool Equals(ApiUserApplicationProfile input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ApiApplicationLogoUrl == other.ApiApplicationLogoUrl ||
-                    this.ApiApplicationLogoUrl != null &&
-                    this.ApiApplicationLogoUrl.Equals(other.ApiApplicationLogoUrl)
+                    this.ApiApplicationLogoUrl == input.ApiApplicationLogoUrl ||
+                    (this.ApiApplicationLogoUrl != null &&
+                    this.ApiApplicationLogoUrl.Equals(input.ApiApplicationLogoUrl))
                 ) && 
                 (
-                    this.ApplicationDescription == other.ApplicationDescription ||
-                    this.ApplicationDescription != null &&
-                    this.ApplicationDescription.Equals(other.ApplicationDescription)
+                    this.ApplicationDescription == input.ApplicationDescription ||
+                    (this.ApplicationDescription != null &&
+                    this.ApplicationDescription.Equals(input.ApplicationDescription))
                 ) && 
                 (
-                    this.ApplicationName == other.ApplicationName ||
-                    this.ApplicationName != null &&
-                    this.ApplicationName.Equals(other.ApplicationName)
+                    this.ApplicationName == input.ApplicationName ||
+                    (this.ApplicationName != null &&
+                    this.ApplicationName.Equals(input.ApplicationName))
                 ) && 
                 (
-                    this.DeveloperName == other.DeveloperName ||
-                    this.DeveloperName != null &&
-                    this.DeveloperName.Equals(other.DeveloperName)
+                    this.DeveloperName == input.DeveloperName ||
+                    (this.DeveloperName != null &&
+                    this.DeveloperName.Equals(input.DeveloperName))
                 ) && 
                 (
-                    this.DeveloperWebsite == other.DeveloperWebsite ||
-                    this.DeveloperWebsite != null &&
-                    this.DeveloperWebsite.Equals(other.DeveloperWebsite)
+                    this.DeveloperWebsite == input.DeveloperWebsite ||
+                    (this.DeveloperWebsite != null &&
+                    this.DeveloperWebsite.Equals(input.DeveloperWebsite))
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ApiApplicationLogoUrl != null)
-                    hash = hash * 59 + this.ApiApplicationLogoUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.ApiApplicationLogoUrl.GetHashCode();
                 if (this.ApplicationDescription != null)
-                    hash = hash * 59 + this.ApplicationDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.ApplicationDescription.GetHashCode();
                 if (this.ApplicationName != null)
-                    hash = hash * 59 + this.ApplicationName.GetHashCode();
+                    hashCode = hashCode * 59 + this.ApplicationName.GetHashCode();
                 if (this.DeveloperName != null)
-                    hash = hash * 59 + this.DeveloperName.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeveloperName.GetHashCode();
                 if (this.DeveloperWebsite != null)
-                    hash = hash * 59 + this.DeveloperWebsite.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.DeveloperWebsite.GetHashCode();
+                return hashCode;
             }
         }
 

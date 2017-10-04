@@ -151,70 +151,68 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartPaymentCreditCard);
+            return this.Equals(input as CartPaymentCreditCard);
         }
 
         /// <summary>
         /// Returns true if CartPaymentCreditCard instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartPaymentCreditCard to be compared</param>
+        /// <param name="input">Instance of CartPaymentCreditCard to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartPaymentCreditCard other)
+        public bool Equals(CartPaymentCreditCard input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CardExpirationMonth == other.CardExpirationMonth ||
-                    this.CardExpirationMonth != null &&
-                    this.CardExpirationMonth.Equals(other.CardExpirationMonth)
+                    this.CardExpirationMonth == input.CardExpirationMonth ||
+                    (this.CardExpirationMonth != null &&
+                    this.CardExpirationMonth.Equals(input.CardExpirationMonth))
                 ) && 
                 (
-                    this.CardExpirationYear == other.CardExpirationYear ||
-                    this.CardExpirationYear != null &&
-                    this.CardExpirationYear.Equals(other.CardExpirationYear)
+                    this.CardExpirationYear == input.CardExpirationYear ||
+                    (this.CardExpirationYear != null &&
+                    this.CardExpirationYear.Equals(input.CardExpirationYear))
                 ) && 
                 (
-                    this.CardNumber == other.CardNumber ||
-                    this.CardNumber != null &&
-                    this.CardNumber.Equals(other.CardNumber)
+                    this.CardNumber == input.CardNumber ||
+                    (this.CardNumber != null &&
+                    this.CardNumber.Equals(input.CardNumber))
                 ) && 
                 (
-                    this.CardNumberToken == other.CardNumberToken ||
-                    this.CardNumberToken != null &&
-                    this.CardNumberToken.Equals(other.CardNumberToken)
+                    this.CardNumberToken == input.CardNumberToken ||
+                    (this.CardNumberToken != null &&
+                    this.CardNumberToken.Equals(input.CardNumberToken))
                 ) && 
                 (
-                    this.CardType == other.CardType ||
-                    this.CardType != null &&
-                    this.CardType.Equals(other.CardType)
+                    this.CardType == input.CardType ||
+                    (this.CardType != null &&
+                    this.CardType.Equals(input.CardType))
                 ) && 
                 (
-                    this.CardVerificationNumber == other.CardVerificationNumber ||
-                    this.CardVerificationNumber != null &&
-                    this.CardVerificationNumber.Equals(other.CardVerificationNumber)
+                    this.CardVerificationNumber == input.CardVerificationNumber ||
+                    (this.CardVerificationNumber != null &&
+                    this.CardVerificationNumber.Equals(input.CardVerificationNumber))
                 ) && 
                 (
-                    this.CardVerificationNumberToken == other.CardVerificationNumberToken ||
-                    this.CardVerificationNumberToken != null &&
-                    this.CardVerificationNumberToken.Equals(other.CardVerificationNumberToken)
+                    this.CardVerificationNumberToken == input.CardVerificationNumberToken ||
+                    (this.CardVerificationNumberToken != null &&
+                    this.CardVerificationNumberToken.Equals(input.CardVerificationNumberToken))
                 ) && 
                 (
-                    this.CustomerProfileCreditCardId == other.CustomerProfileCreditCardId ||
-                    this.CustomerProfileCreditCardId != null &&
-                    this.CustomerProfileCreditCardId.Equals(other.CustomerProfileCreditCardId)
+                    this.CustomerProfileCreditCardId == input.CustomerProfileCreditCardId ||
+                    (this.CustomerProfileCreditCardId != null &&
+                    this.CustomerProfileCreditCardId.Equals(input.CustomerProfileCreditCardId))
                 ) && 
                 (
-                    this.StoreCreditCard == other.StoreCreditCard ||
-                    this.StoreCreditCard != null &&
-                    this.StoreCreditCard.Equals(other.StoreCreditCard)
+                    this.StoreCreditCard == input.StoreCreditCard ||
+                    (this.StoreCreditCard != null &&
+                    this.StoreCreditCard.Equals(input.StoreCreditCard))
                 );
         }
 
@@ -224,30 +222,28 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CardExpirationMonth != null)
-                    hash = hash * 59 + this.CardExpirationMonth.GetHashCode();
+                    hashCode = hashCode * 59 + this.CardExpirationMonth.GetHashCode();
                 if (this.CardExpirationYear != null)
-                    hash = hash * 59 + this.CardExpirationYear.GetHashCode();
+                    hashCode = hashCode * 59 + this.CardExpirationYear.GetHashCode();
                 if (this.CardNumber != null)
-                    hash = hash * 59 + this.CardNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.CardNumber.GetHashCode();
                 if (this.CardNumberToken != null)
-                    hash = hash * 59 + this.CardNumberToken.GetHashCode();
+                    hashCode = hashCode * 59 + this.CardNumberToken.GetHashCode();
                 if (this.CardType != null)
-                    hash = hash * 59 + this.CardType.GetHashCode();
+                    hashCode = hashCode * 59 + this.CardType.GetHashCode();
                 if (this.CardVerificationNumber != null)
-                    hash = hash * 59 + this.CardVerificationNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.CardVerificationNumber.GetHashCode();
                 if (this.CardVerificationNumberToken != null)
-                    hash = hash * 59 + this.CardVerificationNumberToken.GetHashCode();
+                    hashCode = hashCode * 59 + this.CardVerificationNumberToken.GetHashCode();
                 if (this.CustomerProfileCreditCardId != null)
-                    hash = hash * 59 + this.CustomerProfileCreditCardId.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomerProfileCreditCardId.GetHashCode();
                 if (this.StoreCreditCard != null)
-                    hash = hash * 59 + this.StoreCreditCard.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.StoreCreditCard.GetHashCode();
+                return hashCode;
             }
         }
 

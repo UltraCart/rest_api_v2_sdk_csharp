@@ -256,105 +256,103 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Webhook);
+            return this.Equals(input as Webhook);
         }
 
         /// <summary>
         /// Returns true if Webhook instances are equal
         /// </summary>
-        /// <param name="other">Instance of Webhook to be compared</param>
+        /// <param name="input">Instance of Webhook to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Webhook other)
+        public bool Equals(Webhook input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ApiUserOid == other.ApiUserOid ||
-                    this.ApiUserOid != null &&
-                    this.ApiUserOid.Equals(other.ApiUserOid)
+                    this.ApiUserOid == input.ApiUserOid ||
+                    (this.ApiUserOid != null &&
+                    this.ApiUserOid.Equals(input.ApiUserOid))
                 ) && 
                 (
-                    this.ApiVersion == other.ApiVersion ||
-                    this.ApiVersion != null &&
-                    this.ApiVersion.Equals(other.ApiVersion)
+                    this.ApiVersion == input.ApiVersion ||
+                    (this.ApiVersion != null &&
+                    this.ApiVersion.Equals(input.ApiVersion))
                 ) && 
                 (
-                    this.ApplicationProfile == other.ApplicationProfile ||
-                    this.ApplicationProfile != null &&
-                    this.ApplicationProfile.Equals(other.ApplicationProfile)
+                    this.ApplicationProfile == input.ApplicationProfile ||
+                    (this.ApplicationProfile != null &&
+                    this.ApplicationProfile.Equals(input.ApplicationProfile))
                 ) && 
                 (
-                    this.AuthenticationType == other.AuthenticationType ||
-                    this.AuthenticationType != null &&
-                    this.AuthenticationType.Equals(other.AuthenticationType)
+                    this.AuthenticationType == input.AuthenticationType ||
+                    (this.AuthenticationType != null &&
+                    this.AuthenticationType.Equals(input.AuthenticationType))
                 ) && 
                 (
-                    this.BasicPassword == other.BasicPassword ||
-                    this.BasicPassword != null &&
-                    this.BasicPassword.Equals(other.BasicPassword)
+                    this.BasicPassword == input.BasicPassword ||
+                    (this.BasicPassword != null &&
+                    this.BasicPassword.Equals(input.BasicPassword))
                 ) && 
                 (
-                    this.BasicUsername == other.BasicUsername ||
-                    this.BasicUsername != null &&
-                    this.BasicUsername.Equals(other.BasicUsername)
+                    this.BasicUsername == input.BasicUsername ||
+                    (this.BasicUsername != null &&
+                    this.BasicUsername.Equals(input.BasicUsername))
                 ) && 
                 (
-                    this.ConsecutiveFailures == other.ConsecutiveFailures ||
-                    this.ConsecutiveFailures != null &&
-                    this.ConsecutiveFailures.Equals(other.ConsecutiveFailures)
+                    this.ConsecutiveFailures == input.ConsecutiveFailures ||
+                    (this.ConsecutiveFailures != null &&
+                    this.ConsecutiveFailures.Equals(input.ConsecutiveFailures))
                 ) && 
                 (
-                    this.Disabled == other.Disabled ||
-                    this.Disabled != null &&
-                    this.Disabled.Equals(other.Disabled)
+                    this.Disabled == input.Disabled ||
+                    (this.Disabled != null &&
+                    this.Disabled.Equals(input.Disabled))
                 ) && 
                 (
-                    this.EventCategories == other.EventCategories ||
+                    this.EventCategories == input.EventCategories ||
                     this.EventCategories != null &&
-                    this.EventCategories.SequenceEqual(other.EventCategories)
+                    this.EventCategories.SequenceEqual(input.EventCategories)
                 ) && 
                 (
-                    this.MaximumEvents == other.MaximumEvents ||
-                    this.MaximumEvents != null &&
-                    this.MaximumEvents.Equals(other.MaximumEvents)
+                    this.MaximumEvents == input.MaximumEvents ||
+                    (this.MaximumEvents != null &&
+                    this.MaximumEvents.Equals(input.MaximumEvents))
                 ) && 
                 (
-                    this.MaximumSize == other.MaximumSize ||
-                    this.MaximumSize != null &&
-                    this.MaximumSize.Equals(other.MaximumSize)
+                    this.MaximumSize == input.MaximumSize ||
+                    (this.MaximumSize != null &&
+                    this.MaximumSize.Equals(input.MaximumSize))
                 ) && 
                 (
-                    this.MerchantId == other.MerchantId ||
-                    this.MerchantId != null &&
-                    this.MerchantId.Equals(other.MerchantId)
+                    this.MerchantId == input.MerchantId ||
+                    (this.MerchantId != null &&
+                    this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
-                    this.NextRetryAfter == other.NextRetryAfter ||
-                    this.NextRetryAfter != null &&
-                    this.NextRetryAfter.Equals(other.NextRetryAfter)
+                    this.NextRetryAfter == input.NextRetryAfter ||
+                    (this.NextRetryAfter != null &&
+                    this.NextRetryAfter.Equals(input.NextRetryAfter))
                 ) && 
                 (
-                    this.Pending == other.Pending ||
-                    this.Pending != null &&
-                    this.Pending.Equals(other.Pending)
+                    this.Pending == input.Pending ||
+                    (this.Pending != null &&
+                    this.Pending.Equals(input.Pending))
                 ) && 
                 (
-                    this.WebhookOid == other.WebhookOid ||
-                    this.WebhookOid != null &&
-                    this.WebhookOid.Equals(other.WebhookOid)
+                    this.WebhookOid == input.WebhookOid ||
+                    (this.WebhookOid != null &&
+                    this.WebhookOid.Equals(input.WebhookOid))
                 ) && 
                 (
-                    this.WebhookUrl == other.WebhookUrl ||
-                    this.WebhookUrl != null &&
-                    this.WebhookUrl.Equals(other.WebhookUrl)
+                    this.WebhookUrl == input.WebhookUrl ||
+                    (this.WebhookUrl != null &&
+                    this.WebhookUrl.Equals(input.WebhookUrl))
                 );
         }
 
@@ -364,44 +362,42 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ApiUserOid != null)
-                    hash = hash * 59 + this.ApiUserOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ApiUserOid.GetHashCode();
                 if (this.ApiVersion != null)
-                    hash = hash * 59 + this.ApiVersion.GetHashCode();
+                    hashCode = hashCode * 59 + this.ApiVersion.GetHashCode();
                 if (this.ApplicationProfile != null)
-                    hash = hash * 59 + this.ApplicationProfile.GetHashCode();
+                    hashCode = hashCode * 59 + this.ApplicationProfile.GetHashCode();
                 if (this.AuthenticationType != null)
-                    hash = hash * 59 + this.AuthenticationType.GetHashCode();
+                    hashCode = hashCode * 59 + this.AuthenticationType.GetHashCode();
                 if (this.BasicPassword != null)
-                    hash = hash * 59 + this.BasicPassword.GetHashCode();
+                    hashCode = hashCode * 59 + this.BasicPassword.GetHashCode();
                 if (this.BasicUsername != null)
-                    hash = hash * 59 + this.BasicUsername.GetHashCode();
+                    hashCode = hashCode * 59 + this.BasicUsername.GetHashCode();
                 if (this.ConsecutiveFailures != null)
-                    hash = hash * 59 + this.ConsecutiveFailures.GetHashCode();
+                    hashCode = hashCode * 59 + this.ConsecutiveFailures.GetHashCode();
                 if (this.Disabled != null)
-                    hash = hash * 59 + this.Disabled.GetHashCode();
+                    hashCode = hashCode * 59 + this.Disabled.GetHashCode();
                 if (this.EventCategories != null)
-                    hash = hash * 59 + this.EventCategories.GetHashCode();
+                    hashCode = hashCode * 59 + this.EventCategories.GetHashCode();
                 if (this.MaximumEvents != null)
-                    hash = hash * 59 + this.MaximumEvents.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaximumEvents.GetHashCode();
                 if (this.MaximumSize != null)
-                    hash = hash * 59 + this.MaximumSize.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaximumSize.GetHashCode();
                 if (this.MerchantId != null)
-                    hash = hash * 59 + this.MerchantId.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.NextRetryAfter != null)
-                    hash = hash * 59 + this.NextRetryAfter.GetHashCode();
+                    hashCode = hashCode * 59 + this.NextRetryAfter.GetHashCode();
                 if (this.Pending != null)
-                    hash = hash * 59 + this.Pending.GetHashCode();
+                    hashCode = hashCode * 59 + this.Pending.GetHashCode();
                 if (this.WebhookOid != null)
-                    hash = hash * 59 + this.WebhookOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.WebhookOid.GetHashCode();
                 if (this.WebhookUrl != null)
-                    hash = hash * 59 + this.WebhookUrl.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.WebhookUrl.GetHashCode();
+                return hashCode;
             }
         }
 

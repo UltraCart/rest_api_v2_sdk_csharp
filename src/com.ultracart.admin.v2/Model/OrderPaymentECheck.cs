@@ -203,75 +203,73 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderPaymentECheck);
+            return this.Equals(input as OrderPaymentECheck);
         }
 
         /// <summary>
         /// Returns true if OrderPaymentECheck instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderPaymentECheck to be compared</param>
+        /// <param name="input">Instance of OrderPaymentECheck to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderPaymentECheck other)
+        public bool Equals(OrderPaymentECheck input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.BankAbaCode == other.BankAbaCode ||
-                    this.BankAbaCode != null &&
-                    this.BankAbaCode.Equals(other.BankAbaCode)
+                    this.BankAbaCode == input.BankAbaCode ||
+                    (this.BankAbaCode != null &&
+                    this.BankAbaCode.Equals(input.BankAbaCode))
                 ) && 
                 (
-                    this.BankAccountName == other.BankAccountName ||
-                    this.BankAccountName != null &&
-                    this.BankAccountName.Equals(other.BankAccountName)
+                    this.BankAccountName == input.BankAccountName ||
+                    (this.BankAccountName != null &&
+                    this.BankAccountName.Equals(input.BankAccountName))
                 ) && 
                 (
-                    this.BankAccountNumber == other.BankAccountNumber ||
-                    this.BankAccountNumber != null &&
-                    this.BankAccountNumber.Equals(other.BankAccountNumber)
+                    this.BankAccountNumber == input.BankAccountNumber ||
+                    (this.BankAccountNumber != null &&
+                    this.BankAccountNumber.Equals(input.BankAccountNumber))
                 ) && 
                 (
-                    this.BankAccountType == other.BankAccountType ||
-                    this.BankAccountType != null &&
-                    this.BankAccountType.Equals(other.BankAccountType)
+                    this.BankAccountType == input.BankAccountType ||
+                    (this.BankAccountType != null &&
+                    this.BankAccountType.Equals(input.BankAccountType))
                 ) && 
                 (
-                    this.BankName == other.BankName ||
-                    this.BankName != null &&
-                    this.BankName.Equals(other.BankName)
+                    this.BankName == input.BankName ||
+                    (this.BankName != null &&
+                    this.BankName.Equals(input.BankName))
                 ) && 
                 (
-                    this.BankOwnerType == other.BankOwnerType ||
-                    this.BankOwnerType != null &&
-                    this.BankOwnerType.Equals(other.BankOwnerType)
+                    this.BankOwnerType == input.BankOwnerType ||
+                    (this.BankOwnerType != null &&
+                    this.BankOwnerType.Equals(input.BankOwnerType))
                 ) && 
                 (
-                    this.CustomerTaxId == other.CustomerTaxId ||
-                    this.CustomerTaxId != null &&
-                    this.CustomerTaxId.Equals(other.CustomerTaxId)
+                    this.CustomerTaxId == input.CustomerTaxId ||
+                    (this.CustomerTaxId != null &&
+                    this.CustomerTaxId.Equals(input.CustomerTaxId))
                 ) && 
                 (
-                    this.DriversLicenseDob == other.DriversLicenseDob ||
-                    this.DriversLicenseDob != null &&
-                    this.DriversLicenseDob.Equals(other.DriversLicenseDob)
+                    this.DriversLicenseDob == input.DriversLicenseDob ||
+                    (this.DriversLicenseDob != null &&
+                    this.DriversLicenseDob.Equals(input.DriversLicenseDob))
                 ) && 
                 (
-                    this.DriversLicenseNumber == other.DriversLicenseNumber ||
-                    this.DriversLicenseNumber != null &&
-                    this.DriversLicenseNumber.Equals(other.DriversLicenseNumber)
+                    this.DriversLicenseNumber == input.DriversLicenseNumber ||
+                    (this.DriversLicenseNumber != null &&
+                    this.DriversLicenseNumber.Equals(input.DriversLicenseNumber))
                 ) && 
                 (
-                    this.DriversLicenseState == other.DriversLicenseState ||
-                    this.DriversLicenseState != null &&
-                    this.DriversLicenseState.Equals(other.DriversLicenseState)
+                    this.DriversLicenseState == input.DriversLicenseState ||
+                    (this.DriversLicenseState != null &&
+                    this.DriversLicenseState.Equals(input.DriversLicenseState))
                 );
         }
 
@@ -281,32 +279,30 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.BankAbaCode != null)
-                    hash = hash * 59 + this.BankAbaCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.BankAbaCode.GetHashCode();
                 if (this.BankAccountName != null)
-                    hash = hash * 59 + this.BankAccountName.GetHashCode();
+                    hashCode = hashCode * 59 + this.BankAccountName.GetHashCode();
                 if (this.BankAccountNumber != null)
-                    hash = hash * 59 + this.BankAccountNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.BankAccountNumber.GetHashCode();
                 if (this.BankAccountType != null)
-                    hash = hash * 59 + this.BankAccountType.GetHashCode();
+                    hashCode = hashCode * 59 + this.BankAccountType.GetHashCode();
                 if (this.BankName != null)
-                    hash = hash * 59 + this.BankName.GetHashCode();
+                    hashCode = hashCode * 59 + this.BankName.GetHashCode();
                 if (this.BankOwnerType != null)
-                    hash = hash * 59 + this.BankOwnerType.GetHashCode();
+                    hashCode = hashCode * 59 + this.BankOwnerType.GetHashCode();
                 if (this.CustomerTaxId != null)
-                    hash = hash * 59 + this.CustomerTaxId.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomerTaxId.GetHashCode();
                 if (this.DriversLicenseDob != null)
-                    hash = hash * 59 + this.DriversLicenseDob.GetHashCode();
+                    hashCode = hashCode * 59 + this.DriversLicenseDob.GetHashCode();
                 if (this.DriversLicenseNumber != null)
-                    hash = hash * 59 + this.DriversLicenseNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.DriversLicenseNumber.GetHashCode();
                 if (this.DriversLicenseState != null)
-                    hash = hash * 59 + this.DriversLicenseState.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.DriversLicenseState.GetHashCode();
+                return hashCode;
             }
         }
 

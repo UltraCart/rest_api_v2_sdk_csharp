@@ -205,105 +205,103 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSummary);
+            return this.Equals(input as CartSummary);
         }
 
         /// <summary>
         /// Returns true if CartSummary instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSummary to be compared</param>
+        /// <param name="input">Instance of CartSummary to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSummary other)
+        public bool Equals(CartSummary input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ArbitraryShippingHandlingTotal == other.ArbitraryShippingHandlingTotal ||
-                    this.ArbitraryShippingHandlingTotal != null &&
-                    this.ArbitraryShippingHandlingTotal.Equals(other.ArbitraryShippingHandlingTotal)
+                    this.ArbitraryShippingHandlingTotal == input.ArbitraryShippingHandlingTotal ||
+                    (this.ArbitraryShippingHandlingTotal != null &&
+                    this.ArbitraryShippingHandlingTotal.Equals(input.ArbitraryShippingHandlingTotal))
                 ) && 
                 (
-                    this.ArbitraryTax == other.ArbitraryTax ||
-                    this.ArbitraryTax != null &&
-                    this.ArbitraryTax.Equals(other.ArbitraryTax)
+                    this.ArbitraryTax == input.ArbitraryTax ||
+                    (this.ArbitraryTax != null &&
+                    this.ArbitraryTax.Equals(input.ArbitraryTax))
                 ) && 
                 (
-                    this.ArbitraryTaxRate == other.ArbitraryTaxRate ||
-                    this.ArbitraryTaxRate != null &&
-                    this.ArbitraryTaxRate.Equals(other.ArbitraryTaxRate)
+                    this.ArbitraryTaxRate == input.ArbitraryTaxRate ||
+                    (this.ArbitraryTaxRate != null &&
+                    this.ArbitraryTaxRate.Equals(input.ArbitraryTaxRate))
                 ) && 
                 (
-                    this.ArbitraryTaxableSubtotal == other.ArbitraryTaxableSubtotal ||
-                    this.ArbitraryTaxableSubtotal != null &&
-                    this.ArbitraryTaxableSubtotal.Equals(other.ArbitraryTaxableSubtotal)
+                    this.ArbitraryTaxableSubtotal == input.ArbitraryTaxableSubtotal ||
+                    (this.ArbitraryTaxableSubtotal != null &&
+                    this.ArbitraryTaxableSubtotal.Equals(input.ArbitraryTaxableSubtotal))
                 ) && 
                 (
-                    this.ShippingHandling == other.ShippingHandling ||
-                    this.ShippingHandling != null &&
-                    this.ShippingHandling.Equals(other.ShippingHandling)
+                    this.ShippingHandling == input.ShippingHandling ||
+                    (this.ShippingHandling != null &&
+                    this.ShippingHandling.Equals(input.ShippingHandling))
                 ) && 
                 (
-                    this.ShippingHandlingDiscount == other.ShippingHandlingDiscount ||
-                    this.ShippingHandlingDiscount != null &&
-                    this.ShippingHandlingDiscount.Equals(other.ShippingHandlingDiscount)
+                    this.ShippingHandlingDiscount == input.ShippingHandlingDiscount ||
+                    (this.ShippingHandlingDiscount != null &&
+                    this.ShippingHandlingDiscount.Equals(input.ShippingHandlingDiscount))
                 ) && 
                 (
-                    this.ShippingHandlingWithDiscount == other.ShippingHandlingWithDiscount ||
-                    this.ShippingHandlingWithDiscount != null &&
-                    this.ShippingHandlingWithDiscount.Equals(other.ShippingHandlingWithDiscount)
+                    this.ShippingHandlingWithDiscount == input.ShippingHandlingWithDiscount ||
+                    (this.ShippingHandlingWithDiscount != null &&
+                    this.ShippingHandlingWithDiscount.Equals(input.ShippingHandlingWithDiscount))
                 ) && 
                 (
-                    this.Subtotal == other.Subtotal ||
-                    this.Subtotal != null &&
-                    this.Subtotal.Equals(other.Subtotal)
+                    this.Subtotal == input.Subtotal ||
+                    (this.Subtotal != null &&
+                    this.Subtotal.Equals(input.Subtotal))
                 ) && 
                 (
-                    this.SubtotalDiscount == other.SubtotalDiscount ||
-                    this.SubtotalDiscount != null &&
-                    this.SubtotalDiscount.Equals(other.SubtotalDiscount)
+                    this.SubtotalDiscount == input.SubtotalDiscount ||
+                    (this.SubtotalDiscount != null &&
+                    this.SubtotalDiscount.Equals(input.SubtotalDiscount))
                 ) && 
                 (
-                    this.SubtotalWithDiscount == other.SubtotalWithDiscount ||
-                    this.SubtotalWithDiscount != null &&
-                    this.SubtotalWithDiscount.Equals(other.SubtotalWithDiscount)
+                    this.SubtotalWithDiscount == input.SubtotalWithDiscount ||
+                    (this.SubtotalWithDiscount != null &&
+                    this.SubtotalWithDiscount.Equals(input.SubtotalWithDiscount))
                 ) && 
                 (
-                    this.Surcharge == other.Surcharge ||
-                    this.Surcharge != null &&
-                    this.Surcharge.Equals(other.Surcharge)
+                    this.Surcharge == input.Surcharge ||
+                    (this.Surcharge != null &&
+                    this.Surcharge.Equals(input.Surcharge))
                 ) && 
                 (
-                    this.Tax == other.Tax ||
-                    this.Tax != null &&
-                    this.Tax.Equals(other.Tax)
+                    this.Tax == input.Tax ||
+                    (this.Tax != null &&
+                    this.Tax.Equals(input.Tax))
                 ) && 
                 (
-                    this.TaxableSubtotal == other.TaxableSubtotal ||
-                    this.TaxableSubtotal != null &&
-                    this.TaxableSubtotal.Equals(other.TaxableSubtotal)
+                    this.TaxableSubtotal == input.TaxableSubtotal ||
+                    (this.TaxableSubtotal != null &&
+                    this.TaxableSubtotal.Equals(input.TaxableSubtotal))
                 ) && 
                 (
-                    this.TaxableSubtotalDiscount == other.TaxableSubtotalDiscount ||
-                    this.TaxableSubtotalDiscount != null &&
-                    this.TaxableSubtotalDiscount.Equals(other.TaxableSubtotalDiscount)
+                    this.TaxableSubtotalDiscount == input.TaxableSubtotalDiscount ||
+                    (this.TaxableSubtotalDiscount != null &&
+                    this.TaxableSubtotalDiscount.Equals(input.TaxableSubtotalDiscount))
                 ) && 
                 (
-                    this.TaxableSubtotalWithDiscount == other.TaxableSubtotalWithDiscount ||
-                    this.TaxableSubtotalWithDiscount != null &&
-                    this.TaxableSubtotalWithDiscount.Equals(other.TaxableSubtotalWithDiscount)
+                    this.TaxableSubtotalWithDiscount == input.TaxableSubtotalWithDiscount ||
+                    (this.TaxableSubtotalWithDiscount != null &&
+                    this.TaxableSubtotalWithDiscount.Equals(input.TaxableSubtotalWithDiscount))
                 ) && 
                 (
-                    this.Total == other.Total ||
-                    this.Total != null &&
-                    this.Total.Equals(other.Total)
+                    this.Total == input.Total ||
+                    (this.Total != null &&
+                    this.Total.Equals(input.Total))
                 );
         }
 
@@ -313,44 +311,42 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ArbitraryShippingHandlingTotal != null)
-                    hash = hash * 59 + this.ArbitraryShippingHandlingTotal.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryShippingHandlingTotal.GetHashCode();
                 if (this.ArbitraryTax != null)
-                    hash = hash * 59 + this.ArbitraryTax.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryTax.GetHashCode();
                 if (this.ArbitraryTaxRate != null)
-                    hash = hash * 59 + this.ArbitraryTaxRate.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryTaxRate.GetHashCode();
                 if (this.ArbitraryTaxableSubtotal != null)
-                    hash = hash * 59 + this.ArbitraryTaxableSubtotal.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryTaxableSubtotal.GetHashCode();
                 if (this.ShippingHandling != null)
-                    hash = hash * 59 + this.ShippingHandling.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingHandling.GetHashCode();
                 if (this.ShippingHandlingDiscount != null)
-                    hash = hash * 59 + this.ShippingHandlingDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingHandlingDiscount.GetHashCode();
                 if (this.ShippingHandlingWithDiscount != null)
-                    hash = hash * 59 + this.ShippingHandlingWithDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingHandlingWithDiscount.GetHashCode();
                 if (this.Subtotal != null)
-                    hash = hash * 59 + this.Subtotal.GetHashCode();
+                    hashCode = hashCode * 59 + this.Subtotal.GetHashCode();
                 if (this.SubtotalDiscount != null)
-                    hash = hash * 59 + this.SubtotalDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubtotalDiscount.GetHashCode();
                 if (this.SubtotalWithDiscount != null)
-                    hash = hash * 59 + this.SubtotalWithDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubtotalWithDiscount.GetHashCode();
                 if (this.Surcharge != null)
-                    hash = hash * 59 + this.Surcharge.GetHashCode();
+                    hashCode = hashCode * 59 + this.Surcharge.GetHashCode();
                 if (this.Tax != null)
-                    hash = hash * 59 + this.Tax.GetHashCode();
+                    hashCode = hashCode * 59 + this.Tax.GetHashCode();
                 if (this.TaxableSubtotal != null)
-                    hash = hash * 59 + this.TaxableSubtotal.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxableSubtotal.GetHashCode();
                 if (this.TaxableSubtotalDiscount != null)
-                    hash = hash * 59 + this.TaxableSubtotalDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxableSubtotalDiscount.GetHashCode();
                 if (this.TaxableSubtotalWithDiscount != null)
-                    hash = hash * 59 + this.TaxableSubtotalWithDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxableSubtotalWithDiscount.GetHashCode();
                 if (this.Total != null)
-                    hash = hash * 59 + this.Total.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Total.GetHashCode();
+                return hashCode;
             }
         }
 

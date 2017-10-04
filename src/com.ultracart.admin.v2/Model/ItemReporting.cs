@@ -81,35 +81,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemReporting);
+            return this.Equals(input as ItemReporting);
         }
 
         /// <summary>
         /// Returns true if ItemReporting instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemReporting to be compared</param>
+        /// <param name="input">Instance of ItemReporting to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemReporting other)
+        public bool Equals(ItemReporting input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ReportAsUpsell == other.ReportAsUpsell ||
-                    this.ReportAsUpsell != null &&
-                    this.ReportAsUpsell.Equals(other.ReportAsUpsell)
+                    this.ReportAsUpsell == input.ReportAsUpsell ||
+                    (this.ReportAsUpsell != null &&
+                    this.ReportAsUpsell.Equals(input.ReportAsUpsell))
                 ) && 
                 (
-                    this.ReportPickableQuantities == other.ReportPickableQuantities ||
+                    this.ReportPickableQuantities == input.ReportPickableQuantities ||
                     this.ReportPickableQuantities != null &&
-                    this.ReportPickableQuantities.SequenceEqual(other.ReportPickableQuantities)
+                    this.ReportPickableQuantities.SequenceEqual(input.ReportPickableQuantities)
                 );
         }
 
@@ -119,16 +117,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ReportAsUpsell != null)
-                    hash = hash * 59 + this.ReportAsUpsell.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReportAsUpsell.GetHashCode();
                 if (this.ReportPickableQuantities != null)
-                    hash = hash * 59 + this.ReportPickableQuantities.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ReportPickableQuantities.GetHashCode();
+                return hashCode;
             }
         }
 

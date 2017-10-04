@@ -81,35 +81,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartAffiliate);
+            return this.Equals(input as CartAffiliate);
         }
 
         /// <summary>
         /// Returns true if CartAffiliate instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartAffiliate to be compared</param>
+        /// <param name="input">Instance of CartAffiliate to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartAffiliate other)
+        public bool Equals(CartAffiliate input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AffiliateId == other.AffiliateId ||
-                    this.AffiliateId != null &&
-                    this.AffiliateId.Equals(other.AffiliateId)
+                    this.AffiliateId == input.AffiliateId ||
+                    (this.AffiliateId != null &&
+                    this.AffiliateId.Equals(input.AffiliateId))
                 ) && 
                 (
-                    this.AffiliateSubId == other.AffiliateSubId ||
-                    this.AffiliateSubId != null &&
-                    this.AffiliateSubId.Equals(other.AffiliateSubId)
+                    this.AffiliateSubId == input.AffiliateSubId ||
+                    (this.AffiliateSubId != null &&
+                    this.AffiliateSubId.Equals(input.AffiliateSubId))
                 );
         }
 
@@ -119,16 +117,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AffiliateId != null)
-                    hash = hash * 59 + this.AffiliateId.GetHashCode();
+                    hashCode = hashCode * 59 + this.AffiliateId.GetHashCode();
                 if (this.AffiliateSubId != null)
-                    hash = hash * 59 + this.AffiliateSubId.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.AffiliateSubId.GetHashCode();
+                return hashCode;
             }
         }
 

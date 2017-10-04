@@ -192,50 +192,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemThirdPartyEmailMarketing);
+            return this.Equals(input as ItemThirdPartyEmailMarketing);
         }
 
         /// <summary>
         /// Returns true if ItemThirdPartyEmailMarketing instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemThirdPartyEmailMarketing to be compared</param>
+        /// <param name="input">Instance of ItemThirdPartyEmailMarketing to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemThirdPartyEmailMarketing other)
+        public bool Equals(ItemThirdPartyEmailMarketing input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AddTags == other.AddTags ||
+                    this.AddTags == input.AddTags ||
                     this.AddTags != null &&
-                    this.AddTags.SequenceEqual(other.AddTags)
+                    this.AddTags.SequenceEqual(input.AddTags)
                 ) && 
                 (
-                    this.ProviderName == other.ProviderName ||
-                    this.ProviderName != null &&
-                    this.ProviderName.Equals(other.ProviderName)
+                    this.ProviderName == input.ProviderName ||
+                    (this.ProviderName != null &&
+                    this.ProviderName.Equals(input.ProviderName))
                 ) && 
                 (
-                    this.RemoveTags == other.RemoveTags ||
+                    this.RemoveTags == input.RemoveTags ||
                     this.RemoveTags != null &&
-                    this.RemoveTags.SequenceEqual(other.RemoveTags)
+                    this.RemoveTags.SequenceEqual(input.RemoveTags)
                 ) && 
                 (
-                    this.SubscribeLists == other.SubscribeLists ||
+                    this.SubscribeLists == input.SubscribeLists ||
                     this.SubscribeLists != null &&
-                    this.SubscribeLists.SequenceEqual(other.SubscribeLists)
+                    this.SubscribeLists.SequenceEqual(input.SubscribeLists)
                 ) && 
                 (
-                    this.UnsubscribeLists == other.UnsubscribeLists ||
+                    this.UnsubscribeLists == input.UnsubscribeLists ||
                     this.UnsubscribeLists != null &&
-                    this.UnsubscribeLists.SequenceEqual(other.UnsubscribeLists)
+                    this.UnsubscribeLists.SequenceEqual(input.UnsubscribeLists)
                 );
         }
 
@@ -245,22 +243,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AddTags != null)
-                    hash = hash * 59 + this.AddTags.GetHashCode();
+                    hashCode = hashCode * 59 + this.AddTags.GetHashCode();
                 if (this.ProviderName != null)
-                    hash = hash * 59 + this.ProviderName.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProviderName.GetHashCode();
                 if (this.RemoveTags != null)
-                    hash = hash * 59 + this.RemoveTags.GetHashCode();
+                    hashCode = hashCode * 59 + this.RemoveTags.GetHashCode();
                 if (this.SubscribeLists != null)
-                    hash = hash * 59 + this.SubscribeLists.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubscribeLists.GetHashCode();
                 if (this.UnsubscribeLists != null)
-                    hash = hash * 59 + this.UnsubscribeLists.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UnsubscribeLists.GetHashCode();
+                return hashCode;
             }
         }
 

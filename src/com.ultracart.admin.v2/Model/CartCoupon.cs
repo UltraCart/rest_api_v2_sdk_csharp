@@ -71,30 +71,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartCoupon);
+            return this.Equals(input as CartCoupon);
         }
 
         /// <summary>
         /// Returns true if CartCoupon instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartCoupon to be compared</param>
+        /// <param name="input">Instance of CartCoupon to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartCoupon other)
+        public bool Equals(CartCoupon input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CouponCode == other.CouponCode ||
-                    this.CouponCode != null &&
-                    this.CouponCode.Equals(other.CouponCode)
+                    this.CouponCode == input.CouponCode ||
+                    (this.CouponCode != null &&
+                    this.CouponCode.Equals(input.CouponCode))
                 );
         }
 
@@ -104,14 +102,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CouponCode != null)
-                    hash = hash * 59 + this.CouponCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.CouponCode.GetHashCode();
+                return hashCode;
             }
         }
 

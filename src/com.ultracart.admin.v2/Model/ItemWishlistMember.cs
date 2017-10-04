@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemWishlistMember);
+            return this.Equals(input as ItemWishlistMember);
         }
 
         /// <summary>
         /// Returns true if ItemWishlistMember instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemWishlistMember to be compared</param>
+        /// <param name="input">Instance of ItemWishlistMember to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemWishlistMember other)
+        public bool Equals(ItemWishlistMember input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.WishlistMemberInstanceDescription == other.WishlistMemberInstanceDescription ||
-                    this.WishlistMemberInstanceDescription != null &&
-                    this.WishlistMemberInstanceDescription.Equals(other.WishlistMemberInstanceDescription)
+                    this.WishlistMemberInstanceDescription == input.WishlistMemberInstanceDescription ||
+                    (this.WishlistMemberInstanceDescription != null &&
+                    this.WishlistMemberInstanceDescription.Equals(input.WishlistMemberInstanceDescription))
                 ) && 
                 (
-                    this.WishlistMemberInstanceOid == other.WishlistMemberInstanceOid ||
-                    this.WishlistMemberInstanceOid != null &&
-                    this.WishlistMemberInstanceOid.Equals(other.WishlistMemberInstanceOid)
+                    this.WishlistMemberInstanceOid == input.WishlistMemberInstanceOid ||
+                    (this.WishlistMemberInstanceOid != null &&
+                    this.WishlistMemberInstanceOid.Equals(input.WishlistMemberInstanceOid))
                 ) && 
                 (
-                    this.WishlistMemberSku == other.WishlistMemberSku ||
-                    this.WishlistMemberSku != null &&
-                    this.WishlistMemberSku.Equals(other.WishlistMemberSku)
+                    this.WishlistMemberSku == input.WishlistMemberSku ||
+                    (this.WishlistMemberSku != null &&
+                    this.WishlistMemberSku.Equals(input.WishlistMemberSku))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.WishlistMemberInstanceDescription != null)
-                    hash = hash * 59 + this.WishlistMemberInstanceDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.WishlistMemberInstanceDescription.GetHashCode();
                 if (this.WishlistMemberInstanceOid != null)
-                    hash = hash * 59 + this.WishlistMemberInstanceOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.WishlistMemberInstanceOid.GetHashCode();
                 if (this.WishlistMemberSku != null)
-                    hash = hash * 59 + this.WishlistMemberSku.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.WishlistMemberSku.GetHashCode();
+                return hashCode;
             }
         }
 

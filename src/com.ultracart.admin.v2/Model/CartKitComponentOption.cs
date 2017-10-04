@@ -243,95 +243,93 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartKitComponentOption);
+            return this.Equals(input as CartKitComponentOption);
         }
 
         /// <summary>
         /// Returns true if CartKitComponentOption instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartKitComponentOption to be compared</param>
+        /// <param name="input">Instance of CartKitComponentOption to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartKitComponentOption other)
+        public bool Equals(CartKitComponentOption input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CostIfSpecified == other.CostIfSpecified ||
-                    this.CostIfSpecified != null &&
-                    this.CostIfSpecified.Equals(other.CostIfSpecified)
+                    this.CostIfSpecified == input.CostIfSpecified ||
+                    (this.CostIfSpecified != null &&
+                    this.CostIfSpecified.Equals(input.CostIfSpecified))
                 ) && 
                 (
-                    this.CostPerLetter == other.CostPerLetter ||
-                    this.CostPerLetter != null &&
-                    this.CostPerLetter.Equals(other.CostPerLetter)
+                    this.CostPerLetter == input.CostPerLetter ||
+                    (this.CostPerLetter != null &&
+                    this.CostPerLetter.Equals(input.CostPerLetter))
                 ) && 
                 (
-                    this.CostPerLine == other.CostPerLine ||
-                    this.CostPerLine != null &&
-                    this.CostPerLine.Equals(other.CostPerLine)
+                    this.CostPerLine == input.CostPerLine ||
+                    (this.CostPerLine != null &&
+                    this.CostPerLine.Equals(input.CostPerLine))
                 ) && 
                 (
-                    this.IgnoreIfDefault == other.IgnoreIfDefault ||
-                    this.IgnoreIfDefault != null &&
-                    this.IgnoreIfDefault.Equals(other.IgnoreIfDefault)
+                    this.IgnoreIfDefault == input.IgnoreIfDefault ||
+                    (this.IgnoreIfDefault != null &&
+                    this.IgnoreIfDefault.Equals(input.IgnoreIfDefault))
                 ) && 
                 (
-                    this.ItemId == other.ItemId ||
-                    this.ItemId != null &&
-                    this.ItemId.Equals(other.ItemId)
+                    this.ItemId == input.ItemId ||
+                    (this.ItemId != null &&
+                    this.ItemId.Equals(input.ItemId))
                 ) && 
                 (
-                    this.ItemOid == other.ItemOid ||
-                    this.ItemOid != null &&
-                    this.ItemOid.Equals(other.ItemOid)
+                    this.ItemOid == input.ItemOid ||
+                    (this.ItemOid != null &&
+                    this.ItemOid.Equals(input.ItemOid))
                 ) && 
                 (
-                    this.Label == other.Label ||
-                    this.Label != null &&
-                    this.Label.Equals(other.Label)
+                    this.Label == input.Label ||
+                    (this.Label != null &&
+                    this.Label.Equals(input.Label))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.OneTimeFee == other.OneTimeFee ||
-                    this.OneTimeFee != null &&
-                    this.OneTimeFee.Equals(other.OneTimeFee)
+                    this.OneTimeFee == input.OneTimeFee ||
+                    (this.OneTimeFee != null &&
+                    this.OneTimeFee.Equals(input.OneTimeFee))
                 ) && 
                 (
-                    this.OptionOid == other.OptionOid ||
-                    this.OptionOid != null &&
-                    this.OptionOid.Equals(other.OptionOid)
+                    this.OptionOid == input.OptionOid ||
+                    (this.OptionOid != null &&
+                    this.OptionOid.Equals(input.OptionOid))
                 ) && 
                 (
-                    this.Required == other.Required ||
-                    this.Required != null &&
-                    this.Required.Equals(other.Required)
+                    this.Required == input.Required ||
+                    (this.Required != null &&
+                    this.Required.Equals(input.Required))
                 ) && 
                 (
-                    this.SelectedValue == other.SelectedValue ||
-                    this.SelectedValue != null &&
-                    this.SelectedValue.Equals(other.SelectedValue)
+                    this.SelectedValue == input.SelectedValue ||
+                    (this.SelectedValue != null &&
+                    this.SelectedValue.Equals(input.SelectedValue))
                 ) && 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Values == other.Values ||
+                    this.Values == input.Values ||
                     this.Values != null &&
-                    this.Values.SequenceEqual(other.Values)
+                    this.Values.SequenceEqual(input.Values)
                 );
         }
 
@@ -341,40 +339,38 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CostIfSpecified != null)
-                    hash = hash * 59 + this.CostIfSpecified.GetHashCode();
+                    hashCode = hashCode * 59 + this.CostIfSpecified.GetHashCode();
                 if (this.CostPerLetter != null)
-                    hash = hash * 59 + this.CostPerLetter.GetHashCode();
+                    hashCode = hashCode * 59 + this.CostPerLetter.GetHashCode();
                 if (this.CostPerLine != null)
-                    hash = hash * 59 + this.CostPerLine.GetHashCode();
+                    hashCode = hashCode * 59 + this.CostPerLine.GetHashCode();
                 if (this.IgnoreIfDefault != null)
-                    hash = hash * 59 + this.IgnoreIfDefault.GetHashCode();
+                    hashCode = hashCode * 59 + this.IgnoreIfDefault.GetHashCode();
                 if (this.ItemId != null)
-                    hash = hash * 59 + this.ItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ItemId.GetHashCode();
                 if (this.ItemOid != null)
-                    hash = hash * 59 + this.ItemOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ItemOid.GetHashCode();
                 if (this.Label != null)
-                    hash = hash * 59 + this.Label.GetHashCode();
+                    hashCode = hashCode * 59 + this.Label.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.OneTimeFee != null)
-                    hash = hash * 59 + this.OneTimeFee.GetHashCode();
+                    hashCode = hashCode * 59 + this.OneTimeFee.GetHashCode();
                 if (this.OptionOid != null)
-                    hash = hash * 59 + this.OptionOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.OptionOid.GetHashCode();
                 if (this.Required != null)
-                    hash = hash * 59 + this.Required.GetHashCode();
+                    hashCode = hashCode * 59 + this.Required.GetHashCode();
                 if (this.SelectedValue != null)
-                    hash = hash * 59 + this.SelectedValue.GetHashCode();
+                    hashCode = hashCode * 59 + this.SelectedValue.GetHashCode();
                 if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Values != null)
-                    hash = hash * 59 + this.Values.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Values.GetHashCode();
+                return hashCode;
             }
         }
 

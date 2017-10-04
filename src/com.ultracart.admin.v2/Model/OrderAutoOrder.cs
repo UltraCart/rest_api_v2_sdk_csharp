@@ -118,40 +118,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderAutoOrder);
+            return this.Equals(input as OrderAutoOrder);
         }
 
         /// <summary>
         /// Returns true if OrderAutoOrder instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderAutoOrder to be compared</param>
+        /// <param name="input">Instance of OrderAutoOrder to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderAutoOrder other)
+        public bool Equals(OrderAutoOrder input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AutoOrderCode == other.AutoOrderCode ||
-                    this.AutoOrderCode != null &&
-                    this.AutoOrderCode.Equals(other.AutoOrderCode)
+                    this.AutoOrderCode == input.AutoOrderCode ||
+                    (this.AutoOrderCode != null &&
+                    this.AutoOrderCode.Equals(input.AutoOrderCode))
                 ) && 
                 (
-                    this.OriginalOrderId == other.OriginalOrderId ||
-                    this.OriginalOrderId != null &&
-                    this.OriginalOrderId.Equals(other.OriginalOrderId)
+                    this.OriginalOrderId == input.OriginalOrderId ||
+                    (this.OriginalOrderId != null &&
+                    this.OriginalOrderId.Equals(input.OriginalOrderId))
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -161,18 +159,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AutoOrderCode != null)
-                    hash = hash * 59 + this.AutoOrderCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderCode.GetHashCode();
                 if (this.OriginalOrderId != null)
-                    hash = hash * 59 + this.OriginalOrderId.GetHashCode();
+                    hashCode = hashCode * 59 + this.OriginalOrderId.GetHashCode();
                 if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                return hashCode;
             }
         }
 

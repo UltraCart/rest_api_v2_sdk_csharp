@@ -106,50 +106,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CityStateZip);
+            return this.Equals(input as CityStateZip);
         }
 
         /// <summary>
         /// Returns true if CityStateZip instances are equal
         /// </summary>
-        /// <param name="other">Instance of CityStateZip to be compared</param>
+        /// <param name="input">Instance of CityStateZip to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CityStateZip other)
+        public bool Equals(CityStateZip input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.City == other.City ||
-                    this.City != null &&
-                    this.City.Equals(other.City)
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
                 ) && 
                 (
-                    this.Error == other.Error ||
-                    this.Error != null &&
-                    this.Error.Equals(other.Error)
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
                 ) && 
                 (
-                    this.State == other.State ||
-                    this.State != null &&
-                    this.State.Equals(other.State)
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
                 ) && 
                 (
-                    this.ValidZip == other.ValidZip ||
-                    this.ValidZip != null &&
-                    this.ValidZip.Equals(other.ValidZip)
+                    this.ValidZip == input.ValidZip ||
+                    (this.ValidZip != null &&
+                    this.ValidZip.Equals(input.ValidZip))
                 ) && 
                 (
-                    this.Zip == other.Zip ||
-                    this.Zip != null &&
-                    this.Zip.Equals(other.Zip)
+                    this.Zip == input.Zip ||
+                    (this.Zip != null &&
+                    this.Zip.Equals(input.Zip))
                 );
         }
 
@@ -159,22 +157,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.City != null)
-                    hash = hash * 59 + this.City.GetHashCode();
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.Error != null)
-                    hash = hash * 59 + this.Error.GetHashCode();
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.State != null)
-                    hash = hash * 59 + this.State.GetHashCode();
+                    hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.ValidZip != null)
-                    hash = hash * 59 + this.ValidZip.GetHashCode();
+                    hashCode = hashCode * 59 + this.ValidZip.GetHashCode();
                 if (this.Zip != null)
-                    hash = hash * 59 + this.Zip.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Zip.GetHashCode();
+                return hashCode;
             }
         }
 

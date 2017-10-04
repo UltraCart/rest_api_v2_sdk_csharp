@@ -231,110 +231,108 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CustomerBilling);
+            return this.Equals(input as CustomerBilling);
         }
 
         /// <summary>
         /// Returns true if CustomerBilling instances are equal
         /// </summary>
-        /// <param name="other">Instance of CustomerBilling to be compared</param>
+        /// <param name="input">Instance of CustomerBilling to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CustomerBilling other)
+        public bool Equals(CustomerBilling input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Address1 == other.Address1 ||
-                    this.Address1 != null &&
-                    this.Address1.Equals(other.Address1)
+                    this.Address1 == input.Address1 ||
+                    (this.Address1 != null &&
+                    this.Address1.Equals(input.Address1))
                 ) && 
                 (
-                    this.Address2 == other.Address2 ||
-                    this.Address2 != null &&
-                    this.Address2.Equals(other.Address2)
+                    this.Address2 == input.Address2 ||
+                    (this.Address2 != null &&
+                    this.Address2.Equals(input.Address2))
                 ) && 
                 (
-                    this.City == other.City ||
-                    this.City != null &&
-                    this.City.Equals(other.City)
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
                 ) && 
                 (
-                    this.Company == other.Company ||
-                    this.Company != null &&
-                    this.Company.Equals(other.Company)
+                    this.Company == input.Company ||
+                    (this.Company != null &&
+                    this.Company.Equals(input.Company))
                 ) && 
                 (
-                    this.CountryCode == other.CountryCode ||
-                    this.CountryCode != null &&
-                    this.CountryCode.Equals(other.CountryCode)
+                    this.CountryCode == input.CountryCode ||
+                    (this.CountryCode != null &&
+                    this.CountryCode.Equals(input.CountryCode))
                 ) && 
                 (
-                    this.CustomerBillingOid == other.CustomerBillingOid ||
-                    this.CustomerBillingOid != null &&
-                    this.CustomerBillingOid.Equals(other.CustomerBillingOid)
+                    this.CustomerBillingOid == input.CustomerBillingOid ||
+                    (this.CustomerBillingOid != null &&
+                    this.CustomerBillingOid.Equals(input.CustomerBillingOid))
                 ) && 
                 (
-                    this.CustomerProfileOid == other.CustomerProfileOid ||
-                    this.CustomerProfileOid != null &&
-                    this.CustomerProfileOid.Equals(other.CustomerProfileOid)
+                    this.CustomerProfileOid == input.CustomerProfileOid ||
+                    (this.CustomerProfileOid != null &&
+                    this.CustomerProfileOid.Equals(input.CustomerProfileOid))
                 ) && 
                 (
-                    this.DayPhone == other.DayPhone ||
-                    this.DayPhone != null &&
-                    this.DayPhone.Equals(other.DayPhone)
+                    this.DayPhone == input.DayPhone ||
+                    (this.DayPhone != null &&
+                    this.DayPhone.Equals(input.DayPhone))
                 ) && 
                 (
-                    this.DefaultBilling == other.DefaultBilling ||
-                    this.DefaultBilling != null &&
-                    this.DefaultBilling.Equals(other.DefaultBilling)
+                    this.DefaultBilling == input.DefaultBilling ||
+                    (this.DefaultBilling != null &&
+                    this.DefaultBilling.Equals(input.DefaultBilling))
                 ) && 
                 (
-                    this.EveningPhone == other.EveningPhone ||
-                    this.EveningPhone != null &&
-                    this.EveningPhone.Equals(other.EveningPhone)
+                    this.EveningPhone == input.EveningPhone ||
+                    (this.EveningPhone != null &&
+                    this.EveningPhone.Equals(input.EveningPhone))
                 ) && 
                 (
-                    this.FirstName == other.FirstName ||
-                    this.FirstName != null &&
-                    this.FirstName.Equals(other.FirstName)
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
-                    this.LastName == other.LastName ||
-                    this.LastName != null &&
-                    this.LastName.Equals(other.LastName)
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.LastUsedDts == other.LastUsedDts ||
-                    this.LastUsedDts != null &&
-                    this.LastUsedDts.Equals(other.LastUsedDts)
+                    this.LastUsedDts == input.LastUsedDts ||
+                    (this.LastUsedDts != null &&
+                    this.LastUsedDts.Equals(input.LastUsedDts))
                 ) && 
                 (
-                    this.PostalCode == other.PostalCode ||
-                    this.PostalCode != null &&
-                    this.PostalCode.Equals(other.PostalCode)
+                    this.PostalCode == input.PostalCode ||
+                    (this.PostalCode != null &&
+                    this.PostalCode.Equals(input.PostalCode))
                 ) && 
                 (
-                    this.StateRegion == other.StateRegion ||
-                    this.StateRegion != null &&
-                    this.StateRegion.Equals(other.StateRegion)
+                    this.StateRegion == input.StateRegion ||
+                    (this.StateRegion != null &&
+                    this.StateRegion.Equals(input.StateRegion))
                 ) && 
                 (
-                    this.TaxCounty == other.TaxCounty ||
-                    this.TaxCounty != null &&
-                    this.TaxCounty.Equals(other.TaxCounty)
+                    this.TaxCounty == input.TaxCounty ||
+                    (this.TaxCounty != null &&
+                    this.TaxCounty.Equals(input.TaxCounty))
                 ) && 
                 (
-                    this.Title == other.Title ||
-                    this.Title != null &&
-                    this.Title.Equals(other.Title)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 );
         }
 
@@ -344,46 +342,44 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Address1 != null)
-                    hash = hash * 59 + this.Address1.GetHashCode();
+                    hashCode = hashCode * 59 + this.Address1.GetHashCode();
                 if (this.Address2 != null)
-                    hash = hash * 59 + this.Address2.GetHashCode();
+                    hashCode = hashCode * 59 + this.Address2.GetHashCode();
                 if (this.City != null)
-                    hash = hash * 59 + this.City.GetHashCode();
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.Company != null)
-                    hash = hash * 59 + this.Company.GetHashCode();
+                    hashCode = hashCode * 59 + this.Company.GetHashCode();
                 if (this.CountryCode != null)
-                    hash = hash * 59 + this.CountryCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.CustomerBillingOid != null)
-                    hash = hash * 59 + this.CustomerBillingOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomerBillingOid.GetHashCode();
                 if (this.CustomerProfileOid != null)
-                    hash = hash * 59 + this.CustomerProfileOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomerProfileOid.GetHashCode();
                 if (this.DayPhone != null)
-                    hash = hash * 59 + this.DayPhone.GetHashCode();
+                    hashCode = hashCode * 59 + this.DayPhone.GetHashCode();
                 if (this.DefaultBilling != null)
-                    hash = hash * 59 + this.DefaultBilling.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultBilling.GetHashCode();
                 if (this.EveningPhone != null)
-                    hash = hash * 59 + this.EveningPhone.GetHashCode();
+                    hashCode = hashCode * 59 + this.EveningPhone.GetHashCode();
                 if (this.FirstName != null)
-                    hash = hash * 59 + this.FirstName.GetHashCode();
+                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
-                    hash = hash * 59 + this.LastName.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.LastUsedDts != null)
-                    hash = hash * 59 + this.LastUsedDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastUsedDts.GetHashCode();
                 if (this.PostalCode != null)
-                    hash = hash * 59 + this.PostalCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.StateRegion != null)
-                    hash = hash * 59 + this.StateRegion.GetHashCode();
+                    hashCode = hashCode * 59 + this.StateRegion.GetHashCode();
                 if (this.TaxCounty != null)
-                    hash = hash * 59 + this.TaxCounty.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxCounty.GetHashCode();
                 if (this.Title != null)
-                    hash = hash * 59 + this.Title.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                return hashCode;
             }
         }
 

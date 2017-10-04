@@ -310,150 +310,148 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderShipping);
+            return this.Equals(input as OrderShipping);
         }
 
         /// <summary>
         /// Returns true if OrderShipping instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderShipping to be compared</param>
+        /// <param name="input">Instance of OrderShipping to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderShipping other)
+        public bool Equals(OrderShipping input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Address1 == other.Address1 ||
-                    this.Address1 != null &&
-                    this.Address1.Equals(other.Address1)
+                    this.Address1 == input.Address1 ||
+                    (this.Address1 != null &&
+                    this.Address1.Equals(input.Address1))
                 ) && 
                 (
-                    this.Address2 == other.Address2 ||
-                    this.Address2 != null &&
-                    this.Address2.Equals(other.Address2)
+                    this.Address2 == input.Address2 ||
+                    (this.Address2 != null &&
+                    this.Address2.Equals(input.Address2))
                 ) && 
                 (
-                    this.City == other.City ||
-                    this.City != null &&
-                    this.City.Equals(other.City)
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
                 ) && 
                 (
-                    this.Company == other.Company ||
-                    this.Company != null &&
-                    this.Company.Equals(other.Company)
+                    this.Company == input.Company ||
+                    (this.Company != null &&
+                    this.Company.Equals(input.Company))
                 ) && 
                 (
-                    this.CountryCode == other.CountryCode ||
-                    this.CountryCode != null &&
-                    this.CountryCode.Equals(other.CountryCode)
+                    this.CountryCode == input.CountryCode ||
+                    (this.CountryCode != null &&
+                    this.CountryCode.Equals(input.CountryCode))
                 ) && 
                 (
-                    this.DayPhone == other.DayPhone ||
-                    this.DayPhone != null &&
-                    this.DayPhone.Equals(other.DayPhone)
+                    this.DayPhone == input.DayPhone ||
+                    (this.DayPhone != null &&
+                    this.DayPhone.Equals(input.DayPhone))
                 ) && 
                 (
-                    this.DeliveryDate == other.DeliveryDate ||
-                    this.DeliveryDate != null &&
-                    this.DeliveryDate.Equals(other.DeliveryDate)
+                    this.DeliveryDate == input.DeliveryDate ||
+                    (this.DeliveryDate != null &&
+                    this.DeliveryDate.Equals(input.DeliveryDate))
                 ) && 
                 (
-                    this.EveningPhone == other.EveningPhone ||
-                    this.EveningPhone != null &&
-                    this.EveningPhone.Equals(other.EveningPhone)
+                    this.EveningPhone == input.EveningPhone ||
+                    (this.EveningPhone != null &&
+                    this.EveningPhone.Equals(input.EveningPhone))
                 ) && 
                 (
-                    this.FirstName == other.FirstName ||
-                    this.FirstName != null &&
-                    this.FirstName.Equals(other.FirstName)
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
-                    this.LastName == other.LastName ||
-                    this.LastName != null &&
-                    this.LastName.Equals(other.LastName)
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.LiftGate == other.LiftGate ||
-                    this.LiftGate != null &&
-                    this.LiftGate.Equals(other.LiftGate)
+                    this.LiftGate == input.LiftGate ||
+                    (this.LiftGate != null &&
+                    this.LiftGate.Equals(input.LiftGate))
                 ) && 
                 (
-                    this.PostalCode == other.PostalCode ||
-                    this.PostalCode != null &&
-                    this.PostalCode.Equals(other.PostalCode)
+                    this.PostalCode == input.PostalCode ||
+                    (this.PostalCode != null &&
+                    this.PostalCode.Equals(input.PostalCode))
                 ) && 
                 (
-                    this.Rma == other.Rma ||
-                    this.Rma != null &&
-                    this.Rma.Equals(other.Rma)
+                    this.Rma == input.Rma ||
+                    (this.Rma != null &&
+                    this.Rma.Equals(input.Rma))
                 ) && 
                 (
-                    this.ShipOnDate == other.ShipOnDate ||
-                    this.ShipOnDate != null &&
-                    this.ShipOnDate.Equals(other.ShipOnDate)
+                    this.ShipOnDate == input.ShipOnDate ||
+                    (this.ShipOnDate != null &&
+                    this.ShipOnDate.Equals(input.ShipOnDate))
                 ) && 
                 (
-                    this.ShipToResidential == other.ShipToResidential ||
-                    this.ShipToResidential != null &&
-                    this.ShipToResidential.Equals(other.ShipToResidential)
+                    this.ShipToResidential == input.ShipToResidential ||
+                    (this.ShipToResidential != null &&
+                    this.ShipToResidential.Equals(input.ShipToResidential))
                 ) && 
                 (
-                    this.Shipping3rdPartyAccountNumber == other.Shipping3rdPartyAccountNumber ||
-                    this.Shipping3rdPartyAccountNumber != null &&
-                    this.Shipping3rdPartyAccountNumber.Equals(other.Shipping3rdPartyAccountNumber)
+                    this.Shipping3rdPartyAccountNumber == input.Shipping3rdPartyAccountNumber ||
+                    (this.Shipping3rdPartyAccountNumber != null &&
+                    this.Shipping3rdPartyAccountNumber.Equals(input.Shipping3rdPartyAccountNumber))
                 ) && 
                 (
-                    this.ShippingDate == other.ShippingDate ||
-                    this.ShippingDate != null &&
-                    this.ShippingDate.Equals(other.ShippingDate)
+                    this.ShippingDate == input.ShippingDate ||
+                    (this.ShippingDate != null &&
+                    this.ShippingDate.Equals(input.ShippingDate))
                 ) && 
                 (
-                    this.ShippingDepartmentStatus == other.ShippingDepartmentStatus ||
-                    this.ShippingDepartmentStatus != null &&
-                    this.ShippingDepartmentStatus.Equals(other.ShippingDepartmentStatus)
+                    this.ShippingDepartmentStatus == input.ShippingDepartmentStatus ||
+                    (this.ShippingDepartmentStatus != null &&
+                    this.ShippingDepartmentStatus.Equals(input.ShippingDepartmentStatus))
                 ) && 
                 (
-                    this.ShippingMethod == other.ShippingMethod ||
-                    this.ShippingMethod != null &&
-                    this.ShippingMethod.Equals(other.ShippingMethod)
+                    this.ShippingMethod == input.ShippingMethod ||
+                    (this.ShippingMethod != null &&
+                    this.ShippingMethod.Equals(input.ShippingMethod))
                 ) && 
                 (
-                    this.ShippingMethodAccountingCode == other.ShippingMethodAccountingCode ||
-                    this.ShippingMethodAccountingCode != null &&
-                    this.ShippingMethodAccountingCode.Equals(other.ShippingMethodAccountingCode)
+                    this.ShippingMethodAccountingCode == input.ShippingMethodAccountingCode ||
+                    (this.ShippingMethodAccountingCode != null &&
+                    this.ShippingMethodAccountingCode.Equals(input.ShippingMethodAccountingCode))
                 ) && 
                 (
-                    this.SpecialInstructions == other.SpecialInstructions ||
-                    this.SpecialInstructions != null &&
-                    this.SpecialInstructions.Equals(other.SpecialInstructions)
+                    this.SpecialInstructions == input.SpecialInstructions ||
+                    (this.SpecialInstructions != null &&
+                    this.SpecialInstructions.Equals(input.SpecialInstructions))
                 ) && 
                 (
-                    this.StateRegion == other.StateRegion ||
-                    this.StateRegion != null &&
-                    this.StateRegion.Equals(other.StateRegion)
+                    this.StateRegion == input.StateRegion ||
+                    (this.StateRegion != null &&
+                    this.StateRegion.Equals(input.StateRegion))
                 ) && 
                 (
-                    this.Title == other.Title ||
-                    this.Title != null &&
-                    this.Title.Equals(other.Title)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 ) && 
                 (
-                    this.TrackingNumbers == other.TrackingNumbers ||
+                    this.TrackingNumbers == input.TrackingNumbers ||
                     this.TrackingNumbers != null &&
-                    this.TrackingNumbers.SequenceEqual(other.TrackingNumbers)
+                    this.TrackingNumbers.SequenceEqual(input.TrackingNumbers)
                 ) && 
                 (
-                    this.Weight == other.Weight ||
-                    this.Weight != null &&
-                    this.Weight.Equals(other.Weight)
+                    this.Weight == input.Weight ||
+                    (this.Weight != null &&
+                    this.Weight.Equals(input.Weight))
                 );
         }
 
@@ -463,62 +461,60 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Address1 != null)
-                    hash = hash * 59 + this.Address1.GetHashCode();
+                    hashCode = hashCode * 59 + this.Address1.GetHashCode();
                 if (this.Address2 != null)
-                    hash = hash * 59 + this.Address2.GetHashCode();
+                    hashCode = hashCode * 59 + this.Address2.GetHashCode();
                 if (this.City != null)
-                    hash = hash * 59 + this.City.GetHashCode();
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.Company != null)
-                    hash = hash * 59 + this.Company.GetHashCode();
+                    hashCode = hashCode * 59 + this.Company.GetHashCode();
                 if (this.CountryCode != null)
-                    hash = hash * 59 + this.CountryCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.DayPhone != null)
-                    hash = hash * 59 + this.DayPhone.GetHashCode();
+                    hashCode = hashCode * 59 + this.DayPhone.GetHashCode();
                 if (this.DeliveryDate != null)
-                    hash = hash * 59 + this.DeliveryDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliveryDate.GetHashCode();
                 if (this.EveningPhone != null)
-                    hash = hash * 59 + this.EveningPhone.GetHashCode();
+                    hashCode = hashCode * 59 + this.EveningPhone.GetHashCode();
                 if (this.FirstName != null)
-                    hash = hash * 59 + this.FirstName.GetHashCode();
+                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
-                    hash = hash * 59 + this.LastName.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.LiftGate != null)
-                    hash = hash * 59 + this.LiftGate.GetHashCode();
+                    hashCode = hashCode * 59 + this.LiftGate.GetHashCode();
                 if (this.PostalCode != null)
-                    hash = hash * 59 + this.PostalCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.Rma != null)
-                    hash = hash * 59 + this.Rma.GetHashCode();
+                    hashCode = hashCode * 59 + this.Rma.GetHashCode();
                 if (this.ShipOnDate != null)
-                    hash = hash * 59 + this.ShipOnDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipOnDate.GetHashCode();
                 if (this.ShipToResidential != null)
-                    hash = hash * 59 + this.ShipToResidential.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipToResidential.GetHashCode();
                 if (this.Shipping3rdPartyAccountNumber != null)
-                    hash = hash * 59 + this.Shipping3rdPartyAccountNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.Shipping3rdPartyAccountNumber.GetHashCode();
                 if (this.ShippingDate != null)
-                    hash = hash * 59 + this.ShippingDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingDate.GetHashCode();
                 if (this.ShippingDepartmentStatus != null)
-                    hash = hash * 59 + this.ShippingDepartmentStatus.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingDepartmentStatus.GetHashCode();
                 if (this.ShippingMethod != null)
-                    hash = hash * 59 + this.ShippingMethod.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingMethod.GetHashCode();
                 if (this.ShippingMethodAccountingCode != null)
-                    hash = hash * 59 + this.ShippingMethodAccountingCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingMethodAccountingCode.GetHashCode();
                 if (this.SpecialInstructions != null)
-                    hash = hash * 59 + this.SpecialInstructions.GetHashCode();
+                    hashCode = hashCode * 59 + this.SpecialInstructions.GetHashCode();
                 if (this.StateRegion != null)
-                    hash = hash * 59 + this.StateRegion.GetHashCode();
+                    hashCode = hashCode * 59 + this.StateRegion.GetHashCode();
                 if (this.Title != null)
-                    hash = hash * 59 + this.Title.GetHashCode();
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.TrackingNumbers != null)
-                    hash = hash * 59 + this.TrackingNumbers.GetHashCode();
+                    hashCode = hashCode * 59 + this.TrackingNumbers.GetHashCode();
                 if (this.Weight != null)
-                    hash = hash * 59 + this.Weight.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Weight.GetHashCode();
+                return hashCode;
             }
         }
 

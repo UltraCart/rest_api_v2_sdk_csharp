@@ -117,55 +117,53 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartPayment);
+            return this.Equals(input as CartPayment);
         }
 
         /// <summary>
         /// Returns true if CartPayment instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartPayment to be compared</param>
+        /// <param name="input">Instance of CartPayment to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartPayment other)
+        public bool Equals(CartPayment input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Amazon == other.Amazon ||
-                    this.Amazon != null &&
-                    this.Amazon.Equals(other.Amazon)
+                    this.Amazon == input.Amazon ||
+                    (this.Amazon != null &&
+                    this.Amazon.Equals(input.Amazon))
                 ) && 
                 (
-                    this.Check == other.Check ||
-                    this.Check != null &&
-                    this.Check.Equals(other.Check)
+                    this.Check == input.Check ||
+                    (this.Check != null &&
+                    this.Check.Equals(input.Check))
                 ) && 
                 (
-                    this.CreditCard == other.CreditCard ||
-                    this.CreditCard != null &&
-                    this.CreditCard.Equals(other.CreditCard)
+                    this.CreditCard == input.CreditCard ||
+                    (this.CreditCard != null &&
+                    this.CreditCard.Equals(input.CreditCard))
                 ) && 
                 (
-                    this.PaymentMethod == other.PaymentMethod ||
-                    this.PaymentMethod != null &&
-                    this.PaymentMethod.Equals(other.PaymentMethod)
+                    this.PaymentMethod == input.PaymentMethod ||
+                    (this.PaymentMethod != null &&
+                    this.PaymentMethod.Equals(input.PaymentMethod))
                 ) && 
                 (
-                    this.PurchaseOrder == other.PurchaseOrder ||
-                    this.PurchaseOrder != null &&
-                    this.PurchaseOrder.Equals(other.PurchaseOrder)
+                    this.PurchaseOrder == input.PurchaseOrder ||
+                    (this.PurchaseOrder != null &&
+                    this.PurchaseOrder.Equals(input.PurchaseOrder))
                 ) && 
                 (
-                    this.RtgCode == other.RtgCode ||
-                    this.RtgCode != null &&
-                    this.RtgCode.Equals(other.RtgCode)
+                    this.RtgCode == input.RtgCode ||
+                    (this.RtgCode != null &&
+                    this.RtgCode.Equals(input.RtgCode))
                 );
         }
 
@@ -175,24 +173,22 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Amazon != null)
-                    hash = hash * 59 + this.Amazon.GetHashCode();
+                    hashCode = hashCode * 59 + this.Amazon.GetHashCode();
                 if (this.Check != null)
-                    hash = hash * 59 + this.Check.GetHashCode();
+                    hashCode = hashCode * 59 + this.Check.GetHashCode();
                 if (this.CreditCard != null)
-                    hash = hash * 59 + this.CreditCard.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreditCard.GetHashCode();
                 if (this.PaymentMethod != null)
-                    hash = hash * 59 + this.PaymentMethod.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
                 if (this.PurchaseOrder != null)
-                    hash = hash * 59 + this.PurchaseOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.PurchaseOrder.GetHashCode();
                 if (this.RtgCode != null)
-                    hash = hash * 59 + this.RtgCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RtgCode.GetHashCode();
+                return hashCode;
             }
         }
 

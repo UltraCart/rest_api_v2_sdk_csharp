@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSettingsPaymentCreditCard);
+            return this.Equals(input as CartSettingsPaymentCreditCard);
         }
 
         /// <summary>
         /// Returns true if CartSettingsPaymentCreditCard instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSettingsPaymentCreditCard to be compared</param>
+        /// <param name="input">Instance of CartSettingsPaymentCreditCard to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSettingsPaymentCreditCard other)
+        public bool Equals(CartSettingsPaymentCreditCard input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CollectCreditCardVerificationNumber == other.CollectCreditCardVerificationNumber ||
-                    this.CollectCreditCardVerificationNumber != null &&
-                    this.CollectCreditCardVerificationNumber.Equals(other.CollectCreditCardVerificationNumber)
+                    this.CollectCreditCardVerificationNumber == input.CollectCreditCardVerificationNumber ||
+                    (this.CollectCreditCardVerificationNumber != null &&
+                    this.CollectCreditCardVerificationNumber.Equals(input.CollectCreditCardVerificationNumber))
                 ) && 
                 (
-                    this.CreditCardTypes == other.CreditCardTypes ||
+                    this.CreditCardTypes == input.CreditCardTypes ||
                     this.CreditCardTypes != null &&
-                    this.CreditCardTypes.SequenceEqual(other.CreditCardTypes)
+                    this.CreditCardTypes.SequenceEqual(input.CreditCardTypes)
                 ) && 
                 (
-                    this.HostedFieldsShoppingCartToken == other.HostedFieldsShoppingCartToken ||
-                    this.HostedFieldsShoppingCartToken != null &&
-                    this.HostedFieldsShoppingCartToken.Equals(other.HostedFieldsShoppingCartToken)
+                    this.HostedFieldsShoppingCartToken == input.HostedFieldsShoppingCartToken ||
+                    (this.HostedFieldsShoppingCartToken != null &&
+                    this.HostedFieldsShoppingCartToken.Equals(input.HostedFieldsShoppingCartToken))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CollectCreditCardVerificationNumber != null)
-                    hash = hash * 59 + this.CollectCreditCardVerificationNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.CollectCreditCardVerificationNumber.GetHashCode();
                 if (this.CreditCardTypes != null)
-                    hash = hash * 59 + this.CreditCardTypes.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreditCardTypes.GetHashCode();
                 if (this.HostedFieldsShoppingCartToken != null)
-                    hash = hash * 59 + this.HostedFieldsShoppingCartToken.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.HostedFieldsShoppingCartToken.GetHashCode();
+                return hashCode;
             }
         }
 

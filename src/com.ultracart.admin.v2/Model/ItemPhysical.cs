@@ -97,45 +97,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemPhysical);
+            return this.Equals(input as ItemPhysical);
         }
 
         /// <summary>
         /// Returns true if ItemPhysical instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemPhysical to be compared</param>
+        /// <param name="input">Instance of ItemPhysical to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemPhysical other)
+        public bool Equals(ItemPhysical input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Height == other.Height ||
-                    this.Height != null &&
-                    this.Height.Equals(other.Height)
+                    this.Height == input.Height ||
+                    (this.Height != null &&
+                    this.Height.Equals(input.Height))
                 ) && 
                 (
-                    this.Length == other.Length ||
-                    this.Length != null &&
-                    this.Length.Equals(other.Length)
+                    this.Length == input.Length ||
+                    (this.Length != null &&
+                    this.Length.Equals(input.Length))
                 ) && 
                 (
-                    this.Weight == other.Weight ||
-                    this.Weight != null &&
-                    this.Weight.Equals(other.Weight)
+                    this.Weight == input.Weight ||
+                    (this.Weight != null &&
+                    this.Weight.Equals(input.Weight))
                 ) && 
                 (
-                    this.Width == other.Width ||
-                    this.Width != null &&
-                    this.Width.Equals(other.Width)
+                    this.Width == input.Width ||
+                    (this.Width != null &&
+                    this.Width.Equals(input.Width))
                 );
         }
 
@@ -145,20 +143,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Height != null)
-                    hash = hash * 59 + this.Height.GetHashCode();
+                    hashCode = hashCode * 59 + this.Height.GetHashCode();
                 if (this.Length != null)
-                    hash = hash * 59 + this.Length.GetHashCode();
+                    hashCode = hashCode * 59 + this.Length.GetHashCode();
                 if (this.Weight != null)
-                    hash = hash * 59 + this.Weight.GetHashCode();
+                    hashCode = hashCode * 59 + this.Weight.GetHashCode();
                 if (this.Width != null)
-                    hash = hash * 59 + this.Width.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Width.GetHashCode();
+                return hashCode;
             }
         }
 

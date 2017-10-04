@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderAffiliate);
+            return this.Equals(input as OrderAffiliate);
         }
 
         /// <summary>
         /// Returns true if OrderAffiliate instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderAffiliate to be compared</param>
+        /// <param name="input">Instance of OrderAffiliate to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderAffiliate other)
+        public bool Equals(OrderAffiliate input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AffiliateOid == other.AffiliateOid ||
-                    this.AffiliateOid != null &&
-                    this.AffiliateOid.Equals(other.AffiliateOid)
+                    this.AffiliateOid == input.AffiliateOid ||
+                    (this.AffiliateOid != null &&
+                    this.AffiliateOid.Equals(input.AffiliateOid))
                 ) && 
                 (
-                    this.LedgerEntries == other.LedgerEntries ||
+                    this.LedgerEntries == input.LedgerEntries ||
                     this.LedgerEntries != null &&
-                    this.LedgerEntries.SequenceEqual(other.LedgerEntries)
+                    this.LedgerEntries.SequenceEqual(input.LedgerEntries)
                 ) && 
                 (
-                    this.SubId == other.SubId ||
-                    this.SubId != null &&
-                    this.SubId.Equals(other.SubId)
+                    this.SubId == input.SubId ||
+                    (this.SubId != null &&
+                    this.SubId.Equals(input.SubId))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AffiliateOid != null)
-                    hash = hash * 59 + this.AffiliateOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.AffiliateOid.GetHashCode();
                 if (this.LedgerEntries != null)
-                    hash = hash * 59 + this.LedgerEntries.GetHashCode();
+                    hashCode = hashCode * 59 + this.LedgerEntries.GetHashCode();
                 if (this.SubId != null)
-                    hash = hash * 59 + this.SubId.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.SubId.GetHashCode();
+                return hashCode;
             }
         }
 

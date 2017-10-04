@@ -141,65 +141,63 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderDigitalItem);
+            return this.Equals(input as OrderDigitalItem);
         }
 
         /// <summary>
         /// Returns true if OrderDigitalItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderDigitalItem to be compared</param>
+        /// <param name="input">Instance of OrderDigitalItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderDigitalItem other)
+        public bool Equals(OrderDigitalItem input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.FileSize == other.FileSize ||
-                    this.FileSize != null &&
-                    this.FileSize.Equals(other.FileSize)
+                    this.FileSize == input.FileSize ||
+                    (this.FileSize != null &&
+                    this.FileSize.Equals(input.FileSize))
                 ) && 
                 (
-                    this.LastDownload == other.LastDownload ||
-                    this.LastDownload != null &&
-                    this.LastDownload.Equals(other.LastDownload)
+                    this.LastDownload == input.LastDownload ||
+                    (this.LastDownload != null &&
+                    this.LastDownload.Equals(input.LastDownload))
                 ) && 
                 (
-                    this.LastDownloadIpAddress == other.LastDownloadIpAddress ||
-                    this.LastDownloadIpAddress != null &&
-                    this.LastDownloadIpAddress.Equals(other.LastDownloadIpAddress)
+                    this.LastDownloadIpAddress == input.LastDownloadIpAddress ||
+                    (this.LastDownloadIpAddress != null &&
+                    this.LastDownloadIpAddress.Equals(input.LastDownloadIpAddress))
                 ) && 
                 (
-                    this.OriginalFilename == other.OriginalFilename ||
-                    this.OriginalFilename != null &&
-                    this.OriginalFilename.Equals(other.OriginalFilename)
+                    this.OriginalFilename == input.OriginalFilename ||
+                    (this.OriginalFilename != null &&
+                    this.OriginalFilename.Equals(input.OriginalFilename))
                 ) && 
                 (
-                    this.ProductCode == other.ProductCode ||
-                    this.ProductCode != null &&
-                    this.ProductCode.Equals(other.ProductCode)
+                    this.ProductCode == input.ProductCode ||
+                    (this.ProductCode != null &&
+                    this.ProductCode.Equals(input.ProductCode))
                 ) && 
                 (
-                    this.ProductDescription == other.ProductDescription ||
-                    this.ProductDescription != null &&
-                    this.ProductDescription.Equals(other.ProductDescription)
+                    this.ProductDescription == input.ProductDescription ||
+                    (this.ProductDescription != null &&
+                    this.ProductDescription.Equals(input.ProductDescription))
                 ) && 
                 (
-                    this.RemainingDownloads == other.RemainingDownloads ||
-                    this.RemainingDownloads != null &&
-                    this.RemainingDownloads.Equals(other.RemainingDownloads)
+                    this.RemainingDownloads == input.RemainingDownloads ||
+                    (this.RemainingDownloads != null &&
+                    this.RemainingDownloads.Equals(input.RemainingDownloads))
                 ) && 
                 (
-                    this.Url == other.Url ||
-                    this.Url != null &&
-                    this.Url.Equals(other.Url)
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -209,28 +207,26 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.FileSize != null)
-                    hash = hash * 59 + this.FileSize.GetHashCode();
+                    hashCode = hashCode * 59 + this.FileSize.GetHashCode();
                 if (this.LastDownload != null)
-                    hash = hash * 59 + this.LastDownload.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastDownload.GetHashCode();
                 if (this.LastDownloadIpAddress != null)
-                    hash = hash * 59 + this.LastDownloadIpAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastDownloadIpAddress.GetHashCode();
                 if (this.OriginalFilename != null)
-                    hash = hash * 59 + this.OriginalFilename.GetHashCode();
+                    hashCode = hashCode * 59 + this.OriginalFilename.GetHashCode();
                 if (this.ProductCode != null)
-                    hash = hash * 59 + this.ProductCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProductCode.GetHashCode();
                 if (this.ProductDescription != null)
-                    hash = hash * 59 + this.ProductDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.ProductDescription.GetHashCode();
                 if (this.RemainingDownloads != null)
-                    hash = hash * 59 + this.RemainingDownloads.GetHashCode();
+                    hashCode = hashCode * 59 + this.RemainingDownloads.GetHashCode();
                 if (this.Url != null)
-                    hash = hash * 59 + this.Url.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                return hashCode;
             }
         }
 

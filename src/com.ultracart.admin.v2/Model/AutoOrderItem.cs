@@ -368,135 +368,133 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as AutoOrderItem);
+            return this.Equals(input as AutoOrderItem);
         }
 
         /// <summary>
         /// Returns true if AutoOrderItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of AutoOrderItem to be compared</param>
+        /// <param name="input">Instance of AutoOrderItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AutoOrderItem other)
+        public bool Equals(AutoOrderItem input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ArbitraryItemId == other.ArbitraryItemId ||
-                    this.ArbitraryItemId != null &&
-                    this.ArbitraryItemId.Equals(other.ArbitraryItemId)
+                    this.ArbitraryItemId == input.ArbitraryItemId ||
+                    (this.ArbitraryItemId != null &&
+                    this.ArbitraryItemId.Equals(input.ArbitraryItemId))
                 ) && 
                 (
-                    this.ArbitraryPercentageDiscount == other.ArbitraryPercentageDiscount ||
-                    this.ArbitraryPercentageDiscount != null &&
-                    this.ArbitraryPercentageDiscount.Equals(other.ArbitraryPercentageDiscount)
+                    this.ArbitraryPercentageDiscount == input.ArbitraryPercentageDiscount ||
+                    (this.ArbitraryPercentageDiscount != null &&
+                    this.ArbitraryPercentageDiscount.Equals(input.ArbitraryPercentageDiscount))
                 ) && 
                 (
-                    this.ArbitraryQuantity == other.ArbitraryQuantity ||
-                    this.ArbitraryQuantity != null &&
-                    this.ArbitraryQuantity.Equals(other.ArbitraryQuantity)
+                    this.ArbitraryQuantity == input.ArbitraryQuantity ||
+                    (this.ArbitraryQuantity != null &&
+                    this.ArbitraryQuantity.Equals(input.ArbitraryQuantity))
                 ) && 
                 (
-                    this.ArbitraryScheduleDays == other.ArbitraryScheduleDays ||
-                    this.ArbitraryScheduleDays != null &&
-                    this.ArbitraryScheduleDays.Equals(other.ArbitraryScheduleDays)
+                    this.ArbitraryScheduleDays == input.ArbitraryScheduleDays ||
+                    (this.ArbitraryScheduleDays != null &&
+                    this.ArbitraryScheduleDays.Equals(input.ArbitraryScheduleDays))
                 ) && 
                 (
-                    this.ArbitraryUnitCost == other.ArbitraryUnitCost ||
-                    this.ArbitraryUnitCost != null &&
-                    this.ArbitraryUnitCost.Equals(other.ArbitraryUnitCost)
+                    this.ArbitraryUnitCost == input.ArbitraryUnitCost ||
+                    (this.ArbitraryUnitCost != null &&
+                    this.ArbitraryUnitCost.Equals(input.ArbitraryUnitCost))
                 ) && 
                 (
-                    this.ArbitraryUnitCostRemainingOrders == other.ArbitraryUnitCostRemainingOrders ||
-                    this.ArbitraryUnitCostRemainingOrders != null &&
-                    this.ArbitraryUnitCostRemainingOrders.Equals(other.ArbitraryUnitCostRemainingOrders)
+                    this.ArbitraryUnitCostRemainingOrders == input.ArbitraryUnitCostRemainingOrders ||
+                    (this.ArbitraryUnitCostRemainingOrders != null &&
+                    this.ArbitraryUnitCostRemainingOrders.Equals(input.ArbitraryUnitCostRemainingOrders))
                 ) && 
                 (
-                    this.AutoOrderItemOid == other.AutoOrderItemOid ||
-                    this.AutoOrderItemOid != null &&
-                    this.AutoOrderItemOid.Equals(other.AutoOrderItemOid)
+                    this.AutoOrderItemOid == input.AutoOrderItemOid ||
+                    (this.AutoOrderItemOid != null &&
+                    this.AutoOrderItemOid.Equals(input.AutoOrderItemOid))
                 ) && 
                 (
-                    this.Frequency == other.Frequency ||
-                    this.Frequency != null &&
-                    this.Frequency.Equals(other.Frequency)
+                    this.Frequency == input.Frequency ||
+                    (this.Frequency != null &&
+                    this.Frequency.Equals(input.Frequency))
                 ) && 
                 (
-                    this.LastOrderDts == other.LastOrderDts ||
-                    this.LastOrderDts != null &&
-                    this.LastOrderDts.Equals(other.LastOrderDts)
+                    this.LastOrderDts == input.LastOrderDts ||
+                    (this.LastOrderDts != null &&
+                    this.LastOrderDts.Equals(input.LastOrderDts))
                 ) && 
                 (
-                    this.LifeTimeValue == other.LifeTimeValue ||
-                    this.LifeTimeValue != null &&
-                    this.LifeTimeValue.Equals(other.LifeTimeValue)
+                    this.LifeTimeValue == input.LifeTimeValue ||
+                    (this.LifeTimeValue != null &&
+                    this.LifeTimeValue.Equals(input.LifeTimeValue))
                 ) && 
                 (
-                    this.NextPreshipmentNoticeDts == other.NextPreshipmentNoticeDts ||
-                    this.NextPreshipmentNoticeDts != null &&
-                    this.NextPreshipmentNoticeDts.Equals(other.NextPreshipmentNoticeDts)
+                    this.NextPreshipmentNoticeDts == input.NextPreshipmentNoticeDts ||
+                    (this.NextPreshipmentNoticeDts != null &&
+                    this.NextPreshipmentNoticeDts.Equals(input.NextPreshipmentNoticeDts))
                 ) && 
                 (
-                    this.NextShipmentDts == other.NextShipmentDts ||
-                    this.NextShipmentDts != null &&
-                    this.NextShipmentDts.Equals(other.NextShipmentDts)
+                    this.NextShipmentDts == input.NextShipmentDts ||
+                    (this.NextShipmentDts != null &&
+                    this.NextShipmentDts.Equals(input.NextShipmentDts))
                 ) && 
                 (
-                    this.NoOrderAfterDts == other.NoOrderAfterDts ||
-                    this.NoOrderAfterDts != null &&
-                    this.NoOrderAfterDts.Equals(other.NoOrderAfterDts)
+                    this.NoOrderAfterDts == input.NoOrderAfterDts ||
+                    (this.NoOrderAfterDts != null &&
+                    this.NoOrderAfterDts.Equals(input.NoOrderAfterDts))
                 ) && 
                 (
-                    this.NumberOfRebills == other.NumberOfRebills ||
-                    this.NumberOfRebills != null &&
-                    this.NumberOfRebills.Equals(other.NumberOfRebills)
+                    this.NumberOfRebills == input.NumberOfRebills ||
+                    (this.NumberOfRebills != null &&
+                    this.NumberOfRebills.Equals(input.NumberOfRebills))
                 ) && 
                 (
-                    this.Options == other.Options ||
+                    this.Options == input.Options ||
                     this.Options != null &&
-                    this.Options.SequenceEqual(other.Options)
+                    this.Options.SequenceEqual(input.Options)
                 ) && 
                 (
-                    this.OriginalItemId == other.OriginalItemId ||
-                    this.OriginalItemId != null &&
-                    this.OriginalItemId.Equals(other.OriginalItemId)
+                    this.OriginalItemId == input.OriginalItemId ||
+                    (this.OriginalItemId != null &&
+                    this.OriginalItemId.Equals(input.OriginalItemId))
                 ) && 
                 (
-                    this.OriginalQuantity == other.OriginalQuantity ||
-                    this.OriginalQuantity != null &&
-                    this.OriginalQuantity.Equals(other.OriginalQuantity)
+                    this.OriginalQuantity == input.OriginalQuantity ||
+                    (this.OriginalQuantity != null &&
+                    this.OriginalQuantity.Equals(input.OriginalQuantity))
                 ) && 
                 (
-                    this.PaypalPayerId == other.PaypalPayerId ||
-                    this.PaypalPayerId != null &&
-                    this.PaypalPayerId.Equals(other.PaypalPayerId)
+                    this.PaypalPayerId == input.PaypalPayerId ||
+                    (this.PaypalPayerId != null &&
+                    this.PaypalPayerId.Equals(input.PaypalPayerId))
                 ) && 
                 (
-                    this.PaypalRecurringPaymentProfileId == other.PaypalRecurringPaymentProfileId ||
-                    this.PaypalRecurringPaymentProfileId != null &&
-                    this.PaypalRecurringPaymentProfileId.Equals(other.PaypalRecurringPaymentProfileId)
+                    this.PaypalRecurringPaymentProfileId == input.PaypalRecurringPaymentProfileId ||
+                    (this.PaypalRecurringPaymentProfileId != null &&
+                    this.PaypalRecurringPaymentProfileId.Equals(input.PaypalRecurringPaymentProfileId))
                 ) && 
                 (
-                    this.PreshipmentNoticeSent == other.PreshipmentNoticeSent ||
-                    this.PreshipmentNoticeSent != null &&
-                    this.PreshipmentNoticeSent.Equals(other.PreshipmentNoticeSent)
+                    this.PreshipmentNoticeSent == input.PreshipmentNoticeSent ||
+                    (this.PreshipmentNoticeSent != null &&
+                    this.PreshipmentNoticeSent.Equals(input.PreshipmentNoticeSent))
                 ) && 
                 (
-                    this.RebillValue == other.RebillValue ||
-                    this.RebillValue != null &&
-                    this.RebillValue.Equals(other.RebillValue)
+                    this.RebillValue == input.RebillValue ||
+                    (this.RebillValue != null &&
+                    this.RebillValue.Equals(input.RebillValue))
                 ) && 
                 (
-                    this.RemainingRepeatCount == other.RemainingRepeatCount ||
-                    this.RemainingRepeatCount != null &&
-                    this.RemainingRepeatCount.Equals(other.RemainingRepeatCount)
+                    this.RemainingRepeatCount == input.RemainingRepeatCount ||
+                    (this.RemainingRepeatCount != null &&
+                    this.RemainingRepeatCount.Equals(input.RemainingRepeatCount))
                 );
         }
 
@@ -506,56 +504,54 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ArbitraryItemId != null)
-                    hash = hash * 59 + this.ArbitraryItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryItemId.GetHashCode();
                 if (this.ArbitraryPercentageDiscount != null)
-                    hash = hash * 59 + this.ArbitraryPercentageDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryPercentageDiscount.GetHashCode();
                 if (this.ArbitraryQuantity != null)
-                    hash = hash * 59 + this.ArbitraryQuantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryQuantity.GetHashCode();
                 if (this.ArbitraryScheduleDays != null)
-                    hash = hash * 59 + this.ArbitraryScheduleDays.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryScheduleDays.GetHashCode();
                 if (this.ArbitraryUnitCost != null)
-                    hash = hash * 59 + this.ArbitraryUnitCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCost.GetHashCode();
                 if (this.ArbitraryUnitCostRemainingOrders != null)
-                    hash = hash * 59 + this.ArbitraryUnitCostRemainingOrders.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCostRemainingOrders.GetHashCode();
                 if (this.AutoOrderItemOid != null)
-                    hash = hash * 59 + this.AutoOrderItemOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderItemOid.GetHashCode();
                 if (this.Frequency != null)
-                    hash = hash * 59 + this.Frequency.GetHashCode();
+                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
                 if (this.LastOrderDts != null)
-                    hash = hash * 59 + this.LastOrderDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastOrderDts.GetHashCode();
                 if (this.LifeTimeValue != null)
-                    hash = hash * 59 + this.LifeTimeValue.GetHashCode();
+                    hashCode = hashCode * 59 + this.LifeTimeValue.GetHashCode();
                 if (this.NextPreshipmentNoticeDts != null)
-                    hash = hash * 59 + this.NextPreshipmentNoticeDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.NextPreshipmentNoticeDts.GetHashCode();
                 if (this.NextShipmentDts != null)
-                    hash = hash * 59 + this.NextShipmentDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.NextShipmentDts.GetHashCode();
                 if (this.NoOrderAfterDts != null)
-                    hash = hash * 59 + this.NoOrderAfterDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.NoOrderAfterDts.GetHashCode();
                 if (this.NumberOfRebills != null)
-                    hash = hash * 59 + this.NumberOfRebills.GetHashCode();
+                    hashCode = hashCode * 59 + this.NumberOfRebills.GetHashCode();
                 if (this.Options != null)
-                    hash = hash * 59 + this.Options.GetHashCode();
+                    hashCode = hashCode * 59 + this.Options.GetHashCode();
                 if (this.OriginalItemId != null)
-                    hash = hash * 59 + this.OriginalItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.OriginalItemId.GetHashCode();
                 if (this.OriginalQuantity != null)
-                    hash = hash * 59 + this.OriginalQuantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.OriginalQuantity.GetHashCode();
                 if (this.PaypalPayerId != null)
-                    hash = hash * 59 + this.PaypalPayerId.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaypalPayerId.GetHashCode();
                 if (this.PaypalRecurringPaymentProfileId != null)
-                    hash = hash * 59 + this.PaypalRecurringPaymentProfileId.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaypalRecurringPaymentProfileId.GetHashCode();
                 if (this.PreshipmentNoticeSent != null)
-                    hash = hash * 59 + this.PreshipmentNoticeSent.GetHashCode();
+                    hashCode = hashCode * 59 + this.PreshipmentNoticeSent.GetHashCode();
                 if (this.RebillValue != null)
-                    hash = hash * 59 + this.RebillValue.GetHashCode();
+                    hashCode = hashCode * 59 + this.RebillValue.GetHashCode();
                 if (this.RemainingRepeatCount != null)
-                    hash = hash * 59 + this.RemainingRepeatCount.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RemainingRepeatCount.GetHashCode();
+                return hashCode;
             }
         }
 

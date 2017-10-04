@@ -60,7 +60,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum View for "view"
             /// </summary>
             [EnumMember(Value = "view")]
-            View
+            View,
+            
+            /// <summary>
+            /// Enum Affirm for "affirm"
+            /// </summary>
+            [EnumMember(Value = "affirm")]
+            Affirm
         }
 
         /// <summary>
@@ -163,60 +169,58 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CheckoutHandoffRequest);
+            return this.Equals(input as CheckoutHandoffRequest);
         }
 
         /// <summary>
         /// Returns true if CheckoutHandoffRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of CheckoutHandoffRequest to be compared</param>
+        /// <param name="input">Instance of CheckoutHandoffRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CheckoutHandoffRequest other)
+        public bool Equals(CheckoutHandoffRequest input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Cart == other.Cart ||
-                    this.Cart != null &&
-                    this.Cart.Equals(other.Cart)
+                    this.Cart == input.Cart ||
+                    (this.Cart != null &&
+                    this.Cart.Equals(input.Cart))
                 ) && 
                 (
-                    this.ErrorParameterName == other.ErrorParameterName ||
-                    this.ErrorParameterName != null &&
-                    this.ErrorParameterName.Equals(other.ErrorParameterName)
+                    this.ErrorParameterName == input.ErrorParameterName ||
+                    (this.ErrorParameterName != null &&
+                    this.ErrorParameterName.Equals(input.ErrorParameterName))
                 ) && 
                 (
-                    this.ErrorReturnUrl == other.ErrorReturnUrl ||
-                    this.ErrorReturnUrl != null &&
-                    this.ErrorReturnUrl.Equals(other.ErrorReturnUrl)
+                    this.ErrorReturnUrl == input.ErrorReturnUrl ||
+                    (this.ErrorReturnUrl != null &&
+                    this.ErrorReturnUrl.Equals(input.ErrorReturnUrl))
                 ) && 
                 (
-                    this.Operation == other.Operation ||
-                    this.Operation != null &&
-                    this.Operation.Equals(other.Operation)
+                    this.Operation == input.Operation ||
+                    (this.Operation != null &&
+                    this.Operation.Equals(input.Operation))
                 ) && 
                 (
-                    this.PaypalMaximumUpsellRevenue == other.PaypalMaximumUpsellRevenue ||
-                    this.PaypalMaximumUpsellRevenue != null &&
-                    this.PaypalMaximumUpsellRevenue.Equals(other.PaypalMaximumUpsellRevenue)
+                    this.PaypalMaximumUpsellRevenue == input.PaypalMaximumUpsellRevenue ||
+                    (this.PaypalMaximumUpsellRevenue != null &&
+                    this.PaypalMaximumUpsellRevenue.Equals(input.PaypalMaximumUpsellRevenue))
                 ) && 
                 (
-                    this.PaypalReturnUrl == other.PaypalReturnUrl ||
-                    this.PaypalReturnUrl != null &&
-                    this.PaypalReturnUrl.Equals(other.PaypalReturnUrl)
+                    this.PaypalReturnUrl == input.PaypalReturnUrl ||
+                    (this.PaypalReturnUrl != null &&
+                    this.PaypalReturnUrl.Equals(input.PaypalReturnUrl))
                 ) && 
                 (
-                    this.SecureHostName == other.SecureHostName ||
-                    this.SecureHostName != null &&
-                    this.SecureHostName.Equals(other.SecureHostName)
+                    this.SecureHostName == input.SecureHostName ||
+                    (this.SecureHostName != null &&
+                    this.SecureHostName.Equals(input.SecureHostName))
                 );
         }
 
@@ -226,26 +230,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Cart != null)
-                    hash = hash * 59 + this.Cart.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cart.GetHashCode();
                 if (this.ErrorParameterName != null)
-                    hash = hash * 59 + this.ErrorParameterName.GetHashCode();
+                    hashCode = hashCode * 59 + this.ErrorParameterName.GetHashCode();
                 if (this.ErrorReturnUrl != null)
-                    hash = hash * 59 + this.ErrorReturnUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.ErrorReturnUrl.GetHashCode();
                 if (this.Operation != null)
-                    hash = hash * 59 + this.Operation.GetHashCode();
+                    hashCode = hashCode * 59 + this.Operation.GetHashCode();
                 if (this.PaypalMaximumUpsellRevenue != null)
-                    hash = hash * 59 + this.PaypalMaximumUpsellRevenue.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaypalMaximumUpsellRevenue.GetHashCode();
                 if (this.PaypalReturnUrl != null)
-                    hash = hash * 59 + this.PaypalReturnUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaypalReturnUrl.GetHashCode();
                 if (this.SecureHostName != null)
-                    hash = hash * 59 + this.SecureHostName.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.SecureHostName.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -112,40 +112,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemRelatedItem);
+            return this.Equals(input as ItemRelatedItem);
         }
 
         /// <summary>
         /// Returns true if ItemRelatedItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemRelatedItem to be compared</param>
+        /// <param name="input">Instance of ItemRelatedItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemRelatedItem other)
+        public bool Equals(ItemRelatedItem input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.RelatedMerchantItemId == other.RelatedMerchantItemId ||
-                    this.RelatedMerchantItemId != null &&
-                    this.RelatedMerchantItemId.Equals(other.RelatedMerchantItemId)
+                    this.RelatedMerchantItemId == input.RelatedMerchantItemId ||
+                    (this.RelatedMerchantItemId != null &&
+                    this.RelatedMerchantItemId.Equals(input.RelatedMerchantItemId))
                 ) && 
                 (
-                    this.RelatedMerchantItemOid == other.RelatedMerchantItemOid ||
-                    this.RelatedMerchantItemOid != null &&
-                    this.RelatedMerchantItemOid.Equals(other.RelatedMerchantItemOid)
+                    this.RelatedMerchantItemOid == input.RelatedMerchantItemOid ||
+                    (this.RelatedMerchantItemOid != null &&
+                    this.RelatedMerchantItemOid.Equals(input.RelatedMerchantItemOid))
                 ) && 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -155,18 +153,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.RelatedMerchantItemId != null)
-                    hash = hash * 59 + this.RelatedMerchantItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.RelatedMerchantItemId.GetHashCode();
                 if (this.RelatedMerchantItemOid != null)
-                    hash = hash * 59 + this.RelatedMerchantItemOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.RelatedMerchantItemOid.GetHashCode();
                 if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                return hashCode;
             }
         }
 

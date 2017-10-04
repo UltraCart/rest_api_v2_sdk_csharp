@@ -186,90 +186,88 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSettingsShippingEstimate);
+            return this.Equals(input as CartSettingsShippingEstimate);
         }
 
         /// <summary>
         /// Returns true if CartSettingsShippingEstimate instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSettingsShippingEstimate to be compared</param>
+        /// <param name="input">Instance of CartSettingsShippingEstimate to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSettingsShippingEstimate other)
+        public bool Equals(CartSettingsShippingEstimate input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Allow3rdPartyBilling == other.Allow3rdPartyBilling ||
-                    this.Allow3rdPartyBilling != null &&
-                    this.Allow3rdPartyBilling.Equals(other.Allow3rdPartyBilling)
+                    this.Allow3rdPartyBilling == input.Allow3rdPartyBilling ||
+                    (this.Allow3rdPartyBilling != null &&
+                    this.Allow3rdPartyBilling.Equals(input.Allow3rdPartyBilling))
                 ) && 
                 (
-                    this.Comment == other.Comment ||
-                    this.Comment != null &&
-                    this.Comment.Equals(other.Comment)
+                    this.Comment == input.Comment ||
+                    (this.Comment != null &&
+                    this.Comment.Equals(input.Comment))
                 ) && 
                 (
-                    this.Cost == other.Cost ||
-                    this.Cost != null &&
-                    this.Cost.Equals(other.Cost)
+                    this.Cost == input.Cost ||
+                    (this.Cost != null &&
+                    this.Cost.Equals(input.Cost))
                 ) && 
                 (
-                    this.CostBeforeDiscount == other.CostBeforeDiscount ||
-                    this.CostBeforeDiscount != null &&
-                    this.CostBeforeDiscount.Equals(other.CostBeforeDiscount)
+                    this.CostBeforeDiscount == input.CostBeforeDiscount ||
+                    (this.CostBeforeDiscount != null &&
+                    this.CostBeforeDiscount.Equals(input.CostBeforeDiscount))
                 ) && 
                 (
-                    this.DefaultMethod == other.DefaultMethod ||
-                    this.DefaultMethod != null &&
-                    this.DefaultMethod.Equals(other.DefaultMethod)
+                    this.DefaultMethod == input.DefaultMethod ||
+                    (this.DefaultMethod != null &&
+                    this.DefaultMethod.Equals(input.DefaultMethod))
                 ) && 
                 (
-                    this.Discount == other.Discount ||
-                    this.Discount != null &&
-                    this.Discount.Equals(other.Discount)
+                    this.Discount == input.Discount ||
+                    (this.Discount != null &&
+                    this.Discount.Equals(input.Discount))
                 ) && 
                 (
-                    this.Discounted == other.Discounted ||
-                    this.Discounted != null &&
-                    this.Discounted.Equals(other.Discounted)
+                    this.Discounted == input.Discounted ||
+                    (this.Discounted != null &&
+                    this.Discounted.Equals(input.Discounted))
                 ) && 
                 (
-                    this.DisplayName == other.DisplayName ||
-                    this.DisplayName != null &&
-                    this.DisplayName.Equals(other.DisplayName)
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
-                    this.EstimatedDelivery == other.EstimatedDelivery ||
-                    this.EstimatedDelivery != null &&
-                    this.EstimatedDelivery.Equals(other.EstimatedDelivery)
+                    this.EstimatedDelivery == input.EstimatedDelivery ||
+                    (this.EstimatedDelivery != null &&
+                    this.EstimatedDelivery.Equals(input.EstimatedDelivery))
                 ) && 
                 (
-                    this.LiftGateOption == other.LiftGateOption ||
-                    this.LiftGateOption != null &&
-                    this.LiftGateOption.Equals(other.LiftGateOption)
+                    this.LiftGateOption == input.LiftGateOption ||
+                    (this.LiftGateOption != null &&
+                    this.LiftGateOption.Equals(input.LiftGateOption))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Tax == other.Tax ||
-                    this.Tax != null &&
-                    this.Tax.Equals(other.Tax)
+                    this.Tax == input.Tax ||
+                    (this.Tax != null &&
+                    this.Tax.Equals(input.Tax))
                 ) && 
                 (
-                    this.TotalTax == other.TotalTax ||
-                    this.TotalTax != null &&
-                    this.TotalTax.Equals(other.TotalTax)
+                    this.TotalTax == input.TotalTax ||
+                    (this.TotalTax != null &&
+                    this.TotalTax.Equals(input.TotalTax))
                 );
         }
 
@@ -279,38 +277,36 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Allow3rdPartyBilling != null)
-                    hash = hash * 59 + this.Allow3rdPartyBilling.GetHashCode();
+                    hashCode = hashCode * 59 + this.Allow3rdPartyBilling.GetHashCode();
                 if (this.Comment != null)
-                    hash = hash * 59 + this.Comment.GetHashCode();
+                    hashCode = hashCode * 59 + this.Comment.GetHashCode();
                 if (this.Cost != null)
-                    hash = hash * 59 + this.Cost.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cost.GetHashCode();
                 if (this.CostBeforeDiscount != null)
-                    hash = hash * 59 + this.CostBeforeDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.CostBeforeDiscount.GetHashCode();
                 if (this.DefaultMethod != null)
-                    hash = hash * 59 + this.DefaultMethod.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultMethod.GetHashCode();
                 if (this.Discount != null)
-                    hash = hash * 59 + this.Discount.GetHashCode();
+                    hashCode = hashCode * 59 + this.Discount.GetHashCode();
                 if (this.Discounted != null)
-                    hash = hash * 59 + this.Discounted.GetHashCode();
+                    hashCode = hashCode * 59 + this.Discounted.GetHashCode();
                 if (this.DisplayName != null)
-                    hash = hash * 59 + this.DisplayName.GetHashCode();
+                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
                 if (this.EstimatedDelivery != null)
-                    hash = hash * 59 + this.EstimatedDelivery.GetHashCode();
+                    hashCode = hashCode * 59 + this.EstimatedDelivery.GetHashCode();
                 if (this.LiftGateOption != null)
-                    hash = hash * 59 + this.LiftGateOption.GetHashCode();
+                    hashCode = hashCode * 59 + this.LiftGateOption.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Tax != null)
-                    hash = hash * 59 + this.Tax.GetHashCode();
+                    hashCode = hashCode * 59 + this.Tax.GetHashCode();
                 if (this.TotalTax != null)
-                    hash = hash * 59 + this.TotalTax.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TotalTax.GetHashCode();
+                return hashCode;
             }
         }
 

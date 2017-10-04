@@ -191,90 +191,88 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemShippingDistributionCenter);
+            return this.Equals(input as ItemShippingDistributionCenter);
         }
 
         /// <summary>
         /// Returns true if ItemShippingDistributionCenter instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemShippingDistributionCenter to be compared</param>
+        /// <param name="input">Instance of ItemShippingDistributionCenter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemShippingDistributionCenter other)
+        public bool Equals(ItemShippingDistributionCenter input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AllocatedToPlacedOrders == other.AllocatedToPlacedOrders ||
-                    this.AllocatedToPlacedOrders != null &&
-                    this.AllocatedToPlacedOrders.Equals(other.AllocatedToPlacedOrders)
+                    this.AllocatedToPlacedOrders == input.AllocatedToPlacedOrders ||
+                    (this.AllocatedToPlacedOrders != null &&
+                    this.AllocatedToPlacedOrders.Equals(input.AllocatedToPlacedOrders))
                 ) && 
                 (
-                    this.AllocatedToShoppingCarts == other.AllocatedToShoppingCarts ||
-                    this.AllocatedToShoppingCarts != null &&
-                    this.AllocatedToShoppingCarts.Equals(other.AllocatedToShoppingCarts)
+                    this.AllocatedToShoppingCarts == input.AllocatedToShoppingCarts ||
+                    (this.AllocatedToShoppingCarts != null &&
+                    this.AllocatedToShoppingCarts.Equals(input.AllocatedToShoppingCarts))
                 ) && 
                 (
-                    this.AvailableToAllocate == other.AvailableToAllocate ||
-                    this.AvailableToAllocate != null &&
-                    this.AvailableToAllocate.Equals(other.AvailableToAllocate)
+                    this.AvailableToAllocate == input.AvailableToAllocate ||
+                    (this.AvailableToAllocate != null &&
+                    this.AvailableToAllocate.Equals(input.AvailableToAllocate))
                 ) && 
                 (
-                    this.DesiredInventoryLevel == other.DesiredInventoryLevel ||
-                    this.DesiredInventoryLevel != null &&
-                    this.DesiredInventoryLevel.Equals(other.DesiredInventoryLevel)
+                    this.DesiredInventoryLevel == input.DesiredInventoryLevel ||
+                    (this.DesiredInventoryLevel != null &&
+                    this.DesiredInventoryLevel.Equals(input.DesiredInventoryLevel))
                 ) && 
                 (
-                    this.DistributionCenterCode == other.DistributionCenterCode ||
-                    this.DistributionCenterCode != null &&
-                    this.DistributionCenterCode.Equals(other.DistributionCenterCode)
+                    this.DistributionCenterCode == input.DistributionCenterCode ||
+                    (this.DistributionCenterCode != null &&
+                    this.DistributionCenterCode.Equals(input.DistributionCenterCode))
                 ) && 
                 (
-                    this.DistributionCenterOid == other.DistributionCenterOid ||
-                    this.DistributionCenterOid != null &&
-                    this.DistributionCenterOid.Equals(other.DistributionCenterOid)
+                    this.DistributionCenterOid == input.DistributionCenterOid ||
+                    (this.DistributionCenterOid != null &&
+                    this.DistributionCenterOid.Equals(input.DistributionCenterOid))
                 ) && 
                 (
-                    this.Eta == other.Eta ||
-                    this.Eta != null &&
-                    this.Eta.Equals(other.Eta)
+                    this.Eta == input.Eta ||
+                    (this.Eta != null &&
+                    this.Eta.Equals(input.Eta))
                 ) && 
                 (
-                    this.Handles == other.Handles ||
-                    this.Handles != null &&
-                    this.Handles.Equals(other.Handles)
+                    this.Handles == input.Handles ||
+                    (this.Handles != null &&
+                    this.Handles.Equals(input.Handles))
                 ) && 
                 (
-                    this.InventoryLevel == other.InventoryLevel ||
-                    this.InventoryLevel != null &&
-                    this.InventoryLevel.Equals(other.InventoryLevel)
+                    this.InventoryLevel == input.InventoryLevel ||
+                    (this.InventoryLevel != null &&
+                    this.InventoryLevel.Equals(input.InventoryLevel))
                 ) && 
                 (
-                    this.MaximumBackorder == other.MaximumBackorder ||
-                    this.MaximumBackorder != null &&
-                    this.MaximumBackorder.Equals(other.MaximumBackorder)
+                    this.MaximumBackorder == input.MaximumBackorder ||
+                    (this.MaximumBackorder != null &&
+                    this.MaximumBackorder.Equals(input.MaximumBackorder))
                 ) && 
                 (
-                    this.ReorderInventoryLevel == other.ReorderInventoryLevel ||
-                    this.ReorderInventoryLevel != null &&
-                    this.ReorderInventoryLevel.Equals(other.ReorderInventoryLevel)
+                    this.ReorderInventoryLevel == input.ReorderInventoryLevel ||
+                    (this.ReorderInventoryLevel != null &&
+                    this.ReorderInventoryLevel.Equals(input.ReorderInventoryLevel))
                 ) && 
                 (
-                    this.Sku == other.Sku ||
-                    this.Sku != null &&
-                    this.Sku.Equals(other.Sku)
+                    this.Sku == input.Sku ||
+                    (this.Sku != null &&
+                    this.Sku.Equals(input.Sku))
                 ) && 
                 (
-                    this.StockPickingLocation == other.StockPickingLocation ||
-                    this.StockPickingLocation != null &&
-                    this.StockPickingLocation.Equals(other.StockPickingLocation)
+                    this.StockPickingLocation == input.StockPickingLocation ||
+                    (this.StockPickingLocation != null &&
+                    this.StockPickingLocation.Equals(input.StockPickingLocation))
                 );
         }
 
@@ -284,38 +282,36 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AllocatedToPlacedOrders != null)
-                    hash = hash * 59 + this.AllocatedToPlacedOrders.GetHashCode();
+                    hashCode = hashCode * 59 + this.AllocatedToPlacedOrders.GetHashCode();
                 if (this.AllocatedToShoppingCarts != null)
-                    hash = hash * 59 + this.AllocatedToShoppingCarts.GetHashCode();
+                    hashCode = hashCode * 59 + this.AllocatedToShoppingCarts.GetHashCode();
                 if (this.AvailableToAllocate != null)
-                    hash = hash * 59 + this.AvailableToAllocate.GetHashCode();
+                    hashCode = hashCode * 59 + this.AvailableToAllocate.GetHashCode();
                 if (this.DesiredInventoryLevel != null)
-                    hash = hash * 59 + this.DesiredInventoryLevel.GetHashCode();
+                    hashCode = hashCode * 59 + this.DesiredInventoryLevel.GetHashCode();
                 if (this.DistributionCenterCode != null)
-                    hash = hash * 59 + this.DistributionCenterCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.DistributionCenterCode.GetHashCode();
                 if (this.DistributionCenterOid != null)
-                    hash = hash * 59 + this.DistributionCenterOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.DistributionCenterOid.GetHashCode();
                 if (this.Eta != null)
-                    hash = hash * 59 + this.Eta.GetHashCode();
+                    hashCode = hashCode * 59 + this.Eta.GetHashCode();
                 if (this.Handles != null)
-                    hash = hash * 59 + this.Handles.GetHashCode();
+                    hashCode = hashCode * 59 + this.Handles.GetHashCode();
                 if (this.InventoryLevel != null)
-                    hash = hash * 59 + this.InventoryLevel.GetHashCode();
+                    hashCode = hashCode * 59 + this.InventoryLevel.GetHashCode();
                 if (this.MaximumBackorder != null)
-                    hash = hash * 59 + this.MaximumBackorder.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaximumBackorder.GetHashCode();
                 if (this.ReorderInventoryLevel != null)
-                    hash = hash * 59 + this.ReorderInventoryLevel.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReorderInventoryLevel.GetHashCode();
                 if (this.Sku != null)
-                    hash = hash * 59 + this.Sku.GetHashCode();
+                    hashCode = hashCode * 59 + this.Sku.GetHashCode();
                 if (this.StockPickingLocation != null)
-                    hash = hash * 59 + this.StockPickingLocation.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.StockPickingLocation.GetHashCode();
+                return hashCode;
             }
         }
 

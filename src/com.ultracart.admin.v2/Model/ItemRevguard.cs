@@ -131,60 +131,58 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemRevguard);
+            return this.Equals(input as ItemRevguard);
         }
 
         /// <summary>
         /// Returns true if ItemRevguard instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemRevguard to be compared</param>
+        /// <param name="input">Instance of ItemRevguard to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemRevguard other)
+        public bool Equals(ItemRevguard input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.RevguardCanceledCsrPromptGroup == other.RevguardCanceledCsrPromptGroup ||
-                    this.RevguardCanceledCsrPromptGroup != null &&
-                    this.RevguardCanceledCsrPromptGroup.Equals(other.RevguardCanceledCsrPromptGroup)
+                    this.RevguardCanceledCsrPromptGroup == input.RevguardCanceledCsrPromptGroup ||
+                    (this.RevguardCanceledCsrPromptGroup != null &&
+                    this.RevguardCanceledCsrPromptGroup.Equals(input.RevguardCanceledCsrPromptGroup))
                 ) && 
                 (
-                    this.RevguardCanceledIvrPromptGroup == other.RevguardCanceledIvrPromptGroup ||
-                    this.RevguardCanceledIvrPromptGroup != null &&
-                    this.RevguardCanceledIvrPromptGroup.Equals(other.RevguardCanceledIvrPromptGroup)
+                    this.RevguardCanceledIvrPromptGroup == input.RevguardCanceledIvrPromptGroup ||
+                    (this.RevguardCanceledIvrPromptGroup != null &&
+                    this.RevguardCanceledIvrPromptGroup.Equals(input.RevguardCanceledIvrPromptGroup))
                 ) && 
                 (
-                    this.RevguardCanceledWebPromptGroup == other.RevguardCanceledWebPromptGroup ||
-                    this.RevguardCanceledWebPromptGroup != null &&
-                    this.RevguardCanceledWebPromptGroup.Equals(other.RevguardCanceledWebPromptGroup)
+                    this.RevguardCanceledWebPromptGroup == input.RevguardCanceledWebPromptGroup ||
+                    (this.RevguardCanceledWebPromptGroup != null &&
+                    this.RevguardCanceledWebPromptGroup.Equals(input.RevguardCanceledWebPromptGroup))
                 ) && 
                 (
-                    this.RevguardClientBrand == other.RevguardClientBrand ||
-                    this.RevguardClientBrand != null &&
-                    this.RevguardClientBrand.Equals(other.RevguardClientBrand)
+                    this.RevguardClientBrand == input.RevguardClientBrand ||
+                    (this.RevguardClientBrand != null &&
+                    this.RevguardClientBrand.Equals(input.RevguardClientBrand))
                 ) && 
                 (
-                    this.RevguardCsrPromptGroup == other.RevguardCsrPromptGroup ||
-                    this.RevguardCsrPromptGroup != null &&
-                    this.RevguardCsrPromptGroup.Equals(other.RevguardCsrPromptGroup)
+                    this.RevguardCsrPromptGroup == input.RevguardCsrPromptGroup ||
+                    (this.RevguardCsrPromptGroup != null &&
+                    this.RevguardCsrPromptGroup.Equals(input.RevguardCsrPromptGroup))
                 ) && 
                 (
-                    this.RevguardIvrPromptGroup == other.RevguardIvrPromptGroup ||
-                    this.RevguardIvrPromptGroup != null &&
-                    this.RevguardIvrPromptGroup.Equals(other.RevguardIvrPromptGroup)
+                    this.RevguardIvrPromptGroup == input.RevguardIvrPromptGroup ||
+                    (this.RevguardIvrPromptGroup != null &&
+                    this.RevguardIvrPromptGroup.Equals(input.RevguardIvrPromptGroup))
                 ) && 
                 (
-                    this.RevguardWebPromptGroup == other.RevguardWebPromptGroup ||
-                    this.RevguardWebPromptGroup != null &&
-                    this.RevguardWebPromptGroup.Equals(other.RevguardWebPromptGroup)
+                    this.RevguardWebPromptGroup == input.RevguardWebPromptGroup ||
+                    (this.RevguardWebPromptGroup != null &&
+                    this.RevguardWebPromptGroup.Equals(input.RevguardWebPromptGroup))
                 );
         }
 
@@ -194,26 +192,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.RevguardCanceledCsrPromptGroup != null)
-                    hash = hash * 59 + this.RevguardCanceledCsrPromptGroup.GetHashCode();
+                    hashCode = hashCode * 59 + this.RevguardCanceledCsrPromptGroup.GetHashCode();
                 if (this.RevguardCanceledIvrPromptGroup != null)
-                    hash = hash * 59 + this.RevguardCanceledIvrPromptGroup.GetHashCode();
+                    hashCode = hashCode * 59 + this.RevguardCanceledIvrPromptGroup.GetHashCode();
                 if (this.RevguardCanceledWebPromptGroup != null)
-                    hash = hash * 59 + this.RevguardCanceledWebPromptGroup.GetHashCode();
+                    hashCode = hashCode * 59 + this.RevguardCanceledWebPromptGroup.GetHashCode();
                 if (this.RevguardClientBrand != null)
-                    hash = hash * 59 + this.RevguardClientBrand.GetHashCode();
+                    hashCode = hashCode * 59 + this.RevguardClientBrand.GetHashCode();
                 if (this.RevguardCsrPromptGroup != null)
-                    hash = hash * 59 + this.RevguardCsrPromptGroup.GetHashCode();
+                    hashCode = hashCode * 59 + this.RevguardCsrPromptGroup.GetHashCode();
                 if (this.RevguardIvrPromptGroup != null)
-                    hash = hash * 59 + this.RevguardIvrPromptGroup.GetHashCode();
+                    hashCode = hashCode * 59 + this.RevguardIvrPromptGroup.GetHashCode();
                 if (this.RevguardWebPromptGroup != null)
-                    hash = hash * 59 + this.RevguardWebPromptGroup.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RevguardWebPromptGroup.GetHashCode();
+                return hashCode;
             }
         }
 

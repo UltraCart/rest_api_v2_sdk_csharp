@@ -121,55 +121,53 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemShippingDestinationMarkup);
+            return this.Equals(input as ItemShippingDestinationMarkup);
         }
 
         /// <summary>
         /// Returns true if ItemShippingDestinationMarkup instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemShippingDestinationMarkup to be compared</param>
+        /// <param name="input">Instance of ItemShippingDestinationMarkup to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemShippingDestinationMarkup other)
+        public bool Equals(ItemShippingDestinationMarkup input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CountryCode == other.CountryCode ||
-                    this.CountryCode != null &&
-                    this.CountryCode.Equals(other.CountryCode)
+                    this.CountryCode == input.CountryCode ||
+                    (this.CountryCode != null &&
+                    this.CountryCode.Equals(input.CountryCode))
                 ) && 
                 (
-                    this.FlatFee == other.FlatFee ||
-                    this.FlatFee != null &&
-                    this.FlatFee.Equals(other.FlatFee)
+                    this.FlatFee == input.FlatFee ||
+                    (this.FlatFee != null &&
+                    this.FlatFee.Equals(input.FlatFee))
                 ) && 
                 (
-                    this.PerItem == other.PerItem ||
-                    this.PerItem != null &&
-                    this.PerItem.Equals(other.PerItem)
+                    this.PerItem == input.PerItem ||
+                    (this.PerItem != null &&
+                    this.PerItem.Equals(input.PerItem))
                 ) && 
                 (
-                    this.PostalCode == other.PostalCode ||
-                    this.PostalCode != null &&
-                    this.PostalCode.Equals(other.PostalCode)
+                    this.PostalCode == input.PostalCode ||
+                    (this.PostalCode != null &&
+                    this.PostalCode.Equals(input.PostalCode))
                 ) && 
                 (
-                    this.ShippingMethod == other.ShippingMethod ||
-                    this.ShippingMethod != null &&
-                    this.ShippingMethod.Equals(other.ShippingMethod)
+                    this.ShippingMethod == input.ShippingMethod ||
+                    (this.ShippingMethod != null &&
+                    this.ShippingMethod.Equals(input.ShippingMethod))
                 ) && 
                 (
-                    this.State == other.State ||
-                    this.State != null &&
-                    this.State.Equals(other.State)
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
                 );
         }
 
@@ -179,24 +177,22 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CountryCode != null)
-                    hash = hash * 59 + this.CountryCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.FlatFee != null)
-                    hash = hash * 59 + this.FlatFee.GetHashCode();
+                    hashCode = hashCode * 59 + this.FlatFee.GetHashCode();
                 if (this.PerItem != null)
-                    hash = hash * 59 + this.PerItem.GetHashCode();
+                    hashCode = hashCode * 59 + this.PerItem.GetHashCode();
                 if (this.PostalCode != null)
-                    hash = hash * 59 + this.PostalCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.ShippingMethod != null)
-                    hash = hash * 59 + this.ShippingMethod.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingMethod.GetHashCode();
                 if (this.State != null)
-                    hash = hash * 59 + this.State.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.State.GetHashCode();
+                return hashCode;
             }
         }
 

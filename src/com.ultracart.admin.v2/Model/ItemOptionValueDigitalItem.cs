@@ -81,35 +81,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemOptionValueDigitalItem);
+            return this.Equals(input as ItemOptionValueDigitalItem);
         }
 
         /// <summary>
         /// Returns true if ItemOptionValueDigitalItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemOptionValueDigitalItem to be compared</param>
+        /// <param name="input">Instance of ItemOptionValueDigitalItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemOptionValueDigitalItem other)
+        public bool Equals(ItemOptionValueDigitalItem input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.DigitalItemOid == other.DigitalItemOid ||
-                    this.DigitalItemOid != null &&
-                    this.DigitalItemOid.Equals(other.DigitalItemOid)
+                    this.DigitalItemOid == input.DigitalItemOid ||
+                    (this.DigitalItemOid != null &&
+                    this.DigitalItemOid.Equals(input.DigitalItemOid))
                 ) && 
                 (
-                    this.OriginalFilename == other.OriginalFilename ||
-                    this.OriginalFilename != null &&
-                    this.OriginalFilename.Equals(other.OriginalFilename)
+                    this.OriginalFilename == input.OriginalFilename ||
+                    (this.OriginalFilename != null &&
+                    this.OriginalFilename.Equals(input.OriginalFilename))
                 );
         }
 
@@ -119,16 +117,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.DigitalItemOid != null)
-                    hash = hash * 59 + this.DigitalItemOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.DigitalItemOid.GetHashCode();
                 if (this.OriginalFilename != null)
-                    hash = hash * 59 + this.OriginalFilename.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.OriginalFilename.GetHashCode();
+                return hashCode;
             }
         }
 

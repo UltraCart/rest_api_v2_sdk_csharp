@@ -153,65 +153,63 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OauthTokenResponse);
+            return this.Equals(input as OauthTokenResponse);
         }
 
         /// <summary>
         /// Returns true if OauthTokenResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of OauthTokenResponse to be compared</param>
+        /// <param name="input">Instance of OauthTokenResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OauthTokenResponse other)
+        public bool Equals(OauthTokenResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AccessToken == other.AccessToken ||
-                    this.AccessToken != null &&
-                    this.AccessToken.Equals(other.AccessToken)
+                    this.AccessToken == input.AccessToken ||
+                    (this.AccessToken != null &&
+                    this.AccessToken.Equals(input.AccessToken))
                 ) && 
                 (
-                    this.Error == other.Error ||
-                    this.Error != null &&
-                    this.Error.Equals(other.Error)
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
                 ) && 
                 (
-                    this.ErrorDescription == other.ErrorDescription ||
-                    this.ErrorDescription != null &&
-                    this.ErrorDescription.Equals(other.ErrorDescription)
+                    this.ErrorDescription == input.ErrorDescription ||
+                    (this.ErrorDescription != null &&
+                    this.ErrorDescription.Equals(input.ErrorDescription))
                 ) && 
                 (
-                    this.ErrorUri == other.ErrorUri ||
-                    this.ErrorUri != null &&
-                    this.ErrorUri.Equals(other.ErrorUri)
+                    this.ErrorUri == input.ErrorUri ||
+                    (this.ErrorUri != null &&
+                    this.ErrorUri.Equals(input.ErrorUri))
                 ) && 
                 (
-                    this.ExpiresIn == other.ExpiresIn ||
-                    this.ExpiresIn != null &&
-                    this.ExpiresIn.Equals(other.ExpiresIn)
+                    this.ExpiresIn == input.ExpiresIn ||
+                    (this.ExpiresIn != null &&
+                    this.ExpiresIn.Equals(input.ExpiresIn))
                 ) && 
                 (
-                    this.RefreshToken == other.RefreshToken ||
-                    this.RefreshToken != null &&
-                    this.RefreshToken.Equals(other.RefreshToken)
+                    this.RefreshToken == input.RefreshToken ||
+                    (this.RefreshToken != null &&
+                    this.RefreshToken.Equals(input.RefreshToken))
                 ) && 
                 (
-                    this.Scope == other.Scope ||
-                    this.Scope != null &&
-                    this.Scope.Equals(other.Scope)
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
                 ) && 
                 (
-                    this.TokenType == other.TokenType ||
-                    this.TokenType != null &&
-                    this.TokenType.Equals(other.TokenType)
+                    this.TokenType == input.TokenType ||
+                    (this.TokenType != null &&
+                    this.TokenType.Equals(input.TokenType))
                 );
         }
 
@@ -221,28 +219,26 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AccessToken != null)
-                    hash = hash * 59 + this.AccessToken.GetHashCode();
+                    hashCode = hashCode * 59 + this.AccessToken.GetHashCode();
                 if (this.Error != null)
-                    hash = hash * 59 + this.Error.GetHashCode();
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.ErrorDescription != null)
-                    hash = hash * 59 + this.ErrorDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.ErrorDescription.GetHashCode();
                 if (this.ErrorUri != null)
-                    hash = hash * 59 + this.ErrorUri.GetHashCode();
+                    hashCode = hashCode * 59 + this.ErrorUri.GetHashCode();
                 if (this.ExpiresIn != null)
-                    hash = hash * 59 + this.ExpiresIn.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExpiresIn.GetHashCode();
                 if (this.RefreshToken != null)
-                    hash = hash * 59 + this.RefreshToken.GetHashCode();
+                    hashCode = hashCode * 59 + this.RefreshToken.GetHashCode();
                 if (this.Scope != null)
-                    hash = hash * 59 + this.Scope.GetHashCode();
+                    hashCode = hashCode * 59 + this.Scope.GetHashCode();
                 if (this.TokenType != null)
-                    hash = hash * 59 + this.TokenType.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TokenType.GetHashCode();
+                return hashCode;
             }
         }
 

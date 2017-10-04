@@ -81,35 +81,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderItemEdi);
+            return this.Equals(input as OrderItemEdi);
         }
 
         /// <summary>
         /// Returns true if OrderItemEdi instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderItemEdi to be compared</param>
+        /// <param name="input">Instance of OrderItemEdi to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderItemEdi other)
+        public bool Equals(OrderItemEdi input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Identifications == other.Identifications ||
+                    this.Identifications == input.Identifications ||
                     this.Identifications != null &&
-                    this.Identifications.SequenceEqual(other.Identifications)
+                    this.Identifications.SequenceEqual(input.Identifications)
                 ) && 
                 (
-                    this.Lots == other.Lots ||
+                    this.Lots == input.Lots ||
                     this.Lots != null &&
-                    this.Lots.SequenceEqual(other.Lots)
+                    this.Lots.SequenceEqual(input.Lots)
                 );
         }
 
@@ -119,16 +117,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Identifications != null)
-                    hash = hash * 59 + this.Identifications.GetHashCode();
+                    hashCode = hashCode * 59 + this.Identifications.GetHashCode();
                 if (this.Lots != null)
-                    hash = hash * 59 + this.Lots.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Lots.GetHashCode();
+                return hashCode;
             }
         }
 

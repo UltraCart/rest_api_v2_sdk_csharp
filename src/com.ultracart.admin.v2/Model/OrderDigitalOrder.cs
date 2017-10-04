@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderDigitalOrder);
+            return this.Equals(input as OrderDigitalOrder);
         }
 
         /// <summary>
         /// Returns true if OrderDigitalOrder instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderDigitalOrder to be compared</param>
+        /// <param name="input">Instance of OrderDigitalOrder to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderDigitalOrder other)
+        public bool Equals(OrderDigitalOrder input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CreationDts == other.CreationDts ||
-                    this.CreationDts != null &&
-                    this.CreationDts.Equals(other.CreationDts)
+                    this.CreationDts == input.CreationDts ||
+                    (this.CreationDts != null &&
+                    this.CreationDts.Equals(input.CreationDts))
                 ) && 
                 (
-                    this.ExpirationDts == other.ExpirationDts ||
-                    this.ExpirationDts != null &&
-                    this.ExpirationDts.Equals(other.ExpirationDts)
+                    this.ExpirationDts == input.ExpirationDts ||
+                    (this.ExpirationDts != null &&
+                    this.ExpirationDts.Equals(input.ExpirationDts))
                 ) && 
                 (
-                    this.Items == other.Items ||
+                    this.Items == input.Items ||
                     this.Items != null &&
-                    this.Items.SequenceEqual(other.Items)
+                    this.Items.SequenceEqual(input.Items)
                 ) && 
                 (
-                    this.Url == other.Url ||
-                    this.Url != null &&
-                    this.Url.Equals(other.Url)
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 ) && 
                 (
-                    this.UrlId == other.UrlId ||
-                    this.UrlId != null &&
-                    this.UrlId.Equals(other.UrlId)
+                    this.UrlId == input.UrlId ||
+                    (this.UrlId != null &&
+                    this.UrlId.Equals(input.UrlId))
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CreationDts != null)
-                    hash = hash * 59 + this.CreationDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreationDts.GetHashCode();
                 if (this.ExpirationDts != null)
-                    hash = hash * 59 + this.ExpirationDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExpirationDts.GetHashCode();
                 if (this.Items != null)
-                    hash = hash * 59 + this.Items.GetHashCode();
+                    hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.Url != null)
-                    hash = hash * 59 + this.Url.GetHashCode();
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.UrlId != null)
-                    hash = hash * 59 + this.UrlId.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UrlId.GetHashCode();
+                return hashCode;
             }
         }
 

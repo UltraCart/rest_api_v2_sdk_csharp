@@ -164,60 +164,58 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TempMultimedia);
+            return this.Equals(input as TempMultimedia);
         }
 
         /// <summary>
         /// Returns true if TempMultimedia instances are equal
         /// </summary>
-        /// <param name="other">Instance of TempMultimedia to be compared</param>
+        /// <param name="input">Instance of TempMultimedia to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TempMultimedia other)
+        public bool Equals(TempMultimedia input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Filename == other.Filename ||
-                    this.Filename != null &&
-                    this.Filename.Equals(other.Filename)
+                    this.Filename == input.Filename ||
+                    (this.Filename != null &&
+                    this.Filename.Equals(input.Filename))
                 ) && 
                 (
-                    this.Height == other.Height ||
-                    this.Height != null &&
-                    this.Height.Equals(other.Height)
+                    this.Height == input.Height ||
+                    (this.Height != null &&
+                    this.Height.Equals(input.Height))
                 ) && 
                 (
-                    this.MultimediaType == other.MultimediaType ||
-                    this.MultimediaType != null &&
-                    this.MultimediaType.Equals(other.MultimediaType)
+                    this.MultimediaType == input.MultimediaType ||
+                    (this.MultimediaType != null &&
+                    this.MultimediaType.Equals(input.MultimediaType))
                 ) && 
                 (
-                    this.Size == other.Size ||
-                    this.Size != null &&
-                    this.Size.Equals(other.Size)
+                    this.Size == input.Size ||
+                    (this.Size != null &&
+                    this.Size.Equals(input.Size))
                 ) && 
                 (
-                    this.TempMultimediaOid == other.TempMultimediaOid ||
-                    this.TempMultimediaOid != null &&
-                    this.TempMultimediaOid.Equals(other.TempMultimediaOid)
+                    this.TempMultimediaOid == input.TempMultimediaOid ||
+                    (this.TempMultimediaOid != null &&
+                    this.TempMultimediaOid.Equals(input.TempMultimediaOid))
                 ) && 
                 (
-                    this.Url == other.Url ||
-                    this.Url != null &&
-                    this.Url.Equals(other.Url)
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 ) && 
                 (
-                    this.Width == other.Width ||
-                    this.Width != null &&
-                    this.Width.Equals(other.Width)
+                    this.Width == input.Width ||
+                    (this.Width != null &&
+                    this.Width.Equals(input.Width))
                 );
         }
 
@@ -227,26 +225,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Filename != null)
-                    hash = hash * 59 + this.Filename.GetHashCode();
+                    hashCode = hashCode * 59 + this.Filename.GetHashCode();
                 if (this.Height != null)
-                    hash = hash * 59 + this.Height.GetHashCode();
+                    hashCode = hashCode * 59 + this.Height.GetHashCode();
                 if (this.MultimediaType != null)
-                    hash = hash * 59 + this.MultimediaType.GetHashCode();
+                    hashCode = hashCode * 59 + this.MultimediaType.GetHashCode();
                 if (this.Size != null)
-                    hash = hash * 59 + this.Size.GetHashCode();
+                    hashCode = hashCode * 59 + this.Size.GetHashCode();
                 if (this.TempMultimediaOid != null)
-                    hash = hash * 59 + this.TempMultimediaOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.TempMultimediaOid.GetHashCode();
                 if (this.Url != null)
-                    hash = hash * 59 + this.Url.GetHashCode();
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.Width != null)
-                    hash = hash * 59 + this.Width.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Width.GetHashCode();
+                return hashCode;
             }
         }
 

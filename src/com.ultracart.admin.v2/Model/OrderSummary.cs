@@ -187,95 +187,93 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderSummary);
+            return this.Equals(input as OrderSummary);
         }
 
         /// <summary>
         /// Returns true if OrderSummary instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderSummary to be compared</param>
+        /// <param name="input">Instance of OrderSummary to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderSummary other)
+        public bool Equals(OrderSummary input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.OtherRefunded == other.OtherRefunded ||
-                    this.OtherRefunded != null &&
-                    this.OtherRefunded.Equals(other.OtherRefunded)
+                    this.OtherRefunded == input.OtherRefunded ||
+                    (this.OtherRefunded != null &&
+                    this.OtherRefunded.Equals(input.OtherRefunded))
                 ) && 
                 (
-                    this.ShippingHandlingRefunded == other.ShippingHandlingRefunded ||
-                    this.ShippingHandlingRefunded != null &&
-                    this.ShippingHandlingRefunded.Equals(other.ShippingHandlingRefunded)
+                    this.ShippingHandlingRefunded == input.ShippingHandlingRefunded ||
+                    (this.ShippingHandlingRefunded != null &&
+                    this.ShippingHandlingRefunded.Equals(input.ShippingHandlingRefunded))
                 ) && 
                 (
-                    this.ShippingHandlingTotal == other.ShippingHandlingTotal ||
-                    this.ShippingHandlingTotal != null &&
-                    this.ShippingHandlingTotal.Equals(other.ShippingHandlingTotal)
+                    this.ShippingHandlingTotal == input.ShippingHandlingTotal ||
+                    (this.ShippingHandlingTotal != null &&
+                    this.ShippingHandlingTotal.Equals(input.ShippingHandlingTotal))
                 ) && 
                 (
-                    this.ShippingHandlingTotalDiscount == other.ShippingHandlingTotalDiscount ||
-                    this.ShippingHandlingTotalDiscount != null &&
-                    this.ShippingHandlingTotalDiscount.Equals(other.ShippingHandlingTotalDiscount)
+                    this.ShippingHandlingTotalDiscount == input.ShippingHandlingTotalDiscount ||
+                    (this.ShippingHandlingTotalDiscount != null &&
+                    this.ShippingHandlingTotalDiscount.Equals(input.ShippingHandlingTotalDiscount))
                 ) && 
                 (
-                    this.Subtotal == other.Subtotal ||
-                    this.Subtotal != null &&
-                    this.Subtotal.Equals(other.Subtotal)
+                    this.Subtotal == input.Subtotal ||
+                    (this.Subtotal != null &&
+                    this.Subtotal.Equals(input.Subtotal))
                 ) && 
                 (
-                    this.SubtotalDiscount == other.SubtotalDiscount ||
-                    this.SubtotalDiscount != null &&
-                    this.SubtotalDiscount.Equals(other.SubtotalDiscount)
+                    this.SubtotalDiscount == input.SubtotalDiscount ||
+                    (this.SubtotalDiscount != null &&
+                    this.SubtotalDiscount.Equals(input.SubtotalDiscount))
                 ) && 
                 (
-                    this.SubtotalDiscountRefunded == other.SubtotalDiscountRefunded ||
-                    this.SubtotalDiscountRefunded != null &&
-                    this.SubtotalDiscountRefunded.Equals(other.SubtotalDiscountRefunded)
+                    this.SubtotalDiscountRefunded == input.SubtotalDiscountRefunded ||
+                    (this.SubtotalDiscountRefunded != null &&
+                    this.SubtotalDiscountRefunded.Equals(input.SubtotalDiscountRefunded))
                 ) && 
                 (
-                    this.SubtotalRefunded == other.SubtotalRefunded ||
-                    this.SubtotalRefunded != null &&
-                    this.SubtotalRefunded.Equals(other.SubtotalRefunded)
+                    this.SubtotalRefunded == input.SubtotalRefunded ||
+                    (this.SubtotalRefunded != null &&
+                    this.SubtotalRefunded.Equals(input.SubtotalRefunded))
                 ) && 
                 (
-                    this.Tax == other.Tax ||
-                    this.Tax != null &&
-                    this.Tax.Equals(other.Tax)
+                    this.Tax == input.Tax ||
+                    (this.Tax != null &&
+                    this.Tax.Equals(input.Tax))
                 ) && 
                 (
-                    this.TaxRefunded == other.TaxRefunded ||
-                    this.TaxRefunded != null &&
-                    this.TaxRefunded.Equals(other.TaxRefunded)
+                    this.TaxRefunded == input.TaxRefunded ||
+                    (this.TaxRefunded != null &&
+                    this.TaxRefunded.Equals(input.TaxRefunded))
                 ) && 
                 (
-                    this.TaxableSubtotal == other.TaxableSubtotal ||
-                    this.TaxableSubtotal != null &&
-                    this.TaxableSubtotal.Equals(other.TaxableSubtotal)
+                    this.TaxableSubtotal == input.TaxableSubtotal ||
+                    (this.TaxableSubtotal != null &&
+                    this.TaxableSubtotal.Equals(input.TaxableSubtotal))
                 ) && 
                 (
-                    this.TaxableSubtotalDiscount == other.TaxableSubtotalDiscount ||
-                    this.TaxableSubtotalDiscount != null &&
-                    this.TaxableSubtotalDiscount.Equals(other.TaxableSubtotalDiscount)
+                    this.TaxableSubtotalDiscount == input.TaxableSubtotalDiscount ||
+                    (this.TaxableSubtotalDiscount != null &&
+                    this.TaxableSubtotalDiscount.Equals(input.TaxableSubtotalDiscount))
                 ) && 
                 (
-                    this.Total == other.Total ||
-                    this.Total != null &&
-                    this.Total.Equals(other.Total)
+                    this.Total == input.Total ||
+                    (this.Total != null &&
+                    this.Total.Equals(input.Total))
                 ) && 
                 (
-                    this.TotalRefunded == other.TotalRefunded ||
-                    this.TotalRefunded != null &&
-                    this.TotalRefunded.Equals(other.TotalRefunded)
+                    this.TotalRefunded == input.TotalRefunded ||
+                    (this.TotalRefunded != null &&
+                    this.TotalRefunded.Equals(input.TotalRefunded))
                 );
         }
 
@@ -285,40 +283,38 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.OtherRefunded != null)
-                    hash = hash * 59 + this.OtherRefunded.GetHashCode();
+                    hashCode = hashCode * 59 + this.OtherRefunded.GetHashCode();
                 if (this.ShippingHandlingRefunded != null)
-                    hash = hash * 59 + this.ShippingHandlingRefunded.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingHandlingRefunded.GetHashCode();
                 if (this.ShippingHandlingTotal != null)
-                    hash = hash * 59 + this.ShippingHandlingTotal.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingHandlingTotal.GetHashCode();
                 if (this.ShippingHandlingTotalDiscount != null)
-                    hash = hash * 59 + this.ShippingHandlingTotalDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingHandlingTotalDiscount.GetHashCode();
                 if (this.Subtotal != null)
-                    hash = hash * 59 + this.Subtotal.GetHashCode();
+                    hashCode = hashCode * 59 + this.Subtotal.GetHashCode();
                 if (this.SubtotalDiscount != null)
-                    hash = hash * 59 + this.SubtotalDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubtotalDiscount.GetHashCode();
                 if (this.SubtotalDiscountRefunded != null)
-                    hash = hash * 59 + this.SubtotalDiscountRefunded.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubtotalDiscountRefunded.GetHashCode();
                 if (this.SubtotalRefunded != null)
-                    hash = hash * 59 + this.SubtotalRefunded.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubtotalRefunded.GetHashCode();
                 if (this.Tax != null)
-                    hash = hash * 59 + this.Tax.GetHashCode();
+                    hashCode = hashCode * 59 + this.Tax.GetHashCode();
                 if (this.TaxRefunded != null)
-                    hash = hash * 59 + this.TaxRefunded.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxRefunded.GetHashCode();
                 if (this.TaxableSubtotal != null)
-                    hash = hash * 59 + this.TaxableSubtotal.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxableSubtotal.GetHashCode();
                 if (this.TaxableSubtotalDiscount != null)
-                    hash = hash * 59 + this.TaxableSubtotalDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxableSubtotalDiscount.GetHashCode();
                 if (this.Total != null)
-                    hash = hash * 59 + this.Total.GetHashCode();
+                    hashCode = hashCode * 59 + this.Total.GetHashCode();
                 if (this.TotalRefunded != null)
-                    hash = hash * 59 + this.TotalRefunded.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TotalRefunded.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -171,80 +171,78 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemContent);
+            return this.Equals(input as ItemContent);
         }
 
         /// <summary>
         /// Returns true if ItemContent instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemContent to be compared</param>
+        /// <param name="input">Instance of ItemContent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemContent other)
+        public bool Equals(ItemContent input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Assignments == other.Assignments ||
+                    this.Assignments == input.Assignments ||
                     this.Assignments != null &&
-                    this.Assignments.SequenceEqual(other.Assignments)
+                    this.Assignments.SequenceEqual(input.Assignments)
                 ) && 
                 (
-                    this.Attributes == other.Attributes ||
+                    this.Attributes == input.Attributes ||
                     this.Attributes != null &&
-                    this.Attributes.SequenceEqual(other.Attributes)
+                    this.Attributes.SequenceEqual(input.Attributes)
                 ) && 
                 (
-                    this.ExcludeFromSearch == other.ExcludeFromSearch ||
-                    this.ExcludeFromSearch != null &&
-                    this.ExcludeFromSearch.Equals(other.ExcludeFromSearch)
+                    this.ExcludeFromSearch == input.ExcludeFromSearch ||
+                    (this.ExcludeFromSearch != null &&
+                    this.ExcludeFromSearch.Equals(input.ExcludeFromSearch))
                 ) && 
                 (
-                    this.ExcludeFromTopSellers == other.ExcludeFromTopSellers ||
-                    this.ExcludeFromTopSellers != null &&
-                    this.ExcludeFromTopSellers.Equals(other.ExcludeFromTopSellers)
+                    this.ExcludeFromTopSellers == input.ExcludeFromTopSellers ||
+                    (this.ExcludeFromTopSellers != null &&
+                    this.ExcludeFromTopSellers.Equals(input.ExcludeFromTopSellers))
                 ) && 
                 (
-                    this.ExtendedDescription == other.ExtendedDescription ||
-                    this.ExtendedDescription != null &&
-                    this.ExtendedDescription.Equals(other.ExtendedDescription)
+                    this.ExtendedDescription == input.ExtendedDescription ||
+                    (this.ExtendedDescription != null &&
+                    this.ExtendedDescription.Equals(input.ExtendedDescription))
                 ) && 
                 (
-                    this.ExtendedDescriptionTranslatedTextInstanceOid == other.ExtendedDescriptionTranslatedTextInstanceOid ||
-                    this.ExtendedDescriptionTranslatedTextInstanceOid != null &&
-                    this.ExtendedDescriptionTranslatedTextInstanceOid.Equals(other.ExtendedDescriptionTranslatedTextInstanceOid)
+                    this.ExtendedDescriptionTranslatedTextInstanceOid == input.ExtendedDescriptionTranslatedTextInstanceOid ||
+                    (this.ExtendedDescriptionTranslatedTextInstanceOid != null &&
+                    this.ExtendedDescriptionTranslatedTextInstanceOid.Equals(input.ExtendedDescriptionTranslatedTextInstanceOid))
                 ) && 
                 (
-                    this.Multimedia == other.Multimedia ||
+                    this.Multimedia == input.Multimedia ||
                     this.Multimedia != null &&
-                    this.Multimedia.SequenceEqual(other.Multimedia)
+                    this.Multimedia.SequenceEqual(input.Multimedia)
                 ) && 
                 (
-                    this.NewItem == other.NewItem ||
-                    this.NewItem != null &&
-                    this.NewItem.Equals(other.NewItem)
+                    this.NewItem == input.NewItem ||
+                    (this.NewItem != null &&
+                    this.NewItem.Equals(input.NewItem))
                 ) && 
                 (
-                    this.NewItemEnd == other.NewItemEnd ||
-                    this.NewItemEnd != null &&
-                    this.NewItemEnd.Equals(other.NewItemEnd)
+                    this.NewItemEnd == input.NewItemEnd ||
+                    (this.NewItemEnd != null &&
+                    this.NewItemEnd.Equals(input.NewItemEnd))
                 ) && 
                 (
-                    this.NewItemStart == other.NewItemStart ||
-                    this.NewItemStart != null &&
-                    this.NewItemStart.Equals(other.NewItemStart)
+                    this.NewItemStart == input.NewItemStart ||
+                    (this.NewItemStart != null &&
+                    this.NewItemStart.Equals(input.NewItemStart))
                 ) && 
                 (
-                    this.ViewUrl == other.ViewUrl ||
-                    this.ViewUrl != null &&
-                    this.ViewUrl.Equals(other.ViewUrl)
+                    this.ViewUrl == input.ViewUrl ||
+                    (this.ViewUrl != null &&
+                    this.ViewUrl.Equals(input.ViewUrl))
                 );
         }
 
@@ -254,34 +252,32 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Assignments != null)
-                    hash = hash * 59 + this.Assignments.GetHashCode();
+                    hashCode = hashCode * 59 + this.Assignments.GetHashCode();
                 if (this.Attributes != null)
-                    hash = hash * 59 + this.Attributes.GetHashCode();
+                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.ExcludeFromSearch != null)
-                    hash = hash * 59 + this.ExcludeFromSearch.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExcludeFromSearch.GetHashCode();
                 if (this.ExcludeFromTopSellers != null)
-                    hash = hash * 59 + this.ExcludeFromTopSellers.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExcludeFromTopSellers.GetHashCode();
                 if (this.ExtendedDescription != null)
-                    hash = hash * 59 + this.ExtendedDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExtendedDescription.GetHashCode();
                 if (this.ExtendedDescriptionTranslatedTextInstanceOid != null)
-                    hash = hash * 59 + this.ExtendedDescriptionTranslatedTextInstanceOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExtendedDescriptionTranslatedTextInstanceOid.GetHashCode();
                 if (this.Multimedia != null)
-                    hash = hash * 59 + this.Multimedia.GetHashCode();
+                    hashCode = hashCode * 59 + this.Multimedia.GetHashCode();
                 if (this.NewItem != null)
-                    hash = hash * 59 + this.NewItem.GetHashCode();
+                    hashCode = hashCode * 59 + this.NewItem.GetHashCode();
                 if (this.NewItemEnd != null)
-                    hash = hash * 59 + this.NewItemEnd.GetHashCode();
+                    hashCode = hashCode * 59 + this.NewItemEnd.GetHashCode();
                 if (this.NewItemStart != null)
-                    hash = hash * 59 + this.NewItemStart.GetHashCode();
+                    hashCode = hashCode * 59 + this.NewItemStart.GetHashCode();
                 if (this.ViewUrl != null)
-                    hash = hash * 59 + this.ViewUrl.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ViewUrl.GetHashCode();
+                return hashCode;
             }
         }
 

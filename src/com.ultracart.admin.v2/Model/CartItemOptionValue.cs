@@ -109,50 +109,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartItemOptionValue);
+            return this.Equals(input as CartItemOptionValue);
         }
 
         /// <summary>
         /// Returns true if CartItemOptionValue instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartItemOptionValue to be compared</param>
+        /// <param name="input">Instance of CartItemOptionValue to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartItemOptionValue other)
+        public bool Equals(CartItemOptionValue input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AdditionalCost == other.AdditionalCost ||
-                    this.AdditionalCost != null &&
-                    this.AdditionalCost.Equals(other.AdditionalCost)
+                    this.AdditionalCost == input.AdditionalCost ||
+                    (this.AdditionalCost != null &&
+                    this.AdditionalCost.Equals(input.AdditionalCost))
                 ) && 
                 (
-                    this.AdditionalWeight == other.AdditionalWeight ||
-                    this.AdditionalWeight != null &&
-                    this.AdditionalWeight.Equals(other.AdditionalWeight)
+                    this.AdditionalWeight == input.AdditionalWeight ||
+                    (this.AdditionalWeight != null &&
+                    this.AdditionalWeight.Equals(input.AdditionalWeight))
                 ) && 
                 (
-                    this.DefaultValue == other.DefaultValue ||
-                    this.DefaultValue != null &&
-                    this.DefaultValue.Equals(other.DefaultValue)
+                    this.DefaultValue == input.DefaultValue ||
+                    (this.DefaultValue != null &&
+                    this.DefaultValue.Equals(input.DefaultValue))
                 ) && 
                 (
-                    this.DisplayOrder == other.DisplayOrder ||
-                    this.DisplayOrder != null &&
-                    this.DisplayOrder.Equals(other.DisplayOrder)
+                    this.DisplayOrder == input.DisplayOrder ||
+                    (this.DisplayOrder != null &&
+                    this.DisplayOrder.Equals(input.DisplayOrder))
                 ) && 
                 (
-                    this.Value == other.Value ||
-                    this.Value != null &&
-                    this.Value.Equals(other.Value)
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -162,22 +160,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AdditionalCost != null)
-                    hash = hash * 59 + this.AdditionalCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdditionalCost.GetHashCode();
                 if (this.AdditionalWeight != null)
-                    hash = hash * 59 + this.AdditionalWeight.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdditionalWeight.GetHashCode();
                 if (this.DefaultValue != null)
-                    hash = hash * 59 + this.DefaultValue.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultValue.GetHashCode();
                 if (this.DisplayOrder != null)
-                    hash = hash * 59 + this.DisplayOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.DisplayOrder.GetHashCode();
                 if (this.Value != null)
-                    hash = hash * 59 + this.Value.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                return hashCode;
             }
         }
 

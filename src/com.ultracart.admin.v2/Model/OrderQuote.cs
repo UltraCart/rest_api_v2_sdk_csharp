@@ -91,40 +91,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderQuote);
+            return this.Equals(input as OrderQuote);
         }
 
         /// <summary>
         /// Returns true if OrderQuote instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderQuote to be compared</param>
+        /// <param name="input">Instance of OrderQuote to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderQuote other)
+        public bool Equals(OrderQuote input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.QuoteExpirationDts == other.QuoteExpirationDts ||
-                    this.QuoteExpirationDts != null &&
-                    this.QuoteExpirationDts.Equals(other.QuoteExpirationDts)
+                    this.QuoteExpirationDts == input.QuoteExpirationDts ||
+                    (this.QuoteExpirationDts != null &&
+                    this.QuoteExpirationDts.Equals(input.QuoteExpirationDts))
                 ) && 
                 (
-                    this.QuotedBy == other.QuotedBy ||
-                    this.QuotedBy != null &&
-                    this.QuotedBy.Equals(other.QuotedBy)
+                    this.QuotedBy == input.QuotedBy ||
+                    (this.QuotedBy != null &&
+                    this.QuotedBy.Equals(input.QuotedBy))
                 ) && 
                 (
-                    this.QuotedDts == other.QuotedDts ||
-                    this.QuotedDts != null &&
-                    this.QuotedDts.Equals(other.QuotedDts)
+                    this.QuotedDts == input.QuotedDts ||
+                    (this.QuotedDts != null &&
+                    this.QuotedDts.Equals(input.QuotedDts))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.QuoteExpirationDts != null)
-                    hash = hash * 59 + this.QuoteExpirationDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.QuoteExpirationDts.GetHashCode();
                 if (this.QuotedBy != null)
-                    hash = hash * 59 + this.QuotedBy.GetHashCode();
+                    hashCode = hashCode * 59 + this.QuotedBy.GetHashCode();
                 if (this.QuotedDts != null)
-                    hash = hash * 59 + this.QuotedDts.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.QuotedDts.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -121,55 +121,53 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemCCBill);
+            return this.Equals(input as ItemCCBill);
         }
 
         /// <summary>
         /// Returns true if ItemCCBill instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemCCBill to be compared</param>
+        /// <param name="input">Instance of ItemCCBill to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemCCBill other)
+        public bool Equals(ItemCCBill input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CcbillAllowedCurrencies == other.CcbillAllowedCurrencies ||
-                    this.CcbillAllowedCurrencies != null &&
-                    this.CcbillAllowedCurrencies.Equals(other.CcbillAllowedCurrencies)
+                    this.CcbillAllowedCurrencies == input.CcbillAllowedCurrencies ||
+                    (this.CcbillAllowedCurrencies != null &&
+                    this.CcbillAllowedCurrencies.Equals(input.CcbillAllowedCurrencies))
                 ) && 
                 (
-                    this.CcbillAllowedTypes == other.CcbillAllowedTypes ||
-                    this.CcbillAllowedTypes != null &&
-                    this.CcbillAllowedTypes.Equals(other.CcbillAllowedTypes)
+                    this.CcbillAllowedTypes == input.CcbillAllowedTypes ||
+                    (this.CcbillAllowedTypes != null &&
+                    this.CcbillAllowedTypes.Equals(input.CcbillAllowedTypes))
                 ) && 
                 (
-                    this.CcbillCurrencyCode == other.CcbillCurrencyCode ||
-                    this.CcbillCurrencyCode != null &&
-                    this.CcbillCurrencyCode.Equals(other.CcbillCurrencyCode)
+                    this.CcbillCurrencyCode == input.CcbillCurrencyCode ||
+                    (this.CcbillCurrencyCode != null &&
+                    this.CcbillCurrencyCode.Equals(input.CcbillCurrencyCode))
                 ) && 
                 (
-                    this.CcbillFormName == other.CcbillFormName ||
-                    this.CcbillFormName != null &&
-                    this.CcbillFormName.Equals(other.CcbillFormName)
+                    this.CcbillFormName == input.CcbillFormName ||
+                    (this.CcbillFormName != null &&
+                    this.CcbillFormName.Equals(input.CcbillFormName))
                 ) && 
                 (
-                    this.CcbillSubaccountId == other.CcbillSubaccountId ||
-                    this.CcbillSubaccountId != null &&
-                    this.CcbillSubaccountId.Equals(other.CcbillSubaccountId)
+                    this.CcbillSubaccountId == input.CcbillSubaccountId ||
+                    (this.CcbillSubaccountId != null &&
+                    this.CcbillSubaccountId.Equals(input.CcbillSubaccountId))
                 ) && 
                 (
-                    this.CcbillSubscriptionTypeId == other.CcbillSubscriptionTypeId ||
-                    this.CcbillSubscriptionTypeId != null &&
-                    this.CcbillSubscriptionTypeId.Equals(other.CcbillSubscriptionTypeId)
+                    this.CcbillSubscriptionTypeId == input.CcbillSubscriptionTypeId ||
+                    (this.CcbillSubscriptionTypeId != null &&
+                    this.CcbillSubscriptionTypeId.Equals(input.CcbillSubscriptionTypeId))
                 );
         }
 
@@ -179,24 +177,22 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CcbillAllowedCurrencies != null)
-                    hash = hash * 59 + this.CcbillAllowedCurrencies.GetHashCode();
+                    hashCode = hashCode * 59 + this.CcbillAllowedCurrencies.GetHashCode();
                 if (this.CcbillAllowedTypes != null)
-                    hash = hash * 59 + this.CcbillAllowedTypes.GetHashCode();
+                    hashCode = hashCode * 59 + this.CcbillAllowedTypes.GetHashCode();
                 if (this.CcbillCurrencyCode != null)
-                    hash = hash * 59 + this.CcbillCurrencyCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CcbillCurrencyCode.GetHashCode();
                 if (this.CcbillFormName != null)
-                    hash = hash * 59 + this.CcbillFormName.GetHashCode();
+                    hashCode = hashCode * 59 + this.CcbillFormName.GetHashCode();
                 if (this.CcbillSubaccountId != null)
-                    hash = hash * 59 + this.CcbillSubaccountId.GetHashCode();
+                    hashCode = hashCode * 59 + this.CcbillSubaccountId.GetHashCode();
                 if (this.CcbillSubscriptionTypeId != null)
-                    hash = hash * 59 + this.CcbillSubscriptionTypeId.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.CcbillSubscriptionTypeId.GetHashCode();
+                return hashCode;
             }
         }
 

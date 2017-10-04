@@ -67,7 +67,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="PerishableClass">Perishable class of the item.</param>
         /// <param name="PricingTierName">Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned.</param>
         /// <param name="Quantity">Quantity.</param>
-        /// <param name="QuantityRefunded">Quantity refunded on this item.</param>
+        /// <param name="QuantityRefunded">Quantity refunded on this item (read only except refund operation).</param>
         /// <param name="QuickbooksClass">QuickBooks class.</param>
         /// <param name="ShipSeparately">True if this item ships in a separate box.</param>
         /// <param name="ShippedByUser">Shipped by user.</param>
@@ -368,9 +368,9 @@ namespace com.ultracart.admin.v2.Model
         public decimal? Quantity { get; set; }
 
         /// <summary>
-        /// Quantity refunded on this item
+        /// Quantity refunded on this item (read only except refund operation)
         /// </summary>
-        /// <value>Quantity refunded on this item</value>
+        /// <value>Quantity refunded on this item (read only except refund operation)</value>
         [DataMember(Name="quantity_refunded", EmitDefaultValue=false)]
         public decimal? QuantityRefunded { get; set; }
 
@@ -539,270 +539,268 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderItem);
+            return this.Equals(input as OrderItem);
         }
 
         /// <summary>
         /// Returns true if OrderItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderItem to be compared</param>
+        /// <param name="input">Instance of OrderItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderItem other)
+        public bool Equals(OrderItem input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AccountingCode == other.AccountingCode ||
-                    this.AccountingCode != null &&
-                    this.AccountingCode.Equals(other.AccountingCode)
+                    this.AccountingCode == input.AccountingCode ||
+                    (this.AccountingCode != null &&
+                    this.AccountingCode.Equals(input.AccountingCode))
                 ) && 
                 (
-                    this.ActivationCodes == other.ActivationCodes ||
+                    this.ActivationCodes == input.ActivationCodes ||
                     this.ActivationCodes != null &&
-                    this.ActivationCodes.SequenceEqual(other.ActivationCodes)
+                    this.ActivationCodes.SequenceEqual(input.ActivationCodes)
                 ) && 
                 (
-                    this.Barcode == other.Barcode ||
-                    this.Barcode != null &&
-                    this.Barcode.Equals(other.Barcode)
+                    this.Barcode == input.Barcode ||
+                    (this.Barcode != null &&
+                    this.Barcode.Equals(input.Barcode))
                 ) && 
                 (
-                    this.ChannelPartnerItemId == other.ChannelPartnerItemId ||
-                    this.ChannelPartnerItemId != null &&
-                    this.ChannelPartnerItemId.Equals(other.ChannelPartnerItemId)
+                    this.ChannelPartnerItemId == input.ChannelPartnerItemId ||
+                    (this.ChannelPartnerItemId != null &&
+                    this.ChannelPartnerItemId.Equals(input.ChannelPartnerItemId))
                 ) && 
                 (
-                    this.Cogs == other.Cogs ||
-                    this.Cogs != null &&
-                    this.Cogs.Equals(other.Cogs)
+                    this.Cogs == input.Cogs ||
+                    (this.Cogs != null &&
+                    this.Cogs.Equals(input.Cogs))
                 ) && 
                 (
-                    this.ComponentUnitValue == other.ComponentUnitValue ||
-                    this.ComponentUnitValue != null &&
-                    this.ComponentUnitValue.Equals(other.ComponentUnitValue)
+                    this.ComponentUnitValue == input.ComponentUnitValue ||
+                    (this.ComponentUnitValue != null &&
+                    this.ComponentUnitValue.Equals(input.ComponentUnitValue))
                 ) && 
                 (
-                    this.Cost == other.Cost ||
-                    this.Cost != null &&
-                    this.Cost.Equals(other.Cost)
+                    this.Cost == input.Cost ||
+                    (this.Cost != null &&
+                    this.Cost.Equals(input.Cost))
                 ) && 
                 (
-                    this.CountryCodeOfOrigin == other.CountryCodeOfOrigin ||
-                    this.CountryCodeOfOrigin != null &&
-                    this.CountryCodeOfOrigin.Equals(other.CountryCodeOfOrigin)
+                    this.CountryCodeOfOrigin == input.CountryCodeOfOrigin ||
+                    (this.CountryCodeOfOrigin != null &&
+                    this.CountryCodeOfOrigin.Equals(input.CountryCodeOfOrigin))
                 ) && 
                 (
-                    this.CustomsDescription == other.CustomsDescription ||
-                    this.CustomsDescription != null &&
-                    this.CustomsDescription.Equals(other.CustomsDescription)
+                    this.CustomsDescription == input.CustomsDescription ||
+                    (this.CustomsDescription != null &&
+                    this.CustomsDescription.Equals(input.CustomsDescription))
                 ) && 
                 (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.Discount == other.Discount ||
-                    this.Discount != null &&
-                    this.Discount.Equals(other.Discount)
+                    this.Discount == input.Discount ||
+                    (this.Discount != null &&
+                    this.Discount.Equals(input.Discount))
                 ) && 
                 (
-                    this.DiscountQuantity == other.DiscountQuantity ||
-                    this.DiscountQuantity != null &&
-                    this.DiscountQuantity.Equals(other.DiscountQuantity)
+                    this.DiscountQuantity == input.DiscountQuantity ||
+                    (this.DiscountQuantity != null &&
+                    this.DiscountQuantity.Equals(input.DiscountQuantity))
                 ) && 
                 (
-                    this.DiscountShippingWeight == other.DiscountShippingWeight ||
-                    this.DiscountShippingWeight != null &&
-                    this.DiscountShippingWeight.Equals(other.DiscountShippingWeight)
+                    this.DiscountShippingWeight == input.DiscountShippingWeight ||
+                    (this.DiscountShippingWeight != null &&
+                    this.DiscountShippingWeight.Equals(input.DiscountShippingWeight))
                 ) && 
                 (
-                    this.DistributionCenterCode == other.DistributionCenterCode ||
-                    this.DistributionCenterCode != null &&
-                    this.DistributionCenterCode.Equals(other.DistributionCenterCode)
+                    this.DistributionCenterCode == input.DistributionCenterCode ||
+                    (this.DistributionCenterCode != null &&
+                    this.DistributionCenterCode.Equals(input.DistributionCenterCode))
                 ) && 
                 (
-                    this.Edi == other.Edi ||
-                    this.Edi != null &&
-                    this.Edi.Equals(other.Edi)
+                    this.Edi == input.Edi ||
+                    (this.Edi != null &&
+                    this.Edi.Equals(input.Edi))
                 ) && 
                 (
-                    this.ExcludeCoupon == other.ExcludeCoupon ||
-                    this.ExcludeCoupon != null &&
-                    this.ExcludeCoupon.Equals(other.ExcludeCoupon)
+                    this.ExcludeCoupon == input.ExcludeCoupon ||
+                    (this.ExcludeCoupon != null &&
+                    this.ExcludeCoupon.Equals(input.ExcludeCoupon))
                 ) && 
                 (
-                    this.FreeShipping == other.FreeShipping ||
-                    this.FreeShipping != null &&
-                    this.FreeShipping.Equals(other.FreeShipping)
+                    this.FreeShipping == input.FreeShipping ||
+                    (this.FreeShipping != null &&
+                    this.FreeShipping.Equals(input.FreeShipping))
                 ) && 
                 (
-                    this.Hazmat == other.Hazmat ||
-                    this.Hazmat != null &&
-                    this.Hazmat.Equals(other.Hazmat)
+                    this.Hazmat == input.Hazmat ||
+                    (this.Hazmat != null &&
+                    this.Hazmat.Equals(input.Hazmat))
                 ) && 
                 (
-                    this.Height == other.Height ||
-                    this.Height != null &&
-                    this.Height.Equals(other.Height)
+                    this.Height == input.Height ||
+                    (this.Height != null &&
+                    this.Height.Equals(input.Height))
                 ) && 
                 (
-                    this.ItemReferenceOid == other.ItemReferenceOid ||
-                    this.ItemReferenceOid != null &&
-                    this.ItemReferenceOid.Equals(other.ItemReferenceOid)
+                    this.ItemReferenceOid == input.ItemReferenceOid ||
+                    (this.ItemReferenceOid != null &&
+                    this.ItemReferenceOid.Equals(input.ItemReferenceOid))
                 ) && 
                 (
-                    this.Kit == other.Kit ||
-                    this.Kit != null &&
-                    this.Kit.Equals(other.Kit)
+                    this.Kit == input.Kit ||
+                    (this.Kit != null &&
+                    this.Kit.Equals(input.Kit))
                 ) && 
                 (
-                    this.KitComponent == other.KitComponent ||
-                    this.KitComponent != null &&
-                    this.KitComponent.Equals(other.KitComponent)
+                    this.KitComponent == input.KitComponent ||
+                    (this.KitComponent != null &&
+                    this.KitComponent.Equals(input.KitComponent))
                 ) && 
                 (
-                    this.Length == other.Length ||
-                    this.Length != null &&
-                    this.Length.Equals(other.Length)
+                    this.Length == input.Length ||
+                    (this.Length != null &&
+                    this.Length.Equals(input.Length))
                 ) && 
                 (
-                    this.ManufacturerSku == other.ManufacturerSku ||
-                    this.ManufacturerSku != null &&
-                    this.ManufacturerSku.Equals(other.ManufacturerSku)
+                    this.ManufacturerSku == input.ManufacturerSku ||
+                    (this.ManufacturerSku != null &&
+                    this.ManufacturerSku.Equals(input.ManufacturerSku))
                 ) && 
                 (
-                    this.MaxDaysTimeInTransit == other.MaxDaysTimeInTransit ||
-                    this.MaxDaysTimeInTransit != null &&
-                    this.MaxDaysTimeInTransit.Equals(other.MaxDaysTimeInTransit)
+                    this.MaxDaysTimeInTransit == input.MaxDaysTimeInTransit ||
+                    (this.MaxDaysTimeInTransit != null &&
+                    this.MaxDaysTimeInTransit.Equals(input.MaxDaysTimeInTransit))
                 ) && 
                 (
-                    this.MerchantItemId == other.MerchantItemId ||
-                    this.MerchantItemId != null &&
-                    this.MerchantItemId.Equals(other.MerchantItemId)
+                    this.MerchantItemId == input.MerchantItemId ||
+                    (this.MerchantItemId != null &&
+                    this.MerchantItemId.Equals(input.MerchantItemId))
                 ) && 
                 (
-                    this.MixAndMatchGroupName == other.MixAndMatchGroupName ||
-                    this.MixAndMatchGroupName != null &&
-                    this.MixAndMatchGroupName.Equals(other.MixAndMatchGroupName)
+                    this.MixAndMatchGroupName == input.MixAndMatchGroupName ||
+                    (this.MixAndMatchGroupName != null &&
+                    this.MixAndMatchGroupName.Equals(input.MixAndMatchGroupName))
                 ) && 
                 (
-                    this.MixAndMatchGroupOid == other.MixAndMatchGroupOid ||
-                    this.MixAndMatchGroupOid != null &&
-                    this.MixAndMatchGroupOid.Equals(other.MixAndMatchGroupOid)
+                    this.MixAndMatchGroupOid == input.MixAndMatchGroupOid ||
+                    (this.MixAndMatchGroupOid != null &&
+                    this.MixAndMatchGroupOid.Equals(input.MixAndMatchGroupOid))
                 ) && 
                 (
-                    this.NoShippingDiscount == other.NoShippingDiscount ||
-                    this.NoShippingDiscount != null &&
-                    this.NoShippingDiscount.Equals(other.NoShippingDiscount)
+                    this.NoShippingDiscount == input.NoShippingDiscount ||
+                    (this.NoShippingDiscount != null &&
+                    this.NoShippingDiscount.Equals(input.NoShippingDiscount))
                 ) && 
                 (
-                    this.Options == other.Options ||
+                    this.Options == input.Options ||
                     this.Options != null &&
-                    this.Options.SequenceEqual(other.Options)
+                    this.Options.SequenceEqual(input.Options)
                 ) && 
                 (
-                    this.PackedByUser == other.PackedByUser ||
-                    this.PackedByUser != null &&
-                    this.PackedByUser.Equals(other.PackedByUser)
+                    this.PackedByUser == input.PackedByUser ||
+                    (this.PackedByUser != null &&
+                    this.PackedByUser.Equals(input.PackedByUser))
                 ) && 
                 (
-                    this.PerishableClass == other.PerishableClass ||
-                    this.PerishableClass != null &&
-                    this.PerishableClass.Equals(other.PerishableClass)
+                    this.PerishableClass == input.PerishableClass ||
+                    (this.PerishableClass != null &&
+                    this.PerishableClass.Equals(input.PerishableClass))
                 ) && 
                 (
-                    this.PricingTierName == other.PricingTierName ||
-                    this.PricingTierName != null &&
-                    this.PricingTierName.Equals(other.PricingTierName)
+                    this.PricingTierName == input.PricingTierName ||
+                    (this.PricingTierName != null &&
+                    this.PricingTierName.Equals(input.PricingTierName))
                 ) && 
                 (
-                    this.Quantity == other.Quantity ||
-                    this.Quantity != null &&
-                    this.Quantity.Equals(other.Quantity)
+                    this.Quantity == input.Quantity ||
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
                 ) && 
                 (
-                    this.QuantityRefunded == other.QuantityRefunded ||
-                    this.QuantityRefunded != null &&
-                    this.QuantityRefunded.Equals(other.QuantityRefunded)
+                    this.QuantityRefunded == input.QuantityRefunded ||
+                    (this.QuantityRefunded != null &&
+                    this.QuantityRefunded.Equals(input.QuantityRefunded))
                 ) && 
                 (
-                    this.QuickbooksClass == other.QuickbooksClass ||
-                    this.QuickbooksClass != null &&
-                    this.QuickbooksClass.Equals(other.QuickbooksClass)
+                    this.QuickbooksClass == input.QuickbooksClass ||
+                    (this.QuickbooksClass != null &&
+                    this.QuickbooksClass.Equals(input.QuickbooksClass))
                 ) && 
                 (
-                    this.ShipSeparately == other.ShipSeparately ||
-                    this.ShipSeparately != null &&
-                    this.ShipSeparately.Equals(other.ShipSeparately)
+                    this.ShipSeparately == input.ShipSeparately ||
+                    (this.ShipSeparately != null &&
+                    this.ShipSeparately.Equals(input.ShipSeparately))
                 ) && 
                 (
-                    this.ShippedByUser == other.ShippedByUser ||
-                    this.ShippedByUser != null &&
-                    this.ShippedByUser.Equals(other.ShippedByUser)
+                    this.ShippedByUser == input.ShippedByUser ||
+                    (this.ShippedByUser != null &&
+                    this.ShippedByUser.Equals(input.ShippedByUser))
                 ) && 
                 (
-                    this.ShippedDts == other.ShippedDts ||
-                    this.ShippedDts != null &&
-                    this.ShippedDts.Equals(other.ShippedDts)
+                    this.ShippedDts == input.ShippedDts ||
+                    (this.ShippedDts != null &&
+                    this.ShippedDts.Equals(input.ShippedDts))
                 ) && 
                 (
-                    this.SpecialProductType == other.SpecialProductType ||
-                    this.SpecialProductType != null &&
-                    this.SpecialProductType.Equals(other.SpecialProductType)
+                    this.SpecialProductType == input.SpecialProductType ||
+                    (this.SpecialProductType != null &&
+                    this.SpecialProductType.Equals(input.SpecialProductType))
                 ) && 
                 (
-                    this.TaxFree == other.TaxFree ||
-                    this.TaxFree != null &&
-                    this.TaxFree.Equals(other.TaxFree)
+                    this.TaxFree == input.TaxFree ||
+                    (this.TaxFree != null &&
+                    this.TaxFree.Equals(input.TaxFree))
                 ) && 
                 (
-                    this.TaxableCost == other.TaxableCost ||
-                    this.TaxableCost != null &&
-                    this.TaxableCost.Equals(other.TaxableCost)
+                    this.TaxableCost == input.TaxableCost ||
+                    (this.TaxableCost != null &&
+                    this.TaxableCost.Equals(input.TaxableCost))
                 ) && 
                 (
-                    this.TotalCostWithDiscount == other.TotalCostWithDiscount ||
-                    this.TotalCostWithDiscount != null &&
-                    this.TotalCostWithDiscount.Equals(other.TotalCostWithDiscount)
+                    this.TotalCostWithDiscount == input.TotalCostWithDiscount ||
+                    (this.TotalCostWithDiscount != null &&
+                    this.TotalCostWithDiscount.Equals(input.TotalCostWithDiscount))
                 ) && 
                 (
-                    this.TotalRefunded == other.TotalRefunded ||
-                    this.TotalRefunded != null &&
-                    this.TotalRefunded.Equals(other.TotalRefunded)
+                    this.TotalRefunded == input.TotalRefunded ||
+                    (this.TotalRefunded != null &&
+                    this.TotalRefunded.Equals(input.TotalRefunded))
                 ) && 
                 (
-                    this.TransmittedToDistributionCenterDts == other.TransmittedToDistributionCenterDts ||
-                    this.TransmittedToDistributionCenterDts != null &&
-                    this.TransmittedToDistributionCenterDts.Equals(other.TransmittedToDistributionCenterDts)
+                    this.TransmittedToDistributionCenterDts == input.TransmittedToDistributionCenterDts ||
+                    (this.TransmittedToDistributionCenterDts != null &&
+                    this.TransmittedToDistributionCenterDts.Equals(input.TransmittedToDistributionCenterDts))
                 ) && 
                 (
-                    this.UnitCostWithDiscount == other.UnitCostWithDiscount ||
-                    this.UnitCostWithDiscount != null &&
-                    this.UnitCostWithDiscount.Equals(other.UnitCostWithDiscount)
+                    this.UnitCostWithDiscount == input.UnitCostWithDiscount ||
+                    (this.UnitCostWithDiscount != null &&
+                    this.UnitCostWithDiscount.Equals(input.UnitCostWithDiscount))
                 ) && 
                 (
-                    this.Upsell == other.Upsell ||
-                    this.Upsell != null &&
-                    this.Upsell.Equals(other.Upsell)
+                    this.Upsell == input.Upsell ||
+                    (this.Upsell != null &&
+                    this.Upsell.Equals(input.Upsell))
                 ) && 
                 (
-                    this.Weight == other.Weight ||
-                    this.Weight != null &&
-                    this.Weight.Equals(other.Weight)
+                    this.Weight == input.Weight ||
+                    (this.Weight != null &&
+                    this.Weight.Equals(input.Weight))
                 ) && 
                 (
-                    this.Width == other.Width ||
-                    this.Width != null &&
-                    this.Width.Equals(other.Width)
+                    this.Width == input.Width ||
+                    (this.Width != null &&
+                    this.Width.Equals(input.Width))
                 );
         }
 
@@ -812,110 +810,108 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AccountingCode != null)
-                    hash = hash * 59 + this.AccountingCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
                 if (this.ActivationCodes != null)
-                    hash = hash * 59 + this.ActivationCodes.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActivationCodes.GetHashCode();
                 if (this.Barcode != null)
-                    hash = hash * 59 + this.Barcode.GetHashCode();
+                    hashCode = hashCode * 59 + this.Barcode.GetHashCode();
                 if (this.ChannelPartnerItemId != null)
-                    hash = hash * 59 + this.ChannelPartnerItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelPartnerItemId.GetHashCode();
                 if (this.Cogs != null)
-                    hash = hash * 59 + this.Cogs.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cogs.GetHashCode();
                 if (this.ComponentUnitValue != null)
-                    hash = hash * 59 + this.ComponentUnitValue.GetHashCode();
+                    hashCode = hashCode * 59 + this.ComponentUnitValue.GetHashCode();
                 if (this.Cost != null)
-                    hash = hash * 59 + this.Cost.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cost.GetHashCode();
                 if (this.CountryCodeOfOrigin != null)
-                    hash = hash * 59 + this.CountryCodeOfOrigin.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryCodeOfOrigin.GetHashCode();
                 if (this.CustomsDescription != null)
-                    hash = hash * 59 + this.CustomsDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomsDescription.GetHashCode();
                 if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Discount != null)
-                    hash = hash * 59 + this.Discount.GetHashCode();
+                    hashCode = hashCode * 59 + this.Discount.GetHashCode();
                 if (this.DiscountQuantity != null)
-                    hash = hash * 59 + this.DiscountQuantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.DiscountQuantity.GetHashCode();
                 if (this.DiscountShippingWeight != null)
-                    hash = hash * 59 + this.DiscountShippingWeight.GetHashCode();
+                    hashCode = hashCode * 59 + this.DiscountShippingWeight.GetHashCode();
                 if (this.DistributionCenterCode != null)
-                    hash = hash * 59 + this.DistributionCenterCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.DistributionCenterCode.GetHashCode();
                 if (this.Edi != null)
-                    hash = hash * 59 + this.Edi.GetHashCode();
+                    hashCode = hashCode * 59 + this.Edi.GetHashCode();
                 if (this.ExcludeCoupon != null)
-                    hash = hash * 59 + this.ExcludeCoupon.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExcludeCoupon.GetHashCode();
                 if (this.FreeShipping != null)
-                    hash = hash * 59 + this.FreeShipping.GetHashCode();
+                    hashCode = hashCode * 59 + this.FreeShipping.GetHashCode();
                 if (this.Hazmat != null)
-                    hash = hash * 59 + this.Hazmat.GetHashCode();
+                    hashCode = hashCode * 59 + this.Hazmat.GetHashCode();
                 if (this.Height != null)
-                    hash = hash * 59 + this.Height.GetHashCode();
+                    hashCode = hashCode * 59 + this.Height.GetHashCode();
                 if (this.ItemReferenceOid != null)
-                    hash = hash * 59 + this.ItemReferenceOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ItemReferenceOid.GetHashCode();
                 if (this.Kit != null)
-                    hash = hash * 59 + this.Kit.GetHashCode();
+                    hashCode = hashCode * 59 + this.Kit.GetHashCode();
                 if (this.KitComponent != null)
-                    hash = hash * 59 + this.KitComponent.GetHashCode();
+                    hashCode = hashCode * 59 + this.KitComponent.GetHashCode();
                 if (this.Length != null)
-                    hash = hash * 59 + this.Length.GetHashCode();
+                    hashCode = hashCode * 59 + this.Length.GetHashCode();
                 if (this.ManufacturerSku != null)
-                    hash = hash * 59 + this.ManufacturerSku.GetHashCode();
+                    hashCode = hashCode * 59 + this.ManufacturerSku.GetHashCode();
                 if (this.MaxDaysTimeInTransit != null)
-                    hash = hash * 59 + this.MaxDaysTimeInTransit.GetHashCode();
+                    hashCode = hashCode * 59 + this.MaxDaysTimeInTransit.GetHashCode();
                 if (this.MerchantItemId != null)
-                    hash = hash * 59 + this.MerchantItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantItemId.GetHashCode();
                 if (this.MixAndMatchGroupName != null)
-                    hash = hash * 59 + this.MixAndMatchGroupName.GetHashCode();
+                    hashCode = hashCode * 59 + this.MixAndMatchGroupName.GetHashCode();
                 if (this.MixAndMatchGroupOid != null)
-                    hash = hash * 59 + this.MixAndMatchGroupOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.MixAndMatchGroupOid.GetHashCode();
                 if (this.NoShippingDiscount != null)
-                    hash = hash * 59 + this.NoShippingDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.NoShippingDiscount.GetHashCode();
                 if (this.Options != null)
-                    hash = hash * 59 + this.Options.GetHashCode();
+                    hashCode = hashCode * 59 + this.Options.GetHashCode();
                 if (this.PackedByUser != null)
-                    hash = hash * 59 + this.PackedByUser.GetHashCode();
+                    hashCode = hashCode * 59 + this.PackedByUser.GetHashCode();
                 if (this.PerishableClass != null)
-                    hash = hash * 59 + this.PerishableClass.GetHashCode();
+                    hashCode = hashCode * 59 + this.PerishableClass.GetHashCode();
                 if (this.PricingTierName != null)
-                    hash = hash * 59 + this.PricingTierName.GetHashCode();
+                    hashCode = hashCode * 59 + this.PricingTierName.GetHashCode();
                 if (this.Quantity != null)
-                    hash = hash * 59 + this.Quantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.Quantity.GetHashCode();
                 if (this.QuantityRefunded != null)
-                    hash = hash * 59 + this.QuantityRefunded.GetHashCode();
+                    hashCode = hashCode * 59 + this.QuantityRefunded.GetHashCode();
                 if (this.QuickbooksClass != null)
-                    hash = hash * 59 + this.QuickbooksClass.GetHashCode();
+                    hashCode = hashCode * 59 + this.QuickbooksClass.GetHashCode();
                 if (this.ShipSeparately != null)
-                    hash = hash * 59 + this.ShipSeparately.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShipSeparately.GetHashCode();
                 if (this.ShippedByUser != null)
-                    hash = hash * 59 + this.ShippedByUser.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippedByUser.GetHashCode();
                 if (this.ShippedDts != null)
-                    hash = hash * 59 + this.ShippedDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippedDts.GetHashCode();
                 if (this.SpecialProductType != null)
-                    hash = hash * 59 + this.SpecialProductType.GetHashCode();
+                    hashCode = hashCode * 59 + this.SpecialProductType.GetHashCode();
                 if (this.TaxFree != null)
-                    hash = hash * 59 + this.TaxFree.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxFree.GetHashCode();
                 if (this.TaxableCost != null)
-                    hash = hash * 59 + this.TaxableCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.TaxableCost.GetHashCode();
                 if (this.TotalCostWithDiscount != null)
-                    hash = hash * 59 + this.TotalCostWithDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.TotalCostWithDiscount.GetHashCode();
                 if (this.TotalRefunded != null)
-                    hash = hash * 59 + this.TotalRefunded.GetHashCode();
+                    hashCode = hashCode * 59 + this.TotalRefunded.GetHashCode();
                 if (this.TransmittedToDistributionCenterDts != null)
-                    hash = hash * 59 + this.TransmittedToDistributionCenterDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.TransmittedToDistributionCenterDts.GetHashCode();
                 if (this.UnitCostWithDiscount != null)
-                    hash = hash * 59 + this.UnitCostWithDiscount.GetHashCode();
+                    hashCode = hashCode * 59 + this.UnitCostWithDiscount.GetHashCode();
                 if (this.Upsell != null)
-                    hash = hash * 59 + this.Upsell.GetHashCode();
+                    hashCode = hashCode * 59 + this.Upsell.GetHashCode();
                 if (this.Weight != null)
-                    hash = hash * 59 + this.Weight.GetHashCode();
+                    hashCode = hashCode * 59 + this.Weight.GetHashCode();
                 if (this.Width != null)
-                    hash = hash * 59 + this.Width.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Width.GetHashCode();
+                return hashCode;
             }
         }
 

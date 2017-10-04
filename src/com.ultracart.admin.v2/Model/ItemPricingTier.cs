@@ -110,50 +110,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemPricingTier);
+            return this.Equals(input as ItemPricingTier);
         }
 
         /// <summary>
         /// Returns true if ItemPricingTier instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemPricingTier to be compared</param>
+        /// <param name="input">Instance of ItemPricingTier to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemPricingTier other)
+        public bool Equals(ItemPricingTier input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.DefaultTier == other.DefaultTier ||
-                    this.DefaultTier != null &&
-                    this.DefaultTier.Equals(other.DefaultTier)
+                    this.DefaultTier == input.DefaultTier ||
+                    (this.DefaultTier != null &&
+                    this.DefaultTier.Equals(input.DefaultTier))
                 ) && 
                 (
-                    this.Discounts == other.Discounts ||
+                    this.Discounts == input.Discounts ||
                     this.Discounts != null &&
-                    this.Discounts.SequenceEqual(other.Discounts)
+                    this.Discounts.SequenceEqual(input.Discounts)
                 ) && 
                 (
-                    this.Limit == other.Limit ||
-                    this.Limit != null &&
-                    this.Limit.Equals(other.Limit)
+                    this.Limit == input.Limit ||
+                    (this.Limit != null &&
+                    this.Limit.Equals(input.Limit))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.PricingTierOid == other.PricingTierOid ||
-                    this.PricingTierOid != null &&
-                    this.PricingTierOid.Equals(other.PricingTierOid)
+                    this.PricingTierOid == input.PricingTierOid ||
+                    (this.PricingTierOid != null &&
+                    this.PricingTierOid.Equals(input.PricingTierOid))
                 );
         }
 
@@ -163,22 +161,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.DefaultTier != null)
-                    hash = hash * 59 + this.DefaultTier.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultTier.GetHashCode();
                 if (this.Discounts != null)
-                    hash = hash * 59 + this.Discounts.GetHashCode();
+                    hashCode = hashCode * 59 + this.Discounts.GetHashCode();
                 if (this.Limit != null)
-                    hash = hash * 59 + this.Limit.GetHashCode();
+                    hashCode = hashCode * 59 + this.Limit.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.PricingTierOid != null)
-                    hash = hash * 59 + this.PricingTierOid.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.PricingTierOid.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -81,35 +81,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartItemVariationSelection);
+            return this.Equals(input as CartItemVariationSelection);
         }
 
         /// <summary>
         /// Returns true if CartItemVariationSelection instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartItemVariationSelection to be compared</param>
+        /// <param name="input">Instance of CartItemVariationSelection to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartItemVariationSelection other)
+        public bool Equals(CartItemVariationSelection input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.VariationName == other.VariationName ||
-                    this.VariationName != null &&
-                    this.VariationName.Equals(other.VariationName)
+                    this.VariationName == input.VariationName ||
+                    (this.VariationName != null &&
+                    this.VariationName.Equals(input.VariationName))
                 ) && 
                 (
-                    this.VariationValue == other.VariationValue ||
-                    this.VariationValue != null &&
-                    this.VariationValue.Equals(other.VariationValue)
+                    this.VariationValue == input.VariationValue ||
+                    (this.VariationValue != null &&
+                    this.VariationValue.Equals(input.VariationValue))
                 );
         }
 
@@ -119,16 +117,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.VariationName != null)
-                    hash = hash * 59 + this.VariationName.GetHashCode();
+                    hashCode = hashCode * 59 + this.VariationName.GetHashCode();
                 if (this.VariationValue != null)
-                    hash = hash * 59 + this.VariationValue.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.VariationValue.GetHashCode();
+                return hashCode;
             }
         }
 

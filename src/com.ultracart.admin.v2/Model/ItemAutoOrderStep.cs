@@ -232,100 +232,98 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemAutoOrderStep);
+            return this.Equals(input as ItemAutoOrderStep);
         }
 
         /// <summary>
         /// Returns true if ItemAutoOrderStep instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemAutoOrderStep to be compared</param>
+        /// <param name="input">Instance of ItemAutoOrderStep to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemAutoOrderStep other)
+        public bool Equals(ItemAutoOrderStep input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ArbitraryScheduleDays == other.ArbitraryScheduleDays ||
-                    this.ArbitraryScheduleDays != null &&
-                    this.ArbitraryScheduleDays.Equals(other.ArbitraryScheduleDays)
+                    this.ArbitraryScheduleDays == input.ArbitraryScheduleDays ||
+                    (this.ArbitraryScheduleDays != null &&
+                    this.ArbitraryScheduleDays.Equals(input.ArbitraryScheduleDays))
                 ) && 
                 (
-                    this.ArbitraryUnitCost == other.ArbitraryUnitCost ||
-                    this.ArbitraryUnitCost != null &&
-                    this.ArbitraryUnitCost.Equals(other.ArbitraryUnitCost)
+                    this.ArbitraryUnitCost == input.ArbitraryUnitCost ||
+                    (this.ArbitraryUnitCost != null &&
+                    this.ArbitraryUnitCost.Equals(input.ArbitraryUnitCost))
                 ) && 
                 (
-                    this.ArbitraryUnitCostSchedules == other.ArbitraryUnitCostSchedules ||
+                    this.ArbitraryUnitCostSchedules == input.ArbitraryUnitCostSchedules ||
                     this.ArbitraryUnitCostSchedules != null &&
-                    this.ArbitraryUnitCostSchedules.SequenceEqual(other.ArbitraryUnitCostSchedules)
+                    this.ArbitraryUnitCostSchedules.SequenceEqual(input.ArbitraryUnitCostSchedules)
                 ) && 
                 (
-                    this.GrandfatherPricing == other.GrandfatherPricing ||
+                    this.GrandfatherPricing == input.GrandfatherPricing ||
                     this.GrandfatherPricing != null &&
-                    this.GrandfatherPricing.SequenceEqual(other.GrandfatherPricing)
+                    this.GrandfatherPricing.SequenceEqual(input.GrandfatherPricing)
                 ) && 
                 (
-                    this.ManagedBy == other.ManagedBy ||
-                    this.ManagedBy != null &&
-                    this.ManagedBy.Equals(other.ManagedBy)
+                    this.ManagedBy == input.ManagedBy ||
+                    (this.ManagedBy != null &&
+                    this.ManagedBy.Equals(input.ManagedBy))
                 ) && 
                 (
-                    this.PauseDays == other.PauseDays ||
-                    this.PauseDays != null &&
-                    this.PauseDays.Equals(other.PauseDays)
+                    this.PauseDays == input.PauseDays ||
+                    (this.PauseDays != null &&
+                    this.PauseDays.Equals(input.PauseDays))
                 ) && 
                 (
-                    this.PauseUntilDate == other.PauseUntilDate ||
-                    this.PauseUntilDate != null &&
-                    this.PauseUntilDate.Equals(other.PauseUntilDate)
+                    this.PauseUntilDate == input.PauseUntilDate ||
+                    (this.PauseUntilDate != null &&
+                    this.PauseUntilDate.Equals(input.PauseUntilDate))
                 ) && 
                 (
-                    this.PreshipmentNoticeDays == other.PreshipmentNoticeDays ||
-                    this.PreshipmentNoticeDays != null &&
-                    this.PreshipmentNoticeDays.Equals(other.PreshipmentNoticeDays)
+                    this.PreshipmentNoticeDays == input.PreshipmentNoticeDays ||
+                    (this.PreshipmentNoticeDays != null &&
+                    this.PreshipmentNoticeDays.Equals(input.PreshipmentNoticeDays))
                 ) && 
                 (
-                    this.RecurringMerchantItemId == other.RecurringMerchantItemId ||
-                    this.RecurringMerchantItemId != null &&
-                    this.RecurringMerchantItemId.Equals(other.RecurringMerchantItemId)
+                    this.RecurringMerchantItemId == input.RecurringMerchantItemId ||
+                    (this.RecurringMerchantItemId != null &&
+                    this.RecurringMerchantItemId.Equals(input.RecurringMerchantItemId))
                 ) && 
                 (
-                    this.RecurringMerchantItemOid == other.RecurringMerchantItemOid ||
-                    this.RecurringMerchantItemOid != null &&
-                    this.RecurringMerchantItemOid.Equals(other.RecurringMerchantItemOid)
+                    this.RecurringMerchantItemOid == input.RecurringMerchantItemOid ||
+                    (this.RecurringMerchantItemOid != null &&
+                    this.RecurringMerchantItemOid.Equals(input.RecurringMerchantItemOid))
                 ) && 
                 (
-                    this.RepeatCount == other.RepeatCount ||
-                    this.RepeatCount != null &&
-                    this.RepeatCount.Equals(other.RepeatCount)
+                    this.RepeatCount == input.RepeatCount ||
+                    (this.RepeatCount != null &&
+                    this.RepeatCount.Equals(input.RepeatCount))
                 ) && 
                 (
-                    this.Schedule == other.Schedule ||
-                    this.Schedule != null &&
-                    this.Schedule.Equals(other.Schedule)
+                    this.Schedule == input.Schedule ||
+                    (this.Schedule != null &&
+                    this.Schedule.Equals(input.Schedule))
                 ) && 
                 (
-                    this.SubscribeEmailListName == other.SubscribeEmailListName ||
-                    this.SubscribeEmailListName != null &&
-                    this.SubscribeEmailListName.Equals(other.SubscribeEmailListName)
+                    this.SubscribeEmailListName == input.SubscribeEmailListName ||
+                    (this.SubscribeEmailListName != null &&
+                    this.SubscribeEmailListName.Equals(input.SubscribeEmailListName))
                 ) && 
                 (
-                    this.SubscribeEmailListOid == other.SubscribeEmailListOid ||
-                    this.SubscribeEmailListOid != null &&
-                    this.SubscribeEmailListOid.Equals(other.SubscribeEmailListOid)
+                    this.SubscribeEmailListOid == input.SubscribeEmailListOid ||
+                    (this.SubscribeEmailListOid != null &&
+                    this.SubscribeEmailListOid.Equals(input.SubscribeEmailListOid))
                 ) && 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -335,42 +333,40 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ArbitraryScheduleDays != null)
-                    hash = hash * 59 + this.ArbitraryScheduleDays.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryScheduleDays.GetHashCode();
                 if (this.ArbitraryUnitCost != null)
-                    hash = hash * 59 + this.ArbitraryUnitCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCost.GetHashCode();
                 if (this.ArbitraryUnitCostSchedules != null)
-                    hash = hash * 59 + this.ArbitraryUnitCostSchedules.GetHashCode();
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCostSchedules.GetHashCode();
                 if (this.GrandfatherPricing != null)
-                    hash = hash * 59 + this.GrandfatherPricing.GetHashCode();
+                    hashCode = hashCode * 59 + this.GrandfatherPricing.GetHashCode();
                 if (this.ManagedBy != null)
-                    hash = hash * 59 + this.ManagedBy.GetHashCode();
+                    hashCode = hashCode * 59 + this.ManagedBy.GetHashCode();
                 if (this.PauseDays != null)
-                    hash = hash * 59 + this.PauseDays.GetHashCode();
+                    hashCode = hashCode * 59 + this.PauseDays.GetHashCode();
                 if (this.PauseUntilDate != null)
-                    hash = hash * 59 + this.PauseUntilDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.PauseUntilDate.GetHashCode();
                 if (this.PreshipmentNoticeDays != null)
-                    hash = hash * 59 + this.PreshipmentNoticeDays.GetHashCode();
+                    hashCode = hashCode * 59 + this.PreshipmentNoticeDays.GetHashCode();
                 if (this.RecurringMerchantItemId != null)
-                    hash = hash * 59 + this.RecurringMerchantItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.RecurringMerchantItemId.GetHashCode();
                 if (this.RecurringMerchantItemOid != null)
-                    hash = hash * 59 + this.RecurringMerchantItemOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.RecurringMerchantItemOid.GetHashCode();
                 if (this.RepeatCount != null)
-                    hash = hash * 59 + this.RepeatCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.RepeatCount.GetHashCode();
                 if (this.Schedule != null)
-                    hash = hash * 59 + this.Schedule.GetHashCode();
+                    hashCode = hashCode * 59 + this.Schedule.GetHashCode();
                 if (this.SubscribeEmailListName != null)
-                    hash = hash * 59 + this.SubscribeEmailListName.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubscribeEmailListName.GetHashCode();
                 if (this.SubscribeEmailListOid != null)
-                    hash = hash * 59 + this.SubscribeEmailListOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubscribeEmailListOid.GetHashCode();
                 if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                return hashCode;
             }
         }
 

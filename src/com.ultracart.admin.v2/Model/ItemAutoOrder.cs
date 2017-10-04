@@ -211,100 +211,98 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemAutoOrder);
+            return this.Equals(input as ItemAutoOrder);
         }
 
         /// <summary>
         /// Returns true if ItemAutoOrder instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemAutoOrder to be compared</param>
+        /// <param name="input">Instance of ItemAutoOrder to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemAutoOrder other)
+        public bool Equals(ItemAutoOrder input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AuthFutureAmount == other.AuthFutureAmount ||
-                    this.AuthFutureAmount != null &&
-                    this.AuthFutureAmount.Equals(other.AuthFutureAmount)
+                    this.AuthFutureAmount == input.AuthFutureAmount ||
+                    (this.AuthFutureAmount != null &&
+                    this.AuthFutureAmount.Equals(input.AuthFutureAmount))
                 ) && 
                 (
-                    this.AuthTestAmount == other.AuthTestAmount ||
-                    this.AuthTestAmount != null &&
-                    this.AuthTestAmount.Equals(other.AuthTestAmount)
+                    this.AuthTestAmount == input.AuthTestAmount ||
+                    (this.AuthTestAmount != null &&
+                    this.AuthTestAmount.Equals(input.AuthTestAmount))
                 ) && 
                 (
-                    this.AutoOrderCancelItemId == other.AutoOrderCancelItemId ||
-                    this.AutoOrderCancelItemId != null &&
-                    this.AutoOrderCancelItemId.Equals(other.AutoOrderCancelItemId)
+                    this.AutoOrderCancelItemId == input.AutoOrderCancelItemId ||
+                    (this.AutoOrderCancelItemId != null &&
+                    this.AutoOrderCancelItemId.Equals(input.AutoOrderCancelItemId))
                 ) && 
                 (
-                    this.AutoOrderCancelItemOid == other.AutoOrderCancelItemOid ||
-                    this.AutoOrderCancelItemOid != null &&
-                    this.AutoOrderCancelItemOid.Equals(other.AutoOrderCancelItemOid)
+                    this.AutoOrderCancelItemOid == input.AutoOrderCancelItemOid ||
+                    (this.AutoOrderCancelItemOid != null &&
+                    this.AutoOrderCancelItemOid.Equals(input.AutoOrderCancelItemOid))
                 ) && 
                 (
-                    this.AutoOrderDowngradeItems == other.AutoOrderDowngradeItems ||
+                    this.AutoOrderDowngradeItems == input.AutoOrderDowngradeItems ||
                     this.AutoOrderDowngradeItems != null &&
-                    this.AutoOrderDowngradeItems.SequenceEqual(other.AutoOrderDowngradeItems)
+                    this.AutoOrderDowngradeItems.SequenceEqual(input.AutoOrderDowngradeItems)
                 ) && 
                 (
-                    this.AutoOrderPaused == other.AutoOrderPaused ||
-                    this.AutoOrderPaused != null &&
-                    this.AutoOrderPaused.Equals(other.AutoOrderPaused)
+                    this.AutoOrderPaused == input.AutoOrderPaused ||
+                    (this.AutoOrderPaused != null &&
+                    this.AutoOrderPaused.Equals(input.AutoOrderPaused))
                 ) && 
                 (
-                    this.AutoOrderSchedules == other.AutoOrderSchedules ||
+                    this.AutoOrderSchedules == input.AutoOrderSchedules ||
                     this.AutoOrderSchedules != null &&
-                    this.AutoOrderSchedules.SequenceEqual(other.AutoOrderSchedules)
+                    this.AutoOrderSchedules.SequenceEqual(input.AutoOrderSchedules)
                 ) && 
                 (
-                    this.AutoOrderUpgradeItems == other.AutoOrderUpgradeItems ||
+                    this.AutoOrderUpgradeItems == input.AutoOrderUpgradeItems ||
                     this.AutoOrderUpgradeItems != null &&
-                    this.AutoOrderUpgradeItems.SequenceEqual(other.AutoOrderUpgradeItems)
+                    this.AutoOrderUpgradeItems.SequenceEqual(input.AutoOrderUpgradeItems)
                 ) && 
                 (
-                    this.AutoOrderUpsell == other.AutoOrderUpsell ||
-                    this.AutoOrderUpsell != null &&
-                    this.AutoOrderUpsell.Equals(other.AutoOrderUpsell)
+                    this.AutoOrderUpsell == input.AutoOrderUpsell ||
+                    (this.AutoOrderUpsell != null &&
+                    this.AutoOrderUpsell.Equals(input.AutoOrderUpsell))
                 ) && 
                 (
-                    this.AutoOrderUpsellNoEasyCancel == other.AutoOrderUpsellNoEasyCancel ||
-                    this.AutoOrderUpsellNoEasyCancel != null &&
-                    this.AutoOrderUpsellNoEasyCancel.Equals(other.AutoOrderUpsellNoEasyCancel)
+                    this.AutoOrderUpsellNoEasyCancel == input.AutoOrderUpsellNoEasyCancel ||
+                    (this.AutoOrderUpsellNoEasyCancel != null &&
+                    this.AutoOrderUpsellNoEasyCancel.Equals(input.AutoOrderUpsellNoEasyCancel))
                 ) && 
                 (
-                    this.AutoOrderUpsellOnePerCustomer == other.AutoOrderUpsellOnePerCustomer ||
-                    this.AutoOrderUpsellOnePerCustomer != null &&
-                    this.AutoOrderUpsellOnePerCustomer.Equals(other.AutoOrderUpsellOnePerCustomer)
+                    this.AutoOrderUpsellOnePerCustomer == input.AutoOrderUpsellOnePerCustomer ||
+                    (this.AutoOrderUpsellOnePerCustomer != null &&
+                    this.AutoOrderUpsellOnePerCustomer.Equals(input.AutoOrderUpsellOnePerCustomer))
                 ) && 
                 (
-                    this.AutoOrderable == other.AutoOrderable ||
-                    this.AutoOrderable != null &&
-                    this.AutoOrderable.Equals(other.AutoOrderable)
+                    this.AutoOrderable == input.AutoOrderable ||
+                    (this.AutoOrderable != null &&
+                    this.AutoOrderable.Equals(input.AutoOrderable))
                 ) && 
                 (
-                    this.CancelOtherAutoOrders == other.CancelOtherAutoOrders ||
-                    this.CancelOtherAutoOrders != null &&
-                    this.CancelOtherAutoOrders.Equals(other.CancelOtherAutoOrders)
+                    this.CancelOtherAutoOrders == input.CancelOtherAutoOrders ||
+                    (this.CancelOtherAutoOrders != null &&
+                    this.CancelOtherAutoOrders.Equals(input.CancelOtherAutoOrders))
                 ) && 
                 (
-                    this.FreeShippingAutoOrder == other.FreeShippingAutoOrder ||
-                    this.FreeShippingAutoOrder != null &&
-                    this.FreeShippingAutoOrder.Equals(other.FreeShippingAutoOrder)
+                    this.FreeShippingAutoOrder == input.FreeShippingAutoOrder ||
+                    (this.FreeShippingAutoOrder != null &&
+                    this.FreeShippingAutoOrder.Equals(input.FreeShippingAutoOrder))
                 ) && 
                 (
-                    this.Steps == other.Steps ||
+                    this.Steps == input.Steps ||
                     this.Steps != null &&
-                    this.Steps.SequenceEqual(other.Steps)
+                    this.Steps.SequenceEqual(input.Steps)
                 );
         }
 
@@ -314,42 +312,40 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AuthFutureAmount != null)
-                    hash = hash * 59 + this.AuthFutureAmount.GetHashCode();
+                    hashCode = hashCode * 59 + this.AuthFutureAmount.GetHashCode();
                 if (this.AuthTestAmount != null)
-                    hash = hash * 59 + this.AuthTestAmount.GetHashCode();
+                    hashCode = hashCode * 59 + this.AuthTestAmount.GetHashCode();
                 if (this.AutoOrderCancelItemId != null)
-                    hash = hash * 59 + this.AutoOrderCancelItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderCancelItemId.GetHashCode();
                 if (this.AutoOrderCancelItemOid != null)
-                    hash = hash * 59 + this.AutoOrderCancelItemOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderCancelItemOid.GetHashCode();
                 if (this.AutoOrderDowngradeItems != null)
-                    hash = hash * 59 + this.AutoOrderDowngradeItems.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderDowngradeItems.GetHashCode();
                 if (this.AutoOrderPaused != null)
-                    hash = hash * 59 + this.AutoOrderPaused.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderPaused.GetHashCode();
                 if (this.AutoOrderSchedules != null)
-                    hash = hash * 59 + this.AutoOrderSchedules.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderSchedules.GetHashCode();
                 if (this.AutoOrderUpgradeItems != null)
-                    hash = hash * 59 + this.AutoOrderUpgradeItems.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderUpgradeItems.GetHashCode();
                 if (this.AutoOrderUpsell != null)
-                    hash = hash * 59 + this.AutoOrderUpsell.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderUpsell.GetHashCode();
                 if (this.AutoOrderUpsellNoEasyCancel != null)
-                    hash = hash * 59 + this.AutoOrderUpsellNoEasyCancel.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderUpsellNoEasyCancel.GetHashCode();
                 if (this.AutoOrderUpsellOnePerCustomer != null)
-                    hash = hash * 59 + this.AutoOrderUpsellOnePerCustomer.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderUpsellOnePerCustomer.GetHashCode();
                 if (this.AutoOrderable != null)
-                    hash = hash * 59 + this.AutoOrderable.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderable.GetHashCode();
                 if (this.CancelOtherAutoOrders != null)
-                    hash = hash * 59 + this.CancelOtherAutoOrders.GetHashCode();
+                    hashCode = hashCode * 59 + this.CancelOtherAutoOrders.GetHashCode();
                 if (this.FreeShippingAutoOrder != null)
-                    hash = hash * 59 + this.FreeShippingAutoOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.FreeShippingAutoOrder.GetHashCode();
                 if (this.Steps != null)
-                    hash = hash * 59 + this.Steps.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Steps.GetHashCode();
+                return hashCode;
             }
         }
 

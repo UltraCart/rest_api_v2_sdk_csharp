@@ -290,140 +290,138 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ChargebackDispute);
+            return this.Equals(input as ChargebackDispute);
         }
 
         /// <summary>
         /// Returns true if ChargebackDispute instances are equal
         /// </summary>
-        /// <param name="other">Instance of ChargebackDispute to be compared</param>
+        /// <param name="input">Instance of ChargebackDispute to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChargebackDispute other)
+        public bool Equals(ChargebackDispute input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AccountNumber == other.AccountNumber ||
-                    this.AccountNumber != null &&
-                    this.AccountNumber.Equals(other.AccountNumber)
+                    this.AccountNumber == input.AccountNumber ||
+                    (this.AccountNumber != null &&
+                    this.AccountNumber.Equals(input.AccountNumber))
                 ) && 
                 (
-                    this.AdjustmentRequestText == other.AdjustmentRequestText ||
-                    this.AdjustmentRequestText != null &&
-                    this.AdjustmentRequestText.Equals(other.AdjustmentRequestText)
+                    this.AdjustmentRequestText == input.AdjustmentRequestText ||
+                    (this.AdjustmentRequestText != null &&
+                    this.AdjustmentRequestText.Equals(input.AdjustmentRequestText))
                 ) && 
                 (
-                    this.Amount == other.Amount ||
-                    this.Amount != null &&
-                    this.Amount.Equals(other.Amount)
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && 
                 (
-                    this.AuthCode == other.AuthCode ||
-                    this.AuthCode != null &&
-                    this.AuthCode.Equals(other.AuthCode)
+                    this.AuthCode == input.AuthCode ||
+                    (this.AuthCode != null &&
+                    this.AuthCode.Equals(input.AuthCode))
                 ) && 
                 (
-                    this.CaseNumber == other.CaseNumber ||
-                    this.CaseNumber != null &&
-                    this.CaseNumber.Equals(other.CaseNumber)
+                    this.CaseNumber == input.CaseNumber ||
+                    (this.CaseNumber != null &&
+                    this.CaseNumber.Equals(input.CaseNumber))
                 ) && 
                 (
-                    this.ChargebackDisputeOid == other.ChargebackDisputeOid ||
-                    this.ChargebackDisputeOid != null &&
-                    this.ChargebackDisputeOid.Equals(other.ChargebackDisputeOid)
+                    this.ChargebackDisputeOid == input.ChargebackDisputeOid ||
+                    (this.ChargebackDisputeOid != null &&
+                    this.ChargebackDisputeOid.Equals(input.ChargebackDisputeOid))
                 ) && 
                 (
-                    this.ChargebackDts == other.ChargebackDts ||
-                    this.ChargebackDts != null &&
-                    this.ChargebackDts.Equals(other.ChargebackDts)
+                    this.ChargebackDts == input.ChargebackDts ||
+                    (this.ChargebackDts != null &&
+                    this.ChargebackDts.Equals(input.ChargebackDts))
                 ) && 
                 (
-                    this.Currency == other.Currency ||
-                    this.Currency != null &&
-                    this.Currency.Equals(other.Currency)
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
                 ) && 
                 (
-                    this.CustomerCareNotes == other.CustomerCareNotes ||
-                    this.CustomerCareNotes != null &&
-                    this.CustomerCareNotes.Equals(other.CustomerCareNotes)
+                    this.CustomerCareNotes == input.CustomerCareNotes ||
+                    (this.CustomerCareNotes != null &&
+                    this.CustomerCareNotes.Equals(input.CustomerCareNotes))
                 ) && 
                 (
-                    this.EncryptionKey == other.EncryptionKey ||
-                    this.EncryptionKey != null &&
-                    this.EncryptionKey.Equals(other.EncryptionKey)
+                    this.EncryptionKey == input.EncryptionKey ||
+                    (this.EncryptionKey != null &&
+                    this.EncryptionKey.Equals(input.EncryptionKey))
                 ) && 
                 (
-                    this.ExpirationDts == other.ExpirationDts ||
-                    this.ExpirationDts != null &&
-                    this.ExpirationDts.Equals(other.ExpirationDts)
+                    this.ExpirationDts == input.ExpirationDts ||
+                    (this.ExpirationDts != null &&
+                    this.ExpirationDts.Equals(input.ExpirationDts))
                 ) && 
                 (
-                    this.FaxFailureReason == other.FaxFailureReason ||
-                    this.FaxFailureReason != null &&
-                    this.FaxFailureReason.Equals(other.FaxFailureReason)
+                    this.FaxFailureReason == input.FaxFailureReason ||
+                    (this.FaxFailureReason != null &&
+                    this.FaxFailureReason.Equals(input.FaxFailureReason))
                 ) && 
                 (
-                    this.FaxNumber == other.FaxNumber ||
-                    this.FaxNumber != null &&
-                    this.FaxNumber.Equals(other.FaxNumber)
+                    this.FaxNumber == input.FaxNumber ||
+                    (this.FaxNumber != null &&
+                    this.FaxNumber.Equals(input.FaxNumber))
                 ) && 
                 (
-                    this.FaxTransactionId == other.FaxTransactionId ||
-                    this.FaxTransactionId != null &&
-                    this.FaxTransactionId.Equals(other.FaxTransactionId)
+                    this.FaxTransactionId == input.FaxTransactionId ||
+                    (this.FaxTransactionId != null &&
+                    this.FaxTransactionId.Equals(input.FaxTransactionId))
                 ) && 
                 (
-                    this.Icsid == other.Icsid ||
-                    this.Icsid != null &&
-                    this.Icsid.Equals(other.Icsid)
+                    this.Icsid == input.Icsid ||
+                    (this.Icsid != null &&
+                    this.Icsid.Equals(input.Icsid))
                 ) && 
                 (
-                    this.MerchantAccountProfileOid == other.MerchantAccountProfileOid ||
-                    this.MerchantAccountProfileOid != null &&
-                    this.MerchantAccountProfileOid.Equals(other.MerchantAccountProfileOid)
+                    this.MerchantAccountProfileOid == input.MerchantAccountProfileOid ||
+                    (this.MerchantAccountProfileOid != null &&
+                    this.MerchantAccountProfileOid.Equals(input.MerchantAccountProfileOid))
                 ) && 
                 (
-                    this.Order == other.Order ||
-                    this.Order != null &&
-                    this.Order.Equals(other.Order)
+                    this.Order == input.Order ||
+                    (this.Order != null &&
+                    this.Order.Equals(input.Order))
                 ) && 
                 (
-                    this.OrderId == other.OrderId ||
-                    this.OrderId != null &&
-                    this.OrderId.Equals(other.OrderId)
+                    this.OrderId == input.OrderId ||
+                    (this.OrderId != null &&
+                    this.OrderId.Equals(input.OrderId))
                 ) && 
                 (
-                    this.PartialCardNumber == other.PartialCardNumber ||
-                    this.PartialCardNumber != null &&
-                    this.PartialCardNumber.Equals(other.PartialCardNumber)
+                    this.PartialCardNumber == input.PartialCardNumber ||
+                    (this.PartialCardNumber != null &&
+                    this.PartialCardNumber.Equals(input.PartialCardNumber))
                 ) && 
                 (
-                    this.PdfFileOid == other.PdfFileOid ||
-                    this.PdfFileOid != null &&
-                    this.PdfFileOid.Equals(other.PdfFileOid)
+                    this.PdfFileOid == input.PdfFileOid ||
+                    (this.PdfFileOid != null &&
+                    this.PdfFileOid.Equals(input.PdfFileOid))
                 ) && 
                 (
-                    this.ReasonCode == other.ReasonCode ||
-                    this.ReasonCode != null &&
-                    this.ReasonCode.Equals(other.ReasonCode)
+                    this.ReasonCode == input.ReasonCode ||
+                    (this.ReasonCode != null &&
+                    this.ReasonCode.Equals(input.ReasonCode))
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.WebsiteUrl == other.WebsiteUrl ||
-                    this.WebsiteUrl != null &&
-                    this.WebsiteUrl.Equals(other.WebsiteUrl)
+                    this.WebsiteUrl == input.WebsiteUrl ||
+                    (this.WebsiteUrl != null &&
+                    this.WebsiteUrl.Equals(input.WebsiteUrl))
                 );
         }
 
@@ -433,58 +431,56 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AccountNumber != null)
-                    hash = hash * 59 + this.AccountNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.AccountNumber.GetHashCode();
                 if (this.AdjustmentRequestText != null)
-                    hash = hash * 59 + this.AdjustmentRequestText.GetHashCode();
+                    hashCode = hashCode * 59 + this.AdjustmentRequestText.GetHashCode();
                 if (this.Amount != null)
-                    hash = hash * 59 + this.Amount.GetHashCode();
+                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.AuthCode != null)
-                    hash = hash * 59 + this.AuthCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.AuthCode.GetHashCode();
                 if (this.CaseNumber != null)
-                    hash = hash * 59 + this.CaseNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.CaseNumber.GetHashCode();
                 if (this.ChargebackDisputeOid != null)
-                    hash = hash * 59 + this.ChargebackDisputeOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChargebackDisputeOid.GetHashCode();
                 if (this.ChargebackDts != null)
-                    hash = hash * 59 + this.ChargebackDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChargebackDts.GetHashCode();
                 if (this.Currency != null)
-                    hash = hash * 59 + this.Currency.GetHashCode();
+                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
                 if (this.CustomerCareNotes != null)
-                    hash = hash * 59 + this.CustomerCareNotes.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomerCareNotes.GetHashCode();
                 if (this.EncryptionKey != null)
-                    hash = hash * 59 + this.EncryptionKey.GetHashCode();
+                    hashCode = hashCode * 59 + this.EncryptionKey.GetHashCode();
                 if (this.ExpirationDts != null)
-                    hash = hash * 59 + this.ExpirationDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExpirationDts.GetHashCode();
                 if (this.FaxFailureReason != null)
-                    hash = hash * 59 + this.FaxFailureReason.GetHashCode();
+                    hashCode = hashCode * 59 + this.FaxFailureReason.GetHashCode();
                 if (this.FaxNumber != null)
-                    hash = hash * 59 + this.FaxNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.FaxNumber.GetHashCode();
                 if (this.FaxTransactionId != null)
-                    hash = hash * 59 + this.FaxTransactionId.GetHashCode();
+                    hashCode = hashCode * 59 + this.FaxTransactionId.GetHashCode();
                 if (this.Icsid != null)
-                    hash = hash * 59 + this.Icsid.GetHashCode();
+                    hashCode = hashCode * 59 + this.Icsid.GetHashCode();
                 if (this.MerchantAccountProfileOid != null)
-                    hash = hash * 59 + this.MerchantAccountProfileOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantAccountProfileOid.GetHashCode();
                 if (this.Order != null)
-                    hash = hash * 59 + this.Order.GetHashCode();
+                    hashCode = hashCode * 59 + this.Order.GetHashCode();
                 if (this.OrderId != null)
-                    hash = hash * 59 + this.OrderId.GetHashCode();
+                    hashCode = hashCode * 59 + this.OrderId.GetHashCode();
                 if (this.PartialCardNumber != null)
-                    hash = hash * 59 + this.PartialCardNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.PartialCardNumber.GetHashCode();
                 if (this.PdfFileOid != null)
-                    hash = hash * 59 + this.PdfFileOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.PdfFileOid.GetHashCode();
                 if (this.ReasonCode != null)
-                    hash = hash * 59 + this.ReasonCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReasonCode.GetHashCode();
                 if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.WebsiteUrl != null)
-                    hash = hash * 59 + this.WebsiteUrl.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.WebsiteUrl.GetHashCode();
+                return hashCode;
             }
         }
 

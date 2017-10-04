@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemKitComponent);
+            return this.Equals(input as ItemKitComponent);
         }
 
         /// <summary>
         /// Returns true if ItemKitComponent instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemKitComponent to be compared</param>
+        /// <param name="input">Instance of ItemKitComponent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemKitComponent other)
+        public bool Equals(ItemKitComponent input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ComponentCost == other.ComponentCost ||
-                    this.ComponentCost != null &&
-                    this.ComponentCost.Equals(other.ComponentCost)
+                    this.ComponentCost == input.ComponentCost ||
+                    (this.ComponentCost != null &&
+                    this.ComponentCost.Equals(input.ComponentCost))
                 ) && 
                 (
-                    this.ComponentDescription == other.ComponentDescription ||
-                    this.ComponentDescription != null &&
-                    this.ComponentDescription.Equals(other.ComponentDescription)
+                    this.ComponentDescription == input.ComponentDescription ||
+                    (this.ComponentDescription != null &&
+                    this.ComponentDescription.Equals(input.ComponentDescription))
                 ) && 
                 (
-                    this.ComponentMerchantItemId == other.ComponentMerchantItemId ||
-                    this.ComponentMerchantItemId != null &&
-                    this.ComponentMerchantItemId.Equals(other.ComponentMerchantItemId)
+                    this.ComponentMerchantItemId == input.ComponentMerchantItemId ||
+                    (this.ComponentMerchantItemId != null &&
+                    this.ComponentMerchantItemId.Equals(input.ComponentMerchantItemId))
                 ) && 
                 (
-                    this.ComponentMerchantItemOid == other.ComponentMerchantItemOid ||
-                    this.ComponentMerchantItemOid != null &&
-                    this.ComponentMerchantItemOid.Equals(other.ComponentMerchantItemOid)
+                    this.ComponentMerchantItemOid == input.ComponentMerchantItemOid ||
+                    (this.ComponentMerchantItemOid != null &&
+                    this.ComponentMerchantItemOid.Equals(input.ComponentMerchantItemOid))
                 ) && 
                 (
-                    this.Quantity == other.Quantity ||
-                    this.Quantity != null &&
-                    this.Quantity.Equals(other.Quantity)
+                    this.Quantity == input.Quantity ||
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ComponentCost != null)
-                    hash = hash * 59 + this.ComponentCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.ComponentCost.GetHashCode();
                 if (this.ComponentDescription != null)
-                    hash = hash * 59 + this.ComponentDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.ComponentDescription.GetHashCode();
                 if (this.ComponentMerchantItemId != null)
-                    hash = hash * 59 + this.ComponentMerchantItemId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ComponentMerchantItemId.GetHashCode();
                 if (this.ComponentMerchantItemOid != null)
-                    hash = hash * 59 + this.ComponentMerchantItemOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.ComponentMerchantItemOid.GetHashCode();
                 if (this.Quantity != null)
-                    hash = hash * 59 + this.Quantity.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Quantity.GetHashCode();
+                return hashCode;
             }
         }
 

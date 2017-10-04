@@ -101,45 +101,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemVariationOption);
+            return this.Equals(input as ItemVariationOption);
         }
 
         /// <summary>
         /// Returns true if ItemVariationOption instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemVariationOption to be compared</param>
+        /// <param name="input">Instance of ItemVariationOption to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemVariationOption other)
+        public bool Equals(ItemVariationOption input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.DefaultOption == other.DefaultOption ||
-                    this.DefaultOption != null &&
-                    this.DefaultOption.Equals(other.DefaultOption)
+                    this.DefaultOption == input.DefaultOption ||
+                    (this.DefaultOption != null &&
+                    this.DefaultOption.Equals(input.DefaultOption))
                 ) && 
                 (
-                    this.MerchantItemMultimediaOid == other.MerchantItemMultimediaOid ||
-                    this.MerchantItemMultimediaOid != null &&
-                    this.MerchantItemMultimediaOid.Equals(other.MerchantItemMultimediaOid)
+                    this.MerchantItemMultimediaOid == input.MerchantItemMultimediaOid ||
+                    (this.MerchantItemMultimediaOid != null &&
+                    this.MerchantItemMultimediaOid.Equals(input.MerchantItemMultimediaOid))
                 ) && 
                 (
-                    this.TranslatedTextInstanceOid == other.TranslatedTextInstanceOid ||
-                    this.TranslatedTextInstanceOid != null &&
-                    this.TranslatedTextInstanceOid.Equals(other.TranslatedTextInstanceOid)
+                    this.TranslatedTextInstanceOid == input.TranslatedTextInstanceOid ||
+                    (this.TranslatedTextInstanceOid != null &&
+                    this.TranslatedTextInstanceOid.Equals(input.TranslatedTextInstanceOid))
                 ) && 
                 (
-                    this.Value == other.Value ||
-                    this.Value != null &&
-                    this.Value.Equals(other.Value)
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -149,20 +147,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.DefaultOption != null)
-                    hash = hash * 59 + this.DefaultOption.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultOption.GetHashCode();
                 if (this.MerchantItemMultimediaOid != null)
-                    hash = hash * 59 + this.MerchantItemMultimediaOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantItemMultimediaOid.GetHashCode();
                 if (this.TranslatedTextInstanceOid != null)
-                    hash = hash * 59 + this.TranslatedTextInstanceOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.TranslatedTextInstanceOid.GetHashCode();
                 if (this.Value != null)
-                    hash = hash * 59 + this.Value.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                return hashCode;
             }
         }
 

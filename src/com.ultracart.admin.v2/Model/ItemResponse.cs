@@ -98,45 +98,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemResponse);
+            return this.Equals(input as ItemResponse);
         }
 
         /// <summary>
         /// Returns true if ItemResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemResponse to be compared</param>
+        /// <param name="input">Instance of ItemResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemResponse other)
+        public bool Equals(ItemResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Error == other.Error ||
-                    this.Error != null &&
-                    this.Error.Equals(other.Error)
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
                 ) && 
                 (
-                    this.Item == other.Item ||
-                    this.Item != null &&
-                    this.Item.Equals(other.Item)
+                    this.Item == input.Item ||
+                    (this.Item != null &&
+                    this.Item.Equals(input.Item))
                 ) && 
                 (
-                    this.Metadata == other.Metadata ||
-                    this.Metadata != null &&
-                    this.Metadata.Equals(other.Metadata)
+                    this.Metadata == input.Metadata ||
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
-                    this.Success == other.Success ||
-                    this.Success != null &&
-                    this.Success.Equals(other.Success)
+                    this.Success == input.Success ||
+                    (this.Success != null &&
+                    this.Success.Equals(input.Success))
                 );
         }
 
@@ -146,20 +144,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Error != null)
-                    hash = hash * 59 + this.Error.GetHashCode();
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Item != null)
-                    hash = hash * 59 + this.Item.GetHashCode();
+                    hashCode = hashCode * 59 + this.Item.GetHashCode();
                 if (this.Metadata != null)
-                    hash = hash * 59 + this.Metadata.GetHashCode();
+                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Success != null)
-                    hash = hash * 59 + this.Success.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Success.GetHashCode();
+                return hashCode;
             }
         }
 

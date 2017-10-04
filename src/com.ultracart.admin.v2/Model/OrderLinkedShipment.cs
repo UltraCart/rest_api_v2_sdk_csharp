@@ -111,50 +111,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderLinkedShipment);
+            return this.Equals(input as OrderLinkedShipment);
         }
 
         /// <summary>
         /// Returns true if OrderLinkedShipment instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderLinkedShipment to be compared</param>
+        /// <param name="input">Instance of OrderLinkedShipment to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderLinkedShipment other)
+        public bool Equals(OrderLinkedShipment input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.HasLinkedShipment == other.HasLinkedShipment ||
-                    this.HasLinkedShipment != null &&
-                    this.HasLinkedShipment.Equals(other.HasLinkedShipment)
+                    this.HasLinkedShipment == input.HasLinkedShipment ||
+                    (this.HasLinkedShipment != null &&
+                    this.HasLinkedShipment.Equals(input.HasLinkedShipment))
                 ) && 
                 (
-                    this.LinkedShipment == other.LinkedShipment ||
-                    this.LinkedShipment != null &&
-                    this.LinkedShipment.Equals(other.LinkedShipment)
+                    this.LinkedShipment == input.LinkedShipment ||
+                    (this.LinkedShipment != null &&
+                    this.LinkedShipment.Equals(input.LinkedShipment))
                 ) && 
                 (
-                    this.LinkedShipmentChannelPartnerOrderIds == other.LinkedShipmentChannelPartnerOrderIds ||
+                    this.LinkedShipmentChannelPartnerOrderIds == input.LinkedShipmentChannelPartnerOrderIds ||
                     this.LinkedShipmentChannelPartnerOrderIds != null &&
-                    this.LinkedShipmentChannelPartnerOrderIds.SequenceEqual(other.LinkedShipmentChannelPartnerOrderIds)
+                    this.LinkedShipmentChannelPartnerOrderIds.SequenceEqual(input.LinkedShipmentChannelPartnerOrderIds)
                 ) && 
                 (
-                    this.LinkedShipmentOrderIds == other.LinkedShipmentOrderIds ||
+                    this.LinkedShipmentOrderIds == input.LinkedShipmentOrderIds ||
                     this.LinkedShipmentOrderIds != null &&
-                    this.LinkedShipmentOrderIds.SequenceEqual(other.LinkedShipmentOrderIds)
+                    this.LinkedShipmentOrderIds.SequenceEqual(input.LinkedShipmentOrderIds)
                 ) && 
                 (
-                    this.LinkedShipmentToOrderId == other.LinkedShipmentToOrderId ||
-                    this.LinkedShipmentToOrderId != null &&
-                    this.LinkedShipmentToOrderId.Equals(other.LinkedShipmentToOrderId)
+                    this.LinkedShipmentToOrderId == input.LinkedShipmentToOrderId ||
+                    (this.LinkedShipmentToOrderId != null &&
+                    this.LinkedShipmentToOrderId.Equals(input.LinkedShipmentToOrderId))
                 );
         }
 
@@ -164,22 +162,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.HasLinkedShipment != null)
-                    hash = hash * 59 + this.HasLinkedShipment.GetHashCode();
+                    hashCode = hashCode * 59 + this.HasLinkedShipment.GetHashCode();
                 if (this.LinkedShipment != null)
-                    hash = hash * 59 + this.LinkedShipment.GetHashCode();
+                    hashCode = hashCode * 59 + this.LinkedShipment.GetHashCode();
                 if (this.LinkedShipmentChannelPartnerOrderIds != null)
-                    hash = hash * 59 + this.LinkedShipmentChannelPartnerOrderIds.GetHashCode();
+                    hashCode = hashCode * 59 + this.LinkedShipmentChannelPartnerOrderIds.GetHashCode();
                 if (this.LinkedShipmentOrderIds != null)
-                    hash = hash * 59 + this.LinkedShipmentOrderIds.GetHashCode();
+                    hashCode = hashCode * 59 + this.LinkedShipmentOrderIds.GetHashCode();
                 if (this.LinkedShipmentToOrderId != null)
-                    hash = hash * 59 + this.LinkedShipmentToOrderId.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.LinkedShipmentToOrderId.GetHashCode();
+                return hashCode;
             }
         }
 

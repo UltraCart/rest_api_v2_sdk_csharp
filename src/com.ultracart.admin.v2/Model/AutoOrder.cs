@@ -240,115 +240,113 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as AutoOrder);
+            return this.Equals(input as AutoOrder);
         }
 
         /// <summary>
         /// Returns true if AutoOrder instances are equal
         /// </summary>
-        /// <param name="other">Instance of AutoOrder to be compared</param>
+        /// <param name="input">Instance of AutoOrder to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AutoOrder other)
+        public bool Equals(AutoOrder input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AutoOrderCode == other.AutoOrderCode ||
-                    this.AutoOrderCode != null &&
-                    this.AutoOrderCode.Equals(other.AutoOrderCode)
+                    this.AutoOrderCode == input.AutoOrderCode ||
+                    (this.AutoOrderCode != null &&
+                    this.AutoOrderCode.Equals(input.AutoOrderCode))
                 ) && 
                 (
-                    this.AutoOrderOid == other.AutoOrderOid ||
-                    this.AutoOrderOid != null &&
-                    this.AutoOrderOid.Equals(other.AutoOrderOid)
+                    this.AutoOrderOid == input.AutoOrderOid ||
+                    (this.AutoOrderOid != null &&
+                    this.AutoOrderOid.Equals(input.AutoOrderOid))
                 ) && 
                 (
-                    this.CancelAfterNextXOrders == other.CancelAfterNextXOrders ||
-                    this.CancelAfterNextXOrders != null &&
-                    this.CancelAfterNextXOrders.Equals(other.CancelAfterNextXOrders)
+                    this.CancelAfterNextXOrders == input.CancelAfterNextXOrders ||
+                    (this.CancelAfterNextXOrders != null &&
+                    this.CancelAfterNextXOrders.Equals(input.CancelAfterNextXOrders))
                 ) && 
                 (
-                    this.CancelDowngrade == other.CancelDowngrade ||
-                    this.CancelDowngrade != null &&
-                    this.CancelDowngrade.Equals(other.CancelDowngrade)
+                    this.CancelDowngrade == input.CancelDowngrade ||
+                    (this.CancelDowngrade != null &&
+                    this.CancelDowngrade.Equals(input.CancelDowngrade))
                 ) && 
                 (
-                    this.CancelUpgrade == other.CancelUpgrade ||
-                    this.CancelUpgrade != null &&
-                    this.CancelUpgrade.Equals(other.CancelUpgrade)
+                    this.CancelUpgrade == input.CancelUpgrade ||
+                    (this.CancelUpgrade != null &&
+                    this.CancelUpgrade.Equals(input.CancelUpgrade))
                 ) && 
                 (
-                    this.CanceledByUser == other.CanceledByUser ||
-                    this.CanceledByUser != null &&
-                    this.CanceledByUser.Equals(other.CanceledByUser)
+                    this.CanceledByUser == input.CanceledByUser ||
+                    (this.CanceledByUser != null &&
+                    this.CanceledByUser.Equals(input.CanceledByUser))
                 ) && 
                 (
-                    this.CanceledDts == other.CanceledDts ||
-                    this.CanceledDts != null &&
-                    this.CanceledDts.Equals(other.CanceledDts)
+                    this.CanceledDts == input.CanceledDts ||
+                    (this.CanceledDts != null &&
+                    this.CanceledDts.Equals(input.CanceledDts))
                 ) && 
                 (
-                    this.CreditCardAttempt == other.CreditCardAttempt ||
-                    this.CreditCardAttempt != null &&
-                    this.CreditCardAttempt.Equals(other.CreditCardAttempt)
+                    this.CreditCardAttempt == input.CreditCardAttempt ||
+                    (this.CreditCardAttempt != null &&
+                    this.CreditCardAttempt.Equals(input.CreditCardAttempt))
                 ) && 
                 (
-                    this.DisabledDts == other.DisabledDts ||
-                    this.DisabledDts != null &&
-                    this.DisabledDts.Equals(other.DisabledDts)
+                    this.DisabledDts == input.DisabledDts ||
+                    (this.DisabledDts != null &&
+                    this.DisabledDts.Equals(input.DisabledDts))
                 ) && 
                 (
-                    this.Enabled == other.Enabled ||
-                    this.Enabled != null &&
-                    this.Enabled.Equals(other.Enabled)
+                    this.Enabled == input.Enabled ||
+                    (this.Enabled != null &&
+                    this.Enabled.Equals(input.Enabled))
                 ) && 
                 (
-                    this.FailureReason == other.FailureReason ||
-                    this.FailureReason != null &&
-                    this.FailureReason.Equals(other.FailureReason)
+                    this.FailureReason == input.FailureReason ||
+                    (this.FailureReason != null &&
+                    this.FailureReason.Equals(input.FailureReason))
                 ) && 
                 (
-                    this.Items == other.Items ||
+                    this.Items == input.Items ||
                     this.Items != null &&
-                    this.Items.SequenceEqual(other.Items)
+                    this.Items.SequenceEqual(input.Items)
                 ) && 
                 (
-                    this.NextAttempt == other.NextAttempt ||
-                    this.NextAttempt != null &&
-                    this.NextAttempt.Equals(other.NextAttempt)
+                    this.NextAttempt == input.NextAttempt ||
+                    (this.NextAttempt != null &&
+                    this.NextAttempt.Equals(input.NextAttempt))
                 ) && 
                 (
-                    this.OriginalOrder == other.OriginalOrder ||
-                    this.OriginalOrder != null &&
-                    this.OriginalOrder.Equals(other.OriginalOrder)
+                    this.OriginalOrder == input.OriginalOrder ||
+                    (this.OriginalOrder != null &&
+                    this.OriginalOrder.Equals(input.OriginalOrder))
                 ) && 
                 (
-                    this.OriginalOrderId == other.OriginalOrderId ||
-                    this.OriginalOrderId != null &&
-                    this.OriginalOrderId.Equals(other.OriginalOrderId)
+                    this.OriginalOrderId == input.OriginalOrderId ||
+                    (this.OriginalOrderId != null &&
+                    this.OriginalOrderId.Equals(input.OriginalOrderId))
                 ) && 
                 (
-                    this.OverrideAffiliateId == other.OverrideAffiliateId ||
-                    this.OverrideAffiliateId != null &&
-                    this.OverrideAffiliateId.Equals(other.OverrideAffiliateId)
+                    this.OverrideAffiliateId == input.OverrideAffiliateId ||
+                    (this.OverrideAffiliateId != null &&
+                    this.OverrideAffiliateId.Equals(input.OverrideAffiliateId))
                 ) && 
                 (
-                    this.RebillOrders == other.RebillOrders ||
+                    this.RebillOrders == input.RebillOrders ||
                     this.RebillOrders != null &&
-                    this.RebillOrders.SequenceEqual(other.RebillOrders)
+                    this.RebillOrders.SequenceEqual(input.RebillOrders)
                 ) && 
                 (
-                    this.RotatingTransactionGatewayCode == other.RotatingTransactionGatewayCode ||
-                    this.RotatingTransactionGatewayCode != null &&
-                    this.RotatingTransactionGatewayCode.Equals(other.RotatingTransactionGatewayCode)
+                    this.RotatingTransactionGatewayCode == input.RotatingTransactionGatewayCode ||
+                    (this.RotatingTransactionGatewayCode != null &&
+                    this.RotatingTransactionGatewayCode.Equals(input.RotatingTransactionGatewayCode))
                 );
         }
 
@@ -358,48 +356,46 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AutoOrderCode != null)
-                    hash = hash * 59 + this.AutoOrderCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderCode.GetHashCode();
                 if (this.AutoOrderOid != null)
-                    hash = hash * 59 + this.AutoOrderOid.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoOrderOid.GetHashCode();
                 if (this.CancelAfterNextXOrders != null)
-                    hash = hash * 59 + this.CancelAfterNextXOrders.GetHashCode();
+                    hashCode = hashCode * 59 + this.CancelAfterNextXOrders.GetHashCode();
                 if (this.CancelDowngrade != null)
-                    hash = hash * 59 + this.CancelDowngrade.GetHashCode();
+                    hashCode = hashCode * 59 + this.CancelDowngrade.GetHashCode();
                 if (this.CancelUpgrade != null)
-                    hash = hash * 59 + this.CancelUpgrade.GetHashCode();
+                    hashCode = hashCode * 59 + this.CancelUpgrade.GetHashCode();
                 if (this.CanceledByUser != null)
-                    hash = hash * 59 + this.CanceledByUser.GetHashCode();
+                    hashCode = hashCode * 59 + this.CanceledByUser.GetHashCode();
                 if (this.CanceledDts != null)
-                    hash = hash * 59 + this.CanceledDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.CanceledDts.GetHashCode();
                 if (this.CreditCardAttempt != null)
-                    hash = hash * 59 + this.CreditCardAttempt.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreditCardAttempt.GetHashCode();
                 if (this.DisabledDts != null)
-                    hash = hash * 59 + this.DisabledDts.GetHashCode();
+                    hashCode = hashCode * 59 + this.DisabledDts.GetHashCode();
                 if (this.Enabled != null)
-                    hash = hash * 59 + this.Enabled.GetHashCode();
+                    hashCode = hashCode * 59 + this.Enabled.GetHashCode();
                 if (this.FailureReason != null)
-                    hash = hash * 59 + this.FailureReason.GetHashCode();
+                    hashCode = hashCode * 59 + this.FailureReason.GetHashCode();
                 if (this.Items != null)
-                    hash = hash * 59 + this.Items.GetHashCode();
+                    hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.NextAttempt != null)
-                    hash = hash * 59 + this.NextAttempt.GetHashCode();
+                    hashCode = hashCode * 59 + this.NextAttempt.GetHashCode();
                 if (this.OriginalOrder != null)
-                    hash = hash * 59 + this.OriginalOrder.GetHashCode();
+                    hashCode = hashCode * 59 + this.OriginalOrder.GetHashCode();
                 if (this.OriginalOrderId != null)
-                    hash = hash * 59 + this.OriginalOrderId.GetHashCode();
+                    hashCode = hashCode * 59 + this.OriginalOrderId.GetHashCode();
                 if (this.OverrideAffiliateId != null)
-                    hash = hash * 59 + this.OverrideAffiliateId.GetHashCode();
+                    hashCode = hashCode * 59 + this.OverrideAffiliateId.GetHashCode();
                 if (this.RebillOrders != null)
-                    hash = hash * 59 + this.RebillOrders.GetHashCode();
+                    hashCode = hashCode * 59 + this.RebillOrders.GetHashCode();
                 if (this.RotatingTransactionGatewayCode != null)
-                    hash = hash * 59 + this.RotatingTransactionGatewayCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RotatingTransactionGatewayCode.GetHashCode();
+                return hashCode;
             }
         }
 

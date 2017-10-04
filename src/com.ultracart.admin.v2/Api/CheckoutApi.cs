@@ -137,7 +137,7 @@ namespace com.ultracart.admin.v2.Api
         /// Handoff cart
         /// </summary>
         /// <remarks>
-        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -149,7 +149,7 @@ namespace com.ultracart.admin.v2.Api
         /// Handoff cart
         /// </summary>
         /// <remarks>
-        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -455,7 +455,7 @@ namespace com.ultracart.admin.v2.Api
         /// Handoff cart
         /// </summary>
         /// <remarks>
-        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -467,7 +467,7 @@ namespace com.ultracart.admin.v2.Api
         /// Handoff cart
         /// </summary>
         /// <remarks>
-        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -1618,7 +1618,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -1631,7 +1631,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -1711,7 +1711,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -1725,7 +1725,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing). 
+        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>

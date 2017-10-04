@@ -80,35 +80,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartProfileRegisterRequest);
+            return this.Equals(input as CartProfileRegisterRequest);
         }
 
         /// <summary>
         /// Returns true if CartProfileRegisterRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartProfileRegisterRequest to be compared</param>
+        /// <param name="input">Instance of CartProfileRegisterRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartProfileRegisterRequest other)
+        public bool Equals(CartProfileRegisterRequest input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Cart == other.Cart ||
-                    this.Cart != null &&
-                    this.Cart.Equals(other.Cart)
+                    this.Cart == input.Cart ||
+                    (this.Cart != null &&
+                    this.Cart.Equals(input.Cart))
                 ) && 
                 (
-                    this.Password == other.Password ||
-                    this.Password != null &&
-                    this.Password.Equals(other.Password)
+                    this.Password == input.Password ||
+                    (this.Password != null &&
+                    this.Password.Equals(input.Password))
                 );
         }
 
@@ -118,16 +116,14 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Cart != null)
-                    hash = hash * 59 + this.Cart.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cart.GetHashCode();
                 if (this.Password != null)
-                    hash = hash * 59 + this.Password.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Password.GetHashCode();
+                return hashCode;
             }
         }
 

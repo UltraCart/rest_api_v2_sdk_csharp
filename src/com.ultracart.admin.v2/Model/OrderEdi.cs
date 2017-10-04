@@ -101,45 +101,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderEdi);
+            return this.Equals(input as OrderEdi);
         }
 
         /// <summary>
         /// Returns true if OrderEdi instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderEdi to be compared</param>
+        /// <param name="input">Instance of OrderEdi to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderEdi other)
+        public bool Equals(OrderEdi input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.BillToEdiCode == other.BillToEdiCode ||
-                    this.BillToEdiCode != null &&
-                    this.BillToEdiCode.Equals(other.BillToEdiCode)
+                    this.BillToEdiCode == input.BillToEdiCode ||
+                    (this.BillToEdiCode != null &&
+                    this.BillToEdiCode.Equals(input.BillToEdiCode))
                 ) && 
                 (
-                    this.EdiDepartment == other.EdiDepartment ||
-                    this.EdiDepartment != null &&
-                    this.EdiDepartment.Equals(other.EdiDepartment)
+                    this.EdiDepartment == input.EdiDepartment ||
+                    (this.EdiDepartment != null &&
+                    this.EdiDepartment.Equals(input.EdiDepartment))
                 ) && 
                 (
-                    this.EdiInternalVendorNumber == other.EdiInternalVendorNumber ||
-                    this.EdiInternalVendorNumber != null &&
-                    this.EdiInternalVendorNumber.Equals(other.EdiInternalVendorNumber)
+                    this.EdiInternalVendorNumber == input.EdiInternalVendorNumber ||
+                    (this.EdiInternalVendorNumber != null &&
+                    this.EdiInternalVendorNumber.Equals(input.EdiInternalVendorNumber))
                 ) && 
                 (
-                    this.ShipToEdiCode == other.ShipToEdiCode ||
-                    this.ShipToEdiCode != null &&
-                    this.ShipToEdiCode.Equals(other.ShipToEdiCode)
+                    this.ShipToEdiCode == input.ShipToEdiCode ||
+                    (this.ShipToEdiCode != null &&
+                    this.ShipToEdiCode.Equals(input.ShipToEdiCode))
                 );
         }
 
@@ -149,20 +147,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.BillToEdiCode != null)
-                    hash = hash * 59 + this.BillToEdiCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.BillToEdiCode.GetHashCode();
                 if (this.EdiDepartment != null)
-                    hash = hash * 59 + this.EdiDepartment.GetHashCode();
+                    hashCode = hashCode * 59 + this.EdiDepartment.GetHashCode();
                 if (this.EdiInternalVendorNumber != null)
-                    hash = hash * 59 + this.EdiInternalVendorNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.EdiInternalVendorNumber.GetHashCode();
                 if (this.ShipToEdiCode != null)
-                    hash = hash * 59 + this.ShipToEdiCode.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ShipToEdiCode.GetHashCode();
+                return hashCode;
             }
         }
 

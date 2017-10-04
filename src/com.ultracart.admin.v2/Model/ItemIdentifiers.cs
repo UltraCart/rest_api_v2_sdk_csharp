@@ -101,45 +101,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ItemIdentifiers);
+            return this.Equals(input as ItemIdentifiers);
         }
 
         /// <summary>
         /// Returns true if ItemIdentifiers instances are equal
         /// </summary>
-        /// <param name="other">Instance of ItemIdentifiers to be compared</param>
+        /// <param name="input">Instance of ItemIdentifiers to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemIdentifiers other)
+        public bool Equals(ItemIdentifiers input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Barcode == other.Barcode ||
-                    this.Barcode != null &&
-                    this.Barcode.Equals(other.Barcode)
+                    this.Barcode == input.Barcode ||
+                    (this.Barcode != null &&
+                    this.Barcode.Equals(input.Barcode))
                 ) && 
                 (
-                    this.ManufacturerName == other.ManufacturerName ||
-                    this.ManufacturerName != null &&
-                    this.ManufacturerName.Equals(other.ManufacturerName)
+                    this.ManufacturerName == input.ManufacturerName ||
+                    (this.ManufacturerName != null &&
+                    this.ManufacturerName.Equals(input.ManufacturerName))
                 ) && 
                 (
-                    this.ManufacturerSku == other.ManufacturerSku ||
-                    this.ManufacturerSku != null &&
-                    this.ManufacturerSku.Equals(other.ManufacturerSku)
+                    this.ManufacturerSku == input.ManufacturerSku ||
+                    (this.ManufacturerSku != null &&
+                    this.ManufacturerSku.Equals(input.ManufacturerSku))
                 ) && 
                 (
-                    this.Unspsc == other.Unspsc ||
-                    this.Unspsc != null &&
-                    this.Unspsc.Equals(other.Unspsc)
+                    this.Unspsc == input.Unspsc ||
+                    (this.Unspsc != null &&
+                    this.Unspsc.Equals(input.Unspsc))
                 );
         }
 
@@ -149,20 +147,18 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Barcode != null)
-                    hash = hash * 59 + this.Barcode.GetHashCode();
+                    hashCode = hashCode * 59 + this.Barcode.GetHashCode();
                 if (this.ManufacturerName != null)
-                    hash = hash * 59 + this.ManufacturerName.GetHashCode();
+                    hashCode = hashCode * 59 + this.ManufacturerName.GetHashCode();
                 if (this.ManufacturerSku != null)
-                    hash = hash * 59 + this.ManufacturerSku.GetHashCode();
+                    hashCode = hashCode * 59 + this.ManufacturerSku.GetHashCode();
                 if (this.Unspsc != null)
-                    hash = hash * 59 + this.Unspsc.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Unspsc.GetHashCode();
+                return hashCode;
             }
         }
 

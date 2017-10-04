@@ -71,30 +71,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CheckoutSetupBrowserKeyRequest);
+            return this.Equals(input as CheckoutSetupBrowserKeyRequest);
         }
 
         /// <summary>
         /// Returns true if CheckoutSetupBrowserKeyRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of CheckoutSetupBrowserKeyRequest to be compared</param>
+        /// <param name="input">Instance of CheckoutSetupBrowserKeyRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CheckoutSetupBrowserKeyRequest other)
+        public bool Equals(CheckoutSetupBrowserKeyRequest input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AllowedReferrers == other.AllowedReferrers ||
+                    this.AllowedReferrers == input.AllowedReferrers ||
                     this.AllowedReferrers != null &&
-                    this.AllowedReferrers.SequenceEqual(other.AllowedReferrers)
+                    this.AllowedReferrers.SequenceEqual(input.AllowedReferrers)
                 );
         }
 
@@ -104,14 +102,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AllowedReferrers != null)
-                    hash = hash * 59 + this.AllowedReferrers.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.AllowedReferrers.GetHashCode();
+                return hashCode;
             }
         }
 

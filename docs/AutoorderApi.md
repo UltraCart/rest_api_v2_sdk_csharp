@@ -1,12 +1,12 @@
-# com.ultracart.admin.v2.Api.AutoorderApi
+# com.ultracart.admin.v2.Api.AutoOrderApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAutoOrder**](AutoorderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-[**GetAutoOrders**](AutoorderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
-[**UpdateAutoOrder**](AutoorderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+[**GetAutoOrder**](AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
+[**GetAutoOrders**](AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**UpdateAutoOrder**](AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 
 
 <a name="getautoorder"></a>
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 Retrieve an auto order
 
 Retrieves a single auto order using the specified auto order oid. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -31,15 +31,34 @@ namespace Example
     {
         public void main()
         {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
-            var apiInstance = new AutoorderApi();
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new AutoOrderApi();
             var autoOrderOid = 56;  // int? | The auto order oid to retrieve.
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
@@ -51,11 +70,12 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AutoorderApi.GetAutoOrder: " + e.Message );
+                Debug.Print("Exception when calling AutoOrderApi.GetAutoOrder: " + e.Message );
             }
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -87,9 +107,9 @@ Name | Type | Description  | Notes
 Retrieve auto orders
 
 Retrieves auto orders from the account.  If no parameters are specified, all auto orders will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -102,15 +122,34 @@ namespace Example
     {
         public void main()
         {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
-            var apiInstance = new AutoorderApi();
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new AutoOrderApi();
             var autoOrderCode = autoOrderCode_example;  // string | Auto order code (optional) 
             var originalOrderId = originalOrderId_example;  // string | Original order id (optional) 
             var firstName = firstName_example;  // string | First name (optional) 
@@ -143,11 +182,12 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AutoorderApi.GetAutoOrders: " + e.Message );
+                Debug.Print("Exception when calling AutoOrderApi.GetAutoOrders: " + e.Message );
             }
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -200,9 +240,9 @@ Name | Type | Description  | Notes
 Update an auto order
 
 Update an auto order on the UltraCart account. 
-
 ### Example
 ```csharp
+
 using System;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
@@ -215,15 +255,34 @@ namespace Example
     {
         public void main()
         {
-            
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.ApiKey.Add("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-ultracart-simple-key", "Bearer");
 
-            var apiInstance = new AutoorderApi();
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new AutoOrderApi();
             var autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
             var autoOrderOid = 56;  // int? | The auto order oid to update.
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
@@ -236,11 +295,12 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AutoorderApi.UpdateAutoOrder: " + e.Message );
+                Debug.Print("Exception when calling AutoOrderApi.UpdateAutoOrder: " + e.Message );
             }
         }
     }
 }
+
 ```
 
 ### Parameters

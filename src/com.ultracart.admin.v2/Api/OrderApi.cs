@@ -200,6 +200,41 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrdersResponse</returns>
         ApiResponse<OrdersResponse> GetOrdersByQueryWithHttpInfo (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
         /// <summary>
+        /// Refund an order
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on an order and then update the order if successful 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        OrderResponse RefundOrder (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null);
+
+        /// <summary>
+        /// Refund an order
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on an order and then update the order if successful 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        ApiResponse<OrderResponse> RefundOrderWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null);
+        /// <summary>
         /// Resend receipt
         /// </summary>
         /// <remarks>
@@ -443,6 +478,41 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>Task of ApiResponse (OrdersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersByQueryAsyncWithHttpInfo (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        /// <summary>
+        /// Refund an order
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on an order and then update the order if successful 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of OrderResponse</returns>
+        System.Threading.Tasks.Task<OrderResponse> RefundOrderAsync (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null);
+
+        /// <summary>
+        /// Refund an order
+        /// </summary>
+        /// <remarks>
+        /// Perform a refund operation on an order and then update the order if successful 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderAsyncWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null);
         /// <summary>
         /// Resend receipt
         /// </summary>
@@ -1609,6 +1679,225 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrdersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (OrdersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+        }
+
+        /// <summary>
+        /// Refund an order Perform a refund operation on an order and then update the order if successful 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>OrderResponse</returns>
+        public OrderResponse RefundOrder (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null)
+        {
+             ApiResponse<OrderResponse> localVarResponse = RefundOrderWithHttpInfo(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Refund an order Perform a refund operation on an order and then update the order if successful 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of OrderResponse</returns>
+        public ApiResponse< OrderResponse > RefundOrderWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null)
+        {
+            // verify the required parameter 'order' is set
+            if (order == null)
+                throw new ApiException(400, "Missing required parameter 'order' when calling OrderApi->RefundOrder");
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->RefundOrder");
+
+            var localVarPath = "/order/orders/{order_id}/refund";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (rejectAfterRefund != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "reject_after_refund", rejectAfterRefund)); // query parameter
+            if (skipCustomerNotification != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "skip_customer_notification", skipCustomerNotification)); // query parameter
+            if (autoOrderCancel != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel", autoOrderCancel)); // query parameter
+            if (manualRefund != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "manual_refund", manualRefund)); // query parameter
+            if (reverseAffiliateTransactions != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "reverse_affiliate_transactions", reverseAffiliateTransactions)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (order != null && order.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(order); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = order; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefundOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Refund an order Perform a refund operation on an order and then update the order if successful 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of OrderResponse</returns>
+        public async System.Threading.Tasks.Task<OrderResponse> RefundOrderAsync (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null)
+        {
+             ApiResponse<OrderResponse> localVarResponse = await RefundOrderAsyncWithHttpInfo(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Refund an order Perform a refund operation on an order and then update the order if successful 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="order">Order to refund</param>
+        /// <param name="orderId">The order id to refund.</param>
+        /// <param name="rejectAfterRefund">Reject order after refund (optional)</param>
+        /// <param name="skipCustomerNotification">Skip customer email notification (optional)</param>
+        /// <param name="autoOrderCancel">Cancel associated auto orders (optional)</param>
+        /// <param name="manualRefund">Consider a manual refund done externally (optional)</param>
+        /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (OrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderAsyncWithHttpInfo (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null)
+        {
+            // verify the required parameter 'order' is set
+            if (order == null)
+                throw new ApiException(400, "Missing required parameter 'order' when calling OrderApi->RefundOrder");
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->RefundOrder");
+
+            var localVarPath = "/order/orders/{order_id}/refund";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (rejectAfterRefund != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "reject_after_refund", rejectAfterRefund)); // query parameter
+            if (skipCustomerNotification != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "skip_customer_notification", skipCustomerNotification)); // query parameter
+            if (autoOrderCancel != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel", autoOrderCancel)); // query parameter
+            if (manualRefund != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "manual_refund", manualRefund)); // query parameter
+            if (reverseAffiliateTransactions != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "reverse_affiliate_transactions", reverseAffiliateTransactions)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (order != null && order.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(order); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = order; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RefundOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
         }
 
         /// <summary>

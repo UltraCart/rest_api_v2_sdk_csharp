@@ -109,50 +109,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CartSettingsShipping);
+            return this.Equals(input as CartSettingsShipping);
         }
 
         /// <summary>
         /// Returns true if CartSettingsShipping instances are equal
         /// </summary>
-        /// <param name="other">Instance of CartSettingsShipping to be compared</param>
+        /// <param name="input">Instance of CartSettingsShipping to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CartSettingsShipping other)
+        public bool Equals(CartSettingsShipping input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.DeliverOnDate == other.DeliverOnDate ||
-                    this.DeliverOnDate != null &&
-                    this.DeliverOnDate.Equals(other.DeliverOnDate)
+                    this.DeliverOnDate == input.DeliverOnDate ||
+                    (this.DeliverOnDate != null &&
+                    this.DeliverOnDate.Equals(input.DeliverOnDate))
                 ) && 
                 (
-                    this.Estimates == other.Estimates ||
+                    this.Estimates == input.Estimates ||
                     this.Estimates != null &&
-                    this.Estimates.SequenceEqual(other.Estimates)
+                    this.Estimates.SequenceEqual(input.Estimates)
                 ) && 
                 (
-                    this.NeedShipping == other.NeedShipping ||
-                    this.NeedShipping != null &&
-                    this.NeedShipping.Equals(other.NeedShipping)
+                    this.NeedShipping == input.NeedShipping ||
+                    (this.NeedShipping != null &&
+                    this.NeedShipping.Equals(input.NeedShipping))
                 ) && 
                 (
-                    this.Provinces == other.Provinces ||
+                    this.Provinces == input.Provinces ||
                     this.Provinces != null &&
-                    this.Provinces.SequenceEqual(other.Provinces)
+                    this.Provinces.SequenceEqual(input.Provinces)
                 ) && 
                 (
-                    this.ShipOnDate == other.ShipOnDate ||
-                    this.ShipOnDate != null &&
-                    this.ShipOnDate.Equals(other.ShipOnDate)
+                    this.ShipOnDate == input.ShipOnDate ||
+                    (this.ShipOnDate != null &&
+                    this.ShipOnDate.Equals(input.ShipOnDate))
                 );
         }
 
@@ -162,22 +160,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.DeliverOnDate != null)
-                    hash = hash * 59 + this.DeliverOnDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.DeliverOnDate.GetHashCode();
                 if (this.Estimates != null)
-                    hash = hash * 59 + this.Estimates.GetHashCode();
+                    hashCode = hashCode * 59 + this.Estimates.GetHashCode();
                 if (this.NeedShipping != null)
-                    hash = hash * 59 + this.NeedShipping.GetHashCode();
+                    hashCode = hashCode * 59 + this.NeedShipping.GetHashCode();
                 if (this.Provinces != null)
-                    hash = hash * 59 + this.Provinces.GetHashCode();
+                    hashCode = hashCode * 59 + this.Provinces.GetHashCode();
                 if (this.ShipOnDate != null)
-                    hash = hash * 59 + this.ShipOnDate.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ShipOnDate.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -69,6 +69,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CouponCodesResponse</returns>
         ApiResponse<CouponCodesResponse> GenerateCouponCodesWithHttpInfo (int? couponOid, CouponCodesRequest couponCodesRequest);
         /// <summary>
+        /// Generates one time codes for a coupon
+        /// </summary>
+        /// <remarks>
+        /// Generate one time codes for a coupon 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The merchant code to generate one time codes.</param>
+        /// <param name="couponCodesRequest">Coupon code generation parameters</param>
+        /// <returns>CouponCodesResponse</returns>
+        CouponCodesResponse GenerateOneTimeCodesByMerchantCode (string merchantCode, CouponCodesRequest couponCodesRequest);
+
+        /// <summary>
+        /// Generates one time codes for a coupon
+        /// </summary>
+        /// <remarks>
+        /// Generate one time codes for a coupon 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The merchant code to generate one time codes.</param>
+        /// <param name="couponCodesRequest">Coupon code generation parameters</param>
+        /// <returns>ApiResponse of CouponCodesResponse</returns>
+        ApiResponse<CouponCodesResponse> GenerateOneTimeCodesByMerchantCodeWithHttpInfo (string merchantCode, CouponCodesRequest couponCodesRequest);
+        /// <summary>
         /// Retrieve a coupon
         /// </summary>
         /// <remarks>
@@ -91,6 +114,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CouponResponse</returns>
         ApiResponse<CouponResponse> GetCouponWithHttpInfo (int? couponOid, string expand = null);
+        /// <summary>
+        /// Retrieve a coupon by merchant code
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single coupon using the specified merchant code. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CouponResponse</returns>
+        CouponResponse GetCouponByMerchantCode (string merchantCode, string expand = null);
+
+        /// <summary>
+        /// Retrieve a coupon by merchant code
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single coupon using the specified merchant code. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CouponResponse</returns>
+        ApiResponse<CouponResponse> GetCouponByMerchantCodeWithHttpInfo (string merchantCode, string expand = null);
         /// <summary>
         /// Retrieve coupons
         /// </summary>
@@ -279,6 +325,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (CouponCodesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CouponCodesResponse>> GenerateCouponCodesAsyncWithHttpInfo (int? couponOid, CouponCodesRequest couponCodesRequest);
         /// <summary>
+        /// Generates one time codes for a coupon
+        /// </summary>
+        /// <remarks>
+        /// Generate one time codes for a coupon 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The merchant code to generate one time codes.</param>
+        /// <param name="couponCodesRequest">Coupon code generation parameters</param>
+        /// <returns>Task of CouponCodesResponse</returns>
+        System.Threading.Tasks.Task<CouponCodesResponse> GenerateOneTimeCodesByMerchantCodeAsync (string merchantCode, CouponCodesRequest couponCodesRequest);
+
+        /// <summary>
+        /// Generates one time codes for a coupon
+        /// </summary>
+        /// <remarks>
+        /// Generate one time codes for a coupon 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The merchant code to generate one time codes.</param>
+        /// <param name="couponCodesRequest">Coupon code generation parameters</param>
+        /// <returns>Task of ApiResponse (CouponCodesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CouponCodesResponse>> GenerateOneTimeCodesByMerchantCodeAsyncWithHttpInfo (string merchantCode, CouponCodesRequest couponCodesRequest);
+        /// <summary>
         /// Retrieve a coupon
         /// </summary>
         /// <remarks>
@@ -301,6 +370,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CouponResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CouponResponse>> GetCouponAsyncWithHttpInfo (int? couponOid, string expand = null);
+        /// <summary>
+        /// Retrieve a coupon by merchant code
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single coupon using the specified merchant code. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CouponResponse</returns>
+        System.Threading.Tasks.Task<CouponResponse> GetCouponByMerchantCodeAsync (string merchantCode, string expand = null);
+
+        /// <summary>
+        /// Retrieve a coupon by merchant code
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a single coupon using the specified merchant code. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CouponResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CouponResponse>> GetCouponByMerchantCodeAsyncWithHttpInfo (string merchantCode, string expand = null);
         /// <summary>
         /// Retrieve coupons
         /// </summary>
@@ -883,6 +975,189 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Generates one time codes for a coupon Generate one time codes for a coupon 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The merchant code to generate one time codes.</param>
+        /// <param name="couponCodesRequest">Coupon code generation parameters</param>
+        /// <returns>CouponCodesResponse</returns>
+        public CouponCodesResponse GenerateOneTimeCodesByMerchantCode (string merchantCode, CouponCodesRequest couponCodesRequest)
+        {
+             ApiResponse<CouponCodesResponse> localVarResponse = GenerateOneTimeCodesByMerchantCodeWithHttpInfo(merchantCode, couponCodesRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generates one time codes for a coupon Generate one time codes for a coupon 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The merchant code to generate one time codes.</param>
+        /// <param name="couponCodesRequest">Coupon code generation parameters</param>
+        /// <returns>ApiResponse of CouponCodesResponse</returns>
+        public ApiResponse< CouponCodesResponse > GenerateOneTimeCodesByMerchantCodeWithHttpInfo (string merchantCode, CouponCodesRequest couponCodesRequest)
+        {
+            // verify the required parameter 'merchantCode' is set
+            if (merchantCode == null)
+                throw new ApiException(400, "Missing required parameter 'merchantCode' when calling CouponApi->GenerateOneTimeCodesByMerchantCode");
+            // verify the required parameter 'couponCodesRequest' is set
+            if (couponCodesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'couponCodesRequest' when calling CouponApi->GenerateOneTimeCodesByMerchantCode");
+
+            var localVarPath = "/coupon/coupons/merchant_code/{merchant_code}/generate_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantCode != null) localVarPathParams.Add("merchant_code", Configuration.ApiClient.ParameterToString(merchantCode)); // path parameter
+            if (couponCodesRequest != null && couponCodesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(couponCodesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = couponCodesRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GenerateOneTimeCodesByMerchantCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponCodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponCodesResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponCodesResponse)));
+        }
+
+        /// <summary>
+        /// Generates one time codes for a coupon Generate one time codes for a coupon 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The merchant code to generate one time codes.</param>
+        /// <param name="couponCodesRequest">Coupon code generation parameters</param>
+        /// <returns>Task of CouponCodesResponse</returns>
+        public async System.Threading.Tasks.Task<CouponCodesResponse> GenerateOneTimeCodesByMerchantCodeAsync (string merchantCode, CouponCodesRequest couponCodesRequest)
+        {
+             ApiResponse<CouponCodesResponse> localVarResponse = await GenerateOneTimeCodesByMerchantCodeAsyncWithHttpInfo(merchantCode, couponCodesRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generates one time codes for a coupon Generate one time codes for a coupon 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The merchant code to generate one time codes.</param>
+        /// <param name="couponCodesRequest">Coupon code generation parameters</param>
+        /// <returns>Task of ApiResponse (CouponCodesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CouponCodesResponse>> GenerateOneTimeCodesByMerchantCodeAsyncWithHttpInfo (string merchantCode, CouponCodesRequest couponCodesRequest)
+        {
+            // verify the required parameter 'merchantCode' is set
+            if (merchantCode == null)
+                throw new ApiException(400, "Missing required parameter 'merchantCode' when calling CouponApi->GenerateOneTimeCodesByMerchantCode");
+            // verify the required parameter 'couponCodesRequest' is set
+            if (couponCodesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'couponCodesRequest' when calling CouponApi->GenerateOneTimeCodesByMerchantCode");
+
+            var localVarPath = "/coupon/coupons/merchant_code/{merchant_code}/generate_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantCode != null) localVarPathParams.Add("merchant_code", Configuration.ApiClient.ParameterToString(merchantCode)); // path parameter
+            if (couponCodesRequest != null && couponCodesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(couponCodesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = couponCodesRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GenerateOneTimeCodesByMerchantCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponCodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponCodesResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponCodesResponse)));
+        }
+
+        /// <summary>
         /// Retrieve a coupon Retrieves a single coupon using the specified coupon profile oid. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1037,6 +1312,169 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetCoupon", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a coupon by merchant code Retrieves a single coupon using the specified merchant code. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CouponResponse</returns>
+        public CouponResponse GetCouponByMerchantCode (string merchantCode, string expand = null)
+        {
+             ApiResponse<CouponResponse> localVarResponse = GetCouponByMerchantCodeWithHttpInfo(merchantCode, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a coupon by merchant code Retrieves a single coupon using the specified merchant code. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CouponResponse</returns>
+        public ApiResponse< CouponResponse > GetCouponByMerchantCodeWithHttpInfo (string merchantCode, string expand = null)
+        {
+            // verify the required parameter 'merchantCode' is set
+            if (merchantCode == null)
+                throw new ApiException(400, "Missing required parameter 'merchantCode' when calling CouponApi->GetCouponByMerchantCode");
+
+            var localVarPath = "/coupon/coupons/merchant_code/{merchant_code}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantCode != null) localVarPathParams.Add("merchant_code", Configuration.ApiClient.ParameterToString(merchantCode)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCouponByMerchantCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a coupon by merchant code Retrieves a single coupon using the specified merchant code. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CouponResponse</returns>
+        public async System.Threading.Tasks.Task<CouponResponse> GetCouponByMerchantCodeAsync (string merchantCode, string expand = null)
+        {
+             ApiResponse<CouponResponse> localVarResponse = await GetCouponByMerchantCodeAsyncWithHttpInfo(merchantCode, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a coupon by merchant code Retrieves a single coupon using the specified merchant code. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to retrieve.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CouponResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CouponResponse>> GetCouponByMerchantCodeAsyncWithHttpInfo (string merchantCode, string expand = null)
+        {
+            // verify the required parameter 'merchantCode' is set
+            if (merchantCode == null)
+                throw new ApiException(400, "Missing required parameter 'merchantCode' when calling CouponApi->GetCouponByMerchantCode");
+
+            var localVarPath = "/coupon/coupons/merchant_code/{merchant_code}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantCode != null) localVarPathParams.Add("merchant_code", Configuration.ApiClient.ParameterToString(merchantCode)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCouponByMerchantCode", localVarResponse);
                 if (exception != null) throw exception;
             }
 

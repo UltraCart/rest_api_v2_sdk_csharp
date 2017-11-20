@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteCoupon**](CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 [**GenerateCouponCodes**](CouponApi.md#generatecouponcodes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
+[**GenerateOneTimeCodesByMerchantCode**](CouponApi.md#generateonetimecodesbymerchantcode) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes for a coupon
 [**GetCoupon**](CouponApi.md#getcoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
+[**GetCouponByMerchantCode**](CouponApi.md#getcouponbymerchantcode) | **GET** /coupon/coupons/merchant_code/{merchant_code} | Retrieve a coupon by merchant code
 [**GetCoupons**](CouponApi.md#getcoupons) | **GET** /coupon/coupons | Retrieve coupons
 [**GetCouponsByQuery**](CouponApi.md#getcouponsbyquery) | **GET** /coupon/coupons/query | Retrieve coupons by query
 [**GetEditorValues**](CouponApi.md#geteditorvalues) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor
@@ -194,6 +196,97 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="generateonetimecodesbymerchantcode"></a>
+# **GenerateOneTimeCodesByMerchantCode**
+> CouponCodesResponse GenerateOneTimeCodesByMerchantCode (string merchantCode, CouponCodesRequest couponCodesRequest)
+
+Generates one time codes for a coupon
+
+Generate one time codes for a coupon 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GenerateOneTimeCodesByMerchantCodeExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new CouponApi();
+            var merchantCode = merchantCode_example;  // string | The merchant code to generate one time codes.
+            var couponCodesRequest = new CouponCodesRequest(); // CouponCodesRequest | Coupon code generation parameters
+
+            try
+            {
+                // Generates one time codes for a coupon
+                CouponCodesResponse result = apiInstance.GenerateOneTimeCodesByMerchantCode(merchantCode, couponCodesRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CouponApi.GenerateOneTimeCodesByMerchantCode: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantCode** | **string**| The merchant code to generate one time codes. | 
+ **couponCodesRequest** | [**CouponCodesRequest**](CouponCodesRequest.md)| Coupon code generation parameters | 
+
+### Return type
+
+[**CouponCodesResponse**](CouponCodesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getcoupon"></a>
 # **GetCoupon**
 > CouponResponse GetCoupon (int? couponOid, string expand = null)
@@ -268,6 +361,97 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **couponOid** | **int?**| The coupon oid to retrieve. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**CouponResponse**](CouponResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcouponbymerchantcode"></a>
+# **GetCouponByMerchantCode**
+> CouponResponse GetCouponByMerchantCode (string merchantCode, string expand = null)
+
+Retrieve a coupon by merchant code
+
+Retrieves a single coupon using the specified merchant code. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetCouponByMerchantCodeExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new CouponApi();
+            var merchantCode = merchantCode_example;  // string | The coupon merchant code to retrieve.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Retrieve a coupon by merchant code
+                CouponResponse result = apiInstance.GetCouponByMerchantCode(merchantCode, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CouponApi.GetCouponByMerchantCode: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantCode** | **string**| The coupon merchant code to retrieve. | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

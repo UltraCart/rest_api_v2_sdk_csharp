@@ -59,7 +59,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ShippingPostalCode">Billing postal code.</param>
         /// <param name="ShippingState">Billing state.</param>
         /// <param name="SignupDtsEnd">Signup date end.</param>
-        /// <param name="SignupDtsStart">Signup date star.</param>
+        /// <param name="SignupDtsStart">Signup date start.</param>
         public CustomerQuery(string BillingCity = default(string), string BillingCompany = default(string), string BillingCountryCode = default(string), string BillingDayPhone = default(string), string BillingEveningPhone = default(string), string BillingFirstName = default(string), string BillingLastName = default(string), string BillingPostalCode = default(string), string BillingState = default(string), string Email = default(string), string LastModifiedDtsEnd = default(string), string LastModifiedDtsStart = default(string), string PricingTierName = default(string), int? PricingTierOid = default(int?), string QbClass = default(string), string QuickbooksCode = default(string), string ShippingCity = default(string), string ShippingCompany = default(string), string ShippingCountryCode = default(string), string ShippingDayPhone = default(string), string ShippingEveningPhone = default(string), string ShippingFirstName = default(string), string ShippingLastName = default(string), string ShippingPostalCode = default(string), string ShippingState = default(string), string SignupDtsEnd = default(string), string SignupDtsStart = default(string))
         {
             this.BillingCity = BillingCity;
@@ -274,9 +274,9 @@ namespace com.ultracart.admin.v2.Model
         public string SignupDtsEnd { get; set; }
 
         /// <summary>
-        /// Signup date star
+        /// Signup date start
         /// </summary>
-        /// <value>Signup date star</value>
+        /// <value>Signup date start</value>
         [DataMember(Name="signup_dts_start", EmitDefaultValue=false)]
         public string SignupDtsStart { get; set; }
 

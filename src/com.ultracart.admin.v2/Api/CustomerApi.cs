@@ -183,6 +183,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CustomersResponse</returns>
         ApiResponse<CustomersResponse> GetCustomersByQueryWithHttpInfo (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
         /// <summary>
+        /// Retrieve values needed for a customer profile editor
+        /// </summary>
+        /// <remarks>
+        /// Retrieve values needed for a customer profile editor. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CustomerEditorValues</returns>
+        CustomerEditorValues GetEditorValues ();
+
+        /// <summary>
+        /// Retrieve values needed for a customer profile editor
+        /// </summary>
+        /// <remarks>
+        /// Retrieve values needed for a customer profile editor. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CustomerEditorValues</returns>
+        ApiResponse<CustomerEditorValues> GetEditorValuesWithHttpInfo ();
+        /// <summary>
         /// Insert a customer
         /// </summary>
         /// <remarks>
@@ -390,6 +409,25 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomersResponse>> GetCustomersByQueryAsyncWithHttpInfo (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        /// <summary>
+        /// Retrieve values needed for a customer profile editor
+        /// </summary>
+        /// <remarks>
+        /// Retrieve values needed for a customer profile editor. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CustomerEditorValues</returns>
+        System.Threading.Tasks.Task<CustomerEditorValues> GetEditorValuesAsync ();
+
+        /// <summary>
+        /// Retrieve values needed for a customer profile editor
+        /// </summary>
+        /// <remarks>
+        /// Retrieve values needed for a customer profile editor. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CustomerEditorValues)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerEditorValues>> GetEditorValuesAsyncWithHttpInfo ();
         /// <summary>
         /// Insert a customer
         /// </summary>
@@ -1394,6 +1432,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve values needed for a customer profile editor Retrieve values needed for a customer profile editor. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CustomerEditorValues</returns>
+        public CustomerEditorValues GetEditorValues ()
+        {
+             ApiResponse<CustomerEditorValues> localVarResponse = GetEditorValuesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve values needed for a customer profile editor Retrieve values needed for a customer profile editor. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CustomerEditorValues</returns>
+        public ApiResponse< CustomerEditorValues > GetEditorValuesWithHttpInfo ()
+        {
+
+            var localVarPath = "/customer/editor_values";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEditorValues", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerEditorValues>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerEditorValues) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerEditorValues)));
+        }
+
+        /// <summary>
+        /// Retrieve values needed for a customer profile editor Retrieve values needed for a customer profile editor. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CustomerEditorValues</returns>
+        public async System.Threading.Tasks.Task<CustomerEditorValues> GetEditorValuesAsync ()
+        {
+             ApiResponse<CustomerEditorValues> localVarResponse = await GetEditorValuesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve values needed for a customer profile editor Retrieve values needed for a customer profile editor. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CustomerEditorValues)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerEditorValues>> GetEditorValuesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/customer/editor_values";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEditorValues", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerEditorValues>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerEditorValues) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerEditorValues)));
         }
 
         /// <summary>

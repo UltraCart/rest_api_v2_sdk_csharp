@@ -143,7 +143,11 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AffiliateApi* | [**GetClicksByQuery**](docs/AffiliateApi.md#getclicksbyquery) | **POST** /affiliate/clicks/query | Retrieve clicks
+*AffiliateApi* | [**GetLedgersByQuery**](docs/AffiliateApi.md#getledgersbyquery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
 *AutoOrderApi* | [**GetAutoOrder**](docs/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
+*AutoOrderApi* | [**GetAutoOrderByCode**](docs/AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
+*AutoOrderApi* | [**GetAutoOrderByReferenceOrderId**](docs/AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
 *AutoOrderApi* | [**GetAutoOrders**](docs/AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 *AutoOrderApi* | [**UpdateAutoOrder**](docs/AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *ChargebackApi* | [**DeleteChargeback**](docs/ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
@@ -165,10 +169,19 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**SetupBrowserKey**](docs/CheckoutApi.md#setupbrowserkey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**UpdateCart**](docs/CheckoutApi.md#updatecart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**ValidateCart**](docs/CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
+*CouponApi* | [**DeleteCoupon**](docs/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
+*CouponApi* | [**GenerateCouponCodes**](docs/CouponApi.md#generatecouponcodes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
+*CouponApi* | [**GetCoupon**](docs/CouponApi.md#getcoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
+*CouponApi* | [**GetCoupons**](docs/CouponApi.md#getcoupons) | **GET** /coupon/coupons | Retrieve coupons
+*CouponApi* | [**GetCouponsByQuery**](docs/CouponApi.md#getcouponsbyquery) | **GET** /coupon/coupons/query | Retrieve coupons by query
+*CouponApi* | [**GetEditorValues**](docs/CouponApi.md#geteditorvalues) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor
+*CouponApi* | [**InsertCoupon**](docs/CouponApi.md#insertcoupon) | **POST** /coupon/coupons | Insert a coupon
+*CouponApi* | [**UpdateCoupon**](docs/CouponApi.md#updatecoupon) | **PUT** /coupon/coupons/{coupon_oid} | Update a coupon
 *CustomerApi* | [**DeleteCustomer**](docs/CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**GetCustomer**](docs/CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**GetCustomers**](docs/CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
 *CustomerApi* | [**GetCustomersByQuery**](docs/CustomerApi.md#getcustomersbyquery) | **GET** /customer/customers/query | Retrieve customers by query
+*CustomerApi* | [**GetEditorValues**](docs/CustomerApi.md#geteditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 *CustomerApi* | [**InsertCustomer**](docs/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**UpdateCustomer**](docs/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *FulfillmentApi* | [**AcknowledgeOrders**](docs/FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
@@ -182,6 +195,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**GetItems**](docs/ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**InsertItem**](docs/ItemApi.md#insertitem) | **POST** /item/items | Create an item
 *ItemApi* | [**UpdateItem**](docs/ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+*ItemApi* | [**UpdateItems**](docs/ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
 *ItemApi* | [**UploadTemporaryMultimedia**](docs/ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 *OauthApi* | [**OauthAccessToken**](docs/OauthApi.md#oauthaccesstoken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**OauthRevoke**](docs/OauthApi.md#oauthrevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
@@ -206,6 +220,13 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [Model.AffiliateClick](docs/AffiliateClick.md)
+ - [Model.AffiliateClickQuery](docs/AffiliateClickQuery.md)
+ - [Model.AffiliateClicksResponse](docs/AffiliateClicksResponse.md)
+ - [Model.AffiliateLedger](docs/AffiliateLedger.md)
+ - [Model.AffiliateLedgerQuery](docs/AffiliateLedgerQuery.md)
+ - [Model.AffiliateLedgersResponse](docs/AffiliateLedgersResponse.md)
+ - [Model.AffiliateLink](docs/AffiliateLink.md)
  - [Model.ApiUserApplicationProfile](docs/ApiUserApplicationProfile.md)
  - [Model.AutoOrder](docs/AutoOrder.md)
  - [Model.AutoOrderItem](docs/AutoOrderItem.md)
@@ -275,10 +296,61 @@ Class | Method | HTTP request | Description
  - [Model.CheckoutSetupBrowserKeyRequest](docs/CheckoutSetupBrowserKeyRequest.md)
  - [Model.CheckoutSetupBrowserKeyResponse](docs/CheckoutSetupBrowserKeyResponse.md)
  - [Model.CityStateZip](docs/CityStateZip.md)
+ - [Model.Coupon](docs/Coupon.md)
+ - [Model.CouponAmountOffItems](docs/CouponAmountOffItems.md)
+ - [Model.CouponAmountOffShipping](docs/CouponAmountOffShipping.md)
+ - [Model.CouponAmountOffShippingWithItemsPurchase](docs/CouponAmountOffShippingWithItemsPurchase.md)
+ - [Model.CouponAmountOffSubtotal](docs/CouponAmountOffSubtotal.md)
+ - [Model.CouponAmountOffSubtotalAndShipping](docs/CouponAmountOffSubtotalAndShipping.md)
+ - [Model.CouponAmountOffSubtotalFreeShippingWithPurchase](docs/CouponAmountOffSubtotalFreeShippingWithPurchase.md)
+ - [Model.CouponAmountOffSubtotalWithBlockPurchase](docs/CouponAmountOffSubtotalWithBlockPurchase.md)
+ - [Model.CouponAmountOffSubtotalWithItemsPurchase](docs/CouponAmountOffSubtotalWithItemsPurchase.md)
+ - [Model.CouponCodesRequest](docs/CouponCodesRequest.md)
+ - [Model.CouponCodesResponse](docs/CouponCodesResponse.md)
+ - [Model.CouponDiscountItemWithItemPurchase](docs/CouponDiscountItemWithItemPurchase.md)
+ - [Model.CouponDiscountItems](docs/CouponDiscountItems.md)
+ - [Model.CouponEditorValues](docs/CouponEditorValues.md)
+ - [Model.CouponFreeItemAndShippingWithSubtotal](docs/CouponFreeItemAndShippingWithSubtotal.md)
+ - [Model.CouponFreeItemWithItemPurchase](docs/CouponFreeItemWithItemPurchase.md)
+ - [Model.CouponFreeItemWithSubtotal](docs/CouponFreeItemWithSubtotal.md)
+ - [Model.CouponFreeItemsWithItemPurchase](docs/CouponFreeItemsWithItemPurchase.md)
+ - [Model.CouponFreeItemsWithMixMatchPurchase](docs/CouponFreeItemsWithMixMatchPurchase.md)
+ - [Model.CouponFreeShipping](docs/CouponFreeShipping.md)
+ - [Model.CouponFreeShippingSpecificItems](docs/CouponFreeShippingSpecificItems.md)
+ - [Model.CouponFreeShippingWithItemsPurchase](docs/CouponFreeShippingWithItemsPurchase.md)
+ - [Model.CouponFreeShippingWithSubtotal](docs/CouponFreeShippingWithSubtotal.md)
+ - [Model.CouponMultipleAmountsOffItems](docs/CouponMultipleAmountsOffItems.md)
+ - [Model.CouponNoDiscount](docs/CouponNoDiscount.md)
+ - [Model.CouponPercentOffItemWithItemsQuantityPurchase](docs/CouponPercentOffItemWithItemsQuantityPurchase.md)
+ - [Model.CouponPercentOffItems](docs/CouponPercentOffItems.md)
+ - [Model.CouponPercentOffItemsAndFreeShipping](docs/CouponPercentOffItemsAndFreeShipping.md)
+ - [Model.CouponPercentOffItemsWithItemsPurchase](docs/CouponPercentOffItemsWithItemsPurchase.md)
+ - [Model.CouponPercentOffRetailPriceItems](docs/CouponPercentOffRetailPriceItems.md)
+ - [Model.CouponPercentOffShipping](docs/CouponPercentOffShipping.md)
+ - [Model.CouponPercentOffSubtotal](docs/CouponPercentOffSubtotal.md)
+ - [Model.CouponPercentOffSubtotalAndFreeShipping](docs/CouponPercentOffSubtotalAndFreeShipping.md)
+ - [Model.CouponPercentOffSubtotalLimit](docs/CouponPercentOffSubtotalLimit.md)
+ - [Model.CouponPercentOffSubtotalWithItemsPurchase](docs/CouponPercentOffSubtotalWithItemsPurchase.md)
+ - [Model.CouponPercentOffSubtotalWithSubtotal](docs/CouponPercentOffSubtotalWithSubtotal.md)
+ - [Model.CouponQuery](docs/CouponQuery.md)
+ - [Model.CouponResponse](docs/CouponResponse.md)
+ - [Model.CouponTierAmount](docs/CouponTierAmount.md)
+ - [Model.CouponTierItemDiscount](docs/CouponTierItemDiscount.md)
+ - [Model.CouponTierPercent](docs/CouponTierPercent.md)
+ - [Model.CouponTierQuantityAmount](docs/CouponTierQuantityAmount.md)
+ - [Model.CouponTierQuantityPercent](docs/CouponTierQuantityPercent.md)
+ - [Model.CouponTieredAmountOffItem](docs/CouponTieredAmountOffItem.md)
+ - [Model.CouponTieredAmountOffSubtotal](docs/CouponTieredAmountOffSubtotal.md)
+ - [Model.CouponTieredPercentOffItems](docs/CouponTieredPercentOffItems.md)
+ - [Model.CouponTieredPercentOffShipping](docs/CouponTieredPercentOffShipping.md)
+ - [Model.CouponTieredPercentOffSubtotal](docs/CouponTieredPercentOffSubtotal.md)
+ - [Model.CouponsResponse](docs/CouponsResponse.md)
  - [Model.Currency](docs/Currency.md)
  - [Model.Customer](docs/Customer.md)
+ - [Model.CustomerAffiliate](docs/CustomerAffiliate.md)
  - [Model.CustomerBilling](docs/CustomerBilling.md)
  - [Model.CustomerCard](docs/CustomerCard.md)
+ - [Model.CustomerEditorValues](docs/CustomerEditorValues.md)
  - [Model.CustomerPricingTier](docs/CustomerPricingTier.md)
  - [Model.CustomerQuery](docs/CustomerQuery.md)
  - [Model.CustomerResponse](docs/CustomerResponse.md)
@@ -360,6 +432,7 @@ Class | Method | HTTP request | Description
  - [Model.ItemVariation](docs/ItemVariation.md)
  - [Model.ItemVariationOption](docs/ItemVariationOption.md)
  - [Model.ItemWishlistMember](docs/ItemWishlistMember.md)
+ - [Model.ItemsRequest](docs/ItemsRequest.md)
  - [Model.ItemsResponse](docs/ItemsResponse.md)
  - [Model.OauthRevokeSuccessResponse](docs/OauthRevokeSuccessResponse.md)
  - [Model.OauthTokenResponse](docs/OauthTokenResponse.md)
@@ -437,12 +510,16 @@ Class | Method | HTTP request | Description
 - **Flow**: accessCode
 - **Authorization URL**: https://secure.ultracart.com/rest/v2/oauth/authorize
 - **Scopes**: 
+  - affiliate_read: Allows you to read affiliate information.
+  - affiliate_write: Allows you to write affiliate information.
   - auto_order_read: Allows you to read auto order information.
   - auto_order_write: Allows you to write auto order information.
   - chargeback_read: Allows you to read chargeback information.
   - chargeback_write: Allows you to write chargeback information.
   - checkout_read: Allows you to read checkout information.
   - checkout_write: Allows you to write checkout information.
+  - coupon_read: Allows you to read coupon information.
+  - coupon_write: Allows you to write coupon information.
   - customer_read: Allows you to read customer information.
   - customer_write: Allows you to write customer information.
   - fulfillment_read: Allows you to read fulfillment information.

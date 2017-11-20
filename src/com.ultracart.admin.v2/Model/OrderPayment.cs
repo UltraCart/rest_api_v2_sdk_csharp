@@ -87,6 +87,12 @@ namespace com.ultracart.admin.v2.Model
             CreditCard,
             
             /// <summary>
+            /// Enum EBay for "eBay"
+            /// </summary>
+            [EnumMember(Value = "eBay")]
+            EBay,
+            
+            /// <summary>
             /// Enum ECheck for "eCheck"
             /// </summary>
             [EnumMember(Value = "eCheck")]

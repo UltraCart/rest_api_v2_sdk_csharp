@@ -91,7 +91,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="TempMultimediaOid">Temporary multimedia object identifier assigned if uploading new multimedia.</param>
         /// <param name="Thumbnails">Thumbnails of this image.</param>
         /// <param name="Type">Type of file.</param>
-        /// <param name="Url">URL to download file.</param>
+        /// <param name="Url">URL to download file (on new multimedia record this can be a URL for UltraCart to fetch).</param>
         /// <param name="Width">Width of the image.</param>
         public ItemContentMultimedia(string CloudUrl = default(string), string CloudUrlExpiration = default(string), string Code = default(string), string Description = default(string), bool? ExcludeFromGallery = default(bool?), string FileName = default(string), int? Height = default(int?), int? MerchantItemMultimediaOid = default(int?), bool? Orphan = default(bool?), bool? Placeholder = default(bool?), int? TempMultimediaOid = default(int?), List<ItemContentMultimediaThumbnail> Thumbnails = default(List<ItemContentMultimediaThumbnail>), TypeEnum? Type = default(TypeEnum?), string Url = default(string), int? Width = default(int?))
         {
@@ -198,9 +198,9 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
-        /// URL to download file
+        /// URL to download file (on new multimedia record this can be a URL for UltraCart to fetch)
         /// </summary>
-        /// <value>URL to download file</value>
+        /// <value>URL to download file (on new multimedia record this can be a URL for UltraCart to fetch)</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
 

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **ShippingPostalCode** | **string** | Billing postal code | [optional] 
 **ShippingState** | **string** | Billing state | [optional] 
 **SignupDtsEnd** | **string** | Signup date end | [optional] 
-**SignupDtsStart** | **string** | Signup date star | [optional] 
+**SignupDtsStart** | **string** | Signup date start | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

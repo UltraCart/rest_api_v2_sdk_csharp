@@ -19,6 +19,7 @@ using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 using com.ultracart.admin.v2.Client;
 using System.Reflection;
+using Newtonsoft.Json;
 
 namespace com.ultracart.admin.v2.Test
 {
@@ -63,6 +64,7 @@ namespace com.ultracart.admin.v2.Test
             // TODO uncomment below to test "IsInstanceOfType" OrderQuery
             //Assert.IsInstanceOfType<OrderQuery> (instance, "variable 'instance' is a OrderQuery");
         }
+
 
         /// <summary>
         /// Test the property 'CcEmail'
@@ -135,6 +137,14 @@ namespace com.ultracart.admin.v2.Test
         public void CurrentStageTest()
         {
             // TODO unit test for the property 'CurrentStage'
+        }
+        /// <summary>
+        /// Test the property 'CustomerProfileOid'
+        /// </summary>
+        [Test]
+        public void CustomerProfileOidTest()
+        {
+            // TODO unit test for the property 'CustomerProfileOid'
         }
         /// <summary>
         /// Test the property 'Email'

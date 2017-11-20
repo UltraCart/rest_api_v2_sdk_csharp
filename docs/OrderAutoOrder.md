@@ -3,7 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AutoOrderCode** | **string** | Unique identifier assigned to the auto order | [optional] 
+**AutoOrderCode** | **string** | Unique code assigned to the auto order | [optional] 
+**AutoOrderOid** | **int?** | Unique identifier assigned to the auto order | [optional] 
 **OriginalOrderId** | **string** | Orignal order id that started this auto order sequence | [optional] 
 **Status** | **string** | The status of the auto order | [optional] 
 

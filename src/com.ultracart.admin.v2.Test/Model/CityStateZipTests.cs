@@ -19,6 +19,7 @@ using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Model;
 using com.ultracart.admin.v2.Client;
 using System.Reflection;
+using Newtonsoft.Json;
 
 namespace com.ultracart.admin.v2.Test
 {
@@ -63,6 +64,7 @@ namespace com.ultracart.admin.v2.Test
             // TODO uncomment below to test "IsInstanceOfType" CityStateZip
             //Assert.IsInstanceOfType<CityStateZip> (instance, "variable 'instance' is a CityStateZip");
         }
+
 
         /// <summary>
         /// Test the property 'City'

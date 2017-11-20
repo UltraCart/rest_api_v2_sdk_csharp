@@ -66,22 +66,31 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderAutoOrder" /> class.
         /// </summary>
-        /// <param name="AutoOrderCode">Unique identifier assigned to the auto order.</param>
+        /// <param name="AutoOrderCode">Unique code assigned to the auto order.</param>
+        /// <param name="AutoOrderOid">Unique identifier assigned to the auto order.</param>
         /// <param name="OriginalOrderId">Orignal order id that started this auto order sequence.</param>
         /// <param name="Status">The status of the auto order.</param>
-        public OrderAutoOrder(string AutoOrderCode = default(string), string OriginalOrderId = default(string), StatusEnum? Status = default(StatusEnum?))
+        public OrderAutoOrder(string AutoOrderCode = default(string), int? AutoOrderOid = default(int?), string OriginalOrderId = default(string), StatusEnum? Status = default(StatusEnum?))
         {
             this.AutoOrderCode = AutoOrderCode;
+            this.AutoOrderOid = AutoOrderOid;
             this.OriginalOrderId = OriginalOrderId;
             this.Status = Status;
         }
         
         /// <summary>
+        /// Unique code assigned to the auto order
+        /// </summary>
+        /// <value>Unique code assigned to the auto order</value>
+        [DataMember(Name="auto_order_code", EmitDefaultValue=false)]
+        public string AutoOrderCode { get; set; }
+
+        /// <summary>
         /// Unique identifier assigned to the auto order
         /// </summary>
         /// <value>Unique identifier assigned to the auto order</value>
-        [DataMember(Name="auto_order_code", EmitDefaultValue=false)]
-        public string AutoOrderCode { get; set; }
+        [DataMember(Name="auto_order_oid", EmitDefaultValue=false)]
+        public int? AutoOrderOid { get; set; }
 
         /// <summary>
         /// Orignal order id that started this auto order sequence
@@ -100,6 +109,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class OrderAutoOrder {\n");
             sb.Append("  AutoOrderCode: ").Append(AutoOrderCode).Append("\n");
+            sb.Append("  AutoOrderOid: ").Append(AutoOrderOid).Append("\n");
             sb.Append("  OriginalOrderId: ").Append(OriginalOrderId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
@@ -142,6 +152,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AutoOrderCode.Equals(input.AutoOrderCode))
                 ) && 
                 (
+                    this.AutoOrderOid == input.AutoOrderOid ||
+                    (this.AutoOrderOid != null &&
+                    this.AutoOrderOid.Equals(input.AutoOrderOid))
+                ) && 
+                (
                     this.OriginalOrderId == input.OriginalOrderId ||
                     (this.OriginalOrderId != null &&
                     this.OriginalOrderId.Equals(input.OriginalOrderId))
@@ -164,6 +179,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AutoOrderCode != null)
                     hashCode = hashCode * 59 + this.AutoOrderCode.GetHashCode();
+                if (this.AutoOrderOid != null)
+                    hashCode = hashCode * 59 + this.AutoOrderOid.GetHashCode();
                 if (this.OriginalOrderId != null)
                     hashCode = hashCode * 59 + this.OriginalOrderId.GetHashCode();
                 if (this.Status != null)

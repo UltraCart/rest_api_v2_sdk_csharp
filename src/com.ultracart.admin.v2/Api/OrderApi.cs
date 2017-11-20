@@ -123,12 +123,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="currentStage">Current Stage (optional)</param>
         /// <param name="channelPartnerCode">Channel Partner Code (optional)</param>
         /// <param name="channelPartnerOrderId">Channel Partner Order ID (optional)</param>
+        /// <param name="customerProfileOid">null (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>OrdersResponse</returns>
-        OrdersResponse GetOrders (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        OrdersResponse GetOrders (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? customerProfileOid = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
 
         /// <summary>
         /// Retrieve orders
@@ -164,12 +165,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="currentStage">Current Stage (optional)</param>
         /// <param name="channelPartnerCode">Channel Partner Code (optional)</param>
         /// <param name="channelPartnerOrderId">Channel Partner Order ID (optional)</param>
+        /// <param name="customerProfileOid">null (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>ApiResponse of OrdersResponse</returns>
-        ApiResponse<OrdersResponse> GetOrdersWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        ApiResponse<OrdersResponse> GetOrdersWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? customerProfileOid = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
         /// <summary>
         /// Retrieve orders
         /// </summary>
@@ -402,12 +404,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="currentStage">Current Stage (optional)</param>
         /// <param name="channelPartnerCode">Channel Partner Code (optional)</param>
         /// <param name="channelPartnerOrderId">Channel Partner Order ID (optional)</param>
+        /// <param name="customerProfileOid">null (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>Task of OrdersResponse</returns>
-        System.Threading.Tasks.Task<OrdersResponse> GetOrdersAsync (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        System.Threading.Tasks.Task<OrdersResponse> GetOrdersAsync (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? customerProfileOid = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
 
         /// <summary>
         /// Retrieve orders
@@ -443,12 +446,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="currentStage">Current Stage (optional)</param>
         /// <param name="channelPartnerCode">Channel Partner Code (optional)</param>
         /// <param name="channelPartnerOrderId">Channel Partner Order ID (optional)</param>
+        /// <param name="customerProfileOid">null (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersAsyncWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersAsyncWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? customerProfileOid = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
         /// <summary>
         /// Retrieve orders
         /// </summary>
@@ -1186,14 +1190,15 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="currentStage">Current Stage (optional)</param>
         /// <param name="channelPartnerCode">Channel Partner Code (optional)</param>
         /// <param name="channelPartnerOrderId">Channel Partner Order ID (optional)</param>
+        /// <param name="customerProfileOid">null (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>OrdersResponse</returns>
-        public OrdersResponse GetOrders (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public OrdersResponse GetOrders (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? customerProfileOid = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
-             ApiResponse<OrdersResponse> localVarResponse = GetOrdersWithHttpInfo(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
+             ApiResponse<OrdersResponse> localVarResponse = GetOrdersWithHttpInfo(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, limit, offset, sort, expand);
              return localVarResponse.Data;
         }
 
@@ -1228,12 +1233,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="currentStage">Current Stage (optional)</param>
         /// <param name="channelPartnerCode">Channel Partner Code (optional)</param>
         /// <param name="channelPartnerOrderId">Channel Partner Order ID (optional)</param>
+        /// <param name="customerProfileOid">null (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>ApiResponse of OrdersResponse</returns>
-        public ApiResponse< OrdersResponse > GetOrdersWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public ApiResponse< OrdersResponse > GetOrdersWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? customerProfileOid = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
 
             var localVarPath = "/order/orders";
@@ -1285,6 +1291,7 @@ namespace com.ultracart.admin.v2.Api
             if (currentStage != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "current_stage", currentStage)); // query parameter
             if (channelPartnerCode != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "channel_partner_code", channelPartnerCode)); // query parameter
             if (channelPartnerOrderId != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "channel_partner_order_id", channelPartnerOrderId)); // query parameter
+            if (customerProfileOid != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "customer_profile_oid", customerProfileOid)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
@@ -1351,14 +1358,15 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="currentStage">Current Stage (optional)</param>
         /// <param name="channelPartnerCode">Channel Partner Code (optional)</param>
         /// <param name="channelPartnerOrderId">Channel Partner Order ID (optional)</param>
+        /// <param name="customerProfileOid">null (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>Task of OrdersResponse</returns>
-        public async System.Threading.Tasks.Task<OrdersResponse> GetOrdersAsync (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public async System.Threading.Tasks.Task<OrdersResponse> GetOrdersAsync (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? customerProfileOid = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
-             ApiResponse<OrdersResponse> localVarResponse = await GetOrdersAsyncWithHttpInfo(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
+             ApiResponse<OrdersResponse> localVarResponse = await GetOrdersAsyncWithHttpInfo(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, limit, offset, sort, expand);
              return localVarResponse.Data;
 
         }
@@ -1394,12 +1402,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="currentStage">Current Stage (optional)</param>
         /// <param name="channelPartnerCode">Channel Partner Code (optional)</param>
         /// <param name="channelPartnerOrderId">Channel Partner Order ID (optional)</param>
+        /// <param name="customerProfileOid">null (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result. (optional)</param>
         /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersAsyncWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GetOrdersAsyncWithHttpInfo (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? customerProfileOid = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
 
             var localVarPath = "/order/orders";
@@ -1451,6 +1460,7 @@ namespace com.ultracart.admin.v2.Api
             if (currentStage != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "current_stage", currentStage)); // query parameter
             if (channelPartnerCode != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "channel_partner_code", channelPartnerCode)); // query parameter
             if (channelPartnerOrderId != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "channel_partner_order_id", channelPartnerOrderId)); // query parameter
+            if (customerProfileOid != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "customer_profile_oid", customerProfileOid)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter

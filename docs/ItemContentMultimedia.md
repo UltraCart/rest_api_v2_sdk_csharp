@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **TempMultimediaOid** | **int?** | Temporary multimedia object identifier assigned if uploading new multimedia | [optional] 
 **Thumbnails** | [**List&lt;ItemContentMultimediaThumbnail&gt;**](ItemContentMultimediaThumbnail.md) | Thumbnails of this image | [optional] 
 **Type** | **string** | Type of file | [optional] 
-**Url** | **string** | URL to download file | [optional] 
+**Url** | **string** | URL to download file (on new multimedia record this can be a URL for UltraCart to fetch) | [optional] 
 **Width** | **int?** | Width of the image | [optional] 
 
 

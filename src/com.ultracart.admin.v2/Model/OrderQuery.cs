@@ -222,6 +222,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CreationDateBegin">Date/time that the order was created.</param>
         /// <param name="CreationDateEnd">Date/time that the order was created.</param>
         /// <param name="CurrentStage">Current stage that the order is in..</param>
+        /// <param name="CustomerProfileOid">The customer profile to find associated orders for.</param>
         /// <param name="Email">Email.</param>
         /// <param name="FirstName">First name.</param>
         /// <param name="ItemId">Item ID.</param>
@@ -240,7 +241,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="StateRegion">State for United States otherwise region or province for other countries.</param>
         /// <param name="StorefrontHostName">StoreFront host name associated with the order.</param>
         /// <param name="Total">Total.</param>
-        public OrderQuery(string CcEmail = default(string), string ChannelPartnerCode = default(string), string ChannelPartnerOrderId = default(string), string City = default(string), string Company = default(string), string CountryCode = default(string), string CreationDateBegin = default(string), string CreationDateEnd = default(string), CurrentStageEnum? CurrentStage = default(CurrentStageEnum?), string Email = default(string), string FirstName = default(string), string ItemId = default(string), string LastName = default(string), string OrderId = default(string), string PaymentDateBegin = default(string), string PaymentDateEnd = default(string), PaymentMethodEnum? PaymentMethod = default(PaymentMethodEnum?), string Phone = default(string), string PostalCode = default(string), string PurchaseOrderNumber = default(string), string Rma = default(string), string ScreenBrandingThemeCode = default(string), string ShipmentDateBegin = default(string), string ShipmentDateEnd = default(string), string StateRegion = default(string), string StorefrontHostName = default(string), decimal? Total = default(decimal?))
+        public OrderQuery(string CcEmail = default(string), string ChannelPartnerCode = default(string), string ChannelPartnerOrderId = default(string), string City = default(string), string Company = default(string), string CountryCode = default(string), string CreationDateBegin = default(string), string CreationDateEnd = default(string), CurrentStageEnum? CurrentStage = default(CurrentStageEnum?), int? CustomerProfileOid = default(int?), string Email = default(string), string FirstName = default(string), string ItemId = default(string), string LastName = default(string), string OrderId = default(string), string PaymentDateBegin = default(string), string PaymentDateEnd = default(string), PaymentMethodEnum? PaymentMethod = default(PaymentMethodEnum?), string Phone = default(string), string PostalCode = default(string), string PurchaseOrderNumber = default(string), string Rma = default(string), string ScreenBrandingThemeCode = default(string), string ShipmentDateBegin = default(string), string ShipmentDateEnd = default(string), string StateRegion = default(string), string StorefrontHostName = default(string), decimal? Total = default(decimal?))
         {
             this.CcEmail = CcEmail;
             this.ChannelPartnerCode = ChannelPartnerCode;
@@ -251,6 +252,7 @@ namespace com.ultracart.admin.v2.Model
             this.CreationDateBegin = CreationDateBegin;
             this.CreationDateEnd = CreationDateEnd;
             this.CurrentStage = CurrentStage;
+            this.CustomerProfileOid = CustomerProfileOid;
             this.Email = Email;
             this.FirstName = FirstName;
             this.ItemId = ItemId;
@@ -327,6 +329,13 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="creation_date_end", EmitDefaultValue=false)]
         public string CreationDateEnd { get; set; }
 
+
+        /// <summary>
+        /// The customer profile to find associated orders for
+        /// </summary>
+        /// <value>The customer profile to find associated orders for</value>
+        [DataMember(Name="customer_profile_oid", EmitDefaultValue=false)]
+        public int? CustomerProfileOid { get; set; }
 
         /// <summary>
         /// Email
@@ -465,6 +474,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreationDateBegin: ").Append(CreationDateBegin).Append("\n");
             sb.Append("  CreationDateEnd: ").Append(CreationDateEnd).Append("\n");
             sb.Append("  CurrentStage: ").Append(CurrentStage).Append("\n");
+            sb.Append("  CustomerProfileOid: ").Append(CustomerProfileOid).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  ItemId: ").Append(ItemId).Append("\n");
@@ -561,6 +571,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CurrentStage == input.CurrentStage ||
                     (this.CurrentStage != null &&
                     this.CurrentStage.Equals(input.CurrentStage))
+                ) && 
+                (
+                    this.CustomerProfileOid == input.CustomerProfileOid ||
+                    (this.CustomerProfileOid != null &&
+                    this.CustomerProfileOid.Equals(input.CustomerProfileOid))
                 ) && 
                 (
                     this.Email == input.Email ||
@@ -681,6 +696,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CreationDateEnd.GetHashCode();
                 if (this.CurrentStage != null)
                     hashCode = hashCode * 59 + this.CurrentStage.GetHashCode();
+                if (this.CustomerProfileOid != null)
+                    hashCode = hashCode * 59 + this.CustomerProfileOid.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.FirstName != null)

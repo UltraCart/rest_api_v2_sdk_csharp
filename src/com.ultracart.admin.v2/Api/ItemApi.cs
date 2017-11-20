@@ -183,6 +183,33 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ItemResponse</returns>
         ApiResponse<ItemResponse> UpdateItemWithHttpInfo (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null);
         /// <summary>
+        /// Update multiple items
+        /// </summary>
+        /// <remarks>
+        /// Update multiple item on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemsRequest">Items to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>ItemsResponse</returns>
+        ItemsResponse UpdateItems (ItemsRequest itemsRequest, string expand = null, bool? placeholders = null, bool? async = null);
+
+        /// <summary>
+        /// Update multiple items
+        /// </summary>
+        /// <remarks>
+        /// Update multiple item on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemsRequest">Items to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>ApiResponse of ItemsResponse</returns>
+        ApiResponse<ItemsResponse> UpdateItemsWithHttpInfo (ItemsRequest itemsRequest, string expand = null, bool? placeholders = null, bool? async = null);
+        /// <summary>
         /// Upload an image to the temporary multimedia.
         /// </summary>
         /// <remarks>
@@ -363,6 +390,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemResponse>> UpdateItemAsyncWithHttpInfo (Item item, int? merchantItemOid, string expand = null, bool? placeholders = null);
+        /// <summary>
+        /// Update multiple items
+        /// </summary>
+        /// <remarks>
+        /// Update multiple item on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemsRequest">Items to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>Task of ItemsResponse</returns>
+        System.Threading.Tasks.Task<ItemsResponse> UpdateItemsAsync (ItemsRequest itemsRequest, string expand = null, bool? placeholders = null, bool? async = null);
+
+        /// <summary>
+        /// Update multiple items
+        /// </summary>
+        /// <remarks>
+        /// Update multiple item on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemsRequest">Items to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> UpdateItemsAsyncWithHttpInfo (ItemsRequest itemsRequest, string expand = null, bool? placeholders = null, bool? async = null);
         /// <summary>
         /// Upload an image to the temporary multimedia.
         /// </summary>
@@ -1546,6 +1600,195 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ItemResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemResponse)));
+        }
+
+        /// <summary>
+        /// Update multiple items Update multiple item on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemsRequest">Items to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>ItemsResponse</returns>
+        public ItemsResponse UpdateItems (ItemsRequest itemsRequest, string expand = null, bool? placeholders = null, bool? async = null)
+        {
+             ApiResponse<ItemsResponse> localVarResponse = UpdateItemsWithHttpInfo(itemsRequest, expand, placeholders, async);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update multiple items Update multiple item on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemsRequest">Items to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>ApiResponse of ItemsResponse</returns>
+        public ApiResponse< ItemsResponse > UpdateItemsWithHttpInfo (ItemsRequest itemsRequest, string expand = null, bool? placeholders = null, bool? async = null)
+        {
+            // verify the required parameter 'itemsRequest' is set
+            if (itemsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemsRequest' when calling ItemApi->UpdateItems");
+
+            var localVarPath = "/item/items/batch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+            if (async != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_async", async)); // query parameter
+            if (itemsRequest != null && itemsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(itemsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+        }
+
+        /// <summary>
+        /// Update multiple items Update multiple item on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemsRequest">Items to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>Task of ItemsResponse</returns>
+        public async System.Threading.Tasks.Task<ItemsResponse> UpdateItemsAsync (ItemsRequest itemsRequest, string expand = null, bool? placeholders = null, bool? async = null)
+        {
+             ApiResponse<ItemsResponse> localVarResponse = await UpdateItemsAsyncWithHttpInfo(itemsRequest, expand, placeholders, async);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update multiple items Update multiple item on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemsRequest">Items to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> UpdateItemsAsyncWithHttpInfo (ItemsRequest itemsRequest, string expand = null, bool? placeholders = null, bool? async = null)
+        {
+            // verify the required parameter 'itemsRequest' is set
+            if (itemsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'itemsRequest' when calling ItemApi->UpdateItems");
+
+            var localVarPath = "/item/items/batch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+            if (async != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_async", async)); // query parameter
+            if (itemsRequest != null && itemsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(itemsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
         }
 
         /// <summary>

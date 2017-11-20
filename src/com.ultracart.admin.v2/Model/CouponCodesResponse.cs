@@ -35,12 +35,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="CouponCodes">Coupon codes.</param>
         /// <param name="Error">Error.</param>
+        /// <param name="ExpirationDts">Expiration date.</param>
         /// <param name="Metadata">Metadata.</param>
         /// <param name="Success">Indicates if API call was successful.</param>
-        public CouponCodesResponse(List<string> CouponCodes = default(List<string>), Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?))
+        public CouponCodesResponse(List<string> CouponCodes = default(List<string>), Error Error = default(Error), string ExpirationDts = default(string), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?))
         {
             this.CouponCodes = CouponCodes;
             this.Error = Error;
+            this.ExpirationDts = ExpirationDts;
             this.Metadata = Metadata;
             this.Success = Success;
         }
@@ -57,6 +59,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
+
+        /// <summary>
+        /// Expiration date
+        /// </summary>
+        /// <value>Expiration date</value>
+        [DataMember(Name="expiration_dts", EmitDefaultValue=false)]
+        public string ExpirationDts { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
@@ -81,6 +90,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class CouponCodesResponse {\n");
             sb.Append("  CouponCodes: ").Append(CouponCodes).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
+            sb.Append("  ExpirationDts: ").Append(ExpirationDts).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("}\n");
@@ -128,6 +138,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Error.Equals(input.Error))
                 ) && 
                 (
+                    this.ExpirationDts == input.ExpirationDts ||
+                    (this.ExpirationDts != null &&
+                    this.ExpirationDts.Equals(input.ExpirationDts))
+                ) && 
+                (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
@@ -152,6 +167,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CouponCodes.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
+                if (this.ExpirationDts != null)
+                    hashCode = hashCode * 59 + this.ExpirationDts.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Success != null)

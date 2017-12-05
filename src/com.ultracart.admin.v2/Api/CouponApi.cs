@@ -69,10 +69,10 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CouponCodesResponse</returns>
         ApiResponse<CouponCodesResponse> GenerateCouponCodesWithHttpInfo (int? couponOid, CouponCodesRequest couponCodesRequest);
         /// <summary>
-        /// Generates one time codes for a coupon
+        /// Generates one time codes by merchant code
         /// </summary>
         /// <remarks>
-        /// Generate one time codes for a coupon 
+        /// Generate one time codes by merchant code 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantCode">The merchant code to generate one time codes.</param>
@@ -81,10 +81,10 @@ namespace com.ultracart.admin.v2.Api
         CouponCodesResponse GenerateOneTimeCodesByMerchantCode (string merchantCode, CouponCodesRequest couponCodesRequest);
 
         /// <summary>
-        /// Generates one time codes for a coupon
+        /// Generates one time codes by merchant code
         /// </summary>
         /// <remarks>
-        /// Generate one time codes for a coupon 
+        /// Generate one time codes by merchant code 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantCode">The merchant code to generate one time codes.</param>
@@ -325,10 +325,10 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (CouponCodesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CouponCodesResponse>> GenerateCouponCodesAsyncWithHttpInfo (int? couponOid, CouponCodesRequest couponCodesRequest);
         /// <summary>
-        /// Generates one time codes for a coupon
+        /// Generates one time codes by merchant code
         /// </summary>
         /// <remarks>
-        /// Generate one time codes for a coupon 
+        /// Generate one time codes by merchant code 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantCode">The merchant code to generate one time codes.</param>
@@ -337,10 +337,10 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<CouponCodesResponse> GenerateOneTimeCodesByMerchantCodeAsync (string merchantCode, CouponCodesRequest couponCodesRequest);
 
         /// <summary>
-        /// Generates one time codes for a coupon
+        /// Generates one time codes by merchant code
         /// </summary>
         /// <remarks>
-        /// Generate one time codes for a coupon 
+        /// Generate one time codes by merchant code 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantCode">The merchant code to generate one time codes.</param>
@@ -975,7 +975,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Generates one time codes for a coupon Generate one time codes for a coupon 
+        /// Generates one time codes by merchant code Generate one time codes by merchant code 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantCode">The merchant code to generate one time codes.</param>
@@ -988,7 +988,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Generates one time codes for a coupon Generate one time codes for a coupon 
+        /// Generates one time codes by merchant code Generate one time codes by merchant code 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantCode">The merchant code to generate one time codes.</param>
@@ -1066,7 +1066,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Generates one time codes for a coupon Generate one time codes for a coupon 
+        /// Generates one time codes by merchant code Generate one time codes by merchant code 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantCode">The merchant code to generate one time codes.</param>
@@ -1080,7 +1080,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Generates one time codes for a coupon Generate one time codes for a coupon 
+        /// Generates one time codes by merchant code Generate one time codes by merchant code 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantCode">The merchant code to generate one time codes.</param>

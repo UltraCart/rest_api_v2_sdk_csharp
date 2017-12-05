@@ -135,11 +135,12 @@ namespace com.ultracart.admin.v2.Test
             //string currentStage = null;
             //string channelPartnerCode = null;
             //string channelPartnerOrderId = null;
+            //int? customerProfileOid = null;
             //int? limit = null;
             //int? offset = null;
             //string sort = null;
             //string expand = null;
-            //var response = instance.GetOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
+            //var response = instance.GetOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, customerProfileOid, limit, offset, sort, expand);
             //Assert.IsInstanceOf<OrdersResponse> (response, "response is OrdersResponse");
         }
         

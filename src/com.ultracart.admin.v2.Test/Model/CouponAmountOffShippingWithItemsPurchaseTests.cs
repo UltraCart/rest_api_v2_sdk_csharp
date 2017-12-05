@@ -82,6 +82,22 @@ namespace com.ultracart.admin.v2.Test
         {
             // TODO unit test for the property 'DiscountAmount'
         }
+        /// <summary>
+        /// Test the property 'Items'
+        /// </summary>
+        [Test]
+        public void ItemsTest()
+        {
+            // TODO unit test for the property 'Items'
+        }
+        /// <summary>
+        /// Test the property 'ShippingMethods'
+        /// </summary>
+        [Test]
+        public void ShippingMethodsTest()
+        {
+            // TODO unit test for the property 'ShippingMethods'
+        }
 
     }
 

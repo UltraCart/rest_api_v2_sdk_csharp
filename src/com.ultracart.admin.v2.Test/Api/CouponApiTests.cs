@@ -77,6 +77,32 @@ namespace com.ultracart.admin.v2.Test
         }
         
         /// <summary>
+        /// Test GenerateCouponCodes
+        /// </summary>
+        [Test]
+        public void GenerateCouponCodesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? couponOid = null;
+            //CouponCodesRequest couponCodesRequest = null;
+            //var response = instance.GenerateCouponCodes(couponOid, couponCodesRequest);
+            //Assert.IsInstanceOf<CouponCodesResponse> (response, "response is CouponCodesResponse");
+        }
+        
+        /// <summary>
+        /// Test GenerateOneTimeCodesByMerchantCode
+        /// </summary>
+        [Test]
+        public void GenerateOneTimeCodesByMerchantCodeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string merchantCode = null;
+            //CouponCodesRequest couponCodesRequest = null;
+            //var response = instance.GenerateOneTimeCodesByMerchantCode(merchantCode, couponCodesRequest);
+            //Assert.IsInstanceOf<CouponCodesResponse> (response, "response is CouponCodesResponse");
+        }
+        
+        /// <summary>
         /// Test GetCoupon
         /// </summary>
         [Test]
@@ -86,6 +112,19 @@ namespace com.ultracart.admin.v2.Test
             //int? couponOid = null;
             //string expand = null;
             //var response = instance.GetCoupon(couponOid, expand);
+            //Assert.IsInstanceOf<CouponResponse> (response, "response is CouponResponse");
+        }
+        
+        /// <summary>
+        /// Test GetCouponByMerchantCode
+        /// </summary>
+        [Test]
+        public void GetCouponByMerchantCodeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string merchantCode = null;
+            //string expand = null;
+            //var response = instance.GetCouponByMerchantCode(merchantCode, expand);
             //Assert.IsInstanceOf<CouponResponse> (response, "response is CouponResponse");
         }
         

@@ -75,6 +75,22 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'AffiliateOid'
         }
         /// <summary>
+        /// Test the property 'AmountOffItems'
+        /// </summary>
+        [Test]
+        public void AmountOffItemsTest()
+        {
+            // TODO unit test for the property 'AmountOffItems'
+        }
+        /// <summary>
+        /// Test the property 'AmountOffShipping'
+        /// </summary>
+        [Test]
+        public void AmountOffShippingTest()
+        {
+            // TODO unit test for the property 'AmountOffShipping'
+        }
+        /// <summary>
         /// Test the property 'AmountOffShippingWithItemsPurchase'
         /// </summary>
         [Test]
@@ -89,6 +105,38 @@ namespace com.ultracart.admin.v2.Test
         public void AmountOffSubtotalTest()
         {
             // TODO unit test for the property 'AmountOffSubtotal'
+        }
+        /// <summary>
+        /// Test the property 'AmountOffSubtotalAndFreeShipping'
+        /// </summary>
+        [Test]
+        public void AmountOffSubtotalAndFreeShippingTest()
+        {
+            // TODO unit test for the property 'AmountOffSubtotalAndFreeShipping'
+        }
+        /// <summary>
+        /// Test the property 'AmountOffSubtotalAndShipping'
+        /// </summary>
+        [Test]
+        public void AmountOffSubtotalAndShippingTest()
+        {
+            // TODO unit test for the property 'AmountOffSubtotalAndShipping'
+        }
+        /// <summary>
+        /// Test the property 'AmountOffSubtotalWithBlockPurchase'
+        /// </summary>
+        [Test]
+        public void AmountOffSubtotalWithBlockPurchaseTest()
+        {
+            // TODO unit test for the property 'AmountOffSubtotalWithBlockPurchase'
+        }
+        /// <summary>
+        /// Test the property 'AmountOffSubtotalWithItemsPurchase'
+        /// </summary>
+        [Test]
+        public void AmountOffSubtotalWithItemsPurchaseTest()
+        {
+            // TODO unit test for the property 'AmountOffSubtotalWithItemsPurchase'
         }
         /// <summary>
         /// Test the property 'CanBeUsedWithOtherCoupons'
@@ -123,12 +171,20 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'Description'
         }
         /// <summary>
-        /// Test the property 'Details'
+        /// Test the property 'DiscountItemWithItemPurchase'
         /// </summary>
         [Test]
-        public void DetailsTest()
+        public void DiscountItemWithItemPurchaseTest()
         {
-            // TODO unit test for the property 'Details'
+            // TODO unit test for the property 'DiscountItemWithItemPurchase'
+        }
+        /// <summary>
+        /// Test the property 'DiscountItems'
+        /// </summary>
+        [Test]
+        public void DiscountItemsTest()
+        {
+            // TODO unit test for the property 'DiscountItems'
         }
         /// <summary>
         /// Test the property 'ExpirationDts'
@@ -139,12 +195,188 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'ExpirationDts'
         }
         /// <summary>
+        /// Test the property 'FreeItemAndShippingWithSubtotal'
+        /// </summary>
+        [Test]
+        public void FreeItemAndShippingWithSubtotalTest()
+        {
+            // TODO unit test for the property 'FreeItemAndShippingWithSubtotal'
+        }
+        /// <summary>
+        /// Test the property 'FreeItemWithItemPurchase'
+        /// </summary>
+        [Test]
+        public void FreeItemWithItemPurchaseTest()
+        {
+            // TODO unit test for the property 'FreeItemWithItemPurchase'
+        }
+        /// <summary>
+        /// Test the property 'FreeItemWithSubtotal'
+        /// </summary>
+        [Test]
+        public void FreeItemWithSubtotalTest()
+        {
+            // TODO unit test for the property 'FreeItemWithSubtotal'
+        }
+        /// <summary>
+        /// Test the property 'FreeItemsWithItemPurchase'
+        /// </summary>
+        [Test]
+        public void FreeItemsWithItemPurchaseTest()
+        {
+            // TODO unit test for the property 'FreeItemsWithItemPurchase'
+        }
+        /// <summary>
+        /// Test the property 'FreeItemsWithMixmatchPurchase'
+        /// </summary>
+        [Test]
+        public void FreeItemsWithMixmatchPurchaseTest()
+        {
+            // TODO unit test for the property 'FreeItemsWithMixmatchPurchase'
+        }
+        /// <summary>
+        /// Test the property 'FreeShipping'
+        /// </summary>
+        [Test]
+        public void FreeShippingTest()
+        {
+            // TODO unit test for the property 'FreeShipping'
+        }
+        /// <summary>
+        /// Test the property 'FreeShippingSpecificItems'
+        /// </summary>
+        [Test]
+        public void FreeShippingSpecificItemsTest()
+        {
+            // TODO unit test for the property 'FreeShippingSpecificItems'
+        }
+        /// <summary>
+        /// Test the property 'FreeShippingWithItemsPurchase'
+        /// </summary>
+        [Test]
+        public void FreeShippingWithItemsPurchaseTest()
+        {
+            // TODO unit test for the property 'FreeShippingWithItemsPurchase'
+        }
+        /// <summary>
+        /// Test the property 'FreeShippingWithSubtotal'
+        /// </summary>
+        [Test]
+        public void FreeShippingWithSubtotalTest()
+        {
+            // TODO unit test for the property 'FreeShippingWithSubtotal'
+        }
+        /// <summary>
         /// Test the property 'MerchantCode'
         /// </summary>
         [Test]
         public void MerchantCodeTest()
         {
             // TODO unit test for the property 'MerchantCode'
+        }
+        /// <summary>
+        /// Test the property 'MultipleAmountsOffItems'
+        /// </summary>
+        [Test]
+        public void MultipleAmountsOffItemsTest()
+        {
+            // TODO unit test for the property 'MultipleAmountsOffItems'
+        }
+        /// <summary>
+        /// Test the property 'NoDiscount'
+        /// </summary>
+        [Test]
+        public void NoDiscountTest()
+        {
+            // TODO unit test for the property 'NoDiscount'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffItemWithItemsQuantityPurchase'
+        /// </summary>
+        [Test]
+        public void PercentOffItemWithItemsQuantityPurchaseTest()
+        {
+            // TODO unit test for the property 'PercentOffItemWithItemsQuantityPurchase'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffItems'
+        /// </summary>
+        [Test]
+        public void PercentOffItemsTest()
+        {
+            // TODO unit test for the property 'PercentOffItems'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffItemsAndFreeShipping'
+        /// </summary>
+        [Test]
+        public void PercentOffItemsAndFreeShippingTest()
+        {
+            // TODO unit test for the property 'PercentOffItemsAndFreeShipping'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffItemsWithItemsPurchase'
+        /// </summary>
+        [Test]
+        public void PercentOffItemsWithItemsPurchaseTest()
+        {
+            // TODO unit test for the property 'PercentOffItemsWithItemsPurchase'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffRetailPriceItems'
+        /// </summary>
+        [Test]
+        public void PercentOffRetailPriceItemsTest()
+        {
+            // TODO unit test for the property 'PercentOffRetailPriceItems'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffShipping'
+        /// </summary>
+        [Test]
+        public void PercentOffShippingTest()
+        {
+            // TODO unit test for the property 'PercentOffShipping'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffSubtotal'
+        /// </summary>
+        [Test]
+        public void PercentOffSubtotalTest()
+        {
+            // TODO unit test for the property 'PercentOffSubtotal'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffSubtotalAndFreeShipping'
+        /// </summary>
+        [Test]
+        public void PercentOffSubtotalAndFreeShippingTest()
+        {
+            // TODO unit test for the property 'PercentOffSubtotalAndFreeShipping'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffSubtotalLimit'
+        /// </summary>
+        [Test]
+        public void PercentOffSubtotalLimitTest()
+        {
+            // TODO unit test for the property 'PercentOffSubtotalLimit'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffSubtotalWithItemsPurchase'
+        /// </summary>
+        [Test]
+        public void PercentOffSubtotalWithItemsPurchaseTest()
+        {
+            // TODO unit test for the property 'PercentOffSubtotalWithItemsPurchase'
+        }
+        /// <summary>
+        /// Test the property 'PercentOffSubtotalWithSubtotal'
+        /// </summary>
+        [Test]
+        public void PercentOffSubtotalWithSubtotalTest()
+        {
+            // TODO unit test for the property 'PercentOffSubtotalWithSubtotal'
         }
         /// <summary>
         /// Test the property 'QuickbooksCode'
@@ -161,6 +393,46 @@ namespace com.ultracart.admin.v2.Test
         public void StartDtsTest()
         {
             // TODO unit test for the property 'StartDts'
+        }
+        /// <summary>
+        /// Test the property 'TieredAmountOffItem'
+        /// </summary>
+        [Test]
+        public void TieredAmountOffItemTest()
+        {
+            // TODO unit test for the property 'TieredAmountOffItem'
+        }
+        /// <summary>
+        /// Test the property 'TieredAmountOffSubtotal'
+        /// </summary>
+        [Test]
+        public void TieredAmountOffSubtotalTest()
+        {
+            // TODO unit test for the property 'TieredAmountOffSubtotal'
+        }
+        /// <summary>
+        /// Test the property 'TieredPercentOffItems'
+        /// </summary>
+        [Test]
+        public void TieredPercentOffItemsTest()
+        {
+            // TODO unit test for the property 'TieredPercentOffItems'
+        }
+        /// <summary>
+        /// Test the property 'TieredPercentOffShipping'
+        /// </summary>
+        [Test]
+        public void TieredPercentOffShippingTest()
+        {
+            // TODO unit test for the property 'TieredPercentOffShipping'
+        }
+        /// <summary>
+        /// Test the property 'TieredPercentOffSubtotal'
+        /// </summary>
+        [Test]
+        public void TieredPercentOffSubtotalTest()
+        {
+            // TODO unit test for the property 'TieredPercentOffSubtotal'
         }
         /// <summary>
         /// Test the property 'UsableBy'

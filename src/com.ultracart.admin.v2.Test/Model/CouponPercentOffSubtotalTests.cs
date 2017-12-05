@@ -67,12 +67,12 @@ namespace com.ultracart.admin.v2.Test
 
 
         /// <summary>
-        /// Test the property 'DiscountAmount'
+        /// Test the property 'DiscountPercent'
         /// </summary>
         [Test]
-        public void DiscountAmountTest()
+        public void DiscountPercentTest()
         {
-            // TODO unit test for the property 'DiscountAmount'
+            // TODO unit test for the property 'DiscountPercent'
         }
 
     }

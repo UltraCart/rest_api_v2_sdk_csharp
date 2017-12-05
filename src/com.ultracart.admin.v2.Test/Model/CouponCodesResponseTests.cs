@@ -83,6 +83,14 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'Error'
         }
         /// <summary>
+        /// Test the property 'ExpirationDts'
+        /// </summary>
+        [Test]
+        public void ExpirationDtsTest()
+        {
+            // TODO unit test for the property 'ExpirationDts'
+        }
+        /// <summary>
         /// Test the property 'Metadata'
         /// </summary>
         [Test]

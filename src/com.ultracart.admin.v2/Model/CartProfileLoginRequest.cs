@@ -34,10 +34,12 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="CartProfileLoginRequest" /> class.
         /// </summary>
         /// <param name="Cart">Cart.</param>
+        /// <param name="CustomerProfileOid">Unique identifier for customer profile.  Can not be used with browser key authentication type..</param>
         /// <param name="Password">Password for the profile.</param>
-        public CartProfileLoginRequest(Cart Cart = default(Cart), string Password = default(string))
+        public CartProfileLoginRequest(Cart Cart = default(Cart), int? CustomerProfileOid = default(int?), string Password = default(string))
         {
             this.Cart = Cart;
+            this.CustomerProfileOid = CustomerProfileOid;
             this.Password = Password;
         }
         
@@ -46,6 +48,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="cart", EmitDefaultValue=false)]
         public Cart Cart { get; set; }
+
+        /// <summary>
+        /// Unique identifier for customer profile.  Can not be used with browser key authentication type.
+        /// </summary>
+        /// <value>Unique identifier for customer profile.  Can not be used with browser key authentication type.</value>
+        [DataMember(Name="customer_profile_oid", EmitDefaultValue=false)]
+        public int? CustomerProfileOid { get; set; }
 
         /// <summary>
         /// Password for the profile
@@ -63,6 +72,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class CartProfileLoginRequest {\n");
             sb.Append("  Cart: ").Append(Cart).Append("\n");
+            sb.Append("  CustomerProfileOid: ").Append(CustomerProfileOid).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -104,6 +114,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Cart.Equals(input.Cart))
                 ) && 
                 (
+                    this.CustomerProfileOid == input.CustomerProfileOid ||
+                    (this.CustomerProfileOid != null &&
+                    this.CustomerProfileOid.Equals(input.CustomerProfileOid))
+                ) && 
+                (
                     this.Password == input.Password ||
                     (this.Password != null &&
                     this.Password.Equals(input.Password))
@@ -121,6 +136,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Cart != null)
                     hashCode = hashCode * 59 + this.Cart.GetHashCode();
+                if (this.CustomerProfileOid != null)
+                    hashCode = hashCode * 59 + this.CustomerProfileOid.GetHashCode();
                 if (this.Password != null)
                     hashCode = hashCode * 59 + this.Password.GetHashCode();
                 return hashCode;

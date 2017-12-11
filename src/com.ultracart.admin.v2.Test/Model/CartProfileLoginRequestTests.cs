@@ -75,6 +75,14 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'Cart'
         }
         /// <summary>
+        /// Test the property 'CustomerProfileOid'
+        /// </summary>
+        [Test]
+        public void CustomerProfileOidTest()
+        {
+            // TODO unit test for the property 'CustomerProfileOid'
+        }
+        /// <summary>
         /// Test the property 'Password'
         /// </summary>
         [Test]

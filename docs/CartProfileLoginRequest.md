@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cart** | [**Cart**](Cart.md) |  | [optional] 
+**CustomerProfileOid** | **int?** | Unique identifier for customer profile.  Can not be used with browser key authentication type. | [optional] 
 **Password** | **string** | Password for the profile | [optional] 
 
 

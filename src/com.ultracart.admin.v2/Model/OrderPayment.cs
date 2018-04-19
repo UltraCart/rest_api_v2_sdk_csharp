@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -97,6 +97,12 @@ namespace com.ultracart.admin.v2.Model
             /// </summary>
             [EnumMember(Value = "eCheck")]
             ECheck,
+            
+            /// <summary>
+            /// Enum LoanHero for "LoanHero"
+            /// </summary>
+            [EnumMember(Value = "LoanHero")]
+            LoanHero,
             
             /// <summary>
             /// Enum MoneyOrder for "Money Order"

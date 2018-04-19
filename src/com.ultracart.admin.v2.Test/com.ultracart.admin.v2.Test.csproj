@@ -2,7 +2,7 @@
 <!--
 UltraCart Rest API V2
 
-This is the next generation UltraCart REST API...
+UltraCart REST API Version 2
 
 OpenAPI spec version: 2.0.0
 Contact: support@ultracart.com
@@ -75,7 +75,7 @@ Contact: support@ultracart.com
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\com.ultracart.admin.v2\com.ultracart.admin.v2.csproj">
-          <Project>{9B9CDA9A-C05D-4CFD-8E10-BEF1B1C11AC0}</Project>
+          <Project>{CF962FBE-B5FE-400D-8F6E-D0E514BD257C}</Project>
           <Name>com.ultracart.admin.v2</Name>
       </ProjectReference>
   </ItemGroup>

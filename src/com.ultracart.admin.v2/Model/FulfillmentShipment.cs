@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -33,20 +33,47 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FulfillmentShipment" /> class.
         /// </summary>
+        /// <param name="FulfillmentFee">Fees charged by the fulfillment company other than the shipping cost to process the order..</param>
         /// <param name="OrderId">Order ID that was shipped.</param>
+        /// <param name="PackageCost">The cost of the packaging used to sent this shipment.</param>
+        /// <param name="ShippingCost">The actual total cost of shipping this order.</param>
         /// <param name="TrackingNumbers">Tracking numbers associated with the shipment.</param>
-        public FulfillmentShipment(string OrderId = default(string), List<string> TrackingNumbers = default(List<string>))
+        public FulfillmentShipment(decimal? FulfillmentFee = default(decimal?), string OrderId = default(string), decimal? PackageCost = default(decimal?), decimal? ShippingCost = default(decimal?), List<string> TrackingNumbers = default(List<string>))
         {
+            this.FulfillmentFee = FulfillmentFee;
             this.OrderId = OrderId;
+            this.PackageCost = PackageCost;
+            this.ShippingCost = ShippingCost;
             this.TrackingNumbers = TrackingNumbers;
         }
         
+        /// <summary>
+        /// Fees charged by the fulfillment company other than the shipping cost to process the order.
+        /// </summary>
+        /// <value>Fees charged by the fulfillment company other than the shipping cost to process the order.</value>
+        [DataMember(Name="fulfillment_fee", EmitDefaultValue=false)]
+        public decimal? FulfillmentFee { get; set; }
+
         /// <summary>
         /// Order ID that was shipped
         /// </summary>
         /// <value>Order ID that was shipped</value>
         [DataMember(Name="order_id", EmitDefaultValue=false)]
         public string OrderId { get; set; }
+
+        /// <summary>
+        /// The cost of the packaging used to sent this shipment
+        /// </summary>
+        /// <value>The cost of the packaging used to sent this shipment</value>
+        [DataMember(Name="package_cost", EmitDefaultValue=false)]
+        public decimal? PackageCost { get; set; }
+
+        /// <summary>
+        /// The actual total cost of shipping this order
+        /// </summary>
+        /// <value>The actual total cost of shipping this order</value>
+        [DataMember(Name="shipping_cost", EmitDefaultValue=false)]
+        public decimal? ShippingCost { get; set; }
 
         /// <summary>
         /// Tracking numbers associated with the shipment
@@ -63,7 +90,10 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class FulfillmentShipment {\n");
+            sb.Append("  FulfillmentFee: ").Append(FulfillmentFee).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
+            sb.Append("  PackageCost: ").Append(PackageCost).Append("\n");
+            sb.Append("  ShippingCost: ").Append(ShippingCost).Append("\n");
             sb.Append("  TrackingNumbers: ").Append(TrackingNumbers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -100,9 +130,24 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.FulfillmentFee == input.FulfillmentFee ||
+                    (this.FulfillmentFee != null &&
+                    this.FulfillmentFee.Equals(input.FulfillmentFee))
+                ) && 
+                (
                     this.OrderId == input.OrderId ||
                     (this.OrderId != null &&
                     this.OrderId.Equals(input.OrderId))
+                ) && 
+                (
+                    this.PackageCost == input.PackageCost ||
+                    (this.PackageCost != null &&
+                    this.PackageCost.Equals(input.PackageCost))
+                ) && 
+                (
+                    this.ShippingCost == input.ShippingCost ||
+                    (this.ShippingCost != null &&
+                    this.ShippingCost.Equals(input.ShippingCost))
                 ) && 
                 (
                     this.TrackingNumbers == input.TrackingNumbers ||
@@ -120,8 +165,14 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.FulfillmentFee != null)
+                    hashCode = hashCode * 59 + this.FulfillmentFee.GetHashCode();
                 if (this.OrderId != null)
                     hashCode = hashCode * 59 + this.OrderId.GetHashCode();
+                if (this.PackageCost != null)
+                    hashCode = hashCode * 59 + this.PackageCost.GetHashCode();
+                if (this.ShippingCost != null)
+                    hashCode = hashCode * 59 + this.ShippingCost.GetHashCode();
                 if (this.TrackingNumbers != null)
                     hashCode = hashCode * 59 + this.TrackingNumbers.GetHashCode();
                 return hashCode;

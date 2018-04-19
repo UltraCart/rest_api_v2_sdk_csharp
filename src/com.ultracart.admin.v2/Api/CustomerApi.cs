@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -182,6 +182,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CustomersResponse</returns>
         ApiResponse<CustomersResponse> GetCustomersByQueryWithHttpInfo (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        /// <summary>
+        /// Retrieve customers for DataTables plugin
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>DataTablesServerSideResponse</returns>
+        DataTablesServerSideResponse GetCustomersForDataTables (string expand = null);
+
+        /// <summary>
+        /// Retrieve customers for DataTables plugin
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of DataTablesServerSideResponse</returns>
+        ApiResponse<DataTablesServerSideResponse> GetCustomersForDataTablesWithHttpInfo (string expand = null);
         /// <summary>
         /// Retrieve values needed for a customer profile editor
         /// </summary>
@@ -409,6 +430,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomersResponse>> GetCustomersByQueryAsyncWithHttpInfo (CustomerQuery customerQuery, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        /// <summary>
+        /// Retrieve customers for DataTables plugin
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of DataTablesServerSideResponse</returns>
+        System.Threading.Tasks.Task<DataTablesServerSideResponse> GetCustomersForDataTablesAsync (string expand = null);
+
+        /// <summary>
+        /// Retrieve customers for DataTables plugin
+        /// </summary>
+        /// <remarks>
+        /// Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (DataTablesServerSideResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DataTablesServerSideResponse>> GetCustomersForDataTablesAsyncWithHttpInfo (string expand = null);
         /// <summary>
         /// Retrieve values needed for a customer profile editor
         /// </summary>
@@ -1432,6 +1474,157 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CustomersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve customers for DataTables plugin Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>DataTablesServerSideResponse</returns>
+        public DataTablesServerSideResponse GetCustomersForDataTables (string expand = null)
+        {
+             ApiResponse<DataTablesServerSideResponse> localVarResponse = GetCustomersForDataTablesWithHttpInfo(expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve customers for DataTables plugin Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of DataTablesServerSideResponse</returns>
+        public ApiResponse< DataTablesServerSideResponse > GetCustomersForDataTablesWithHttpInfo (string expand = null)
+        {
+
+            var localVarPath = "/customer/customers/dataTables";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomersForDataTables", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DataTablesServerSideResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DataTablesServerSideResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataTablesServerSideResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve customers for DataTables plugin Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of DataTablesServerSideResponse</returns>
+        public async System.Threading.Tasks.Task<DataTablesServerSideResponse> GetCustomersForDataTablesAsync (string expand = null)
+        {
+             ApiResponse<DataTablesServerSideResponse> localVarResponse = await GetCustomersForDataTablesAsyncWithHttpInfo(expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve customers for DataTables plugin Retrieves customers from the account.  If no searches are specified, all customers will be returned. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (DataTablesServerSideResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DataTablesServerSideResponse>> GetCustomersForDataTablesAsyncWithHttpInfo (string expand = null)
+        {
+
+            var localVarPath = "/customer/customers/dataTables";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomersForDataTables", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DataTablesServerSideResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DataTablesServerSideResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataTablesServerSideResponse)));
         }
 
         /// <summary>

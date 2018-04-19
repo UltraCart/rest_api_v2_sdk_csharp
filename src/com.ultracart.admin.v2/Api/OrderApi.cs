@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -66,6 +66,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to delete.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteOrderWithHttpInfo (string orderId);
+        /// <summary>
+        /// Format order
+        /// </summary>
+        /// <remarks>
+        /// Format the order for display at text or html 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to format</param>
+        /// <param name="formatOptions">Format options</param>
+        /// <returns>OrderFormatResponse</returns>
+        OrderFormatResponse Format (string orderId, OrderFormat formatOptions);
+
+        /// <summary>
+        /// Format order
+        /// </summary>
+        /// <remarks>
+        /// Format the order for display at text or html 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to format</param>
+        /// <param name="formatOptions">Format options</param>
+        /// <returns>ApiResponse of OrderFormatResponse</returns>
+        ApiResponse<OrderFormatResponse> FormatWithHttpInfo (string orderId, OrderFormat formatOptions);
         /// <summary>
         /// Retrieve an order
         /// </summary>
@@ -347,6 +370,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to delete.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteOrderAsyncWithHttpInfo (string orderId);
+        /// <summary>
+        /// Format order
+        /// </summary>
+        /// <remarks>
+        /// Format the order for display at text or html 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to format</param>
+        /// <param name="formatOptions">Format options</param>
+        /// <returns>Task of OrderFormatResponse</returns>
+        System.Threading.Tasks.Task<OrderFormatResponse> FormatAsync (string orderId, OrderFormat formatOptions);
+
+        /// <summary>
+        /// Format order
+        /// </summary>
+        /// <remarks>
+        /// Format the order for display at text or html 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to format</param>
+        /// <param name="formatOptions">Format options</param>
+        /// <returns>Task of ApiResponse (OrderFormatResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderFormatResponse>> FormatAsyncWithHttpInfo (string orderId, OrderFormat formatOptions);
         /// <summary>
         /// Retrieve an order
         /// </summary>
@@ -994,6 +1040,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// Format order Format the order for display at text or html 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to format</param>
+        /// <param name="formatOptions">Format options</param>
+        /// <returns>OrderFormatResponse</returns>
+        public OrderFormatResponse Format (string orderId, OrderFormat formatOptions)
+        {
+             ApiResponse<OrderFormatResponse> localVarResponse = FormatWithHttpInfo(orderId, formatOptions);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Format order Format the order for display at text or html 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to format</param>
+        /// <param name="formatOptions">Format options</param>
+        /// <returns>ApiResponse of OrderFormatResponse</returns>
+        public ApiResponse< OrderFormatResponse > FormatWithHttpInfo (string orderId, OrderFormat formatOptions)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->Format");
+            // verify the required parameter 'formatOptions' is set
+            if (formatOptions == null)
+                throw new ApiException(400, "Missing required parameter 'formatOptions' when calling OrderApi->Format");
+
+            var localVarPath = "/order/orders/{order_id}/format";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (formatOptions != null && formatOptions.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(formatOptions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = formatOptions; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Format", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderFormatResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderFormatResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderFormatResponse)));
+        }
+
+        /// <summary>
+        /// Format order Format the order for display at text or html 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to format</param>
+        /// <param name="formatOptions">Format options</param>
+        /// <returns>Task of OrderFormatResponse</returns>
+        public async System.Threading.Tasks.Task<OrderFormatResponse> FormatAsync (string orderId, OrderFormat formatOptions)
+        {
+             ApiResponse<OrderFormatResponse> localVarResponse = await FormatAsyncWithHttpInfo(orderId, formatOptions);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Format order Format the order for display at text or html 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to format</param>
+        /// <param name="formatOptions">Format options</param>
+        /// <returns>Task of ApiResponse (OrderFormatResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderFormatResponse>> FormatAsyncWithHttpInfo (string orderId, OrderFormat formatOptions)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->Format");
+            // verify the required parameter 'formatOptions' is set
+            if (formatOptions == null)
+                throw new ApiException(400, "Missing required parameter 'formatOptions' when calling OrderApi->Format");
+
+            var localVarPath = "/order/orders/{order_id}/format";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (formatOptions != null && formatOptions.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(formatOptions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = formatOptions; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Format", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderFormatResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderFormatResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderFormatResponse)));
         }
 
         /// <summary>

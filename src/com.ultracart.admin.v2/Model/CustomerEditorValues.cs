@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -41,7 +41,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="QbClasses">qb_classes.</param>
         /// <param name="SalesRepCodes">sales_rep_codes.</param>
         /// <param name="Terms">terms.</param>
-        public CustomerEditorValues(List<CustomerAffiliate> Affiliates = default(List<CustomerAffiliate>), List<string> CardExpMonths = default(List<string>), List<string> CardExpYears = default(List<string>), List<string> CardTypes = default(List<string>), List<string> Countries = default(List<string>), List<string> QbClasses = default(List<string>), List<string> SalesRepCodes = default(List<string>), List<string> Terms = default(List<string>))
+        public CustomerEditorValues(List<CustomerAffiliate> Affiliates = default(List<CustomerAffiliate>), List<string> CardExpMonths = default(List<string>), List<string> CardExpYears = default(List<string>), List<string> CardTypes = default(List<string>), List<Country> Countries = default(List<Country>), List<string> QbClasses = default(List<string>), List<string> SalesRepCodes = default(List<string>), List<string> Terms = default(List<string>))
         {
             this.Affiliates = Affiliates;
             this.CardExpMonths = CardExpMonths;
@@ -86,7 +86,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>countries</value>
         [DataMember(Name="countries", EmitDefaultValue=false)]
-        public List<string> Countries { get; set; }
+        public List<Country> Countries { get; set; }
 
         /// <summary>
         /// qb_classes

@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -45,6 +45,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Billing">Billing addresses for this customer.</param>
         /// <param name="BusinessNotes">Business notes (internally visible only).</param>
         /// <param name="Cards">Credit Cards for this customer.</param>
+        /// <param name="CcEmails">Additional emails to CC notification.</param>
         /// <param name="CustomerProfileOid">Customer profile object identifier.</param>
         /// <param name="DhlAccountNumber">DHL account number.</param>
         /// <param name="Email">Email address of this customer profile.</param>
@@ -60,10 +61,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="NoCoupons">No coupons.</param>
         /// <param name="NoFreeShipping">No free shipping regardless of coupons or item level settings.</param>
         /// <param name="NoRealtimeCharge">No realtime charge.</param>
+        /// <param name="Orders">Orders associated with this customer profile.</param>
+        /// <param name="OrdersSummary">OrdersSummary.</param>
         /// <param name="Password">Password (may only be set, never read).</param>
         /// <param name="PricingTiers">Pricing tiers for this customer.</param>
         /// <param name="QbClass">QuickBooks class to import this customer as.</param>
         /// <param name="QbCode">QuickBooks name to import this customer as.</param>
+        /// <param name="Quotes">Quotes associated with this customer profile.</param>
+        /// <param name="QuotesSummary">QuotesSummary.</param>
         /// <param name="ReferralSource">Referral Source.</param>
         /// <param name="SalesRepCode">Sales rep code.</param>
         /// <param name="SendSignupNotification">Send signup notification, if true during customer creation, will send a notification..</param>
@@ -77,7 +82,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Unapproved">Unapproved.</param>
         /// <param name="UpsAccountNumber">UPS account number.</param>
         /// <param name="WebsiteUrl">Website url.</param>
-        public Customer(int? AffiliateOid = default(int?), bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), bool? AllowQuoteRequest = default(bool?), bool? AllowSelectionOfAddressType = default(bool?), bool? AutoApproveCod = default(bool?), bool? AutoApprovePurchaseOrder = default(bool?), string AutomaticMerchantNotes = default(string), List<CustomerBilling> Billing = default(List<CustomerBilling>), string BusinessNotes = default(string), List<CustomerCard> Cards = default(List<CustomerCard>), int? CustomerProfileOid = default(int?), string DhlAccountNumber = default(string), string Email = default(string), bool? ExemptShippingHandlingCharge = default(bool?), string FedexAccountNumber = default(string), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), string LastModifiedBy = default(string), string LastModifiedDts = default(string), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), string Password = default(string), List<CustomerPricingTier> PricingTiers = default(List<CustomerPricingTier>), string QbClass = default(string), string QbCode = default(string), string ReferralSource = default(string), string SalesRepCode = default(string), bool? SendSignupNotification = default(bool?), List<CustomerShipping> Shipping = default(List<CustomerShipping>), string SignupDts = default(string), bool? SuppressBuysafe = default(bool?), bool? TaxExempt = default(bool?), string TaxId = default(string), string Terms = default(string), bool? TrackSeparately = default(bool?), bool? Unapproved = default(bool?), string UpsAccountNumber = default(string), string WebsiteUrl = default(string))
+        public Customer(int? AffiliateOid = default(int?), bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), bool? AllowQuoteRequest = default(bool?), bool? AllowSelectionOfAddressType = default(bool?), bool? AutoApproveCod = default(bool?), bool? AutoApprovePurchaseOrder = default(bool?), string AutomaticMerchantNotes = default(string), List<CustomerBilling> Billing = default(List<CustomerBilling>), string BusinessNotes = default(string), List<CustomerCard> Cards = default(List<CustomerCard>), List<CustomerEmail> CcEmails = default(List<CustomerEmail>), int? CustomerProfileOid = default(int?), string DhlAccountNumber = default(string), string Email = default(string), bool? ExemptShippingHandlingCharge = default(bool?), string FedexAccountNumber = default(string), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), string LastModifiedBy = default(string), string LastModifiedDts = default(string), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), List<Order> Orders = default(List<Order>), CustomerOrdersSummary OrdersSummary = default(CustomerOrdersSummary), string Password = default(string), List<CustomerPricingTier> PricingTiers = default(List<CustomerPricingTier>), string QbClass = default(string), string QbCode = default(string), List<Order> Quotes = default(List<Order>), CustomerQuotesSummary QuotesSummary = default(CustomerQuotesSummary), string ReferralSource = default(string), string SalesRepCode = default(string), bool? SendSignupNotification = default(bool?), List<CustomerShipping> Shipping = default(List<CustomerShipping>), string SignupDts = default(string), bool? SuppressBuysafe = default(bool?), bool? TaxExempt = default(bool?), string TaxId = default(string), string Terms = default(string), bool? TrackSeparately = default(bool?), bool? Unapproved = default(bool?), string UpsAccountNumber = default(string), string WebsiteUrl = default(string))
         {
             this.AffiliateOid = AffiliateOid;
             this.Allow3rdPartyBilling = Allow3rdPartyBilling;
@@ -91,6 +96,7 @@ namespace com.ultracart.admin.v2.Model
             this.Billing = Billing;
             this.BusinessNotes = BusinessNotes;
             this.Cards = Cards;
+            this.CcEmails = CcEmails;
             this.CustomerProfileOid = CustomerProfileOid;
             this.DhlAccountNumber = DhlAccountNumber;
             this.Email = Email;
@@ -106,10 +112,14 @@ namespace com.ultracart.admin.v2.Model
             this.NoCoupons = NoCoupons;
             this.NoFreeShipping = NoFreeShipping;
             this.NoRealtimeCharge = NoRealtimeCharge;
+            this.Orders = Orders;
+            this.OrdersSummary = OrdersSummary;
             this.Password = Password;
             this.PricingTiers = PricingTiers;
             this.QbClass = QbClass;
             this.QbCode = QbCode;
+            this.Quotes = Quotes;
+            this.QuotesSummary = QuotesSummary;
             this.ReferralSource = ReferralSource;
             this.SalesRepCode = SalesRepCode;
             this.SendSignupNotification = SendSignupNotification;
@@ -208,6 +218,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Credit Cards for this customer</value>
         [DataMember(Name="cards", EmitDefaultValue=false)]
         public List<CustomerCard> Cards { get; set; }
+
+        /// <summary>
+        /// Additional emails to CC notification
+        /// </summary>
+        /// <value>Additional emails to CC notification</value>
+        [DataMember(Name="cc_emails", EmitDefaultValue=false)]
+        public List<CustomerEmail> CcEmails { get; set; }
 
         /// <summary>
         /// Customer profile object identifier
@@ -315,6 +332,19 @@ namespace com.ultracart.admin.v2.Model
         public bool? NoRealtimeCharge { get; set; }
 
         /// <summary>
+        /// Orders associated with this customer profile
+        /// </summary>
+        /// <value>Orders associated with this customer profile</value>
+        [DataMember(Name="orders", EmitDefaultValue=false)]
+        public List<Order> Orders { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OrdersSummary
+        /// </summary>
+        [DataMember(Name="orders_summary", EmitDefaultValue=false)]
+        public CustomerOrdersSummary OrdersSummary { get; set; }
+
+        /// <summary>
         /// Password (may only be set, never read)
         /// </summary>
         /// <value>Password (may only be set, never read)</value>
@@ -341,6 +371,19 @@ namespace com.ultracart.admin.v2.Model
         /// <value>QuickBooks name to import this customer as</value>
         [DataMember(Name="qb_code", EmitDefaultValue=false)]
         public string QbCode { get; set; }
+
+        /// <summary>
+        /// Quotes associated with this customer profile
+        /// </summary>
+        /// <value>Quotes associated with this customer profile</value>
+        [DataMember(Name="quotes", EmitDefaultValue=false)]
+        public List<Order> Quotes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets QuotesSummary
+        /// </summary>
+        [DataMember(Name="quotes_summary", EmitDefaultValue=false)]
+        public CustomerQuotesSummary QuotesSummary { get; set; }
 
         /// <summary>
         /// Referral Source
@@ -453,6 +496,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Billing: ").Append(Billing).Append("\n");
             sb.Append("  BusinessNotes: ").Append(BusinessNotes).Append("\n");
             sb.Append("  Cards: ").Append(Cards).Append("\n");
+            sb.Append("  CcEmails: ").Append(CcEmails).Append("\n");
             sb.Append("  CustomerProfileOid: ").Append(CustomerProfileOid).Append("\n");
             sb.Append("  DhlAccountNumber: ").Append(DhlAccountNumber).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
@@ -468,10 +512,14 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  NoCoupons: ").Append(NoCoupons).Append("\n");
             sb.Append("  NoFreeShipping: ").Append(NoFreeShipping).Append("\n");
             sb.Append("  NoRealtimeCharge: ").Append(NoRealtimeCharge).Append("\n");
+            sb.Append("  Orders: ").Append(Orders).Append("\n");
+            sb.Append("  OrdersSummary: ").Append(OrdersSummary).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  PricingTiers: ").Append(PricingTiers).Append("\n");
             sb.Append("  QbClass: ").Append(QbClass).Append("\n");
             sb.Append("  QbCode: ").Append(QbCode).Append("\n");
+            sb.Append("  Quotes: ").Append(Quotes).Append("\n");
+            sb.Append("  QuotesSummary: ").Append(QuotesSummary).Append("\n");
             sb.Append("  ReferralSource: ").Append(ReferralSource).Append("\n");
             sb.Append("  SalesRepCode: ").Append(SalesRepCode).Append("\n");
             sb.Append("  SendSignupNotification: ").Append(SendSignupNotification).Append("\n");
@@ -580,6 +628,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Cards.SequenceEqual(input.Cards)
                 ) && 
                 (
+                    this.CcEmails == input.CcEmails ||
+                    this.CcEmails != null &&
+                    this.CcEmails.SequenceEqual(input.CcEmails)
+                ) && 
+                (
                     this.CustomerProfileOid == input.CustomerProfileOid ||
                     (this.CustomerProfileOid != null &&
                     this.CustomerProfileOid.Equals(input.CustomerProfileOid))
@@ -655,6 +708,16 @@ namespace com.ultracart.admin.v2.Model
                     this.NoRealtimeCharge.Equals(input.NoRealtimeCharge))
                 ) && 
                 (
+                    this.Orders == input.Orders ||
+                    this.Orders != null &&
+                    this.Orders.SequenceEqual(input.Orders)
+                ) && 
+                (
+                    this.OrdersSummary == input.OrdersSummary ||
+                    (this.OrdersSummary != null &&
+                    this.OrdersSummary.Equals(input.OrdersSummary))
+                ) && 
+                (
                     this.Password == input.Password ||
                     (this.Password != null &&
                     this.Password.Equals(input.Password))
@@ -673,6 +736,16 @@ namespace com.ultracart.admin.v2.Model
                     this.QbCode == input.QbCode ||
                     (this.QbCode != null &&
                     this.QbCode.Equals(input.QbCode))
+                ) && 
+                (
+                    this.Quotes == input.Quotes ||
+                    this.Quotes != null &&
+                    this.Quotes.SequenceEqual(input.Quotes)
+                ) && 
+                (
+                    this.QuotesSummary == input.QuotesSummary ||
+                    (this.QuotesSummary != null &&
+                    this.QuotesSummary.Equals(input.QuotesSummary))
                 ) && 
                 (
                     this.ReferralSource == input.ReferralSource ||
@@ -774,6 +847,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.BusinessNotes.GetHashCode();
                 if (this.Cards != null)
                     hashCode = hashCode * 59 + this.Cards.GetHashCode();
+                if (this.CcEmails != null)
+                    hashCode = hashCode * 59 + this.CcEmails.GetHashCode();
                 if (this.CustomerProfileOid != null)
                     hashCode = hashCode * 59 + this.CustomerProfileOid.GetHashCode();
                 if (this.DhlAccountNumber != null)
@@ -804,6 +879,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.NoFreeShipping.GetHashCode();
                 if (this.NoRealtimeCharge != null)
                     hashCode = hashCode * 59 + this.NoRealtimeCharge.GetHashCode();
+                if (this.Orders != null)
+                    hashCode = hashCode * 59 + this.Orders.GetHashCode();
+                if (this.OrdersSummary != null)
+                    hashCode = hashCode * 59 + this.OrdersSummary.GetHashCode();
                 if (this.Password != null)
                     hashCode = hashCode * 59 + this.Password.GetHashCode();
                 if (this.PricingTiers != null)
@@ -812,6 +891,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.QbClass.GetHashCode();
                 if (this.QbCode != null)
                     hashCode = hashCode * 59 + this.QbCode.GetHashCode();
+                if (this.Quotes != null)
+                    hashCode = hashCode * 59 + this.Quotes.GetHashCode();
+                if (this.QuotesSummary != null)
+                    hashCode = hashCode * 59 + this.QuotesSummary.GetHashCode();
                 if (this.ReferralSource != null)
                     hashCode = hashCode * 59 + this.ReferralSource.GetHashCode();
                 if (this.SalesRepCode != null)

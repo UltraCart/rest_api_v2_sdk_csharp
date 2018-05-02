@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -147,6 +147,18 @@ namespace com.ultracart.admin.v2.Test
             //string expand = null;
             //var response = instance.GetCustomersByQuery(customerQuery, limit, offset, since, sort, expand);
             //Assert.IsInstanceOf<CustomersResponse> (response, "response is CustomersResponse");
+        }
+        
+        /// <summary>
+        /// Test GetCustomersForDataTables
+        /// </summary>
+        [Test]
+        public void GetCustomersForDataTablesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string expand = null;
+            //var response = instance.GetCustomersForDataTables(expand);
+            //Assert.IsInstanceOf<DataTablesServerSideResponse> (response, "response is DataTablesServerSideResponse");
         }
         
         /// <summary>

@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -163,6 +163,14 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'Cards'
         }
         /// <summary>
+        /// Test the property 'CcEmails'
+        /// </summary>
+        [Test]
+        public void CcEmailsTest()
+        {
+            // TODO unit test for the property 'CcEmails'
+        }
+        /// <summary>
         /// Test the property 'CustomerProfileOid'
         /// </summary>
         [Test]
@@ -283,6 +291,22 @@ namespace com.ultracart.admin.v2.Test
             // TODO unit test for the property 'NoRealtimeCharge'
         }
         /// <summary>
+        /// Test the property 'Orders'
+        /// </summary>
+        [Test]
+        public void OrdersTest()
+        {
+            // TODO unit test for the property 'Orders'
+        }
+        /// <summary>
+        /// Test the property 'OrdersSummary'
+        /// </summary>
+        [Test]
+        public void OrdersSummaryTest()
+        {
+            // TODO unit test for the property 'OrdersSummary'
+        }
+        /// <summary>
         /// Test the property 'Password'
         /// </summary>
         [Test]
@@ -313,6 +337,22 @@ namespace com.ultracart.admin.v2.Test
         public void QbCodeTest()
         {
             // TODO unit test for the property 'QbCode'
+        }
+        /// <summary>
+        /// Test the property 'Quotes'
+        /// </summary>
+        [Test]
+        public void QuotesTest()
+        {
+            // TODO unit test for the property 'Quotes'
+        }
+        /// <summary>
+        /// Test the property 'QuotesSummary'
+        /// </summary>
+        [Test]
+        public void QuotesSummaryTest()
+        {
+            // TODO unit test for the property 'QuotesSummary'
         }
         /// <summary>
         /// Test the property 'ReferralSource'

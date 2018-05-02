@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsShippingCalendar" /> class.
         /// </summary>
-        /// <param name="Blackouts">Specified dates that are blacked out on the calendar.</param>
+        /// <param name="Blackouts">Specified dates that are blacked out on the calendar in ISO8601 format.</param>
         /// <param name="DaysOfWeek">Days of week that should be enabled on the calendar (0 - Sunday through 6 - Saturday).</param>
         /// <param name="Earliest">The earliest date that can be selected on the calendar.</param>
         /// <param name="Require">True if the customer is required to select a date.</param>
         /// <param name="Show">True if this calendar should be shown to the customer.</param>
-        public CartSettingsShippingCalendar(string Blackouts = default(string), List<bool?> DaysOfWeek = default(List<bool?>), string Earliest = default(string), bool? Require = default(bool?), bool? Show = default(bool?))
+        public CartSettingsShippingCalendar(List<string> Blackouts = default(List<string>), List<bool?> DaysOfWeek = default(List<bool?>), string Earliest = default(string), bool? Require = default(bool?), bool? Show = default(bool?))
         {
             this.Blackouts = Blackouts;
             this.DaysOfWeek = DaysOfWeek;
@@ -48,11 +48,11 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Specified dates that are blacked out on the calendar
+        /// Specified dates that are blacked out on the calendar in ISO8601 format
         /// </summary>
-        /// <value>Specified dates that are blacked out on the calendar</value>
+        /// <value>Specified dates that are blacked out on the calendar in ISO8601 format</value>
         [DataMember(Name="blackouts", EmitDefaultValue=false)]
-        public string Blackouts { get; set; }
+        public List<string> Blackouts { get; set; }
 
         /// <summary>
         /// Days of week that should be enabled on the calendar (0 - Sunday through 6 - Saturday)
@@ -131,8 +131,8 @@ namespace com.ultracart.admin.v2.Model
             return 
                 (
                     this.Blackouts == input.Blackouts ||
-                    (this.Blackouts != null &&
-                    this.Blackouts.Equals(input.Blackouts))
+                    this.Blackouts != null &&
+                    this.Blackouts.SequenceEqual(input.Blackouts)
                 ) && 
                 (
                     this.DaysOfWeek == input.DaysOfWeek ||

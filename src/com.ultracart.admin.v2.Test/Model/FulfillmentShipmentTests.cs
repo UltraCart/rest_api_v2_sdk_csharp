@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -67,12 +67,36 @@ namespace com.ultracart.admin.v2.Test
 
 
         /// <summary>
+        /// Test the property 'FulfillmentFee'
+        /// </summary>
+        [Test]
+        public void FulfillmentFeeTest()
+        {
+            // TODO unit test for the property 'FulfillmentFee'
+        }
+        /// <summary>
         /// Test the property 'OrderId'
         /// </summary>
         [Test]
         public void OrderIdTest()
         {
             // TODO unit test for the property 'OrderId'
+        }
+        /// <summary>
+        /// Test the property 'PackageCost'
+        /// </summary>
+        [Test]
+        public void PackageCostTest()
+        {
+            // TODO unit test for the property 'PackageCost'
+        }
+        /// <summary>
+        /// Test the property 'ShippingCost'
+        /// </summary>
+        [Test]
+        public void ShippingCostTest()
+        {
+            // TODO unit test for the property 'ShippingCost'
         }
         /// <summary>
         /// Test the property 'TrackingNumbers'

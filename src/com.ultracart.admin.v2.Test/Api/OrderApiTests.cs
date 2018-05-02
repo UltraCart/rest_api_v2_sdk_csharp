@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -86,6 +86,19 @@ namespace com.ultracart.admin.v2.Test
             //string orderId = null;
             //instance.DeleteOrder(orderId);
             
+        }
+        
+        /// <summary>
+        /// Test Format
+        /// </summary>
+        [Test]
+        public void FormatTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string orderId = null;
+            //OrderFormat formatOptions = null;
+            //var response = instance.Format(orderId, formatOptions);
+            //Assert.IsInstanceOf<OrderFormatResponse> (response, "response is OrderFormatResponse");
         }
         
         /// <summary>

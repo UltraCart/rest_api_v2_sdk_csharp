@@ -1,7 +1,7 @@
 /* 
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -121,6 +121,18 @@ namespace com.ultracart.admin.v2.Test
             //bool? placeholders = null;
             //var response = instance.GetItems(parentCategoryId, parentCategoryPath, limit, offset, since, sort, expand, placeholders);
             //Assert.IsInstanceOf<ItemsResponse> (response, "response is ItemsResponse");
+        }
+        
+        /// <summary>
+        /// Test GetPricingTiers
+        /// </summary>
+        [Test]
+        public void GetPricingTiersTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string expand = null;
+            //var response = instance.GetPricingTiers(expand);
+            //Assert.IsInstanceOf<PricingTiersResponse> (response, "response is PricingTiersResponse");
         }
         
         /// <summary>

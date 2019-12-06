@@ -62,6 +62,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="MerchantItemOid">Unique object identifier for this item.</param>
         /// <param name="Options">Options.</param>
         /// <param name="ParentCategoryId">Parent category of the item.  Zero indicates the root folder..</param>
+        /// <param name="ParentCategoryPath">Parent category path.  / indicates the root folder..</param>
         /// <param name="PaymentProcessing">PaymentProcessing.</param>
         /// <param name="Physical">Physical.</param>
         /// <param name="Pricing">Pricing.</param>
@@ -78,7 +79,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="VariantItems">Variant Items.</param>
         /// <param name="Variations">Variations.</param>
         /// <param name="WishlistMember">WishlistMember.</param>
-        public Item(ItemAccounting Accounting = default(ItemAccounting), ItemAmember Amember = default(ItemAmember), ItemAutoOrder AutoOrder = default(ItemAutoOrder), ItemCCBill Ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> ChannelPartnerMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback Chargeback = default(ItemChargeback), ItemCheckout Checkout = default(ItemCheckout), ItemContent Content = default(ItemContent), string CreationDts = default(string), string Description = default(string), int? DescriptionTranslatedTextInstanceOid = default(int?), ItemDigitalDelivery DigitalDelivery = default(ItemDigitalDelivery), ItemEbay Ebay = default(ItemEbay), ItemEmailNotifications EmailNotifications = default(ItemEmailNotifications), ItemEnrollment123 Enrollment123 = default(ItemEnrollment123), ItemGiftCertificate GiftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch GoogleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers Identifiers = default(ItemIdentifiers), bool? Inactive = default(bool?), ItemInstantPaymentNotifications InstantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _Internal = default(ItemInternal), bool? Kit = default(bool?), ItemKitDefinition KitDefinition = default(ItemKitDefinition), string LastModifiedDts = default(string), string MerchantId = default(string), string MerchantItemId = default(string), int? MerchantItemOid = default(int?), List<ItemOption> Options = default(List<ItemOption>), int? ParentCategoryId = default(int?), ItemPaymentProcessing PaymentProcessing = default(ItemPaymentProcessing), ItemPhysical Physical = default(ItemPhysical), ItemPricing Pricing = default(ItemPricing), ItemRealtimePricing RealtimePricing = default(ItemRealtimePricing), ItemRelated Related = default(ItemRelated), ItemReporting Reporting = default(ItemReporting), ItemRestriction Restriction = default(ItemRestriction), ItemRevguard Revguard = default(ItemRevguard), ItemReviews Reviews = default(ItemReviews), ItemSalesforce Salesforce = default(ItemSalesforce), ItemShipping Shipping = default(ItemShipping), ItemTax Tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> ThirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> VariantItems = default(List<ItemVariantItem>), List<ItemVariation> Variations = default(List<ItemVariation>), ItemWishlistMember WishlistMember = default(ItemWishlistMember))
+        public Item(ItemAccounting Accounting = default(ItemAccounting), ItemAmember Amember = default(ItemAmember), ItemAutoOrder AutoOrder = default(ItemAutoOrder), ItemCCBill Ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> ChannelPartnerMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback Chargeback = default(ItemChargeback), ItemCheckout Checkout = default(ItemCheckout), ItemContent Content = default(ItemContent), string CreationDts = default(string), string Description = default(string), int? DescriptionTranslatedTextInstanceOid = default(int?), ItemDigitalDelivery DigitalDelivery = default(ItemDigitalDelivery), ItemEbay Ebay = default(ItemEbay), ItemEmailNotifications EmailNotifications = default(ItemEmailNotifications), ItemEnrollment123 Enrollment123 = default(ItemEnrollment123), ItemGiftCertificate GiftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch GoogleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers Identifiers = default(ItemIdentifiers), bool? Inactive = default(bool?), ItemInstantPaymentNotifications InstantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _Internal = default(ItemInternal), bool? Kit = default(bool?), ItemKitDefinition KitDefinition = default(ItemKitDefinition), string LastModifiedDts = default(string), string MerchantId = default(string), string MerchantItemId = default(string), int? MerchantItemOid = default(int?), List<ItemOption> Options = default(List<ItemOption>), int? ParentCategoryId = default(int?), string ParentCategoryPath = default(string), ItemPaymentProcessing PaymentProcessing = default(ItemPaymentProcessing), ItemPhysical Physical = default(ItemPhysical), ItemPricing Pricing = default(ItemPricing), ItemRealtimePricing RealtimePricing = default(ItemRealtimePricing), ItemRelated Related = default(ItemRelated), ItemReporting Reporting = default(ItemReporting), ItemRestriction Restriction = default(ItemRestriction), ItemRevguard Revguard = default(ItemRevguard), ItemReviews Reviews = default(ItemReviews), ItemSalesforce Salesforce = default(ItemSalesforce), ItemShipping Shipping = default(ItemShipping), ItemTax Tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> ThirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> VariantItems = default(List<ItemVariantItem>), List<ItemVariation> Variations = default(List<ItemVariation>), ItemWishlistMember WishlistMember = default(ItemWishlistMember))
         {
             this.Accounting = Accounting;
             this.Amember = Amember;
@@ -109,6 +110,7 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantItemOid = MerchantItemOid;
             this.Options = Options;
             this.ParentCategoryId = ParentCategoryId;
+            this.ParentCategoryPath = ParentCategoryPath;
             this.PaymentProcessing = PaymentProcessing;
             this.Physical = Physical;
             this.Pricing = Pricing;
@@ -314,6 +316,13 @@ namespace com.ultracart.admin.v2.Model
         public int? ParentCategoryId { get; set; }
 
         /// <summary>
+        /// Parent category path.  / indicates the root folder.
+        /// </summary>
+        /// <value>Parent category path.  / indicates the root folder.</value>
+        [DataMember(Name="parent_category_path", EmitDefaultValue=false)]
+        public string ParentCategoryPath { get; set; }
+
+        /// <summary>
         /// Gets or Sets PaymentProcessing
         /// </summary>
         [DataMember(Name="payment_processing", EmitDefaultValue=false)]
@@ -449,6 +458,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantItemOid: ").Append(MerchantItemOid).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("  ParentCategoryId: ").Append(ParentCategoryId).Append("\n");
+            sb.Append("  ParentCategoryPath: ").Append(ParentCategoryPath).Append("\n");
             sb.Append("  PaymentProcessing: ").Append(PaymentProcessing).Append("\n");
             sb.Append("  Physical: ").Append(Physical).Append("\n");
             sb.Append("  Pricing: ").Append(Pricing).Append("\n");
@@ -645,6 +655,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ParentCategoryId.Equals(input.ParentCategoryId))
                 ) && 
                 (
+                    this.ParentCategoryPath == input.ParentCategoryPath ||
+                    (this.ParentCategoryPath != null &&
+                    this.ParentCategoryPath.Equals(input.ParentCategoryPath))
+                ) && 
+                (
                     this.PaymentProcessing == input.PaymentProcessing ||
                     (this.PaymentProcessing != null &&
                     this.PaymentProcessing.Equals(input.PaymentProcessing))
@@ -793,6 +808,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Options.GetHashCode();
                 if (this.ParentCategoryId != null)
                     hashCode = hashCode * 59 + this.ParentCategoryId.GetHashCode();
+                if (this.ParentCategoryPath != null)
+                    hashCode = hashCode * 59 + this.ParentCategoryPath.GetHashCode();
                 if (this.PaymentProcessing != null)
                     hashCode = hashCode * 59 + this.PaymentProcessing.GetHashCode();
                 if (this.Physical != null)

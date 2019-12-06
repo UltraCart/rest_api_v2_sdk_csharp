@@ -33,43 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemsRequest" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
         /// <param name="Items">items.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public ItemsRequest(Error Error = default(Error), List<Item> Items = default(List<Item>), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?))
+        public ItemsRequest(List<Item> Items = default(List<Item>))
         {
-            this.Error = Error;
             this.Items = Items;
-            this.Metadata = Metadata;
-            this.Success = Success;
         }
         
-        /// <summary>
-        /// Gets or Sets Error
-        /// </summary>
-        [DataMember(Name="error", EmitDefaultValue=false)]
-        public Error Error { get; set; }
-
         /// <summary>
         /// items
         /// </summary>
         /// <value>items</value>
         [DataMember(Name="items", EmitDefaultValue=false)]
         public List<Item> Items { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Metadata
-        /// </summary>
-        [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public ResponseMetadata Metadata { get; set; }
-
-        /// <summary>
-        /// Indicates if API call was successful
-        /// </summary>
-        /// <value>Indicates if API call was successful</value>
-        [DataMember(Name="success", EmitDefaultValue=false)]
-        public bool? Success { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,10 +54,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ItemsRequest {\n");
-            sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,24 +90,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
-                ) && 
-                (
                     this.Items == input.Items ||
                     this.Items != null &&
                     this.Items.SequenceEqual(input.Items)
-                ) && 
-                (
-                    this.Metadata == input.Metadata ||
-                    (this.Metadata != null &&
-                    this.Metadata.Equals(input.Metadata))
-                ) && 
-                (
-                    this.Success == input.Success ||
-                    (this.Success != null &&
-                    this.Success.Equals(input.Success))
                 );
         }
 
@@ -148,14 +105,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
-                if (this.Metadata != null)
-                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
-                if (this.Success != null)
-                    hashCode = hashCode * 59 + this.Success.GetHashCode();
                 return hashCode;
             }
         }

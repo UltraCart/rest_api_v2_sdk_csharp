@@ -133,6 +133,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="MerchantId">UltraCart merchant ID owning this order.</param>
         /// <param name="OrderId">Order ID.</param>
         /// <param name="Payment">Payment.</param>
+        /// <param name="Properties">Properties, available only through update, not through insert due to the nature of how properties are handled internally.</param>
         /// <param name="Quote">Quote.</param>
         /// <param name="RefundDts">If the order was refunded, the date/time that the last refund occurred.</param>
         /// <param name="RejectDts">If the order was rejected, the date/time that the rejection occurred.</param>
@@ -140,7 +141,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Shipping">Shipping.</param>
         /// <param name="Summary">Summary.</param>
         /// <param name="Taxes">Taxes.</param>
-        public Order(List<OrderAffiliate> Affiliates = default(List<OrderAffiliate>), OrderAutoOrder AutoOrder = default(OrderAutoOrder), OrderBilling Billing = default(OrderBilling), OrderBuysafe Buysafe = default(OrderBuysafe), OrderChannelPartner ChannelPartner = default(OrderChannelPartner), OrderCheckout Checkout = default(OrderCheckout), List<OrderCoupon> Coupons = default(List<OrderCoupon>), string CreationDts = default(string), string CurrencyCode = default(string), CurrentStageEnum? CurrentStage = default(CurrentStageEnum?), Customer CustomerProfile = default(Customer), OrderDigitalOrder DigitalOrder = default(OrderDigitalOrder), OrderEdi Edi = default(OrderEdi), decimal? ExchangeRate = default(decimal?), OrderFraudScore FraudScore = default(OrderFraudScore), OrderGift Gift = default(OrderGift), OrderGiftCertificate GiftCertificate = default(OrderGiftCertificate), OrderInternal _Internal = default(OrderInternal), List<OrderItem> Items = default(List<OrderItem>), string LanguageIsoCode = default(string), OrderLinkedShipment LinkedShipment = default(OrderLinkedShipment), OrderMarketing Marketing = default(OrderMarketing), string MerchantId = default(string), string OrderId = default(string), OrderPayment Payment = default(OrderPayment), OrderQuote Quote = default(OrderQuote), string RefundDts = default(string), string RejectDts = default(string), OrderSalesforce Salesforce = default(OrderSalesforce), OrderShipping Shipping = default(OrderShipping), OrderSummary Summary = default(OrderSummary), OrderTaxes Taxes = default(OrderTaxes))
+        public Order(List<OrderAffiliate> Affiliates = default(List<OrderAffiliate>), OrderAutoOrder AutoOrder = default(OrderAutoOrder), OrderBilling Billing = default(OrderBilling), OrderBuysafe Buysafe = default(OrderBuysafe), OrderChannelPartner ChannelPartner = default(OrderChannelPartner), OrderCheckout Checkout = default(OrderCheckout), List<OrderCoupon> Coupons = default(List<OrderCoupon>), string CreationDts = default(string), string CurrencyCode = default(string), CurrentStageEnum? CurrentStage = default(CurrentStageEnum?), Customer CustomerProfile = default(Customer), OrderDigitalOrder DigitalOrder = default(OrderDigitalOrder), OrderEdi Edi = default(OrderEdi), decimal? ExchangeRate = default(decimal?), OrderFraudScore FraudScore = default(OrderFraudScore), OrderGift Gift = default(OrderGift), OrderGiftCertificate GiftCertificate = default(OrderGiftCertificate), OrderInternal _Internal = default(OrderInternal), List<OrderItem> Items = default(List<OrderItem>), string LanguageIsoCode = default(string), OrderLinkedShipment LinkedShipment = default(OrderLinkedShipment), OrderMarketing Marketing = default(OrderMarketing), string MerchantId = default(string), string OrderId = default(string), OrderPayment Payment = default(OrderPayment), List<OrderProperty> Properties = default(List<OrderProperty>), OrderQuote Quote = default(OrderQuote), string RefundDts = default(string), string RejectDts = default(string), OrderSalesforce Salesforce = default(OrderSalesforce), OrderShipping Shipping = default(OrderShipping), OrderSummary Summary = default(OrderSummary), OrderTaxes Taxes = default(OrderTaxes))
         {
             this.Affiliates = Affiliates;
             this.AutoOrder = AutoOrder;
@@ -167,6 +168,7 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantId = MerchantId;
             this.OrderId = OrderId;
             this.Payment = Payment;
+            this.Properties = Properties;
             this.Quote = Quote;
             this.RefundDts = RefundDts;
             this.RejectDts = RejectDts;
@@ -331,6 +333,13 @@ namespace com.ultracart.admin.v2.Model
         public OrderPayment Payment { get; set; }
 
         /// <summary>
+        /// Properties, available only through update, not through insert due to the nature of how properties are handled internally
+        /// </summary>
+        /// <value>Properties, available only through update, not through insert due to the nature of how properties are handled internally</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<OrderProperty> Properties { get; set; }
+
+        /// <summary>
         /// Gets or Sets Quote
         /// </summary>
         [DataMember(Name="quote", EmitDefaultValue=false)]
@@ -407,6 +416,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  Payment: ").Append(Payment).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Quote: ").Append(Quote).Append("\n");
             sb.Append("  RefundDts: ").Append(RefundDts).Append("\n");
             sb.Append("  RejectDts: ").Append(RejectDts).Append("\n");
@@ -574,6 +584,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Payment.Equals(input.Payment))
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.Quote == input.Quote ||
                     (this.Quote != null &&
                     this.Quote.Equals(input.Quote))
@@ -669,6 +684,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OrderId.GetHashCode();
                 if (this.Payment != null)
                     hashCode = hashCode * 59 + this.Payment.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.Quote != null)
                     hashCode = hashCode * 59 + this.Quote.GetHashCode();
                 if (this.RefundDts != null)

@@ -33,16 +33,34 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Currency" /> class.
         /// </summary>
+        /// <param name="CurrencyCode">Currency code of the localized value.</param>
+        /// <param name="ExchangeRate">Exchange rate used to localize.</param>
         /// <param name="Localized">Value localized to the customer.</param>
         /// <param name="LocalizedFormatted">Value localized and formatted for the customer.</param>
         /// <param name="Value">Value in base currency.</param>
-        public Currency(decimal? Localized = default(decimal?), string LocalizedFormatted = default(string), decimal? Value = default(decimal?))
+        public Currency(string CurrencyCode = default(string), decimal? ExchangeRate = default(decimal?), decimal? Localized = default(decimal?), string LocalizedFormatted = default(string), decimal? Value = default(decimal?))
         {
+            this.CurrencyCode = CurrencyCode;
+            this.ExchangeRate = ExchangeRate;
             this.Localized = Localized;
             this.LocalizedFormatted = LocalizedFormatted;
             this.Value = Value;
         }
         
+        /// <summary>
+        /// Currency code of the localized value
+        /// </summary>
+        /// <value>Currency code of the localized value</value>
+        [DataMember(Name="currency_code", EmitDefaultValue=false)]
+        public string CurrencyCode { get; set; }
+
+        /// <summary>
+        /// Exchange rate used to localize
+        /// </summary>
+        /// <value>Exchange rate used to localize</value>
+        [DataMember(Name="exchange_rate", EmitDefaultValue=false)]
+        public decimal? ExchangeRate { get; set; }
+
         /// <summary>
         /// Value localized to the customer
         /// </summary>
@@ -72,6 +90,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Currency {\n");
+            sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
+            sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
             sb.Append("  Localized: ").Append(Localized).Append("\n");
             sb.Append("  LocalizedFormatted: ").Append(LocalizedFormatted).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
@@ -110,6 +130,16 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.CurrencyCode == input.CurrencyCode ||
+                    (this.CurrencyCode != null &&
+                    this.CurrencyCode.Equals(input.CurrencyCode))
+                ) && 
+                (
+                    this.ExchangeRate == input.ExchangeRate ||
+                    (this.ExchangeRate != null &&
+                    this.ExchangeRate.Equals(input.ExchangeRate))
+                ) && 
+                (
                     this.Localized == input.Localized ||
                     (this.Localized != null &&
                     this.Localized.Equals(input.Localized))
@@ -135,6 +165,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CurrencyCode != null)
+                    hashCode = hashCode * 59 + this.CurrencyCode.GetHashCode();
+                if (this.ExchangeRate != null)
+                    hashCode = hashCode * 59 + this.ExchangeRate.GetHashCode();
                 if (this.Localized != null)
                     hashCode = hashCode * 59 + this.Localized.GetHashCode();
                 if (this.LocalizedFormatted != null)

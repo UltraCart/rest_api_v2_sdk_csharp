@@ -47,8 +47,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="AutoOrderable">True if this item can be automatically ordered by the customer.</param>
         /// <param name="CancelOtherAutoOrders">True if other auto orders for this customer should be canceled when this item is ordered.</param>
         /// <param name="FreeShippingAutoOrder">True if the customer should be given free shipping.</param>
+        /// <param name="RefundOtherAutoOrders">True if other auto orders for this customer should refunded if this item is refunded..</param>
         /// <param name="Steps">The rebill steps if this auto order is an upsell.</param>
-        public ItemAutoOrder(decimal? AuthFutureAmount = default(decimal?), decimal? AuthTestAmount = default(decimal?), string AutoOrderCancelItemId = default(string), int? AutoOrderCancelItemOid = default(int?), List<string> AutoOrderDowngradeItems = default(List<string>), bool? AutoOrderPaused = default(bool?), List<string> AutoOrderSchedules = default(List<string>), List<string> AutoOrderUpgradeItems = default(List<string>), bool? AutoOrderUpsell = default(bool?), bool? AutoOrderUpsellNoEasyCancel = default(bool?), bool? AutoOrderUpsellOnePerCustomer = default(bool?), bool? AutoOrderable = default(bool?), bool? CancelOtherAutoOrders = default(bool?), bool? FreeShippingAutoOrder = default(bool?), List<ItemAutoOrderStep> Steps = default(List<ItemAutoOrderStep>))
+        public ItemAutoOrder(decimal? AuthFutureAmount = default(decimal?), decimal? AuthTestAmount = default(decimal?), string AutoOrderCancelItemId = default(string), int? AutoOrderCancelItemOid = default(int?), List<string> AutoOrderDowngradeItems = default(List<string>), bool? AutoOrderPaused = default(bool?), List<string> AutoOrderSchedules = default(List<string>), List<string> AutoOrderUpgradeItems = default(List<string>), bool? AutoOrderUpsell = default(bool?), bool? AutoOrderUpsellNoEasyCancel = default(bool?), bool? AutoOrderUpsellOnePerCustomer = default(bool?), bool? AutoOrderable = default(bool?), bool? CancelOtherAutoOrders = default(bool?), bool? FreeShippingAutoOrder = default(bool?), bool? RefundOtherAutoOrders = default(bool?), List<ItemAutoOrderStep> Steps = default(List<ItemAutoOrderStep>))
         {
             this.AuthFutureAmount = AuthFutureAmount;
             this.AuthTestAmount = AuthTestAmount;
@@ -64,6 +65,7 @@ namespace com.ultracart.admin.v2.Model
             this.AutoOrderable = AutoOrderable;
             this.CancelOtherAutoOrders = CancelOtherAutoOrders;
             this.FreeShippingAutoOrder = FreeShippingAutoOrder;
+            this.RefundOtherAutoOrders = RefundOtherAutoOrders;
             this.Steps = Steps;
         }
         
@@ -166,6 +168,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? FreeShippingAutoOrder { get; set; }
 
         /// <summary>
+        /// True if other auto orders for this customer should refunded if this item is refunded.
+        /// </summary>
+        /// <value>True if other auto orders for this customer should refunded if this item is refunded.</value>
+        [DataMember(Name="refund_other_auto_orders", EmitDefaultValue=false)]
+        public bool? RefundOtherAutoOrders { get; set; }
+
+        /// <summary>
         /// The rebill steps if this auto order is an upsell
         /// </summary>
         /// <value>The rebill steps if this auto order is an upsell</value>
@@ -194,6 +203,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AutoOrderable: ").Append(AutoOrderable).Append("\n");
             sb.Append("  CancelOtherAutoOrders: ").Append(CancelOtherAutoOrders).Append("\n");
             sb.Append("  FreeShippingAutoOrder: ").Append(FreeShippingAutoOrder).Append("\n");
+            sb.Append("  RefundOtherAutoOrders: ").Append(RefundOtherAutoOrders).Append("\n");
             sb.Append("  Steps: ").Append(Steps).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -300,6 +310,11 @@ namespace com.ultracart.admin.v2.Model
                     this.FreeShippingAutoOrder.Equals(input.FreeShippingAutoOrder))
                 ) && 
                 (
+                    this.RefundOtherAutoOrders == input.RefundOtherAutoOrders ||
+                    (this.RefundOtherAutoOrders != null &&
+                    this.RefundOtherAutoOrders.Equals(input.RefundOtherAutoOrders))
+                ) && 
+                (
                     this.Steps == input.Steps ||
                     this.Steps != null &&
                     this.Steps.SequenceEqual(input.Steps)
@@ -343,6 +358,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CancelOtherAutoOrders.GetHashCode();
                 if (this.FreeShippingAutoOrder != null)
                     hashCode = hashCode * 59 + this.FreeShippingAutoOrder.GetHashCode();
+                if (this.RefundOtherAutoOrders != null)
+                    hashCode = hashCode * 59 + this.RefundOtherAutoOrders.GetHashCode();
                 if (this.Steps != null)
                     hashCode = hashCode * 59 + this.Steps.GetHashCode();
                 return hashCode;

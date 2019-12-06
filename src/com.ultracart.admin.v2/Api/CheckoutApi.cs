@@ -67,6 +67,46 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CartFinalizeOrderResponse</returns>
         ApiResponse<CartFinalizeOrderResponse> FinalizeOrderWithHttpInfo (CartFinalizeOrderRequest finalizeRequest);
         /// <summary>
+        /// Get affirm checkout (by cart id)
+        /// </summary>
+        /// <remarks>
+        /// Get a Affirm checkout object for the specified cart_id parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <returns>CartAffirmCheckoutResponse</returns>
+        CartAffirmCheckoutResponse GetAffirmCheckout (string cartId);
+
+        /// <summary>
+        /// Get affirm checkout (by cart id)
+        /// </summary>
+        /// <remarks>
+        /// Get a Affirm checkout object for the specified cart_id parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <returns>ApiResponse of CartAffirmCheckoutResponse</returns>
+        ApiResponse<CartAffirmCheckoutResponse> GetAffirmCheckoutWithHttpInfo (string cartId);
+        /// <summary>
+        /// Allowed countries
+        /// </summary>
+        /// <remarks>
+        /// Lookup the allowed countries for this merchant id 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CheckoutAllowedCountriesResponse</returns>
+        CheckoutAllowedCountriesResponse GetAllowedCountries ();
+
+        /// <summary>
+        /// Allowed countries
+        /// </summary>
+        /// <remarks>
+        /// Lookup the allowed countries for this merchant id 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CheckoutAllowedCountriesResponse</returns>
+        ApiResponse<CheckoutAllowedCountriesResponse> GetAllowedCountriesWithHttpInfo ();
+        /// <summary>
         /// Get cart
         /// </summary>
         /// <remarks>
@@ -133,6 +173,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CartResponse</returns>
         ApiResponse<CartResponse> GetCartByReturnCodeWithHttpInfo (string returnCode, string expand = null);
+        /// <summary>
+        /// Get state/province list for a country code
+        /// </summary>
+        /// <remarks>
+        /// Lookup a state/province list for a given country code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two letter ISO country code</param>
+        /// <returns>CheckoutStateProvinceResponse</returns>
+        CheckoutStateProvinceResponse GetStateProvincesForCountry (string countryCode);
+
+        /// <summary>
+        /// Get state/province list for a country code
+        /// </summary>
+        /// <remarks>
+        /// Lookup a state/province list for a given country code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two letter ISO country code</param>
+        /// <returns>ApiResponse of CheckoutStateProvinceResponse</returns>
+        ApiResponse<CheckoutStateProvinceResponse> GetStateProvincesForCountryWithHttpInfo (string countryCode);
         /// <summary>
         /// Handoff cart
         /// </summary>
@@ -385,6 +446,46 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (CartFinalizeOrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CartFinalizeOrderResponse>> FinalizeOrderAsyncWithHttpInfo (CartFinalizeOrderRequest finalizeRequest);
         /// <summary>
+        /// Get affirm checkout (by cart id)
+        /// </summary>
+        /// <remarks>
+        /// Get a Affirm checkout object for the specified cart_id parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <returns>Task of CartAffirmCheckoutResponse</returns>
+        System.Threading.Tasks.Task<CartAffirmCheckoutResponse> GetAffirmCheckoutAsync (string cartId);
+
+        /// <summary>
+        /// Get affirm checkout (by cart id)
+        /// </summary>
+        /// <remarks>
+        /// Get a Affirm checkout object for the specified cart_id parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <returns>Task of ApiResponse (CartAffirmCheckoutResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CartAffirmCheckoutResponse>> GetAffirmCheckoutAsyncWithHttpInfo (string cartId);
+        /// <summary>
+        /// Allowed countries
+        /// </summary>
+        /// <remarks>
+        /// Lookup the allowed countries for this merchant id 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CheckoutAllowedCountriesResponse</returns>
+        System.Threading.Tasks.Task<CheckoutAllowedCountriesResponse> GetAllowedCountriesAsync ();
+
+        /// <summary>
+        /// Allowed countries
+        /// </summary>
+        /// <remarks>
+        /// Lookup the allowed countries for this merchant id 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CheckoutAllowedCountriesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CheckoutAllowedCountriesResponse>> GetAllowedCountriesAsyncWithHttpInfo ();
+        /// <summary>
         /// Get cart
         /// </summary>
         /// <remarks>
@@ -451,6 +552,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CartResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CartResponse>> GetCartByReturnCodeAsyncWithHttpInfo (string returnCode, string expand = null);
+        /// <summary>
+        /// Get state/province list for a country code
+        /// </summary>
+        /// <remarks>
+        /// Lookup a state/province list for a given country code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two letter ISO country code</param>
+        /// <returns>Task of CheckoutStateProvinceResponse</returns>
+        System.Threading.Tasks.Task<CheckoutStateProvinceResponse> GetStateProvincesForCountryAsync (string countryCode);
+
+        /// <summary>
+        /// Get state/province list for a country code
+        /// </summary>
+        /// <remarks>
+        /// Lookup a state/province list for a given country code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two letter ISO country code</param>
+        /// <returns>Task of ApiResponse (CheckoutStateProvinceResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CheckoutStateProvinceResponse>> GetStateProvincesForCountryAsyncWithHttpInfo (string countryCode);
         /// <summary>
         /// Handoff cart
         /// </summary>
@@ -1111,6 +1233,328 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get affirm checkout (by cart id) Get a Affirm checkout object for the specified cart_id parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <returns>CartAffirmCheckoutResponse</returns>
+        public CartAffirmCheckoutResponse GetAffirmCheckout (string cartId)
+        {
+             ApiResponse<CartAffirmCheckoutResponse> localVarResponse = GetAffirmCheckoutWithHttpInfo(cartId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get affirm checkout (by cart id) Get a Affirm checkout object for the specified cart_id parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <returns>ApiResponse of CartAffirmCheckoutResponse</returns>
+        public ApiResponse< CartAffirmCheckoutResponse > GetAffirmCheckoutWithHttpInfo (string cartId)
+        {
+            // verify the required parameter 'cartId' is set
+            if (cartId == null)
+                throw new ApiException(400, "Missing required parameter 'cartId' when calling CheckoutApi->GetAffirmCheckout");
+
+            var localVarPath = "/checkout/cart/{cart_id}/affirmCheckout";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (cartId != null) localVarPathParams.Add("cart_id", Configuration.ApiClient.ParameterToString(cartId)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAffirmCheckout", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CartAffirmCheckoutResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CartAffirmCheckoutResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartAffirmCheckoutResponse)));
+        }
+
+        /// <summary>
+        /// Get affirm checkout (by cart id) Get a Affirm checkout object for the specified cart_id parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <returns>Task of CartAffirmCheckoutResponse</returns>
+        public async System.Threading.Tasks.Task<CartAffirmCheckoutResponse> GetAffirmCheckoutAsync (string cartId)
+        {
+             ApiResponse<CartAffirmCheckoutResponse> localVarResponse = await GetAffirmCheckoutAsyncWithHttpInfo(cartId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get affirm checkout (by cart id) Get a Affirm checkout object for the specified cart_id parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cartId">Cart ID to retrieve</param>
+        /// <returns>Task of ApiResponse (CartAffirmCheckoutResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CartAffirmCheckoutResponse>> GetAffirmCheckoutAsyncWithHttpInfo (string cartId)
+        {
+            // verify the required parameter 'cartId' is set
+            if (cartId == null)
+                throw new ApiException(400, "Missing required parameter 'cartId' when calling CheckoutApi->GetAffirmCheckout");
+
+            var localVarPath = "/checkout/cart/{cart_id}/affirmCheckout";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (cartId != null) localVarPathParams.Add("cart_id", Configuration.ApiClient.ParameterToString(cartId)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAffirmCheckout", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CartAffirmCheckoutResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CartAffirmCheckoutResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartAffirmCheckoutResponse)));
+        }
+
+        /// <summary>
+        /// Allowed countries Lookup the allowed countries for this merchant id 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CheckoutAllowedCountriesResponse</returns>
+        public CheckoutAllowedCountriesResponse GetAllowedCountries ()
+        {
+             ApiResponse<CheckoutAllowedCountriesResponse> localVarResponse = GetAllowedCountriesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Allowed countries Lookup the allowed countries for this merchant id 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CheckoutAllowedCountriesResponse</returns>
+        public ApiResponse< CheckoutAllowedCountriesResponse > GetAllowedCountriesWithHttpInfo ()
+        {
+
+            var localVarPath = "/checkout/allowedCountries";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAllowedCountries", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CheckoutAllowedCountriesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CheckoutAllowedCountriesResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CheckoutAllowedCountriesResponse)));
+        }
+
+        /// <summary>
+        /// Allowed countries Lookup the allowed countries for this merchant id 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CheckoutAllowedCountriesResponse</returns>
+        public async System.Threading.Tasks.Task<CheckoutAllowedCountriesResponse> GetAllowedCountriesAsync ()
+        {
+             ApiResponse<CheckoutAllowedCountriesResponse> localVarResponse = await GetAllowedCountriesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Allowed countries Lookup the allowed countries for this merchant id 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CheckoutAllowedCountriesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CheckoutAllowedCountriesResponse>> GetAllowedCountriesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/checkout/allowedCountries";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAllowedCountries", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CheckoutAllowedCountriesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CheckoutAllowedCountriesResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CheckoutAllowedCountriesResponse)));
+        }
+
+        /// <summary>
         /// Get cart If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1615,6 +2059,173 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CartResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CartResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
+        }
+
+        /// <summary>
+        /// Get state/province list for a country code Lookup a state/province list for a given country code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two letter ISO country code</param>
+        /// <returns>CheckoutStateProvinceResponse</returns>
+        public CheckoutStateProvinceResponse GetStateProvincesForCountry (string countryCode)
+        {
+             ApiResponse<CheckoutStateProvinceResponse> localVarResponse = GetStateProvincesForCountryWithHttpInfo(countryCode);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get state/province list for a country code Lookup a state/province list for a given country code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two letter ISO country code</param>
+        /// <returns>ApiResponse of CheckoutStateProvinceResponse</returns>
+        public ApiResponse< CheckoutStateProvinceResponse > GetStateProvincesForCountryWithHttpInfo (string countryCode)
+        {
+            // verify the required parameter 'countryCode' is set
+            if (countryCode == null)
+                throw new ApiException(400, "Missing required parameter 'countryCode' when calling CheckoutApi->GetStateProvincesForCountry");
+
+            var localVarPath = "/checkout/stateProvincesForCountry/{country_code}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (countryCode != null) localVarPathParams.Add("country_code", Configuration.ApiClient.ParameterToString(countryCode)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetStateProvincesForCountry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CheckoutStateProvinceResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CheckoutStateProvinceResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CheckoutStateProvinceResponse)));
+        }
+
+        /// <summary>
+        /// Get state/province list for a country code Lookup a state/province list for a given country code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two letter ISO country code</param>
+        /// <returns>Task of CheckoutStateProvinceResponse</returns>
+        public async System.Threading.Tasks.Task<CheckoutStateProvinceResponse> GetStateProvincesForCountryAsync (string countryCode)
+        {
+             ApiResponse<CheckoutStateProvinceResponse> localVarResponse = await GetStateProvincesForCountryAsyncWithHttpInfo(countryCode);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get state/province list for a country code Lookup a state/province list for a given country code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two letter ISO country code</param>
+        /// <returns>Task of ApiResponse (CheckoutStateProvinceResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CheckoutStateProvinceResponse>> GetStateProvincesForCountryAsyncWithHttpInfo (string countryCode)
+        {
+            // verify the required parameter 'countryCode' is set
+            if (countryCode == null)
+                throw new ApiException(400, "Missing required parameter 'countryCode' when calling CheckoutApi->GetStateProvincesForCountry");
+
+            var localVarPath = "/checkout/stateProvincesForCountry/{country_code}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (countryCode != null) localVarPathParams.Add("country_code", Configuration.ApiClient.ParameterToString(countryCode)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetStateProvincesForCountry", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CheckoutStateProvinceResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CheckoutStateProvinceResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CheckoutStateProvinceResponse)));
         }
 
         /// <summary>

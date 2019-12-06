@@ -40,6 +40,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CreditCards">Credit cards on file for this profile (masked).</param>
         /// <param name="CustomerProfileOid">Unique identifier.</param>
         /// <param name="DhlAccountNumber">DHL account number on file.</param>
+        /// <param name="DhlDutyAccountNumber">DHL duty account number on file.</param>
         /// <param name="Email">Email.</param>
         /// <param name="FedexAccountNumber">FedEx account number on file.</param>
         /// <param name="FreeShipping">True if this profile always qualifies for free shipping.</param>
@@ -54,7 +55,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ShippingAddresses">Shipping addresses on file for this profile.</param>
         /// <param name="TaxExempt">True if this profile is exempt from sales tax.</param>
         /// <param name="UpsAccountNumber">UPS account number on file.</param>
-        public CartCustomerProfile(bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), List<CartCustomerProfileAddress> BillingAddresses = default(List<CartCustomerProfileAddress>), List<CartCustomerProfileCreditCard> CreditCards = default(List<CartCustomerProfileCreditCard>), int? CustomerProfileOid = default(int?), string DhlAccountNumber = default(string), string Email = default(string), string FedexAccountNumber = default(string), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), List<string> PricingTiers = default(List<string>), List<CartCustomerProfileAddress> ShippingAddresses = default(List<CartCustomerProfileAddress>), bool? TaxExempt = default(bool?), string UpsAccountNumber = default(string))
+        public CartCustomerProfile(bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), List<CartCustomerProfileAddress> BillingAddresses = default(List<CartCustomerProfileAddress>), List<CartCustomerProfileCreditCard> CreditCards = default(List<CartCustomerProfileCreditCard>), int? CustomerProfileOid = default(int?), string DhlAccountNumber = default(string), string DhlDutyAccountNumber = default(string), string Email = default(string), string FedexAccountNumber = default(string), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), List<string> PricingTiers = default(List<string>), List<CartCustomerProfileAddress> ShippingAddresses = default(List<CartCustomerProfileAddress>), bool? TaxExempt = default(bool?), string UpsAccountNumber = default(string))
         {
             this.Allow3rdPartyBilling = Allow3rdPartyBilling;
             this.AllowCod = AllowCod;
@@ -63,6 +64,7 @@ namespace com.ultracart.admin.v2.Model
             this.CreditCards = CreditCards;
             this.CustomerProfileOid = CustomerProfileOid;
             this.DhlAccountNumber = DhlAccountNumber;
+            this.DhlDutyAccountNumber = DhlDutyAccountNumber;
             this.Email = Email;
             this.FedexAccountNumber = FedexAccountNumber;
             this.FreeShipping = FreeShipping;
@@ -127,6 +129,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>DHL account number on file</value>
         [DataMember(Name="dhl_account_number", EmitDefaultValue=false)]
         public string DhlAccountNumber { get; set; }
+
+        /// <summary>
+        /// DHL duty account number on file
+        /// </summary>
+        /// <value>DHL duty account number on file</value>
+        [DataMember(Name="dhl_duty_account_number", EmitDefaultValue=false)]
+        public string DhlDutyAccountNumber { get; set; }
 
         /// <summary>
         /// Email
@@ -241,6 +250,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreditCards: ").Append(CreditCards).Append("\n");
             sb.Append("  CustomerProfileOid: ").Append(CustomerProfileOid).Append("\n");
             sb.Append("  DhlAccountNumber: ").Append(DhlAccountNumber).Append("\n");
+            sb.Append("  DhlDutyAccountNumber: ").Append(DhlDutyAccountNumber).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  FedexAccountNumber: ").Append(FedexAccountNumber).Append("\n");
             sb.Append("  FreeShipping: ").Append(FreeShipping).Append("\n");
@@ -323,6 +333,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DhlAccountNumber == input.DhlAccountNumber ||
                     (this.DhlAccountNumber != null &&
                     this.DhlAccountNumber.Equals(input.DhlAccountNumber))
+                ) && 
+                (
+                    this.DhlDutyAccountNumber == input.DhlDutyAccountNumber ||
+                    (this.DhlDutyAccountNumber != null &&
+                    this.DhlDutyAccountNumber.Equals(input.DhlDutyAccountNumber))
                 ) && 
                 (
                     this.Email == input.Email ||
@@ -419,6 +434,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CustomerProfileOid.GetHashCode();
                 if (this.DhlAccountNumber != null)
                     hashCode = hashCode * 59 + this.DhlAccountNumber.GetHashCode();
+                if (this.DhlDutyAccountNumber != null)
+                    hashCode = hashCode * 59 + this.DhlDutyAccountNumber.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.FedexAccountNumber != null)

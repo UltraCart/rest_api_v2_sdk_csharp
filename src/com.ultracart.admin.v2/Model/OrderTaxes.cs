@@ -33,24 +33,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderTaxes" /> class.
         /// </summary>
+        /// <param name="ArbitraryTax">Arbitrary Tax, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system..</param>
+        /// <param name="ArbitraryTaxRate">Arbitrary tax rate, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system..</param>
+        /// <param name="ArbitraryTaxableSubtotal">Arbitrary taxable subtotal, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system..</param>
         /// <param name="TaxCityAccountingCode">QuickBooks tax city code.</param>
         /// <param name="TaxCountryAccountingCode">QuickBooks tax country code.</param>
         /// <param name="TaxCounty">County used for tax calculation purposes (only in the United States).</param>
         /// <param name="TaxCountyAccountingCode">QuickBooks tax county code.</param>
+        /// <param name="TaxGiftCharge">True if gift charge is taxed.</param>
         /// <param name="TaxPostalCodeAccountingCode">QuickBooks tax postal code code.</param>
-        /// <param name="TaxRate">Tax rate.</param>
+        /// <param name="TaxRate">Tax rate, this is meaningless for updating an order.  For inserting a new order, if you need to override internal tax calculations, use the arbitrary fields..</param>
         /// <param name="TaxRateCity">Tax rate at the city level.</param>
         /// <param name="TaxRateCountry">Tax rate at the country level.</param>
         /// <param name="TaxRateCounty">Tax rate at the county level.</param>
         /// <param name="TaxRatePostalCode">Tax rate at the postal code level.</param>
         /// <param name="TaxRateState">Tax rate at the state level.</param>
-        /// <param name="TaxStateAccountingCode">QuickBOoks tax state code.</param>
-        public OrderTaxes(string TaxCityAccountingCode = default(string), string TaxCountryAccountingCode = default(string), string TaxCounty = default(string), string TaxCountyAccountingCode = default(string), string TaxPostalCodeAccountingCode = default(string), decimal? TaxRate = default(decimal?), decimal? TaxRateCity = default(decimal?), decimal? TaxRateCountry = default(decimal?), decimal? TaxRateCounty = default(decimal?), decimal? TaxRatePostalCode = default(decimal?), decimal? TaxRateState = default(decimal?), string TaxStateAccountingCode = default(string))
+        /// <param name="TaxShipping">True if shipping is taxed.</param>
+        /// <param name="TaxStateAccountingCode">QuickBooks tax state code.</param>
+        public OrderTaxes(decimal? ArbitraryTax = default(decimal?), decimal? ArbitraryTaxRate = default(decimal?), decimal? ArbitraryTaxableSubtotal = default(decimal?), string TaxCityAccountingCode = default(string), string TaxCountryAccountingCode = default(string), string TaxCounty = default(string), string TaxCountyAccountingCode = default(string), bool? TaxGiftCharge = default(bool?), string TaxPostalCodeAccountingCode = default(string), decimal? TaxRate = default(decimal?), decimal? TaxRateCity = default(decimal?), decimal? TaxRateCountry = default(decimal?), decimal? TaxRateCounty = default(decimal?), decimal? TaxRatePostalCode = default(decimal?), decimal? TaxRateState = default(decimal?), bool? TaxShipping = default(bool?), string TaxStateAccountingCode = default(string))
         {
+            this.ArbitraryTax = ArbitraryTax;
+            this.ArbitraryTaxRate = ArbitraryTaxRate;
+            this.ArbitraryTaxableSubtotal = ArbitraryTaxableSubtotal;
             this.TaxCityAccountingCode = TaxCityAccountingCode;
             this.TaxCountryAccountingCode = TaxCountryAccountingCode;
             this.TaxCounty = TaxCounty;
             this.TaxCountyAccountingCode = TaxCountyAccountingCode;
+            this.TaxGiftCharge = TaxGiftCharge;
             this.TaxPostalCodeAccountingCode = TaxPostalCodeAccountingCode;
             this.TaxRate = TaxRate;
             this.TaxRateCity = TaxRateCity;
@@ -58,9 +67,31 @@ namespace com.ultracart.admin.v2.Model
             this.TaxRateCounty = TaxRateCounty;
             this.TaxRatePostalCode = TaxRatePostalCode;
             this.TaxRateState = TaxRateState;
+            this.TaxShipping = TaxShipping;
             this.TaxStateAccountingCode = TaxStateAccountingCode;
         }
         
+        /// <summary>
+        /// Arbitrary Tax, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+        /// </summary>
+        /// <value>Arbitrary Tax, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.</value>
+        [DataMember(Name="arbitrary_tax", EmitDefaultValue=false)]
+        public decimal? ArbitraryTax { get; set; }
+
+        /// <summary>
+        /// Arbitrary tax rate, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+        /// </summary>
+        /// <value>Arbitrary tax rate, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.</value>
+        [DataMember(Name="arbitrary_tax_rate", EmitDefaultValue=false)]
+        public decimal? ArbitraryTaxRate { get; set; }
+
+        /// <summary>
+        /// Arbitrary taxable subtotal, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+        /// </summary>
+        /// <value>Arbitrary taxable subtotal, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.</value>
+        [DataMember(Name="arbitrary_taxable_subtotal", EmitDefaultValue=false)]
+        public decimal? ArbitraryTaxableSubtotal { get; set; }
+
         /// <summary>
         /// QuickBooks tax city code
         /// </summary>
@@ -90,6 +121,13 @@ namespace com.ultracart.admin.v2.Model
         public string TaxCountyAccountingCode { get; set; }
 
         /// <summary>
+        /// True if gift charge is taxed
+        /// </summary>
+        /// <value>True if gift charge is taxed</value>
+        [DataMember(Name="tax_gift_charge", EmitDefaultValue=false)]
+        public bool? TaxGiftCharge { get; set; }
+
+        /// <summary>
         /// QuickBooks tax postal code code
         /// </summary>
         /// <value>QuickBooks tax postal code code</value>
@@ -97,9 +135,9 @@ namespace com.ultracart.admin.v2.Model
         public string TaxPostalCodeAccountingCode { get; set; }
 
         /// <summary>
-        /// Tax rate
+        /// Tax rate, this is meaningless for updating an order.  For inserting a new order, if you need to override internal tax calculations, use the arbitrary fields.
         /// </summary>
-        /// <value>Tax rate</value>
+        /// <value>Tax rate, this is meaningless for updating an order.  For inserting a new order, if you need to override internal tax calculations, use the arbitrary fields.</value>
         [DataMember(Name="tax_rate", EmitDefaultValue=false)]
         public decimal? TaxRate { get; set; }
 
@@ -139,9 +177,16 @@ namespace com.ultracart.admin.v2.Model
         public decimal? TaxRateState { get; set; }
 
         /// <summary>
-        /// QuickBOoks tax state code
+        /// True if shipping is taxed
         /// </summary>
-        /// <value>QuickBOoks tax state code</value>
+        /// <value>True if shipping is taxed</value>
+        [DataMember(Name="tax_shipping", EmitDefaultValue=false)]
+        public bool? TaxShipping { get; set; }
+
+        /// <summary>
+        /// QuickBooks tax state code
+        /// </summary>
+        /// <value>QuickBooks tax state code</value>
         [DataMember(Name="tax_state_accounting_code", EmitDefaultValue=false)]
         public string TaxStateAccountingCode { get; set; }
 
@@ -153,10 +198,14 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class OrderTaxes {\n");
+            sb.Append("  ArbitraryTax: ").Append(ArbitraryTax).Append("\n");
+            sb.Append("  ArbitraryTaxRate: ").Append(ArbitraryTaxRate).Append("\n");
+            sb.Append("  ArbitraryTaxableSubtotal: ").Append(ArbitraryTaxableSubtotal).Append("\n");
             sb.Append("  TaxCityAccountingCode: ").Append(TaxCityAccountingCode).Append("\n");
             sb.Append("  TaxCountryAccountingCode: ").Append(TaxCountryAccountingCode).Append("\n");
             sb.Append("  TaxCounty: ").Append(TaxCounty).Append("\n");
             sb.Append("  TaxCountyAccountingCode: ").Append(TaxCountyAccountingCode).Append("\n");
+            sb.Append("  TaxGiftCharge: ").Append(TaxGiftCharge).Append("\n");
             sb.Append("  TaxPostalCodeAccountingCode: ").Append(TaxPostalCodeAccountingCode).Append("\n");
             sb.Append("  TaxRate: ").Append(TaxRate).Append("\n");
             sb.Append("  TaxRateCity: ").Append(TaxRateCity).Append("\n");
@@ -164,6 +213,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  TaxRateCounty: ").Append(TaxRateCounty).Append("\n");
             sb.Append("  TaxRatePostalCode: ").Append(TaxRatePostalCode).Append("\n");
             sb.Append("  TaxRateState: ").Append(TaxRateState).Append("\n");
+            sb.Append("  TaxShipping: ").Append(TaxShipping).Append("\n");
             sb.Append("  TaxStateAccountingCode: ").Append(TaxStateAccountingCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -200,6 +250,21 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.ArbitraryTax == input.ArbitraryTax ||
+                    (this.ArbitraryTax != null &&
+                    this.ArbitraryTax.Equals(input.ArbitraryTax))
+                ) && 
+                (
+                    this.ArbitraryTaxRate == input.ArbitraryTaxRate ||
+                    (this.ArbitraryTaxRate != null &&
+                    this.ArbitraryTaxRate.Equals(input.ArbitraryTaxRate))
+                ) && 
+                (
+                    this.ArbitraryTaxableSubtotal == input.ArbitraryTaxableSubtotal ||
+                    (this.ArbitraryTaxableSubtotal != null &&
+                    this.ArbitraryTaxableSubtotal.Equals(input.ArbitraryTaxableSubtotal))
+                ) && 
+                (
                     this.TaxCityAccountingCode == input.TaxCityAccountingCode ||
                     (this.TaxCityAccountingCode != null &&
                     this.TaxCityAccountingCode.Equals(input.TaxCityAccountingCode))
@@ -218,6 +283,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TaxCountyAccountingCode == input.TaxCountyAccountingCode ||
                     (this.TaxCountyAccountingCode != null &&
                     this.TaxCountyAccountingCode.Equals(input.TaxCountyAccountingCode))
+                ) && 
+                (
+                    this.TaxGiftCharge == input.TaxGiftCharge ||
+                    (this.TaxGiftCharge != null &&
+                    this.TaxGiftCharge.Equals(input.TaxGiftCharge))
                 ) && 
                 (
                     this.TaxPostalCodeAccountingCode == input.TaxPostalCodeAccountingCode ||
@@ -255,6 +325,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TaxRateState.Equals(input.TaxRateState))
                 ) && 
                 (
+                    this.TaxShipping == input.TaxShipping ||
+                    (this.TaxShipping != null &&
+                    this.TaxShipping.Equals(input.TaxShipping))
+                ) && 
+                (
                     this.TaxStateAccountingCode == input.TaxStateAccountingCode ||
                     (this.TaxStateAccountingCode != null &&
                     this.TaxStateAccountingCode.Equals(input.TaxStateAccountingCode))
@@ -270,6 +345,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ArbitraryTax != null)
+                    hashCode = hashCode * 59 + this.ArbitraryTax.GetHashCode();
+                if (this.ArbitraryTaxRate != null)
+                    hashCode = hashCode * 59 + this.ArbitraryTaxRate.GetHashCode();
+                if (this.ArbitraryTaxableSubtotal != null)
+                    hashCode = hashCode * 59 + this.ArbitraryTaxableSubtotal.GetHashCode();
                 if (this.TaxCityAccountingCode != null)
                     hashCode = hashCode * 59 + this.TaxCityAccountingCode.GetHashCode();
                 if (this.TaxCountryAccountingCode != null)
@@ -278,6 +359,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.TaxCounty.GetHashCode();
                 if (this.TaxCountyAccountingCode != null)
                     hashCode = hashCode * 59 + this.TaxCountyAccountingCode.GetHashCode();
+                if (this.TaxGiftCharge != null)
+                    hashCode = hashCode * 59 + this.TaxGiftCharge.GetHashCode();
                 if (this.TaxPostalCodeAccountingCode != null)
                     hashCode = hashCode * 59 + this.TaxPostalCodeAccountingCode.GetHashCode();
                 if (this.TaxRate != null)
@@ -292,6 +375,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.TaxRatePostalCode.GetHashCode();
                 if (this.TaxRateState != null)
                     hashCode = hashCode * 59 + this.TaxRateState.GetHashCode();
+                if (this.TaxShipping != null)
+                    hashCode = hashCode * 59 + this.TaxShipping.GetHashCode();
                 if (this.TaxStateAccountingCode != null)
                     hashCode = hashCode * 59 + this.TaxStateAccountingCode.GetHashCode();
                 return hashCode;

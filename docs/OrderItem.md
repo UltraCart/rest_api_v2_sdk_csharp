@@ -5,6 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountingCode** | **string** | QuickBooks code | [optional] 
 **ActivationCodes** | **List&lt;string&gt;** | Activation codes assigned to this item | [optional] 
+**ArbitraryUnitCost** | [**Currency**](Currency.md) |  | [optional] 
+**AutoOrderLastRebillDts** | **string** | Date/time of the last rebill, used only during order insert to help project future rebills | [optional] 
+**AutoOrderSchedule** | **string** | Auto order schedule, used only during inserts supplying the recurring schedule | [optional] 
 **Barcode** | **string** | Barcode | [optional] 
 **ChannelPartnerItemId** | **string** | Channel partner item id if this order came through a channel partner and the channel partner item id was mapped to an internal item id | [optional] 
 **Cogs** | **decimal?** | Cost of goods sold | [optional] 
@@ -36,6 +39,7 @@ Name | Type | Description | Notes
 **PackedByUser** | **string** | Packed by user | [optional] 
 **PerishableClass** | **string** | Perishable class of the item | [optional] 
 **PricingTierName** | **string** | Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned | [optional] 
+**Properties** | [**List&lt;OrderItemProperty&gt;**](OrderItemProperty.md) | Properties | [optional] 
 **Quantity** | **decimal?** | Quantity | [optional] 
 **QuantityRefunded** | **decimal?** | Quantity refunded on this item (read only except refund operation) | [optional] 
 **QuickbooksClass** | **string** | QuickBooks class | [optional] 

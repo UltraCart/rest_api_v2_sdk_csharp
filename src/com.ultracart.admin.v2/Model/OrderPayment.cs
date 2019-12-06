@@ -75,12 +75,6 @@ namespace com.ultracart.admin.v2.Model
             COD,
             
             /// <summary>
-            /// Enum Coinbase for "Coinbase"
-            /// </summary>
-            [EnumMember(Value = "Coinbase")]
-            Coinbase,
-            
-            /// <summary>
             /// Enum CreditCard for "Credit Card"
             /// </summary>
             [EnumMember(Value = "Credit Card")]
@@ -138,7 +132,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum WireTransfer for "Wire Transfer"
             /// </summary>
             [EnumMember(Value = "Wire Transfer")]
-            WireTransfer
+            WireTransfer,
+            
+            /// <summary>
+            /// Enum Walmart for "Walmart"
+            /// </summary>
+            [EnumMember(Value = "Walmart")]
+            Walmart
         }
 
         /// <summary>
@@ -217,7 +217,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CreditCard">CreditCard.</param>
         /// <param name="Echeck">Echeck.</param>
         /// <param name="HoldForFraudReview">True if order has been held for fraud review.</param>
-        /// <param name="PaymentDts">Date/time that the payment was successfully processed.</param>
+        /// <param name="PaymentDts">Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true.</param>
         /// <param name="PaymentMethod">Payment method.</param>
         /// <param name="PaymentMethodAccountingCode">Payment method QuickBooks code.</param>
         /// <param name="PaymentMethodDepositToAccount">Payment method QuickBooks deposit account.</param>
@@ -277,9 +277,9 @@ namespace com.ultracart.admin.v2.Model
         public bool? HoldForFraudReview { get; set; }
 
         /// <summary>
-        /// Date/time that the payment was successfully processed
+        /// Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true
         /// </summary>
-        /// <value>Date/time that the payment was successfully processed</value>
+        /// <value>Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true</value>
         [DataMember(Name="payment_dts", EmitDefaultValue=false)]
         public string PaymentDts { get; set; }
 

@@ -33,14 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartPayment" /> class.
         /// </summary>
+        /// <param name="Affirm">Affirm.</param>
         /// <param name="Amazon">Amazon.</param>
         /// <param name="Check">Check.</param>
         /// <param name="CreditCard">CreditCard.</param>
         /// <param name="PaymentMethod">Payment method.</param>
         /// <param name="PurchaseOrder">PurchaseOrder.</param>
         /// <param name="RtgCode">Rotating transaction gateway code.</param>
-        public CartPayment(CartPaymentAmazon Amazon = default(CartPaymentAmazon), CartPaymentCheck Check = default(CartPaymentCheck), CartPaymentCreditCard CreditCard = default(CartPaymentCreditCard), string PaymentMethod = default(string), CartPaymentPurchaseOrder PurchaseOrder = default(CartPaymentPurchaseOrder), string RtgCode = default(string))
+        public CartPayment(CartPaymentAffirm Affirm = default(CartPaymentAffirm), CartPaymentAmazon Amazon = default(CartPaymentAmazon), CartPaymentCheck Check = default(CartPaymentCheck), CartPaymentCreditCard CreditCard = default(CartPaymentCreditCard), string PaymentMethod = default(string), CartPaymentPurchaseOrder PurchaseOrder = default(CartPaymentPurchaseOrder), string RtgCode = default(string))
         {
+            this.Affirm = Affirm;
             this.Amazon = Amazon;
             this.Check = Check;
             this.CreditCard = CreditCard;
@@ -49,6 +51,12 @@ namespace com.ultracart.admin.v2.Model
             this.RtgCode = RtgCode;
         }
         
+        /// <summary>
+        /// Gets or Sets Affirm
+        /// </summary>
+        [DataMember(Name="affirm", EmitDefaultValue=false)]
+        public CartPaymentAffirm Affirm { get; set; }
+
         /// <summary>
         /// Gets or Sets Amazon
         /// </summary>
@@ -95,6 +103,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CartPayment {\n");
+            sb.Append("  Affirm: ").Append(Affirm).Append("\n");
             sb.Append("  Amazon: ").Append(Amazon).Append("\n");
             sb.Append("  Check: ").Append(Check).Append("\n");
             sb.Append("  CreditCard: ").Append(CreditCard).Append("\n");
@@ -136,6 +145,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Affirm == input.Affirm ||
+                    (this.Affirm != null &&
+                    this.Affirm.Equals(input.Affirm))
+                ) && 
+                (
                     this.Amazon == input.Amazon ||
                     (this.Amazon != null &&
                     this.Amazon.Equals(input.Amazon))
@@ -176,6 +190,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Affirm != null)
+                    hashCode = hashCode * 59 + this.Affirm.GetHashCode();
                 if (this.Amazon != null)
                     hashCode = hashCode * 59 + this.Amazon.GetHashCode();
                 if (this.Check != null)

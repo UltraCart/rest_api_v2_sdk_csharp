@@ -159,6 +159,35 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of AutoOrdersResponse</returns>
         ApiResponse<AutoOrdersResponse> GetAutoOrdersWithHttpInfo (string autoOrderCode = null, string originalOrderId = null, string firstName = null, string lastName = null, string company = null, string city = null, string state = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string originalOrderDateBegin = null, string originalOrderDateEnd = null, string nextShipmentDateBegin = null, string nextShipmentDateEnd = null, string cardType = null, string itemId = null, string status = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
         /// <summary>
+        /// Retrieve auto orders
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderQuery">Auto order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>AutoOrdersResponse</returns>
+        AutoOrdersResponse GetAutoOrdersByQuery (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
+
+        /// <summary>
+        /// Retrieve auto orders
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderQuery">Auto order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>ApiResponse of AutoOrdersResponse</returns>
+        ApiResponse<AutoOrdersResponse> GetAutoOrdersByQueryWithHttpInfo (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        /// <summary>
         /// Update an auto order
         /// </summary>
         /// <remarks>
@@ -319,6 +348,35 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (AutoOrdersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AutoOrdersResponse>> GetAutoOrdersAsyncWithHttpInfo (string autoOrderCode = null, string originalOrderId = null, string firstName = null, string lastName = null, string company = null, string city = null, string state = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string originalOrderDateBegin = null, string originalOrderDateEnd = null, string nextShipmentDateBegin = null, string nextShipmentDateEnd = null, string cardType = null, string itemId = null, string status = null, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null);
+        /// <summary>
+        /// Retrieve auto orders
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderQuery">Auto order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>Task of AutoOrdersResponse</returns>
+        System.Threading.Tasks.Task<AutoOrdersResponse> GetAutoOrdersByQueryAsync (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
+
+        /// <summary>
+        /// Retrieve auto orders
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderQuery">Auto order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>Task of ApiResponse (AutoOrdersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AutoOrdersResponse>> GetAutoOrdersByQueryAsyncWithHttpInfo (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
         /// <summary>
         /// Update an auto order
         /// </summary>
@@ -1208,6 +1266,201 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetAutoOrders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AutoOrdersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrdersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve auto orders Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderQuery">Auto order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>AutoOrdersResponse</returns>
+        public AutoOrdersResponse GetAutoOrdersByQuery (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        {
+             ApiResponse<AutoOrdersResponse> localVarResponse = GetAutoOrdersByQueryWithHttpInfo(autoOrderQuery, limit, offset, sort, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve auto orders Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderQuery">Auto order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>ApiResponse of AutoOrdersResponse</returns>
+        public ApiResponse< AutoOrdersResponse > GetAutoOrdersByQueryWithHttpInfo (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        {
+            // verify the required parameter 'autoOrderQuery' is set
+            if (autoOrderQuery == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderQuery' when calling AutoOrderApi->GetAutoOrdersByQuery");
+
+            var localVarPath = "/auto_order/auto_orders/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderQuery != null && autoOrderQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(autoOrderQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAutoOrdersByQuery", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AutoOrdersResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrdersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve auto orders Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderQuery">Auto order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>Task of AutoOrdersResponse</returns>
+        public async System.Threading.Tasks.Task<AutoOrdersResponse> GetAutoOrdersByQueryAsync (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        {
+             ApiResponse<AutoOrdersResponse> localVarResponse = await GetAutoOrdersByQueryAsyncWithHttpInfo(autoOrderQuery, limit, offset, sort, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve auto orders Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autoOrderQuery">Auto order query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result. (optional)</param>
+        /// <returns>Task of ApiResponse (AutoOrdersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AutoOrdersResponse>> GetAutoOrdersByQueryAsyncWithHttpInfo (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        {
+            // verify the required parameter 'autoOrderQuery' is set
+            if (autoOrderQuery == null)
+                throw new ApiException(400, "Missing required parameter 'autoOrderQuery' when calling AutoOrderApi->GetAutoOrdersByQuery");
+
+            var localVarPath = "/auto_order/auto_orders/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (autoOrderQuery != null && autoOrderQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(autoOrderQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autoOrderQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAutoOrdersByQuery", localVarResponse);
                 if (exception != null) throw exception;
             }
 

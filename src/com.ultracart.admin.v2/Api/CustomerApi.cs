@@ -223,6 +223,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CustomerEditorValues</returns>
         ApiResponse<CustomerEditorValues> GetEditorValuesWithHttpInfo ();
         /// <summary>
+        /// Retrieve all email lists across all storefronts
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all email lists across all storefronts 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>EmailListsResponse</returns>
+        EmailListsResponse GetEmailLists ();
+
+        /// <summary>
+        /// Retrieve all email lists across all storefronts
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all email lists across all storefronts 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of EmailListsResponse</returns>
+        ApiResponse<EmailListsResponse> GetEmailListsWithHttpInfo ();
+        /// <summary>
         /// Insert a customer
         /// </summary>
         /// <remarks>
@@ -270,6 +289,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CustomerResponse</returns>
         ApiResponse<CustomerResponse> UpdateCustomerWithHttpInfo (Customer customer, int? customerProfileOid, string expand = null);
+        /// <summary>
+        /// Update email list subscriptions for a customer
+        /// </summary>
+        /// <remarks>
+        /// Update email list subscriptions for a customer 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="listChanges">List changes</param>
+        /// <returns>CustomerEmailListChanges</returns>
+        CustomerEmailListChanges UpdateCustomerEmailLists (int? customerProfileOid, CustomerEmailListChanges listChanges);
+
+        /// <summary>
+        /// Update email list subscriptions for a customer
+        /// </summary>
+        /// <remarks>
+        /// Update email list subscriptions for a customer 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="listChanges">List changes</param>
+        /// <returns>ApiResponse of CustomerEmailListChanges</returns>
+        ApiResponse<CustomerEmailListChanges> UpdateCustomerEmailListsWithHttpInfo (int? customerProfileOid, CustomerEmailListChanges listChanges);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -471,6 +513,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (CustomerEditorValues)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerEditorValues>> GetEditorValuesAsyncWithHttpInfo ();
         /// <summary>
+        /// Retrieve all email lists across all storefronts
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all email lists across all storefronts 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of EmailListsResponse</returns>
+        System.Threading.Tasks.Task<EmailListsResponse> GetEmailListsAsync ();
+
+        /// <summary>
+        /// Retrieve all email lists across all storefronts
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all email lists across all storefronts 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (EmailListsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailListsResponse>> GetEmailListsAsyncWithHttpInfo ();
+        /// <summary>
         /// Insert a customer
         /// </summary>
         /// <remarks>
@@ -518,6 +579,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> UpdateCustomerAsyncWithHttpInfo (Customer customer, int? customerProfileOid, string expand = null);
+        /// <summary>
+        /// Update email list subscriptions for a customer
+        /// </summary>
+        /// <remarks>
+        /// Update email list subscriptions for a customer 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="listChanges">List changes</param>
+        /// <returns>Task of CustomerEmailListChanges</returns>
+        System.Threading.Tasks.Task<CustomerEmailListChanges> UpdateCustomerEmailListsAsync (int? customerProfileOid, CustomerEmailListChanges listChanges);
+
+        /// <summary>
+        /// Update email list subscriptions for a customer
+        /// </summary>
+        /// <remarks>
+        /// Update email list subscriptions for a customer 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="listChanges">List changes</param>
+        /// <returns>Task of ApiResponse (CustomerEmailListChanges)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerEmailListChanges>> UpdateCustomerEmailListsAsyncWithHttpInfo (int? customerProfileOid, CustomerEmailListChanges listChanges);
         #endregion Asynchronous Operations
     }
 
@@ -1773,6 +1857,151 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Retrieve all email lists across all storefronts Retrieve all email lists across all storefronts 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>EmailListsResponse</returns>
+        public EmailListsResponse GetEmailLists ()
+        {
+             ApiResponse<EmailListsResponse> localVarResponse = GetEmailListsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve all email lists across all storefronts Retrieve all email lists across all storefronts 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of EmailListsResponse</returns>
+        public ApiResponse< EmailListsResponse > GetEmailListsWithHttpInfo ()
+        {
+
+            var localVarPath = "/customer/email_lists";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailLists", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailListsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailListsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve all email lists across all storefronts Retrieve all email lists across all storefronts 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of EmailListsResponse</returns>
+        public async System.Threading.Tasks.Task<EmailListsResponse> GetEmailListsAsync ()
+        {
+             ApiResponse<EmailListsResponse> localVarResponse = await GetEmailListsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve all email lists across all storefronts Retrieve all email lists across all storefronts 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (EmailListsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailListsResponse>> GetEmailListsAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/customer/email_lists";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailLists", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailListsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailListsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListsResponse)));
+        }
+
+        /// <summary>
         /// Insert a customer Insert a customer on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2136,6 +2365,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomerResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CustomerResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerResponse)));
+        }
+
+        /// <summary>
+        /// Update email list subscriptions for a customer Update email list subscriptions for a customer 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="listChanges">List changes</param>
+        /// <returns>CustomerEmailListChanges</returns>
+        public CustomerEmailListChanges UpdateCustomerEmailLists (int? customerProfileOid, CustomerEmailListChanges listChanges)
+        {
+             ApiResponse<CustomerEmailListChanges> localVarResponse = UpdateCustomerEmailListsWithHttpInfo(customerProfileOid, listChanges);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update email list subscriptions for a customer Update email list subscriptions for a customer 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="listChanges">List changes</param>
+        /// <returns>ApiResponse of CustomerEmailListChanges</returns>
+        public ApiResponse< CustomerEmailListChanges > UpdateCustomerEmailListsWithHttpInfo (int? customerProfileOid, CustomerEmailListChanges listChanges)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->UpdateCustomerEmailLists");
+            // verify the required parameter 'listChanges' is set
+            if (listChanges == null)
+                throw new ApiException(400, "Missing required parameter 'listChanges' when calling CustomerApi->UpdateCustomerEmailLists");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/email_lists";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (listChanges != null && listChanges.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(listChanges); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = listChanges; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomerEmailLists", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerEmailListChanges>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerEmailListChanges) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerEmailListChanges)));
+        }
+
+        /// <summary>
+        /// Update email list subscriptions for a customer Update email list subscriptions for a customer 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="listChanges">List changes</param>
+        /// <returns>Task of CustomerEmailListChanges</returns>
+        public async System.Threading.Tasks.Task<CustomerEmailListChanges> UpdateCustomerEmailListsAsync (int? customerProfileOid, CustomerEmailListChanges listChanges)
+        {
+             ApiResponse<CustomerEmailListChanges> localVarResponse = await UpdateCustomerEmailListsAsyncWithHttpInfo(customerProfileOid, listChanges);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update email list subscriptions for a customer Update email list subscriptions for a customer 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="listChanges">List changes</param>
+        /// <returns>Task of ApiResponse (CustomerEmailListChanges)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerEmailListChanges>> UpdateCustomerEmailListsAsyncWithHttpInfo (int? customerProfileOid, CustomerEmailListChanges listChanges)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->UpdateCustomerEmailLists");
+            // verify the required parameter 'listChanges' is set
+            if (listChanges == null)
+                throw new ApiException(400, "Missing required parameter 'listChanges' when calling CustomerApi->UpdateCustomerEmailLists");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/email_lists";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (listChanges != null && listChanges.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(listChanges); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = listChanges; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomerEmailLists", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerEmailListChanges>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerEmailListChanges) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerEmailListChanges)));
         }
 
     }

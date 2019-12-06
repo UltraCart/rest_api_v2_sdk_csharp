@@ -41,6 +41,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Checkout">Checkout.</param>
         /// <param name="Coupons">Coupons.</param>
         /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="CurrencyConversion">CurrencyConversion.</param>
         /// <param name="CustomerProfile">CustomerProfile.</param>
         /// <param name="ExchangeRate">The exchange rate if the customer is viewing a different currency than the base.</param>
         /// <param name="Gift">Gift.</param>
@@ -56,7 +57,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Summary">Summary.</param>
         /// <param name="Taxes">Taxes.</param>
         /// <param name="UpsellAfter">UpsellAfter.</param>
-        public Cart(CartAffiliate Affiliate = default(CartAffiliate), string BaseCurrencyCode = default(string), CartBilling Billing = default(CartBilling), CartBuysafe Buysafe = default(CartBuysafe), string CartId = default(string), CartCheckout Checkout = default(CartCheckout), List<CartCoupon> Coupons = default(List<CartCoupon>), string CurrencyCode = default(string), CartCustomerProfile CustomerProfile = default(CartCustomerProfile), decimal? ExchangeRate = default(decimal?), CartGift Gift = default(CartGift), CartGiftCertificate GiftCertificate = default(CartGiftCertificate), List<CartItem> Items = default(List<CartItem>), string LanguageIsoCode = default(string), bool? LoggedIn = default(bool?), CartMarketing Marketing = default(CartMarketing), string MerchantId = default(string), CartPayment Payment = default(CartPayment), CartSettings Settings = default(CartSettings), CartShipping Shipping = default(CartShipping), CartSummary Summary = default(CartSummary), CartTaxes Taxes = default(CartTaxes), CartUpsellAfter UpsellAfter = default(CartUpsellAfter))
+        public Cart(CartAffiliate Affiliate = default(CartAffiliate), string BaseCurrencyCode = default(string), CartBilling Billing = default(CartBilling), CartBuysafe Buysafe = default(CartBuysafe), string CartId = default(string), CartCheckout Checkout = default(CartCheckout), List<CartCoupon> Coupons = default(List<CartCoupon>), string CurrencyCode = default(string), CartCurrencyConversion CurrencyConversion = default(CartCurrencyConversion), CartCustomerProfile CustomerProfile = default(CartCustomerProfile), decimal? ExchangeRate = default(decimal?), CartGift Gift = default(CartGift), CartGiftCertificate GiftCertificate = default(CartGiftCertificate), List<CartItem> Items = default(List<CartItem>), string LanguageIsoCode = default(string), bool? LoggedIn = default(bool?), CartMarketing Marketing = default(CartMarketing), string MerchantId = default(string), CartPayment Payment = default(CartPayment), CartSettings Settings = default(CartSettings), CartShipping Shipping = default(CartShipping), CartSummary Summary = default(CartSummary), CartTaxes Taxes = default(CartTaxes), CartUpsellAfter UpsellAfter = default(CartUpsellAfter))
         {
             this.Affiliate = Affiliate;
             this.BaseCurrencyCode = BaseCurrencyCode;
@@ -66,6 +67,7 @@ namespace com.ultracart.admin.v2.Model
             this.Checkout = Checkout;
             this.Coupons = Coupons;
             this.CurrencyCode = CurrencyCode;
+            this.CurrencyConversion = CurrencyConversion;
             this.CustomerProfile = CustomerProfile;
             this.ExchangeRate = ExchangeRate;
             this.Gift = Gift;
@@ -134,6 +136,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The ISO-4217 three letter currency code the customer is viewing prices in</value>
         [DataMember(Name="currency_code", EmitDefaultValue=false)]
         public string CurrencyCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CurrencyConversion
+        /// </summary>
+        [DataMember(Name="currency_conversion", EmitDefaultValue=false)]
+        public CartCurrencyConversion CurrencyConversion { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomerProfile
@@ -246,6 +254,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Checkout: ").Append(Checkout).Append("\n");
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
             sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
+            sb.Append("  CurrencyConversion: ").Append(CurrencyConversion).Append("\n");
             sb.Append("  CustomerProfile: ").Append(CustomerProfile).Append("\n");
             sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
             sb.Append("  Gift: ").Append(Gift).Append("\n");
@@ -334,6 +343,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CurrencyCode == input.CurrencyCode ||
                     (this.CurrencyCode != null &&
                     this.CurrencyCode.Equals(input.CurrencyCode))
+                ) && 
+                (
+                    this.CurrencyConversion == input.CurrencyConversion ||
+                    (this.CurrencyConversion != null &&
+                    this.CurrencyConversion.Equals(input.CurrencyConversion))
                 ) && 
                 (
                     this.CustomerProfile == input.CustomerProfile ||
@@ -437,6 +451,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Coupons.GetHashCode();
                 if (this.CurrencyCode != null)
                     hashCode = hashCode * 59 + this.CurrencyCode.GetHashCode();
+                if (this.CurrencyConversion != null)
+                    hashCode = hashCode * 59 + this.CurrencyConversion.GetHashCode();
                 if (this.CustomerProfile != null)
                     hashCode = hashCode * 59 + this.CustomerProfile.GetHashCode();
                 if (this.ExchangeRate != null)

@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Affirm** | [**CartPaymentAffirm**](CartPaymentAffirm.md) |  | [optional] 
 **Amazon** | [**CartPaymentAmazon**](CartPaymentAmazon.md) |  | [optional] 
 **Check** | [**CartPaymentCheck**](CartPaymentCheck.md) |  | [optional] 
 **CreditCard** | [**CartPaymentCreditCard**](CartPaymentCreditCard.md) |  | [optional] 

@@ -34,11 +34,13 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="OrderCoupon" /> class.
         /// </summary>
         /// <param name="AccountingCode">QuickBooks accounting code for this coupon.</param>
+        /// <param name="AutomaticallyApplied">Whether or not the coupon was automatically applied to the order.</param>
         /// <param name="BaseCouponCode">Coupon code configured by the merchant.  Will differ if the customer used a one time coupon code generated off this base coupon.</param>
         /// <param name="CouponCode">Coupon code entered by the customer.</param>
-        public OrderCoupon(string AccountingCode = default(string), string BaseCouponCode = default(string), string CouponCode = default(string))
+        public OrderCoupon(string AccountingCode = default(string), bool? AutomaticallyApplied = default(bool?), string BaseCouponCode = default(string), string CouponCode = default(string))
         {
             this.AccountingCode = AccountingCode;
+            this.AutomaticallyApplied = AutomaticallyApplied;
             this.BaseCouponCode = BaseCouponCode;
             this.CouponCode = CouponCode;
         }
@@ -49,6 +51,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>QuickBooks accounting code for this coupon</value>
         [DataMember(Name="accounting_code", EmitDefaultValue=false)]
         public string AccountingCode { get; set; }
+
+        /// <summary>
+        /// Whether or not the coupon was automatically applied to the order
+        /// </summary>
+        /// <value>Whether or not the coupon was automatically applied to the order</value>
+        [DataMember(Name="automatically_applied", EmitDefaultValue=false)]
+        public bool? AutomaticallyApplied { get; set; }
 
         /// <summary>
         /// Coupon code configured by the merchant.  Will differ if the customer used a one time coupon code generated off this base coupon
@@ -73,6 +82,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class OrderCoupon {\n");
             sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
+            sb.Append("  AutomaticallyApplied: ").Append(AutomaticallyApplied).Append("\n");
             sb.Append("  BaseCouponCode: ").Append(BaseCouponCode).Append("\n");
             sb.Append("  CouponCode: ").Append(CouponCode).Append("\n");
             sb.Append("}\n");
@@ -115,6 +125,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AccountingCode.Equals(input.AccountingCode))
                 ) && 
                 (
+                    this.AutomaticallyApplied == input.AutomaticallyApplied ||
+                    (this.AutomaticallyApplied != null &&
+                    this.AutomaticallyApplied.Equals(input.AutomaticallyApplied))
+                ) && 
+                (
                     this.BaseCouponCode == input.BaseCouponCode ||
                     (this.BaseCouponCode != null &&
                     this.BaseCouponCode.Equals(input.BaseCouponCode))
@@ -137,6 +152,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AccountingCode != null)
                     hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
+                if (this.AutomaticallyApplied != null)
+                    hashCode = hashCode * 59 + this.AutomaticallyApplied.GetHashCode();
                 if (this.BaseCouponCode != null)
                     hashCode = hashCode * 59 + this.BaseCouponCode.GetHashCode();
                 if (this.CouponCode != null)

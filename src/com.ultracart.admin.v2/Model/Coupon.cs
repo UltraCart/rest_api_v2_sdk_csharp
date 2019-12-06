@@ -42,6 +42,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="AmountOffSubtotalAndShipping">AmountOffSubtotalAndShipping.</param>
         /// <param name="AmountOffSubtotalWithBlockPurchase">AmountOffSubtotalWithBlockPurchase.</param>
         /// <param name="AmountOffSubtotalWithItemsPurchase">AmountOffSubtotalWithItemsPurchase.</param>
+        /// <param name="AutomaticallyApplyCouponCodes">AutomaticallyApplyCouponCodes.</param>
+        /// <param name="CalculatedDescription">Calculated description displayed to the customer if no description is specified..</param>
         /// <param name="CanBeUsedWithOtherCoupons">True if this coupon can be used with other coupons in a single order..</param>
         /// <param name="CouponOid">Coupon oid..</param>
         /// <param name="CouponType">Coupon type..</param>
@@ -80,7 +82,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="TieredPercentOffShipping">TieredPercentOffShipping.</param>
         /// <param name="TieredPercentOffSubtotal">TieredPercentOffSubtotal.</param>
         /// <param name="UsableBy">Who may use this coupon..</param>
-        public Coupon(int? AffiliateOid = default(int?), CouponAmountOffItems AmountOffItems = default(CouponAmountOffItems), CouponAmountOffShipping AmountOffShipping = default(CouponAmountOffShipping), CouponAmountOffShippingWithItemsPurchase AmountOffShippingWithItemsPurchase = default(CouponAmountOffShippingWithItemsPurchase), CouponAmountOffSubtotal AmountOffSubtotal = default(CouponAmountOffSubtotal), CouponAmountOffSubtotalFreeShippingWithPurchase AmountOffSubtotalAndFreeShipping = default(CouponAmountOffSubtotalFreeShippingWithPurchase), CouponAmountOffSubtotalAndShipping AmountOffSubtotalAndShipping = default(CouponAmountOffSubtotalAndShipping), CouponAmountOffSubtotalWithBlockPurchase AmountOffSubtotalWithBlockPurchase = default(CouponAmountOffSubtotalWithBlockPurchase), CouponAmountOffSubtotalWithItemsPurchase AmountOffSubtotalWithItemsPurchase = default(CouponAmountOffSubtotalWithItemsPurchase), bool? CanBeUsedWithOtherCoupons = default(bool?), int? CouponOid = default(int?), string CouponType = default(string), string Description = default(string), CouponDiscountItemWithItemPurchase DiscountItemWithItemPurchase = default(CouponDiscountItemWithItemPurchase), CouponDiscountItems DiscountItems = default(CouponDiscountItems), string ExpirationDts = default(string), CouponFreeItemAndShippingWithSubtotal FreeItemAndShippingWithSubtotal = default(CouponFreeItemAndShippingWithSubtotal), CouponFreeItemWithItemPurchase FreeItemWithItemPurchase = default(CouponFreeItemWithItemPurchase), CouponFreeItemWithSubtotal FreeItemWithSubtotal = default(CouponFreeItemWithSubtotal), CouponFreeItemsWithItemPurchase FreeItemsWithItemPurchase = default(CouponFreeItemsWithItemPurchase), CouponFreeItemsWithMixMatchPurchase FreeItemsWithMixmatchPurchase = default(CouponFreeItemsWithMixMatchPurchase), CouponFreeShipping FreeShipping = default(CouponFreeShipping), CouponFreeShippingSpecificItems FreeShippingSpecificItems = default(CouponFreeShippingSpecificItems), CouponFreeShippingWithItemsPurchase FreeShippingWithItemsPurchase = default(CouponFreeShippingWithItemsPurchase), CouponFreeShippingWithSubtotal FreeShippingWithSubtotal = default(CouponFreeShippingWithSubtotal), string MerchantCode = default(string), CouponMultipleAmountsOffItems MultipleAmountsOffItems = default(CouponMultipleAmountsOffItems), CouponNoDiscount NoDiscount = default(CouponNoDiscount), CouponPercentOffItemWithItemsQuantityPurchase PercentOffItemWithItemsQuantityPurchase = default(CouponPercentOffItemWithItemsQuantityPurchase), CouponPercentOffItems PercentOffItems = default(CouponPercentOffItems), CouponPercentOffItemsAndFreeShipping PercentOffItemsAndFreeShipping = default(CouponPercentOffItemsAndFreeShipping), CouponPercentOffItemsWithItemsPurchase PercentOffItemsWithItemsPurchase = default(CouponPercentOffItemsWithItemsPurchase), CouponPercentOffRetailPriceItems PercentOffRetailPriceItems = default(CouponPercentOffRetailPriceItems), CouponPercentOffShipping PercentOffShipping = default(CouponPercentOffShipping), CouponPercentOffSubtotal PercentOffSubtotal = default(CouponPercentOffSubtotal), CouponPercentOffSubtotalAndFreeShipping PercentOffSubtotalAndFreeShipping = default(CouponPercentOffSubtotalAndFreeShipping), CouponPercentOffSubtotalLimit PercentOffSubtotalLimit = default(CouponPercentOffSubtotalLimit), CouponPercentOffSubtotalWithItemsPurchase PercentOffSubtotalWithItemsPurchase = default(CouponPercentOffSubtotalWithItemsPurchase), CouponPercentOffSubtotalWithSubtotal PercentOffSubtotalWithSubtotal = default(CouponPercentOffSubtotalWithSubtotal), string QuickbooksCode = default(string), string StartDts = default(string), CouponTieredAmountOffItem TieredAmountOffItem = default(CouponTieredAmountOffItem), CouponTieredAmountOffSubtotal TieredAmountOffSubtotal = default(CouponTieredAmountOffSubtotal), CouponTieredPercentOffItems TieredPercentOffItems = default(CouponTieredPercentOffItems), CouponTieredPercentOffShipping TieredPercentOffShipping = default(CouponTieredPercentOffShipping), CouponTieredPercentOffSubtotal TieredPercentOffSubtotal = default(CouponTieredPercentOffSubtotal), string UsableBy = default(string))
+        public Coupon(int? AffiliateOid = default(int?), CouponAmountOffItems AmountOffItems = default(CouponAmountOffItems), CouponAmountOffShipping AmountOffShipping = default(CouponAmountOffShipping), CouponAmountOffShippingWithItemsPurchase AmountOffShippingWithItemsPurchase = default(CouponAmountOffShippingWithItemsPurchase), CouponAmountOffSubtotal AmountOffSubtotal = default(CouponAmountOffSubtotal), CouponAmountOffSubtotalFreeShippingWithPurchase AmountOffSubtotalAndFreeShipping = default(CouponAmountOffSubtotalFreeShippingWithPurchase), CouponAmountOffSubtotalAndShipping AmountOffSubtotalAndShipping = default(CouponAmountOffSubtotalAndShipping), CouponAmountOffSubtotalWithBlockPurchase AmountOffSubtotalWithBlockPurchase = default(CouponAmountOffSubtotalWithBlockPurchase), CouponAmountOffSubtotalWithItemsPurchase AmountOffSubtotalWithItemsPurchase = default(CouponAmountOffSubtotalWithItemsPurchase), CouponAutomaticallyApplyCouponCodes AutomaticallyApplyCouponCodes = default(CouponAutomaticallyApplyCouponCodes), string CalculatedDescription = default(string), bool? CanBeUsedWithOtherCoupons = default(bool?), int? CouponOid = default(int?), string CouponType = default(string), string Description = default(string), CouponDiscountItemWithItemPurchase DiscountItemWithItemPurchase = default(CouponDiscountItemWithItemPurchase), CouponDiscountItems DiscountItems = default(CouponDiscountItems), string ExpirationDts = default(string), CouponFreeItemAndShippingWithSubtotal FreeItemAndShippingWithSubtotal = default(CouponFreeItemAndShippingWithSubtotal), CouponFreeItemWithItemPurchase FreeItemWithItemPurchase = default(CouponFreeItemWithItemPurchase), CouponFreeItemWithSubtotal FreeItemWithSubtotal = default(CouponFreeItemWithSubtotal), CouponFreeItemsWithItemPurchase FreeItemsWithItemPurchase = default(CouponFreeItemsWithItemPurchase), CouponFreeItemsWithMixMatchPurchase FreeItemsWithMixmatchPurchase = default(CouponFreeItemsWithMixMatchPurchase), CouponFreeShipping FreeShipping = default(CouponFreeShipping), CouponFreeShippingSpecificItems FreeShippingSpecificItems = default(CouponFreeShippingSpecificItems), CouponFreeShippingWithItemsPurchase FreeShippingWithItemsPurchase = default(CouponFreeShippingWithItemsPurchase), CouponFreeShippingWithSubtotal FreeShippingWithSubtotal = default(CouponFreeShippingWithSubtotal), string MerchantCode = default(string), CouponMultipleAmountsOffItems MultipleAmountsOffItems = default(CouponMultipleAmountsOffItems), CouponNoDiscount NoDiscount = default(CouponNoDiscount), CouponPercentOffItemWithItemsQuantityPurchase PercentOffItemWithItemsQuantityPurchase = default(CouponPercentOffItemWithItemsQuantityPurchase), CouponPercentOffItems PercentOffItems = default(CouponPercentOffItems), CouponPercentOffItemsAndFreeShipping PercentOffItemsAndFreeShipping = default(CouponPercentOffItemsAndFreeShipping), CouponPercentOffItemsWithItemsPurchase PercentOffItemsWithItemsPurchase = default(CouponPercentOffItemsWithItemsPurchase), CouponPercentOffRetailPriceItems PercentOffRetailPriceItems = default(CouponPercentOffRetailPriceItems), CouponPercentOffShipping PercentOffShipping = default(CouponPercentOffShipping), CouponPercentOffSubtotal PercentOffSubtotal = default(CouponPercentOffSubtotal), CouponPercentOffSubtotalAndFreeShipping PercentOffSubtotalAndFreeShipping = default(CouponPercentOffSubtotalAndFreeShipping), CouponPercentOffSubtotalLimit PercentOffSubtotalLimit = default(CouponPercentOffSubtotalLimit), CouponPercentOffSubtotalWithItemsPurchase PercentOffSubtotalWithItemsPurchase = default(CouponPercentOffSubtotalWithItemsPurchase), CouponPercentOffSubtotalWithSubtotal PercentOffSubtotalWithSubtotal = default(CouponPercentOffSubtotalWithSubtotal), string QuickbooksCode = default(string), string StartDts = default(string), CouponTieredAmountOffItem TieredAmountOffItem = default(CouponTieredAmountOffItem), CouponTieredAmountOffSubtotal TieredAmountOffSubtotal = default(CouponTieredAmountOffSubtotal), CouponTieredPercentOffItems TieredPercentOffItems = default(CouponTieredPercentOffItems), CouponTieredPercentOffShipping TieredPercentOffShipping = default(CouponTieredPercentOffShipping), CouponTieredPercentOffSubtotal TieredPercentOffSubtotal = default(CouponTieredPercentOffSubtotal), string UsableBy = default(string))
         {
             this.AffiliateOid = AffiliateOid;
             this.AmountOffItems = AmountOffItems;
@@ -91,6 +93,8 @@ namespace com.ultracart.admin.v2.Model
             this.AmountOffSubtotalAndShipping = AmountOffSubtotalAndShipping;
             this.AmountOffSubtotalWithBlockPurchase = AmountOffSubtotalWithBlockPurchase;
             this.AmountOffSubtotalWithItemsPurchase = AmountOffSubtotalWithItemsPurchase;
+            this.AutomaticallyApplyCouponCodes = AutomaticallyApplyCouponCodes;
+            this.CalculatedDescription = CalculatedDescription;
             this.CanBeUsedWithOtherCoupons = CanBeUsedWithOtherCoupons;
             this.CouponOid = CouponOid;
             this.CouponType = CouponType;
@@ -185,6 +189,19 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="amount_off_subtotal_with_items_purchase", EmitDefaultValue=false)]
         public CouponAmountOffSubtotalWithItemsPurchase AmountOffSubtotalWithItemsPurchase { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AutomaticallyApplyCouponCodes
+        /// </summary>
+        [DataMember(Name="automatically_apply_coupon_codes", EmitDefaultValue=false)]
+        public CouponAutomaticallyApplyCouponCodes AutomaticallyApplyCouponCodes { get; set; }
+
+        /// <summary>
+        /// Calculated description displayed to the customer if no description is specified.
+        /// </summary>
+        /// <value>Calculated description displayed to the customer if no description is specified.</value>
+        [DataMember(Name="calculated_)description", EmitDefaultValue=false)]
+        public string CalculatedDescription { get; set; }
 
         /// <summary>
         /// True if this coupon can be used with other coupons in a single order.
@@ -440,6 +457,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AmountOffSubtotalAndShipping: ").Append(AmountOffSubtotalAndShipping).Append("\n");
             sb.Append("  AmountOffSubtotalWithBlockPurchase: ").Append(AmountOffSubtotalWithBlockPurchase).Append("\n");
             sb.Append("  AmountOffSubtotalWithItemsPurchase: ").Append(AmountOffSubtotalWithItemsPurchase).Append("\n");
+            sb.Append("  AutomaticallyApplyCouponCodes: ").Append(AutomaticallyApplyCouponCodes).Append("\n");
+            sb.Append("  CalculatedDescription: ").Append(CalculatedDescription).Append("\n");
             sb.Append("  CanBeUsedWithOtherCoupons: ").Append(CanBeUsedWithOtherCoupons).Append("\n");
             sb.Append("  CouponOid: ").Append(CouponOid).Append("\n");
             sb.Append("  CouponType: ").Append(CouponType).Append("\n");
@@ -556,6 +575,16 @@ namespace com.ultracart.admin.v2.Model
                     this.AmountOffSubtotalWithItemsPurchase == input.AmountOffSubtotalWithItemsPurchase ||
                     (this.AmountOffSubtotalWithItemsPurchase != null &&
                     this.AmountOffSubtotalWithItemsPurchase.Equals(input.AmountOffSubtotalWithItemsPurchase))
+                ) && 
+                (
+                    this.AutomaticallyApplyCouponCodes == input.AutomaticallyApplyCouponCodes ||
+                    (this.AutomaticallyApplyCouponCodes != null &&
+                    this.AutomaticallyApplyCouponCodes.Equals(input.AutomaticallyApplyCouponCodes))
+                ) && 
+                (
+                    this.CalculatedDescription == input.CalculatedDescription ||
+                    (this.CalculatedDescription != null &&
+                    this.CalculatedDescription.Equals(input.CalculatedDescription))
                 ) && 
                 (
                     this.CanBeUsedWithOtherCoupons == input.CanBeUsedWithOtherCoupons ||
@@ -776,6 +805,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AmountOffSubtotalWithBlockPurchase.GetHashCode();
                 if (this.AmountOffSubtotalWithItemsPurchase != null)
                     hashCode = hashCode * 59 + this.AmountOffSubtotalWithItemsPurchase.GetHashCode();
+                if (this.AutomaticallyApplyCouponCodes != null)
+                    hashCode = hashCode * 59 + this.AutomaticallyApplyCouponCodes.GetHashCode();
+                if (this.CalculatedDescription != null)
+                    hashCode = hashCode * 59 + this.CalculatedDescription.GetHashCode();
                 if (this.CanBeUsedWithOtherCoupons != null)
                     hashCode = hashCode * 59 + this.CanBeUsedWithOtherCoupons.GetHashCode();
                 if (this.CouponOid != null)

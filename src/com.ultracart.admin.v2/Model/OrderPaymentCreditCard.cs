@@ -94,7 +94,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CardNumberToken">Card number token from hosted fields used to update the cart number.</param>
         /// <param name="CardNumberTruncated">True if the card has been truncated.</param>
         /// <param name="CardType">Card type.</param>
-        public OrderPaymentCreditCard(string CardAuthTicket = default(string), decimal? CardAuthorizationAmount = default(decimal?), string CardAuthorizationDts = default(string), string CardAuthorizationReferenceNumber = default(string), int? CardExpirationMonth = default(int?), int? CardExpirationYear = default(int?), string CardNumber = default(string), string CardNumberToken = default(string), bool? CardNumberTruncated = default(bool?), CardTypeEnum? CardType = default(CardTypeEnum?))
+        /// <param name="CardVerificationNumberToken">Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries.</param>
+        public OrderPaymentCreditCard(string CardAuthTicket = default(string), decimal? CardAuthorizationAmount = default(decimal?), string CardAuthorizationDts = default(string), string CardAuthorizationReferenceNumber = default(string), int? CardExpirationMonth = default(int?), int? CardExpirationYear = default(int?), string CardNumber = default(string), string CardNumberToken = default(string), bool? CardNumberTruncated = default(bool?), CardTypeEnum? CardType = default(CardTypeEnum?), string CardVerificationNumberToken = default(string))
         {
             this.CardAuthTicket = CardAuthTicket;
             this.CardAuthorizationAmount = CardAuthorizationAmount;
@@ -106,6 +107,7 @@ namespace com.ultracart.admin.v2.Model
             this.CardNumberToken = CardNumberToken;
             this.CardNumberTruncated = CardNumberTruncated;
             this.CardType = CardType;
+            this.CardVerificationNumberToken = CardVerificationNumberToken;
         }
         
         /// <summary>
@@ -173,6 +175,13 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
+        /// Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries
+        /// </summary>
+        /// <value>Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries</value>
+        [DataMember(Name="card_verification_number_token", EmitDefaultValue=false)]
+        public string CardVerificationNumberToken { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -190,6 +199,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CardNumberToken: ").Append(CardNumberToken).Append("\n");
             sb.Append("  CardNumberTruncated: ").Append(CardNumberTruncated).Append("\n");
             sb.Append("  CardType: ").Append(CardType).Append("\n");
+            sb.Append("  CardVerificationNumberToken: ").Append(CardVerificationNumberToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -273,6 +283,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CardType == input.CardType ||
                     (this.CardType != null &&
                     this.CardType.Equals(input.CardType))
+                ) && 
+                (
+                    this.CardVerificationNumberToken == input.CardVerificationNumberToken ||
+                    (this.CardVerificationNumberToken != null &&
+                    this.CardVerificationNumberToken.Equals(input.CardVerificationNumberToken))
                 );
         }
 
@@ -305,6 +320,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CardNumberTruncated.GetHashCode();
                 if (this.CardType != null)
                     hashCode = hashCode * 59 + this.CardType.GetHashCode();
+                if (this.CardVerificationNumberToken != null)
+                    hashCode = hashCode * 59 + this.CardVerificationNumberToken.GetHashCode();
                 return hashCode;
             }
         }

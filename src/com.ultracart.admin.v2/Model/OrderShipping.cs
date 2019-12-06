@@ -39,10 +39,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Company">Company.</param>
         /// <param name="CountryCode">ISO-3166 two letter country code.</param>
         /// <param name="DayPhone">Day time phone.</param>
+        /// <param name="DayPhoneE164">Day time phone (E164 format).</param>
         /// <param name="DeliveryDate">Date the customer is requesting delivery on.  Typically used for perishable product delivery..</param>
         /// <param name="EveningPhone">Evening phone.</param>
         /// <param name="FirstName">First name.</param>
         /// <param name="LastName">Last name.</param>
+        /// <param name="LeastCostRoute">If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts..</param>
+        /// <param name="LeastCostRouteShippingMethods">List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts..</param>
         /// <param name="LiftGate">Lift gate requested (LTL shipping methods only).</param>
         /// <param name="PostalCode">Postal code.</param>
         /// <param name="Rma">RMA number.</param>
@@ -58,7 +61,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Title">Title.</param>
         /// <param name="TrackingNumbers">Tracking numbers.</param>
         /// <param name="Weight">Weight.</param>
-        public OrderShipping(string Address1 = default(string), string Address2 = default(string), string City = default(string), string Company = default(string), string CountryCode = default(string), string DayPhone = default(string), string DeliveryDate = default(string), string EveningPhone = default(string), string FirstName = default(string), string LastName = default(string), bool? LiftGate = default(bool?), string PostalCode = default(string), string Rma = default(string), string ShipOnDate = default(string), bool? ShipToResidential = default(bool?), string Shipping3rdPartyAccountNumber = default(string), string ShippingDate = default(string), string ShippingDepartmentStatus = default(string), string ShippingMethod = default(string), string ShippingMethodAccountingCode = default(string), string SpecialInstructions = default(string), string StateRegion = default(string), string Title = default(string), List<string> TrackingNumbers = default(List<string>), Weight Weight = default(Weight))
+        public OrderShipping(string Address1 = default(string), string Address2 = default(string), string City = default(string), string Company = default(string), string CountryCode = default(string), string DayPhone = default(string), string DayPhoneE164 = default(string), string DeliveryDate = default(string), string EveningPhone = default(string), string FirstName = default(string), string LastName = default(string), bool? LeastCostRoute = default(bool?), List<string> LeastCostRouteShippingMethods = default(List<string>), bool? LiftGate = default(bool?), string PostalCode = default(string), string Rma = default(string), string ShipOnDate = default(string), bool? ShipToResidential = default(bool?), string Shipping3rdPartyAccountNumber = default(string), string ShippingDate = default(string), string ShippingDepartmentStatus = default(string), string ShippingMethod = default(string), string ShippingMethodAccountingCode = default(string), string SpecialInstructions = default(string), string StateRegion = default(string), string Title = default(string), List<string> TrackingNumbers = default(List<string>), Weight Weight = default(Weight))
         {
             this.Address1 = Address1;
             this.Address2 = Address2;
@@ -66,10 +69,13 @@ namespace com.ultracart.admin.v2.Model
             this.Company = Company;
             this.CountryCode = CountryCode;
             this.DayPhone = DayPhone;
+            this.DayPhoneE164 = DayPhoneE164;
             this.DeliveryDate = DeliveryDate;
             this.EveningPhone = EveningPhone;
             this.FirstName = FirstName;
             this.LastName = LastName;
+            this.LeastCostRoute = LeastCostRoute;
+            this.LeastCostRouteShippingMethods = LeastCostRouteShippingMethods;
             this.LiftGate = LiftGate;
             this.PostalCode = PostalCode;
             this.Rma = Rma;
@@ -130,6 +136,13 @@ namespace com.ultracart.admin.v2.Model
         public string DayPhone { get; set; }
 
         /// <summary>
+        /// Day time phone (E164 format)
+        /// </summary>
+        /// <value>Day time phone (E164 format)</value>
+        [DataMember(Name="day_phone_e164", EmitDefaultValue=false)]
+        public string DayPhoneE164 { get; set; }
+
+        /// <summary>
         /// Date the customer is requesting delivery on.  Typically used for perishable product delivery.
         /// </summary>
         /// <value>Date the customer is requesting delivery on.  Typically used for perishable product delivery.</value>
@@ -156,6 +169,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Last name</value>
         [DataMember(Name="last_name", EmitDefaultValue=false)]
         public string LastName { get; set; }
+
+        /// <summary>
+        /// If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts.
+        /// </summary>
+        /// <value>If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts.</value>
+        [DataMember(Name="least_cost_route", EmitDefaultValue=false)]
+        public bool? LeastCostRoute { get; set; }
+
+        /// <summary>
+        /// List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts.
+        /// </summary>
+        /// <value>List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts.</value>
+        [DataMember(Name="least_cost_route_shipping_methods", EmitDefaultValue=false)]
+        public List<string> LeastCostRouteShippingMethods { get; set; }
 
         /// <summary>
         /// Lift gate requested (LTL shipping methods only)
@@ -275,10 +302,13 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Company: ").Append(Company).Append("\n");
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  DayPhone: ").Append(DayPhone).Append("\n");
+            sb.Append("  DayPhoneE164: ").Append(DayPhoneE164).Append("\n");
             sb.Append("  DeliveryDate: ").Append(DeliveryDate).Append("\n");
             sb.Append("  EveningPhone: ").Append(EveningPhone).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  LeastCostRoute: ").Append(LeastCostRoute).Append("\n");
+            sb.Append("  LeastCostRouteShippingMethods: ").Append(LeastCostRouteShippingMethods).Append("\n");
             sb.Append("  LiftGate: ").Append(LiftGate).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  Rma: ").Append(Rma).Append("\n");
@@ -359,6 +389,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DayPhone.Equals(input.DayPhone))
                 ) && 
                 (
+                    this.DayPhoneE164 == input.DayPhoneE164 ||
+                    (this.DayPhoneE164 != null &&
+                    this.DayPhoneE164.Equals(input.DayPhoneE164))
+                ) && 
+                (
                     this.DeliveryDate == input.DeliveryDate ||
                     (this.DeliveryDate != null &&
                     this.DeliveryDate.Equals(input.DeliveryDate))
@@ -377,6 +412,16 @@ namespace com.ultracart.admin.v2.Model
                     this.LastName == input.LastName ||
                     (this.LastName != null &&
                     this.LastName.Equals(input.LastName))
+                ) && 
+                (
+                    this.LeastCostRoute == input.LeastCostRoute ||
+                    (this.LeastCostRoute != null &&
+                    this.LeastCostRoute.Equals(input.LeastCostRoute))
+                ) && 
+                (
+                    this.LeastCostRouteShippingMethods == input.LeastCostRouteShippingMethods ||
+                    this.LeastCostRouteShippingMethods != null &&
+                    this.LeastCostRouteShippingMethods.SequenceEqual(input.LeastCostRouteShippingMethods)
                 ) && 
                 (
                     this.LiftGate == input.LiftGate ||
@@ -476,6 +521,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.DayPhone != null)
                     hashCode = hashCode * 59 + this.DayPhone.GetHashCode();
+                if (this.DayPhoneE164 != null)
+                    hashCode = hashCode * 59 + this.DayPhoneE164.GetHashCode();
                 if (this.DeliveryDate != null)
                     hashCode = hashCode * 59 + this.DeliveryDate.GetHashCode();
                 if (this.EveningPhone != null)
@@ -484,6 +531,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
+                if (this.LeastCostRoute != null)
+                    hashCode = hashCode * 59 + this.LeastCostRoute.GetHashCode();
+                if (this.LeastCostRouteShippingMethods != null)
+                    hashCode = hashCode * 59 + this.LeastCostRouteShippingMethods.GetHashCode();
                 if (this.LiftGate != null)
                     hashCode = hashCode * 59 + this.LiftGate.GetHashCode();
                 if (this.PostalCode != null)
@@ -559,6 +610,12 @@ namespace com.ultracart.admin.v2.Model
             if(this.DayPhone != null && this.DayPhone.Length > 25)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayPhone, length must be less than 25.", new [] { "DayPhone" });
+            }
+
+            // DayPhoneE164 (string) maxLength
+            if(this.DayPhoneE164 != null && this.DayPhoneE164.Length > 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayPhoneE164, length must be less than 25.", new [] { "DayPhoneE164" });
             }
 
             // EveningPhone (string) maxLength

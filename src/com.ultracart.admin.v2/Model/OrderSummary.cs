@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderSummary" /> class.
         /// </summary>
+        /// <param name="ArbitraryShippingHandlingTotal">ArbitraryShippingHandlingTotal.</param>
         /// <param name="OtherRefunded">OtherRefunded.</param>
         /// <param name="ShippingHandlingRefunded">ShippingHandlingRefunded.</param>
         /// <param name="ShippingHandlingTotal">ShippingHandlingTotal.</param>
@@ -47,8 +48,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="TaxableSubtotalDiscount">TaxableSubtotalDiscount.</param>
         /// <param name="Total">Total.</param>
         /// <param name="TotalRefunded">TotalRefunded.</param>
-        public OrderSummary(Currency OtherRefunded = default(Currency), Currency ShippingHandlingRefunded = default(Currency), Currency ShippingHandlingTotal = default(Currency), Currency ShippingHandlingTotalDiscount = default(Currency), Currency Subtotal = default(Currency), Currency SubtotalDiscount = default(Currency), Currency SubtotalDiscountRefunded = default(Currency), Currency SubtotalRefunded = default(Currency), Currency Tax = default(Currency), Currency TaxRefunded = default(Currency), Currency TaxableSubtotal = default(Currency), Currency TaxableSubtotalDiscount = default(Currency), Currency Total = default(Currency), Currency TotalRefunded = default(Currency))
+        public OrderSummary(Currency ArbitraryShippingHandlingTotal = default(Currency), Currency OtherRefunded = default(Currency), Currency ShippingHandlingRefunded = default(Currency), Currency ShippingHandlingTotal = default(Currency), Currency ShippingHandlingTotalDiscount = default(Currency), Currency Subtotal = default(Currency), Currency SubtotalDiscount = default(Currency), Currency SubtotalDiscountRefunded = default(Currency), Currency SubtotalRefunded = default(Currency), Currency Tax = default(Currency), Currency TaxRefunded = default(Currency), Currency TaxableSubtotal = default(Currency), Currency TaxableSubtotalDiscount = default(Currency), Currency Total = default(Currency), Currency TotalRefunded = default(Currency))
         {
+            this.ArbitraryShippingHandlingTotal = ArbitraryShippingHandlingTotal;
             this.OtherRefunded = OtherRefunded;
             this.ShippingHandlingRefunded = ShippingHandlingRefunded;
             this.ShippingHandlingTotal = ShippingHandlingTotal;
@@ -65,6 +67,12 @@ namespace com.ultracart.admin.v2.Model
             this.TotalRefunded = TotalRefunded;
         }
         
+        /// <summary>
+        /// Gets or Sets ArbitraryShippingHandlingTotal
+        /// </summary>
+        [DataMember(Name="arbitrary_shipping_handling_total", EmitDefaultValue=false)]
+        public Currency ArbitraryShippingHandlingTotal { get; set; }
+
         /// <summary>
         /// Gets or Sets OtherRefunded
         /// </summary>
@@ -157,6 +165,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class OrderSummary {\n");
+            sb.Append("  ArbitraryShippingHandlingTotal: ").Append(ArbitraryShippingHandlingTotal).Append("\n");
             sb.Append("  OtherRefunded: ").Append(OtherRefunded).Append("\n");
             sb.Append("  ShippingHandlingRefunded: ").Append(ShippingHandlingRefunded).Append("\n");
             sb.Append("  ShippingHandlingTotal: ").Append(ShippingHandlingTotal).Append("\n");
@@ -205,6 +214,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.ArbitraryShippingHandlingTotal == input.ArbitraryShippingHandlingTotal ||
+                    (this.ArbitraryShippingHandlingTotal != null &&
+                    this.ArbitraryShippingHandlingTotal.Equals(input.ArbitraryShippingHandlingTotal))
+                ) && 
                 (
                     this.OtherRefunded == input.OtherRefunded ||
                     (this.OtherRefunded != null &&
@@ -286,6 +300,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ArbitraryShippingHandlingTotal != null)
+                    hashCode = hashCode * 59 + this.ArbitraryShippingHandlingTotal.GetHashCode();
                 if (this.OtherRefunded != null)
                     hashCode = hashCode * 59 + this.OtherRefunded.GetHashCode();
                 if (this.ShippingHandlingRefunded != null)

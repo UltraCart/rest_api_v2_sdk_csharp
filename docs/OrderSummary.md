@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ArbitraryShippingHandlingTotal** | [**Currency**](Currency.md) |  | [optional] 
 **OtherRefunded** | [**Currency**](Currency.md) |  | [optional] 
 **ShippingHandlingRefunded** | [**Currency**](Currency.md) |  | [optional] 
 **ShippingHandlingTotal** | [**Currency**](Currency.md) |  | [optional] 

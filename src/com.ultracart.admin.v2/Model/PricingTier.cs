@@ -61,9 +61,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="RealtimePercentageDiscount">Realtime percentage discount.</param>
         /// <param name="SignupNotification">SignupNotification.</param>
         /// <param name="SuppressBuysafe">Suppress buySAFE.</param>
+        /// <param name="SuppressMailingList">Suppress mailing list.</param>
         /// <param name="TaxExempt">Tax Exempt.</param>
         /// <param name="TrackSeparately">Track separately.</param>
-        public PricingTier(bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), bool? AllowQuoteRequest = default(bool?), PricingTierNotification ApprovalNotification = default(PricingTierNotification), bool? AutoApproveCod = default(bool?), bool? AutoApprovePurchaseOrder = default(bool?), bool? DefaultOnWholesaleSignup = default(bool?), decimal? DefaultPercentageDiscount = default(decimal?), int? DefaultShippingMethodOid = default(int?), bool? DefaultTier = default(bool?), bool? DisplayOnWholesaleSignup = default(bool?), bool? ExcludeFromFreePromotion = default(bool?), bool? ExemptShippingHandlingCharge = default(bool?), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), string Name = default(string), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), bool? NotValidWhenCouponPresent = default(bool?), int? PricingTierOid = default(int?), decimal? RealtimePercentageDiscount = default(decimal?), PricingTierNotification SignupNotification = default(PricingTierNotification), bool? SuppressBuysafe = default(bool?), bool? TaxExempt = default(bool?), bool? TrackSeparately = default(bool?))
+        public PricingTier(bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), bool? AllowQuoteRequest = default(bool?), PricingTierNotification ApprovalNotification = default(PricingTierNotification), bool? AutoApproveCod = default(bool?), bool? AutoApprovePurchaseOrder = default(bool?), bool? DefaultOnWholesaleSignup = default(bool?), decimal? DefaultPercentageDiscount = default(decimal?), int? DefaultShippingMethodOid = default(int?), bool? DefaultTier = default(bool?), bool? DisplayOnWholesaleSignup = default(bool?), bool? ExcludeFromFreePromotion = default(bool?), bool? ExemptShippingHandlingCharge = default(bool?), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), string Name = default(string), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), bool? NotValidWhenCouponPresent = default(bool?), int? PricingTierOid = default(int?), decimal? RealtimePercentageDiscount = default(decimal?), PricingTierNotification SignupNotification = default(PricingTierNotification), bool? SuppressBuysafe = default(bool?), bool? SuppressMailingList = default(bool?), bool? TaxExempt = default(bool?), bool? TrackSeparately = default(bool?))
         {
             this.Allow3rdPartyBilling = Allow3rdPartyBilling;
             this.AllowCod = AllowCod;
@@ -93,6 +94,7 @@ namespace com.ultracart.admin.v2.Model
             this.RealtimePercentageDiscount = RealtimePercentageDiscount;
             this.SignupNotification = SignupNotification;
             this.SuppressBuysafe = SuppressBuysafe;
+            this.SuppressMailingList = SuppressMailingList;
             this.TaxExempt = TaxExempt;
             this.TrackSeparately = TrackSeparately;
         }
@@ -292,6 +294,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? SuppressBuysafe { get; set; }
 
         /// <summary>
+        /// Suppress mailing list
+        /// </summary>
+        /// <value>Suppress mailing list</value>
+        [DataMember(Name="suppress_mailing_list", EmitDefaultValue=false)]
+        public bool? SuppressMailingList { get; set; }
+
+        /// <summary>
         /// Tax Exempt
         /// </summary>
         /// <value>Tax Exempt</value>
@@ -341,6 +350,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  RealtimePercentageDiscount: ").Append(RealtimePercentageDiscount).Append("\n");
             sb.Append("  SignupNotification: ").Append(SignupNotification).Append("\n");
             sb.Append("  SuppressBuysafe: ").Append(SuppressBuysafe).Append("\n");
+            sb.Append("  SuppressMailingList: ").Append(SuppressMailingList).Append("\n");
             sb.Append("  TaxExempt: ").Append(TaxExempt).Append("\n");
             sb.Append("  TrackSeparately: ").Append(TrackSeparately).Append("\n");
             sb.Append("}\n");
@@ -518,6 +528,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SuppressBuysafe.Equals(input.SuppressBuysafe))
                 ) && 
                 (
+                    this.SuppressMailingList == input.SuppressMailingList ||
+                    (this.SuppressMailingList != null &&
+                    this.SuppressMailingList.Equals(input.SuppressMailingList))
+                ) && 
+                (
                     this.TaxExempt == input.TaxExempt ||
                     (this.TaxExempt != null &&
                     this.TaxExempt.Equals(input.TaxExempt))
@@ -594,6 +609,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SignupNotification.GetHashCode();
                 if (this.SuppressBuysafe != null)
                     hashCode = hashCode * 59 + this.SuppressBuysafe.GetHashCode();
+                if (this.SuppressMailingList != null)
+                    hashCode = hashCode * 59 + this.SuppressMailingList.GetHashCode();
                 if (this.TaxExempt != null)
                     hashCode = hashCode * 59 + this.TaxExempt.GetHashCode();
                 if (this.TrackSeparately != null)

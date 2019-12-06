@@ -40,6 +40,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Company">Company.</param>
         /// <param name="CountryCode">ISO-3166 two letter country code.</param>
         /// <param name="DayPhone">Day time phone.</param>
+        /// <param name="DayPhoneE164">Day time phone (E164 format).</param>
         /// <param name="Email">Email.</param>
         /// <param name="EveningPhone">Evening phone.</param>
         /// <param name="FirstName">First name.</param>
@@ -47,7 +48,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="PostalCode">Postal code.</param>
         /// <param name="StateRegion">State for United States otherwise region or province for other countries.</param>
         /// <param name="Title">Title.</param>
-        public OrderBilling(string Address1 = default(string), string Address2 = default(string), List<string> CcEmails = default(List<string>), string City = default(string), string Company = default(string), string CountryCode = default(string), string DayPhone = default(string), string Email = default(string), string EveningPhone = default(string), string FirstName = default(string), string LastName = default(string), string PostalCode = default(string), string StateRegion = default(string), string Title = default(string))
+        public OrderBilling(string Address1 = default(string), string Address2 = default(string), List<string> CcEmails = default(List<string>), string City = default(string), string Company = default(string), string CountryCode = default(string), string DayPhone = default(string), string DayPhoneE164 = default(string), string Email = default(string), string EveningPhone = default(string), string FirstName = default(string), string LastName = default(string), string PostalCode = default(string), string StateRegion = default(string), string Title = default(string))
         {
             this.Address1 = Address1;
             this.Address2 = Address2;
@@ -56,6 +57,7 @@ namespace com.ultracart.admin.v2.Model
             this.Company = Company;
             this.CountryCode = CountryCode;
             this.DayPhone = DayPhone;
+            this.DayPhoneE164 = DayPhoneE164;
             this.Email = Email;
             this.EveningPhone = EveningPhone;
             this.FirstName = FirstName;
@@ -113,6 +115,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Day time phone</value>
         [DataMember(Name="day_phone", EmitDefaultValue=false)]
         public string DayPhone { get; set; }
+
+        /// <summary>
+        /// Day time phone (E164 format)
+        /// </summary>
+        /// <value>Day time phone (E164 format)</value>
+        [DataMember(Name="day_phone_e164", EmitDefaultValue=false)]
+        public string DayPhoneE164 { get; set; }
 
         /// <summary>
         /// Email
@@ -178,6 +187,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Company: ").Append(Company).Append("\n");
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  DayPhone: ").Append(DayPhone).Append("\n");
+            sb.Append("  DayPhoneE164: ").Append(DayPhoneE164).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  EveningPhone: ").Append(EveningPhone).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
@@ -255,6 +265,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DayPhone.Equals(input.DayPhone))
                 ) && 
                 (
+                    this.DayPhoneE164 == input.DayPhoneE164 ||
+                    (this.DayPhoneE164 != null &&
+                    this.DayPhoneE164.Equals(input.DayPhoneE164))
+                ) && 
+                (
                     this.Email == input.Email ||
                     (this.Email != null &&
                     this.Email.Equals(input.Email))
@@ -314,6 +329,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
                 if (this.DayPhone != null)
                     hashCode = hashCode * 59 + this.DayPhone.GetHashCode();
+                if (this.DayPhoneE164 != null)
+                    hashCode = hashCode * 59 + this.DayPhoneE164.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.EveningPhone != null)
@@ -373,6 +390,12 @@ namespace com.ultracart.admin.v2.Model
             if(this.DayPhone != null && this.DayPhone.Length > 25)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayPhone, length must be less than 25.", new [] { "DayPhone" });
+            }
+
+            // DayPhoneE164 (string) maxLength
+            if(this.DayPhoneE164 != null && this.DayPhoneE164.Length > 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayPhoneE164, length must be less than 25.", new [] { "DayPhoneE164" });
             }
 
             // Email (string) maxLength

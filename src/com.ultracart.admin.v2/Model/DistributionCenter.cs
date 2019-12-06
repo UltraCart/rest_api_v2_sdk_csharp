@@ -46,6 +46,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="FtpPassword">Password associated with the virtual FTP.</param>
         /// <param name="HoldBeforeShipmentMinutes">The number of minutes to hold a shipment.</param>
         /// <param name="HoldBeforeTransmission">True if the shipment should be held before transmission and require a manual release.</param>
+        /// <param name="HoldAutoOrderBeforeShipmentMinutes">HoldAutoOrderBeforeShipmentMinutes.</param>
         /// <param name="Latitude">Latitude where the distribution center is located.</param>
         /// <param name="Longitude">Longitude where the distribution center is located.</param>
         /// <param name="Name">Name of this distribution center.</param>
@@ -66,7 +67,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ShipmentCutoffTimeWednesday">The time (EST) after which shipments will not be processed on Wednesday.</param>
         /// <param name="State">State of the distribution center.</param>
         /// <param name="Transport">Transport mechanism for this distribution center.</param>
-        public DistributionCenter(string Address1 = default(string), string Address2 = default(string), string City = default(string), string Code = default(string), string CountryCode = default(string), bool? DefaultCenter = default(bool?), bool? DefaultHandlesAllItems = default(bool?), int? DistributionCenterOid = default(int?), string Duns = default(string), int? EstimateFromDistributionCenterOid = default(int?), string FtpPassword = default(string), int? HoldBeforeShipmentMinutes = default(int?), bool? HoldBeforeTransmission = default(bool?), decimal? Latitude = default(decimal?), decimal? Longitude = default(decimal?), string Name = default(string), bool? NoCustomerDirectShipments = default(bool?), bool? NoSplitShipment = default(bool?), string PostalCode = default(string), int? ProcessDays = default(int?), string ProcessInventoryStartTime = default(string), string ProcessInventoryStopTime = default(string), bool? RequireAsn = default(bool?), bool? SendKitInsteadOfComponents = default(bool?), string ShipmentCutoffTimeFriday = default(string), string ShipmentCutoffTimeMonday = default(string), string ShipmentCutoffTimeSaturday = default(string), string ShipmentCutoffTimeSunday = default(string), string ShipmentCutoffTimeThursday = default(string), string ShipmentCutoffTimeTuesday = default(string), string ShipmentCutoffTimeWednesday = default(string), string State = default(string), string Transport = default(string))
+        public DistributionCenter(string Address1 = default(string), string Address2 = default(string), string City = default(string), string Code = default(string), string CountryCode = default(string), bool? DefaultCenter = default(bool?), bool? DefaultHandlesAllItems = default(bool?), int? DistributionCenterOid = default(int?), string Duns = default(string), int? EstimateFromDistributionCenterOid = default(int?), string FtpPassword = default(string), int? HoldBeforeShipmentMinutes = default(int?), bool? HoldBeforeTransmission = default(bool?), int? HoldAutoOrderBeforeShipmentMinutes = default(int?), decimal? Latitude = default(decimal?), decimal? Longitude = default(decimal?), string Name = default(string), bool? NoCustomerDirectShipments = default(bool?), bool? NoSplitShipment = default(bool?), string PostalCode = default(string), int? ProcessDays = default(int?), string ProcessInventoryStartTime = default(string), string ProcessInventoryStopTime = default(string), bool? RequireAsn = default(bool?), bool? SendKitInsteadOfComponents = default(bool?), string ShipmentCutoffTimeFriday = default(string), string ShipmentCutoffTimeMonday = default(string), string ShipmentCutoffTimeSaturday = default(string), string ShipmentCutoffTimeSunday = default(string), string ShipmentCutoffTimeThursday = default(string), string ShipmentCutoffTimeTuesday = default(string), string ShipmentCutoffTimeWednesday = default(string), string State = default(string), string Transport = default(string))
         {
             this.Address1 = Address1;
             this.Address2 = Address2;
@@ -81,6 +82,7 @@ namespace com.ultracart.admin.v2.Model
             this.FtpPassword = FtpPassword;
             this.HoldBeforeShipmentMinutes = HoldBeforeShipmentMinutes;
             this.HoldBeforeTransmission = HoldBeforeTransmission;
+            this.HoldAutoOrderBeforeShipmentMinutes = HoldAutoOrderBeforeShipmentMinutes;
             this.Latitude = Latitude;
             this.Longitude = Longitude;
             this.Name = Name;
@@ -193,6 +195,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if the shipment should be held before transmission and require a manual release</value>
         [DataMember(Name="hold_before_transmission", EmitDefaultValue=false)]
         public bool? HoldBeforeTransmission { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HoldAutoOrderBeforeShipmentMinutes
+        /// </summary>
+        [DataMember(Name="holdAutoOrderBeforeShipmentMinutes", EmitDefaultValue=false)]
+        public int? HoldAutoOrderBeforeShipmentMinutes { get; set; }
 
         /// <summary>
         /// Latitude where the distribution center is located
@@ -355,6 +363,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FtpPassword: ").Append(FtpPassword).Append("\n");
             sb.Append("  HoldBeforeShipmentMinutes: ").Append(HoldBeforeShipmentMinutes).Append("\n");
             sb.Append("  HoldBeforeTransmission: ").Append(HoldBeforeTransmission).Append("\n");
+            sb.Append("  HoldAutoOrderBeforeShipmentMinutes: ").Append(HoldAutoOrderBeforeShipmentMinutes).Append("\n");
             sb.Append("  Latitude: ").Append(Latitude).Append("\n");
             sb.Append("  Longitude: ").Append(Longitude).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -473,6 +482,11 @@ namespace com.ultracart.admin.v2.Model
                     this.HoldBeforeTransmission == input.HoldBeforeTransmission ||
                     (this.HoldBeforeTransmission != null &&
                     this.HoldBeforeTransmission.Equals(input.HoldBeforeTransmission))
+                ) && 
+                (
+                    this.HoldAutoOrderBeforeShipmentMinutes == input.HoldAutoOrderBeforeShipmentMinutes ||
+                    (this.HoldAutoOrderBeforeShipmentMinutes != null &&
+                    this.HoldAutoOrderBeforeShipmentMinutes.Equals(input.HoldAutoOrderBeforeShipmentMinutes))
                 ) && 
                 (
                     this.Latitude == input.Latitude ||
@@ -611,6 +625,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.HoldBeforeShipmentMinutes.GetHashCode();
                 if (this.HoldBeforeTransmission != null)
                     hashCode = hashCode * 59 + this.HoldBeforeTransmission.GetHashCode();
+                if (this.HoldAutoOrderBeforeShipmentMinutes != null)
+                    hashCode = hashCode * 59 + this.HoldAutoOrderBeforeShipmentMinutes.GetHashCode();
                 if (this.Latitude != null)
                     hashCode = hashCode * 59 + this.Latitude.GetHashCode();
                 if (this.Longitude != null)

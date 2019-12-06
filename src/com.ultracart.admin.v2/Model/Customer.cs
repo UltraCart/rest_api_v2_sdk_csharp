@@ -33,12 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Customer" /> class.
         /// </summary>
+        /// <param name="Activity">Activity.</param>
         /// <param name="AffiliateOid">Affiliate oid.</param>
         /// <param name="Allow3rdPartyBilling">Allow 3rd party billing.</param>
         /// <param name="AllowCod">Allow COD.</param>
         /// <param name="AllowPurchaseOrder">Allow purchase orders by this customer.</param>
         /// <param name="AllowQuoteRequest">Allow quote request.</param>
         /// <param name="AllowSelectionOfAddressType">Allow selection of residential or business address type.</param>
+        /// <param name="Attachments">Attachments.</param>
         /// <param name="AutoApproveCod">Auto approve COD.</param>
         /// <param name="AutoApprovePurchaseOrder">Auto approve purchase orders by this customer.</param>
         /// <param name="AutomaticMerchantNotes">Automatic merchant notes are added to every order placed.</param>
@@ -48,6 +50,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CcEmails">Additional emails to CC notification.</param>
         /// <param name="CustomerProfileOid">Customer profile object identifier.</param>
         /// <param name="DhlAccountNumber">DHL account number.</param>
+        /// <param name="DhlDutyAccountNumber">DHL duty account number.</param>
         /// <param name="Email">Email address of this customer profile.</param>
         /// <param name="ExemptShippingHandlingCharge">Exempt shipping handling charge.</param>
         /// <param name="FedexAccountNumber">FedEx account number.</param>
@@ -65,16 +68,20 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="OrdersSummary">OrdersSummary.</param>
         /// <param name="Password">Password (may only be set, never read).</param>
         /// <param name="PricingTiers">Pricing tiers for this customer.</param>
+        /// <param name="Privacy">Privacy.</param>
         /// <param name="QbClass">QuickBooks class to import this customer as.</param>
         /// <param name="QbCode">QuickBooks name to import this customer as.</param>
         /// <param name="Quotes">Quotes associated with this customer profile.</param>
         /// <param name="QuotesSummary">QuotesSummary.</param>
         /// <param name="ReferralSource">Referral Source.</param>
+        /// <param name="Reviewer">Reviewer.</param>
         /// <param name="SalesRepCode">Sales rep code.</param>
         /// <param name="SendSignupNotification">Send signup notification, if true during customer creation, will send a notification..</param>
         /// <param name="Shipping">Shipping addresses for this customer.</param>
         /// <param name="SignupDts">Signup date.</param>
+        /// <param name="SoftwareEntitlements">Software entitlements owned by this customer.</param>
         /// <param name="SuppressBuysafe">Suppress buySAFE.</param>
+        /// <param name="TaxCodes">TaxCodes.</param>
         /// <param name="TaxExempt">True if the customer is tax exempt.</param>
         /// <param name="TaxId">Tax ID.</param>
         /// <param name="Terms">Terms for this customer.</param>
@@ -82,14 +89,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Unapproved">Unapproved.</param>
         /// <param name="UpsAccountNumber">UPS account number.</param>
         /// <param name="WebsiteUrl">Website url.</param>
-        public Customer(int? AffiliateOid = default(int?), bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), bool? AllowQuoteRequest = default(bool?), bool? AllowSelectionOfAddressType = default(bool?), bool? AutoApproveCod = default(bool?), bool? AutoApprovePurchaseOrder = default(bool?), string AutomaticMerchantNotes = default(string), List<CustomerBilling> Billing = default(List<CustomerBilling>), string BusinessNotes = default(string), List<CustomerCard> Cards = default(List<CustomerCard>), List<CustomerEmail> CcEmails = default(List<CustomerEmail>), int? CustomerProfileOid = default(int?), string DhlAccountNumber = default(string), string Email = default(string), bool? ExemptShippingHandlingCharge = default(bool?), string FedexAccountNumber = default(string), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), string LastModifiedBy = default(string), string LastModifiedDts = default(string), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), List<Order> Orders = default(List<Order>), CustomerOrdersSummary OrdersSummary = default(CustomerOrdersSummary), string Password = default(string), List<CustomerPricingTier> PricingTiers = default(List<CustomerPricingTier>), string QbClass = default(string), string QbCode = default(string), List<Order> Quotes = default(List<Order>), CustomerQuotesSummary QuotesSummary = default(CustomerQuotesSummary), string ReferralSource = default(string), string SalesRepCode = default(string), bool? SendSignupNotification = default(bool?), List<CustomerShipping> Shipping = default(List<CustomerShipping>), string SignupDts = default(string), bool? SuppressBuysafe = default(bool?), bool? TaxExempt = default(bool?), string TaxId = default(string), string Terms = default(string), bool? TrackSeparately = default(bool?), bool? Unapproved = default(bool?), string UpsAccountNumber = default(string), string WebsiteUrl = default(string))
+        public Customer(CustomerActivity Activity = default(CustomerActivity), int? AffiliateOid = default(int?), bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), bool? AllowQuoteRequest = default(bool?), bool? AllowSelectionOfAddressType = default(bool?), List<CustomerAttachment> Attachments = default(List<CustomerAttachment>), bool? AutoApproveCod = default(bool?), bool? AutoApprovePurchaseOrder = default(bool?), string AutomaticMerchantNotes = default(string), List<CustomerBilling> Billing = default(List<CustomerBilling>), string BusinessNotes = default(string), List<CustomerCard> Cards = default(List<CustomerCard>), List<CustomerEmail> CcEmails = default(List<CustomerEmail>), int? CustomerProfileOid = default(int?), string DhlAccountNumber = default(string), string DhlDutyAccountNumber = default(string), string Email = default(string), bool? ExemptShippingHandlingCharge = default(bool?), string FedexAccountNumber = default(string), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), string LastModifiedBy = default(string), string LastModifiedDts = default(string), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), List<Order> Orders = default(List<Order>), CustomerOrdersSummary OrdersSummary = default(CustomerOrdersSummary), string Password = default(string), List<CustomerPricingTier> PricingTiers = default(List<CustomerPricingTier>), CustomerPrivacy Privacy = default(CustomerPrivacy), string QbClass = default(string), string QbCode = default(string), List<Order> Quotes = default(List<Order>), CustomerQuotesSummary QuotesSummary = default(CustomerQuotesSummary), string ReferralSource = default(string), CustomerReviewer Reviewer = default(CustomerReviewer), string SalesRepCode = default(string), bool? SendSignupNotification = default(bool?), List<CustomerShipping> Shipping = default(List<CustomerShipping>), string SignupDts = default(string), List<CustomerSoftwareEntitlement> SoftwareEntitlements = default(List<CustomerSoftwareEntitlement>), bool? SuppressBuysafe = default(bool?), CustomerTaxCodes TaxCodes = default(CustomerTaxCodes), bool? TaxExempt = default(bool?), string TaxId = default(string), string Terms = default(string), bool? TrackSeparately = default(bool?), bool? Unapproved = default(bool?), string UpsAccountNumber = default(string), string WebsiteUrl = default(string))
         {
+            this.Activity = Activity;
             this.AffiliateOid = AffiliateOid;
             this.Allow3rdPartyBilling = Allow3rdPartyBilling;
             this.AllowCod = AllowCod;
             this.AllowPurchaseOrder = AllowPurchaseOrder;
             this.AllowQuoteRequest = AllowQuoteRequest;
             this.AllowSelectionOfAddressType = AllowSelectionOfAddressType;
+            this.Attachments = Attachments;
             this.AutoApproveCod = AutoApproveCod;
             this.AutoApprovePurchaseOrder = AutoApprovePurchaseOrder;
             this.AutomaticMerchantNotes = AutomaticMerchantNotes;
@@ -99,6 +108,7 @@ namespace com.ultracart.admin.v2.Model
             this.CcEmails = CcEmails;
             this.CustomerProfileOid = CustomerProfileOid;
             this.DhlAccountNumber = DhlAccountNumber;
+            this.DhlDutyAccountNumber = DhlDutyAccountNumber;
             this.Email = Email;
             this.ExemptShippingHandlingCharge = ExemptShippingHandlingCharge;
             this.FedexAccountNumber = FedexAccountNumber;
@@ -116,16 +126,20 @@ namespace com.ultracart.admin.v2.Model
             this.OrdersSummary = OrdersSummary;
             this.Password = Password;
             this.PricingTiers = PricingTiers;
+            this.Privacy = Privacy;
             this.QbClass = QbClass;
             this.QbCode = QbCode;
             this.Quotes = Quotes;
             this.QuotesSummary = QuotesSummary;
             this.ReferralSource = ReferralSource;
+            this.Reviewer = Reviewer;
             this.SalesRepCode = SalesRepCode;
             this.SendSignupNotification = SendSignupNotification;
             this.Shipping = Shipping;
             this.SignupDts = SignupDts;
+            this.SoftwareEntitlements = SoftwareEntitlements;
             this.SuppressBuysafe = SuppressBuysafe;
+            this.TaxCodes = TaxCodes;
             this.TaxExempt = TaxExempt;
             this.TaxId = TaxId;
             this.Terms = Terms;
@@ -135,6 +149,12 @@ namespace com.ultracart.admin.v2.Model
             this.WebsiteUrl = WebsiteUrl;
         }
         
+        /// <summary>
+        /// Gets or Sets Activity
+        /// </summary>
+        [DataMember(Name="activity", EmitDefaultValue=false)]
+        public CustomerActivity Activity { get; set; }
+
         /// <summary>
         /// Affiliate oid
         /// </summary>
@@ -176,6 +196,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Allow selection of residential or business address type</value>
         [DataMember(Name="allow_selection_of_address_type", EmitDefaultValue=false)]
         public bool? AllowSelectionOfAddressType { get; set; }
+
+        /// <summary>
+        /// Attachments
+        /// </summary>
+        /// <value>Attachments</value>
+        [DataMember(Name="attachments", EmitDefaultValue=false)]
+        public List<CustomerAttachment> Attachments { get; set; }
 
         /// <summary>
         /// Auto approve COD
@@ -239,6 +266,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>DHL account number</value>
         [DataMember(Name="dhl_account_number", EmitDefaultValue=false)]
         public string DhlAccountNumber { get; set; }
+
+        /// <summary>
+        /// DHL duty account number
+        /// </summary>
+        /// <value>DHL duty account number</value>
+        [DataMember(Name="dhl_duty_account_number", EmitDefaultValue=false)]
+        public string DhlDutyAccountNumber { get; set; }
 
         /// <summary>
         /// Email address of this customer profile
@@ -359,6 +393,12 @@ namespace com.ultracart.admin.v2.Model
         public List<CustomerPricingTier> PricingTiers { get; set; }
 
         /// <summary>
+        /// Gets or Sets Privacy
+        /// </summary>
+        [DataMember(Name="privacy", EmitDefaultValue=false)]
+        public CustomerPrivacy Privacy { get; set; }
+
+        /// <summary>
         /// QuickBooks class to import this customer as
         /// </summary>
         /// <value>QuickBooks class to import this customer as</value>
@@ -393,6 +433,12 @@ namespace com.ultracart.admin.v2.Model
         public string ReferralSource { get; set; }
 
         /// <summary>
+        /// Gets or Sets Reviewer
+        /// </summary>
+        [DataMember(Name="reviewer", EmitDefaultValue=false)]
+        public CustomerReviewer Reviewer { get; set; }
+
+        /// <summary>
         /// Sales rep code
         /// </summary>
         /// <value>Sales rep code</value>
@@ -421,11 +467,24 @@ namespace com.ultracart.admin.v2.Model
         public string SignupDts { get; set; }
 
         /// <summary>
+        /// Software entitlements owned by this customer
+        /// </summary>
+        /// <value>Software entitlements owned by this customer</value>
+        [DataMember(Name="software_entitlements", EmitDefaultValue=false)]
+        public List<CustomerSoftwareEntitlement> SoftwareEntitlements { get; set; }
+
+        /// <summary>
         /// Suppress buySAFE
         /// </summary>
         /// <value>Suppress buySAFE</value>
         [DataMember(Name="suppress_buysafe", EmitDefaultValue=false)]
         public bool? SuppressBuysafe { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TaxCodes
+        /// </summary>
+        [DataMember(Name="tax_codes", EmitDefaultValue=false)]
+        public CustomerTaxCodes TaxCodes { get; set; }
 
         /// <summary>
         /// True if the customer is tax exempt
@@ -484,12 +543,14 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Customer {\n");
+            sb.Append("  Activity: ").Append(Activity).Append("\n");
             sb.Append("  AffiliateOid: ").Append(AffiliateOid).Append("\n");
             sb.Append("  Allow3rdPartyBilling: ").Append(Allow3rdPartyBilling).Append("\n");
             sb.Append("  AllowCod: ").Append(AllowCod).Append("\n");
             sb.Append("  AllowPurchaseOrder: ").Append(AllowPurchaseOrder).Append("\n");
             sb.Append("  AllowQuoteRequest: ").Append(AllowQuoteRequest).Append("\n");
             sb.Append("  AllowSelectionOfAddressType: ").Append(AllowSelectionOfAddressType).Append("\n");
+            sb.Append("  Attachments: ").Append(Attachments).Append("\n");
             sb.Append("  AutoApproveCod: ").Append(AutoApproveCod).Append("\n");
             sb.Append("  AutoApprovePurchaseOrder: ").Append(AutoApprovePurchaseOrder).Append("\n");
             sb.Append("  AutomaticMerchantNotes: ").Append(AutomaticMerchantNotes).Append("\n");
@@ -499,6 +560,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CcEmails: ").Append(CcEmails).Append("\n");
             sb.Append("  CustomerProfileOid: ").Append(CustomerProfileOid).Append("\n");
             sb.Append("  DhlAccountNumber: ").Append(DhlAccountNumber).Append("\n");
+            sb.Append("  DhlDutyAccountNumber: ").Append(DhlDutyAccountNumber).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  ExemptShippingHandlingCharge: ").Append(ExemptShippingHandlingCharge).Append("\n");
             sb.Append("  FedexAccountNumber: ").Append(FedexAccountNumber).Append("\n");
@@ -516,16 +578,20 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  OrdersSummary: ").Append(OrdersSummary).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  PricingTiers: ").Append(PricingTiers).Append("\n");
+            sb.Append("  Privacy: ").Append(Privacy).Append("\n");
             sb.Append("  QbClass: ").Append(QbClass).Append("\n");
             sb.Append("  QbCode: ").Append(QbCode).Append("\n");
             sb.Append("  Quotes: ").Append(Quotes).Append("\n");
             sb.Append("  QuotesSummary: ").Append(QuotesSummary).Append("\n");
             sb.Append("  ReferralSource: ").Append(ReferralSource).Append("\n");
+            sb.Append("  Reviewer: ").Append(Reviewer).Append("\n");
             sb.Append("  SalesRepCode: ").Append(SalesRepCode).Append("\n");
             sb.Append("  SendSignupNotification: ").Append(SendSignupNotification).Append("\n");
             sb.Append("  Shipping: ").Append(Shipping).Append("\n");
             sb.Append("  SignupDts: ").Append(SignupDts).Append("\n");
+            sb.Append("  SoftwareEntitlements: ").Append(SoftwareEntitlements).Append("\n");
             sb.Append("  SuppressBuysafe: ").Append(SuppressBuysafe).Append("\n");
+            sb.Append("  TaxCodes: ").Append(TaxCodes).Append("\n");
             sb.Append("  TaxExempt: ").Append(TaxExempt).Append("\n");
             sb.Append("  TaxId: ").Append(TaxId).Append("\n");
             sb.Append("  Terms: ").Append(Terms).Append("\n");
@@ -568,6 +634,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Activity == input.Activity ||
+                    (this.Activity != null &&
+                    this.Activity.Equals(input.Activity))
+                ) && 
+                (
                     this.AffiliateOid == input.AffiliateOid ||
                     (this.AffiliateOid != null &&
                     this.AffiliateOid.Equals(input.AffiliateOid))
@@ -596,6 +667,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AllowSelectionOfAddressType == input.AllowSelectionOfAddressType ||
                     (this.AllowSelectionOfAddressType != null &&
                     this.AllowSelectionOfAddressType.Equals(input.AllowSelectionOfAddressType))
+                ) && 
+                (
+                    this.Attachments == input.Attachments ||
+                    this.Attachments != null &&
+                    this.Attachments.SequenceEqual(input.Attachments)
                 ) && 
                 (
                     this.AutoApproveCod == input.AutoApproveCod ||
@@ -641,6 +717,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DhlAccountNumber == input.DhlAccountNumber ||
                     (this.DhlAccountNumber != null &&
                     this.DhlAccountNumber.Equals(input.DhlAccountNumber))
+                ) && 
+                (
+                    this.DhlDutyAccountNumber == input.DhlDutyAccountNumber ||
+                    (this.DhlDutyAccountNumber != null &&
+                    this.DhlDutyAccountNumber.Equals(input.DhlDutyAccountNumber))
                 ) && 
                 (
                     this.Email == input.Email ||
@@ -728,6 +809,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PricingTiers.SequenceEqual(input.PricingTiers)
                 ) && 
                 (
+                    this.Privacy == input.Privacy ||
+                    (this.Privacy != null &&
+                    this.Privacy.Equals(input.Privacy))
+                ) && 
+                (
                     this.QbClass == input.QbClass ||
                     (this.QbClass != null &&
                     this.QbClass.Equals(input.QbClass))
@@ -753,6 +839,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ReferralSource.Equals(input.ReferralSource))
                 ) && 
                 (
+                    this.Reviewer == input.Reviewer ||
+                    (this.Reviewer != null &&
+                    this.Reviewer.Equals(input.Reviewer))
+                ) && 
+                (
                     this.SalesRepCode == input.SalesRepCode ||
                     (this.SalesRepCode != null &&
                     this.SalesRepCode.Equals(input.SalesRepCode))
@@ -773,9 +864,19 @@ namespace com.ultracart.admin.v2.Model
                     this.SignupDts.Equals(input.SignupDts))
                 ) && 
                 (
+                    this.SoftwareEntitlements == input.SoftwareEntitlements ||
+                    this.SoftwareEntitlements != null &&
+                    this.SoftwareEntitlements.SequenceEqual(input.SoftwareEntitlements)
+                ) && 
+                (
                     this.SuppressBuysafe == input.SuppressBuysafe ||
                     (this.SuppressBuysafe != null &&
                     this.SuppressBuysafe.Equals(input.SuppressBuysafe))
+                ) && 
+                (
+                    this.TaxCodes == input.TaxCodes ||
+                    (this.TaxCodes != null &&
+                    this.TaxCodes.Equals(input.TaxCodes))
                 ) && 
                 (
                     this.TaxExempt == input.TaxExempt ||
@@ -823,6 +924,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Activity != null)
+                    hashCode = hashCode * 59 + this.Activity.GetHashCode();
                 if (this.AffiliateOid != null)
                     hashCode = hashCode * 59 + this.AffiliateOid.GetHashCode();
                 if (this.Allow3rdPartyBilling != null)
@@ -835,6 +938,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AllowQuoteRequest.GetHashCode();
                 if (this.AllowSelectionOfAddressType != null)
                     hashCode = hashCode * 59 + this.AllowSelectionOfAddressType.GetHashCode();
+                if (this.Attachments != null)
+                    hashCode = hashCode * 59 + this.Attachments.GetHashCode();
                 if (this.AutoApproveCod != null)
                     hashCode = hashCode * 59 + this.AutoApproveCod.GetHashCode();
                 if (this.AutoApprovePurchaseOrder != null)
@@ -853,6 +958,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CustomerProfileOid.GetHashCode();
                 if (this.DhlAccountNumber != null)
                     hashCode = hashCode * 59 + this.DhlAccountNumber.GetHashCode();
+                if (this.DhlDutyAccountNumber != null)
+                    hashCode = hashCode * 59 + this.DhlDutyAccountNumber.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.ExemptShippingHandlingCharge != null)
@@ -887,6 +994,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Password.GetHashCode();
                 if (this.PricingTiers != null)
                     hashCode = hashCode * 59 + this.PricingTiers.GetHashCode();
+                if (this.Privacy != null)
+                    hashCode = hashCode * 59 + this.Privacy.GetHashCode();
                 if (this.QbClass != null)
                     hashCode = hashCode * 59 + this.QbClass.GetHashCode();
                 if (this.QbCode != null)
@@ -897,6 +1006,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.QuotesSummary.GetHashCode();
                 if (this.ReferralSource != null)
                     hashCode = hashCode * 59 + this.ReferralSource.GetHashCode();
+                if (this.Reviewer != null)
+                    hashCode = hashCode * 59 + this.Reviewer.GetHashCode();
                 if (this.SalesRepCode != null)
                     hashCode = hashCode * 59 + this.SalesRepCode.GetHashCode();
                 if (this.SendSignupNotification != null)
@@ -905,8 +1016,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Shipping.GetHashCode();
                 if (this.SignupDts != null)
                     hashCode = hashCode * 59 + this.SignupDts.GetHashCode();
+                if (this.SoftwareEntitlements != null)
+                    hashCode = hashCode * 59 + this.SoftwareEntitlements.GetHashCode();
                 if (this.SuppressBuysafe != null)
                     hashCode = hashCode * 59 + this.SuppressBuysafe.GetHashCode();
+                if (this.TaxCodes != null)
+                    hashCode = hashCode * 59 + this.TaxCodes.GetHashCode();
                 if (this.TaxExempt != null)
                     hashCode = hashCode * 59 + this.TaxExempt.GetHashCode();
                 if (this.TaxId != null)
@@ -942,6 +1057,12 @@ namespace com.ultracart.admin.v2.Model
             if(this.DhlAccountNumber != null && this.DhlAccountNumber.Length > 20)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DhlAccountNumber, length must be less than 20.", new [] { "DhlAccountNumber" });
+            }
+
+            // DhlDutyAccountNumber (string) maxLength
+            if(this.DhlDutyAccountNumber != null && this.DhlDutyAccountNumber.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DhlDutyAccountNumber, length must be less than 20.", new [] { "DhlDutyAccountNumber" });
             }
 
             // FedexAccountNumber (string) maxLength

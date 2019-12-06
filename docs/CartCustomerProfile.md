@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **CreditCards** | [**List&lt;CartCustomerProfileCreditCard&gt;**](CartCustomerProfileCreditCard.md) | Credit cards on file for this profile (masked) | [optional] 
 **CustomerProfileOid** | **int?** | Unique identifier | [optional] 
 **DhlAccountNumber** | **string** | DHL account number on file | [optional] 
+**DhlDutyAccountNumber** | **string** | DHL duty account number on file | [optional] 
 **Email** | **string** | Email | [optional] 
 **FedexAccountNumber** | **string** | FedEx account number on file | [optional] 
 **FreeShipping** | **bool?** | True if this profile always qualifies for free shipping | [optional] 

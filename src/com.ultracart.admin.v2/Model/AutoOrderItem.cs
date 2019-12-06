@@ -134,6 +134,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ArbitraryUnitCostRemainingOrders">The number of rebills to give the arbitrary unit cost on before reverting to normal pricing..</param>
         /// <param name="AutoOrderItemOid">Primary key of AutoOrderItem.</param>
         /// <param name="Frequency">Frequency of the rebill if not a fixed schedule.</param>
+        /// <param name="FutureSchedules">The future rebill schedule for this item up to the next ten rebills.</param>
         /// <param name="LastOrderDts">Date/time of the last order of this item.</param>
         /// <param name="LifeTimeValue">The life time value of this item including the original purchase.</param>
         /// <param name="NextPreshipmentNoticeDts">The date/time of when the next pre-shipment notice should be sent.</param>
@@ -141,14 +142,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="NoOrderAfterDts">Date/time after which no additional rebills of this item should occur.</param>
         /// <param name="NumberOfRebills">The number of times this item has rebilled.</param>
         /// <param name="Options">Options associated with this item.</param>
-        /// <param name="OriginalItemId">The original item id purchased.</param>
+        /// <param name="OriginalItemId">The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date..</param>
         /// <param name="OriginalQuantity">The original quantity purchased.</param>
         /// <param name="PaypalPayerId">The PayPal Payer ID tied to this item.</param>
         /// <param name="PaypalRecurringPaymentProfileId">The PayPal Profile ID tied to this item.</param>
         /// <param name="PreshipmentNoticeSent">True if the preshipment notice associated with the next rebill has been sent.</param>
         /// <param name="RebillValue">The value of the rebills of this item.</param>
         /// <param name="RemainingRepeatCount">The number of rebills remaining before this item is complete.</param>
-        public AutoOrderItem(string ArbitraryItemId = default(string), decimal? ArbitraryPercentageDiscount = default(decimal?), decimal? ArbitraryQuantity = default(decimal?), int? ArbitraryScheduleDays = default(int?), decimal? ArbitraryUnitCost = default(decimal?), int? ArbitraryUnitCostRemainingOrders = default(int?), int? AutoOrderItemOid = default(int?), FrequencyEnum? Frequency = default(FrequencyEnum?), string LastOrderDts = default(string), decimal? LifeTimeValue = default(decimal?), string NextPreshipmentNoticeDts = default(string), string NextShipmentDts = default(string), string NoOrderAfterDts = default(string), int? NumberOfRebills = default(int?), List<AutoOrderItemOption> Options = default(List<AutoOrderItemOption>), string OriginalItemId = default(string), decimal? OriginalQuantity = default(decimal?), string PaypalPayerId = default(string), string PaypalRecurringPaymentProfileId = default(string), bool? PreshipmentNoticeSent = default(bool?), decimal? RebillValue = default(decimal?), int? RemainingRepeatCount = default(int?))
+        public AutoOrderItem(string ArbitraryItemId = default(string), decimal? ArbitraryPercentageDiscount = default(decimal?), decimal? ArbitraryQuantity = default(decimal?), int? ArbitraryScheduleDays = default(int?), decimal? ArbitraryUnitCost = default(decimal?), int? ArbitraryUnitCostRemainingOrders = default(int?), int? AutoOrderItemOid = default(int?), FrequencyEnum? Frequency = default(FrequencyEnum?), List<AutoOrderItemFutureSchedule> FutureSchedules = default(List<AutoOrderItemFutureSchedule>), string LastOrderDts = default(string), decimal? LifeTimeValue = default(decimal?), string NextPreshipmentNoticeDts = default(string), string NextShipmentDts = default(string), string NoOrderAfterDts = default(string), int? NumberOfRebills = default(int?), List<AutoOrderItemOption> Options = default(List<AutoOrderItemOption>), string OriginalItemId = default(string), decimal? OriginalQuantity = default(decimal?), string PaypalPayerId = default(string), string PaypalRecurringPaymentProfileId = default(string), bool? PreshipmentNoticeSent = default(bool?), decimal? RebillValue = default(decimal?), int? RemainingRepeatCount = default(int?))
         {
             this.ArbitraryItemId = ArbitraryItemId;
             this.ArbitraryPercentageDiscount = ArbitraryPercentageDiscount;
@@ -158,6 +159,7 @@ namespace com.ultracart.admin.v2.Model
             this.ArbitraryUnitCostRemainingOrders = ArbitraryUnitCostRemainingOrders;
             this.AutoOrderItemOid = AutoOrderItemOid;
             this.Frequency = Frequency;
+            this.FutureSchedules = FutureSchedules;
             this.LastOrderDts = LastOrderDts;
             this.LifeTimeValue = LifeTimeValue;
             this.NextPreshipmentNoticeDts = NextPreshipmentNoticeDts;
@@ -225,6 +227,13 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
+        /// The future rebill schedule for this item up to the next ten rebills
+        /// </summary>
+        /// <value>The future rebill schedule for this item up to the next ten rebills</value>
+        [DataMember(Name="future_schedules", EmitDefaultValue=false)]
+        public List<AutoOrderItemFutureSchedule> FutureSchedules { get; set; }
+
+        /// <summary>
         /// Date/time of the last order of this item
         /// </summary>
         /// <value>Date/time of the last order of this item</value>
@@ -274,9 +283,9 @@ namespace com.ultracart.admin.v2.Model
         public List<AutoOrderItemOption> Options { get; set; }
 
         /// <summary>
-        /// The original item id purchased
+        /// The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.
         /// </summary>
-        /// <value>The original item id purchased</value>
+        /// <value>The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.</value>
         [DataMember(Name="original_item_id", EmitDefaultValue=false)]
         public string OriginalItemId { get; set; }
 
@@ -338,6 +347,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ArbitraryUnitCostRemainingOrders: ").Append(ArbitraryUnitCostRemainingOrders).Append("\n");
             sb.Append("  AutoOrderItemOid: ").Append(AutoOrderItemOid).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            sb.Append("  FutureSchedules: ").Append(FutureSchedules).Append("\n");
             sb.Append("  LastOrderDts: ").Append(LastOrderDts).Append("\n");
             sb.Append("  LifeTimeValue: ").Append(LifeTimeValue).Append("\n");
             sb.Append("  NextPreshipmentNoticeDts: ").Append(NextPreshipmentNoticeDts).Append("\n");
@@ -425,6 +435,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Frequency == input.Frequency ||
                     (this.Frequency != null &&
                     this.Frequency.Equals(input.Frequency))
+                ) && 
+                (
+                    this.FutureSchedules == input.FutureSchedules ||
+                    this.FutureSchedules != null &&
+                    this.FutureSchedules.SequenceEqual(input.FutureSchedules)
                 ) && 
                 (
                     this.LastOrderDts == input.LastOrderDts ||
@@ -523,6 +538,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AutoOrderItemOid.GetHashCode();
                 if (this.Frequency != null)
                     hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                if (this.FutureSchedules != null)
+                    hashCode = hashCode * 59 + this.FutureSchedules.GetHashCode();
                 if (this.LastOrderDts != null)
                     hashCode = hashCode * 59 + this.LastOrderDts.GetHashCode();
                 if (this.LifeTimeValue != null)

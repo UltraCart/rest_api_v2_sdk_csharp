@@ -40,6 +40,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CancelUpgrade">True if the auto order was canceled because the customer purchased an upgrade item.</param>
         /// <param name="CanceledByUser">The user that canceled the auto order.</param>
         /// <param name="CanceledDts">The date/time that the auto order was canceled.</param>
+        /// <param name="Completed">True if the auto order ran successfully to completion.</param>
         /// <param name="CreditCardAttempt">The number of credit card attempts that have taken place.</param>
         /// <param name="DisabledDts">The date/time the auto order was disabled due to failed rebills.</param>
         /// <param name="Enabled">True if this auto order is enabled.</param>
@@ -51,7 +52,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="OverrideAffiliateId">Override the affiliate id given credit for rebills of this auto order.</param>
         /// <param name="RebillOrders">Rebill orders that have taken place on this auto order.</param>
         /// <param name="RotatingTransactionGatewayCode">The RTG code associated with this order for future rebills.</param>
-        public AutoOrder(string AutoOrderCode = default(string), int? AutoOrderOid = default(int?), int? CancelAfterNextXOrders = default(int?), bool? CancelDowngrade = default(bool?), bool? CancelUpgrade = default(bool?), string CanceledByUser = default(string), string CanceledDts = default(string), int? CreditCardAttempt = default(int?), string DisabledDts = default(string), bool? Enabled = default(bool?), string FailureReason = default(string), List<AutoOrderItem> Items = default(List<AutoOrderItem>), string NextAttempt = default(string), Order OriginalOrder = default(Order), string OriginalOrderId = default(string), int? OverrideAffiliateId = default(int?), List<Order> RebillOrders = default(List<Order>), string RotatingTransactionGatewayCode = default(string))
+        public AutoOrder(string AutoOrderCode = default(string), int? AutoOrderOid = default(int?), int? CancelAfterNextXOrders = default(int?), bool? CancelDowngrade = default(bool?), bool? CancelUpgrade = default(bool?), string CanceledByUser = default(string), string CanceledDts = default(string), bool? Completed = default(bool?), int? CreditCardAttempt = default(int?), string DisabledDts = default(string), bool? Enabled = default(bool?), string FailureReason = default(string), List<AutoOrderItem> Items = default(List<AutoOrderItem>), string NextAttempt = default(string), Order OriginalOrder = default(Order), string OriginalOrderId = default(string), int? OverrideAffiliateId = default(int?), List<Order> RebillOrders = default(List<Order>), string RotatingTransactionGatewayCode = default(string))
         {
             this.AutoOrderCode = AutoOrderCode;
             this.AutoOrderOid = AutoOrderOid;
@@ -60,6 +61,7 @@ namespace com.ultracart.admin.v2.Model
             this.CancelUpgrade = CancelUpgrade;
             this.CanceledByUser = CanceledByUser;
             this.CanceledDts = CanceledDts;
+            this.Completed = Completed;
             this.CreditCardAttempt = CreditCardAttempt;
             this.DisabledDts = DisabledDts;
             this.Enabled = Enabled;
@@ -121,6 +123,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The date/time that the auto order was canceled</value>
         [DataMember(Name="canceled_dts", EmitDefaultValue=false)]
         public string CanceledDts { get; set; }
+
+        /// <summary>
+        /// True if the auto order ran successfully to completion
+        /// </summary>
+        /// <value>True if the auto order ran successfully to completion</value>
+        [DataMember(Name="completed", EmitDefaultValue=false)]
+        public bool? Completed { get; set; }
 
         /// <summary>
         /// The number of credit card attempts that have taken place
@@ -213,6 +222,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CancelUpgrade: ").Append(CancelUpgrade).Append("\n");
             sb.Append("  CanceledByUser: ").Append(CanceledByUser).Append("\n");
             sb.Append("  CanceledDts: ").Append(CanceledDts).Append("\n");
+            sb.Append("  Completed: ").Append(Completed).Append("\n");
             sb.Append("  CreditCardAttempt: ").Append(CreditCardAttempt).Append("\n");
             sb.Append("  DisabledDts: ").Append(DisabledDts).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
@@ -294,6 +304,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CanceledDts.Equals(input.CanceledDts))
                 ) && 
                 (
+                    this.Completed == input.Completed ||
+                    (this.Completed != null &&
+                    this.Completed.Equals(input.Completed))
+                ) && 
+                (
                     this.CreditCardAttempt == input.CreditCardAttempt ||
                     (this.CreditCardAttempt != null &&
                     this.CreditCardAttempt.Equals(input.CreditCardAttempt))
@@ -373,6 +388,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CanceledByUser.GetHashCode();
                 if (this.CanceledDts != null)
                     hashCode = hashCode * 59 + this.CanceledDts.GetHashCode();
+                if (this.Completed != null)
+                    hashCode = hashCode * 59 + this.Completed.GetHashCode();
                 if (this.CreditCardAttempt != null)
                     hashCode = hashCode * 59 + this.CreditCardAttempt.GetHashCode();
                 if (this.DisabledDts != null)

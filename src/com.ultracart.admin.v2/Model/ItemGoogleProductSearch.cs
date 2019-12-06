@@ -74,13 +74,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="SearchLowestPrice">Search lowest price.</param>
         /// <param name="SearchLowestUrl">Search lowest URL.</param>
         /// <param name="SearchPosition">Search position.</param>
+        /// <param name="ShippingLabel">ShippingLabel.</param>
         /// <param name="Size">Size.</param>
         /// <param name="VideoDirector">Video - director.</param>
         /// <param name="VideoFormat">Video - format.</param>
         /// <param name="VideoRating">Video - rating.</param>
         /// <param name="VideoReleaseDate">Video - release date.</param>
         /// <param name="VideoStarring">Video - starring.</param>
-        public ItemGoogleProductSearch(string AdwordsGrouping = default(string), string AdwordsLabel1 = default(string), string AdwordsLabel2 = default(string), string AdwordsLabel3 = default(string), string AdwordsLabel4 = default(string), string AdwordsLabel5 = default(string), string AgeGroup = default(string), bool? AvailableAtPhysicalStore = default(bool?), string BookAuthor = default(string), string BookFormat = default(string), string BookIsbn = default(string), string BookPublisher = default(string), string CategoryDescription = default(string), string Color = default(string), string Condition = default(string), string CustomLabel0 = default(string), string CustomLabel1 = default(string), string CustomLabel2 = default(string), string CustomLabel3 = default(string), string CustomLabel4 = default(string), string Gender = default(string), string GoogleProductCategory = default(string), string MusicArtist = default(string), string MusicFormat = default(string), string MusicReleaseDate = default(string), bool? OmitFromFeed = default(bool?), string ProductType = default(string), string PromotionId1 = default(string), string PromotionId10 = default(string), string PromotionId2 = default(string), string PromotionId3 = default(string), string PromotionId4 = default(string), string PromotionId5 = default(string), string PromotionId6 = default(string), string PromotionId7 = default(string), string PromotionId8 = default(string), string PromotionId9 = default(string), string SearchDts = default(string), decimal? SearchLowestPrice = default(decimal?), string SearchLowestUrl = default(string), int? SearchPosition = default(int?), string Size = default(string), string VideoDirector = default(string), string VideoFormat = default(string), string VideoRating = default(string), string VideoReleaseDate = default(string), string VideoStarring = default(string))
+        public ItemGoogleProductSearch(string AdwordsGrouping = default(string), string AdwordsLabel1 = default(string), string AdwordsLabel2 = default(string), string AdwordsLabel3 = default(string), string AdwordsLabel4 = default(string), string AdwordsLabel5 = default(string), string AgeGroup = default(string), bool? AvailableAtPhysicalStore = default(bool?), string BookAuthor = default(string), string BookFormat = default(string), string BookIsbn = default(string), string BookPublisher = default(string), string CategoryDescription = default(string), string Color = default(string), string Condition = default(string), string CustomLabel0 = default(string), string CustomLabel1 = default(string), string CustomLabel2 = default(string), string CustomLabel3 = default(string), string CustomLabel4 = default(string), string Gender = default(string), string GoogleProductCategory = default(string), string MusicArtist = default(string), string MusicFormat = default(string), string MusicReleaseDate = default(string), bool? OmitFromFeed = default(bool?), string ProductType = default(string), string PromotionId1 = default(string), string PromotionId10 = default(string), string PromotionId2 = default(string), string PromotionId3 = default(string), string PromotionId4 = default(string), string PromotionId5 = default(string), string PromotionId6 = default(string), string PromotionId7 = default(string), string PromotionId8 = default(string), string PromotionId9 = default(string), string SearchDts = default(string), decimal? SearchLowestPrice = default(decimal?), string SearchLowestUrl = default(string), int? SearchPosition = default(int?), string ShippingLabel = default(string), string Size = default(string), string VideoDirector = default(string), string VideoFormat = default(string), string VideoRating = default(string), string VideoReleaseDate = default(string), string VideoStarring = default(string))
         {
             this.AdwordsGrouping = AdwordsGrouping;
             this.AdwordsLabel1 = AdwordsLabel1;
@@ -123,6 +124,7 @@ namespace com.ultracart.admin.v2.Model
             this.SearchLowestPrice = SearchLowestPrice;
             this.SearchLowestUrl = SearchLowestUrl;
             this.SearchPosition = SearchPosition;
+            this.ShippingLabel = ShippingLabel;
             this.Size = Size;
             this.VideoDirector = VideoDirector;
             this.VideoFormat = VideoFormat;
@@ -419,6 +421,12 @@ namespace com.ultracart.admin.v2.Model
         public int? SearchPosition { get; set; }
 
         /// <summary>
+        /// Gets or Sets ShippingLabel
+        /// </summary>
+        [DataMember(Name="shippingLabel", EmitDefaultValue=false)]
+        public string ShippingLabel { get; set; }
+
+        /// <summary>
         /// Size
         /// </summary>
         /// <value>Size</value>
@@ -509,6 +517,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  SearchLowestPrice: ").Append(SearchLowestPrice).Append("\n");
             sb.Append("  SearchLowestUrl: ").Append(SearchLowestUrl).Append("\n");
             sb.Append("  SearchPosition: ").Append(SearchPosition).Append("\n");
+            sb.Append("  ShippingLabel: ").Append(ShippingLabel).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  VideoDirector: ").Append(VideoDirector).Append("\n");
             sb.Append("  VideoFormat: ").Append(VideoFormat).Append("\n");
@@ -755,6 +764,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SearchPosition.Equals(input.SearchPosition))
                 ) && 
                 (
+                    this.ShippingLabel == input.ShippingLabel ||
+                    (this.ShippingLabel != null &&
+                    this.ShippingLabel.Equals(input.ShippingLabel))
+                ) && 
+                (
                     this.Size == input.Size ||
                     (this.Size != null &&
                     this.Size.Equals(input.Size))
@@ -877,6 +891,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SearchLowestUrl.GetHashCode();
                 if (this.SearchPosition != null)
                     hashCode = hashCode * 59 + this.SearchPosition.GetHashCode();
+                if (this.ShippingLabel != null)
+                    hashCode = hashCode * 59 + this.ShippingLabel.GetHashCode();
                 if (this.Size != null)
                     hashCode = hashCode * 59 + this.Size.GetHashCode();
                 if (this.VideoDirector != null)

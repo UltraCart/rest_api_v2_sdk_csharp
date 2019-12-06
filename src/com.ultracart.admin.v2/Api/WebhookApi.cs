@@ -46,6 +46,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteWebhookWithHttpInfo (int? webhookOid);
         /// <summary>
+        /// Delete a webhook by URL
+        /// </summary>
+        /// <remarks>
+        /// Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to delete</param>
+        /// <returns>WebhookResponse</returns>
+        WebhookResponse DeleteWebhookByUrl (Webhook webhook);
+
+        /// <summary>
+        /// Delete a webhook by URL
+        /// </summary>
+        /// <remarks>
+        /// Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to delete</param>
+        /// <returns>ApiResponse of WebhookResponse</returns>
+        ApiResponse<WebhookResponse> DeleteWebhookByUrlWithHttpInfo (Webhook webhook);
+        /// <summary>
         /// Retrieve an individual log
         /// </summary>
         /// <remarks>
@@ -216,6 +237,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="webhookOid">The webhook oid to delete.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWebhookAsyncWithHttpInfo (int? webhookOid);
+        /// <summary>
+        /// Delete a webhook by URL
+        /// </summary>
+        /// <remarks>
+        /// Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to delete</param>
+        /// <returns>Task of WebhookResponse</returns>
+        System.Threading.Tasks.Task<WebhookResponse> DeleteWebhookByUrlAsync (Webhook webhook);
+
+        /// <summary>
+        /// Delete a webhook by URL
+        /// </summary>
+        /// <remarks>
+        /// Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to delete</param>
+        /// <returns>Task of ApiResponse (WebhookResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> DeleteWebhookByUrlAsyncWithHttpInfo (Webhook webhook);
         /// <summary>
         /// Retrieve an individual log
         /// </summary>
@@ -617,6 +659,177 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// Delete a webhook by URL Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to delete</param>
+        /// <returns>WebhookResponse</returns>
+        public WebhookResponse DeleteWebhookByUrl (Webhook webhook)
+        {
+             ApiResponse<WebhookResponse> localVarResponse = DeleteWebhookByUrlWithHttpInfo(webhook);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete a webhook by URL Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to delete</param>
+        /// <returns>ApiResponse of WebhookResponse</returns>
+        public ApiResponse< WebhookResponse > DeleteWebhookByUrlWithHttpInfo (Webhook webhook)
+        {
+            // verify the required parameter 'webhook' is set
+            if (webhook == null)
+                throw new ApiException(400, "Missing required parameter 'webhook' when calling WebhookApi->DeleteWebhookByUrl");
+
+            var localVarPath = "/webhook/webhooks";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (webhook != null && webhook.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(webhook); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = webhook; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteWebhookByUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebhookResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WebhookResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookResponse)));
+        }
+
+        /// <summary>
+        /// Delete a webhook by URL Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to delete</param>
+        /// <returns>Task of WebhookResponse</returns>
+        public async System.Threading.Tasks.Task<WebhookResponse> DeleteWebhookByUrlAsync (Webhook webhook)
+        {
+             ApiResponse<WebhookResponse> localVarResponse = await DeleteWebhookByUrlAsyncWithHttpInfo(webhook);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete a webhook by URL Delete a webhook based upon the URL on the webhook_url matching an existing webhook. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhook">Webhook to delete</param>
+        /// <returns>Task of ApiResponse (WebhookResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> DeleteWebhookByUrlAsyncWithHttpInfo (Webhook webhook)
+        {
+            // verify the required parameter 'webhook' is set
+            if (webhook == null)
+                throw new ApiException(400, "Missing required parameter 'webhook' when calling WebhookApi->DeleteWebhookByUrl");
+
+            var localVarPath = "/webhook/webhooks";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (webhook != null && webhook.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(webhook); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = webhook; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteWebhookByUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<WebhookResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (WebhookResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebhookResponse)));
         }
 
         /// <summary>

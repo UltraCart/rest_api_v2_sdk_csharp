@@ -41,9 +41,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CustomField5">Custom field 5.</param>
         /// <param name="CustomField6">Custom field 6.</param>
         /// <param name="CustomField7">Custom field 7.</param>
-        /// <param name="IpAddress">IP Address.</param>
+        /// <param name="IpAddress">IP Address (read only unless non-browser key authenticated).</param>
+        /// <param name="ReturnCode">Return code assigned for send return email operation.</param>
         /// <param name="ScreenBrandingThemeCode">Screen branding theme code.</param>
-        public CartCheckout(string Comments = default(string), string CustomField1 = default(string), string CustomField2 = default(string), string CustomField3 = default(string), string CustomField4 = default(string), string CustomField5 = default(string), string CustomField6 = default(string), string CustomField7 = default(string), string IpAddress = default(string), string ScreenBrandingThemeCode = default(string))
+        public CartCheckout(string Comments = default(string), string CustomField1 = default(string), string CustomField2 = default(string), string CustomField3 = default(string), string CustomField4 = default(string), string CustomField5 = default(string), string CustomField6 = default(string), string CustomField7 = default(string), string IpAddress = default(string), string ReturnCode = default(string), string ScreenBrandingThemeCode = default(string))
         {
             this.Comments = Comments;
             this.CustomField1 = CustomField1;
@@ -54,6 +55,7 @@ namespace com.ultracart.admin.v2.Model
             this.CustomField6 = CustomField6;
             this.CustomField7 = CustomField7;
             this.IpAddress = IpAddress;
+            this.ReturnCode = ReturnCode;
             this.ScreenBrandingThemeCode = ScreenBrandingThemeCode;
         }
         
@@ -114,11 +116,18 @@ namespace com.ultracart.admin.v2.Model
         public string CustomField7 { get; set; }
 
         /// <summary>
-        /// IP Address
+        /// IP Address (read only unless non-browser key authenticated)
         /// </summary>
-        /// <value>IP Address</value>
+        /// <value>IP Address (read only unless non-browser key authenticated)</value>
         [DataMember(Name="ip_address", EmitDefaultValue=false)]
         public string IpAddress { get; set; }
+
+        /// <summary>
+        /// Return code assigned for send return email operation
+        /// </summary>
+        /// <value>Return code assigned for send return email operation</value>
+        [DataMember(Name="return_code", EmitDefaultValue=false)]
+        public string ReturnCode { get; set; }
 
         /// <summary>
         /// Screen branding theme code
@@ -144,6 +153,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CustomField6: ").Append(CustomField6).Append("\n");
             sb.Append("  CustomField7: ").Append(CustomField7).Append("\n");
             sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            sb.Append("  ReturnCode: ").Append(ReturnCode).Append("\n");
             sb.Append("  ScreenBrandingThemeCode: ").Append(ScreenBrandingThemeCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -225,6 +235,11 @@ namespace com.ultracart.admin.v2.Model
                     this.IpAddress.Equals(input.IpAddress))
                 ) && 
                 (
+                    this.ReturnCode == input.ReturnCode ||
+                    (this.ReturnCode != null &&
+                    this.ReturnCode.Equals(input.ReturnCode))
+                ) && 
+                (
                     this.ScreenBrandingThemeCode == input.ScreenBrandingThemeCode ||
                     (this.ScreenBrandingThemeCode != null &&
                     this.ScreenBrandingThemeCode.Equals(input.ScreenBrandingThemeCode))
@@ -258,6 +273,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CustomField7.GetHashCode();
                 if (this.IpAddress != null)
                     hashCode = hashCode * 59 + this.IpAddress.GetHashCode();
+                if (this.ReturnCode != null)
+                    hashCode = hashCode * 59 + this.ReturnCode.GetHashCode();
                 if (this.ScreenBrandingThemeCode != null)
                     hashCode = hashCode * 59 + this.ScreenBrandingThemeCode.GetHashCode();
                 return hashCode;

@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **AmountOffSubtotalAndShipping** | [**CouponAmountOffSubtotalAndShipping**](CouponAmountOffSubtotalAndShipping.md) |  | [optional] 
 **AmountOffSubtotalWithBlockPurchase** | [**CouponAmountOffSubtotalWithBlockPurchase**](CouponAmountOffSubtotalWithBlockPurchase.md) |  | [optional] 
 **AmountOffSubtotalWithItemsPurchase** | [**CouponAmountOffSubtotalWithItemsPurchase**](CouponAmountOffSubtotalWithItemsPurchase.md) |  | [optional] 
+**AutomaticallyApplyCouponCodes** | [**CouponAutomaticallyApplyCouponCodes**](CouponAutomaticallyApplyCouponCodes.md) |  | [optional] 
+**CalculatedDescription** | **string** | Calculated description displayed to the customer if no description is specified. | [optional] 
 **CanBeUsedWithOtherCoupons** | **bool?** | True if this coupon can be used with other coupons in a single order. | [optional] 
 **CouponOid** | **int?** | Coupon oid. | [optional] 
 **CouponType** | **string** | Coupon type. | [optional] 

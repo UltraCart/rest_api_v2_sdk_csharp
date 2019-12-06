@@ -35,6 +35,9 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="AccountingCode">QuickBooks code.</param>
         /// <param name="ActivationCodes">Activation codes assigned to this item.</param>
+        /// <param name="ArbitraryUnitCost">ArbitraryUnitCost.</param>
+        /// <param name="AutoOrderLastRebillDts">Date/time of the last rebill, used only during order insert to help project future rebills.</param>
+        /// <param name="AutoOrderSchedule">Auto order schedule, used only during inserts supplying the recurring schedule.</param>
         /// <param name="Barcode">Barcode.</param>
         /// <param name="ChannelPartnerItemId">Channel partner item id if this order came through a channel partner and the channel partner item id was mapped to an internal item id.</param>
         /// <param name="Cogs">Cost of goods sold.</param>
@@ -66,6 +69,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="PackedByUser">Packed by user.</param>
         /// <param name="PerishableClass">Perishable class of the item.</param>
         /// <param name="PricingTierName">Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned.</param>
+        /// <param name="Properties">Properties.</param>
         /// <param name="Quantity">Quantity.</param>
         /// <param name="QuantityRefunded">Quantity refunded on this item (read only except refund operation).</param>
         /// <param name="QuickbooksClass">QuickBooks class.</param>
@@ -82,10 +86,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Upsell">True if this item was added to the order as part of an upsell.</param>
         /// <param name="Weight">Weight.</param>
         /// <param name="Width">Width.</param>
-        public OrderItem(string AccountingCode = default(string), List<string> ActivationCodes = default(List<string>), string Barcode = default(string), string ChannelPartnerItemId = default(string), decimal? Cogs = default(decimal?), decimal? ComponentUnitValue = default(decimal?), Currency Cost = default(Currency), string CountryCodeOfOrigin = default(string), string CustomsDescription = default(string), string Description = default(string), Currency Discount = default(Currency), decimal? DiscountQuantity = default(decimal?), Weight DiscountShippingWeight = default(Weight), string DistributionCenterCode = default(string), OrderItemEdi Edi = default(OrderItemEdi), bool? ExcludeCoupon = default(bool?), bool? FreeShipping = default(bool?), bool? Hazmat = default(bool?), Distance Height = default(Distance), int? ItemReferenceOid = default(int?), bool? Kit = default(bool?), bool? KitComponent = default(bool?), Distance Length = default(Distance), string ManufacturerSku = default(string), int? MaxDaysTimeInTransit = default(int?), string MerchantItemId = default(string), string MixAndMatchGroupName = default(string), int? MixAndMatchGroupOid = default(int?), bool? NoShippingDiscount = default(bool?), List<OrderItemOption> Options = default(List<OrderItemOption>), string PackedByUser = default(string), string PerishableClass = default(string), string PricingTierName = default(string), decimal? Quantity = default(decimal?), decimal? QuantityRefunded = default(decimal?), string QuickbooksClass = default(string), bool? ShipSeparately = default(bool?), string ShippedByUser = default(string), string ShippedDts = default(string), string SpecialProductType = default(string), bool? TaxFree = default(bool?), Currency TaxableCost = default(Currency), Currency TotalCostWithDiscount = default(Currency), Currency TotalRefunded = default(Currency), string TransmittedToDistributionCenterDts = default(string), Currency UnitCostWithDiscount = default(Currency), bool? Upsell = default(bool?), Weight Weight = default(Weight), Distance Width = default(Distance))
+        public OrderItem(string AccountingCode = default(string), List<string> ActivationCodes = default(List<string>), Currency ArbitraryUnitCost = default(Currency), string AutoOrderLastRebillDts = default(string), string AutoOrderSchedule = default(string), string Barcode = default(string), string ChannelPartnerItemId = default(string), decimal? Cogs = default(decimal?), decimal? ComponentUnitValue = default(decimal?), Currency Cost = default(Currency), string CountryCodeOfOrigin = default(string), string CustomsDescription = default(string), string Description = default(string), Currency Discount = default(Currency), decimal? DiscountQuantity = default(decimal?), Weight DiscountShippingWeight = default(Weight), string DistributionCenterCode = default(string), OrderItemEdi Edi = default(OrderItemEdi), bool? ExcludeCoupon = default(bool?), bool? FreeShipping = default(bool?), bool? Hazmat = default(bool?), Distance Height = default(Distance), int? ItemReferenceOid = default(int?), bool? Kit = default(bool?), bool? KitComponent = default(bool?), Distance Length = default(Distance), string ManufacturerSku = default(string), int? MaxDaysTimeInTransit = default(int?), string MerchantItemId = default(string), string MixAndMatchGroupName = default(string), int? MixAndMatchGroupOid = default(int?), bool? NoShippingDiscount = default(bool?), List<OrderItemOption> Options = default(List<OrderItemOption>), string PackedByUser = default(string), string PerishableClass = default(string), string PricingTierName = default(string), List<OrderItemProperty> Properties = default(List<OrderItemProperty>), decimal? Quantity = default(decimal?), decimal? QuantityRefunded = default(decimal?), string QuickbooksClass = default(string), bool? ShipSeparately = default(bool?), string ShippedByUser = default(string), string ShippedDts = default(string), string SpecialProductType = default(string), bool? TaxFree = default(bool?), Currency TaxableCost = default(Currency), Currency TotalCostWithDiscount = default(Currency), Currency TotalRefunded = default(Currency), string TransmittedToDistributionCenterDts = default(string), Currency UnitCostWithDiscount = default(Currency), bool? Upsell = default(bool?), Weight Weight = default(Weight), Distance Width = default(Distance))
         {
             this.AccountingCode = AccountingCode;
             this.ActivationCodes = ActivationCodes;
+            this.ArbitraryUnitCost = ArbitraryUnitCost;
+            this.AutoOrderLastRebillDts = AutoOrderLastRebillDts;
+            this.AutoOrderSchedule = AutoOrderSchedule;
             this.Barcode = Barcode;
             this.ChannelPartnerItemId = ChannelPartnerItemId;
             this.Cogs = Cogs;
@@ -117,6 +124,7 @@ namespace com.ultracart.admin.v2.Model
             this.PackedByUser = PackedByUser;
             this.PerishableClass = PerishableClass;
             this.PricingTierName = PricingTierName;
+            this.Properties = Properties;
             this.Quantity = Quantity;
             this.QuantityRefunded = QuantityRefunded;
             this.QuickbooksClass = QuickbooksClass;
@@ -148,6 +156,26 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Activation codes assigned to this item</value>
         [DataMember(Name="activation_codes", EmitDefaultValue=false)]
         public List<string> ActivationCodes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ArbitraryUnitCost
+        /// </summary>
+        [DataMember(Name="arbitrary_unit_cost", EmitDefaultValue=false)]
+        public Currency ArbitraryUnitCost { get; set; }
+
+        /// <summary>
+        /// Date/time of the last rebill, used only during order insert to help project future rebills
+        /// </summary>
+        /// <value>Date/time of the last rebill, used only during order insert to help project future rebills</value>
+        [DataMember(Name="auto_order_last_rebill_dts", EmitDefaultValue=false)]
+        public string AutoOrderLastRebillDts { get; set; }
+
+        /// <summary>
+        /// Auto order schedule, used only during inserts supplying the recurring schedule
+        /// </summary>
+        /// <value>Auto order schedule, used only during inserts supplying the recurring schedule</value>
+        [DataMember(Name="auto_order_schedule", EmitDefaultValue=false)]
+        public string AutoOrderSchedule { get; set; }
 
         /// <summary>
         /// Barcode
@@ -361,6 +389,13 @@ namespace com.ultracart.admin.v2.Model
         public string PricingTierName { get; set; }
 
         /// <summary>
+        /// Properties
+        /// </summary>
+        /// <value>Properties</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<OrderItemProperty> Properties { get; set; }
+
+        /// <summary>
         /// Quantity
         /// </summary>
         /// <value>Quantity</value>
@@ -476,6 +511,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class OrderItem {\n");
             sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
             sb.Append("  ActivationCodes: ").Append(ActivationCodes).Append("\n");
+            sb.Append("  ArbitraryUnitCost: ").Append(ArbitraryUnitCost).Append("\n");
+            sb.Append("  AutoOrderLastRebillDts: ").Append(AutoOrderLastRebillDts).Append("\n");
+            sb.Append("  AutoOrderSchedule: ").Append(AutoOrderSchedule).Append("\n");
             sb.Append("  Barcode: ").Append(Barcode).Append("\n");
             sb.Append("  ChannelPartnerItemId: ").Append(ChannelPartnerItemId).Append("\n");
             sb.Append("  Cogs: ").Append(Cogs).Append("\n");
@@ -507,6 +545,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PackedByUser: ").Append(PackedByUser).Append("\n");
             sb.Append("  PerishableClass: ").Append(PerishableClass).Append("\n");
             sb.Append("  PricingTierName: ").Append(PricingTierName).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  QuantityRefunded: ").Append(QuantityRefunded).Append("\n");
             sb.Append("  QuickbooksClass: ").Append(QuickbooksClass).Append("\n");
@@ -566,6 +605,21 @@ namespace com.ultracart.admin.v2.Model
                     this.ActivationCodes == input.ActivationCodes ||
                     this.ActivationCodes != null &&
                     this.ActivationCodes.SequenceEqual(input.ActivationCodes)
+                ) && 
+                (
+                    this.ArbitraryUnitCost == input.ArbitraryUnitCost ||
+                    (this.ArbitraryUnitCost != null &&
+                    this.ArbitraryUnitCost.Equals(input.ArbitraryUnitCost))
+                ) && 
+                (
+                    this.AutoOrderLastRebillDts == input.AutoOrderLastRebillDts ||
+                    (this.AutoOrderLastRebillDts != null &&
+                    this.AutoOrderLastRebillDts.Equals(input.AutoOrderLastRebillDts))
+                ) && 
+                (
+                    this.AutoOrderSchedule == input.AutoOrderSchedule ||
+                    (this.AutoOrderSchedule != null &&
+                    this.AutoOrderSchedule.Equals(input.AutoOrderSchedule))
                 ) && 
                 (
                     this.Barcode == input.Barcode ||
@@ -723,6 +777,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PricingTierName.Equals(input.PricingTierName))
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.Quantity == input.Quantity ||
                     (this.Quantity != null &&
                     this.Quantity.Equals(input.Quantity))
@@ -817,6 +876,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
                 if (this.ActivationCodes != null)
                     hashCode = hashCode * 59 + this.ActivationCodes.GetHashCode();
+                if (this.ArbitraryUnitCost != null)
+                    hashCode = hashCode * 59 + this.ArbitraryUnitCost.GetHashCode();
+                if (this.AutoOrderLastRebillDts != null)
+                    hashCode = hashCode * 59 + this.AutoOrderLastRebillDts.GetHashCode();
+                if (this.AutoOrderSchedule != null)
+                    hashCode = hashCode * 59 + this.AutoOrderSchedule.GetHashCode();
                 if (this.Barcode != null)
                     hashCode = hashCode * 59 + this.Barcode.GetHashCode();
                 if (this.ChannelPartnerItemId != null)
@@ -879,6 +944,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PerishableClass.GetHashCode();
                 if (this.PricingTierName != null)
                     hashCode = hashCode * 59 + this.PricingTierName.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.Quantity != null)
                     hashCode = hashCode * 59 + this.Quantity.GetHashCode();
                 if (this.QuantityRefunded != null)

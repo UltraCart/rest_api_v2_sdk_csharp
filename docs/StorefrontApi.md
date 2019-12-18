@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ArchiveEmailList**](StorefrontApi.md#archiveemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive | Archive email list
 [**ArchiveEmailSegment**](StorefrontApi.md#archiveemailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive | Archive email segment
+[**CheckDownloadEmailSegment**](StorefrontApi.md#checkdownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 [**CloneEmailCampaign**](StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 [**CloneEmailFlow**](StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
 [**CreateEmailSendingDomain**](StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
@@ -55,6 +56,7 @@ Method | HTTP request | Description
 [**InsertEmailFlow**](StorefrontApi.md#insertemailflow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
 [**InsertEmailList**](StorefrontApi.md#insertemaillist) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
 [**InsertEmailSegment**](StorefrontApi.md#insertemailsegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
+[**PrepareDownloadEmailSegment**](StorefrontApi.md#preparedownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment
 [**Search**](StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
 [**SearchEmailListCustomers**](StorefrontApi.md#searchemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
 [**SearchEmailSegmentCustomers**](StorefrontApi.md#searchemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
@@ -253,6 +255,106 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailSegmentArchiveResponse**](EmailSegmentArchiveResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="checkdownloademailsegment"></a>
+# **CheckDownloadEmailSegment**
+> EmailSegmentDownloadPrepareResponse CheckDownloadEmailSegment (string storefrontOid, string emailSegmentUuid, string emailSegmentRebuildUuid)
+
+Check download of email segment
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class CheckDownloadEmailSegmentExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = storefrontOid_example;  // string | null
+            var emailSegmentUuid = emailSegmentUuid_example;  // string | null
+            var emailSegmentRebuildUuid = emailSegmentRebuildUuid_example;  // string | null
+
+            try
+            {
+                // Check download of email segment
+                EmailSegmentDownloadPrepareResponse result = apiInstance.CheckDownloadEmailSegment(storefrontOid, emailSegmentUuid, emailSegmentRebuildUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.CheckDownloadEmailSegment: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **string**| null | 
+ **emailSegmentUuid** | **string**| null | 
+ **emailSegmentRebuildUuid** | **string**| null | 
+
+### Return type
+
+[**EmailSegmentDownloadPrepareResponse**](EmailSegmentDownloadPrepareResponse.md)
 
 ### Authorization
 
@@ -5047,6 +5149,104 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailSegmentResponse**](EmailSegmentResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="preparedownloademailsegment"></a>
+# **PrepareDownloadEmailSegment**
+> EmailSegmentDownloadPrepareResponse PrepareDownloadEmailSegment (string storefrontOid, string emailSegmentUuid)
+
+Prepare download of email segment
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class PrepareDownloadEmailSegmentExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = storefrontOid_example;  // string | null
+            var emailSegmentUuid = emailSegmentUuid_example;  // string | null
+
+            try
+            {
+                // Prepare download of email segment
+                EmailSegmentDownloadPrepareResponse result = apiInstance.PrepareDownloadEmailSegment(storefrontOid, emailSegmentUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.PrepareDownloadEmailSegment: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **string**| null | 
+ **emailSegmentUuid** | **string**| null | 
+
+### Return type
+
+[**EmailSegmentDownloadPrepareResponse**](EmailSegmentDownloadPrepareResponse.md)
 
 ### Authorization
 

@@ -77,6 +77,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ShippedByUser">Shipped by user.</param>
         /// <param name="ShippedDts">Date/time that this item was marked shipped.</param>
         /// <param name="SpecialProductType">Special product type (USPS Media Mail).</param>
+        /// <param name="Tags">Tags.</param>
         /// <param name="TaxFree">True if the item is tax free.</param>
         /// <param name="TaxableCost">TaxableCost.</param>
         /// <param name="TotalCostWithDiscount">TotalCostWithDiscount.</param>
@@ -86,7 +87,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Upsell">True if this item was added to the order as part of an upsell.</param>
         /// <param name="Weight">Weight.</param>
         /// <param name="Width">Width.</param>
-        public OrderItem(string AccountingCode = default(string), List<string> ActivationCodes = default(List<string>), Currency ArbitraryUnitCost = default(Currency), string AutoOrderLastRebillDts = default(string), string AutoOrderSchedule = default(string), string Barcode = default(string), string ChannelPartnerItemId = default(string), decimal? Cogs = default(decimal?), decimal? ComponentUnitValue = default(decimal?), Currency Cost = default(Currency), string CountryCodeOfOrigin = default(string), string CustomsDescription = default(string), string Description = default(string), Currency Discount = default(Currency), decimal? DiscountQuantity = default(decimal?), Weight DiscountShippingWeight = default(Weight), string DistributionCenterCode = default(string), OrderItemEdi Edi = default(OrderItemEdi), bool? ExcludeCoupon = default(bool?), bool? FreeShipping = default(bool?), bool? Hazmat = default(bool?), Distance Height = default(Distance), int? ItemReferenceOid = default(int?), bool? Kit = default(bool?), bool? KitComponent = default(bool?), Distance Length = default(Distance), string ManufacturerSku = default(string), int? MaxDaysTimeInTransit = default(int?), string MerchantItemId = default(string), string MixAndMatchGroupName = default(string), int? MixAndMatchGroupOid = default(int?), bool? NoShippingDiscount = default(bool?), List<OrderItemOption> Options = default(List<OrderItemOption>), string PackedByUser = default(string), string PerishableClass = default(string), string PricingTierName = default(string), List<OrderItemProperty> Properties = default(List<OrderItemProperty>), decimal? Quantity = default(decimal?), decimal? QuantityRefunded = default(decimal?), string QuickbooksClass = default(string), bool? ShipSeparately = default(bool?), string ShippedByUser = default(string), string ShippedDts = default(string), string SpecialProductType = default(string), bool? TaxFree = default(bool?), Currency TaxableCost = default(Currency), Currency TotalCostWithDiscount = default(Currency), Currency TotalRefunded = default(Currency), string TransmittedToDistributionCenterDts = default(string), Currency UnitCostWithDiscount = default(Currency), bool? Upsell = default(bool?), Weight Weight = default(Weight), Distance Width = default(Distance))
+        public OrderItem(string AccountingCode = default(string), List<string> ActivationCodes = default(List<string>), Currency ArbitraryUnitCost = default(Currency), string AutoOrderLastRebillDts = default(string), string AutoOrderSchedule = default(string), string Barcode = default(string), string ChannelPartnerItemId = default(string), decimal? Cogs = default(decimal?), decimal? ComponentUnitValue = default(decimal?), Currency Cost = default(Currency), string CountryCodeOfOrigin = default(string), string CustomsDescription = default(string), string Description = default(string), Currency Discount = default(Currency), decimal? DiscountQuantity = default(decimal?), Weight DiscountShippingWeight = default(Weight), string DistributionCenterCode = default(string), OrderItemEdi Edi = default(OrderItemEdi), bool? ExcludeCoupon = default(bool?), bool? FreeShipping = default(bool?), bool? Hazmat = default(bool?), Distance Height = default(Distance), int? ItemReferenceOid = default(int?), bool? Kit = default(bool?), bool? KitComponent = default(bool?), Distance Length = default(Distance), string ManufacturerSku = default(string), int? MaxDaysTimeInTransit = default(int?), string MerchantItemId = default(string), string MixAndMatchGroupName = default(string), int? MixAndMatchGroupOid = default(int?), bool? NoShippingDiscount = default(bool?), List<OrderItemOption> Options = default(List<OrderItemOption>), string PackedByUser = default(string), string PerishableClass = default(string), string PricingTierName = default(string), List<OrderItemProperty> Properties = default(List<OrderItemProperty>), decimal? Quantity = default(decimal?), decimal? QuantityRefunded = default(decimal?), string QuickbooksClass = default(string), bool? ShipSeparately = default(bool?), string ShippedByUser = default(string), string ShippedDts = default(string), string SpecialProductType = default(string), List<OrderItemTag> Tags = default(List<OrderItemTag>), bool? TaxFree = default(bool?), Currency TaxableCost = default(Currency), Currency TotalCostWithDiscount = default(Currency), Currency TotalRefunded = default(Currency), string TransmittedToDistributionCenterDts = default(string), Currency UnitCostWithDiscount = default(Currency), bool? Upsell = default(bool?), Weight Weight = default(Weight), Distance Width = default(Distance))
         {
             this.AccountingCode = AccountingCode;
             this.ActivationCodes = ActivationCodes;
@@ -132,6 +133,7 @@ namespace com.ultracart.admin.v2.Model
             this.ShippedByUser = ShippedByUser;
             this.ShippedDts = ShippedDts;
             this.SpecialProductType = SpecialProductType;
+            this.Tags = Tags;
             this.TaxFree = TaxFree;
             this.TaxableCost = TaxableCost;
             this.TotalCostWithDiscount = TotalCostWithDiscount;
@@ -445,6 +447,13 @@ namespace com.ultracart.admin.v2.Model
         public string SpecialProductType { get; set; }
 
         /// <summary>
+        /// Tags
+        /// </summary>
+        /// <value>Tags</value>
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public List<OrderItemTag> Tags { get; set; }
+
+        /// <summary>
         /// True if the item is tax free
         /// </summary>
         /// <value>True if the item is tax free</value>
@@ -553,6 +562,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ShippedByUser: ").Append(ShippedByUser).Append("\n");
             sb.Append("  ShippedDts: ").Append(ShippedDts).Append("\n");
             sb.Append("  SpecialProductType: ").Append(SpecialProductType).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  TaxFree: ").Append(TaxFree).Append("\n");
             sb.Append("  TaxableCost: ").Append(TaxableCost).Append("\n");
             sb.Append("  TotalCostWithDiscount: ").Append(TotalCostWithDiscount).Append("\n");
@@ -817,6 +827,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SpecialProductType.Equals(input.SpecialProductType))
                 ) && 
                 (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
                     this.TaxFree == input.TaxFree ||
                     (this.TaxFree != null &&
                     this.TaxFree.Equals(input.TaxFree))
@@ -960,6 +975,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ShippedDts.GetHashCode();
                 if (this.SpecialProductType != null)
                     hashCode = hashCode * 59 + this.SpecialProductType.GetHashCode();
+                if (this.Tags != null)
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.TaxFree != null)
                     hashCode = hashCode * 59 + this.TaxFree.GetHashCode();
                 if (this.TaxableCost != null)

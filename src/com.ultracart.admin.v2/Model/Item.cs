@@ -74,12 +74,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Reviews">Reviews.</param>
         /// <param name="Salesforce">Salesforce.</param>
         /// <param name="Shipping">Shipping.</param>
+        /// <param name="Tags">Tags.</param>
         /// <param name="Tax">Tax.</param>
         /// <param name="ThirdPartyEmailMarketing">3rd Party Email Marketing.</param>
         /// <param name="VariantItems">Variant Items.</param>
         /// <param name="Variations">Variations.</param>
         /// <param name="WishlistMember">WishlistMember.</param>
-        public Item(ItemAccounting Accounting = default(ItemAccounting), ItemAmember Amember = default(ItemAmember), ItemAutoOrder AutoOrder = default(ItemAutoOrder), ItemCCBill Ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> ChannelPartnerMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback Chargeback = default(ItemChargeback), ItemCheckout Checkout = default(ItemCheckout), ItemContent Content = default(ItemContent), string CreationDts = default(string), string Description = default(string), int? DescriptionTranslatedTextInstanceOid = default(int?), ItemDigitalDelivery DigitalDelivery = default(ItemDigitalDelivery), ItemEbay Ebay = default(ItemEbay), ItemEmailNotifications EmailNotifications = default(ItemEmailNotifications), ItemEnrollment123 Enrollment123 = default(ItemEnrollment123), ItemGiftCertificate GiftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch GoogleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers Identifiers = default(ItemIdentifiers), bool? Inactive = default(bool?), ItemInstantPaymentNotifications InstantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _Internal = default(ItemInternal), bool? Kit = default(bool?), ItemKitDefinition KitDefinition = default(ItemKitDefinition), string LastModifiedDts = default(string), string MerchantId = default(string), string MerchantItemId = default(string), int? MerchantItemOid = default(int?), List<ItemOption> Options = default(List<ItemOption>), int? ParentCategoryId = default(int?), string ParentCategoryPath = default(string), ItemPaymentProcessing PaymentProcessing = default(ItemPaymentProcessing), ItemPhysical Physical = default(ItemPhysical), ItemPricing Pricing = default(ItemPricing), ItemRealtimePricing RealtimePricing = default(ItemRealtimePricing), ItemRelated Related = default(ItemRelated), ItemReporting Reporting = default(ItemReporting), ItemRestriction Restriction = default(ItemRestriction), ItemRevguard Revguard = default(ItemRevguard), ItemReviews Reviews = default(ItemReviews), ItemSalesforce Salesforce = default(ItemSalesforce), ItemShipping Shipping = default(ItemShipping), ItemTax Tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> ThirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> VariantItems = default(List<ItemVariantItem>), List<ItemVariation> Variations = default(List<ItemVariation>), ItemWishlistMember WishlistMember = default(ItemWishlistMember))
+        public Item(ItemAccounting Accounting = default(ItemAccounting), ItemAmember Amember = default(ItemAmember), ItemAutoOrder AutoOrder = default(ItemAutoOrder), ItemCCBill Ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> ChannelPartnerMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback Chargeback = default(ItemChargeback), ItemCheckout Checkout = default(ItemCheckout), ItemContent Content = default(ItemContent), string CreationDts = default(string), string Description = default(string), int? DescriptionTranslatedTextInstanceOid = default(int?), ItemDigitalDelivery DigitalDelivery = default(ItemDigitalDelivery), ItemEbay Ebay = default(ItemEbay), ItemEmailNotifications EmailNotifications = default(ItemEmailNotifications), ItemEnrollment123 Enrollment123 = default(ItemEnrollment123), ItemGiftCertificate GiftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch GoogleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers Identifiers = default(ItemIdentifiers), bool? Inactive = default(bool?), ItemInstantPaymentNotifications InstantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _Internal = default(ItemInternal), bool? Kit = default(bool?), ItemKitDefinition KitDefinition = default(ItemKitDefinition), string LastModifiedDts = default(string), string MerchantId = default(string), string MerchantItemId = default(string), int? MerchantItemOid = default(int?), List<ItemOption> Options = default(List<ItemOption>), int? ParentCategoryId = default(int?), string ParentCategoryPath = default(string), ItemPaymentProcessing PaymentProcessing = default(ItemPaymentProcessing), ItemPhysical Physical = default(ItemPhysical), ItemPricing Pricing = default(ItemPricing), ItemRealtimePricing RealtimePricing = default(ItemRealtimePricing), ItemRelated Related = default(ItemRelated), ItemReporting Reporting = default(ItemReporting), ItemRestriction Restriction = default(ItemRestriction), ItemRevguard Revguard = default(ItemRevguard), ItemReviews Reviews = default(ItemReviews), ItemSalesforce Salesforce = default(ItemSalesforce), ItemShipping Shipping = default(ItemShipping), ItemTags Tags = default(ItemTags), ItemTax Tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> ThirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> VariantItems = default(List<ItemVariantItem>), List<ItemVariation> Variations = default(List<ItemVariation>), ItemWishlistMember WishlistMember = default(ItemWishlistMember))
         {
             this.Accounting = Accounting;
             this.Amember = Amember;
@@ -122,6 +123,7 @@ namespace com.ultracart.admin.v2.Model
             this.Reviews = Reviews;
             this.Salesforce = Salesforce;
             this.Shipping = Shipping;
+            this.Tags = Tags;
             this.Tax = Tax;
             this.ThirdPartyEmailMarketing = ThirdPartyEmailMarketing;
             this.VariantItems = VariantItems;
@@ -389,6 +391,12 @@ namespace com.ultracart.admin.v2.Model
         public ItemShipping Shipping { get; set; }
 
         /// <summary>
+        /// Gets or Sets Tags
+        /// </summary>
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public ItemTags Tags { get; set; }
+
+        /// <summary>
         /// Gets or Sets Tax
         /// </summary>
         [DataMember(Name="tax", EmitDefaultValue=false)]
@@ -470,6 +478,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Reviews: ").Append(Reviews).Append("\n");
             sb.Append("  Salesforce: ").Append(Salesforce).Append("\n");
             sb.Append("  Shipping: ").Append(Shipping).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Tax: ").Append(Tax).Append("\n");
             sb.Append("  ThirdPartyEmailMarketing: ").Append(ThirdPartyEmailMarketing).Append("\n");
             sb.Append("  VariantItems: ").Append(VariantItems).Append("\n");
@@ -715,6 +724,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Shipping.Equals(input.Shipping))
                 ) && 
                 (
+                    this.Tags == input.Tags ||
+                    (this.Tags != null &&
+                    this.Tags.Equals(input.Tags))
+                ) && 
+                (
                     this.Tax == input.Tax ||
                     (this.Tax != null &&
                     this.Tax.Equals(input.Tax))
@@ -832,6 +846,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Salesforce.GetHashCode();
                 if (this.Shipping != null)
                     hashCode = hashCode * 59 + this.Shipping.GetHashCode();
+                if (this.Tags != null)
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Tax != null)
                     hashCode = hashCode * 59 + this.Tax.GetHashCode();
                 if (this.ThirdPartyEmailMarketing != null)

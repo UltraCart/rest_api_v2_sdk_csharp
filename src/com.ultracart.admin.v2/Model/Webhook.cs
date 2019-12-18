@@ -90,6 +90,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ConsecutiveFailures">The number of consecutive failures that have occurred trying to deliver notifications to the target server.</param>
         /// <param name="Disabled">True if the webhook has been disabled.</param>
         /// <param name="EventCategories">The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval..</param>
+        /// <param name="IamAccessKey">IAM Access Key for AWS SQS Delivery.</param>
+        /// <param name="IamSecretKey">IAM Secret Key for AWS SQS Delivery.</param>
         /// <param name="MaximumEvents">The maximum number of events in the payload that UltraCart will deliver.</param>
         /// <param name="MaximumSize">The maximum size of the payload that UltraCart will deliver.</param>
         /// <param name="MerchantId">The UltraCart merchant ID that owns this webhook.</param>
@@ -97,7 +99,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Pending">The number of pending events for this webhook.</param>
         /// <param name="WebhookOid">The object identifier for this webhook.</param>
         /// <param name="WebhookUrl">The URL to deliver events to.  Must be HTTPS for customer related information..</param>
-        public Webhook(int? ApiUserOid = default(int?), ApiVersionEnum? ApiVersion = default(ApiVersionEnum?), ApiUserApplicationProfile ApplicationProfile = default(ApiUserApplicationProfile), AuthenticationTypeEnum? AuthenticationType = default(AuthenticationTypeEnum?), string BasicPassword = default(string), string BasicUsername = default(string), int? ConsecutiveFailures = default(int?), bool? Disabled = default(bool?), List<WebhookEventCategory> EventCategories = default(List<WebhookEventCategory>), int? MaximumEvents = default(int?), int? MaximumSize = default(int?), string MerchantId = default(string), string NextRetryAfter = default(string), int? Pending = default(int?), int? WebhookOid = default(int?), string WebhookUrl = default(string))
+        public Webhook(int? ApiUserOid = default(int?), ApiVersionEnum? ApiVersion = default(ApiVersionEnum?), ApiUserApplicationProfile ApplicationProfile = default(ApiUserApplicationProfile), AuthenticationTypeEnum? AuthenticationType = default(AuthenticationTypeEnum?), string BasicPassword = default(string), string BasicUsername = default(string), int? ConsecutiveFailures = default(int?), bool? Disabled = default(bool?), List<WebhookEventCategory> EventCategories = default(List<WebhookEventCategory>), string IamAccessKey = default(string), string IamSecretKey = default(string), int? MaximumEvents = default(int?), int? MaximumSize = default(int?), string MerchantId = default(string), string NextRetryAfter = default(string), int? Pending = default(int?), int? WebhookOid = default(int?), string WebhookUrl = default(string))
         {
             this.ApiUserOid = ApiUserOid;
             this.ApiVersion = ApiVersion;
@@ -108,6 +110,8 @@ namespace com.ultracart.admin.v2.Model
             this.ConsecutiveFailures = ConsecutiveFailures;
             this.Disabled = Disabled;
             this.EventCategories = EventCategories;
+            this.IamAccessKey = IamAccessKey;
+            this.IamSecretKey = IamSecretKey;
             this.MaximumEvents = MaximumEvents;
             this.MaximumSize = MaximumSize;
             this.MerchantId = MerchantId;
@@ -166,6 +170,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.</value>
         [DataMember(Name="event_categories", EmitDefaultValue=false)]
         public List<WebhookEventCategory> EventCategories { get; set; }
+
+        /// <summary>
+        /// IAM Access Key for AWS SQS Delivery
+        /// </summary>
+        /// <value>IAM Access Key for AWS SQS Delivery</value>
+        [DataMember(Name="iam_access_key", EmitDefaultValue=false)]
+        public string IamAccessKey { get; set; }
+
+        /// <summary>
+        /// IAM Secret Key for AWS SQS Delivery
+        /// </summary>
+        /// <value>IAM Secret Key for AWS SQS Delivery</value>
+        [DataMember(Name="iam_secret_key", EmitDefaultValue=false)]
+        public string IamSecretKey { get; set; }
 
         /// <summary>
         /// The maximum number of events in the payload that UltraCart will deliver
@@ -233,6 +251,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConsecutiveFailures: ").Append(ConsecutiveFailures).Append("\n");
             sb.Append("  Disabled: ").Append(Disabled).Append("\n");
             sb.Append("  EventCategories: ").Append(EventCategories).Append("\n");
+            sb.Append("  IamAccessKey: ").Append(IamAccessKey).Append("\n");
+            sb.Append("  IamSecretKey: ").Append(IamSecretKey).Append("\n");
             sb.Append("  MaximumEvents: ").Append(MaximumEvents).Append("\n");
             sb.Append("  MaximumSize: ").Append(MaximumSize).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
@@ -320,6 +340,16 @@ namespace com.ultracart.admin.v2.Model
                     this.EventCategories.SequenceEqual(input.EventCategories)
                 ) && 
                 (
+                    this.IamAccessKey == input.IamAccessKey ||
+                    (this.IamAccessKey != null &&
+                    this.IamAccessKey.Equals(input.IamAccessKey))
+                ) && 
+                (
+                    this.IamSecretKey == input.IamSecretKey ||
+                    (this.IamSecretKey != null &&
+                    this.IamSecretKey.Equals(input.IamSecretKey))
+                ) && 
+                (
                     this.MaximumEvents == input.MaximumEvents ||
                     (this.MaximumEvents != null &&
                     this.MaximumEvents.Equals(input.MaximumEvents))
@@ -383,6 +413,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Disabled.GetHashCode();
                 if (this.EventCategories != null)
                     hashCode = hashCode * 59 + this.EventCategories.GetHashCode();
+                if (this.IamAccessKey != null)
+                    hashCode = hashCode * 59 + this.IamAccessKey.GetHashCode();
+                if (this.IamSecretKey != null)
+                    hashCode = hashCode * 59 + this.IamSecretKey.GetHashCode();
                 if (this.MaximumEvents != null)
                     hashCode = hashCode * 59 + this.MaximumEvents.GetHashCode();
                 if (this.MaximumSize != null)

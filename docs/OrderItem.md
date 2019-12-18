@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **ShippedByUser** | **string** | Shipped by user | [optional] 
 **ShippedDts** | **string** | Date/time that this item was marked shipped | [optional] 
 **SpecialProductType** | **string** | Special product type (USPS Media Mail) | [optional] 
+**Tags** | [**List&lt;OrderItemTag&gt;**](OrderItemTag.md) | Tags | [optional] 
 **TaxFree** | **bool?** | True if the item is tax free | [optional] 
 **TaxableCost** | [**Currency**](Currency.md) |  | [optional] 
 **TotalCostWithDiscount** | [**Currency**](Currency.md) |  | [optional] 

@@ -58,6 +58,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="FreeShippingMinimum">If free_shipping is true, this is the minimum subtotal required for free shipping.</param>
         /// <param name="LastModifiedBy">Last modified by.</param>
         /// <param name="LastModifiedDts">Last modified date.</param>
+        /// <param name="Loyalty">Loyalty.</param>
         /// <param name="MaximumItemCount">Maximum item count.</param>
         /// <param name="MinimumItemCount">Minimum item count.</param>
         /// <param name="MinimumSubtotal">Minimum subtotal.</param>
@@ -81,6 +82,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="SignupDts">Signup date.</param>
         /// <param name="SoftwareEntitlements">Software entitlements owned by this customer.</param>
         /// <param name="SuppressBuysafe">Suppress buySAFE.</param>
+        /// <param name="Tags">Tags for this customer.</param>
         /// <param name="TaxCodes">TaxCodes.</param>
         /// <param name="TaxExempt">True if the customer is tax exempt.</param>
         /// <param name="TaxId">Tax ID.</param>
@@ -89,7 +91,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Unapproved">Unapproved.</param>
         /// <param name="UpsAccountNumber">UPS account number.</param>
         /// <param name="WebsiteUrl">Website url.</param>
-        public Customer(CustomerActivity Activity = default(CustomerActivity), int? AffiliateOid = default(int?), bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), bool? AllowQuoteRequest = default(bool?), bool? AllowSelectionOfAddressType = default(bool?), List<CustomerAttachment> Attachments = default(List<CustomerAttachment>), bool? AutoApproveCod = default(bool?), bool? AutoApprovePurchaseOrder = default(bool?), string AutomaticMerchantNotes = default(string), List<CustomerBilling> Billing = default(List<CustomerBilling>), string BusinessNotes = default(string), List<CustomerCard> Cards = default(List<CustomerCard>), List<CustomerEmail> CcEmails = default(List<CustomerEmail>), int? CustomerProfileOid = default(int?), string DhlAccountNumber = default(string), string DhlDutyAccountNumber = default(string), string Email = default(string), bool? ExemptShippingHandlingCharge = default(bool?), string FedexAccountNumber = default(string), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), string LastModifiedBy = default(string), string LastModifiedDts = default(string), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), List<Order> Orders = default(List<Order>), CustomerOrdersSummary OrdersSummary = default(CustomerOrdersSummary), string Password = default(string), List<CustomerPricingTier> PricingTiers = default(List<CustomerPricingTier>), CustomerPrivacy Privacy = default(CustomerPrivacy), string QbClass = default(string), string QbCode = default(string), List<Order> Quotes = default(List<Order>), CustomerQuotesSummary QuotesSummary = default(CustomerQuotesSummary), string ReferralSource = default(string), CustomerReviewer Reviewer = default(CustomerReviewer), string SalesRepCode = default(string), bool? SendSignupNotification = default(bool?), List<CustomerShipping> Shipping = default(List<CustomerShipping>), string SignupDts = default(string), List<CustomerSoftwareEntitlement> SoftwareEntitlements = default(List<CustomerSoftwareEntitlement>), bool? SuppressBuysafe = default(bool?), CustomerTaxCodes TaxCodes = default(CustomerTaxCodes), bool? TaxExempt = default(bool?), string TaxId = default(string), string Terms = default(string), bool? TrackSeparately = default(bool?), bool? Unapproved = default(bool?), string UpsAccountNumber = default(string), string WebsiteUrl = default(string))
+        public Customer(CustomerActivity Activity = default(CustomerActivity), int? AffiliateOid = default(int?), bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), bool? AllowQuoteRequest = default(bool?), bool? AllowSelectionOfAddressType = default(bool?), List<CustomerAttachment> Attachments = default(List<CustomerAttachment>), bool? AutoApproveCod = default(bool?), bool? AutoApprovePurchaseOrder = default(bool?), string AutomaticMerchantNotes = default(string), List<CustomerBilling> Billing = default(List<CustomerBilling>), string BusinessNotes = default(string), List<CustomerCard> Cards = default(List<CustomerCard>), List<CustomerEmail> CcEmails = default(List<CustomerEmail>), int? CustomerProfileOid = default(int?), string DhlAccountNumber = default(string), string DhlDutyAccountNumber = default(string), string Email = default(string), bool? ExemptShippingHandlingCharge = default(bool?), string FedexAccountNumber = default(string), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), string LastModifiedBy = default(string), string LastModifiedDts = default(string), CustomerLoyalty Loyalty = default(CustomerLoyalty), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), List<Order> Orders = default(List<Order>), CustomerOrdersSummary OrdersSummary = default(CustomerOrdersSummary), string Password = default(string), List<CustomerPricingTier> PricingTiers = default(List<CustomerPricingTier>), CustomerPrivacy Privacy = default(CustomerPrivacy), string QbClass = default(string), string QbCode = default(string), List<Order> Quotes = default(List<Order>), CustomerQuotesSummary QuotesSummary = default(CustomerQuotesSummary), string ReferralSource = default(string), CustomerReviewer Reviewer = default(CustomerReviewer), string SalesRepCode = default(string), bool? SendSignupNotification = default(bool?), List<CustomerShipping> Shipping = default(List<CustomerShipping>), string SignupDts = default(string), List<CustomerSoftwareEntitlement> SoftwareEntitlements = default(List<CustomerSoftwareEntitlement>), bool? SuppressBuysafe = default(bool?), List<CustomerTag> Tags = default(List<CustomerTag>), CustomerTaxCodes TaxCodes = default(CustomerTaxCodes), bool? TaxExempt = default(bool?), string TaxId = default(string), string Terms = default(string), bool? TrackSeparately = default(bool?), bool? Unapproved = default(bool?), string UpsAccountNumber = default(string), string WebsiteUrl = default(string))
         {
             this.Activity = Activity;
             this.AffiliateOid = AffiliateOid;
@@ -116,6 +118,7 @@ namespace com.ultracart.admin.v2.Model
             this.FreeShippingMinimum = FreeShippingMinimum;
             this.LastModifiedBy = LastModifiedBy;
             this.LastModifiedDts = LastModifiedDts;
+            this.Loyalty = Loyalty;
             this.MaximumItemCount = MaximumItemCount;
             this.MinimumItemCount = MinimumItemCount;
             this.MinimumSubtotal = MinimumSubtotal;
@@ -139,6 +142,7 @@ namespace com.ultracart.admin.v2.Model
             this.SignupDts = SignupDts;
             this.SoftwareEntitlements = SoftwareEntitlements;
             this.SuppressBuysafe = SuppressBuysafe;
+            this.Tags = Tags;
             this.TaxCodes = TaxCodes;
             this.TaxExempt = TaxExempt;
             this.TaxId = TaxId;
@@ -324,6 +328,12 @@ namespace com.ultracart.admin.v2.Model
         public string LastModifiedDts { get; set; }
 
         /// <summary>
+        /// Gets or Sets Loyalty
+        /// </summary>
+        [DataMember(Name="loyalty", EmitDefaultValue=false)]
+        public CustomerLoyalty Loyalty { get; set; }
+
+        /// <summary>
         /// Maximum item count
         /// </summary>
         /// <value>Maximum item count</value>
@@ -481,6 +491,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? SuppressBuysafe { get; set; }
 
         /// <summary>
+        /// Tags for this customer
+        /// </summary>
+        /// <value>Tags for this customer</value>
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public List<CustomerTag> Tags { get; set; }
+
+        /// <summary>
         /// Gets or Sets TaxCodes
         /// </summary>
         [DataMember(Name="tax_codes", EmitDefaultValue=false)]
@@ -568,6 +585,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FreeShippingMinimum: ").Append(FreeShippingMinimum).Append("\n");
             sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
             sb.Append("  LastModifiedDts: ").Append(LastModifiedDts).Append("\n");
+            sb.Append("  Loyalty: ").Append(Loyalty).Append("\n");
             sb.Append("  MaximumItemCount: ").Append(MaximumItemCount).Append("\n");
             sb.Append("  MinimumItemCount: ").Append(MinimumItemCount).Append("\n");
             sb.Append("  MinimumSubtotal: ").Append(MinimumSubtotal).Append("\n");
@@ -591,6 +609,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  SignupDts: ").Append(SignupDts).Append("\n");
             sb.Append("  SoftwareEntitlements: ").Append(SoftwareEntitlements).Append("\n");
             sb.Append("  SuppressBuysafe: ").Append(SuppressBuysafe).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  TaxCodes: ").Append(TaxCodes).Append("\n");
             sb.Append("  TaxExempt: ").Append(TaxExempt).Append("\n");
             sb.Append("  TaxId: ").Append(TaxId).Append("\n");
@@ -759,6 +778,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LastModifiedDts.Equals(input.LastModifiedDts))
                 ) && 
                 (
+                    this.Loyalty == input.Loyalty ||
+                    (this.Loyalty != null &&
+                    this.Loyalty.Equals(input.Loyalty))
+                ) && 
+                (
                     this.MaximumItemCount == input.MaximumItemCount ||
                     (this.MaximumItemCount != null &&
                     this.MaximumItemCount.Equals(input.MaximumItemCount))
@@ -874,6 +898,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SuppressBuysafe.Equals(input.SuppressBuysafe))
                 ) && 
                 (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
                     this.TaxCodes == input.TaxCodes ||
                     (this.TaxCodes != null &&
                     this.TaxCodes.Equals(input.TaxCodes))
@@ -974,6 +1003,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LastModifiedBy.GetHashCode();
                 if (this.LastModifiedDts != null)
                     hashCode = hashCode * 59 + this.LastModifiedDts.GetHashCode();
+                if (this.Loyalty != null)
+                    hashCode = hashCode * 59 + this.Loyalty.GetHashCode();
                 if (this.MaximumItemCount != null)
                     hashCode = hashCode * 59 + this.MaximumItemCount.GetHashCode();
                 if (this.MinimumItemCount != null)
@@ -1020,6 +1051,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SoftwareEntitlements.GetHashCode();
                 if (this.SuppressBuysafe != null)
                     hashCode = hashCode * 59 + this.SuppressBuysafe.GetHashCode();
+                if (this.Tags != null)
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.TaxCodes != null)
                     hashCode = hashCode * 59 + this.TaxCodes.GetHashCode();
                 if (this.TaxExempt != null)

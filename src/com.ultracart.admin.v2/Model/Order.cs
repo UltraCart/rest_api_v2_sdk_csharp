@@ -140,8 +140,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Salesforce">Salesforce.</param>
         /// <param name="Shipping">Shipping.</param>
         /// <param name="Summary">Summary.</param>
+        /// <param name="Tags">tags, available only through update, not through insert due to the nature of how tags are handled internally.</param>
         /// <param name="Taxes">Taxes.</param>
-        public Order(List<OrderAffiliate> Affiliates = default(List<OrderAffiliate>), OrderAutoOrder AutoOrder = default(OrderAutoOrder), OrderBilling Billing = default(OrderBilling), OrderBuysafe Buysafe = default(OrderBuysafe), OrderChannelPartner ChannelPartner = default(OrderChannelPartner), OrderCheckout Checkout = default(OrderCheckout), List<OrderCoupon> Coupons = default(List<OrderCoupon>), string CreationDts = default(string), string CurrencyCode = default(string), CurrentStageEnum? CurrentStage = default(CurrentStageEnum?), Customer CustomerProfile = default(Customer), OrderDigitalOrder DigitalOrder = default(OrderDigitalOrder), OrderEdi Edi = default(OrderEdi), decimal? ExchangeRate = default(decimal?), OrderFraudScore FraudScore = default(OrderFraudScore), OrderGift Gift = default(OrderGift), OrderGiftCertificate GiftCertificate = default(OrderGiftCertificate), OrderInternal _Internal = default(OrderInternal), List<OrderItem> Items = default(List<OrderItem>), string LanguageIsoCode = default(string), OrderLinkedShipment LinkedShipment = default(OrderLinkedShipment), OrderMarketing Marketing = default(OrderMarketing), string MerchantId = default(string), string OrderId = default(string), OrderPayment Payment = default(OrderPayment), List<OrderProperty> Properties = default(List<OrderProperty>), OrderQuote Quote = default(OrderQuote), string RefundDts = default(string), string RejectDts = default(string), OrderSalesforce Salesforce = default(OrderSalesforce), OrderShipping Shipping = default(OrderShipping), OrderSummary Summary = default(OrderSummary), OrderTaxes Taxes = default(OrderTaxes))
+        public Order(List<OrderAffiliate> Affiliates = default(List<OrderAffiliate>), OrderAutoOrder AutoOrder = default(OrderAutoOrder), OrderBilling Billing = default(OrderBilling), OrderBuysafe Buysafe = default(OrderBuysafe), OrderChannelPartner ChannelPartner = default(OrderChannelPartner), OrderCheckout Checkout = default(OrderCheckout), List<OrderCoupon> Coupons = default(List<OrderCoupon>), string CreationDts = default(string), string CurrencyCode = default(string), CurrentStageEnum? CurrentStage = default(CurrentStageEnum?), Customer CustomerProfile = default(Customer), OrderDigitalOrder DigitalOrder = default(OrderDigitalOrder), OrderEdi Edi = default(OrderEdi), decimal? ExchangeRate = default(decimal?), OrderFraudScore FraudScore = default(OrderFraudScore), OrderGift Gift = default(OrderGift), OrderGiftCertificate GiftCertificate = default(OrderGiftCertificate), OrderInternal _Internal = default(OrderInternal), List<OrderItem> Items = default(List<OrderItem>), string LanguageIsoCode = default(string), OrderLinkedShipment LinkedShipment = default(OrderLinkedShipment), OrderMarketing Marketing = default(OrderMarketing), string MerchantId = default(string), string OrderId = default(string), OrderPayment Payment = default(OrderPayment), List<OrderProperty> Properties = default(List<OrderProperty>), OrderQuote Quote = default(OrderQuote), string RefundDts = default(string), string RejectDts = default(string), OrderSalesforce Salesforce = default(OrderSalesforce), OrderShipping Shipping = default(OrderShipping), OrderSummary Summary = default(OrderSummary), List<OrderTag> Tags = default(List<OrderTag>), OrderTaxes Taxes = default(OrderTaxes))
         {
             this.Affiliates = Affiliates;
             this.AutoOrder = AutoOrder;
@@ -175,6 +176,7 @@ namespace com.ultracart.admin.v2.Model
             this.Salesforce = Salesforce;
             this.Shipping = Shipping;
             this.Summary = Summary;
+            this.Tags = Tags;
             this.Taxes = Taxes;
         }
         
@@ -378,6 +380,13 @@ namespace com.ultracart.admin.v2.Model
         public OrderSummary Summary { get; set; }
 
         /// <summary>
+        /// tags, available only through update, not through insert due to the nature of how tags are handled internally
+        /// </summary>
+        /// <value>tags, available only through update, not through insert due to the nature of how tags are handled internally</value>
+        [DataMember(Name="Tags", EmitDefaultValue=false)]
+        public List<OrderTag> Tags { get; set; }
+
+        /// <summary>
         /// Gets or Sets Taxes
         /// </summary>
         [DataMember(Name="taxes", EmitDefaultValue=false)]
@@ -423,6 +432,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Salesforce: ").Append(Salesforce).Append("\n");
             sb.Append("  Shipping: ").Append(Shipping).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Taxes: ").Append(Taxes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -619,6 +629,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Summary.Equals(input.Summary))
                 ) && 
                 (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
                     this.Taxes == input.Taxes ||
                     (this.Taxes != null &&
                     this.Taxes.Equals(input.Taxes))
@@ -698,6 +713,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Shipping.GetHashCode();
                 if (this.Summary != null)
                     hashCode = hashCode * 59 + this.Summary.GetHashCode();
+                if (this.Tags != null)
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Taxes != null)
                     hashCode = hashCode * 59 + this.Taxes.GetHashCode();
                 return hashCode;

@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **Name** | **string** | List or segment name | [optional] 
 **OpenCount** | **int?** | Count of opened emails | [optional] 
 **OpenCountFormatted** | **string** | Count of opened emails, formatted | [optional] 
+**OrderCount** | **int?** | Count of orders | [optional] 
+**OrderCountFormatted** | **string** | Count of orders, formatted | [optional] 
 **PermanentBounceCount** | **int?** | Count of emails permanently bounced | [optional] 
 **PermanentBounceCountFormatted** | **string** | Count of emails permanently bounced, formatted | [optional] 
 **Profit** | **decimal?** | Profit | [optional] 

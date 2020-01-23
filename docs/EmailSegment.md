@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **CreatedDts** | **string** | Created date | [optional] 
 **Deleted** | **bool?** | True if this campaign was deleted | [optional] 
 **EmailSegmentUuid** | **string** | Email segment UUID | [optional] 
+**FacebookCustomAudience** | **bool?** | True if you want to sync to a facebook custom audience | [optional] 
 **FilterProfileEquationJson** | **string** | File profile equation json | [optional] 
 **MemberCount** | **int?** | Count of members in this segment | [optional] 
 **MerchantId** | **string** | Merchant ID | [optional] 

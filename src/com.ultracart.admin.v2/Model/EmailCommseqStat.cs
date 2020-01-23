@@ -47,6 +47,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="MerchantId">Merchant ID.</param>
         /// <param name="OpenCount">Count of opened emails.</param>
         /// <param name="OpenCountFormatted">Count of opened emails, formatted.</param>
+        /// <param name="OrderCount">Count of orders.</param>
+        /// <param name="OrderCountFormatted">Count of orders, formatted.</param>
         /// <param name="PermanentBounceCount">Count of emails permanently bounced.</param>
         /// <param name="PermanentBounceCountFormatted">Count of emails permanently bounced, formatted.</param>
         /// <param name="Profit">Profit.</param>
@@ -64,7 +66,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="StorefrontOid">Storefront oid.</param>
         /// <param name="ViewCount">Count of views.</param>
         /// <param name="ViewCountFormatted">Count of views, formatted.</param>
-        public EmailCommseqStat(int? ClickCount = default(int?), string ClickCountFormatted = default(string), int? DeliveredCount = default(int?), string DeliveredCountFormatted = default(string), string EmailCommunicationSequenceUuid = default(string), int? FinishedCount = default(int?), string FinishedCountFormatted = default(string), int? InProgressCount = default(int?), string InProgressCountFormatted = default(string), int? KickboxCount = default(int?), string KickboxCountFormatted = default(string), string MerchantId = default(string), int? OpenCount = default(int?), string OpenCountFormatted = default(string), int? PermanentBounceCount = default(int?), string PermanentBounceCountFormatted = default(string), decimal? Profit = default(decimal?), string ProfitFormatted = default(string), decimal? Revenue = default(decimal?), string RevenueFormatted = default(string), int? SendCount = default(int?), string SendCountFormatted = default(string), int? SkippedCount = default(int?), string SkippedCountFormatted = default(string), int? SpamCount = default(int?), string SpamCountFormatted = default(string), int? StartedCount = default(int?), string StartedCountFormatted = default(string), int? StorefrontOid = default(int?), int? ViewCount = default(int?), string ViewCountFormatted = default(string))
+        public EmailCommseqStat(int? ClickCount = default(int?), string ClickCountFormatted = default(string), int? DeliveredCount = default(int?), string DeliveredCountFormatted = default(string), string EmailCommunicationSequenceUuid = default(string), int? FinishedCount = default(int?), string FinishedCountFormatted = default(string), int? InProgressCount = default(int?), string InProgressCountFormatted = default(string), int? KickboxCount = default(int?), string KickboxCountFormatted = default(string), string MerchantId = default(string), int? OpenCount = default(int?), string OpenCountFormatted = default(string), int? OrderCount = default(int?), string OrderCountFormatted = default(string), int? PermanentBounceCount = default(int?), string PermanentBounceCountFormatted = default(string), decimal? Profit = default(decimal?), string ProfitFormatted = default(string), decimal? Revenue = default(decimal?), string RevenueFormatted = default(string), int? SendCount = default(int?), string SendCountFormatted = default(string), int? SkippedCount = default(int?), string SkippedCountFormatted = default(string), int? SpamCount = default(int?), string SpamCountFormatted = default(string), int? StartedCount = default(int?), string StartedCountFormatted = default(string), int? StorefrontOid = default(int?), int? ViewCount = default(int?), string ViewCountFormatted = default(string))
         {
             this.ClickCount = ClickCount;
             this.ClickCountFormatted = ClickCountFormatted;
@@ -80,6 +82,8 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantId = MerchantId;
             this.OpenCount = OpenCount;
             this.OpenCountFormatted = OpenCountFormatted;
+            this.OrderCount = OrderCount;
+            this.OrderCountFormatted = OrderCountFormatted;
             this.PermanentBounceCount = PermanentBounceCount;
             this.PermanentBounceCountFormatted = PermanentBounceCountFormatted;
             this.Profit = Profit;
@@ -196,6 +200,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Count of opened emails, formatted</value>
         [DataMember(Name="open_count_formatted", EmitDefaultValue=false)]
         public string OpenCountFormatted { get; set; }
+
+        /// <summary>
+        /// Count of orders
+        /// </summary>
+        /// <value>Count of orders</value>
+        [DataMember(Name="order_count", EmitDefaultValue=false)]
+        public int? OrderCount { get; set; }
+
+        /// <summary>
+        /// Count of orders, formatted
+        /// </summary>
+        /// <value>Count of orders, formatted</value>
+        [DataMember(Name="order_count_formatted", EmitDefaultValue=false)]
+        public string OrderCountFormatted { get; set; }
 
         /// <summary>
         /// Count of emails permanently bounced
@@ -338,6 +356,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  OpenCount: ").Append(OpenCount).Append("\n");
             sb.Append("  OpenCountFormatted: ").Append(OpenCountFormatted).Append("\n");
+            sb.Append("  OrderCount: ").Append(OrderCount).Append("\n");
+            sb.Append("  OrderCountFormatted: ").Append(OrderCountFormatted).Append("\n");
             sb.Append("  PermanentBounceCount: ").Append(PermanentBounceCount).Append("\n");
             sb.Append("  PermanentBounceCountFormatted: ").Append(PermanentBounceCountFormatted).Append("\n");
             sb.Append("  Profit: ").Append(Profit).Append("\n");
@@ -458,6 +478,16 @@ namespace com.ultracart.admin.v2.Model
                     this.OpenCountFormatted == input.OpenCountFormatted ||
                     (this.OpenCountFormatted != null &&
                     this.OpenCountFormatted.Equals(input.OpenCountFormatted))
+                ) && 
+                (
+                    this.OrderCount == input.OrderCount ||
+                    (this.OrderCount != null &&
+                    this.OrderCount.Equals(input.OrderCount))
+                ) && 
+                (
+                    this.OrderCountFormatted == input.OrderCountFormatted ||
+                    (this.OrderCountFormatted != null &&
+                    this.OrderCountFormatted.Equals(input.OrderCountFormatted))
                 ) && 
                 (
                     this.PermanentBounceCount == input.PermanentBounceCount ||
@@ -583,6 +613,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OpenCount.GetHashCode();
                 if (this.OpenCountFormatted != null)
                     hashCode = hashCode * 59 + this.OpenCountFormatted.GetHashCode();
+                if (this.OrderCount != null)
+                    hashCode = hashCode * 59 + this.OrderCount.GetHashCode();
+                if (this.OrderCountFormatted != null)
+                    hashCode = hashCode * 59 + this.OrderCountFormatted.GetHashCode();
                 if (this.PermanentBounceCount != null)
                     hashCode = hashCode * 59 + this.PermanentBounceCount.GetHashCode();
                 if (this.PermanentBounceCountFormatted != null)

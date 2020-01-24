@@ -39,8 +39,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="MemberCount">Count of members in this list.</param>
         /// <param name="MerchantId">Merchant ID.</param>
         /// <param name="Name">Name of email list.</param>
+        /// <param name="PublicDescription">Description of list shown to customer..</param>
+        /// <param name="PublicList">True if this list is public.</param>
         /// <param name="StorefrontOid">Storefront oid.</param>
-        public EmailList(string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailListUuid = default(string), int? MemberCount = default(int?), string MerchantId = default(string), string Name = default(string), int? StorefrontOid = default(int?))
+        public EmailList(string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailListUuid = default(string), int? MemberCount = default(int?), string MerchantId = default(string), string Name = default(string), string PublicDescription = default(string), bool? PublicList = default(bool?), int? StorefrontOid = default(int?))
         {
             this.CreatedDts = CreatedDts;
             this.Deleted = Deleted;
@@ -48,6 +50,8 @@ namespace com.ultracart.admin.v2.Model
             this.MemberCount = MemberCount;
             this.MerchantId = MerchantId;
             this.Name = Name;
+            this.PublicDescription = PublicDescription;
+            this.PublicList = PublicList;
             this.StorefrontOid = StorefrontOid;
         }
         
@@ -94,6 +98,20 @@ namespace com.ultracart.admin.v2.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Description of list shown to customer.
+        /// </summary>
+        /// <value>Description of list shown to customer.</value>
+        [DataMember(Name="public_description", EmitDefaultValue=false)]
+        public string PublicDescription { get; set; }
+
+        /// <summary>
+        /// True if this list is public
+        /// </summary>
+        /// <value>True if this list is public</value>
+        [DataMember(Name="public_list", EmitDefaultValue=false)]
+        public bool? PublicList { get; set; }
+
+        /// <summary>
         /// Storefront oid
         /// </summary>
         /// <value>Storefront oid</value>
@@ -114,6 +132,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MemberCount: ").Append(MemberCount).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  PublicDescription: ").Append(PublicDescription).Append("\n");
+            sb.Append("  PublicList: ").Append(PublicList).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -180,6 +200,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.PublicDescription == input.PublicDescription ||
+                    (this.PublicDescription != null &&
+                    this.PublicDescription.Equals(input.PublicDescription))
+                ) && 
+                (
+                    this.PublicList == input.PublicList ||
+                    (this.PublicList != null &&
+                    this.PublicList.Equals(input.PublicList))
+                ) && 
+                (
                     this.StorefrontOid == input.StorefrontOid ||
                     (this.StorefrontOid != null &&
                     this.StorefrontOid.Equals(input.StorefrontOid))
@@ -207,6 +237,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.PublicDescription != null)
+                    hashCode = hashCode * 59 + this.PublicDescription.GetHashCode();
+                if (this.PublicList != null)
+                    hashCode = hashCode * 59 + this.PublicList.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
                 return hashCode;

@@ -38,6 +38,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Deleted">True if this campaign was deleted.</param>
         /// <param name="EmailCampaignUuid">Email campaign UUID.</param>
         /// <param name="EmailCommunicationSequenceUuid">Email communication sequence UUID.</param>
+        /// <param name="EspDomainUser">User of the sending address.</param>
+        /// <param name="EspDomainUuid">UUID of the sending domain.</param>
         /// <param name="Memberships">List and segment memberships.</param>
         /// <param name="MerchantId">Merchant ID.</param>
         /// <param name="Name">Name of email campaign.</param>
@@ -47,13 +49,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="Status">Status of the campaign of draft, archived, and sent.</param>
         /// <param name="StatusDts">Timestamp when the last status change happened.</param>
         /// <param name="StorefrontOid">Storefront oid.</param>
-        public EmailCampaign(string ClickRateFormatted = default(string), string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailCampaignUuid = default(string), string EmailCommunicationSequenceUuid = default(string), List<EmailListSegmentMembership> Memberships = default(List<EmailListSegmentMembership>), string MerchantId = default(string), string Name = default(string), string OpenRateFormatted = default(string), string RevenueFormatted = default(string), string ScheduledDts = default(string), string Status = default(string), string StatusDts = default(string), int? StorefrontOid = default(int?))
+        public EmailCampaign(string ClickRateFormatted = default(string), string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailCampaignUuid = default(string), string EmailCommunicationSequenceUuid = default(string), string EspDomainUser = default(string), string EspDomainUuid = default(string), List<EmailListSegmentMembership> Memberships = default(List<EmailListSegmentMembership>), string MerchantId = default(string), string Name = default(string), string OpenRateFormatted = default(string), string RevenueFormatted = default(string), string ScheduledDts = default(string), string Status = default(string), string StatusDts = default(string), int? StorefrontOid = default(int?))
         {
             this.ClickRateFormatted = ClickRateFormatted;
             this.CreatedDts = CreatedDts;
             this.Deleted = Deleted;
             this.EmailCampaignUuid = EmailCampaignUuid;
             this.EmailCommunicationSequenceUuid = EmailCommunicationSequenceUuid;
+            this.EspDomainUser = EspDomainUser;
+            this.EspDomainUuid = EspDomainUuid;
             this.Memberships = Memberships;
             this.MerchantId = MerchantId;
             this.Name = Name;
@@ -99,6 +103,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Email communication sequence UUID</value>
         [DataMember(Name="email_communication_sequence_uuid", EmitDefaultValue=false)]
         public string EmailCommunicationSequenceUuid { get; set; }
+
+        /// <summary>
+        /// User of the sending address
+        /// </summary>
+        /// <value>User of the sending address</value>
+        [DataMember(Name="esp_domain_user", EmitDefaultValue=false)]
+        public string EspDomainUser { get; set; }
+
+        /// <summary>
+        /// UUID of the sending domain
+        /// </summary>
+        /// <value>UUID of the sending domain</value>
+        [DataMember(Name="esp_domain_uuid", EmitDefaultValue=false)]
+        public string EspDomainUuid { get; set; }
 
         /// <summary>
         /// List and segment memberships
@@ -176,6 +194,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EmailCampaignUuid: ").Append(EmailCampaignUuid).Append("\n");
             sb.Append("  EmailCommunicationSequenceUuid: ").Append(EmailCommunicationSequenceUuid).Append("\n");
+            sb.Append("  EspDomainUser: ").Append(EspDomainUser).Append("\n");
+            sb.Append("  EspDomainUuid: ").Append(EspDomainUuid).Append("\n");
             sb.Append("  Memberships: ").Append(Memberships).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -245,6 +265,16 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailCommunicationSequenceUuid.Equals(input.EmailCommunicationSequenceUuid))
                 ) && 
                 (
+                    this.EspDomainUser == input.EspDomainUser ||
+                    (this.EspDomainUser != null &&
+                    this.EspDomainUser.Equals(input.EspDomainUser))
+                ) && 
+                (
+                    this.EspDomainUuid == input.EspDomainUuid ||
+                    (this.EspDomainUuid != null &&
+                    this.EspDomainUuid.Equals(input.EspDomainUuid))
+                ) && 
+                (
                     this.Memberships == input.Memberships ||
                     this.Memberships != null &&
                     this.Memberships.SequenceEqual(input.Memberships)
@@ -310,6 +340,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailCampaignUuid.GetHashCode();
                 if (this.EmailCommunicationSequenceUuid != null)
                     hashCode = hashCode * 59 + this.EmailCommunicationSequenceUuid.GetHashCode();
+                if (this.EspDomainUser != null)
+                    hashCode = hashCode * 59 + this.EspDomainUser.GetHashCode();
+                if (this.EspDomainUuid != null)
+                    hashCode = hashCode * 59 + this.EspDomainUuid.GetHashCode();
                 if (this.Memberships != null)
                     hashCode = hashCode * 59 + this.Memberships.GetHashCode();
                 if (this.MerchantId != null)

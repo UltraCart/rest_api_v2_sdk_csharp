@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **MerchantId** | **string** | Merchant ID | [optional] 
 **OpenCount** | **int?** | Count of opened emails | [optional] 
 **OpenCountFormatted** | **string** | Count of opened emails, formatted | [optional] 
+**OrderCount** | **int?** | Count of orders | [optional] 
+**OrderCountFormatted** | **string** | Count of orders, formatted | [optional] 
 **PermanentBounceCount** | **int?** | Count of emails permanently bounced | [optional] 
 **PermanentBounceCountFormatted** | **string** | Count of emails permanently bounced, formatted | [optional] 
 **Profit** | **decimal?** | Profit | [optional] 
@@ -32,6 +34,8 @@ Name | Type | Description | Notes
 **StartedCount** | **int?** | Count of customers that started the sequence | [optional] 
 **StartedCountFormatted** | **string** | Count of customers that started the sequence, formatted | [optional] 
 **StorefrontOid** | **int?** | Storefront oid | [optional] 
+**UnsubscribeCount** | **int?** | Count of unsubscribes caused | [optional] 
+**UnsubscribeCountFormatted** | **string** | Count of unsubscribes caused, formatted | [optional] 
 **ViewCount** | **int?** | Count of views | [optional] 
 **ViewCountFormatted** | **string** | Count of views, formatted | [optional] 
 

@@ -34,29 +34,39 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="EmailFlow" /> class.
         /// </summary>
         /// <param name="AllowMultipleConcurrentEnrollments">True if a customer may be enrolled in this flow multiple times.</param>
+        /// <param name="ClickRateFormatted">Click rate of emails, formatted.</param>
         /// <param name="CreatedDts">Created date.</param>
         /// <param name="Deleted">True if this campaign was deleted.</param>
         /// <param name="EmailCommunicationSequenceUuid">Email communication sequence UUID.</param>
         /// <param name="EmailFlowUuid">Email flow UUID.</param>
+        /// <param name="EspDomainUser">Username of sending email.</param>
+        /// <param name="EspDomainUuid">UUID of sending domain.</param>
         /// <param name="FilterProfileEquationJson">File profile equation json.</param>
         /// <param name="MerchantId">Merchant ID.</param>
         /// <param name="Name">Name of email flow.</param>
+        /// <param name="OpenRateFormatted">Open rate of emails, formatted.</param>
+        /// <param name="RevenueFormatted">Revenue, formatted.</param>
         /// <param name="Status">Status of the campaign of draft, archived, active, and inactive.</param>
         /// <param name="StatusDts">Timestamp when the last status change happened.</param>
         /// <param name="StorefrontOid">Storefront oid.</param>
         /// <param name="TriggerParameter">Trigger parameter.</param>
         /// <param name="TriggerParameterName">Trigger parameter name.</param>
         /// <param name="TriggerType">Trigger type.</param>
-        public EmailFlow(bool? AllowMultipleConcurrentEnrollments = default(bool?), string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailCommunicationSequenceUuid = default(string), string EmailFlowUuid = default(string), string FilterProfileEquationJson = default(string), string MerchantId = default(string), string Name = default(string), string Status = default(string), string StatusDts = default(string), int? StorefrontOid = default(int?), string TriggerParameter = default(string), string TriggerParameterName = default(string), string TriggerType = default(string))
+        public EmailFlow(bool? AllowMultipleConcurrentEnrollments = default(bool?), string ClickRateFormatted = default(string), string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailCommunicationSequenceUuid = default(string), string EmailFlowUuid = default(string), string EspDomainUser = default(string), string EspDomainUuid = default(string), string FilterProfileEquationJson = default(string), string MerchantId = default(string), string Name = default(string), string OpenRateFormatted = default(string), string RevenueFormatted = default(string), string Status = default(string), string StatusDts = default(string), int? StorefrontOid = default(int?), string TriggerParameter = default(string), string TriggerParameterName = default(string), string TriggerType = default(string))
         {
             this.AllowMultipleConcurrentEnrollments = AllowMultipleConcurrentEnrollments;
+            this.ClickRateFormatted = ClickRateFormatted;
             this.CreatedDts = CreatedDts;
             this.Deleted = Deleted;
             this.EmailCommunicationSequenceUuid = EmailCommunicationSequenceUuid;
             this.EmailFlowUuid = EmailFlowUuid;
+            this.EspDomainUser = EspDomainUser;
+            this.EspDomainUuid = EspDomainUuid;
             this.FilterProfileEquationJson = FilterProfileEquationJson;
             this.MerchantId = MerchantId;
             this.Name = Name;
+            this.OpenRateFormatted = OpenRateFormatted;
+            this.RevenueFormatted = RevenueFormatted;
             this.Status = Status;
             this.StatusDts = StatusDts;
             this.StorefrontOid = StorefrontOid;
@@ -71,6 +81,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if a customer may be enrolled in this flow multiple times</value>
         [DataMember(Name="allow_multiple_concurrent_enrollments", EmitDefaultValue=false)]
         public bool? AllowMultipleConcurrentEnrollments { get; set; }
+
+        /// <summary>
+        /// Click rate of emails, formatted
+        /// </summary>
+        /// <value>Click rate of emails, formatted</value>
+        [DataMember(Name="click_rate_formatted", EmitDefaultValue=false)]
+        public string ClickRateFormatted { get; set; }
 
         /// <summary>
         /// Created date
@@ -101,6 +118,20 @@ namespace com.ultracart.admin.v2.Model
         public string EmailFlowUuid { get; set; }
 
         /// <summary>
+        /// Username of sending email
+        /// </summary>
+        /// <value>Username of sending email</value>
+        [DataMember(Name="esp_domain_user", EmitDefaultValue=false)]
+        public string EspDomainUser { get; set; }
+
+        /// <summary>
+        /// UUID of sending domain
+        /// </summary>
+        /// <value>UUID of sending domain</value>
+        [DataMember(Name="esp_domain_uuid", EmitDefaultValue=false)]
+        public string EspDomainUuid { get; set; }
+
+        /// <summary>
         /// File profile equation json
         /// </summary>
         /// <value>File profile equation json</value>
@@ -120,6 +151,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Name of email flow</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Open rate of emails, formatted
+        /// </summary>
+        /// <value>Open rate of emails, formatted</value>
+        [DataMember(Name="open_rate_formatted", EmitDefaultValue=false)]
+        public string OpenRateFormatted { get; set; }
+
+        /// <summary>
+        /// Revenue, formatted
+        /// </summary>
+        /// <value>Revenue, formatted</value>
+        [DataMember(Name="revenue_formatted", EmitDefaultValue=false)]
+        public string RevenueFormatted { get; set; }
 
         /// <summary>
         /// Status of the campaign of draft, archived, active, and inactive
@@ -172,13 +217,18 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class EmailFlow {\n");
             sb.Append("  AllowMultipleConcurrentEnrollments: ").Append(AllowMultipleConcurrentEnrollments).Append("\n");
+            sb.Append("  ClickRateFormatted: ").Append(ClickRateFormatted).Append("\n");
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EmailCommunicationSequenceUuid: ").Append(EmailCommunicationSequenceUuid).Append("\n");
             sb.Append("  EmailFlowUuid: ").Append(EmailFlowUuid).Append("\n");
+            sb.Append("  EspDomainUser: ").Append(EspDomainUser).Append("\n");
+            sb.Append("  EspDomainUuid: ").Append(EspDomainUuid).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  OpenRateFormatted: ").Append(OpenRateFormatted).Append("\n");
+            sb.Append("  RevenueFormatted: ").Append(RevenueFormatted).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusDts: ").Append(StatusDts).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
@@ -225,6 +275,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AllowMultipleConcurrentEnrollments.Equals(input.AllowMultipleConcurrentEnrollments))
                 ) && 
                 (
+                    this.ClickRateFormatted == input.ClickRateFormatted ||
+                    (this.ClickRateFormatted != null &&
+                    this.ClickRateFormatted.Equals(input.ClickRateFormatted))
+                ) && 
+                (
                     this.CreatedDts == input.CreatedDts ||
                     (this.CreatedDts != null &&
                     this.CreatedDts.Equals(input.CreatedDts))
@@ -245,6 +300,16 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailFlowUuid.Equals(input.EmailFlowUuid))
                 ) && 
                 (
+                    this.EspDomainUser == input.EspDomainUser ||
+                    (this.EspDomainUser != null &&
+                    this.EspDomainUser.Equals(input.EspDomainUser))
+                ) && 
+                (
+                    this.EspDomainUuid == input.EspDomainUuid ||
+                    (this.EspDomainUuid != null &&
+                    this.EspDomainUuid.Equals(input.EspDomainUuid))
+                ) && 
+                (
                     this.FilterProfileEquationJson == input.FilterProfileEquationJson ||
                     (this.FilterProfileEquationJson != null &&
                     this.FilterProfileEquationJson.Equals(input.FilterProfileEquationJson))
@@ -258,6 +323,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.OpenRateFormatted == input.OpenRateFormatted ||
+                    (this.OpenRateFormatted != null &&
+                    this.OpenRateFormatted.Equals(input.OpenRateFormatted))
+                ) && 
+                (
+                    this.RevenueFormatted == input.RevenueFormatted ||
+                    (this.RevenueFormatted != null &&
+                    this.RevenueFormatted.Equals(input.RevenueFormatted))
                 ) && 
                 (
                     this.Status == input.Status ||
@@ -302,6 +377,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AllowMultipleConcurrentEnrollments != null)
                     hashCode = hashCode * 59 + this.AllowMultipleConcurrentEnrollments.GetHashCode();
+                if (this.ClickRateFormatted != null)
+                    hashCode = hashCode * 59 + this.ClickRateFormatted.GetHashCode();
                 if (this.CreatedDts != null)
                     hashCode = hashCode * 59 + this.CreatedDts.GetHashCode();
                 if (this.Deleted != null)
@@ -310,12 +387,20 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailCommunicationSequenceUuid.GetHashCode();
                 if (this.EmailFlowUuid != null)
                     hashCode = hashCode * 59 + this.EmailFlowUuid.GetHashCode();
+                if (this.EspDomainUser != null)
+                    hashCode = hashCode * 59 + this.EspDomainUser.GetHashCode();
+                if (this.EspDomainUuid != null)
+                    hashCode = hashCode * 59 + this.EspDomainUuid.GetHashCode();
                 if (this.FilterProfileEquationJson != null)
                     hashCode = hashCode * 59 + this.FilterProfileEquationJson.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.OpenRateFormatted != null)
+                    hashCode = hashCode * 59 + this.OpenRateFormatted.GetHashCode();
+                if (this.RevenueFormatted != null)
+                    hashCode = hashCode * 59 + this.RevenueFormatted.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.StatusDts != null)

@@ -66,6 +66,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="PaymentProcessing">PaymentProcessing.</param>
         /// <param name="Physical">Physical.</param>
         /// <param name="Pricing">Pricing.</param>
+        /// <param name="Properties">Properties.</param>
         /// <param name="RealtimePricing">RealtimePricing.</param>
         /// <param name="Related">Related.</param>
         /// <param name="Reporting">Reporting.</param>
@@ -80,7 +81,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="VariantItems">Variant Items.</param>
         /// <param name="Variations">Variations.</param>
         /// <param name="WishlistMember">WishlistMember.</param>
-        public Item(ItemAccounting Accounting = default(ItemAccounting), ItemAmember Amember = default(ItemAmember), ItemAutoOrder AutoOrder = default(ItemAutoOrder), ItemCCBill Ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> ChannelPartnerMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback Chargeback = default(ItemChargeback), ItemCheckout Checkout = default(ItemCheckout), ItemContent Content = default(ItemContent), string CreationDts = default(string), string Description = default(string), int? DescriptionTranslatedTextInstanceOid = default(int?), ItemDigitalDelivery DigitalDelivery = default(ItemDigitalDelivery), ItemEbay Ebay = default(ItemEbay), ItemEmailNotifications EmailNotifications = default(ItemEmailNotifications), ItemEnrollment123 Enrollment123 = default(ItemEnrollment123), ItemGiftCertificate GiftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch GoogleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers Identifiers = default(ItemIdentifiers), bool? Inactive = default(bool?), ItemInstantPaymentNotifications InstantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _Internal = default(ItemInternal), bool? Kit = default(bool?), ItemKitDefinition KitDefinition = default(ItemKitDefinition), string LastModifiedDts = default(string), string MerchantId = default(string), string MerchantItemId = default(string), int? MerchantItemOid = default(int?), List<ItemOption> Options = default(List<ItemOption>), int? ParentCategoryId = default(int?), string ParentCategoryPath = default(string), ItemPaymentProcessing PaymentProcessing = default(ItemPaymentProcessing), ItemPhysical Physical = default(ItemPhysical), ItemPricing Pricing = default(ItemPricing), ItemRealtimePricing RealtimePricing = default(ItemRealtimePricing), ItemRelated Related = default(ItemRelated), ItemReporting Reporting = default(ItemReporting), ItemRestriction Restriction = default(ItemRestriction), ItemRevguard Revguard = default(ItemRevguard), ItemReviews Reviews = default(ItemReviews), ItemSalesforce Salesforce = default(ItemSalesforce), ItemShipping Shipping = default(ItemShipping), ItemTags Tags = default(ItemTags), ItemTax Tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> ThirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> VariantItems = default(List<ItemVariantItem>), List<ItemVariation> Variations = default(List<ItemVariation>), ItemWishlistMember WishlistMember = default(ItemWishlistMember))
+        public Item(ItemAccounting Accounting = default(ItemAccounting), ItemAmember Amember = default(ItemAmember), ItemAutoOrder AutoOrder = default(ItemAutoOrder), ItemCCBill Ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> ChannelPartnerMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback Chargeback = default(ItemChargeback), ItemCheckout Checkout = default(ItemCheckout), ItemContent Content = default(ItemContent), string CreationDts = default(string), string Description = default(string), int? DescriptionTranslatedTextInstanceOid = default(int?), ItemDigitalDelivery DigitalDelivery = default(ItemDigitalDelivery), ItemEbay Ebay = default(ItemEbay), ItemEmailNotifications EmailNotifications = default(ItemEmailNotifications), ItemEnrollment123 Enrollment123 = default(ItemEnrollment123), ItemGiftCertificate GiftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch GoogleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers Identifiers = default(ItemIdentifiers), bool? Inactive = default(bool?), ItemInstantPaymentNotifications InstantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _Internal = default(ItemInternal), bool? Kit = default(bool?), ItemKitDefinition KitDefinition = default(ItemKitDefinition), string LastModifiedDts = default(string), string MerchantId = default(string), string MerchantItemId = default(string), int? MerchantItemOid = default(int?), List<ItemOption> Options = default(List<ItemOption>), int? ParentCategoryId = default(int?), string ParentCategoryPath = default(string), ItemPaymentProcessing PaymentProcessing = default(ItemPaymentProcessing), ItemPhysical Physical = default(ItemPhysical), ItemPricing Pricing = default(ItemPricing), List<ItemProperty> Properties = default(List<ItemProperty>), ItemRealtimePricing RealtimePricing = default(ItemRealtimePricing), ItemRelated Related = default(ItemRelated), ItemReporting Reporting = default(ItemReporting), ItemRestriction Restriction = default(ItemRestriction), ItemRevguard Revguard = default(ItemRevguard), ItemReviews Reviews = default(ItemReviews), ItemSalesforce Salesforce = default(ItemSalesforce), ItemShipping Shipping = default(ItemShipping), ItemTags Tags = default(ItemTags), ItemTax Tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> ThirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> VariantItems = default(List<ItemVariantItem>), List<ItemVariation> Variations = default(List<ItemVariation>), ItemWishlistMember WishlistMember = default(ItemWishlistMember))
         {
             this.Accounting = Accounting;
             this.Amember = Amember;
@@ -115,6 +116,7 @@ namespace com.ultracart.admin.v2.Model
             this.PaymentProcessing = PaymentProcessing;
             this.Physical = Physical;
             this.Pricing = Pricing;
+            this.Properties = Properties;
             this.RealtimePricing = RealtimePricing;
             this.Related = Related;
             this.Reporting = Reporting;
@@ -343,6 +345,13 @@ namespace com.ultracart.admin.v2.Model
         public ItemPricing Pricing { get; set; }
 
         /// <summary>
+        /// Properties
+        /// </summary>
+        /// <value>Properties</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<ItemProperty> Properties { get; set; }
+
+        /// <summary>
         /// Gets or Sets RealtimePricing
         /// </summary>
         [DataMember(Name="realtime_pricing", EmitDefaultValue=false)]
@@ -470,6 +479,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PaymentProcessing: ").Append(PaymentProcessing).Append("\n");
             sb.Append("  Physical: ").Append(Physical).Append("\n");
             sb.Append("  Pricing: ").Append(Pricing).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  RealtimePricing: ").Append(RealtimePricing).Append("\n");
             sb.Append("  Related: ").Append(Related).Append("\n");
             sb.Append("  Reporting: ").Append(Reporting).Append("\n");
@@ -684,6 +694,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Pricing.Equals(input.Pricing))
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.RealtimePricing == input.RealtimePricing ||
                     (this.RealtimePricing != null &&
                     this.RealtimePricing.Equals(input.RealtimePricing))
@@ -830,6 +845,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Physical.GetHashCode();
                 if (this.Pricing != null)
                     hashCode = hashCode * 59 + this.Pricing.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.RealtimePricing != null)
                     hashCode = hashCode * 59 + this.RealtimePricing.GetHashCode();
                 if (this.Related != null)

@@ -36,17 +36,19 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="CreatedDts">Created date.</param>
         /// <param name="Deleted">True if this campaign was deleted.</param>
         /// <param name="EmailSegmentUuid">Email segment UUID.</param>
+        /// <param name="FacebookCustomAudience">True if you want to sync to a facebook custom audience.</param>
         /// <param name="FilterProfileEquationJson">File profile equation json.</param>
         /// <param name="MemberCount">Count of members in this segment.</param>
         /// <param name="MerchantId">Merchant ID.</param>
         /// <param name="Name">Name of email segment.</param>
         /// <param name="RebuildRequired">True if a rebuild is required because some part of the segment has changed.</param>
         /// <param name="StorefrontOid">Storefront oid.</param>
-        public EmailSegment(string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailSegmentUuid = default(string), string FilterProfileEquationJson = default(string), int? MemberCount = default(int?), string MerchantId = default(string), string Name = default(string), bool? RebuildRequired = default(bool?), int? StorefrontOid = default(int?))
+        public EmailSegment(string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailSegmentUuid = default(string), bool? FacebookCustomAudience = default(bool?), string FilterProfileEquationJson = default(string), int? MemberCount = default(int?), string MerchantId = default(string), string Name = default(string), bool? RebuildRequired = default(bool?), int? StorefrontOid = default(int?))
         {
             this.CreatedDts = CreatedDts;
             this.Deleted = Deleted;
             this.EmailSegmentUuid = EmailSegmentUuid;
+            this.FacebookCustomAudience = FacebookCustomAudience;
             this.FilterProfileEquationJson = FilterProfileEquationJson;
             this.MemberCount = MemberCount;
             this.MerchantId = MerchantId;
@@ -75,6 +77,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Email segment UUID</value>
         [DataMember(Name="email_segment_uuid", EmitDefaultValue=false)]
         public string EmailSegmentUuid { get; set; }
+
+        /// <summary>
+        /// True if you want to sync to a facebook custom audience
+        /// </summary>
+        /// <value>True if you want to sync to a facebook custom audience</value>
+        [DataMember(Name="facebook_custom_audience", EmitDefaultValue=false)]
+        public bool? FacebookCustomAudience { get; set; }
 
         /// <summary>
         /// File profile equation json
@@ -129,6 +138,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EmailSegmentUuid: ").Append(EmailSegmentUuid).Append("\n");
+            sb.Append("  FacebookCustomAudience: ").Append(FacebookCustomAudience).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
             sb.Append("  MemberCount: ").Append(MemberCount).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
@@ -185,6 +195,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailSegmentUuid.Equals(input.EmailSegmentUuid))
                 ) && 
                 (
+                    this.FacebookCustomAudience == input.FacebookCustomAudience ||
+                    (this.FacebookCustomAudience != null &&
+                    this.FacebookCustomAudience.Equals(input.FacebookCustomAudience))
+                ) && 
+                (
                     this.FilterProfileEquationJson == input.FilterProfileEquationJson ||
                     (this.FilterProfileEquationJson != null &&
                     this.FilterProfileEquationJson.Equals(input.FilterProfileEquationJson))
@@ -231,6 +246,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Deleted.GetHashCode();
                 if (this.EmailSegmentUuid != null)
                     hashCode = hashCode * 59 + this.EmailSegmentUuid.GetHashCode();
+                if (this.FacebookCustomAudience != null)
+                    hashCode = hashCode * 59 + this.FacebookCustomAudience.GetHashCode();
                 if (this.FilterProfileEquationJson != null)
                     hashCode = hashCode * 59 + this.FilterProfileEquationJson.GetHashCode();
                 if (this.MemberCount != null)

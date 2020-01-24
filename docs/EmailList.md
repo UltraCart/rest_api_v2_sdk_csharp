@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **MemberCount** | **int?** | Count of members in this list | [optional] 
 **MerchantId** | **string** | Merchant ID | [optional] 
 **Name** | **string** | Name of email list | [optional] 
+**PublicDescription** | **string** | Description of list shown to customer. | [optional] 
+**PublicList** | **bool?** | True if this list is public | [optional] 
 **StorefrontOid** | **int?** | Storefront oid | [optional] 
 
 

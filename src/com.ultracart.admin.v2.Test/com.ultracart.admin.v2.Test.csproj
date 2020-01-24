@@ -75,7 +75,7 @@ Contact: support@ultracart.com
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\com.ultracart.admin.v2\com.ultracart.admin.v2.csproj">
-          <Project>{719695B2-E7E6-46AF-9046-1072C1123A28}</Project>
+          <Project>{D4315CEA-A83E-4B79-B8F6-F29D27D05CD1}</Project>
           <Name>com.ultracart.admin.v2</Name>
       </ProjectReference>
   </ItemGroup>

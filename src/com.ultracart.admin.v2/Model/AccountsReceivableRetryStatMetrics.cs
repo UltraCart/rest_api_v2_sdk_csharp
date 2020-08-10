@@ -33,30 +33,30 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountsReceivableRetryStatMetrics" /> class.
         /// </summary>
-        /// <param name="Attempts">Attempts.</param>
-        /// <param name="AttemptsFormatted">AttemptsFormatted.</param>
-        /// <param name="ConversionRate">ConversionRate.</param>
-        /// <param name="ConversionRateFormatted">ConversionRateFormatted.</param>
-        /// <param name="Day">Day.</param>
-        /// <param name="Discounts">Discounts.</param>
-        /// <param name="DiscountsFormatted">DiscountsFormatted.</param>
-        /// <param name="Revenue">Revenue.</param>
-        /// <param name="RevenueFormatted">RevenueFormatted.</param>
-        /// <param name="Successes">Successes.</param>
-        /// <param name="SuccessesFormatted">SuccessesFormatted.</param>
-        public AccountsReceivableRetryStatMetrics(int? Attempts = default(int?), string AttemptsFormatted = default(string), decimal? ConversionRate = default(decimal?), string ConversionRateFormatted = default(string), int? Day = default(int?), decimal? Discounts = default(decimal?), string DiscountsFormatted = default(string), decimal? Revenue = default(decimal?), string RevenueFormatted = default(string), int? Successes = default(int?), string SuccessesFormatted = default(string))
+        /// <param name="attempts">attempts.</param>
+        /// <param name="attemptsFormatted">attemptsFormatted.</param>
+        /// <param name="conversionRate">conversionRate.</param>
+        /// <param name="conversionRateFormatted">conversionRateFormatted.</param>
+        /// <param name="day">day.</param>
+        /// <param name="discounts">discounts.</param>
+        /// <param name="discountsFormatted">discountsFormatted.</param>
+        /// <param name="revenue">revenue.</param>
+        /// <param name="revenueFormatted">revenueFormatted.</param>
+        /// <param name="successes">successes.</param>
+        /// <param name="successesFormatted">successesFormatted.</param>
+        public AccountsReceivableRetryStatMetrics(int? attempts = default(int?), string attemptsFormatted = default(string), decimal? conversionRate = default(decimal?), string conversionRateFormatted = default(string), int? day = default(int?), decimal? discounts = default(decimal?), string discountsFormatted = default(string), decimal? revenue = default(decimal?), string revenueFormatted = default(string), int? successes = default(int?), string successesFormatted = default(string))
         {
-            this.Attempts = Attempts;
-            this.AttemptsFormatted = AttemptsFormatted;
-            this.ConversionRate = ConversionRate;
-            this.ConversionRateFormatted = ConversionRateFormatted;
-            this.Day = Day;
-            this.Discounts = Discounts;
-            this.DiscountsFormatted = DiscountsFormatted;
-            this.Revenue = Revenue;
-            this.RevenueFormatted = RevenueFormatted;
-            this.Successes = Successes;
-            this.SuccessesFormatted = SuccessesFormatted;
+            this.Attempts = attempts;
+            this.AttemptsFormatted = attemptsFormatted;
+            this.ConversionRate = conversionRate;
+            this.ConversionRateFormatted = conversionRateFormatted;
+            this.Day = day;
+            this.Discounts = discounts;
+            this.DiscountsFormatted = discountsFormatted;
+            this.Revenue = revenue;
+            this.RevenueFormatted = revenueFormatted;
+            this.Successes = successes;
+            this.SuccessesFormatted = successesFormatted;
         }
         
         /// <summary>
@@ -152,7 +152,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

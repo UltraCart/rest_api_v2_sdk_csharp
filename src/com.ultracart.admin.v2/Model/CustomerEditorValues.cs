@@ -33,24 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerEditorValues" /> class.
         /// </summary>
-        /// <param name="Affiliates">affiliates.</param>
-        /// <param name="CardExpMonths">card_exp_months.</param>
-        /// <param name="CardExpYears">card_exp_years.</param>
-        /// <param name="CardTypes">card_types.</param>
-        /// <param name="Countries">countries.</param>
-        /// <param name="QbClasses">qb_classes.</param>
-        /// <param name="SalesRepCodes">sales_rep_codes.</param>
-        /// <param name="Terms">terms.</param>
-        public CustomerEditorValues(List<CustomerAffiliate> Affiliates = default(List<CustomerAffiliate>), List<string> CardExpMonths = default(List<string>), List<string> CardExpYears = default(List<string>), List<string> CardTypes = default(List<string>), List<Country> Countries = default(List<Country>), List<string> QbClasses = default(List<string>), List<string> SalesRepCodes = default(List<string>), List<string> Terms = default(List<string>))
+        /// <param name="affiliates">affiliates.</param>
+        /// <param name="cardExpMonths">card_exp_months.</param>
+        /// <param name="cardExpYears">card_exp_years.</param>
+        /// <param name="cardTypes">card_types.</param>
+        /// <param name="countries">countries.</param>
+        /// <param name="qbClasses">qb_classes.</param>
+        /// <param name="salesRepCodes">sales_rep_codes.</param>
+        /// <param name="terms">terms.</param>
+        public CustomerEditorValues(List<CustomerAffiliate> affiliates = default(List<CustomerAffiliate>), List<string> cardExpMonths = default(List<string>), List<string> cardExpYears = default(List<string>), List<string> cardTypes = default(List<string>), List<Country> countries = default(List<Country>), List<string> qbClasses = default(List<string>), List<string> salesRepCodes = default(List<string>), List<string> terms = default(List<string>))
         {
-            this.Affiliates = Affiliates;
-            this.CardExpMonths = CardExpMonths;
-            this.CardExpYears = CardExpYears;
-            this.CardTypes = CardTypes;
-            this.Countries = Countries;
-            this.QbClasses = QbClasses;
-            this.SalesRepCodes = SalesRepCodes;
-            this.Terms = Terms;
+            this.Affiliates = affiliates;
+            this.CardExpMonths = cardExpMonths;
+            this.CardExpYears = cardExpYears;
+            this.CardTypes = cardTypes;
+            this.Countries = countries;
+            this.QbClasses = qbClasses;
+            this.SalesRepCodes = salesRepCodes;
+            this.Terms = terms;
         }
         
         /// <summary>
@@ -133,7 +133,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

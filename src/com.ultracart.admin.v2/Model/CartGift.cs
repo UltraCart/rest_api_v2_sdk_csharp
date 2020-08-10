@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartGift" /> class.
         /// </summary>
-        /// <param name="Gift">True if this order is a gift.</param>
-        /// <param name="GiftCharge">GiftCharge.</param>
-        /// <param name="GiftEmail">Email address of the gift recipient.</param>
-        /// <param name="GiftMessage">Message to the gift recipient.</param>
-        /// <param name="GiftWrapCost">GiftWrapCost.</param>
-        /// <param name="GiftWrapTitle">Title of the selected gift wrap.</param>
-        public CartGift(bool? Gift = default(bool?), Currency GiftCharge = default(Currency), string GiftEmail = default(string), string GiftMessage = default(string), Currency GiftWrapCost = default(Currency), string GiftWrapTitle = default(string))
+        /// <param name="gift">True if this order is a gift.</param>
+        /// <param name="giftCharge">giftCharge.</param>
+        /// <param name="giftEmail">Email address of the gift recipient.</param>
+        /// <param name="giftMessage">Message to the gift recipient.</param>
+        /// <param name="giftWrapCost">giftWrapCost.</param>
+        /// <param name="giftWrapTitle">Title of the selected gift wrap.</param>
+        public CartGift(bool? gift = default(bool?), Currency giftCharge = default(Currency), string giftEmail = default(string), string giftMessage = default(string), Currency giftWrapCost = default(Currency), string giftWrapTitle = default(string))
         {
-            this.Gift = Gift;
-            this.GiftCharge = GiftCharge;
-            this.GiftEmail = GiftEmail;
-            this.GiftMessage = GiftMessage;
-            this.GiftWrapCost = GiftWrapCost;
-            this.GiftWrapTitle = GiftWrapTitle;
+            this.Gift = gift;
+            this.GiftCharge = giftCharge;
+            this.GiftEmail = giftEmail;
+            this.GiftMessage = giftMessage;
+            this.GiftWrapCost = giftWrapCost;
+            this.GiftWrapTitle = giftWrapTitle;
         }
         
         /// <summary>
@@ -111,7 +111,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

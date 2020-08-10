@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderPaymentTransactionDetail" /> class.
         /// </summary>
-        /// <param name="Name">Name.</param>
-        /// <param name="Type">Type.</param>
-        /// <param name="Value">Value.</param>
-        public OrderPaymentTransactionDetail(string Name = default(string), string Type = default(string), string Value = default(string))
+        /// <param name="name">Name.</param>
+        /// <param name="type">Type.</param>
+        /// <param name="value">Value.</param>
+        public OrderPaymentTransactionDetail(string name = default(string), string type = default(string), string value = default(string))
         {
-            this.Name = Name;
-            this.Type = Type;
-            this.Value = Value;
+            this.Name = name;
+            this.Type = type;
+            this.Value = value;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

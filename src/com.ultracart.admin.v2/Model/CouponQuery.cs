@@ -33,26 +33,26 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponQuery" /> class.
         /// </summary>
-        /// <param name="AffiliateOid">Affiliate oid.</param>
-        /// <param name="CouponType">The type of coupon..</param>
-        /// <param name="Description">Description of this coupon.</param>
-        /// <param name="ExcludeExpired">Exclude expired coupons if true.</param>
-        /// <param name="ExpirationDtsBegin">Expiration date begin.</param>
-        /// <param name="ExpirationDtsEnd">Expiration date begin.</param>
-        /// <param name="MerchantCode">Merchant code is a unique character string for this coupon..</param>
-        /// <param name="StartDtsBegin">Start date begin.</param>
-        /// <param name="StartDtsEnd">Start date end.</param>
-        public CouponQuery(int? AffiliateOid = default(int?), string CouponType = default(string), string Description = default(string), bool? ExcludeExpired = default(bool?), string ExpirationDtsBegin = default(string), string ExpirationDtsEnd = default(string), string MerchantCode = default(string), string StartDtsBegin = default(string), string StartDtsEnd = default(string))
+        /// <param name="affiliateOid">Affiliate oid.</param>
+        /// <param name="couponType">The type of coupon..</param>
+        /// <param name="description">Description of this coupon.</param>
+        /// <param name="excludeExpired">Exclude expired coupons if true.</param>
+        /// <param name="expirationDtsBegin">Expiration date begin.</param>
+        /// <param name="expirationDtsEnd">Expiration date begin.</param>
+        /// <param name="merchantCode">Merchant code is a unique character string for this coupon..</param>
+        /// <param name="startDtsBegin">Start date begin.</param>
+        /// <param name="startDtsEnd">Start date end.</param>
+        public CouponQuery(int? affiliateOid = default(int?), string couponType = default(string), string description = default(string), bool? excludeExpired = default(bool?), string expirationDtsBegin = default(string), string expirationDtsEnd = default(string), string merchantCode = default(string), string startDtsBegin = default(string), string startDtsEnd = default(string))
         {
-            this.AffiliateOid = AffiliateOid;
-            this.CouponType = CouponType;
-            this.Description = Description;
-            this.ExcludeExpired = ExcludeExpired;
-            this.ExpirationDtsBegin = ExpirationDtsBegin;
-            this.ExpirationDtsEnd = ExpirationDtsEnd;
-            this.MerchantCode = MerchantCode;
-            this.StartDtsBegin = StartDtsBegin;
-            this.StartDtsEnd = StartDtsEnd;
+            this.AffiliateOid = affiliateOid;
+            this.CouponType = couponType;
+            this.Description = description;
+            this.ExcludeExpired = excludeExpired;
+            this.ExpirationDtsBegin = expirationDtsBegin;
+            this.ExpirationDtsEnd = expirationDtsEnd;
+            this.MerchantCode = merchantCode;
+            this.StartDtsBegin = startDtsBegin;
+            this.StartDtsEnd = startDtsEnd;
         }
         
         /// <summary>
@@ -143,7 +143,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

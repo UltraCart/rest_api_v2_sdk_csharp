@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountsReceivableRetryStatsResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="LinkedAccounts">LinkedAccounts.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Overall">Overall.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public AccountsReceivableRetryStatsResponse(Error Error = default(Error), List<AccountsReceivableRetryStatAccount> LinkedAccounts = default(List<AccountsReceivableRetryStatAccount>), ResponseMetadata Metadata = default(ResponseMetadata), AccountsReceivableRetryStatAccount Overall = default(AccountsReceivableRetryStatAccount), bool? Success = default(bool?))
+        /// <param name="error">error.</param>
+        /// <param name="linkedAccounts">linkedAccounts.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="overall">overall.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public AccountsReceivableRetryStatsResponse(Error error = default(Error), List<AccountsReceivableRetryStatAccount> linkedAccounts = default(List<AccountsReceivableRetryStatAccount>), ResponseMetadata metadata = default(ResponseMetadata), AccountsReceivableRetryStatAccount overall = default(AccountsReceivableRetryStatAccount), bool? success = default(bool?))
         {
-            this.Error = Error;
-            this.LinkedAccounts = LinkedAccounts;
-            this.Metadata = Metadata;
-            this.Overall = Overall;
-            this.Success = Success;
+            this.Error = error;
+            this.LinkedAccounts = linkedAccounts;
+            this.Metadata = metadata;
+            this.Overall = overall;
+            this.Success = success;
         }
         
         /// <summary>
@@ -99,7 +99,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

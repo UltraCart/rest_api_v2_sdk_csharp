@@ -33,38 +33,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderSummary" /> class.
         /// </summary>
-        /// <param name="ArbitraryShippingHandlingTotal">ArbitraryShippingHandlingTotal.</param>
-        /// <param name="OtherRefunded">OtherRefunded.</param>
-        /// <param name="ShippingHandlingRefunded">ShippingHandlingRefunded.</param>
-        /// <param name="ShippingHandlingTotal">ShippingHandlingTotal.</param>
-        /// <param name="ShippingHandlingTotalDiscount">ShippingHandlingTotalDiscount.</param>
-        /// <param name="Subtotal">Subtotal.</param>
-        /// <param name="SubtotalDiscount">SubtotalDiscount.</param>
-        /// <param name="SubtotalDiscountRefunded">SubtotalDiscountRefunded.</param>
-        /// <param name="SubtotalRefunded">SubtotalRefunded.</param>
-        /// <param name="Tax">Tax.</param>
-        /// <param name="TaxRefunded">TaxRefunded.</param>
-        /// <param name="TaxableSubtotal">TaxableSubtotal.</param>
-        /// <param name="TaxableSubtotalDiscount">TaxableSubtotalDiscount.</param>
-        /// <param name="Total">Total.</param>
-        /// <param name="TotalRefunded">TotalRefunded.</param>
-        public OrderSummary(Currency ArbitraryShippingHandlingTotal = default(Currency), Currency OtherRefunded = default(Currency), Currency ShippingHandlingRefunded = default(Currency), Currency ShippingHandlingTotal = default(Currency), Currency ShippingHandlingTotalDiscount = default(Currency), Currency Subtotal = default(Currency), Currency SubtotalDiscount = default(Currency), Currency SubtotalDiscountRefunded = default(Currency), Currency SubtotalRefunded = default(Currency), Currency Tax = default(Currency), Currency TaxRefunded = default(Currency), Currency TaxableSubtotal = default(Currency), Currency TaxableSubtotalDiscount = default(Currency), Currency Total = default(Currency), Currency TotalRefunded = default(Currency))
+        /// <param name="arbitraryShippingHandlingTotal">arbitraryShippingHandlingTotal.</param>
+        /// <param name="otherRefunded">otherRefunded.</param>
+        /// <param name="shippingHandlingRefunded">shippingHandlingRefunded.</param>
+        /// <param name="shippingHandlingTotal">shippingHandlingTotal.</param>
+        /// <param name="shippingHandlingTotalDiscount">shippingHandlingTotalDiscount.</param>
+        /// <param name="subtotal">subtotal.</param>
+        /// <param name="subtotalDiscount">subtotalDiscount.</param>
+        /// <param name="subtotalDiscountRefunded">subtotalDiscountRefunded.</param>
+        /// <param name="subtotalRefunded">subtotalRefunded.</param>
+        /// <param name="tax">tax.</param>
+        /// <param name="taxRefunded">taxRefunded.</param>
+        /// <param name="taxableSubtotal">taxableSubtotal.</param>
+        /// <param name="taxableSubtotalDiscount">taxableSubtotalDiscount.</param>
+        /// <param name="total">total.</param>
+        /// <param name="totalRefunded">totalRefunded.</param>
+        public OrderSummary(Currency arbitraryShippingHandlingTotal = default(Currency), Currency otherRefunded = default(Currency), Currency shippingHandlingRefunded = default(Currency), Currency shippingHandlingTotal = default(Currency), Currency shippingHandlingTotalDiscount = default(Currency), Currency subtotal = default(Currency), Currency subtotalDiscount = default(Currency), Currency subtotalDiscountRefunded = default(Currency), Currency subtotalRefunded = default(Currency), Currency tax = default(Currency), Currency taxRefunded = default(Currency), Currency taxableSubtotal = default(Currency), Currency taxableSubtotalDiscount = default(Currency), Currency total = default(Currency), Currency totalRefunded = default(Currency))
         {
-            this.ArbitraryShippingHandlingTotal = ArbitraryShippingHandlingTotal;
-            this.OtherRefunded = OtherRefunded;
-            this.ShippingHandlingRefunded = ShippingHandlingRefunded;
-            this.ShippingHandlingTotal = ShippingHandlingTotal;
-            this.ShippingHandlingTotalDiscount = ShippingHandlingTotalDiscount;
-            this.Subtotal = Subtotal;
-            this.SubtotalDiscount = SubtotalDiscount;
-            this.SubtotalDiscountRefunded = SubtotalDiscountRefunded;
-            this.SubtotalRefunded = SubtotalRefunded;
-            this.Tax = Tax;
-            this.TaxRefunded = TaxRefunded;
-            this.TaxableSubtotal = TaxableSubtotal;
-            this.TaxableSubtotalDiscount = TaxableSubtotalDiscount;
-            this.Total = Total;
-            this.TotalRefunded = TotalRefunded;
+            this.ArbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+            this.OtherRefunded = otherRefunded;
+            this.ShippingHandlingRefunded = shippingHandlingRefunded;
+            this.ShippingHandlingTotal = shippingHandlingTotal;
+            this.ShippingHandlingTotalDiscount = shippingHandlingTotalDiscount;
+            this.Subtotal = subtotal;
+            this.SubtotalDiscount = subtotalDiscount;
+            this.SubtotalDiscountRefunded = subtotalDiscountRefunded;
+            this.SubtotalRefunded = subtotalRefunded;
+            this.Tax = tax;
+            this.TaxRefunded = taxRefunded;
+            this.TaxableSubtotal = taxableSubtotal;
+            this.TaxableSubtotalDiscount = taxableSubtotalDiscount;
+            this.Total = total;
+            this.TotalRefunded = totalRefunded;
         }
         
         /// <summary>
@@ -188,7 +188,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

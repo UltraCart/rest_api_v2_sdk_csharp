@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailSegmentResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Segment">Segment.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public EmailSegmentResponse(Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), EmailSegment Segment = default(EmailSegment), bool? Success = default(bool?))
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="segment">segment.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public EmailSegmentResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), EmailSegment segment = default(EmailSegment), bool? success = default(bool?))
         {
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.Segment = Segment;
-            this.Success = Success;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.Segment = segment;
+            this.Success = success;
         }
         
         /// <summary>
@@ -90,7 +90,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsProvince" /> class.
         /// </summary>
-        /// <param name="Code">Code.</param>
-        /// <param name="Province">Province.</param>
-        public CartSettingsProvince(string Code = default(string), string Province = default(string))
+        /// <param name="code">code.</param>
+        /// <param name="province">province.</param>
+        public CartSettingsProvince(string code = default(string), string province = default(string))
         {
-            this.Code = Code;
-            this.Province = Province;
+            this.Code = code;
+            this.Province = province;
         }
         
         /// <summary>
@@ -71,7 +71,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

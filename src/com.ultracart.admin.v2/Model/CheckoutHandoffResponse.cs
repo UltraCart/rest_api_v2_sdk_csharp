@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckoutHandoffResponse" /> class.
         /// </summary>
-        /// <param name="Cart">Cart.</param>
-        /// <param name="Errors">Errors that occurred which are preventing the handoff operation.  Display these to the customer..</param>
-        /// <param name="RedirectToUrl">The URL that you should redirect the customers browser to.</param>
-        public CheckoutHandoffResponse(Cart Cart = default(Cart), List<string> Errors = default(List<string>), string RedirectToUrl = default(string))
+        /// <param name="cart">cart.</param>
+        /// <param name="errors">Errors that occurred which are preventing the handoff operation.  Display these to the customer..</param>
+        /// <param name="redirectToUrl">The URL that you should redirect the customers browser to.</param>
+        public CheckoutHandoffResponse(Cart cart = default(Cart), List<string> errors = default(List<string>), string redirectToUrl = default(string))
         {
-            this.Cart = Cart;
-            this.Errors = Errors;
-            this.RedirectToUrl = RedirectToUrl;
+            this.Cart = cart;
+            this.Errors = errors;
+            this.RedirectToUrl = redirectToUrl;
         }
         
         /// <summary>
@@ -82,7 +82,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

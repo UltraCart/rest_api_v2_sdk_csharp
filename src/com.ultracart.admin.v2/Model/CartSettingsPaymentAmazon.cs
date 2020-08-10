@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsPaymentAmazon" /> class.
         /// </summary>
-        /// <param name="AmazonButtonUrl">Amazon button URL.</param>
-        /// <param name="AmazonMerchantId">Amazon merchant ID.</param>
-        /// <param name="AmazonWidgetUrl">Amazon widget URL.</param>
-        public CartSettingsPaymentAmazon(string AmazonButtonUrl = default(string), string AmazonMerchantId = default(string), string AmazonWidgetUrl = default(string))
+        /// <param name="amazonButtonUrl">Amazon button URL.</param>
+        /// <param name="amazonMerchantId">Amazon merchant ID.</param>
+        /// <param name="amazonWidgetUrl">Amazon widget URL.</param>
+        public CartSettingsPaymentAmazon(string amazonButtonUrl = default(string), string amazonMerchantId = default(string), string amazonWidgetUrl = default(string))
         {
-            this.AmazonButtonUrl = AmazonButtonUrl;
-            this.AmazonMerchantId = AmazonMerchantId;
-            this.AmazonWidgetUrl = AmazonWidgetUrl;
+            this.AmazonButtonUrl = amazonButtonUrl;
+            this.AmazonMerchantId = amazonMerchantId;
+            this.AmazonWidgetUrl = amazonWidgetUrl;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

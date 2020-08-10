@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponEditorValues" /> class.
         /// </summary>
-        /// <param name="CouponTypes">coupon_types.</param>
-        public CouponEditorValues(List<string> CouponTypes = default(List<string>))
+        /// <param name="couponTypes">coupon_types.</param>
+        public CouponEditorValues(List<string> couponTypes = default(List<string>))
         {
-            this.CouponTypes = CouponTypes;
+            this.CouponTypes = couponTypes;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

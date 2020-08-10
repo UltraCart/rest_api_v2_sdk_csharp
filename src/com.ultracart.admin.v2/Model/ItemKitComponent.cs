@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemKitComponent" /> class.
         /// </summary>
-        /// <param name="ComponentCost">Component item cost.</param>
-        /// <param name="ComponentDescription">Component item description.</param>
-        /// <param name="ComponentMerchantItemId">Component item ID.</param>
-        /// <param name="ComponentMerchantItemOid">Component item object identifier.</param>
-        /// <param name="Quantity">Quantity.</param>
-        public ItemKitComponent(decimal? ComponentCost = default(decimal?), string ComponentDescription = default(string), string ComponentMerchantItemId = default(string), int? ComponentMerchantItemOid = default(int?), int? Quantity = default(int?))
+        /// <param name="componentCost">Component item cost.</param>
+        /// <param name="componentDescription">Component item description.</param>
+        /// <param name="componentMerchantItemId">Component item ID.</param>
+        /// <param name="componentMerchantItemOid">Component item object identifier.</param>
+        /// <param name="quantity">Quantity.</param>
+        public ItemKitComponent(decimal? componentCost = default(decimal?), string componentDescription = default(string), string componentMerchantItemId = default(string), int? componentMerchantItemOid = default(int?), int? quantity = default(int?))
         {
-            this.ComponentCost = ComponentCost;
-            this.ComponentDescription = ComponentDescription;
-            this.ComponentMerchantItemId = ComponentMerchantItemId;
-            this.ComponentMerchantItemOid = ComponentMerchantItemOid;
-            this.Quantity = Quantity;
+            this.ComponentCost = componentCost;
+            this.ComponentDescription = componentDescription;
+            this.ComponentMerchantItemId = componentMerchantItemId;
+            this.ComponentMerchantItemOid = componentMerchantItemOid;
+            this.Quantity = quantity;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponTierPercent" /> class.
         /// </summary>
-        /// <param name="DiscountPercent">The percent of subtotal discount.</param>
-        /// <param name="SubtotalAmount">The amount of subtotal required to receive the discount percent.</param>
-        public CouponTierPercent(decimal? DiscountPercent = default(decimal?), decimal? SubtotalAmount = default(decimal?))
+        /// <param name="discountPercent">The percent of subtotal discount.</param>
+        /// <param name="subtotalAmount">The amount of subtotal required to receive the discount percent.</param>
+        public CouponTierPercent(decimal? discountPercent = default(decimal?), decimal? subtotalAmount = default(decimal?))
         {
-            this.DiscountPercent = DiscountPercent;
-            this.SubtotalAmount = SubtotalAmount;
+            this.DiscountPercent = discountPercent;
+            this.SubtotalAmount = subtotalAmount;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

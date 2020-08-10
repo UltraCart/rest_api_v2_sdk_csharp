@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemGiftCertificate" /> class.
         /// </summary>
-        /// <param name="GiftCertificate">True if the purchase of this item generates a gift certificate.</param>
-        /// <param name="GiftCertificateExpirationDays">The number of days that the gift certificate is good for (optional).</param>
-        public ItemGiftCertificate(bool? GiftCertificate = default(bool?), int? GiftCertificateExpirationDays = default(int?))
+        /// <param name="giftCertificate">True if the purchase of this item generates a gift certificate.</param>
+        /// <param name="giftCertificateExpirationDays">The number of days that the gift certificate is good for (optional).</param>
+        public ItemGiftCertificate(bool? giftCertificate = default(bool?), int? giftCertificateExpirationDays = default(int?))
         {
-            this.GiftCertificate = GiftCertificate;
-            this.GiftCertificateExpirationDays = GiftCertificateExpirationDays;
+            this.GiftCertificate = giftCertificate;
+            this.GiftCertificateExpirationDays = giftCertificateExpirationDays;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

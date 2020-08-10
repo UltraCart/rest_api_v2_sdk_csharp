@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderItemOptionFileAttachment" /> class.
         /// </summary>
-        /// <param name="ExpirationDts">Expiration date/time.</param>
-        /// <param name="FileName">File name.</param>
-        /// <param name="MimeType">Mime type.</param>
-        /// <param name="Size">Size.</param>
-        public OrderItemOptionFileAttachment(string ExpirationDts = default(string), string FileName = default(string), string MimeType = default(string), int? Size = default(int?))
+        /// <param name="expirationDts">Expiration date/time.</param>
+        /// <param name="fileName">File name.</param>
+        /// <param name="mimeType">Mime type.</param>
+        /// <param name="size">Size.</param>
+        public OrderItemOptionFileAttachment(string expirationDts = default(string), string fileName = default(string), string mimeType = default(string), int? size = default(int?))
         {
-            this.ExpirationDts = ExpirationDts;
-            this.FileName = FileName;
-            this.MimeType = MimeType;
-            this.Size = Size;
+            this.ExpirationDts = expirationDts;
+            this.FileName = fileName;
+            this.MimeType = mimeType;
+            this.Size = size;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

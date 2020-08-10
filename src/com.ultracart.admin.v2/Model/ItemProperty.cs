@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemProperty" /> class.
         /// </summary>
-        /// <param name="ExpirationDts">Expiration of the property.</param>
-        /// <param name="Name">Property name.</param>
-        /// <param name="Value">Property value.</param>
-        public ItemProperty(string ExpirationDts = default(string), string Name = default(string), string Value = default(string))
+        /// <param name="expirationDts">Expiration of the property.</param>
+        /// <param name="name">Property name.</param>
+        /// <param name="value">Property value.</param>
+        public ItemProperty(string expirationDts = default(string), string name = default(string), string value = default(string))
         {
-            this.ExpirationDts = ExpirationDts;
-            this.Name = Name;
-            this.Value = Value;
+            this.ExpirationDts = expirationDts;
+            this.Name = name;
+            this.Value = value;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

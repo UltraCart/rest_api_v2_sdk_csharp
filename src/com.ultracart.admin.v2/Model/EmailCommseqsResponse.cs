@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailCommseqsResponse" /> class.
         /// </summary>
-        /// <param name="CommunicationSequences">CommunicationSequences.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public EmailCommseqsResponse(List<EmailCommseq> CommunicationSequences = default(List<EmailCommseq>), Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?))
+        /// <param name="communicationSequences">communicationSequences.</param>
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public EmailCommseqsResponse(List<EmailCommseq> communicationSequences = default(List<EmailCommseq>), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?))
         {
-            this.CommunicationSequences = CommunicationSequences;
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.Success = Success;
+            this.CommunicationSequences = communicationSequences;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.Success = success;
         }
         
         /// <summary>
@@ -90,7 +90,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

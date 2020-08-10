@@ -33,40 +33,40 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAutoOrder" /> class.
         /// </summary>
-        /// <param name="AuthFutureAmount">Amount to try and authorize for the future rebill.</param>
-        /// <param name="AuthTestAmount">Amount to try and test authorize.</param>
-        /// <param name="AutoOrderCancelItemId">Item id to attempt charging the customer for if they cancel.</param>
-        /// <param name="AutoOrderCancelItemOid">Item object identifier to attempt charging the customer for if they cancel.</param>
-        /// <param name="AutoOrderDowngradeItems">List of downgrade items presented to customer service representatives.</param>
-        /// <param name="AutoOrderPaused">True if the rebill processing of this item is paused.</param>
-        /// <param name="AutoOrderSchedules">The user selectable schedules that are available.</param>
-        /// <param name="AutoOrderUpgradeItems">List of upgrade items presented to customer service representatives.</param>
-        /// <param name="AutoOrderUpsell">True if this item uses a fixed upsell step schedule.</param>
-        /// <param name="AutoOrderUpsellNoEasyCancel">Do not send the easy cancel email to the customer.</param>
-        /// <param name="AutoOrderUpsellOnePerCustomer">Limit the purchase of this item to one per customer.</param>
-        /// <param name="AutoOrderable">True if this item can be automatically ordered by the customer.</param>
-        /// <param name="CancelOtherAutoOrders">True if other auto orders for this customer should be canceled when this item is ordered.</param>
-        /// <param name="FreeShippingAutoOrder">True if the customer should be given free shipping.</param>
-        /// <param name="RefundOtherAutoOrders">True if other auto orders for this customer should refunded if this item is refunded..</param>
-        /// <param name="Steps">The rebill steps if this auto order is an upsell.</param>
-        public ItemAutoOrder(decimal? AuthFutureAmount = default(decimal?), decimal? AuthTestAmount = default(decimal?), string AutoOrderCancelItemId = default(string), int? AutoOrderCancelItemOid = default(int?), List<string> AutoOrderDowngradeItems = default(List<string>), bool? AutoOrderPaused = default(bool?), List<string> AutoOrderSchedules = default(List<string>), List<string> AutoOrderUpgradeItems = default(List<string>), bool? AutoOrderUpsell = default(bool?), bool? AutoOrderUpsellNoEasyCancel = default(bool?), bool? AutoOrderUpsellOnePerCustomer = default(bool?), bool? AutoOrderable = default(bool?), bool? CancelOtherAutoOrders = default(bool?), bool? FreeShippingAutoOrder = default(bool?), bool? RefundOtherAutoOrders = default(bool?), List<ItemAutoOrderStep> Steps = default(List<ItemAutoOrderStep>))
+        /// <param name="authFutureAmount">Amount to try and authorize for the future rebill.</param>
+        /// <param name="authTestAmount">Amount to try and test authorize.</param>
+        /// <param name="autoOrderCancelItemId">Item id to attempt charging the customer for if they cancel.</param>
+        /// <param name="autoOrderCancelItemOid">Item object identifier to attempt charging the customer for if they cancel.</param>
+        /// <param name="autoOrderDowngradeItems">List of downgrade items presented to customer service representatives.</param>
+        /// <param name="autoOrderPaused">True if the rebill processing of this item is paused.</param>
+        /// <param name="autoOrderSchedules">The user selectable schedules that are available.</param>
+        /// <param name="autoOrderUpgradeItems">List of upgrade items presented to customer service representatives.</param>
+        /// <param name="autoOrderUpsell">True if this item uses a fixed upsell step schedule.</param>
+        /// <param name="autoOrderUpsellNoEasyCancel">Do not send the easy cancel email to the customer.</param>
+        /// <param name="autoOrderUpsellOnePerCustomer">Limit the purchase of this item to one per customer.</param>
+        /// <param name="autoOrderable">True if this item can be automatically ordered by the customer.</param>
+        /// <param name="cancelOtherAutoOrders">True if other auto orders for this customer should be canceled when this item is ordered.</param>
+        /// <param name="freeShippingAutoOrder">True if the customer should be given free shipping.</param>
+        /// <param name="refundOtherAutoOrders">True if other auto orders for this customer should refunded if this item is refunded..</param>
+        /// <param name="steps">The rebill steps if this auto order is an upsell.</param>
+        public ItemAutoOrder(decimal? authFutureAmount = default(decimal?), decimal? authTestAmount = default(decimal?), string autoOrderCancelItemId = default(string), int? autoOrderCancelItemOid = default(int?), List<string> autoOrderDowngradeItems = default(List<string>), bool? autoOrderPaused = default(bool?), List<string> autoOrderSchedules = default(List<string>), List<string> autoOrderUpgradeItems = default(List<string>), bool? autoOrderUpsell = default(bool?), bool? autoOrderUpsellNoEasyCancel = default(bool?), bool? autoOrderUpsellOnePerCustomer = default(bool?), bool? autoOrderable = default(bool?), bool? cancelOtherAutoOrders = default(bool?), bool? freeShippingAutoOrder = default(bool?), bool? refundOtherAutoOrders = default(bool?), List<ItemAutoOrderStep> steps = default(List<ItemAutoOrderStep>))
         {
-            this.AuthFutureAmount = AuthFutureAmount;
-            this.AuthTestAmount = AuthTestAmount;
-            this.AutoOrderCancelItemId = AutoOrderCancelItemId;
-            this.AutoOrderCancelItemOid = AutoOrderCancelItemOid;
-            this.AutoOrderDowngradeItems = AutoOrderDowngradeItems;
-            this.AutoOrderPaused = AutoOrderPaused;
-            this.AutoOrderSchedules = AutoOrderSchedules;
-            this.AutoOrderUpgradeItems = AutoOrderUpgradeItems;
-            this.AutoOrderUpsell = AutoOrderUpsell;
-            this.AutoOrderUpsellNoEasyCancel = AutoOrderUpsellNoEasyCancel;
-            this.AutoOrderUpsellOnePerCustomer = AutoOrderUpsellOnePerCustomer;
-            this.AutoOrderable = AutoOrderable;
-            this.CancelOtherAutoOrders = CancelOtherAutoOrders;
-            this.FreeShippingAutoOrder = FreeShippingAutoOrder;
-            this.RefundOtherAutoOrders = RefundOtherAutoOrders;
-            this.Steps = Steps;
+            this.AuthFutureAmount = authFutureAmount;
+            this.AuthTestAmount = authTestAmount;
+            this.AutoOrderCancelItemId = autoOrderCancelItemId;
+            this.AutoOrderCancelItemOid = autoOrderCancelItemOid;
+            this.AutoOrderDowngradeItems = autoOrderDowngradeItems;
+            this.AutoOrderPaused = autoOrderPaused;
+            this.AutoOrderSchedules = autoOrderSchedules;
+            this.AutoOrderUpgradeItems = autoOrderUpgradeItems;
+            this.AutoOrderUpsell = autoOrderUpsell;
+            this.AutoOrderUpsellNoEasyCancel = autoOrderUpsellNoEasyCancel;
+            this.AutoOrderUpsellOnePerCustomer = autoOrderUpsellOnePerCustomer;
+            this.AutoOrderable = autoOrderable;
+            this.CancelOtherAutoOrders = cancelOtherAutoOrders;
+            this.FreeShippingAutoOrder = freeShippingAutoOrder;
+            this.RefundOtherAutoOrders = refundOtherAutoOrders;
+            this.Steps = steps;
         }
         
         /// <summary>
@@ -213,7 +213,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerActivity" /> class.
         /// </summary>
-        /// <param name="Activities">Activities.</param>
-        /// <param name="Memberships">Memberships.</param>
-        /// <param name="Metrics">Metrics.</param>
-        /// <param name="PropertiesList">PropertiesList.</param>
-        public CustomerActivity(List<Activity> Activities = default(List<Activity>), List<ListSegmentMembership> Memberships = default(List<ListSegmentMembership>), List<Metric> Metrics = default(List<Metric>), List<Property> PropertiesList = default(List<Property>))
+        /// <param name="activities">activities.</param>
+        /// <param name="memberships">memberships.</param>
+        /// <param name="metrics">metrics.</param>
+        /// <param name="propertiesList">propertiesList.</param>
+        public CustomerActivity(List<Activity> activities = default(List<Activity>), List<ListSegmentMembership> memberships = default(List<ListSegmentMembership>), List<Metric> metrics = default(List<Metric>), List<Property> propertiesList = default(List<Property>))
         {
-            this.Activities = Activities;
-            this.Memberships = Memberships;
-            this.Metrics = Metrics;
-            this.PropertiesList = PropertiesList;
+            this.Activities = activities;
+            this.Memberships = memberships;
+            this.Metrics = metrics;
+            this.PropertiesList = propertiesList;
         }
         
         /// <summary>
@@ -89,7 +89,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

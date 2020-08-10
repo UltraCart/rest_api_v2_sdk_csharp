@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderItemProperty" /> class.
         /// </summary>
-        /// <param name="Display">True if this property is displayed to the customer.</param>
-        /// <param name="ExpirationDts">The date/time that the property expires and is deleted.</param>
-        /// <param name="Name">Name.</param>
-        /// <param name="Value">Value.</param>
-        public OrderItemProperty(bool? Display = default(bool?), string ExpirationDts = default(string), string Name = default(string), string Value = default(string))
+        /// <param name="display">True if this property is displayed to the customer.</param>
+        /// <param name="expirationDts">The date/time that the property expires and is deleted.</param>
+        /// <param name="name">Name.</param>
+        /// <param name="value">Value.</param>
+        public OrderItemProperty(bool? display = default(bool?), string expirationDts = default(string), string name = default(string), string value = default(string))
         {
-            this.Display = Display;
-            this.ExpirationDts = ExpirationDts;
-            this.Name = Name;
-            this.Value = Value;
+            this.Display = display;
+            this.ExpirationDts = expirationDts;
+            this.Name = name;
+            this.Value = value;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

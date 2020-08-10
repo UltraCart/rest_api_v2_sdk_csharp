@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderQuote" /> class.
         /// </summary>
-        /// <param name="QuoteExpirationDts">Expiration of quote at date/time.</param>
-        /// <param name="QuotedBy">Quoted by user.</param>
-        /// <param name="QuotedDts">Quoted on date/time.</param>
-        public OrderQuote(string QuoteExpirationDts = default(string), string QuotedBy = default(string), string QuotedDts = default(string))
+        /// <param name="quoteExpirationDts">Expiration of quote at date/time.</param>
+        /// <param name="quotedBy">Quoted by user.</param>
+        /// <param name="quotedDts">Quoted on date/time.</param>
+        public OrderQuote(string quoteExpirationDts = default(string), string quotedBy = default(string), string quotedDts = default(string))
         {
-            this.QuoteExpirationDts = QuoteExpirationDts;
-            this.QuotedBy = QuotedBy;
-            this.QuotedDts = QuotedDts;
+            this.QuoteExpirationDts = quoteExpirationDts;
+            this.QuotedBy = quotedBy;
+            this.QuotedDts = quotedDts;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -39,40 +39,40 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Pending for "Pending"
+            /// Enum Pending for value: Pending
             /// </summary>
             [EnumMember(Value = "Pending")]
-            Pending,
+            Pending = 1,
             
             /// <summary>
-            /// Enum Posted for "Posted"
+            /// Enum Posted for value: Posted
             /// </summary>
             [EnumMember(Value = "Posted")]
-            Posted,
+            Posted = 2,
             
             /// <summary>
-            /// Enum Approved for "Approved"
+            /// Enum Approved for value: Approved
             /// </summary>
             [EnumMember(Value = "Approved")]
-            Approved,
+            Approved = 3,
             
             /// <summary>
-            /// Enum Paid for "Paid"
+            /// Enum Paid for value: Paid
             /// </summary>
             [EnumMember(Value = "Paid")]
-            Paid,
+            Paid = 4,
             
             /// <summary>
-            /// Enum Rejected for "Rejected"
+            /// Enum Rejected for value: Rejected
             /// </summary>
             [EnumMember(Value = "Rejected")]
-            Rejected,
+            Rejected = 5,
             
             /// <summary>
-            /// Enum PartiallyPaid for "Partially Paid"
+            /// Enum PartiallyPaid for value: Partially Paid
             /// </summary>
             [EnumMember(Value = "Partially Paid")]
-            PartiallyPaid
+            PartiallyPaid = 6
         }
 
         /// <summary>
@@ -84,26 +84,26 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderAffiliateLedger" /> class.
         /// </summary>
-        /// <param name="AssignedByUser">UltraCart user name that assigned this commission if manually assigned.</param>
-        /// <param name="ItemId">Item ID that this ledger record is associated with.</param>
-        /// <param name="TierNumber">Tier number of this affiliate in the commission calculation.</param>
-        /// <param name="TransactionAmount">Amount of the transaction.</param>
-        /// <param name="TransactionAmountPaid">The amount that has been paid so far on the transaction.</param>
-        /// <param name="TransactionDts">The date/time that the affiliate ledger was generated for the transaction.</param>
-        /// <param name="TransactionMemo">Details of the transaction suitable for display to the affiliate.</param>
-        /// <param name="TransactionPercentage">The percentage earned on the transaction.</param>
-        /// <param name="TransactionState">The state of the transaction.</param>
-        public OrderAffiliateLedger(string AssignedByUser = default(string), string ItemId = default(string), int? TierNumber = default(int?), decimal? TransactionAmount = default(decimal?), decimal? TransactionAmountPaid = default(decimal?), string TransactionDts = default(string), string TransactionMemo = default(string), decimal? TransactionPercentage = default(decimal?), TransactionStateEnum? TransactionState = default(TransactionStateEnum?))
+        /// <param name="assignedByUser">UltraCart user name that assigned this commission if manually assigned.</param>
+        /// <param name="itemId">Item ID that this ledger record is associated with.</param>
+        /// <param name="tierNumber">Tier number of this affiliate in the commission calculation.</param>
+        /// <param name="transactionAmount">Amount of the transaction.</param>
+        /// <param name="transactionAmountPaid">The amount that has been paid so far on the transaction.</param>
+        /// <param name="transactionDts">The date/time that the affiliate ledger was generated for the transaction.</param>
+        /// <param name="transactionMemo">Details of the transaction suitable for display to the affiliate.</param>
+        /// <param name="transactionPercentage">The percentage earned on the transaction.</param>
+        /// <param name="transactionState">The state of the transaction.</param>
+        public OrderAffiliateLedger(string assignedByUser = default(string), string itemId = default(string), int? tierNumber = default(int?), decimal? transactionAmount = default(decimal?), decimal? transactionAmountPaid = default(decimal?), string transactionDts = default(string), string transactionMemo = default(string), decimal? transactionPercentage = default(decimal?), TransactionStateEnum? transactionState = default(TransactionStateEnum?))
         {
-            this.AssignedByUser = AssignedByUser;
-            this.ItemId = ItemId;
-            this.TierNumber = TierNumber;
-            this.TransactionAmount = TransactionAmount;
-            this.TransactionAmountPaid = TransactionAmountPaid;
-            this.TransactionDts = TransactionDts;
-            this.TransactionMemo = TransactionMemo;
-            this.TransactionPercentage = TransactionPercentage;
-            this.TransactionState = TransactionState;
+            this.AssignedByUser = assignedByUser;
+            this.ItemId = itemId;
+            this.TierNumber = tierNumber;
+            this.TransactionAmount = transactionAmount;
+            this.TransactionAmountPaid = transactionAmountPaid;
+            this.TransactionDts = transactionDts;
+            this.TransactionMemo = transactionMemo;
+            this.TransactionPercentage = transactionPercentage;
+            this.TransactionState = transactionState;
         }
         
         /// <summary>
@@ -188,7 +188,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

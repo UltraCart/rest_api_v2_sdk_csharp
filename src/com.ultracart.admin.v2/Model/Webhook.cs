@@ -39,31 +39,10 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum _01 for "2017-03-01"
+            /// Enum _20170301 for value: 2017-03-01
             /// </summary>
             [EnumMember(Value = "2017-03-01")]
-            _01
-        }
-
-        /// <summary>
-        /// The type of authentication this webhook will use when communicating with your server
-        /// </summary>
-        /// <value>The type of authentication this webhook will use when communicating with your server</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum AuthenticationTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum None for "none"
-            /// </summary>
-            [EnumMember(Value = "none")]
-            None,
-            
-            /// <summary>
-            /// Enum Basic for "basic"
-            /// </summary>
-            [EnumMember(Value = "basic")]
-            Basic
+            _20170301 = 1
         }
 
         /// <summary>
@@ -76,49 +55,70 @@ namespace com.ultracart.admin.v2.Model
         /// The type of authentication this webhook will use when communicating with your server
         /// </summary>
         /// <value>The type of authentication this webhook will use when communicating with your server</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AuthenticationTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum None for value: none
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None = 1,
+            
+            /// <summary>
+            /// Enum Basic for value: basic
+            /// </summary>
+            [EnumMember(Value = "basic")]
+            Basic = 2
+        }
+
+        /// <summary>
+        /// The type of authentication this webhook will use when communicating with your server
+        /// </summary>
+        /// <value>The type of authentication this webhook will use when communicating with your server</value>
         [DataMember(Name="authentication_type", EmitDefaultValue=false)]
         public AuthenticationTypeEnum? AuthenticationType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Webhook" /> class.
         /// </summary>
-        /// <param name="ApiUserOid">Populated if webhook associated with an API user.</param>
-        /// <param name="ApiVersion">Version of the API objects that are sent in notifications.</param>
-        /// <param name="ApplicationProfile">ApplicationProfile.</param>
-        /// <param name="AuthenticationType">The type of authentication this webhook will use when communicating with your server.</param>
-        /// <param name="BasicPassword">Basic authentication password.</param>
-        /// <param name="BasicUsername">Basic authentication user name.</param>
-        /// <param name="ConsecutiveFailures">The number of consecutive failures that have occurred trying to deliver notifications to the target server.</param>
-        /// <param name="Disabled">True if the webhook has been disabled.</param>
-        /// <param name="EventCategories">The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval..</param>
-        /// <param name="IamAccessKey">IAM Access Key for AWS SQS Delivery.</param>
-        /// <param name="IamSecretKey">IAM Secret Key for AWS SQS Delivery.</param>
-        /// <param name="MaximumEvents">The maximum number of events in the payload that UltraCart will deliver.</param>
-        /// <param name="MaximumSize">The maximum size of the payload that UltraCart will deliver.</param>
-        /// <param name="MerchantId">The UltraCart merchant ID that owns this webhook.</param>
-        /// <param name="NextRetryAfter">The next time UltraCart will attempt delivery if failures have been occurring.</param>
-        /// <param name="Pending">The number of pending events for this webhook.</param>
-        /// <param name="WebhookOid">The object identifier for this webhook.</param>
-        /// <param name="WebhookUrl">The URL to deliver events to.  Must be HTTPS for customer related information..</param>
-        public Webhook(int? ApiUserOid = default(int?), ApiVersionEnum? ApiVersion = default(ApiVersionEnum?), ApiUserApplicationProfile ApplicationProfile = default(ApiUserApplicationProfile), AuthenticationTypeEnum? AuthenticationType = default(AuthenticationTypeEnum?), string BasicPassword = default(string), string BasicUsername = default(string), int? ConsecutiveFailures = default(int?), bool? Disabled = default(bool?), List<WebhookEventCategory> EventCategories = default(List<WebhookEventCategory>), string IamAccessKey = default(string), string IamSecretKey = default(string), int? MaximumEvents = default(int?), int? MaximumSize = default(int?), string MerchantId = default(string), string NextRetryAfter = default(string), int? Pending = default(int?), int? WebhookOid = default(int?), string WebhookUrl = default(string))
+        /// <param name="apiUserOid">Populated if webhook associated with an API user.</param>
+        /// <param name="apiVersion">Version of the API objects that are sent in notifications.</param>
+        /// <param name="applicationProfile">applicationProfile.</param>
+        /// <param name="authenticationType">The type of authentication this webhook will use when communicating with your server.</param>
+        /// <param name="basicPassword">Basic authentication password.</param>
+        /// <param name="basicUsername">Basic authentication user name.</param>
+        /// <param name="consecutiveFailures">The number of consecutive failures that have occurred trying to deliver notifications to the target server.</param>
+        /// <param name="disabled">True if the webhook has been disabled.</param>
+        /// <param name="eventCategories">The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval..</param>
+        /// <param name="iamAccessKey">IAM Access Key for AWS SQS Delivery.</param>
+        /// <param name="iamSecretKey">IAM Secret Key for AWS SQS Delivery.</param>
+        /// <param name="maximumEvents">The maximum number of events in the payload that UltraCart will deliver.</param>
+        /// <param name="maximumSize">The maximum size of the payload that UltraCart will deliver.</param>
+        /// <param name="merchantId">The UltraCart merchant ID that owns this webhook.</param>
+        /// <param name="nextRetryAfter">The next time UltraCart will attempt delivery if failures have been occurring.</param>
+        /// <param name="pending">The number of pending events for this webhook.</param>
+        /// <param name="webhookOid">The object identifier for this webhook.</param>
+        /// <param name="webhookUrl">The URL to deliver events to.  Must be HTTPS for customer related information..</param>
+        public Webhook(int? apiUserOid = default(int?), ApiVersionEnum? apiVersion = default(ApiVersionEnum?), ApiUserApplicationProfile applicationProfile = default(ApiUserApplicationProfile), AuthenticationTypeEnum? authenticationType = default(AuthenticationTypeEnum?), string basicPassword = default(string), string basicUsername = default(string), int? consecutiveFailures = default(int?), bool? disabled = default(bool?), List<WebhookEventCategory> eventCategories = default(List<WebhookEventCategory>), string iamAccessKey = default(string), string iamSecretKey = default(string), int? maximumEvents = default(int?), int? maximumSize = default(int?), string merchantId = default(string), string nextRetryAfter = default(string), int? pending = default(int?), int? webhookOid = default(int?), string webhookUrl = default(string))
         {
-            this.ApiUserOid = ApiUserOid;
-            this.ApiVersion = ApiVersion;
-            this.ApplicationProfile = ApplicationProfile;
-            this.AuthenticationType = AuthenticationType;
-            this.BasicPassword = BasicPassword;
-            this.BasicUsername = BasicUsername;
-            this.ConsecutiveFailures = ConsecutiveFailures;
-            this.Disabled = Disabled;
-            this.EventCategories = EventCategories;
-            this.IamAccessKey = IamAccessKey;
-            this.IamSecretKey = IamSecretKey;
-            this.MaximumEvents = MaximumEvents;
-            this.MaximumSize = MaximumSize;
-            this.MerchantId = MerchantId;
-            this.NextRetryAfter = NextRetryAfter;
-            this.Pending = Pending;
-            this.WebhookOid = WebhookOid;
-            this.WebhookUrl = WebhookUrl;
+            this.ApiUserOid = apiUserOid;
+            this.ApiVersion = apiVersion;
+            this.ApplicationProfile = applicationProfile;
+            this.AuthenticationType = authenticationType;
+            this.BasicPassword = basicPassword;
+            this.BasicUsername = basicUsername;
+            this.ConsecutiveFailures = consecutiveFailures;
+            this.Disabled = disabled;
+            this.EventCategories = eventCategories;
+            this.IamAccessKey = iamAccessKey;
+            this.IamSecretKey = iamSecretKey;
+            this.MaximumEvents = maximumEvents;
+            this.MaximumSize = maximumSize;
+            this.MerchantId = merchantId;
+            this.NextRetryAfter = nextRetryAfter;
+            this.Pending = pending;
+            this.WebhookOid = webhookOid;
+            this.WebhookUrl = webhookUrl;
         }
         
         /// <summary>
@@ -268,7 +268,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

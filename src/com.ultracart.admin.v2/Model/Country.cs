@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Country" /> class.
         /// </summary>
-        /// <param name="Iso2Code">iso_2_code.</param>
-        /// <param name="Name">name.</param>
-        public Country(string Iso2Code = default(string), string Name = default(string))
+        /// <param name="iso2Code">iso_2_code.</param>
+        /// <param name="name">name.</param>
+        public Country(string iso2Code = default(string), string name = default(string))
         {
-            this.Iso2Code = Iso2Code;
-            this.Name = Name;
+            this.Iso2Code = iso2Code;
+            this.Name = name;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

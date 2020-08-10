@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAutoOrderStepArbitraryUnitCostSchedule" /> class.
         /// </summary>
-        /// <param name="ArbitraryUnitCost">Arbitrary unit cost.</param>
-        /// <param name="RetryDays">Retry days.</param>
-        public ItemAutoOrderStepArbitraryUnitCostSchedule(decimal? ArbitraryUnitCost = default(decimal?), int? RetryDays = default(int?))
+        /// <param name="arbitraryUnitCost">Arbitrary unit cost.</param>
+        /// <param name="retryDays">Retry days.</param>
+        public ItemAutoOrderStepArbitraryUnitCostSchedule(decimal? arbitraryUnitCost = default(decimal?), int? retryDays = default(int?))
         {
-            this.ArbitraryUnitCost = ArbitraryUnitCost;
-            this.RetryDays = RetryDays;
+            this.ArbitraryUnitCost = arbitraryUnitCost;
+            this.RetryDays = retryDays;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

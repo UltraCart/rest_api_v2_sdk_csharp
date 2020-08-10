@@ -33,26 +33,26 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxCity" /> class.
         /// </summary>
-        /// <param name="AccountingCode">Accounting code for programs such as QuickBooks.</param>
-        /// <param name="City">City.</param>
-        /// <param name="CityOid">Tax record object identifier used internally by database.</param>
-        /// <param name="CountyOid">Tax record object identifier used internally by database.</param>
-        /// <param name="DontCollectCity">Flag instructing engine to not collect city tax for this city.</param>
-        /// <param name="DontCollectPostalCode">Flag instructing engine to not collect postal code tax for this city.</param>
-        /// <param name="PostalCodes">Postal Codes within this city.</param>
-        /// <param name="TaxRate">Tax Rate.</param>
-        /// <param name="TaxRateFormatted">Tax rate formatted.</param>
-        public TaxCity(string AccountingCode = default(string), string City = default(string), int? CityOid = default(int?), int? CountyOid = default(int?), bool? DontCollectCity = default(bool?), bool? DontCollectPostalCode = default(bool?), List<TaxPostalCode> PostalCodes = default(List<TaxPostalCode>), decimal? TaxRate = default(decimal?), string TaxRateFormatted = default(string))
+        /// <param name="accountingCode">Accounting code for programs such as QuickBooks.</param>
+        /// <param name="city">City.</param>
+        /// <param name="cityOid">Tax record object identifier used internally by database.</param>
+        /// <param name="countyOid">Tax record object identifier used internally by database.</param>
+        /// <param name="dontCollectCity">Flag instructing engine to not collect city tax for this city.</param>
+        /// <param name="dontCollectPostalCode">Flag instructing engine to not collect postal code tax for this city.</param>
+        /// <param name="postalCodes">Postal Codes within this city.</param>
+        /// <param name="taxRate">Tax Rate.</param>
+        /// <param name="taxRateFormatted">Tax rate formatted.</param>
+        public TaxCity(string accountingCode = default(string), string city = default(string), int? cityOid = default(int?), int? countyOid = default(int?), bool? dontCollectCity = default(bool?), bool? dontCollectPostalCode = default(bool?), List<TaxPostalCode> postalCodes = default(List<TaxPostalCode>), decimal? taxRate = default(decimal?), string taxRateFormatted = default(string))
         {
-            this.AccountingCode = AccountingCode;
-            this.City = City;
-            this.CityOid = CityOid;
-            this.CountyOid = CountyOid;
-            this.DontCollectCity = DontCollectCity;
-            this.DontCollectPostalCode = DontCollectPostalCode;
-            this.PostalCodes = PostalCodes;
-            this.TaxRate = TaxRate;
-            this.TaxRateFormatted = TaxRateFormatted;
+            this.AccountingCode = accountingCode;
+            this.City = city;
+            this.CityOid = cityOid;
+            this.CountyOid = countyOid;
+            this.DontCollectCity = dontCollectCity;
+            this.DontCollectPostalCode = dontCollectPostalCode;
+            this.PostalCodes = postalCodes;
+            this.TaxRate = taxRate;
+            this.TaxRateFormatted = taxRateFormatted;
         }
         
         /// <summary>
@@ -143,7 +143,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

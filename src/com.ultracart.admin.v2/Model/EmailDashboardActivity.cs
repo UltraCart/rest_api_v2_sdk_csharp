@@ -33,22 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailDashboardActivity" /> class.
         /// </summary>
-        /// <param name="Action">Type of action such as add, remove, subscribe, unsubscribe.</param>
-        /// <param name="ActivityDts">Date/time of the activity.</param>
-        /// <param name="DestinationName">List or segment name.</param>
-        /// <param name="DestinationUuid">List or segment uuid.</param>
-        /// <param name="Email">Email address.</param>
-        /// <param name="IsList">true if activity is related to list.</param>
-        /// <param name="IsSegment">true if activity is related to segment.</param>
-        public EmailDashboardActivity(string Action = default(string), string ActivityDts = default(string), string DestinationName = default(string), string DestinationUuid = default(string), string Email = default(string), bool? IsList = default(bool?), bool? IsSegment = default(bool?))
+        /// <param name="action">Type of action such as add, remove, subscribe, unsubscribe.</param>
+        /// <param name="activityDts">Date/time of the activity.</param>
+        /// <param name="destinationName">List or segment name.</param>
+        /// <param name="destinationUuid">List or segment uuid.</param>
+        /// <param name="email">Email address.</param>
+        /// <param name="isList">true if activity is related to list.</param>
+        /// <param name="isSegment">true if activity is related to segment.</param>
+        public EmailDashboardActivity(string action = default(string), string activityDts = default(string), string destinationName = default(string), string destinationUuid = default(string), string email = default(string), bool? isList = default(bool?), bool? isSegment = default(bool?))
         {
-            this.Action = Action;
-            this.ActivityDts = ActivityDts;
-            this.DestinationName = DestinationName;
-            this.DestinationUuid = DestinationUuid;
-            this.Email = Email;
-            this.IsList = IsList;
-            this.IsSegment = IsSegment;
+            this.Action = action;
+            this.ActivityDts = activityDts;
+            this.DestinationName = destinationName;
+            this.DestinationUuid = destinationUuid;
+            this.Email = email;
+            this.IsList = isList;
+            this.IsSegment = isSegment;
         }
         
         /// <summary>
@@ -123,7 +123,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

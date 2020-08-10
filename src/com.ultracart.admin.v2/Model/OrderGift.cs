@@ -33,28 +33,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderGift" /> class.
         /// </summary>
-        /// <param name="Gift">True if the order is a gift.</param>
-        /// <param name="GiftCharge">GiftCharge.</param>
-        /// <param name="GiftChargeAccountingCode">QuickBooks code for the gift charge.</param>
-        /// <param name="GiftChargeRefunded">GiftChargeRefunded.</param>
-        /// <param name="GiftEmail">Email address of the gift recipient.</param>
-        /// <param name="GiftMessage">Message to the gift recipient.</param>
-        /// <param name="GiftWrapAccountingCode">QuickBooks code for the gift wrap charge.</param>
-        /// <param name="GiftWrapCost">GiftWrapCost.</param>
-        /// <param name="GiftWrapRefunded">GiftWrapRefunded.</param>
-        /// <param name="GiftWrapTitle">Title of the gift wrap that the customer wants used.</param>
-        public OrderGift(bool? Gift = default(bool?), Currency GiftCharge = default(Currency), string GiftChargeAccountingCode = default(string), Currency GiftChargeRefunded = default(Currency), string GiftEmail = default(string), string GiftMessage = default(string), string GiftWrapAccountingCode = default(string), Currency GiftWrapCost = default(Currency), Currency GiftWrapRefunded = default(Currency), string GiftWrapTitle = default(string))
+        /// <param name="gift">True if the order is a gift.</param>
+        /// <param name="giftCharge">giftCharge.</param>
+        /// <param name="giftChargeAccountingCode">QuickBooks code for the gift charge.</param>
+        /// <param name="giftChargeRefunded">giftChargeRefunded.</param>
+        /// <param name="giftEmail">Email address of the gift recipient.</param>
+        /// <param name="giftMessage">Message to the gift recipient.</param>
+        /// <param name="giftWrapAccountingCode">QuickBooks code for the gift wrap charge.</param>
+        /// <param name="giftWrapCost">giftWrapCost.</param>
+        /// <param name="giftWrapRefunded">giftWrapRefunded.</param>
+        /// <param name="giftWrapTitle">Title of the gift wrap that the customer wants used.</param>
+        public OrderGift(bool? gift = default(bool?), Currency giftCharge = default(Currency), string giftChargeAccountingCode = default(string), Currency giftChargeRefunded = default(Currency), string giftEmail = default(string), string giftMessage = default(string), string giftWrapAccountingCode = default(string), Currency giftWrapCost = default(Currency), Currency giftWrapRefunded = default(Currency), string giftWrapTitle = default(string))
         {
-            this.Gift = Gift;
-            this.GiftCharge = GiftCharge;
-            this.GiftChargeAccountingCode = GiftChargeAccountingCode;
-            this.GiftChargeRefunded = GiftChargeRefunded;
-            this.GiftEmail = GiftEmail;
-            this.GiftMessage = GiftMessage;
-            this.GiftWrapAccountingCode = GiftWrapAccountingCode;
-            this.GiftWrapCost = GiftWrapCost;
-            this.GiftWrapRefunded = GiftWrapRefunded;
-            this.GiftWrapTitle = GiftWrapTitle;
+            this.Gift = gift;
+            this.GiftCharge = giftCharge;
+            this.GiftChargeAccountingCode = giftChargeAccountingCode;
+            this.GiftChargeRefunded = giftChargeRefunded;
+            this.GiftEmail = giftEmail;
+            this.GiftMessage = giftMessage;
+            this.GiftWrapAccountingCode = giftWrapAccountingCode;
+            this.GiftWrapCost = giftWrapCost;
+            this.GiftWrapRefunded = giftWrapRefunded;
+            this.GiftWrapTitle = giftWrapTitle;
         }
         
         /// <summary>
@@ -149,7 +149,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

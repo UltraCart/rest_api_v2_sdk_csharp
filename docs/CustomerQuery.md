@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AllTags** | **List&lt;string&gt;** | All tags the customer must have | [optional] 
+**AnyTags** | **List&lt;string&gt;** | Any of these tags the customer must have | [optional] 
 **BillingCity** | **string** | Billing city | [optional] 
 **BillingCompany** | **string** | Billing company | [optional] 
 **BillingCountryCode** | **string** | Billing country code | [optional] 

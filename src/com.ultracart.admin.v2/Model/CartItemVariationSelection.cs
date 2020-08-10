@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartItemVariationSelection" /> class.
         /// </summary>
-        /// <param name="VariationName">Variation name.</param>
-        /// <param name="VariationValue">Variation value.</param>
-        public CartItemVariationSelection(string VariationName = default(string), string VariationValue = default(string))
+        /// <param name="variationName">Variation name.</param>
+        /// <param name="variationValue">Variation value.</param>
+        public CartItemVariationSelection(string variationName = default(string), string variationValue = default(string))
         {
-            this.VariationName = VariationName;
-            this.VariationValue = VariationValue;
+            this.VariationName = variationName;
+            this.VariationValue = variationValue;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

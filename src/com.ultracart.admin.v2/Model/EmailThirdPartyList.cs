@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailThirdPartyList" /> class.
         /// </summary>
-        /// <param name="Id">id.</param>
-        /// <param name="Name">name.</param>
-        public EmailThirdPartyList(string Id = default(string), string Name = default(string))
+        /// <param name="id">id.</param>
+        /// <param name="name">name.</param>
+        public EmailThirdPartyList(string id = default(string), string name = default(string))
         {
-            this.Id = Id;
-            this.Name = Name;
+            this.Id = id;
+            this.Name = name;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

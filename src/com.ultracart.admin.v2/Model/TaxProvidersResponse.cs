@@ -33,22 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxProvidersResponse" /> class.
         /// </summary>
-        /// <param name="Avalara">Avalara.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Self">Self.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        /// <param name="Taxjar">Taxjar.</param>
-        /// <param name="Ultracart">Ultracart.</param>
-        public TaxProvidersResponse(TaxProviderAvalara Avalara = default(TaxProviderAvalara), Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), TaxProviderSelf Self = default(TaxProviderSelf), bool? Success = default(bool?), TaxProviderTaxJar Taxjar = default(TaxProviderTaxJar), TaxProviderUltraCart Ultracart = default(TaxProviderUltraCart))
+        /// <param name="avalara">avalara.</param>
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="self">self.</param>
+        /// <param name="sovos">sovos.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        /// <param name="taxjar">taxjar.</param>
+        /// <param name="ultracart">ultracart.</param>
+        public TaxProvidersResponse(TaxProviderAvalara avalara = default(TaxProviderAvalara), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), TaxProviderSelf self = default(TaxProviderSelf), TaxProviderSovos sovos = default(TaxProviderSovos), bool? success = default(bool?), TaxProviderTaxJar taxjar = default(TaxProviderTaxJar), TaxProviderUltraCart ultracart = default(TaxProviderUltraCart))
         {
-            this.Avalara = Avalara;
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.Self = Self;
-            this.Success = Success;
-            this.Taxjar = Taxjar;
-            this.Ultracart = Ultracart;
+            this.Avalara = avalara;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.Self = self;
+            this.Sovos = sovos;
+            this.Success = success;
+            this.Taxjar = taxjar;
+            this.Ultracart = ultracart;
         }
         
         /// <summary>
@@ -74,6 +76,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="self", EmitDefaultValue=false)]
         public TaxProviderSelf Self { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Sovos
+        /// </summary>
+        [DataMember(Name="sovos", EmitDefaultValue=false)]
+        public TaxProviderSovos Sovos { get; set; }
 
         /// <summary>
         /// Indicates if API call was successful
@@ -106,6 +114,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
+            sb.Append("  Sovos: ").Append(Sovos).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Taxjar: ").Append(Taxjar).Append("\n");
             sb.Append("  Ultracart: ").Append(Ultracart).Append("\n");
@@ -117,7 +126,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -164,6 +173,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Self.Equals(input.Self))
                 ) && 
                 (
+                    this.Sovos == input.Sovos ||
+                    (this.Sovos != null &&
+                    this.Sovos.Equals(input.Sovos))
+                ) && 
+                (
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
@@ -197,6 +211,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Self != null)
                     hashCode = hashCode * 59 + this.Self.GetHashCode();
+                if (this.Sovos != null)
+                    hashCode = hashCode * 59 + this.Sovos.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Taxjar != null)

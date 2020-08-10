@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemChargebackAdjustmentRequest" /> class.
         /// </summary>
-        /// <param name="ChargebackAdjustmentRequestOid">Chargeback adjustment request object identifier.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="ReasonCode">Reason code.</param>
-        public ItemChargebackAdjustmentRequest(int? ChargebackAdjustmentRequestOid = default(int?), string Description = default(string), string ReasonCode = default(string))
+        /// <param name="chargebackAdjustmentRequestOid">Chargeback adjustment request object identifier.</param>
+        /// <param name="description">Description.</param>
+        /// <param name="reasonCode">Reason code.</param>
+        public ItemChargebackAdjustmentRequest(int? chargebackAdjustmentRequestOid = default(int?), string description = default(string), string reasonCode = default(string))
         {
-            this.ChargebackAdjustmentRequestOid = ChargebackAdjustmentRequestOid;
-            this.Description = Description;
-            this.ReasonCode = ReasonCode;
+            this.ChargebackAdjustmentRequestOid = chargebackAdjustmentRequestOid;
+            this.Description = description;
+            this.ReasonCode = reasonCode;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

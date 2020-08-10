@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemVariationOption" /> class.
         /// </summary>
-        /// <param name="DefaultOption">True if default option.</param>
-        /// <param name="MerchantItemMultimediaOid">Multimedia object identifier.</param>
-        /// <param name="TranslatedTextInstanceOid">Translated text instance id.</param>
-        /// <param name="Value">Value.</param>
-        public ItemVariationOption(bool? DefaultOption = default(bool?), int? MerchantItemMultimediaOid = default(int?), int? TranslatedTextInstanceOid = default(int?), string Value = default(string))
+        /// <param name="defaultOption">True if default option.</param>
+        /// <param name="merchantItemMultimediaOid">Multimedia object identifier.</param>
+        /// <param name="translatedTextInstanceOid">Translated text instance id.</param>
+        /// <param name="value">Value.</param>
+        public ItemVariationOption(bool? defaultOption = default(bool?), int? merchantItemMultimediaOid = default(int?), int? translatedTextInstanceOid = default(int?), string value = default(string))
         {
-            this.DefaultOption = DefaultOption;
-            this.MerchantItemMultimediaOid = MerchantItemMultimediaOid;
-            this.TranslatedTextInstanceOid = TranslatedTextInstanceOid;
-            this.Value = Value;
+            this.DefaultOption = defaultOption;
+            this.MerchantItemMultimediaOid = merchantItemMultimediaOid;
+            this.TranslatedTextInstanceOid = translatedTextInstanceOid;
+            this.Value = value;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

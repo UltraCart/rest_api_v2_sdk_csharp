@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxProviderAvalaraCompany" /> class.
         /// </summary>
-        /// <param name="CompanyCode">Company code.</param>
-        /// <param name="CompanyName">Company name.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="Selected">Selected.</param>
-        /// <param name="Title">Title.</param>
-        public TaxProviderAvalaraCompany(string CompanyCode = default(string), string CompanyName = default(string), string Description = default(string), bool? Selected = default(bool?), string Title = default(string))
+        /// <param name="companyCode">Company code.</param>
+        /// <param name="companyName">Company name.</param>
+        /// <param name="description">Description.</param>
+        /// <param name="selected">Selected.</param>
+        /// <param name="title">Title.</param>
+        public TaxProviderAvalaraCompany(string companyCode = default(string), string companyName = default(string), string description = default(string), bool? selected = default(bool?), string title = default(string))
         {
-            this.CompanyCode = CompanyCode;
-            this.CompanyName = CompanyName;
-            this.Description = Description;
-            this.Selected = Selected;
-            this.Title = Title;
+            this.CompanyCode = companyCode;
+            this.CompanyName = companyName;
+            this.Description = description;
+            this.Selected = selected;
+            this.Title = title;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

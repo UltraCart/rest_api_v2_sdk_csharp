@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartPaymentCheck" /> class.
         /// </summary>
-        /// <param name="CheckNumber">Check number they are paying with.</param>
-        public CartPaymentCheck(int? CheckNumber = default(int?))
+        /// <param name="checkNumber">Check number they are paying with.</param>
+        public CartPaymentCheck(int? checkNumber = default(int?))
         {
-            this.CheckNumber = CheckNumber;
+            this.CheckNumber = checkNumber;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

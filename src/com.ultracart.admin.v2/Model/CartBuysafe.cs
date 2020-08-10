@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartBuysafe" /> class.
         /// </summary>
-        /// <param name="BondAvailable">True if buySAFE is willing to bond the order.</param>
-        /// <param name="BondCost">BondCost.</param>
-        /// <param name="BondFree">True if the bond is free (merchant paying for it).</param>
-        /// <param name="BondWanted">True if the customer wants the bond.</param>
-        /// <param name="CartDisplayText">Recommend text to display to the customer.</param>
-        /// <param name="CartDisplayUrl">URL associated with the recommended text.</param>
-        public CartBuysafe(bool? BondAvailable = default(bool?), Currency BondCost = default(Currency), bool? BondFree = default(bool?), bool? BondWanted = default(bool?), string CartDisplayText = default(string), string CartDisplayUrl = default(string))
+        /// <param name="bondAvailable">True if buySAFE is willing to bond the order.</param>
+        /// <param name="bondCost">bondCost.</param>
+        /// <param name="bondFree">True if the bond is free (merchant paying for it).</param>
+        /// <param name="bondWanted">True if the customer wants the bond.</param>
+        /// <param name="cartDisplayText">Recommend text to display to the customer.</param>
+        /// <param name="cartDisplayUrl">URL associated with the recommended text.</param>
+        public CartBuysafe(bool? bondAvailable = default(bool?), Currency bondCost = default(Currency), bool? bondFree = default(bool?), bool? bondWanted = default(bool?), string cartDisplayText = default(string), string cartDisplayUrl = default(string))
         {
-            this.BondAvailable = BondAvailable;
-            this.BondCost = BondCost;
-            this.BondFree = BondFree;
-            this.BondWanted = BondWanted;
-            this.CartDisplayText = CartDisplayText;
-            this.CartDisplayUrl = CartDisplayUrl;
+            this.BondAvailable = bondAvailable;
+            this.BondCost = bondCost;
+            this.BondFree = bondFree;
+            this.BondWanted = bondWanted;
+            this.CartDisplayText = cartDisplayText;
+            this.CartDisplayUrl = cartDisplayUrl;
         }
         
         /// <summary>
@@ -112,7 +112,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

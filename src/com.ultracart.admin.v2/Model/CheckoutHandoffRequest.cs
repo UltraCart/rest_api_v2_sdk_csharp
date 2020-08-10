@@ -39,34 +39,34 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Checkout for "checkout"
+            /// Enum Checkout for value: checkout
             /// </summary>
             [EnumMember(Value = "checkout")]
-            Checkout,
+            Checkout = 1,
             
             /// <summary>
-            /// Enum PayPal for "payPal"
+            /// Enum PayPal for value: payPal
             /// </summary>
             [EnumMember(Value = "payPal")]
-            PayPal,
+            PayPal = 2,
             
             /// <summary>
-            /// Enum PayPalCredit for "payPalCredit"
+            /// Enum PayPalCredit for value: payPalCredit
             /// </summary>
             [EnumMember(Value = "payPalCredit")]
-            PayPalCredit,
+            PayPalCredit = 3,
             
             /// <summary>
-            /// Enum View for "view"
+            /// Enum View for value: view
             /// </summary>
             [EnumMember(Value = "view")]
-            View,
+            View = 4,
             
             /// <summary>
-            /// Enum Affirm for "affirm"
+            /// Enum Affirm for value: affirm
             /// </summary>
             [EnumMember(Value = "affirm")]
-            Affirm
+            Affirm = 5
         }
 
         /// <summary>
@@ -78,22 +78,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckoutHandoffRequest" /> class.
         /// </summary>
-        /// <param name="Cart">Cart.</param>
-        /// <param name="ErrorParameterName">If any error happen during the processing on the UltraCart side, the browser will be redirected to your error_return_url with the error passed in this parameter name..</param>
-        /// <param name="ErrorReturnUrl">The URL to return the browser to if there are processing errors on the UltraCart side..</param>
-        /// <param name="Operation">The type of handoff operation to perform.</param>
-        /// <param name="PaypalMaximumUpsellRevenue">The maximum amount of revenue that you think the customer could add during a custom upsell after sequence on your checkout..</param>
-        /// <param name="PaypalReturnUrl">The URl to return the customers browser to after they have completed the PayPal process..</param>
-        /// <param name="SecureHostName">The desired secure host name to perform the handoff on.  This should match the desired StoreFront..</param>
-        public CheckoutHandoffRequest(Cart Cart = default(Cart), string ErrorParameterName = default(string), string ErrorReturnUrl = default(string), OperationEnum? Operation = default(OperationEnum?), decimal? PaypalMaximumUpsellRevenue = default(decimal?), string PaypalReturnUrl = default(string), string SecureHostName = default(string))
+        /// <param name="cart">cart.</param>
+        /// <param name="errorParameterName">If any error happen during the processing on the UltraCart side, the browser will be redirected to your error_return_url with the error passed in this parameter name..</param>
+        /// <param name="errorReturnUrl">The URL to return the browser to if there are processing errors on the UltraCart side..</param>
+        /// <param name="operation">The type of handoff operation to perform.</param>
+        /// <param name="paypalMaximumUpsellRevenue">The maximum amount of revenue that you think the customer could add during a custom upsell after sequence on your checkout..</param>
+        /// <param name="paypalReturnUrl">The URl to return the customers browser to after they have completed the PayPal process..</param>
+        /// <param name="secureHostName">The desired secure host name to perform the handoff on.  This should match the desired StoreFront..</param>
+        /// <param name="ucacid">The UltraCart Analytics cookie value.  Populate this if you&#39;re handing off from a different domain than the checkout..</param>
+        public CheckoutHandoffRequest(Cart cart = default(Cart), string errorParameterName = default(string), string errorReturnUrl = default(string), OperationEnum? operation = default(OperationEnum?), decimal? paypalMaximumUpsellRevenue = default(decimal?), string paypalReturnUrl = default(string), string secureHostName = default(string), string ucacid = default(string))
         {
-            this.Cart = Cart;
-            this.ErrorParameterName = ErrorParameterName;
-            this.ErrorReturnUrl = ErrorReturnUrl;
-            this.Operation = Operation;
-            this.PaypalMaximumUpsellRevenue = PaypalMaximumUpsellRevenue;
-            this.PaypalReturnUrl = PaypalReturnUrl;
-            this.SecureHostName = SecureHostName;
+            this.Cart = cart;
+            this.ErrorParameterName = errorParameterName;
+            this.ErrorReturnUrl = errorReturnUrl;
+            this.Operation = operation;
+            this.PaypalMaximumUpsellRevenue = paypalMaximumUpsellRevenue;
+            this.PaypalReturnUrl = paypalReturnUrl;
+            this.SecureHostName = secureHostName;
+            this.Ucacid = ucacid;
         }
         
         /// <summary>
@@ -139,6 +141,13 @@ namespace com.ultracart.admin.v2.Model
         public string SecureHostName { get; set; }
 
         /// <summary>
+        /// The UltraCart Analytics cookie value.  Populate this if you&#39;re handing off from a different domain than the checkout.
+        /// </summary>
+        /// <value>The UltraCart Analytics cookie value.  Populate this if you&#39;re handing off from a different domain than the checkout.</value>
+        [DataMember(Name="ucacid", EmitDefaultValue=false)]
+        public string Ucacid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -153,6 +162,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PaypalMaximumUpsellRevenue: ").Append(PaypalMaximumUpsellRevenue).Append("\n");
             sb.Append("  PaypalReturnUrl: ").Append(PaypalReturnUrl).Append("\n");
             sb.Append("  SecureHostName: ").Append(SecureHostName).Append("\n");
+            sb.Append("  Ucacid: ").Append(Ucacid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,7 +171,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -221,6 +231,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SecureHostName == input.SecureHostName ||
                     (this.SecureHostName != null &&
                     this.SecureHostName.Equals(input.SecureHostName))
+                ) && 
+                (
+                    this.Ucacid == input.Ucacid ||
+                    (this.Ucacid != null &&
+                    this.Ucacid.Equals(input.Ucacid))
                 );
         }
 
@@ -247,6 +262,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PaypalReturnUrl.GetHashCode();
                 if (this.SecureHostName != null)
                     hashCode = hashCode * 59 + this.SecureHostName.GetHashCode();
+                if (this.Ucacid != null)
+                    hashCode = hashCode * 59 + this.Ucacid.GetHashCode();
                 return hashCode;
             }
         }

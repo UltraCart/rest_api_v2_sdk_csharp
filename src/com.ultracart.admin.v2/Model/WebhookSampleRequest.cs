@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookSampleRequest" /> class.
         /// </summary>
-        /// <param name="Request">Request.</param>
-        /// <param name="RequestHeaders">Request headers.</param>
-        /// <param name="RequestId">Request id.</param>
-        /// <param name="Uri">URI to send request to.</param>
-        public WebhookSampleRequest(string Request = default(string), List<HTTPHeader> RequestHeaders = default(List<HTTPHeader>), string RequestId = default(string), string Uri = default(string))
+        /// <param name="request">Request.</param>
+        /// <param name="requestHeaders">Request headers.</param>
+        /// <param name="requestId">Request id.</param>
+        /// <param name="uri">URI to send request to.</param>
+        public WebhookSampleRequest(string request = default(string), List<HTTPHeader> requestHeaders = default(List<HTTPHeader>), string requestId = default(string), string uri = default(string))
         {
-            this.Request = Request;
-            this.RequestHeaders = RequestHeaders;
-            this.RequestId = RequestId;
-            this.Uri = Uri;
+            this.Request = request;
+            this.RequestHeaders = requestHeaders;
+            this.RequestId = requestId;
+            this.Uri = uri;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

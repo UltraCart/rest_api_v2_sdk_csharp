@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckoutAllowedCountriesResponse" /> class.
         /// </summary>
-        /// <param name="Countries">Countries.</param>
-        public CheckoutAllowedCountriesResponse(List<Country> Countries = default(List<Country>))
+        /// <param name="countries">countries.</param>
+        public CheckoutAllowedCountriesResponse(List<Country> countries = default(List<Country>))
         {
-            this.Countries = Countries;
+            this.Countries = countries;
         }
         
         /// <summary>
@@ -62,7 +62,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

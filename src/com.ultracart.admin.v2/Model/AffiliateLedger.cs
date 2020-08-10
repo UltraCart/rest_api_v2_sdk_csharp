@@ -39,40 +39,40 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Pending for "Pending"
+            /// Enum Pending for value: Pending
             /// </summary>
             [EnumMember(Value = "Pending")]
-            Pending,
+            Pending = 1,
             
             /// <summary>
-            /// Enum Posted for "Posted"
+            /// Enum Posted for value: Posted
             /// </summary>
             [EnumMember(Value = "Posted")]
-            Posted,
+            Posted = 2,
             
             /// <summary>
-            /// Enum Approved for "Approved"
+            /// Enum Approved for value: Approved
             /// </summary>
             [EnumMember(Value = "Approved")]
-            Approved,
+            Approved = 3,
             
             /// <summary>
-            /// Enum Paid for "Paid"
+            /// Enum Paid for value: Paid
             /// </summary>
             [EnumMember(Value = "Paid")]
-            Paid,
+            Paid = 4,
             
             /// <summary>
-            /// Enum Rejected for "Rejected"
+            /// Enum Rejected for value: Rejected
             /// </summary>
             [EnumMember(Value = "Rejected")]
-            Rejected,
+            Rejected = 5,
             
             /// <summary>
-            /// Enum PartiallyPaid for "Partially Paid"
+            /// Enum PartiallyPaid for value: Partially Paid
             /// </summary>
             [EnumMember(Value = "Partially Paid")]
-            PartiallyPaid
+            PartiallyPaid = 6
         }
 
         /// <summary>
@@ -84,44 +84,44 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AffiliateLedger" /> class.
         /// </summary>
-        /// <param name="AffiliateClickOid">Unique object identifier for the click associated with this ledger entry.</param>
-        /// <param name="AffiliateLinkOid">Unique object identifier for the link that this click is associated with.</param>
-        /// <param name="AffiliateOid">Affiliate object ID associated with this transaction.</param>
-        /// <param name="AssignedByUser">User that assigned the transaction if it was done manually.</param>
-        /// <param name="Click">Click.</param>
-        /// <param name="ItemId">Item ID associated with this transaction.</param>
-        /// <param name="Link">Link.</param>
-        /// <param name="Order">Order.</param>
-        /// <param name="OrderId">Order ID associated with this transaction.</param>
-        /// <param name="OriginalTransactionDts">Date/time of the original transaction for reversals.</param>
-        /// <param name="SubId">Sub ID associated with transaction (from the click).</param>
-        /// <param name="TierNumber">Tier number that this transaction earned.</param>
-        /// <param name="TransactionAmount">Transaction amount.</param>
-        /// <param name="TransactionAmountPaid">Amount of the transaction that has been paid out..</param>
-        /// <param name="TransactionDts">Date/time that the transaction was made.</param>
-        /// <param name="TransactionMemo">Memo explaining the transaction.</param>
-        /// <param name="TransactionPercentage">Percentage associated with this transaction.</param>
-        /// <param name="TransactionState">Transaction state.</param>
-        public AffiliateLedger(int? AffiliateClickOid = default(int?), int? AffiliateLinkOid = default(int?), int? AffiliateOid = default(int?), string AssignedByUser = default(string), AffiliateClick Click = default(AffiliateClick), string ItemId = default(string), AffiliateLink Link = default(AffiliateLink), Order Order = default(Order), string OrderId = default(string), string OriginalTransactionDts = default(string), string SubId = default(string), string TierNumber = default(string), decimal? TransactionAmount = default(decimal?), decimal? TransactionAmountPaid = default(decimal?), string TransactionDts = default(string), string TransactionMemo = default(string), string TransactionPercentage = default(string), TransactionStateEnum? TransactionState = default(TransactionStateEnum?))
+        /// <param name="affiliateClickOid">Unique object identifier for the click associated with this ledger entry.</param>
+        /// <param name="affiliateLinkOid">Unique object identifier for the link that this click is associated with.</param>
+        /// <param name="affiliateOid">Affiliate object ID associated with this transaction.</param>
+        /// <param name="assignedByUser">User that assigned the transaction if it was done manually.</param>
+        /// <param name="click">click.</param>
+        /// <param name="itemId">Item ID associated with this transaction.</param>
+        /// <param name="link">link.</param>
+        /// <param name="order">order.</param>
+        /// <param name="orderId">Order ID associated with this transaction.</param>
+        /// <param name="originalTransactionDts">Date/time of the original transaction for reversals.</param>
+        /// <param name="subId">Sub ID associated with transaction (from the click).</param>
+        /// <param name="tierNumber">Tier number that this transaction earned.</param>
+        /// <param name="transactionAmount">Transaction amount.</param>
+        /// <param name="transactionAmountPaid">Amount of the transaction that has been paid out..</param>
+        /// <param name="transactionDts">Date/time that the transaction was made.</param>
+        /// <param name="transactionMemo">Memo explaining the transaction.</param>
+        /// <param name="transactionPercentage">Percentage associated with this transaction.</param>
+        /// <param name="transactionState">Transaction state.</param>
+        public AffiliateLedger(int? affiliateClickOid = default(int?), int? affiliateLinkOid = default(int?), int? affiliateOid = default(int?), string assignedByUser = default(string), AffiliateClick click = default(AffiliateClick), string itemId = default(string), AffiliateLink link = default(AffiliateLink), Order order = default(Order), string orderId = default(string), string originalTransactionDts = default(string), string subId = default(string), string tierNumber = default(string), decimal? transactionAmount = default(decimal?), decimal? transactionAmountPaid = default(decimal?), string transactionDts = default(string), string transactionMemo = default(string), string transactionPercentage = default(string), TransactionStateEnum? transactionState = default(TransactionStateEnum?))
         {
-            this.AffiliateClickOid = AffiliateClickOid;
-            this.AffiliateLinkOid = AffiliateLinkOid;
-            this.AffiliateOid = AffiliateOid;
-            this.AssignedByUser = AssignedByUser;
-            this.Click = Click;
-            this.ItemId = ItemId;
-            this.Link = Link;
-            this.Order = Order;
-            this.OrderId = OrderId;
-            this.OriginalTransactionDts = OriginalTransactionDts;
-            this.SubId = SubId;
-            this.TierNumber = TierNumber;
-            this.TransactionAmount = TransactionAmount;
-            this.TransactionAmountPaid = TransactionAmountPaid;
-            this.TransactionDts = TransactionDts;
-            this.TransactionMemo = TransactionMemo;
-            this.TransactionPercentage = TransactionPercentage;
-            this.TransactionState = TransactionState;
+            this.AffiliateClickOid = affiliateClickOid;
+            this.AffiliateLinkOid = affiliateLinkOid;
+            this.AffiliateOid = affiliateOid;
+            this.AssignedByUser = assignedByUser;
+            this.Click = click;
+            this.ItemId = itemId;
+            this.Link = link;
+            this.Order = order;
+            this.OrderId = orderId;
+            this.OriginalTransactionDts = originalTransactionDts;
+            this.SubId = subId;
+            this.TierNumber = tierNumber;
+            this.TransactionAmount = transactionAmount;
+            this.TransactionAmountPaid = transactionAmountPaid;
+            this.TransactionDts = transactionDts;
+            this.TransactionMemo = transactionMemo;
+            this.TransactionPercentage = transactionPercentage;
+            this.TransactionState = transactionState;
         }
         
         /// <summary>
@@ -275,7 +275,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

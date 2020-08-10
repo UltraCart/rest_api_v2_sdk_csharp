@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GeocodeRequest" /> class.
         /// </summary>
-        /// <param name="Address">address.</param>
-        /// <param name="City">city.</param>
-        /// <param name="CountryCode">country_code.</param>
-        /// <param name="PostalCode">postal_code.</param>
-        /// <param name="State">state.</param>
-        public GeocodeRequest(string Address = default(string), string City = default(string), string CountryCode = default(string), string PostalCode = default(string), string State = default(string))
+        /// <param name="address">address.</param>
+        /// <param name="city">city.</param>
+        /// <param name="countryCode">country_code.</param>
+        /// <param name="postalCode">postal_code.</param>
+        /// <param name="state">state.</param>
+        public GeocodeRequest(string address = default(string), string city = default(string), string countryCode = default(string), string postalCode = default(string), string state = default(string))
         {
-            this.Address = Address;
-            this.City = City;
-            this.CountryCode = CountryCode;
-            this.PostalCode = PostalCode;
-            this.State = State;
+            this.Address = address;
+            this.City = city;
+            this.CountryCode = countryCode;
+            this.PostalCode = postalCode;
+            this.State = state;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

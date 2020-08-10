@@ -39,40 +39,40 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Single for "single"
+            /// Enum Single for value: single
             /// </summary>
             [EnumMember(Value = "single")]
-            Single,
+            Single = 1,
             
             /// <summary>
-            /// Enum Multiline for "multiline"
+            /// Enum Multiline for value: multiline
             /// </summary>
             [EnumMember(Value = "multiline")]
-            Multiline,
+            Multiline = 2,
             
             /// <summary>
-            /// Enum Dropdown for "dropdown"
+            /// Enum Dropdown for value: dropdown
             /// </summary>
             [EnumMember(Value = "dropdown")]
-            Dropdown,
+            Dropdown = 3,
             
             /// <summary>
-            /// Enum Hidden for "hidden"
+            /// Enum Hidden for value: hidden
             /// </summary>
             [EnumMember(Value = "hidden")]
-            Hidden,
+            Hidden = 4,
             
             /// <summary>
-            /// Enum Radio for "radio"
+            /// Enum Radio for value: radio
             /// </summary>
             [EnumMember(Value = "radio")]
-            Radio,
+            Radio = 5,
             
             /// <summary>
-            /// Enum Fixed for "fixed"
+            /// Enum Fixed for value: fixed
             /// </summary>
             [EnumMember(Value = "fixed")]
-            Fixed
+            Fixed = 6
         }
 
         /// <summary>
@@ -84,36 +84,36 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartKitComponentOption" /> class.
         /// </summary>
-        /// <param name="CostIfSpecified">CostIfSpecified.</param>
-        /// <param name="CostPerLetter">CostPerLetter.</param>
-        /// <param name="CostPerLine">CostPerLine.</param>
-        /// <param name="IgnoreIfDefault">True if the default answer is ignored.</param>
-        /// <param name="ItemId">Kit component item id.</param>
-        /// <param name="ItemOid">Unique identifier for the kit component item.</param>
-        /// <param name="Label">Display label for the option.</param>
-        /// <param name="Name">Name of the option.</param>
-        /// <param name="OneTimeFee">Charge the fee a single time instead of multiplying by the quantity.</param>
-        /// <param name="OptionOid">Unique identifier for the option.</param>
-        /// <param name="Required">True if the customer is required to select a value.</param>
-        /// <param name="SelectedValue">The value of the option specified by the customer.</param>
-        /// <param name="Type">Type of option.</param>
-        /// <param name="Values">Values that the customer can select from for radio or select type options.</param>
-        public CartKitComponentOption(Currency CostIfSpecified = default(Currency), Currency CostPerLetter = default(Currency), Currency CostPerLine = default(Currency), bool? IgnoreIfDefault = default(bool?), string ItemId = default(string), int? ItemOid = default(int?), string Label = default(string), string Name = default(string), bool? OneTimeFee = default(bool?), int? OptionOid = default(int?), bool? Required = default(bool?), string SelectedValue = default(string), TypeEnum? Type = default(TypeEnum?), List<CartItemOptionValue> Values = default(List<CartItemOptionValue>))
+        /// <param name="costIfSpecified">costIfSpecified.</param>
+        /// <param name="costPerLetter">costPerLetter.</param>
+        /// <param name="costPerLine">costPerLine.</param>
+        /// <param name="ignoreIfDefault">True if the default answer is ignored.</param>
+        /// <param name="itemId">Kit component item id.</param>
+        /// <param name="itemOid">Unique identifier for the kit component item.</param>
+        /// <param name="label">Display label for the option.</param>
+        /// <param name="name">Name of the option.</param>
+        /// <param name="oneTimeFee">Charge the fee a single time instead of multiplying by the quantity.</param>
+        /// <param name="optionOid">Unique identifier for the option.</param>
+        /// <param name="required">True if the customer is required to select a value.</param>
+        /// <param name="selectedValue">The value of the option specified by the customer.</param>
+        /// <param name="type">Type of option.</param>
+        /// <param name="values">Values that the customer can select from for radio or select type options.</param>
+        public CartKitComponentOption(Currency costIfSpecified = default(Currency), Currency costPerLetter = default(Currency), Currency costPerLine = default(Currency), bool? ignoreIfDefault = default(bool?), string itemId = default(string), int? itemOid = default(int?), string label = default(string), string name = default(string), bool? oneTimeFee = default(bool?), int? optionOid = default(int?), bool? required = default(bool?), string selectedValue = default(string), TypeEnum? type = default(TypeEnum?), List<CartItemOptionValue> values = default(List<CartItemOptionValue>))
         {
-            this.CostIfSpecified = CostIfSpecified;
-            this.CostPerLetter = CostPerLetter;
-            this.CostPerLine = CostPerLine;
-            this.IgnoreIfDefault = IgnoreIfDefault;
-            this.ItemId = ItemId;
-            this.ItemOid = ItemOid;
-            this.Label = Label;
-            this.Name = Name;
-            this.OneTimeFee = OneTimeFee;
-            this.OptionOid = OptionOid;
-            this.Required = Required;
-            this.SelectedValue = SelectedValue;
-            this.Type = Type;
-            this.Values = Values;
+            this.CostIfSpecified = costIfSpecified;
+            this.CostPerLetter = costPerLetter;
+            this.CostPerLine = costPerLine;
+            this.IgnoreIfDefault = ignoreIfDefault;
+            this.ItemId = itemId;
+            this.ItemOid = itemOid;
+            this.Label = label;
+            this.Name = name;
+            this.OneTimeFee = oneTimeFee;
+            this.OptionOid = optionOid;
+            this.Required = required;
+            this.SelectedValue = selectedValue;
+            this.Type = type;
+            this.Values = values;
         }
         
         /// <summary>
@@ -235,7 +235,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **FraudScore** | [**OrderFraudScore**](OrderFraudScore.md) |  | [optional] 
 **Gift** | [**OrderGift**](OrderGift.md) |  | [optional] 
 **GiftCertificate** | [**OrderGiftCertificate**](OrderGiftCertificate.md) |  | [optional] 
-**_Internal** | [**OrderInternal**](OrderInternal.md) |  | [optional] 
+**Internal** | [**OrderInternal**](OrderInternal.md) |  | [optional] 
 **Items** | [**List&lt;OrderItem&gt;**](OrderItem.md) | Items | [optional] 
 **LanguageIsoCode** | **string** | Three letter ISO-639 language code used by the customer during the checkout if different than the default language | [optional] 
 **LinkedShipment** | [**OrderLinkedShipment**](OrderLinkedShipment.md) |  | [optional] 

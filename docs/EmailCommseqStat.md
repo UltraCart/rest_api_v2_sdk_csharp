@@ -5,6 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClickCount** | **int?** | Count of clicked emails | [optional] 
 **ClickCountFormatted** | **string** | Count of clicked emails, formatted | [optional] 
+**ConversionCount** | **int?** | Count of conversion | [optional] 
+**ConversionCountFormatted** | **string** | Count of conversions, formatted | [optional] 
 **DeliveredCount** | **int?** | Count of delivered emails | [optional] 
 **DeliveredCountFormatted** | **string** | Count of delivered emails, formatted | [optional] 
 **EmailCommunicationSequenceUuid** | **string** | UUID associated with the communication sequence | [optional] 
@@ -34,6 +36,8 @@ Name | Type | Description | Notes
 **StartedCount** | **int?** | Count of customers that started the sequence | [optional] 
 **StartedCountFormatted** | **string** | Count of customers that started the sequence, formatted | [optional] 
 **StorefrontOid** | **int?** | Storefront oid | [optional] 
+**UnsubscribeCount** | **int?** | Count of unsubscribes caused | [optional] 
+**UnsubscribeCountFormatted** | **string** | Count of unsubscribes caused, formatted | [optional] 
 **ViewCount** | **int?** | Count of views | [optional] 
 **ViewCountFormatted** | **string** | Count of views, formatted | [optional] 
 

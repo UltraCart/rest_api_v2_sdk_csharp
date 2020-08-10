@@ -766,7 +766,7 @@ Name | Type | Description  | Notes
 
 <a name="uploadtemporarymultimedia"></a>
 # **UploadTemporaryMultimedia**
-> TempMultimediaResponse UploadTemporaryMultimedia (System.IO.Stream file)
+> TempMultimediaResponse UploadTemporaryMultimedia (System.IO.Stream _file)
 
 Upload an image to the temporary multimedia.
 
@@ -814,12 +814,12 @@ namespace Example
               
 
             var apiInstance = new ItemApi();
-            var file = new System.IO.Stream(); // System.IO.Stream | File to upload
+            var _file = new System.IO.Stream(); // System.IO.Stream | File to upload
 
             try
             {
                 // Upload an image to the temporary multimedia.
-                TempMultimediaResponse result = apiInstance.UploadTemporaryMultimedia(file);
+                TempMultimediaResponse result = apiInstance.UploadTemporaryMultimedia(_file);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -836,7 +836,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **System.IO.Stream**| File to upload | 
+ **_file** | **System.IO.Stream**| File to upload | 
 
 ### Return type
 

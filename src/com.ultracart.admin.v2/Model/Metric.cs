@@ -33,24 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Metric" /> class.
         /// </summary>
-        /// <param name="AllTime">AllTime.</param>
-        /// <param name="AllTimeFormatted">AllTimeFormatted.</param>
-        /// <param name="Last30">Last30.</param>
-        /// <param name="Last30Formatted">Last30Formatted.</param>
-        /// <param name="Name">Name.</param>
-        /// <param name="Prior30">Prior30.</param>
-        /// <param name="Prior30Formatted">Prior30Formatted.</param>
-        /// <param name="Type">Type.</param>
-        public Metric(decimal? AllTime = default(decimal?), string AllTimeFormatted = default(string), decimal? Last30 = default(decimal?), string Last30Formatted = default(string), string Name = default(string), decimal? Prior30 = default(decimal?), string Prior30Formatted = default(string), string Type = default(string))
+        /// <param name="allTime">allTime.</param>
+        /// <param name="allTimeFormatted">allTimeFormatted.</param>
+        /// <param name="last30">last30.</param>
+        /// <param name="last30Formatted">last30Formatted.</param>
+        /// <param name="name">name.</param>
+        /// <param name="prior30">prior30.</param>
+        /// <param name="prior30Formatted">prior30Formatted.</param>
+        /// <param name="type">type.</param>
+        public Metric(decimal? allTime = default(decimal?), string allTimeFormatted = default(string), decimal? last30 = default(decimal?), string last30Formatted = default(string), string name = default(string), decimal? prior30 = default(decimal?), string prior30Formatted = default(string), string type = default(string))
         {
-            this.AllTime = AllTime;
-            this.AllTimeFormatted = AllTimeFormatted;
-            this.Last30 = Last30;
-            this.Last30Formatted = Last30Formatted;
-            this.Name = Name;
-            this.Prior30 = Prior30;
-            this.Prior30Formatted = Prior30Formatted;
-            this.Type = Type;
+            this.AllTime = allTime;
+            this.AllTimeFormatted = allTimeFormatted;
+            this.Last30 = last30;
+            this.Last30Formatted = last30Formatted;
+            this.Name = name;
+            this.Prior30 = prior30;
+            this.Prior30Formatted = prior30Formatted;
+            this.Type = type;
         }
         
         /// <summary>
@@ -125,7 +125,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

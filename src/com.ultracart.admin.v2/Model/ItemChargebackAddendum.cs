@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemChargebackAddendum" /> class.
         /// </summary>
-        /// <param name="ChargebackAddendumOid">Chargeback addendum object identifier.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="FileSize">Size of the file.</param>
-        /// <param name="Pages">Number of pages.</param>
-        public ItemChargebackAddendum(int? ChargebackAddendumOid = default(int?), string Description = default(string), int? FileSize = default(int?), int? Pages = default(int?))
+        /// <param name="chargebackAddendumOid">Chargeback addendum object identifier.</param>
+        /// <param name="description">Description.</param>
+        /// <param name="fileSize">Size of the file.</param>
+        /// <param name="pages">Number of pages.</param>
+        public ItemChargebackAddendum(int? chargebackAddendumOid = default(int?), string description = default(string), int? fileSize = default(int?), int? pages = default(int?))
         {
-            this.ChargebackAddendumOid = ChargebackAddendumOid;
-            this.Description = Description;
-            this.FileSize = FileSize;
-            this.Pages = Pages;
+            this.ChargebackAddendumOid = chargebackAddendumOid;
+            this.Description = description;
+            this.FileSize = fileSize;
+            this.Pages = pages;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

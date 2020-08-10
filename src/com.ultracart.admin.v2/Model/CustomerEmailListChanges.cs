@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerEmailListChanges" /> class.
         /// </summary>
-        /// <param name="AddToLists">Add this customer to these email lists.</param>
-        /// <param name="RemoveFromLists">Remove this customer from these email lists.</param>
-        public CustomerEmailListChanges(List<string> AddToLists = default(List<string>), List<string> RemoveFromLists = default(List<string>))
+        /// <param name="addToLists">Add this customer to these email lists.</param>
+        /// <param name="removeFromLists">Remove this customer from these email lists.</param>
+        public CustomerEmailListChanges(List<string> addToLists = default(List<string>), List<string> removeFromLists = default(List<string>))
         {
-            this.AddToLists = AddToLists;
-            this.RemoveFromLists = RemoveFromLists;
+            this.AddToLists = addToLists;
+            this.RemoveFromLists = removeFromLists;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

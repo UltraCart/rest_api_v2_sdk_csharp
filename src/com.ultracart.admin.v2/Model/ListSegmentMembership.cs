@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ListSegmentMembership" /> class.
         /// </summary>
-        /// <param name="Name">Name.</param>
-        /// <param name="Type">Type.</param>
-        /// <param name="Uuid">Uuid.</param>
-        public ListSegmentMembership(string Name = default(string), string Type = default(string), string Uuid = default(string))
+        /// <param name="name">name.</param>
+        /// <param name="type">type.</param>
+        /// <param name="uuid">uuid.</param>
+        public ListSegmentMembership(string name = default(string), string type = default(string), string uuid = default(string))
         {
-            this.Name = Name;
-            this.Type = Type;
-            this.Uuid = Uuid;
+            this.Name = name;
+            this.Type = type;
+            this.Uuid = uuid;
         }
         
         /// <summary>
@@ -80,7 +80,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

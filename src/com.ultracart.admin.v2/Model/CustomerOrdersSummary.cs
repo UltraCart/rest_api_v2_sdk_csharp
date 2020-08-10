@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerOrdersSummary" /> class.
         /// </summary>
-        /// <param name="FirstOrderDts">First order date.</param>
-        /// <param name="LastOrderDts">Last order date.</param>
-        /// <param name="OrderCount">Total number of orders.</param>
-        /// <param name="Total">Total amount associated with the orders.</param>
-        public CustomerOrdersSummary(string FirstOrderDts = default(string), string LastOrderDts = default(string), int? OrderCount = default(int?), decimal? Total = default(decimal?))
+        /// <param name="firstOrderDts">First order date.</param>
+        /// <param name="lastOrderDts">Last order date.</param>
+        /// <param name="orderCount">Total number of orders.</param>
+        /// <param name="total">Total amount associated with the orders.</param>
+        public CustomerOrdersSummary(string firstOrderDts = default(string), string lastOrderDts = default(string), int? orderCount = default(int?), decimal? total = default(decimal?))
         {
-            this.FirstOrderDts = FirstOrderDts;
-            this.LastOrderDts = LastOrderDts;
-            this.OrderCount = OrderCount;
-            this.Total = Total;
+            this.FirstOrderDts = firstOrderDts;
+            this.LastOrderDts = lastOrderDts;
+            this.OrderCount = orderCount;
+            this.Total = total;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

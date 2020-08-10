@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemInstantPaymentNotifications" /> class.
         /// </summary>
-        /// <param name="Notifications">Notifications.</param>
-        public ItemInstantPaymentNotifications(List<ItemInstantPaymentNotification> Notifications = default(List<ItemInstantPaymentNotification>))
+        /// <param name="notifications">Notifications.</param>
+        public ItemInstantPaymentNotifications(List<ItemInstantPaymentNotification> notifications = default(List<ItemInstantPaymentNotification>))
         {
-            this.Notifications = Notifications;
+            this.Notifications = notifications;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

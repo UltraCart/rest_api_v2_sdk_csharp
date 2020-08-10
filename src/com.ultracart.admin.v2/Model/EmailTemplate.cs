@@ -33,30 +33,30 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailTemplate" /> class.
         /// </summary>
-        /// <param name="ContainerCjson">Container cjson.</param>
-        /// <param name="Description">Description of email template.</param>
-        /// <param name="EmailTemplateOid">Email template oid.</param>
-        /// <param name="EmailTemplateVmPath">Email Template VM Path.</param>
-        /// <param name="MerchantId">Merchant ID.</param>
-        /// <param name="Name">Name of email template.</param>
-        /// <param name="PreviewAmazonListingKey">Amazon key for preview png image.</param>
-        /// <param name="SortOrder">Sort order (optional).</param>
-        /// <param name="StorefrontOid">StoreFront oid.</param>
-        /// <param name="System">True if this email template is system-wide,false if merchant specific.</param>
-        /// <param name="TriggerType">Trigger type.</param>
-        public EmailTemplate(string ContainerCjson = default(string), string Description = default(string), int? EmailTemplateOid = default(int?), string EmailTemplateVmPath = default(string), string MerchantId = default(string), string Name = default(string), string PreviewAmazonListingKey = default(string), int? SortOrder = default(int?), int? StorefrontOid = default(int?), bool? System = default(bool?), string TriggerType = default(string))
+        /// <param name="containerCjson">Container cjson.</param>
+        /// <param name="description">Description of email template.</param>
+        /// <param name="emailTemplateOid">Email template oid.</param>
+        /// <param name="emailTemplateVmPath">Email Template VM Path.</param>
+        /// <param name="merchantId">Merchant ID.</param>
+        /// <param name="name">Name of email template.</param>
+        /// <param name="previewAmazonListingKey">Amazon key for preview png image.</param>
+        /// <param name="sortOrder">Sort order (optional).</param>
+        /// <param name="storefrontOid">StoreFront oid.</param>
+        /// <param name="system">True if this email template is system-wide,false if merchant specific.</param>
+        /// <param name="triggerType">Trigger type.</param>
+        public EmailTemplate(string containerCjson = default(string), string description = default(string), int? emailTemplateOid = default(int?), string emailTemplateVmPath = default(string), string merchantId = default(string), string name = default(string), string previewAmazonListingKey = default(string), int? sortOrder = default(int?), int? storefrontOid = default(int?), bool? system = default(bool?), string triggerType = default(string))
         {
-            this.ContainerCjson = ContainerCjson;
-            this.Description = Description;
-            this.EmailTemplateOid = EmailTemplateOid;
-            this.EmailTemplateVmPath = EmailTemplateVmPath;
-            this.MerchantId = MerchantId;
-            this.Name = Name;
-            this.PreviewAmazonListingKey = PreviewAmazonListingKey;
-            this.SortOrder = SortOrder;
-            this.StorefrontOid = StorefrontOid;
-            this.System = System;
-            this.TriggerType = TriggerType;
+            this.ContainerCjson = containerCjson;
+            this.Description = description;
+            this.EmailTemplateOid = emailTemplateOid;
+            this.EmailTemplateVmPath = emailTemplateVmPath;
+            this.MerchantId = merchantId;
+            this.Name = name;
+            this.PreviewAmazonListingKey = previewAmazonListingKey;
+            this.SortOrder = sortOrder;
+            this.StorefrontOid = storefrontOid;
+            this.System = system;
+            this.TriggerType = triggerType;
         }
         
         /// <summary>
@@ -163,7 +163,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

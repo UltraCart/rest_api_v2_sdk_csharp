@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StateProvince" /> class.
         /// </summary>
-        /// <param name="Abbreviation">abbreviation.</param>
-        /// <param name="Name">name.</param>
-        public StateProvince(string Abbreviation = default(string), string Name = default(string))
+        /// <param name="abbreviation">abbreviation.</param>
+        /// <param name="name">name.</param>
+        public StateProvince(string abbreviation = default(string), string name = default(string))
         {
-            this.Abbreviation = Abbreviation;
-            this.Name = Name;
+            this.Abbreviation = abbreviation;
+            this.Name = name;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

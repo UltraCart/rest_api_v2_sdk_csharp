@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemCCBill" /> class.
         /// </summary>
-        /// <param name="CcbillAllowedCurrencies">Allowed currencies.</param>
-        /// <param name="CcbillAllowedTypes">Allowed types.</param>
-        /// <param name="CcbillCurrencyCode">Currency code.</param>
-        /// <param name="CcbillFormName">Form name.</param>
-        /// <param name="CcbillSubaccountId">Sub-account id.</param>
-        /// <param name="CcbillSubscriptionTypeId">Subscription type id.</param>
-        public ItemCCBill(string CcbillAllowedCurrencies = default(string), string CcbillAllowedTypes = default(string), string CcbillCurrencyCode = default(string), string CcbillFormName = default(string), string CcbillSubaccountId = default(string), string CcbillSubscriptionTypeId = default(string))
+        /// <param name="ccbillAllowedCurrencies">Allowed currencies.</param>
+        /// <param name="ccbillAllowedTypes">Allowed types.</param>
+        /// <param name="ccbillCurrencyCode">Currency code.</param>
+        /// <param name="ccbillFormName">Form name.</param>
+        /// <param name="ccbillSubaccountId">Sub-account id.</param>
+        /// <param name="ccbillSubscriptionTypeId">Subscription type id.</param>
+        public ItemCCBill(string ccbillAllowedCurrencies = default(string), string ccbillAllowedTypes = default(string), string ccbillCurrencyCode = default(string), string ccbillFormName = default(string), string ccbillSubaccountId = default(string), string ccbillSubscriptionTypeId = default(string))
         {
-            this.CcbillAllowedCurrencies = CcbillAllowedCurrencies;
-            this.CcbillAllowedTypes = CcbillAllowedTypes;
-            this.CcbillCurrencyCode = CcbillCurrencyCode;
-            this.CcbillFormName = CcbillFormName;
-            this.CcbillSubaccountId = CcbillSubaccountId;
-            this.CcbillSubscriptionTypeId = CcbillSubscriptionTypeId;
+            this.CcbillAllowedCurrencies = ccbillAllowedCurrencies;
+            this.CcbillAllowedTypes = ccbillAllowedTypes;
+            this.CcbillCurrencyCode = ccbillCurrencyCode;
+            this.CcbillFormName = ccbillFormName;
+            this.CcbillSubaccountId = ccbillSubaccountId;
+            this.CcbillSubscriptionTypeId = ccbillSubscriptionTypeId;
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

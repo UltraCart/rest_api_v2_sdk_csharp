@@ -39,28 +39,28 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Image for "Image"
+            /// Enum Image for value: Image
             /// </summary>
             [EnumMember(Value = "Image")]
-            Image,
+            Image = 1,
             
             /// <summary>
-            /// Enum PDF for "PDF"
+            /// Enum PDF for value: PDF
             /// </summary>
             [EnumMember(Value = "PDF")]
-            PDF,
+            PDF = 2,
             
             /// <summary>
-            /// Enum Text for "Text"
+            /// Enum Text for value: Text
             /// </summary>
             [EnumMember(Value = "Text")]
-            Text,
+            Text = 3,
             
             /// <summary>
-            /// Enum Video for "Video"
+            /// Enum Video for value: Video
             /// </summary>
             [EnumMember(Value = "Video")]
-            Video
+            Video = 4
         }
 
         /// <summary>
@@ -72,22 +72,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TempMultimedia" /> class.
         /// </summary>
-        /// <param name="Filename">Filename.</param>
-        /// <param name="Height">Height.</param>
-        /// <param name="MultimediaType">Multimedia type.</param>
-        /// <param name="Size">Size.</param>
-        /// <param name="TempMultimediaOid">Temporary multimedia object identifier.</param>
-        /// <param name="Url">URL.</param>
-        /// <param name="Width">Width.</param>
-        public TempMultimedia(string Filename = default(string), int? Height = default(int?), MultimediaTypeEnum? MultimediaType = default(MultimediaTypeEnum?), long? Size = default(long?), int? TempMultimediaOid = default(int?), string Url = default(string), int? Width = default(int?))
+        /// <param name="filename">Filename.</param>
+        /// <param name="height">Height.</param>
+        /// <param name="multimediaType">Multimedia type.</param>
+        /// <param name="size">Size.</param>
+        /// <param name="tempMultimediaOid">Temporary multimedia object identifier.</param>
+        /// <param name="url">URL.</param>
+        /// <param name="width">Width.</param>
+        public TempMultimedia(string filename = default(string), int? height = default(int?), MultimediaTypeEnum? multimediaType = default(MultimediaTypeEnum?), long? size = default(long?), int? tempMultimediaOid = default(int?), string url = default(string), int? width = default(int?))
         {
-            this.Filename = Filename;
-            this.Height = Height;
-            this.MultimediaType = MultimediaType;
-            this.Size = Size;
-            this.TempMultimediaOid = TempMultimediaOid;
-            this.Url = Url;
-            this.Width = Width;
+            this.Filename = filename;
+            this.Height = height;
+            this.MultimediaType = multimediaType;
+            this.Size = size;
+            this.TempMultimediaOid = tempMultimediaOid;
+            this.Url = url;
+            this.Width = width;
         }
         
         /// <summary>
@@ -156,7 +156,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

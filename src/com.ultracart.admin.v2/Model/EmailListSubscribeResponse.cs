@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailListSubscribeResponse" /> class.
         /// </summary>
-        /// <param name="Added">Added.</param>
-        /// <param name="MemberCount">MemberCount.</param>
-        public EmailListSubscribeResponse(int? Added = default(int?), int? MemberCount = default(int?))
+        /// <param name="added">added.</param>
+        /// <param name="memberCount">memberCount.</param>
+        public EmailListSubscribeResponse(int? added = default(int?), int? memberCount = default(int?))
         {
-            this.Added = Added;
-            this.MemberCount = MemberCount;
+            this.Added = added;
+            this.MemberCount = memberCount;
         }
         
         /// <summary>
@@ -71,7 +71,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

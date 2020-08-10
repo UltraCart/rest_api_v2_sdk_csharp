@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingCase" /> class.
         /// </summary>
-        /// <param name="CaseLabel">Case label.</param>
-        /// <param name="CaseMerchantItemId">Case item id.</param>
-        /// <param name="CaseMerchantItemOid">Case item object identifier.</param>
-        /// <param name="Quantity">Case quantity.</param>
-        public ItemShippingCase(string CaseLabel = default(string), string CaseMerchantItemId = default(string), int? CaseMerchantItemOid = default(int?), int? Quantity = default(int?))
+        /// <param name="caseLabel">Case label.</param>
+        /// <param name="caseMerchantItemId">Case item id.</param>
+        /// <param name="caseMerchantItemOid">Case item object identifier.</param>
+        /// <param name="quantity">Case quantity.</param>
+        public ItemShippingCase(string caseLabel = default(string), string caseMerchantItemId = default(string), int? caseMerchantItemOid = default(int?), int? quantity = default(int?))
         {
-            this.CaseLabel = CaseLabel;
-            this.CaseMerchantItemId = CaseMerchantItemId;
-            this.CaseMerchantItemOid = CaseMerchantItemOid;
-            this.Quantity = Quantity;
+            this.CaseLabel = caseLabel;
+            this.CaseMerchantItemId = caseMerchantItemId;
+            this.CaseMerchantItemOid = caseMerchantItemOid;
+            this.Quantity = quantity;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

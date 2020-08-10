@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponsResponse" /> class.
         /// </summary>
-        /// <param name="Coupons">Coupons.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public CouponsResponse(List<Coupon> Coupons = default(List<Coupon>), Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?))
+        /// <param name="coupons">coupons.</param>
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public CouponsResponse(List<Coupon> coupons = default(List<Coupon>), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?))
         {
-            this.Coupons = Coupons;
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.Success = Success;
+            this.Coupons = coupons;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.Success = success;
         }
         
         /// <summary>
@@ -90,7 +90,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

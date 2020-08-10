@@ -33,66 +33,66 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartItem" /> class.
         /// </summary>
-        /// <param name="ArbitraryUnitCost">ArbitraryUnitCost.</param>
-        /// <param name="Attributes">Attributes.</param>
-        /// <param name="AutoOrderSchedule">Auto order schedule the customer selected.</param>
-        /// <param name="DefaultImageUrl">URL to the default multimedia image.</param>
-        /// <param name="DefaultThumbnailUrl">URL to the default multimedia thumbnail.</param>
-        /// <param name="Description">Description of the item.</param>
-        /// <param name="Discount">Discount.</param>
-        /// <param name="ExtendedDescription">Extended description of the item.</param>
-        /// <param name="ItemId">Item ID.</param>
-        /// <param name="ItemOid">Item object identifier.</param>
-        /// <param name="Kit">True if this item is a kit.</param>
-        /// <param name="KitComponentOptions">Options associated with the kit components.</param>
-        /// <param name="ManufacturerSuggestedRetailPrice">ManufacturerSuggestedRetailPrice.</param>
-        /// <param name="MaximumQuantity">Maximum quantity the customer can purchase.</param>
-        /// <param name="MinimumQuantity">Minimum quantity the customer can purchase.</param>
-        /// <param name="Multimedia">Multimedia.</param>
-        /// <param name="Options">Options.</param>
-        /// <param name="Phsyical">Phsyical.</param>
-        /// <param name="Position">Position of the item in the cart.</param>
-        /// <param name="Preorder">True if this item is on pre-order.</param>
-        /// <param name="Quantity">quantity.</param>
-        /// <param name="Schedules">Customer selectable auto order schedules.</param>
-        /// <param name="TotalCost">TotalCost.</param>
-        /// <param name="TotalCostWithDiscount">TotalCostWithDiscount.</param>
-        /// <param name="UnitCost">UnitCost.</param>
-        /// <param name="UnitCostWithDiscount">UnitCostWithDiscount.</param>
-        /// <param name="Upsell">True if this item was added to the cart as part of an upsell.</param>
-        /// <param name="Variations">Variations.</param>
-        /// <param name="ViewUrl">URL to view the product on the site.</param>
-        public CartItem(Currency ArbitraryUnitCost = default(Currency), List<CartItemAttribute> Attributes = default(List<CartItemAttribute>), string AutoOrderSchedule = default(string), string DefaultImageUrl = default(string), string DefaultThumbnailUrl = default(string), string Description = default(string), Currency Discount = default(Currency), string ExtendedDescription = default(string), string ItemId = default(string), int? ItemOid = default(int?), bool? Kit = default(bool?), List<CartKitComponentOption> KitComponentOptions = default(List<CartKitComponentOption>), Currency ManufacturerSuggestedRetailPrice = default(Currency), decimal? MaximumQuantity = default(decimal?), decimal? MinimumQuantity = default(decimal?), List<CartItemMultimedia> Multimedia = default(List<CartItemMultimedia>), List<CartItemOption> Options = default(List<CartItemOption>), CartItemPhysical Phsyical = default(CartItemPhysical), int? Position = default(int?), bool? Preorder = default(bool?), decimal? Quantity = default(decimal?), List<string> Schedules = default(List<string>), Currency TotalCost = default(Currency), Currency TotalCostWithDiscount = default(Currency), Currency UnitCost = default(Currency), Currency UnitCostWithDiscount = default(Currency), bool? Upsell = default(bool?), List<CartItemVariationSelection> Variations = default(List<CartItemVariationSelection>), string ViewUrl = default(string))
+        /// <param name="arbitraryUnitCost">arbitraryUnitCost.</param>
+        /// <param name="attributes">Attributes.</param>
+        /// <param name="autoOrderSchedule">Auto order schedule the customer selected.</param>
+        /// <param name="defaultImageUrl">URL to the default multimedia image.</param>
+        /// <param name="defaultThumbnailUrl">URL to the default multimedia thumbnail.</param>
+        /// <param name="description">Description of the item.</param>
+        /// <param name="discount">discount.</param>
+        /// <param name="extendedDescription">Extended description of the item.</param>
+        /// <param name="itemId">Item ID.</param>
+        /// <param name="itemOid">Item object identifier.</param>
+        /// <param name="kit">True if this item is a kit.</param>
+        /// <param name="kitComponentOptions">Options associated with the kit components.</param>
+        /// <param name="manufacturerSuggestedRetailPrice">manufacturerSuggestedRetailPrice.</param>
+        /// <param name="maximumQuantity">Maximum quantity the customer can purchase.</param>
+        /// <param name="minimumQuantity">Minimum quantity the customer can purchase.</param>
+        /// <param name="multimedia">Multimedia.</param>
+        /// <param name="options">Options.</param>
+        /// <param name="phsyical">phsyical.</param>
+        /// <param name="position">Position of the item in the cart.</param>
+        /// <param name="preorder">True if this item is on pre-order.</param>
+        /// <param name="quantity">quantity.</param>
+        /// <param name="schedules">Customer selectable auto order schedules.</param>
+        /// <param name="totalCost">totalCost.</param>
+        /// <param name="totalCostWithDiscount">totalCostWithDiscount.</param>
+        /// <param name="unitCost">unitCost.</param>
+        /// <param name="unitCostWithDiscount">unitCostWithDiscount.</param>
+        /// <param name="upsell">True if this item was added to the cart as part of an upsell.</param>
+        /// <param name="variations">Variations.</param>
+        /// <param name="viewUrl">URL to view the product on the site.</param>
+        public CartItem(Currency arbitraryUnitCost = default(Currency), List<CartItemAttribute> attributes = default(List<CartItemAttribute>), string autoOrderSchedule = default(string), string defaultImageUrl = default(string), string defaultThumbnailUrl = default(string), string description = default(string), Currency discount = default(Currency), string extendedDescription = default(string), string itemId = default(string), int? itemOid = default(int?), bool? kit = default(bool?), List<CartKitComponentOption> kitComponentOptions = default(List<CartKitComponentOption>), Currency manufacturerSuggestedRetailPrice = default(Currency), decimal? maximumQuantity = default(decimal?), decimal? minimumQuantity = default(decimal?), List<CartItemMultimedia> multimedia = default(List<CartItemMultimedia>), List<CartItemOption> options = default(List<CartItemOption>), CartItemPhysical phsyical = default(CartItemPhysical), int? position = default(int?), bool? preorder = default(bool?), decimal? quantity = default(decimal?), List<string> schedules = default(List<string>), Currency totalCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency unitCost = default(Currency), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), List<CartItemVariationSelection> variations = default(List<CartItemVariationSelection>), string viewUrl = default(string))
         {
-            this.ArbitraryUnitCost = ArbitraryUnitCost;
-            this.Attributes = Attributes;
-            this.AutoOrderSchedule = AutoOrderSchedule;
-            this.DefaultImageUrl = DefaultImageUrl;
-            this.DefaultThumbnailUrl = DefaultThumbnailUrl;
-            this.Description = Description;
-            this.Discount = Discount;
-            this.ExtendedDescription = ExtendedDescription;
-            this.ItemId = ItemId;
-            this.ItemOid = ItemOid;
-            this.Kit = Kit;
-            this.KitComponentOptions = KitComponentOptions;
-            this.ManufacturerSuggestedRetailPrice = ManufacturerSuggestedRetailPrice;
-            this.MaximumQuantity = MaximumQuantity;
-            this.MinimumQuantity = MinimumQuantity;
-            this.Multimedia = Multimedia;
-            this.Options = Options;
-            this.Phsyical = Phsyical;
-            this.Position = Position;
-            this.Preorder = Preorder;
-            this.Quantity = Quantity;
-            this.Schedules = Schedules;
-            this.TotalCost = TotalCost;
-            this.TotalCostWithDiscount = TotalCostWithDiscount;
-            this.UnitCost = UnitCost;
-            this.UnitCostWithDiscount = UnitCostWithDiscount;
-            this.Upsell = Upsell;
-            this.Variations = Variations;
-            this.ViewUrl = ViewUrl;
+            this.ArbitraryUnitCost = arbitraryUnitCost;
+            this.Attributes = attributes;
+            this.AutoOrderSchedule = autoOrderSchedule;
+            this.DefaultImageUrl = defaultImageUrl;
+            this.DefaultThumbnailUrl = defaultThumbnailUrl;
+            this.Description = description;
+            this.Discount = discount;
+            this.ExtendedDescription = extendedDescription;
+            this.ItemId = itemId;
+            this.ItemOid = itemOid;
+            this.Kit = kit;
+            this.KitComponentOptions = kitComponentOptions;
+            this.ManufacturerSuggestedRetailPrice = manufacturerSuggestedRetailPrice;
+            this.MaximumQuantity = maximumQuantity;
+            this.MinimumQuantity = minimumQuantity;
+            this.Multimedia = multimedia;
+            this.Options = options;
+            this.Phsyical = phsyical;
+            this.Position = position;
+            this.Preorder = preorder;
+            this.Quantity = quantity;
+            this.Schedules = schedules;
+            this.TotalCost = totalCost;
+            this.TotalCostWithDiscount = totalCostWithDiscount;
+            this.UnitCost = unitCost;
+            this.UnitCostWithDiscount = unitCostWithDiscount;
+            this.Upsell = upsell;
+            this.Variations = variations;
+            this.ViewUrl = viewUrl;
         }
         
         /// <summary>
@@ -335,7 +335,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

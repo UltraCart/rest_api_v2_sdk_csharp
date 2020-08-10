@@ -39,76 +39,76 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum ActiveCampaign for "ActiveCampaign"
+            /// Enum ActiveCampaign for value: ActiveCampaign
             /// </summary>
             [EnumMember(Value = "ActiveCampaign")]
-            ActiveCampaign,
+            ActiveCampaign = 1,
             
             /// <summary>
-            /// Enum AWeber for "AWeber"
+            /// Enum AWeber for value: AWeber
             /// </summary>
             [EnumMember(Value = "AWeber")]
-            AWeber,
+            AWeber = 2,
             
             /// <summary>
-            /// Enum CampaignMonitor for "Campaign Monitor"
+            /// Enum CampaignMonitor for value: Campaign Monitor
             /// </summary>
             [EnumMember(Value = "Campaign Monitor")]
-            CampaignMonitor,
+            CampaignMonitor = 3,
             
             /// <summary>
-            /// Enum ConstantContact for "ConstantContact"
+            /// Enum ConstantContact for value: ConstantContact
             /// </summary>
             [EnumMember(Value = "ConstantContact")]
-            ConstantContact,
+            ConstantContact = 4,
             
             /// <summary>
-            /// Enum Emma for "Emma"
+            /// Enum Emma for value: Emma
             /// </summary>
             [EnumMember(Value = "Emma")]
-            Emma,
+            Emma = 5,
             
             /// <summary>
-            /// Enum GetResponse for "GetResponse"
+            /// Enum GetResponse for value: GetResponse
             /// </summary>
             [EnumMember(Value = "GetResponse")]
-            GetResponse,
+            GetResponse = 6,
             
             /// <summary>
-            /// Enum IContact for "iContact"
+            /// Enum IContact for value: iContact
             /// </summary>
             [EnumMember(Value = "iContact")]
-            IContact,
+            IContact = 7,
             
             /// <summary>
-            /// Enum Klaviyo for "Klaviyo"
+            /// Enum Klaviyo for value: Klaviyo
             /// </summary>
             [EnumMember(Value = "Klaviyo")]
-            Klaviyo,
+            Klaviyo = 8,
             
             /// <summary>
-            /// Enum Lyris for "Lyris"
+            /// Enum Lyris for value: Lyris
             /// </summary>
             [EnumMember(Value = "Lyris")]
-            Lyris,
+            Lyris = 9,
             
             /// <summary>
-            /// Enum LyrisHQ for "LyrisHQ"
+            /// Enum LyrisHQ for value: LyrisHQ
             /// </summary>
             [EnumMember(Value = "LyrisHQ")]
-            LyrisHQ,
+            LyrisHQ = 10,
             
             /// <summary>
-            /// Enum MailChimp for "MailChimp"
+            /// Enum MailChimp for value: MailChimp
             /// </summary>
             [EnumMember(Value = "MailChimp")]
-            MailChimp,
+            MailChimp = 11,
             
             /// <summary>
-            /// Enum SilverPop for "SilverPop"
+            /// Enum SilverPop for value: SilverPop
             /// </summary>
             [EnumMember(Value = "SilverPop")]
-            SilverPop
+            SilverPop = 12
         }
 
         /// <summary>
@@ -120,18 +120,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemThirdPartyEmailMarketing" /> class.
         /// </summary>
-        /// <param name="AddTags">Add tags.</param>
-        /// <param name="ProviderName">Provider name.</param>
-        /// <param name="RemoveTags">Remove tags.</param>
-        /// <param name="SubscribeLists">Subscribe to lists.</param>
-        /// <param name="UnsubscribeLists">Unsubscribe from lists.</param>
-        public ItemThirdPartyEmailMarketing(List<string> AddTags = default(List<string>), ProviderNameEnum? ProviderName = default(ProviderNameEnum?), List<string> RemoveTags = default(List<string>), List<string> SubscribeLists = default(List<string>), List<string> UnsubscribeLists = default(List<string>))
+        /// <param name="addTags">Add tags.</param>
+        /// <param name="providerName">Provider name.</param>
+        /// <param name="removeTags">Remove tags.</param>
+        /// <param name="subscribeLists">Subscribe to lists.</param>
+        /// <param name="unsubscribeLists">Unsubscribe from lists.</param>
+        public ItemThirdPartyEmailMarketing(List<string> addTags = default(List<string>), ProviderNameEnum? providerName = default(ProviderNameEnum?), List<string> removeTags = default(List<string>), List<string> subscribeLists = default(List<string>), List<string> unsubscribeLists = default(List<string>))
         {
-            this.AddTags = AddTags;
-            this.ProviderName = ProviderName;
-            this.RemoveTags = RemoveTags;
-            this.SubscribeLists = SubscribeLists;
-            this.UnsubscribeLists = UnsubscribeLists;
+            this.AddTags = addTags;
+            this.ProviderName = providerName;
+            this.RemoveTags = removeTags;
+            this.SubscribeLists = subscribeLists;
+            this.UnsubscribeLists = unsubscribeLists;
         }
         
         /// <summary>
@@ -184,7 +184,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

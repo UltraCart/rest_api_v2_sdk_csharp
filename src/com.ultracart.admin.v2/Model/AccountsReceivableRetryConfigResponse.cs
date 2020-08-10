@@ -33,22 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountsReceivableRetryConfigResponse" /> class.
         /// </summary>
-        /// <param name="Config">Config.</param>
-        /// <param name="CouponCodes">CouponCodes.</param>
-        /// <param name="Emails">Emails.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="HasLinkedAccounts">HasLinkedAccounts.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public AccountsReceivableRetryConfigResponse(AccountsReceivableRetryConfig Config = default(AccountsReceivableRetryConfig), List<string> CouponCodes = default(List<string>), List<string> Emails = default(List<string>), Error Error = default(Error), bool? HasLinkedAccounts = default(bool?), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?))
+        /// <param name="config">config.</param>
+        /// <param name="couponCodes">couponCodes.</param>
+        /// <param name="emails">emails.</param>
+        /// <param name="error">error.</param>
+        /// <param name="hasLinkedAccounts">hasLinkedAccounts.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public AccountsReceivableRetryConfigResponse(AccountsReceivableRetryConfig config = default(AccountsReceivableRetryConfig), List<string> couponCodes = default(List<string>), List<string> emails = default(List<string>), Error error = default(Error), bool? hasLinkedAccounts = default(bool?), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?))
         {
-            this.Config = Config;
-            this.CouponCodes = CouponCodes;
-            this.Emails = Emails;
-            this.Error = Error;
-            this.HasLinkedAccounts = HasLinkedAccounts;
-            this.Metadata = Metadata;
-            this.Success = Success;
+            this.Config = config;
+            this.CouponCodes = couponCodes;
+            this.Emails = emails;
+            this.Error = error;
+            this.HasLinkedAccounts = hasLinkedAccounts;
+            this.Metadata = metadata;
+            this.Success = success;
         }
         
         /// <summary>
@@ -117,7 +117,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

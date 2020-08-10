@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponFreeItemWithSubtotal" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="Items">A list of items that are eligible for this discount_price..</param>
-        /// <param name="Limit">The limit of free items that may be received when purchasing multiple items.</param>
-        /// <param name="SubtotalAmount">The amount of subtotal required to receive the discount percent.</param>
-        public CouponFreeItemWithSubtotal(string CurrencyCode = default(string), List<string> Items = default(List<string>), int? Limit = default(int?), decimal? SubtotalAmount = default(decimal?))
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="items">A list of items that are eligible for this discount_price..</param>
+        /// <param name="limit">The limit of free items that may be received when purchasing multiple items.</param>
+        /// <param name="subtotalAmount">The amount of subtotal required to receive the discount percent.</param>
+        public CouponFreeItemWithSubtotal(string currencyCode = default(string), List<string> items = default(List<string>), int? limit = default(int?), decimal? subtotalAmount = default(decimal?))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.Items = Items;
-            this.Limit = Limit;
-            this.SubtotalAmount = SubtotalAmount;
+            this.CurrencyCode = currencyCode;
+            this.Items = items;
+            this.Limit = limit;
+            this.SubtotalAmount = subtotalAmount;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

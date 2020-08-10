@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemVariation" /> class.
         /// </summary>
-        /// <param name="DefaultText">Default text.</param>
-        /// <param name="DefaultTextTranslatedTextInstanceOid">Default text translated text instance id.</param>
-        /// <param name="Name">Name.</param>
-        /// <param name="NameTranslatedTextInstanceOid">Name translated text instance id.</param>
-        /// <param name="Options">Options.</param>
-        public ItemVariation(string DefaultText = default(string), int? DefaultTextTranslatedTextInstanceOid = default(int?), string Name = default(string), int? NameTranslatedTextInstanceOid = default(int?), List<ItemVariationOption> Options = default(List<ItemVariationOption>))
+        /// <param name="defaultText">Default text.</param>
+        /// <param name="defaultTextTranslatedTextInstanceOid">Default text translated text instance id.</param>
+        /// <param name="name">Name.</param>
+        /// <param name="nameTranslatedTextInstanceOid">Name translated text instance id.</param>
+        /// <param name="options">Options.</param>
+        public ItemVariation(string defaultText = default(string), int? defaultTextTranslatedTextInstanceOid = default(int?), string name = default(string), int? nameTranslatedTextInstanceOid = default(int?), List<ItemVariationOption> options = default(List<ItemVariationOption>))
         {
-            this.DefaultText = DefaultText;
-            this.DefaultTextTranslatedTextInstanceOid = DefaultTextTranslatedTextInstanceOid;
-            this.Name = Name;
-            this.NameTranslatedTextInstanceOid = NameTranslatedTextInstanceOid;
-            this.Options = Options;
+            this.DefaultText = defaultText;
+            this.DefaultTextTranslatedTextInstanceOid = defaultTextTranslatedTextInstanceOid;
+            this.Name = name;
+            this.NameTranslatedTextInstanceOid = nameTranslatedTextInstanceOid;
+            this.Options = options;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

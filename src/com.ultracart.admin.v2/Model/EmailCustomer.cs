@@ -33,41 +33,81 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailCustomer" /> class.
         /// </summary>
-        /// <param name="Email">Email.</param>
-        /// <param name="EspCustomerUuid">EspCustomerUuid.</param>
-        /// <param name="FirstName">FirstName.</param>
-        /// <param name="LastName">LastName.</param>
-        public EmailCustomer(string Email = default(string), string EspCustomerUuid = default(string), string FirstName = default(string), string LastName = default(string))
+        /// <param name="active">True if the customer is flagged as active within StoreFront Communications.</param>
+        /// <param name="email">Email.</param>
+        /// <param name="emailCustomerUuid">Email customer UUID.</param>
+        /// <param name="firstName">First name.</param>
+        /// <param name="globalUnsubscribe">True if the customer has globally unsubscribed from all communication..</param>
+        /// <param name="lastInteractionDts">Last interaction.</param>
+        /// <param name="lastName">Last name.</param>
+        /// <param name="listUuids">UUIDs of the lists they are subscribed to.</param>
+        public EmailCustomer(bool? active = default(bool?), string email = default(string), string emailCustomerUuid = default(string), string firstName = default(string), bool? globalUnsubscribe = default(bool?), string lastInteractionDts = default(string), string lastName = default(string), List<string> listUuids = default(List<string>))
         {
-            this.Email = Email;
-            this.EspCustomerUuid = EspCustomerUuid;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
+            this.Active = active;
+            this.Email = email;
+            this.EmailCustomerUuid = emailCustomerUuid;
+            this.FirstName = firstName;
+            this.GlobalUnsubscribe = globalUnsubscribe;
+            this.LastInteractionDts = lastInteractionDts;
+            this.LastName = lastName;
+            this.ListUuids = listUuids;
         }
         
         /// <summary>
-        /// Gets or Sets Email
+        /// True if the customer is flagged as active within StoreFront Communications
         /// </summary>
+        /// <value>True if the customer is flagged as active within StoreFront Communications</value>
+        [DataMember(Name="active", EmitDefaultValue=false)]
+        public bool? Active { get; set; }
+
+        /// <summary>
+        /// Email
+        /// </summary>
+        /// <value>Email</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or Sets EspCustomerUuid
+        /// Email customer UUID
         /// </summary>
-        [DataMember(Name="espCustomerUuid", EmitDefaultValue=false)]
-        public string EspCustomerUuid { get; set; }
+        /// <value>Email customer UUID</value>
+        [DataMember(Name="email_customer_uuid", EmitDefaultValue=false)]
+        public string EmailCustomerUuid { get; set; }
 
         /// <summary>
-        /// Gets or Sets FirstName
+        /// First name
         /// </summary>
-        [DataMember(Name="firstName", EmitDefaultValue=false)]
+        /// <value>First name</value>
+        [DataMember(Name="first_name", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastName
+        /// True if the customer has globally unsubscribed from all communication.
         /// </summary>
-        [DataMember(Name="lastName", EmitDefaultValue=false)]
+        /// <value>True if the customer has globally unsubscribed from all communication.</value>
+        [DataMember(Name="global_unsubscribe", EmitDefaultValue=false)]
+        public bool? GlobalUnsubscribe { get; set; }
+
+        /// <summary>
+        /// Last interaction
+        /// </summary>
+        /// <value>Last interaction</value>
+        [DataMember(Name="last_interaction_dts", EmitDefaultValue=false)]
+        public string LastInteractionDts { get; set; }
+
+        /// <summary>
+        /// Last name
+        /// </summary>
+        /// <value>Last name</value>
+        [DataMember(Name="last_name", EmitDefaultValue=false)]
         public string LastName { get; set; }
+
+        /// <summary>
+        /// UUIDs of the lists they are subscribed to
+        /// </summary>
+        /// <value>UUIDs of the lists they are subscribed to</value>
+        [DataMember(Name="list_uuids", EmitDefaultValue=false)]
+        public List<string> ListUuids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,10 +117,14 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailCustomer {\n");
+            sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  EspCustomerUuid: ").Append(EspCustomerUuid).Append("\n");
+            sb.Append("  EmailCustomerUuid: ").Append(EmailCustomerUuid).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  GlobalUnsubscribe: ").Append(GlobalUnsubscribe).Append("\n");
+            sb.Append("  LastInteractionDts: ").Append(LastInteractionDts).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  ListUuids: ").Append(ListUuids).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,7 +133,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -116,14 +160,19 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Active == input.Active ||
+                    (this.Active != null &&
+                    this.Active.Equals(input.Active))
+                ) && 
+                (
                     this.Email == input.Email ||
                     (this.Email != null &&
                     this.Email.Equals(input.Email))
                 ) && 
                 (
-                    this.EspCustomerUuid == input.EspCustomerUuid ||
-                    (this.EspCustomerUuid != null &&
-                    this.EspCustomerUuid.Equals(input.EspCustomerUuid))
+                    this.EmailCustomerUuid == input.EmailCustomerUuid ||
+                    (this.EmailCustomerUuid != null &&
+                    this.EmailCustomerUuid.Equals(input.EmailCustomerUuid))
                 ) && 
                 (
                     this.FirstName == input.FirstName ||
@@ -131,9 +180,24 @@ namespace com.ultracart.admin.v2.Model
                     this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
+                    this.GlobalUnsubscribe == input.GlobalUnsubscribe ||
+                    (this.GlobalUnsubscribe != null &&
+                    this.GlobalUnsubscribe.Equals(input.GlobalUnsubscribe))
+                ) && 
+                (
+                    this.LastInteractionDts == input.LastInteractionDts ||
+                    (this.LastInteractionDts != null &&
+                    this.LastInteractionDts.Equals(input.LastInteractionDts))
+                ) && 
+                (
                     this.LastName == input.LastName ||
                     (this.LastName != null &&
                     this.LastName.Equals(input.LastName))
+                ) && 
+                (
+                    this.ListUuids == input.ListUuids ||
+                    this.ListUuids != null &&
+                    this.ListUuids.SequenceEqual(input.ListUuids)
                 );
         }
 
@@ -146,14 +210,22 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Active != null)
+                    hashCode = hashCode * 59 + this.Active.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
-                if (this.EspCustomerUuid != null)
-                    hashCode = hashCode * 59 + this.EspCustomerUuid.GetHashCode();
+                if (this.EmailCustomerUuid != null)
+                    hashCode = hashCode * 59 + this.EmailCustomerUuid.GetHashCode();
                 if (this.FirstName != null)
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
+                if (this.GlobalUnsubscribe != null)
+                    hashCode = hashCode * 59 + this.GlobalUnsubscribe.GetHashCode();
+                if (this.LastInteractionDts != null)
+                    hashCode = hashCode * 59 + this.LastInteractionDts.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
+                if (this.ListUuids != null)
+                    hashCode = hashCode * 59 + this.ListUuids.GetHashCode();
                 return hashCode;
             }
         }

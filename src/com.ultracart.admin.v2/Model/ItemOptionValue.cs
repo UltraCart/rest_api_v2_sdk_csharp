@@ -39,22 +39,22 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum None for "none"
+            /// Enum None for value: none
             /// </summary>
             [EnumMember(Value = "none")]
-            None,
+            None = 1,
             
             /// <summary>
-            /// Enum Setitemto for "set item to"
+            /// Enum Setitemto for value: set item to
             /// </summary>
             [EnumMember(Value = "set item to")]
-            Setitemto,
+            Setitemto = 2,
             
             /// <summary>
-            /// Enum Additem for "add item"
+            /// Enum Additem for value: add item
             /// </summary>
             [EnumMember(Value = "add item")]
-            Additem
+            Additem = 3
         }
 
         /// <summary>
@@ -66,38 +66,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemOptionValue" /> class.
         /// </summary>
-        /// <param name="AdditionalDimensionApplication">Additional dimensions application.</param>
-        /// <param name="AdditionalItems">Additional items to add to the order if this value is selected.</param>
-        /// <param name="CostChange">Cost change.</param>
-        /// <param name="DefaultValue">True if default value.</param>
-        /// <param name="DigitalItems">Digital items to allow the customer to download if this option value is selected.</param>
-        /// <param name="Height">Height.</param>
-        /// <param name="Length">Length.</param>
-        /// <param name="MerchantItemMultimediaOid">Multimedia object identifier associated with this option value.</param>
-        /// <param name="OptionValueOid">Option value object identifier.</param>
-        /// <param name="PercentCostChange">Percentage cost change.</param>
-        /// <param name="TranslatedTextInstanceOid">Translated text instance id.</param>
-        /// <param name="Value">Value.</param>
-        /// <param name="WeightChange">WeightChange.</param>
-        /// <param name="WeightChangePercent">Percentage weight change.</param>
-        /// <param name="Width">Width.</param>
-        public ItemOptionValue(AdditionalDimensionApplicationEnum? AdditionalDimensionApplication = default(AdditionalDimensionApplicationEnum?), List<ItemOptionValueAdditionalItem> AdditionalItems = default(List<ItemOptionValueAdditionalItem>), decimal? CostChange = default(decimal?), bool? DefaultValue = default(bool?), List<ItemOptionValueDigitalItem> DigitalItems = default(List<ItemOptionValueDigitalItem>), Distance Height = default(Distance), Distance Length = default(Distance), int? MerchantItemMultimediaOid = default(int?), int? OptionValueOid = default(int?), decimal? PercentCostChange = default(decimal?), int? TranslatedTextInstanceOid = default(int?), string Value = default(string), Weight WeightChange = default(Weight), decimal? WeightChangePercent = default(decimal?), Distance Width = default(Distance))
+        /// <param name="additionalDimensionApplication">Additional dimensions application.</param>
+        /// <param name="additionalItems">Additional items to add to the order if this value is selected.</param>
+        /// <param name="costChange">Cost change.</param>
+        /// <param name="defaultValue">True if default value.</param>
+        /// <param name="digitalItems">Digital items to allow the customer to download if this option value is selected.</param>
+        /// <param name="height">height.</param>
+        /// <param name="length">length.</param>
+        /// <param name="merchantItemMultimediaOid">Multimedia object identifier associated with this option value.</param>
+        /// <param name="optionValueOid">Option value object identifier.</param>
+        /// <param name="percentCostChange">Percentage cost change.</param>
+        /// <param name="translatedTextInstanceOid">Translated text instance id.</param>
+        /// <param name="value">Value.</param>
+        /// <param name="weightChange">weightChange.</param>
+        /// <param name="weightChangePercent">Percentage weight change.</param>
+        /// <param name="width">width.</param>
+        public ItemOptionValue(AdditionalDimensionApplicationEnum? additionalDimensionApplication = default(AdditionalDimensionApplicationEnum?), List<ItemOptionValueAdditionalItem> additionalItems = default(List<ItemOptionValueAdditionalItem>), decimal? costChange = default(decimal?), bool? defaultValue = default(bool?), List<ItemOptionValueDigitalItem> digitalItems = default(List<ItemOptionValueDigitalItem>), Distance height = default(Distance), Distance length = default(Distance), int? merchantItemMultimediaOid = default(int?), int? optionValueOid = default(int?), decimal? percentCostChange = default(decimal?), int? translatedTextInstanceOid = default(int?), string value = default(string), Weight weightChange = default(Weight), decimal? weightChangePercent = default(decimal?), Distance width = default(Distance))
         {
-            this.AdditionalDimensionApplication = AdditionalDimensionApplication;
-            this.AdditionalItems = AdditionalItems;
-            this.CostChange = CostChange;
-            this.DefaultValue = DefaultValue;
-            this.DigitalItems = DigitalItems;
-            this.Height = Height;
-            this.Length = Length;
-            this.MerchantItemMultimediaOid = MerchantItemMultimediaOid;
-            this.OptionValueOid = OptionValueOid;
-            this.PercentCostChange = PercentCostChange;
-            this.TranslatedTextInstanceOid = TranslatedTextInstanceOid;
-            this.Value = Value;
-            this.WeightChange = WeightChange;
-            this.WeightChangePercent = WeightChangePercent;
-            this.Width = Width;
+            this.AdditionalDimensionApplication = additionalDimensionApplication;
+            this.AdditionalItems = additionalItems;
+            this.CostChange = costChange;
+            this.DefaultValue = defaultValue;
+            this.DigitalItems = digitalItems;
+            this.Height = height;
+            this.Length = length;
+            this.MerchantItemMultimediaOid = merchantItemMultimediaOid;
+            this.OptionValueOid = optionValueOid;
+            this.PercentCostChange = percentCostChange;
+            this.TranslatedTextInstanceOid = translatedTextInstanceOid;
+            this.Value = value;
+            this.WeightChange = weightChange;
+            this.WeightChangePercent = weightChangePercent;
+            this.Width = width;
         }
         
 
@@ -226,7 +226,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

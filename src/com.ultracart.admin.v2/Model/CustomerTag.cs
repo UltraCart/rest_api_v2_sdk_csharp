@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerTag" /> class.
         /// </summary>
-        /// <param name="TagValue">Tag Value.</param>
-        public CustomerTag(string TagValue = default(string))
+        /// <param name="tagValue">Tag Value.</param>
+        public CustomerTag(string tagValue = default(string))
         {
-            this.TagValue = TagValue;
+            this.TagValue = tagValue;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartItemMultimediaThumbnail" /> class.
         /// </summary>
-        /// <param name="Height">Height in pixels.</param>
-        /// <param name="Png">True if thumbnail is a PNG, otherwise its a JPEG.</param>
-        /// <param name="Square">True if the thumbnail is square.</param>
-        /// <param name="Url">URL for the thumbnail.</param>
-        /// <param name="Width">Width in pixels.</param>
-        public CartItemMultimediaThumbnail(int? Height = default(int?), bool? Png = default(bool?), bool? Square = default(bool?), string Url = default(string), int? Width = default(int?))
+        /// <param name="height">Height in pixels.</param>
+        /// <param name="png">True if thumbnail is a PNG, otherwise its a JPEG.</param>
+        /// <param name="square">True if the thumbnail is square.</param>
+        /// <param name="url">URL for the thumbnail.</param>
+        /// <param name="width">Width in pixels.</param>
+        public CartItemMultimediaThumbnail(int? height = default(int?), bool? png = default(bool?), bool? square = default(bool?), string url = default(string), int? width = default(int?))
         {
-            this.Height = Height;
-            this.Png = Png;
-            this.Square = Square;
-            this.Url = Url;
-            this.Width = Width;
+            this.Height = height;
+            this.Png = png;
+            this.Square = square;
+            this.Url = url;
+            this.Width = width;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

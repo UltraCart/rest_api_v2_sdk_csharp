@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponFreeShippingSpecificItems" /> class.
         /// </summary>
-        /// <param name="Items">A list of items of which at least one must be purchased for coupon to be valid..</param>
-        public CouponFreeShippingSpecificItems(List<string> Items = default(List<string>))
+        /// <param name="items">A list of items of which at least one must be purchased for coupon to be valid..</param>
+        public CouponFreeShippingSpecificItems(List<string> items = default(List<string>))
         {
-            this.Items = Items;
+            this.Items = items;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

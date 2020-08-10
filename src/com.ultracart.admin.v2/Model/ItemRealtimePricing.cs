@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRealtimePricing" /> class.
         /// </summary>
-        /// <param name="RealtimePricingParameter">Real-time pricing provider parameters.</param>
-        /// <param name="RealtimePricingProvider">Real-time pricing provider name.</param>
-        /// <param name="RealtimePricingProviderOid">Real-time pricing provide object identifier.</param>
-        public ItemRealtimePricing(string RealtimePricingParameter = default(string), string RealtimePricingProvider = default(string), int? RealtimePricingProviderOid = default(int?))
+        /// <param name="realtimePricingParameter">Real-time pricing provider parameters.</param>
+        /// <param name="realtimePricingProvider">Real-time pricing provider name.</param>
+        /// <param name="realtimePricingProviderOid">Real-time pricing provide object identifier.</param>
+        public ItemRealtimePricing(string realtimePricingParameter = default(string), string realtimePricingProvider = default(string), int? realtimePricingProviderOid = default(int?))
         {
-            this.RealtimePricingParameter = RealtimePricingParameter;
-            this.RealtimePricingProvider = RealtimePricingProvider;
-            this.RealtimePricingProviderOid = RealtimePricingProviderOid;
+            this.RealtimePricingParameter = realtimePricingParameter;
+            this.RealtimePricingProvider = realtimePricingProvider;
+            this.RealtimePricingProviderOid = realtimePricingProviderOid;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

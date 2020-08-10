@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailThirdPartyProvider" /> class.
         /// </summary>
-        /// <param name="ConnectUrl">URL to the settings screen to connect.  Null if the provider is already connected..</param>
-        /// <param name="ListCount">list_count.</param>
-        /// <param name="Lists">lists.</param>
-        /// <param name="LogoUrl">logo_url.</param>
-        /// <param name="Name">name.</param>
-        public EmailThirdPartyProvider(string ConnectUrl = default(string), int? ListCount = default(int?), List<EmailThirdPartyList> Lists = default(List<EmailThirdPartyList>), string LogoUrl = default(string), string Name = default(string))
+        /// <param name="connectUrl">URL to the settings screen to connect.  Null if the provider is already connected..</param>
+        /// <param name="listCount">list_count.</param>
+        /// <param name="lists">lists.</param>
+        /// <param name="logoUrl">logo_url.</param>
+        /// <param name="name">name.</param>
+        public EmailThirdPartyProvider(string connectUrl = default(string), int? listCount = default(int?), List<EmailThirdPartyList> lists = default(List<EmailThirdPartyList>), string logoUrl = default(string), string name = default(string))
         {
-            this.ConnectUrl = ConnectUrl;
-            this.ListCount = ListCount;
-            this.Lists = Lists;
-            this.LogoUrl = LogoUrl;
-            this.Name = Name;
+            this.ConnectUrl = connectUrl;
+            this.ListCount = listCount;
+            this.Lists = lists;
+            this.LogoUrl = logoUrl;
+            this.Name = name;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

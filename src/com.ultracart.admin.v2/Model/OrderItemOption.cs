@@ -39,22 +39,22 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum None for "none"
+            /// Enum None for value: none
             /// </summary>
             [EnumMember(Value = "none")]
-            None,
+            None = 1,
             
             /// <summary>
-            /// Enum Setitemto for "set item to"
+            /// Enum Setitemto for value: set item to
             /// </summary>
             [EnumMember(Value = "set item to")]
-            Setitemto,
+            Setitemto = 2,
             
             /// <summary>
-            /// Enum Additem for "add item"
+            /// Enum Additem for value: add item
             /// </summary>
             [EnumMember(Value = "add item")]
-            Additem
+            Additem = 3
         }
 
         /// <summary>
@@ -66,30 +66,30 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderItemOption" /> class.
         /// </summary>
-        /// <param name="AdditionalDimensionApplication">How the additional dimensions are applied to the item..</param>
-        /// <param name="CostChange">CostChange.</param>
-        /// <param name="FileAttachment">FileAttachment.</param>
-        /// <param name="Height">Height.</param>
-        /// <param name="Hidden">True if this option is hidden from display on the order.</param>
-        /// <param name="Label">Label.</param>
-        /// <param name="Length">Length.</param>
-        /// <param name="OneTimeFee">True if the cost associated with this option is a one time fee or multiplied by the quantity of the item.</param>
-        /// <param name="Value">Value.</param>
-        /// <param name="WeightChange">WeightChange.</param>
-        /// <param name="Width">Width.</param>
-        public OrderItemOption(AdditionalDimensionApplicationEnum? AdditionalDimensionApplication = default(AdditionalDimensionApplicationEnum?), Currency CostChange = default(Currency), OrderItemOptionFileAttachment FileAttachment = default(OrderItemOptionFileAttachment), Distance Height = default(Distance), bool? Hidden = default(bool?), string Label = default(string), Distance Length = default(Distance), bool? OneTimeFee = default(bool?), string Value = default(string), Weight WeightChange = default(Weight), Distance Width = default(Distance))
+        /// <param name="additionalDimensionApplication">How the additional dimensions are applied to the item..</param>
+        /// <param name="costChange">costChange.</param>
+        /// <param name="fileAttachment">fileAttachment.</param>
+        /// <param name="height">height.</param>
+        /// <param name="hidden">True if this option is hidden from display on the order.</param>
+        /// <param name="label">Label.</param>
+        /// <param name="length">length.</param>
+        /// <param name="oneTimeFee">True if the cost associated with this option is a one time fee or multiplied by the quantity of the item.</param>
+        /// <param name="value">Value.</param>
+        /// <param name="weightChange">weightChange.</param>
+        /// <param name="width">width.</param>
+        public OrderItemOption(AdditionalDimensionApplicationEnum? additionalDimensionApplication = default(AdditionalDimensionApplicationEnum?), Currency costChange = default(Currency), OrderItemOptionFileAttachment fileAttachment = default(OrderItemOptionFileAttachment), Distance height = default(Distance), bool? hidden = default(bool?), string label = default(string), Distance length = default(Distance), bool? oneTimeFee = default(bool?), string value = default(string), Weight weightChange = default(Weight), Distance width = default(Distance))
         {
-            this.AdditionalDimensionApplication = AdditionalDimensionApplication;
-            this.CostChange = CostChange;
-            this.FileAttachment = FileAttachment;
-            this.Height = Height;
-            this.Hidden = Hidden;
-            this.Label = Label;
-            this.Length = Length;
-            this.OneTimeFee = OneTimeFee;
-            this.Value = Value;
-            this.WeightChange = WeightChange;
-            this.Width = Width;
+            this.AdditionalDimensionApplication = additionalDimensionApplication;
+            this.CostChange = costChange;
+            this.FileAttachment = fileAttachment;
+            this.Height = height;
+            this.Hidden = hidden;
+            this.Label = label;
+            this.Length = length;
+            this.OneTimeFee = oneTimeFee;
+            this.Value = value;
+            this.WeightChange = weightChange;
+            this.Width = width;
         }
         
 
@@ -184,7 +184,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

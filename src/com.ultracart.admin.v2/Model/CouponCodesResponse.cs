@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponCodesResponse" /> class.
         /// </summary>
-        /// <param name="CouponCodes">Coupon codes.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="ExpirationDts">Expiration date.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public CouponCodesResponse(List<string> CouponCodes = default(List<string>), Error Error = default(Error), string ExpirationDts = default(string), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?))
+        /// <param name="couponCodes">Coupon codes.</param>
+        /// <param name="error">error.</param>
+        /// <param name="expirationDts">Expiration date.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public CouponCodesResponse(List<string> couponCodes = default(List<string>), Error error = default(Error), string expirationDts = default(string), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?))
         {
-            this.CouponCodes = CouponCodes;
-            this.Error = Error;
-            this.ExpirationDts = ExpirationDts;
-            this.Metadata = Metadata;
-            this.Success = Success;
+            this.CouponCodes = couponCodes;
+            this.Error = error;
+            this.ExpirationDts = expirationDts;
+            this.Metadata = metadata;
+            this.Success = success;
         }
         
         /// <summary>
@@ -101,7 +101,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

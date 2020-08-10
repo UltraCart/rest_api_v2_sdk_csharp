@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookLogSummariesResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        /// <param name="WebhookLogSummaries">Webhook log summaries.</param>
-        public WebhookLogSummariesResponse(Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?), List<WebhookLogSummary> WebhookLogSummaries = default(List<WebhookLogSummary>))
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        /// <param name="webhookLogSummaries">Webhook log summaries.</param>
+        public WebhookLogSummariesResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), List<WebhookLogSummary> webhookLogSummaries = default(List<WebhookLogSummary>))
         {
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.Success = Success;
-            this.WebhookLogSummaries = WebhookLogSummaries;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.Success = success;
+            this.WebhookLogSummaries = webhookLogSummaries;
         }
         
         /// <summary>
@@ -91,7 +91,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

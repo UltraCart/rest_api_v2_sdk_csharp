@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponPercentOffItemWithItemsQuantityPurchase" /> class.
         /// </summary>
-        /// <param name="DiscountPercent">The percentage of subtotal discount.</param>
-        /// <param name="Items">A list of items which will receive a discount if one of the required purchase items is purchased..</param>
-        /// <param name="Limit">The (optional) maximum quantity of discounted items..</param>
-        /// <param name="RequiredPurchaseItems">Required items (at least one from the list) that must be purchased for coupon to be valid.</param>
-        /// <param name="RequiredPurchaseQuantity">The quantity of items that must be purchased for the discount to be applied..</param>
-        public CouponPercentOffItemWithItemsQuantityPurchase(decimal? DiscountPercent = default(decimal?), List<string> Items = default(List<string>), int? Limit = default(int?), List<string> RequiredPurchaseItems = default(List<string>), int? RequiredPurchaseQuantity = default(int?))
+        /// <param name="discountPercent">The percentage of subtotal discount.</param>
+        /// <param name="items">A list of items which will receive a discount if one of the required purchase items is purchased..</param>
+        /// <param name="limit">The (optional) maximum quantity of discounted items..</param>
+        /// <param name="requiredPurchaseItems">Required items (at least one from the list) that must be purchased for coupon to be valid.</param>
+        /// <param name="requiredPurchaseQuantity">The quantity of items that must be purchased for the discount to be applied..</param>
+        public CouponPercentOffItemWithItemsQuantityPurchase(decimal? discountPercent = default(decimal?), List<string> items = default(List<string>), int? limit = default(int?), List<string> requiredPurchaseItems = default(List<string>), int? requiredPurchaseQuantity = default(int?))
         {
-            this.DiscountPercent = DiscountPercent;
-            this.Items = Items;
-            this.Limit = Limit;
-            this.RequiredPurchaseItems = RequiredPurchaseItems;
-            this.RequiredPurchaseQuantity = RequiredPurchaseQuantity;
+            this.DiscountPercent = discountPercent;
+            this.Items = items;
+            this.Limit = limit;
+            this.RequiredPurchaseItems = requiredPurchaseItems;
+            this.RequiredPurchaseQuantity = requiredPurchaseQuantity;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderLinkedShipment" /> class.
         /// </summary>
-        /// <param name="HasLinkedShipment">True if this order has child linked shipments.</param>
-        /// <param name="LinkedShipment">True if this order is linked to another parent order.</param>
-        /// <param name="LinkedShipmentChannelPartnerOrderIds">The child linked shipment channel partner order ids.</param>
-        /// <param name="LinkedShipmentOrderIds">The child linked shipment order ids.</param>
-        /// <param name="LinkedShipmentToOrderId">The parent order id that this one is linked to.</param>
-        public OrderLinkedShipment(bool? HasLinkedShipment = default(bool?), bool? LinkedShipment = default(bool?), List<string> LinkedShipmentChannelPartnerOrderIds = default(List<string>), List<string> LinkedShipmentOrderIds = default(List<string>), string LinkedShipmentToOrderId = default(string))
+        /// <param name="hasLinkedShipment">True if this order has child linked shipments.</param>
+        /// <param name="linkedShipment">True if this order is linked to another parent order.</param>
+        /// <param name="linkedShipmentChannelPartnerOrderIds">The child linked shipment channel partner order ids.</param>
+        /// <param name="linkedShipmentOrderIds">The child linked shipment order ids.</param>
+        /// <param name="linkedShipmentToOrderId">The parent order id that this one is linked to.</param>
+        public OrderLinkedShipment(bool? hasLinkedShipment = default(bool?), bool? linkedShipment = default(bool?), List<string> linkedShipmentChannelPartnerOrderIds = default(List<string>), List<string> linkedShipmentOrderIds = default(List<string>), string linkedShipmentToOrderId = default(string))
         {
-            this.HasLinkedShipment = HasLinkedShipment;
-            this.LinkedShipment = LinkedShipment;
-            this.LinkedShipmentChannelPartnerOrderIds = LinkedShipmentChannelPartnerOrderIds;
-            this.LinkedShipmentOrderIds = LinkedShipmentOrderIds;
-            this.LinkedShipmentToOrderId = LinkedShipmentToOrderId;
+            this.HasLinkedShipment = hasLinkedShipment;
+            this.LinkedShipment = linkedShipment;
+            this.LinkedShipmentChannelPartnerOrderIds = linkedShipmentChannelPartnerOrderIds;
+            this.LinkedShipmentOrderIds = linkedShipmentOrderIds;
+            this.LinkedShipmentToOrderId = linkedShipmentToOrderId;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,36 +33,46 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailCommseqEmail" /> class.
         /// </summary>
-        /// <param name="Deleted">Deleted.</param>
-        /// <param name="EditedByUser">Edited by user.</param>
-        /// <param name="EmailCommunicationSequenceEmailUuid">Email communication sequence email uuid.</param>
-        /// <param name="EmailContainerCjson">Email container cjson.</param>
-        /// <param name="EmailTemplateVmPath">Email template virtual path.</param>
-        /// <param name="FilterProfileEquationJson">Filter profile equation json.</param>
-        /// <param name="IndividuallyRender">Individually render.</param>
-        /// <param name="MerchantId">Merchant ID.</param>
-        /// <param name="PreviewText">Preview text.</param>
-        /// <param name="SmartSending">Smart sending.</param>
-        /// <param name="StorefrontOid">Storefront oid.</param>
-        /// <param name="Subject">Subject.</param>
-        /// <param name="TransactionalEmail">Transactional email.</param>
-        /// <param name="Version">Version.</param>
-        public EmailCommseqEmail(bool? Deleted = default(bool?), string EditedByUser = default(string), string EmailCommunicationSequenceEmailUuid = default(string), string EmailContainerCjson = default(string), string EmailTemplateVmPath = default(string), string FilterProfileEquationJson = default(string), bool? IndividuallyRender = default(bool?), string MerchantId = default(string), string PreviewText = default(string), bool? SmartSending = default(bool?), int? StorefrontOid = default(int?), string Subject = default(string), bool? TransactionalEmail = default(bool?), int? Version = default(int?))
+        /// <param name="deleted">Deleted.</param>
+        /// <param name="editedByUser">Edited by user.</param>
+        /// <param name="emailCommunicationSequenceEmailUuid">Email communication sequence email uuid.</param>
+        /// <param name="emailCommunicationSequenceUuid">Email commseq UUID.</param>
+        /// <param name="emailContainerCjson">Email container cjson.</param>
+        /// <param name="emailContainerCjsonLastModifiedDts">Timestamp the last time the container was modified..</param>
+        /// <param name="emailTemplateVmPath">Email template virtual path.</param>
+        /// <param name="filterProfileEquationJson">Filter profile equation json.</param>
+        /// <param name="individuallyRender">Individually render.</param>
+        /// <param name="merchantId">Merchant ID.</param>
+        /// <param name="pendingReview">True if the content of this email is pending review by UltraCart.</param>
+        /// <param name="previewText">Preview text.</param>
+        /// <param name="rejected">True if the content of this email was rejected during review by UltraCart.</param>
+        /// <param name="requiresReview">True if the content of this email is requires review by UltraCart.</param>
+        /// <param name="smartSending">Smart sending.</param>
+        /// <param name="storefrontOid">Storefront oid.</param>
+        /// <param name="subject">Subject.</param>
+        /// <param name="transactionalEmail">Transactional email.</param>
+        /// <param name="version">Version.</param>
+        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? transactionalEmail = default(bool?), int? version = default(int?))
         {
-            this.Deleted = Deleted;
-            this.EditedByUser = EditedByUser;
-            this.EmailCommunicationSequenceEmailUuid = EmailCommunicationSequenceEmailUuid;
-            this.EmailContainerCjson = EmailContainerCjson;
-            this.EmailTemplateVmPath = EmailTemplateVmPath;
-            this.FilterProfileEquationJson = FilterProfileEquationJson;
-            this.IndividuallyRender = IndividuallyRender;
-            this.MerchantId = MerchantId;
-            this.PreviewText = PreviewText;
-            this.SmartSending = SmartSending;
-            this.StorefrontOid = StorefrontOid;
-            this.Subject = Subject;
-            this.TransactionalEmail = TransactionalEmail;
-            this.Version = Version;
+            this.Deleted = deleted;
+            this.EditedByUser = editedByUser;
+            this.EmailCommunicationSequenceEmailUuid = emailCommunicationSequenceEmailUuid;
+            this.EmailCommunicationSequenceUuid = emailCommunicationSequenceUuid;
+            this.EmailContainerCjson = emailContainerCjson;
+            this.EmailContainerCjsonLastModifiedDts = emailContainerCjsonLastModifiedDts;
+            this.EmailTemplateVmPath = emailTemplateVmPath;
+            this.FilterProfileEquationJson = filterProfileEquationJson;
+            this.IndividuallyRender = individuallyRender;
+            this.MerchantId = merchantId;
+            this.PendingReview = pendingReview;
+            this.PreviewText = previewText;
+            this.Rejected = rejected;
+            this.RequiresReview = requiresReview;
+            this.SmartSending = smartSending;
+            this.StorefrontOid = storefrontOid;
+            this.Subject = subject;
+            this.TransactionalEmail = transactionalEmail;
+            this.Version = version;
         }
         
         /// <summary>
@@ -87,11 +97,25 @@ namespace com.ultracart.admin.v2.Model
         public string EmailCommunicationSequenceEmailUuid { get; set; }
 
         /// <summary>
+        /// Email commseq UUID
+        /// </summary>
+        /// <value>Email commseq UUID</value>
+        [DataMember(Name="email_communication_sequence_uuid", EmitDefaultValue=false)]
+        public string EmailCommunicationSequenceUuid { get; set; }
+
+        /// <summary>
         /// Email container cjson
         /// </summary>
         /// <value>Email container cjson</value>
         [DataMember(Name="email_container_cjson", EmitDefaultValue=false)]
         public string EmailContainerCjson { get; set; }
+
+        /// <summary>
+        /// Timestamp the last time the container was modified.
+        /// </summary>
+        /// <value>Timestamp the last time the container was modified.</value>
+        [DataMember(Name="email_container_cjson_last_modified_dts", EmitDefaultValue=false)]
+        public string EmailContainerCjsonLastModifiedDts { get; set; }
 
         /// <summary>
         /// Email template virtual path
@@ -122,11 +146,32 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
+        /// True if the content of this email is pending review by UltraCart
+        /// </summary>
+        /// <value>True if the content of this email is pending review by UltraCart</value>
+        [DataMember(Name="pending_review", EmitDefaultValue=false)]
+        public bool? PendingReview { get; set; }
+
+        /// <summary>
         /// Preview text
         /// </summary>
         /// <value>Preview text</value>
         [DataMember(Name="preview_text", EmitDefaultValue=false)]
         public string PreviewText { get; set; }
+
+        /// <summary>
+        /// True if the content of this email was rejected during review by UltraCart
+        /// </summary>
+        /// <value>True if the content of this email was rejected during review by UltraCart</value>
+        [DataMember(Name="rejected", EmitDefaultValue=false)]
+        public bool? Rejected { get; set; }
+
+        /// <summary>
+        /// True if the content of this email is requires review by UltraCart
+        /// </summary>
+        /// <value>True if the content of this email is requires review by UltraCart</value>
+        [DataMember(Name="requires_review", EmitDefaultValue=false)]
+        public bool? RequiresReview { get; set; }
 
         /// <summary>
         /// Smart sending
@@ -174,12 +219,17 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EditedByUser: ").Append(EditedByUser).Append("\n");
             sb.Append("  EmailCommunicationSequenceEmailUuid: ").Append(EmailCommunicationSequenceEmailUuid).Append("\n");
+            sb.Append("  EmailCommunicationSequenceUuid: ").Append(EmailCommunicationSequenceUuid).Append("\n");
             sb.Append("  EmailContainerCjson: ").Append(EmailContainerCjson).Append("\n");
+            sb.Append("  EmailContainerCjsonLastModifiedDts: ").Append(EmailContainerCjsonLastModifiedDts).Append("\n");
             sb.Append("  EmailTemplateVmPath: ").Append(EmailTemplateVmPath).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
             sb.Append("  IndividuallyRender: ").Append(IndividuallyRender).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  PendingReview: ").Append(PendingReview).Append("\n");
             sb.Append("  PreviewText: ").Append(PreviewText).Append("\n");
+            sb.Append("  Rejected: ").Append(Rejected).Append("\n");
+            sb.Append("  RequiresReview: ").Append(RequiresReview).Append("\n");
             sb.Append("  SmartSending: ").Append(SmartSending).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
@@ -193,7 +243,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -235,9 +285,19 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailCommunicationSequenceEmailUuid.Equals(input.EmailCommunicationSequenceEmailUuid))
                 ) && 
                 (
+                    this.EmailCommunicationSequenceUuid == input.EmailCommunicationSequenceUuid ||
+                    (this.EmailCommunicationSequenceUuid != null &&
+                    this.EmailCommunicationSequenceUuid.Equals(input.EmailCommunicationSequenceUuid))
+                ) && 
+                (
                     this.EmailContainerCjson == input.EmailContainerCjson ||
                     (this.EmailContainerCjson != null &&
                     this.EmailContainerCjson.Equals(input.EmailContainerCjson))
+                ) && 
+                (
+                    this.EmailContainerCjsonLastModifiedDts == input.EmailContainerCjsonLastModifiedDts ||
+                    (this.EmailContainerCjsonLastModifiedDts != null &&
+                    this.EmailContainerCjsonLastModifiedDts.Equals(input.EmailContainerCjsonLastModifiedDts))
                 ) && 
                 (
                     this.EmailTemplateVmPath == input.EmailTemplateVmPath ||
@@ -260,9 +320,24 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
+                    this.PendingReview == input.PendingReview ||
+                    (this.PendingReview != null &&
+                    this.PendingReview.Equals(input.PendingReview))
+                ) && 
+                (
                     this.PreviewText == input.PreviewText ||
                     (this.PreviewText != null &&
                     this.PreviewText.Equals(input.PreviewText))
+                ) && 
+                (
+                    this.Rejected == input.Rejected ||
+                    (this.Rejected != null &&
+                    this.Rejected.Equals(input.Rejected))
+                ) && 
+                (
+                    this.RequiresReview == input.RequiresReview ||
+                    (this.RequiresReview != null &&
+                    this.RequiresReview.Equals(input.RequiresReview))
                 ) && 
                 (
                     this.SmartSending == input.SmartSending ||
@@ -306,8 +381,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EditedByUser.GetHashCode();
                 if (this.EmailCommunicationSequenceEmailUuid != null)
                     hashCode = hashCode * 59 + this.EmailCommunicationSequenceEmailUuid.GetHashCode();
+                if (this.EmailCommunicationSequenceUuid != null)
+                    hashCode = hashCode * 59 + this.EmailCommunicationSequenceUuid.GetHashCode();
                 if (this.EmailContainerCjson != null)
                     hashCode = hashCode * 59 + this.EmailContainerCjson.GetHashCode();
+                if (this.EmailContainerCjsonLastModifiedDts != null)
+                    hashCode = hashCode * 59 + this.EmailContainerCjsonLastModifiedDts.GetHashCode();
                 if (this.EmailTemplateVmPath != null)
                     hashCode = hashCode * 59 + this.EmailTemplateVmPath.GetHashCode();
                 if (this.FilterProfileEquationJson != null)
@@ -316,8 +395,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.IndividuallyRender.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.PendingReview != null)
+                    hashCode = hashCode * 59 + this.PendingReview.GetHashCode();
                 if (this.PreviewText != null)
                     hashCode = hashCode * 59 + this.PreviewText.GetHashCode();
+                if (this.Rejected != null)
+                    hashCode = hashCode * 59 + this.Rejected.GetHashCode();
+                if (this.RequiresReview != null)
+                    hashCode = hashCode * 59 + this.RequiresReview.GetHashCode();
                 if (this.SmartSending != null)
                     hashCode = hashCode * 59 + this.SmartSending.GetHashCode();
                 if (this.StorefrontOid != null)

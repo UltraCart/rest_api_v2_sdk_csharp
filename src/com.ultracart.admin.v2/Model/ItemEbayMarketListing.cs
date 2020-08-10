@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemEbayMarketListing" /> class.
         /// </summary>
-        /// <param name="AuctionId">Auction ID.</param>
-        /// <param name="Price">Price.</param>
-        /// <param name="Seller">Seller.</param>
-        /// <param name="Shipping">Shipping.</param>
-        /// <param name="Total">Total.</param>
-        public ItemEbayMarketListing(string AuctionId = default(string), decimal? Price = default(decimal?), string Seller = default(string), decimal? Shipping = default(decimal?), decimal? Total = default(decimal?))
+        /// <param name="auctionId">Auction ID.</param>
+        /// <param name="price">Price.</param>
+        /// <param name="seller">Seller.</param>
+        /// <param name="shipping">Shipping.</param>
+        /// <param name="total">Total.</param>
+        public ItemEbayMarketListing(string auctionId = default(string), decimal? price = default(decimal?), string seller = default(string), decimal? shipping = default(decimal?), decimal? total = default(decimal?))
         {
-            this.AuctionId = AuctionId;
-            this.Price = Price;
-            this.Seller = Seller;
-            this.Shipping = Shipping;
-            this.Total = Total;
+            this.AuctionId = auctionId;
+            this.Price = price;
+            this.Seller = seller;
+            this.Shipping = shipping;
+            this.Total = total;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

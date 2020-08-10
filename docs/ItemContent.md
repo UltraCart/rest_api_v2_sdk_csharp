@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Assignments** | [**List&lt;ItemContentAssignment&gt;**](ItemContentAssignment.md) | StoreFront assignments | [optional] 
 **Attributes** | [**List&lt;ItemContentAttribute&gt;**](ItemContentAttribute.md) | StoreFront attributes | [optional] 
+**CustomThankYouUrl** | **string** | Custom Thank You URL | [optional] 
 **ExcludeFromSearch** | **bool?** | Exclude from search | [optional] 
 **ExcludeFromTopSellers** | **bool?** | Exclude from the top sellers list in the StoreFront | [optional] 
 **ExtendedDescription** | **string** | Extended description (max 2000 characters) | [optional] 

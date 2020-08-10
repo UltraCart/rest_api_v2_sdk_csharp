@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemSalesforce" /> class.
         /// </summary>
-        /// <param name="SfdcPricebookId">Salesforce.com pricebook id.</param>
-        /// <param name="SfdcProductId">Salesforce.com product id.</param>
-        public ItemSalesforce(string SfdcPricebookId = default(string), string SfdcProductId = default(string))
+        /// <param name="sfdcPricebookId">Salesforce.com pricebook id.</param>
+        /// <param name="sfdcProductId">Salesforce.com product id.</param>
+        public ItemSalesforce(string sfdcPricebookId = default(string), string sfdcProductId = default(string))
         {
-            this.SfdcPricebookId = SfdcPricebookId;
-            this.SfdcProductId = SfdcProductId;
+            this.SfdcPricebookId = sfdcPricebookId;
+            this.SfdcProductId = sfdcProductId;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

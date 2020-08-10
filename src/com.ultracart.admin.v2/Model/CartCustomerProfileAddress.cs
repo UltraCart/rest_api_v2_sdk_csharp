@@ -33,36 +33,36 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartCustomerProfileAddress" /> class.
         /// </summary>
-        /// <param name="Address1">Address 1.</param>
-        /// <param name="Address2">Address 2.</param>
-        /// <param name="City">City.</param>
-        /// <param name="Company">Company.</param>
-        /// <param name="CountryCode">ISO-3166 Country code.</param>
-        /// <param name="DayPhone">Day phone.</param>
-        /// <param name="EveningPhone">Evening phone.</param>
-        /// <param name="FirstName">First name.</param>
-        /// <param name="LastName">Last name.</param>
-        /// <param name="Oid">Unique identifier for this address.</param>
-        /// <param name="PostalCode">Postal code.</param>
-        /// <param name="StateRegion">State for United States otherwise region or province for other countries.</param>
-        /// <param name="TaxCounty">Tax county if a billing address.</param>
-        /// <param name="Title">Title.</param>
-        public CartCustomerProfileAddress(string Address1 = default(string), string Address2 = default(string), string City = default(string), string Company = default(string), string CountryCode = default(string), string DayPhone = default(string), string EveningPhone = default(string), string FirstName = default(string), string LastName = default(string), int? Oid = default(int?), string PostalCode = default(string), string StateRegion = default(string), string TaxCounty = default(string), string Title = default(string))
+        /// <param name="address1">Address 1.</param>
+        /// <param name="address2">Address 2.</param>
+        /// <param name="city">City.</param>
+        /// <param name="company">Company.</param>
+        /// <param name="countryCode">ISO-3166 Country code.</param>
+        /// <param name="dayPhone">Day phone.</param>
+        /// <param name="eveningPhone">Evening phone.</param>
+        /// <param name="firstName">First name.</param>
+        /// <param name="lastName">Last name.</param>
+        /// <param name="oid">Unique identifier for this address.</param>
+        /// <param name="postalCode">Postal code.</param>
+        /// <param name="stateRegion">State for United States otherwise region or province for other countries.</param>
+        /// <param name="taxCounty">Tax county if a billing address.</param>
+        /// <param name="title">Title.</param>
+        public CartCustomerProfileAddress(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string eveningPhone = default(string), string firstName = default(string), string lastName = default(string), int? oid = default(int?), string postalCode = default(string), string stateRegion = default(string), string taxCounty = default(string), string title = default(string))
         {
-            this.Address1 = Address1;
-            this.Address2 = Address2;
-            this.City = City;
-            this.Company = Company;
-            this.CountryCode = CountryCode;
-            this.DayPhone = DayPhone;
-            this.EveningPhone = EveningPhone;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.Oid = Oid;
-            this.PostalCode = PostalCode;
-            this.StateRegion = StateRegion;
-            this.TaxCounty = TaxCounty;
-            this.Title = Title;
+            this.Address1 = address1;
+            this.Address2 = address2;
+            this.City = city;
+            this.Company = company;
+            this.CountryCode = countryCode;
+            this.DayPhone = dayPhone;
+            this.EveningPhone = eveningPhone;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Oid = oid;
+            this.PostalCode = postalCode;
+            this.StateRegion = stateRegion;
+            this.TaxCounty = taxCounty;
+            this.Title = title;
         }
         
         /// <summary>
@@ -193,7 +193,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

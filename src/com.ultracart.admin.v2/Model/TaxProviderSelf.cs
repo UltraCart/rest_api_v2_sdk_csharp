@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxProviderSelf" /> class.
         /// </summary>
-        /// <param name="Configuration">Configuration.</param>
-        /// <param name="Countries">Countries that collect sales tax.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="Selected">Selected.</param>
-        /// <param name="Title">Title.</param>
-        public TaxProviderSelf(SelfConfig Configuration = default(SelfConfig), List<TaxCountry> Countries = default(List<TaxCountry>), string Description = default(string), bool? Selected = default(bool?), string Title = default(string))
+        /// <param name="configuration">configuration.</param>
+        /// <param name="countries">Countries that collect sales tax.</param>
+        /// <param name="description">Description.</param>
+        /// <param name="selected">Selected.</param>
+        /// <param name="title">Title.</param>
+        public TaxProviderSelf(SelfConfig configuration = default(SelfConfig), List<TaxCountry> countries = default(List<TaxCountry>), string description = default(string), bool? selected = default(bool?), string title = default(string))
         {
-            this.Configuration = Configuration;
-            this.Countries = Countries;
-            this.Description = Description;
-            this.Selected = Selected;
-            this.Title = Title;
+            this.Configuration = configuration;
+            this.Countries = countries;
+            this.Description = description;
+            this.Selected = selected;
+            this.Title = title;
         }
         
         /// <summary>
@@ -102,7 +102,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

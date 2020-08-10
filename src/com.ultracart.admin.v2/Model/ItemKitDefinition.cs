@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemKitDefinition" /> class.
         /// </summary>
-        /// <param name="Components">Components.</param>
-        public ItemKitDefinition(List<ItemKitComponent> Components = default(List<ItemKitComponent>))
+        /// <param name="components">Components.</param>
+        public ItemKitDefinition(List<ItemKitComponent> components = default(List<ItemKitComponent>))
         {
-            this.Components = Components;
+            this.Components = components;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailListCustomer" /> class.
         /// </summary>
-        /// <param name="AddDts">Added timestamp.</param>
-        /// <param name="Email">Email.</param>
-        /// <param name="EmailCustomerUuid">Email customer UUID.</param>
-        /// <param name="EmailListMemberUuid">Email list member UUID.</param>
-        public EmailListCustomer(string AddDts = default(string), string Email = default(string), string EmailCustomerUuid = default(string), string EmailListMemberUuid = default(string))
+        /// <param name="addDts">Added timestamp.</param>
+        /// <param name="email">Email.</param>
+        /// <param name="emailCustomerUuid">Email customer UUID.</param>
+        /// <param name="emailListMemberUuid">Email list member UUID.</param>
+        public EmailListCustomer(string addDts = default(string), string email = default(string), string emailCustomerUuid = default(string), string emailListMemberUuid = default(string))
         {
-            this.AddDts = AddDts;
-            this.Email = Email;
-            this.EmailCustomerUuid = EmailCustomerUuid;
-            this.EmailListMemberUuid = EmailListMemberUuid;
+            this.AddDts = addDts;
+            this.Email = email;
+            this.EmailCustomerUuid = emailCustomerUuid;
+            this.EmailListMemberUuid = emailListMemberUuid;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

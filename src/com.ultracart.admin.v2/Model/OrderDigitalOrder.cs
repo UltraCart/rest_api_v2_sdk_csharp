@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderDigitalOrder" /> class.
         /// </summary>
-        /// <param name="CreationDts">Date/time that the digital order was created.</param>
-        /// <param name="ExpirationDts">Expiration date/time of the digital order.</param>
-        /// <param name="Items">Digital items associated with the digital order.</param>
-        /// <param name="Url">URL where the customer can go to and download their digital order content.</param>
-        /// <param name="UrlId">URL ID is a unique code that is part of the URLs.</param>
-        public OrderDigitalOrder(string CreationDts = default(string), string ExpirationDts = default(string), List<OrderDigitalItem> Items = default(List<OrderDigitalItem>), string Url = default(string), string UrlId = default(string))
+        /// <param name="creationDts">Date/time that the digital order was created.</param>
+        /// <param name="expirationDts">Expiration date/time of the digital order.</param>
+        /// <param name="items">Digital items associated with the digital order.</param>
+        /// <param name="url">URL where the customer can go to and download their digital order content.</param>
+        /// <param name="urlId">URL ID is a unique code that is part of the URLs.</param>
+        public OrderDigitalOrder(string creationDts = default(string), string expirationDts = default(string), List<OrderDigitalItem> items = default(List<OrderDigitalItem>), string url = default(string), string urlId = default(string))
         {
-            this.CreationDts = CreationDts;
-            this.ExpirationDts = ExpirationDts;
-            this.Items = Items;
-            this.Url = Url;
-            this.UrlId = UrlId;
+            this.CreationDts = creationDts;
+            this.ExpirationDts = expirationDts;
+            this.Items = items;
+            this.Url = url;
+            this.UrlId = urlId;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderReplacementResponse" /> class.
         /// </summary>
-        /// <param name="ChargeSuccessful">ChargeSuccessful.</param>
-        /// <param name="ErrorMessage">ErrorMessage.</param>
-        /// <param name="Feedback">Feedback.</param>
-        /// <param name="Free">Free.</param>
-        /// <param name="OrderId">OrderId.</param>
-        /// <param name="Successful">Successful.</param>
-        public OrderReplacementResponse(bool? ChargeSuccessful = default(bool?), string ErrorMessage = default(string), string Feedback = default(string), bool? Free = default(bool?), string OrderId = default(string), bool? Successful = default(bool?))
+        /// <param name="chargeSuccessful">chargeSuccessful.</param>
+        /// <param name="errorMessage">errorMessage.</param>
+        /// <param name="feedback">feedback.</param>
+        /// <param name="free">free.</param>
+        /// <param name="orderId">orderId.</param>
+        /// <param name="successful">successful.</param>
+        public OrderReplacementResponse(bool? chargeSuccessful = default(bool?), string errorMessage = default(string), string feedback = default(string), bool? free = default(bool?), string orderId = default(string), bool? successful = default(bool?))
         {
-            this.ChargeSuccessful = ChargeSuccessful;
-            this.ErrorMessage = ErrorMessage;
-            this.Feedback = Feedback;
-            this.Free = Free;
-            this.OrderId = OrderId;
-            this.Successful = Successful;
+            this.ChargeSuccessful = chargeSuccessful;
+            this.ErrorMessage = errorMessage;
+            this.Feedback = feedback;
+            this.Free = free;
+            this.OrderId = orderId;
+            this.Successful = successful;
         }
         
         /// <summary>
@@ -107,7 +107,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

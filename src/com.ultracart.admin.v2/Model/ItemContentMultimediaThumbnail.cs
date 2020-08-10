@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemContentMultimediaThumbnail" /> class.
         /// </summary>
-        /// <param name="Height">Height of the thumbnail.</param>
-        /// <param name="HttpUrl">HTTP URL to view the thumbnail.</param>
-        /// <param name="HttpsUrl">HTTPS URL to view the thumbnail.</param>
-        /// <param name="PngFormat">True if PNG, false if JPEG.</param>
-        /// <param name="Square">True if the thumbnail is square.</param>
-        /// <param name="Width">Width of the thumbnail.</param>
-        public ItemContentMultimediaThumbnail(int? Height = default(int?), string HttpUrl = default(string), string HttpsUrl = default(string), bool? PngFormat = default(bool?), bool? Square = default(bool?), int? Width = default(int?))
+        /// <param name="height">Height of the thumbnail.</param>
+        /// <param name="httpUrl">HTTP URL to view the thumbnail.</param>
+        /// <param name="httpsUrl">HTTPS URL to view the thumbnail.</param>
+        /// <param name="pngFormat">True if PNG, false if JPEG.</param>
+        /// <param name="square">True if the thumbnail is square.</param>
+        /// <param name="width">Width of the thumbnail.</param>
+        public ItemContentMultimediaThumbnail(int? height = default(int?), string httpUrl = default(string), string httpsUrl = default(string), bool? pngFormat = default(bool?), bool? square = default(bool?), int? width = default(int?))
         {
-            this.Height = Height;
-            this.HttpUrl = HttpUrl;
-            this.HttpsUrl = HttpsUrl;
-            this.PngFormat = PngFormat;
-            this.Square = Square;
-            this.Width = Width;
+            this.Height = height;
+            this.HttpUrl = httpUrl;
+            this.HttpsUrl = httpsUrl;
+            this.PngFormat = pngFormat;
+            this.Square = square;
+            this.Width = width;
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

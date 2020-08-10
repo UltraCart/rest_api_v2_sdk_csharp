@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Currency" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">Currency code of the localized value.</param>
-        /// <param name="ExchangeRate">Exchange rate used to localize.</param>
-        /// <param name="Localized">Value localized to the customer.</param>
-        /// <param name="LocalizedFormatted">Value localized and formatted for the customer.</param>
-        /// <param name="Value">Value in base currency.</param>
-        public Currency(string CurrencyCode = default(string), decimal? ExchangeRate = default(decimal?), decimal? Localized = default(decimal?), string LocalizedFormatted = default(string), decimal? Value = default(decimal?))
+        /// <param name="currencyCode">Currency code of the localized value.</param>
+        /// <param name="exchangeRate">Exchange rate used to localize.</param>
+        /// <param name="localized">Value localized to the customer.</param>
+        /// <param name="localizedFormatted">Value localized and formatted for the customer.</param>
+        /// <param name="value">Value in base currency.</param>
+        public Currency(string currencyCode = default(string), decimal? exchangeRate = default(decimal?), decimal? localized = default(decimal?), string localizedFormatted = default(string), decimal? value = default(decimal?))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.ExchangeRate = ExchangeRate;
-            this.Localized = Localized;
-            this.LocalizedFormatted = LocalizedFormatted;
-            this.Value = Value;
+            this.CurrencyCode = currencyCode;
+            this.ExchangeRate = exchangeRate;
+            this.Localized = localized;
+            this.LocalizedFormatted = localizedFormatted;
+            this.Value = value;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

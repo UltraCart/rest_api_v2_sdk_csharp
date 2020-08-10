@@ -33,22 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailSegmentDownloadPrepareResponse" /> class.
         /// </summary>
-        /// <param name="EmailSegmentRebuildUuid">EmailSegmentRebuildUuid.</param>
-        /// <param name="EmailSegmentUuid">EmailSegmentUuid.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="PercentageComplete">PercentageComplete.</param>
-        /// <param name="Proceed">Proceed.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public EmailSegmentDownloadPrepareResponse(string EmailSegmentRebuildUuid = default(string), string EmailSegmentUuid = default(string), Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), decimal? PercentageComplete = default(decimal?), bool? Proceed = default(bool?), bool? Success = default(bool?))
+        /// <param name="emailSegmentRebuildUuid">emailSegmentRebuildUuid.</param>
+        /// <param name="emailSegmentUuid">emailSegmentUuid.</param>
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="percentageComplete">percentageComplete.</param>
+        /// <param name="proceed">proceed.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public EmailSegmentDownloadPrepareResponse(string emailSegmentRebuildUuid = default(string), string emailSegmentUuid = default(string), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), decimal? percentageComplete = default(decimal?), bool? proceed = default(bool?), bool? success = default(bool?))
         {
-            this.EmailSegmentRebuildUuid = EmailSegmentRebuildUuid;
-            this.EmailSegmentUuid = EmailSegmentUuid;
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.PercentageComplete = PercentageComplete;
-            this.Proceed = Proceed;
-            this.Success = Success;
+            this.EmailSegmentRebuildUuid = emailSegmentRebuildUuid;
+            this.EmailSegmentUuid = emailSegmentUuid;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.PercentageComplete = percentageComplete;
+            this.Proceed = proceed;
+            this.Success = success;
         }
         
         /// <summary>
@@ -117,7 +117,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

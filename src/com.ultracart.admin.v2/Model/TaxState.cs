@@ -33,38 +33,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxState" /> class.
         /// </summary>
-        /// <param name="AccountingCode">Accounting code for programs such as QuickBooks.</param>
-        /// <param name="Counties">Counties within this state.</param>
-        /// <param name="CountryOid">Tax record object identifier used internally by database.</param>
-        /// <param name="DontCollectCity">Flag instructing engine to not collect city tax for this state.</param>
-        /// <param name="DontCollectCounty">Flag instructing engine to not collect county tax for this state.</param>
-        /// <param name="DontCollectPostalCode">Flag instructing engine to not collect postal code tax for this state.</param>
-        /// <param name="DontCollectState">Flag instructing engine to not collect state tax for this state.</param>
-        /// <param name="StateCode">State code.</param>
-        /// <param name="StateOid">Tax record object identifier used internally by database.</param>
-        /// <param name="TaxGiftCharge">True if taxation within this jurisdiction should charge tax on gift charge.</param>
-        /// <param name="TaxGiftWrap">True if taxation within this jurisdiction should charge tax on gift wrap.</param>
-        /// <param name="TaxRate">Tax Rate.</param>
-        /// <param name="TaxRateFormatted">Tax rate formatted.</param>
-        /// <param name="TaxShipping">True if taxation within this jurisdiction should charge tax on shipping.</param>
-        /// <param name="UseUltracartManagedRates">If true, use UltraCart managed rates for this state.</param>
-        public TaxState(string AccountingCode = default(string), List<TaxCounty> Counties = default(List<TaxCounty>), int? CountryOid = default(int?), bool? DontCollectCity = default(bool?), bool? DontCollectCounty = default(bool?), bool? DontCollectPostalCode = default(bool?), bool? DontCollectState = default(bool?), string StateCode = default(string), int? StateOid = default(int?), bool? TaxGiftCharge = default(bool?), bool? TaxGiftWrap = default(bool?), decimal? TaxRate = default(decimal?), string TaxRateFormatted = default(string), bool? TaxShipping = default(bool?), bool? UseUltracartManagedRates = default(bool?))
+        /// <param name="accountingCode">Accounting code for programs such as QuickBooks.</param>
+        /// <param name="counties">Counties within this state.</param>
+        /// <param name="countryOid">Tax record object identifier used internally by database.</param>
+        /// <param name="dontCollectCity">Flag instructing engine to not collect city tax for this state.</param>
+        /// <param name="dontCollectCounty">Flag instructing engine to not collect county tax for this state.</param>
+        /// <param name="dontCollectPostalCode">Flag instructing engine to not collect postal code tax for this state.</param>
+        /// <param name="dontCollectState">Flag instructing engine to not collect state tax for this state.</param>
+        /// <param name="stateCode">State code.</param>
+        /// <param name="stateOid">Tax record object identifier used internally by database.</param>
+        /// <param name="taxGiftCharge">True if taxation within this jurisdiction should charge tax on gift charge.</param>
+        /// <param name="taxGiftWrap">True if taxation within this jurisdiction should charge tax on gift wrap.</param>
+        /// <param name="taxRate">Tax Rate.</param>
+        /// <param name="taxRateFormatted">Tax rate formatted.</param>
+        /// <param name="taxShipping">True if taxation within this jurisdiction should charge tax on shipping.</param>
+        /// <param name="useUltracartManagedRates">If true, use UltraCart managed rates for this state.</param>
+        public TaxState(string accountingCode = default(string), List<TaxCounty> counties = default(List<TaxCounty>), int? countryOid = default(int?), bool? dontCollectCity = default(bool?), bool? dontCollectCounty = default(bool?), bool? dontCollectPostalCode = default(bool?), bool? dontCollectState = default(bool?), string stateCode = default(string), int? stateOid = default(int?), bool? taxGiftCharge = default(bool?), bool? taxGiftWrap = default(bool?), decimal? taxRate = default(decimal?), string taxRateFormatted = default(string), bool? taxShipping = default(bool?), bool? useUltracartManagedRates = default(bool?))
         {
-            this.AccountingCode = AccountingCode;
-            this.Counties = Counties;
-            this.CountryOid = CountryOid;
-            this.DontCollectCity = DontCollectCity;
-            this.DontCollectCounty = DontCollectCounty;
-            this.DontCollectPostalCode = DontCollectPostalCode;
-            this.DontCollectState = DontCollectState;
-            this.StateCode = StateCode;
-            this.StateOid = StateOid;
-            this.TaxGiftCharge = TaxGiftCharge;
-            this.TaxGiftWrap = TaxGiftWrap;
-            this.TaxRate = TaxRate;
-            this.TaxRateFormatted = TaxRateFormatted;
-            this.TaxShipping = TaxShipping;
-            this.UseUltracartManagedRates = UseUltracartManagedRates;
+            this.AccountingCode = accountingCode;
+            this.Counties = counties;
+            this.CountryOid = countryOid;
+            this.DontCollectCity = dontCollectCity;
+            this.DontCollectCounty = dontCollectCounty;
+            this.DontCollectPostalCode = dontCollectPostalCode;
+            this.DontCollectState = dontCollectState;
+            this.StateCode = stateCode;
+            this.StateOid = stateOid;
+            this.TaxGiftCharge = taxGiftCharge;
+            this.TaxGiftWrap = taxGiftWrap;
+            this.TaxRate = taxRate;
+            this.TaxRateFormatted = taxRateFormatted;
+            this.TaxShipping = taxShipping;
+            this.UseUltracartManagedRates = useUltracartManagedRates;
         }
         
         /// <summary>
@@ -203,7 +203,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartGiftCertificate" /> class.
         /// </summary>
-        /// <param name="GiftCertificateAmount">GiftCertificateAmount.</param>
-        /// <param name="GiftCertificateCode">Gift certificate code.</param>
-        /// <param name="GiftCertificateRemainingBalanceAfterOrder">GiftCertificateRemainingBalanceAfterOrder.</param>
-        public CartGiftCertificate(Currency GiftCertificateAmount = default(Currency), string GiftCertificateCode = default(string), Currency GiftCertificateRemainingBalanceAfterOrder = default(Currency))
+        /// <param name="giftCertificateAmount">giftCertificateAmount.</param>
+        /// <param name="giftCertificateCode">Gift certificate code.</param>
+        /// <param name="giftCertificateRemainingBalanceAfterOrder">giftCertificateRemainingBalanceAfterOrder.</param>
+        public CartGiftCertificate(Currency giftCertificateAmount = default(Currency), string giftCertificateCode = default(string), Currency giftCertificateRemainingBalanceAfterOrder = default(Currency))
         {
-            this.GiftCertificateAmount = GiftCertificateAmount;
-            this.GiftCertificateCode = GiftCertificateCode;
-            this.GiftCertificateRemainingBalanceAfterOrder = GiftCertificateRemainingBalanceAfterOrder;
+            this.GiftCertificateAmount = giftCertificateAmount;
+            this.GiftCertificateCode = giftCertificateCode;
+            this.GiftCertificateRemainingBalanceAfterOrder = giftCertificateRemainingBalanceAfterOrder;
         }
         
         /// <summary>
@@ -81,7 +81,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

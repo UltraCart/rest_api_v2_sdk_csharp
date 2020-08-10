@@ -33,46 +33,46 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoOrderQuery" /> class.
         /// </summary>
-        /// <param name="AutoOrderCode">Auto order code.</param>
-        /// <param name="CardType">Card type.</param>
-        /// <param name="City">City.</param>
-        /// <param name="Company">Company.</param>
-        /// <param name="CountryCode">ISO-3166 two letter country code.</param>
-        /// <param name="CustomerProfileOid">Customer profile object identifier.</param>
-        /// <param name="Email">Email.</param>
-        /// <param name="FirstName">First name.</param>
-        /// <param name="ItemId">Item ID.</param>
-        /// <param name="LastName">Last name.</param>
-        /// <param name="NextShipmentDateBegin">Next shipment date begin.</param>
-        /// <param name="NextShipmentDateEnd">Next shipment date end.</param>
-        /// <param name="OriginalOrderDateBegin">Original order date begin.</param>
-        /// <param name="OriginalOrderDateEnd">Original order date end.</param>
-        /// <param name="OriginalOrderId">Original order ID.</param>
-        /// <param name="Phone">Phone.</param>
-        /// <param name="PostalCode">Postal code.</param>
-        /// <param name="State">State.</param>
-        /// <param name="Status">Status.</param>
-        public AutoOrderQuery(string AutoOrderCode = default(string), string CardType = default(string), string City = default(string), string Company = default(string), string CountryCode = default(string), int? CustomerProfileOid = default(int?), string Email = default(string), string FirstName = default(string), string ItemId = default(string), string LastName = default(string), string NextShipmentDateBegin = default(string), string NextShipmentDateEnd = default(string), string OriginalOrderDateBegin = default(string), string OriginalOrderDateEnd = default(string), string OriginalOrderId = default(string), string Phone = default(string), string PostalCode = default(string), string State = default(string), string Status = default(string))
+        /// <param name="autoOrderCode">Auto order code.</param>
+        /// <param name="cardType">Card type.</param>
+        /// <param name="city">City.</param>
+        /// <param name="company">Company.</param>
+        /// <param name="countryCode">ISO-3166 two letter country code.</param>
+        /// <param name="customerProfileOid">Customer profile object identifier.</param>
+        /// <param name="email">Email.</param>
+        /// <param name="firstName">First name.</param>
+        /// <param name="itemId">Item ID.</param>
+        /// <param name="lastName">Last name.</param>
+        /// <param name="nextShipmentDateBegin">Next shipment date begin.</param>
+        /// <param name="nextShipmentDateEnd">Next shipment date end.</param>
+        /// <param name="originalOrderDateBegin">Original order date begin.</param>
+        /// <param name="originalOrderDateEnd">Original order date end.</param>
+        /// <param name="originalOrderId">Original order ID.</param>
+        /// <param name="phone">Phone.</param>
+        /// <param name="postalCode">Postal code.</param>
+        /// <param name="state">State.</param>
+        /// <param name="status">Status.</param>
+        public AutoOrderQuery(string autoOrderCode = default(string), string cardType = default(string), string city = default(string), string company = default(string), string countryCode = default(string), int? customerProfileOid = default(int?), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string nextShipmentDateBegin = default(string), string nextShipmentDateEnd = default(string), string originalOrderDateBegin = default(string), string originalOrderDateEnd = default(string), string originalOrderId = default(string), string phone = default(string), string postalCode = default(string), string state = default(string), string status = default(string))
         {
-            this.AutoOrderCode = AutoOrderCode;
-            this.CardType = CardType;
-            this.City = City;
-            this.Company = Company;
-            this.CountryCode = CountryCode;
-            this.CustomerProfileOid = CustomerProfileOid;
-            this.Email = Email;
-            this.FirstName = FirstName;
-            this.ItemId = ItemId;
-            this.LastName = LastName;
-            this.NextShipmentDateBegin = NextShipmentDateBegin;
-            this.NextShipmentDateEnd = NextShipmentDateEnd;
-            this.OriginalOrderDateBegin = OriginalOrderDateBegin;
-            this.OriginalOrderDateEnd = OriginalOrderDateEnd;
-            this.OriginalOrderId = OriginalOrderId;
-            this.Phone = Phone;
-            this.PostalCode = PostalCode;
-            this.State = State;
-            this.Status = Status;
+            this.AutoOrderCode = autoOrderCode;
+            this.CardType = cardType;
+            this.City = city;
+            this.Company = company;
+            this.CountryCode = countryCode;
+            this.CustomerProfileOid = customerProfileOid;
+            this.Email = email;
+            this.FirstName = firstName;
+            this.ItemId = itemId;
+            this.LastName = lastName;
+            this.NextShipmentDateBegin = nextShipmentDateBegin;
+            this.NextShipmentDateEnd = nextShipmentDateEnd;
+            this.OriginalOrderDateBegin = originalOrderDateBegin;
+            this.OriginalOrderDateEnd = originalOrderDateEnd;
+            this.OriginalOrderId = originalOrderId;
+            this.Phone = phone;
+            this.PostalCode = postalCode;
+            this.State = state;
+            this.Status = status;
         }
         
         /// <summary>
@@ -243,7 +243,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

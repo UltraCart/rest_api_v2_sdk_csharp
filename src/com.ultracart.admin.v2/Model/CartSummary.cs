@@ -33,40 +33,40 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSummary" /> class.
         /// </summary>
-        /// <param name="ArbitraryShippingHandlingTotal">ArbitraryShippingHandlingTotal.</param>
-        /// <param name="ArbitraryTax">ArbitraryTax.</param>
-        /// <param name="ArbitraryTaxRate">ArbitraryTaxRate.</param>
-        /// <param name="ArbitraryTaxableSubtotal">ArbitraryTaxableSubtotal.</param>
-        /// <param name="ShippingHandling">ShippingHandling.</param>
-        /// <param name="ShippingHandlingDiscount">ShippingHandlingDiscount.</param>
-        /// <param name="ShippingHandlingWithDiscount">ShippingHandlingWithDiscount.</param>
-        /// <param name="Subtotal">Subtotal.</param>
-        /// <param name="SubtotalDiscount">SubtotalDiscount.</param>
-        /// <param name="SubtotalWithDiscount">SubtotalWithDiscount.</param>
-        /// <param name="Surcharge">Surcharge.</param>
-        /// <param name="Tax">Tax.</param>
-        /// <param name="TaxableSubtotal">TaxableSubtotal.</param>
-        /// <param name="TaxableSubtotalDiscount">TaxableSubtotalDiscount.</param>
-        /// <param name="TaxableSubtotalWithDiscount">TaxableSubtotalWithDiscount.</param>
-        /// <param name="Total">Total.</param>
-        public CartSummary(Currency ArbitraryShippingHandlingTotal = default(Currency), Currency ArbitraryTax = default(Currency), Currency ArbitraryTaxRate = default(Currency), Currency ArbitraryTaxableSubtotal = default(Currency), Currency ShippingHandling = default(Currency), Currency ShippingHandlingDiscount = default(Currency), Currency ShippingHandlingWithDiscount = default(Currency), Currency Subtotal = default(Currency), Currency SubtotalDiscount = default(Currency), Currency SubtotalWithDiscount = default(Currency), Currency Surcharge = default(Currency), Currency Tax = default(Currency), Currency TaxableSubtotal = default(Currency), Currency TaxableSubtotalDiscount = default(Currency), Currency TaxableSubtotalWithDiscount = default(Currency), Currency Total = default(Currency))
+        /// <param name="arbitraryShippingHandlingTotal">arbitraryShippingHandlingTotal.</param>
+        /// <param name="arbitraryTax">arbitraryTax.</param>
+        /// <param name="arbitraryTaxRate">arbitraryTaxRate.</param>
+        /// <param name="arbitraryTaxableSubtotal">arbitraryTaxableSubtotal.</param>
+        /// <param name="shippingHandling">shippingHandling.</param>
+        /// <param name="shippingHandlingDiscount">shippingHandlingDiscount.</param>
+        /// <param name="shippingHandlingWithDiscount">shippingHandlingWithDiscount.</param>
+        /// <param name="subtotal">subtotal.</param>
+        /// <param name="subtotalDiscount">subtotalDiscount.</param>
+        /// <param name="subtotalWithDiscount">subtotalWithDiscount.</param>
+        /// <param name="surcharge">surcharge.</param>
+        /// <param name="tax">tax.</param>
+        /// <param name="taxableSubtotal">taxableSubtotal.</param>
+        /// <param name="taxableSubtotalDiscount">taxableSubtotalDiscount.</param>
+        /// <param name="taxableSubtotalWithDiscount">taxableSubtotalWithDiscount.</param>
+        /// <param name="total">total.</param>
+        public CartSummary(Currency arbitraryShippingHandlingTotal = default(Currency), Currency arbitraryTax = default(Currency), Currency arbitraryTaxRate = default(Currency), Currency arbitraryTaxableSubtotal = default(Currency), Currency shippingHandling = default(Currency), Currency shippingHandlingDiscount = default(Currency), Currency shippingHandlingWithDiscount = default(Currency), Currency subtotal = default(Currency), Currency subtotalDiscount = default(Currency), Currency subtotalWithDiscount = default(Currency), Currency surcharge = default(Currency), Currency tax = default(Currency), Currency taxableSubtotal = default(Currency), Currency taxableSubtotalDiscount = default(Currency), Currency taxableSubtotalWithDiscount = default(Currency), Currency total = default(Currency))
         {
-            this.ArbitraryShippingHandlingTotal = ArbitraryShippingHandlingTotal;
-            this.ArbitraryTax = ArbitraryTax;
-            this.ArbitraryTaxRate = ArbitraryTaxRate;
-            this.ArbitraryTaxableSubtotal = ArbitraryTaxableSubtotal;
-            this.ShippingHandling = ShippingHandling;
-            this.ShippingHandlingDiscount = ShippingHandlingDiscount;
-            this.ShippingHandlingWithDiscount = ShippingHandlingWithDiscount;
-            this.Subtotal = Subtotal;
-            this.SubtotalDiscount = SubtotalDiscount;
-            this.SubtotalWithDiscount = SubtotalWithDiscount;
-            this.Surcharge = Surcharge;
-            this.Tax = Tax;
-            this.TaxableSubtotal = TaxableSubtotal;
-            this.TaxableSubtotalDiscount = TaxableSubtotalDiscount;
-            this.TaxableSubtotalWithDiscount = TaxableSubtotalWithDiscount;
-            this.Total = Total;
+            this.ArbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+            this.ArbitraryTax = arbitraryTax;
+            this.ArbitraryTaxRate = arbitraryTaxRate;
+            this.ArbitraryTaxableSubtotal = arbitraryTaxableSubtotal;
+            this.ShippingHandling = shippingHandling;
+            this.ShippingHandlingDiscount = shippingHandlingDiscount;
+            this.ShippingHandlingWithDiscount = shippingHandlingWithDiscount;
+            this.Subtotal = subtotal;
+            this.SubtotalDiscount = subtotalDiscount;
+            this.SubtotalWithDiscount = subtotalWithDiscount;
+            this.Surcharge = surcharge;
+            this.Tax = tax;
+            this.TaxableSubtotal = taxableSubtotal;
+            this.TaxableSubtotalDiscount = taxableSubtotalDiscount;
+            this.TaxableSubtotalWithDiscount = taxableSubtotalWithDiscount;
+            this.Total = total;
         }
         
         /// <summary>
@@ -197,7 +197,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

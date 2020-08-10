@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingDestinationMarkup" /> class.
         /// </summary>
-        /// <param name="CountryCode">Country code (ISO-3166 two letter).</param>
-        /// <param name="FlatFee">Flat fee.</param>
-        /// <param name="PerItem">Per item.</param>
-        /// <param name="PostalCode">Postal code.</param>
-        /// <param name="ShippingMethod">Shipping method.</param>
-        /// <param name="State">State.</param>
-        public ItemShippingDestinationMarkup(string CountryCode = default(string), decimal? FlatFee = default(decimal?), decimal? PerItem = default(decimal?), string PostalCode = default(string), string ShippingMethod = default(string), string State = default(string))
+        /// <param name="countryCode">Country code (ISO-3166 two letter).</param>
+        /// <param name="flatFee">Flat fee.</param>
+        /// <param name="perItem">Per item.</param>
+        /// <param name="postalCode">Postal code.</param>
+        /// <param name="shippingMethod">Shipping method.</param>
+        /// <param name="state">State.</param>
+        public ItemShippingDestinationMarkup(string countryCode = default(string), decimal? flatFee = default(decimal?), decimal? perItem = default(decimal?), string postalCode = default(string), string shippingMethod = default(string), string state = default(string))
         {
-            this.CountryCode = CountryCode;
-            this.FlatFee = FlatFee;
-            this.PerItem = PerItem;
-            this.PostalCode = PostalCode;
-            this.ShippingMethod = ShippingMethod;
-            this.State = State;
+            this.CountryCode = countryCode;
+            this.FlatFee = flatFee;
+            this.PerItem = perItem;
+            this.PostalCode = postalCode;
+            this.ShippingMethod = shippingMethod;
+            this.State = state;
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

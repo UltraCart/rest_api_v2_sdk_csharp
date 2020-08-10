@@ -33,26 +33,26 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookEventSubscription" /> class.
         /// </summary>
-        /// <param name="Comments">Comment about the event to provide further clarification to the end user.</param>
-        /// <param name="DeprecatedFlag">True if the event is deprecated.  See the API change log for details on when it will be discontinued..</param>
-        /// <param name="DiscontinuedFlag">True if the event is discontinued.  See the API change log for details on migration details..</param>
-        /// <param name="EventDescription">Description of the event.</param>
-        /// <param name="EventName">Event name.</param>
-        /// <param name="Expansion">The expand string for the notification object.  See the individual resource _expand documentation for valid values..</param>
-        /// <param name="Subscribed">True if this is event is subscribed to.</param>
-        /// <param name="SupportsReflow">True if the event can be triggered to reflow existing records.</param>
-        /// <param name="WebhookEventOid">The webhook event object identifier.</param>
-        public WebhookEventSubscription(string Comments = default(string), bool? DeprecatedFlag = default(bool?), bool? DiscontinuedFlag = default(bool?), string EventDescription = default(string), string EventName = default(string), string Expansion = default(string), bool? Subscribed = default(bool?), bool? SupportsReflow = default(bool?), int? WebhookEventOid = default(int?))
+        /// <param name="comments">Comment about the event to provide further clarification to the end user.</param>
+        /// <param name="deprecatedFlag">True if the event is deprecated.  See the API change log for details on when it will be discontinued..</param>
+        /// <param name="discontinuedFlag">True if the event is discontinued.  See the API change log for details on migration details..</param>
+        /// <param name="eventDescription">Description of the event.</param>
+        /// <param name="eventName">Event name.</param>
+        /// <param name="expansion">The expand string for the notification object.  See the individual resource _expand documentation for valid values..</param>
+        /// <param name="subscribed">True if this is event is subscribed to.</param>
+        /// <param name="supportsReflow">True if the event can be triggered to reflow existing records.</param>
+        /// <param name="webhookEventOid">The webhook event object identifier.</param>
+        public WebhookEventSubscription(string comments = default(string), bool? deprecatedFlag = default(bool?), bool? discontinuedFlag = default(bool?), string eventDescription = default(string), string eventName = default(string), string expansion = default(string), bool? subscribed = default(bool?), bool? supportsReflow = default(bool?), int? webhookEventOid = default(int?))
         {
-            this.Comments = Comments;
-            this.DeprecatedFlag = DeprecatedFlag;
-            this.DiscontinuedFlag = DiscontinuedFlag;
-            this.EventDescription = EventDescription;
-            this.EventName = EventName;
-            this.Expansion = Expansion;
-            this.Subscribed = Subscribed;
-            this.SupportsReflow = SupportsReflow;
-            this.WebhookEventOid = WebhookEventOid;
+            this.Comments = comments;
+            this.DeprecatedFlag = deprecatedFlag;
+            this.DiscontinuedFlag = discontinuedFlag;
+            this.EventDescription = eventDescription;
+            this.EventName = eventName;
+            this.Expansion = expansion;
+            this.Subscribed = subscribed;
+            this.SupportsReflow = supportsReflow;
+            this.WebhookEventOid = webhookEventOid;
         }
         
         /// <summary>
@@ -143,7 +143,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -39,82 +39,22 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Pending for "Pending"
+            /// Enum Pending for value: Pending
             /// </summary>
             [EnumMember(Value = "Pending")]
-            Pending,
+            Pending = 1,
             
             /// <summary>
-            /// Enum Approved for "Approved"
+            /// Enum Approved for value: Approved
             /// </summary>
             [EnumMember(Value = "Approved")]
-            Approved,
+            Approved = 2,
             
             /// <summary>
-            /// Enum Rejected for "Rejected"
+            /// Enum Rejected for value: Rejected
             /// </summary>
             [EnumMember(Value = "Rejected")]
-            Rejected
-        }
-
-        /// <summary>
-        /// Invisible link approval status
-        /// </summary>
-        /// <value>Invisible link approval status</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum InvisibleLinkApprovalStatusEnum
-        {
-            
-            /// <summary>
-            /// Enum Pending for "Pending"
-            /// </summary>
-            [EnumMember(Value = "Pending")]
-            Pending,
-            
-            /// <summary>
-            /// Enum Approved for "Approved"
-            /// </summary>
-            [EnumMember(Value = "Approved")]
-            Approved,
-            
-            /// <summary>
-            /// Enum Rejected for "Rejected"
-            /// </summary>
-            [EnumMember(Value = "Rejected")]
-            Rejected
-        }
-
-        /// <summary>
-        /// Type of link
-        /// </summary>
-        /// <value>Type of link</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            
-            /// <summary>
-            /// Enum Image for "image"
-            /// </summary>
-            [EnumMember(Value = "image")]
-            Image,
-            
-            /// <summary>
-            /// Enum Text for "text"
-            /// </summary>
-            [EnumMember(Value = "text")]
-            Text,
-            
-            /// <summary>
-            /// Enum Invisible for "invisible"
-            /// </summary>
-            [EnumMember(Value = "invisible")]
-            Invisible,
-            
-            /// <summary>
-            /// Enum Direct for "direct"
-            /// </summary>
-            [EnumMember(Value = "direct")]
-            Direct
+            Rejected = 3
         }
 
         /// <summary>
@@ -127,8 +67,68 @@ namespace com.ultracart.admin.v2.Model
         /// Invisible link approval status
         /// </summary>
         /// <value>Invisible link approval status</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum InvisibleLinkApprovalStatusEnum
+        {
+            
+            /// <summary>
+            /// Enum Pending for value: Pending
+            /// </summary>
+            [EnumMember(Value = "Pending")]
+            Pending = 1,
+            
+            /// <summary>
+            /// Enum Approved for value: Approved
+            /// </summary>
+            [EnumMember(Value = "Approved")]
+            Approved = 2,
+            
+            /// <summary>
+            /// Enum Rejected for value: Rejected
+            /// </summary>
+            [EnumMember(Value = "Rejected")]
+            Rejected = 3
+        }
+
+        /// <summary>
+        /// Invisible link approval status
+        /// </summary>
+        /// <value>Invisible link approval status</value>
         [DataMember(Name="invisible_link_approval_status", EmitDefaultValue=false)]
         public InvisibleLinkApprovalStatusEnum? InvisibleLinkApprovalStatus { get; set; }
+        /// <summary>
+        /// Type of link
+        /// </summary>
+        /// <value>Type of link</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Image for value: image
+            /// </summary>
+            [EnumMember(Value = "image")]
+            Image = 1,
+            
+            /// <summary>
+            /// Enum Text for value: text
+            /// </summary>
+            [EnumMember(Value = "text")]
+            Text = 2,
+            
+            /// <summary>
+            /// Enum Invisible for value: invisible
+            /// </summary>
+            [EnumMember(Value = "invisible")]
+            Invisible = 3,
+            
+            /// <summary>
+            /// Enum Direct for value: direct
+            /// </summary>
+            [EnumMember(Value = "direct")]
+            Direct = 4
+        }
+
         /// <summary>
         /// Type of link
         /// </summary>
@@ -138,36 +138,36 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AffiliateLink" /> class.
         /// </summary>
-        /// <param name="AffiliateLinkOid">Unique object identifier associated with this link.</param>
-        /// <param name="AffiliateManagedLinkOid">Managed link OID that this link object was generated from.</param>
-        /// <param name="AffiliateOid">Affiliate object ID associated with this link.</param>
-        /// <param name="AffiliateProgramItemOid">The affiliate program item this managed link is associated with.</param>
-        /// <param name="Code">Code associated with the link.</param>
-        /// <param name="CreativeOid">Creative (image or text) associated with this link.</param>
-        /// <param name="CustomHtml">Custom HTML associated with this link.</param>
-        /// <param name="CustomHtmlApprovalStatus">Approved status of the custom html.</param>
-        /// <param name="CustomLandingUrl">Custom landing page URL if configured.</param>
-        /// <param name="Deleted">True if the link has been deleted.</param>
-        /// <param name="InvisibleLinkApprovalStatus">Invisible link approval status.</param>
-        /// <param name="InvisibleLinkUrlPrefix">Invisible link URL prefix.</param>
-        /// <param name="Name">Name of the link.</param>
-        /// <param name="Type">Type of link.</param>
-        public AffiliateLink(int? AffiliateLinkOid = default(int?), int? AffiliateManagedLinkOid = default(int?), int? AffiliateOid = default(int?), int? AffiliateProgramItemOid = default(int?), string Code = default(string), int? CreativeOid = default(int?), string CustomHtml = default(string), CustomHtmlApprovalStatusEnum? CustomHtmlApprovalStatus = default(CustomHtmlApprovalStatusEnum?), string CustomLandingUrl = default(string), bool? Deleted = default(bool?), InvisibleLinkApprovalStatusEnum? InvisibleLinkApprovalStatus = default(InvisibleLinkApprovalStatusEnum?), string InvisibleLinkUrlPrefix = default(string), string Name = default(string), TypeEnum? Type = default(TypeEnum?))
+        /// <param name="affiliateLinkOid">Unique object identifier associated with this link.</param>
+        /// <param name="affiliateManagedLinkOid">Managed link OID that this link object was generated from.</param>
+        /// <param name="affiliateOid">Affiliate object ID associated with this link.</param>
+        /// <param name="affiliateProgramItemOid">The affiliate program item this managed link is associated with.</param>
+        /// <param name="code">Code associated with the link.</param>
+        /// <param name="creativeOid">Creative (image or text) associated with this link.</param>
+        /// <param name="customHtml">Custom HTML associated with this link.</param>
+        /// <param name="customHtmlApprovalStatus">Approved status of the custom html.</param>
+        /// <param name="customLandingUrl">Custom landing page URL if configured.</param>
+        /// <param name="deleted">True if the link has been deleted.</param>
+        /// <param name="invisibleLinkApprovalStatus">Invisible link approval status.</param>
+        /// <param name="invisibleLinkUrlPrefix">Invisible link URL prefix.</param>
+        /// <param name="name">Name of the link.</param>
+        /// <param name="type">Type of link.</param>
+        public AffiliateLink(int? affiliateLinkOid = default(int?), int? affiliateManagedLinkOid = default(int?), int? affiliateOid = default(int?), int? affiliateProgramItemOid = default(int?), string code = default(string), int? creativeOid = default(int?), string customHtml = default(string), CustomHtmlApprovalStatusEnum? customHtmlApprovalStatus = default(CustomHtmlApprovalStatusEnum?), string customLandingUrl = default(string), bool? deleted = default(bool?), InvisibleLinkApprovalStatusEnum? invisibleLinkApprovalStatus = default(InvisibleLinkApprovalStatusEnum?), string invisibleLinkUrlPrefix = default(string), string name = default(string), TypeEnum? type = default(TypeEnum?))
         {
-            this.AffiliateLinkOid = AffiliateLinkOid;
-            this.AffiliateManagedLinkOid = AffiliateManagedLinkOid;
-            this.AffiliateOid = AffiliateOid;
-            this.AffiliateProgramItemOid = AffiliateProgramItemOid;
-            this.Code = Code;
-            this.CreativeOid = CreativeOid;
-            this.CustomHtml = CustomHtml;
-            this.CustomHtmlApprovalStatus = CustomHtmlApprovalStatus;
-            this.CustomLandingUrl = CustomLandingUrl;
-            this.Deleted = Deleted;
-            this.InvisibleLinkApprovalStatus = InvisibleLinkApprovalStatus;
-            this.InvisibleLinkUrlPrefix = InvisibleLinkUrlPrefix;
-            this.Name = Name;
-            this.Type = Type;
+            this.AffiliateLinkOid = affiliateLinkOid;
+            this.AffiliateManagedLinkOid = affiliateManagedLinkOid;
+            this.AffiliateOid = affiliateOid;
+            this.AffiliateProgramItemOid = affiliateProgramItemOid;
+            this.Code = code;
+            this.CreativeOid = creativeOid;
+            this.CustomHtml = customHtml;
+            this.CustomHtmlApprovalStatus = customHtmlApprovalStatus;
+            this.CustomLandingUrl = customLandingUrl;
+            this.Deleted = deleted;
+            this.InvisibleLinkApprovalStatus = invisibleLinkApprovalStatus;
+            this.InvisibleLinkUrlPrefix = invisibleLinkUrlPrefix;
+            this.Name = name;
+            this.Type = type;
         }
         
         /// <summary>
@@ -280,7 +280,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

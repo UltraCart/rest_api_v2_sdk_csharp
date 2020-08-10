@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponFreeItemAndShippingWithSubtotal" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="Items">A list of items that are eligible for this discount_price..</param>
-        /// <param name="Limit">The limit of free items that may be received when purchasing multiple items.</param>
-        /// <param name="ShippingMethods">One or more shipping methods that may be free.</param>
-        /// <param name="SubtotalAmount">The amount of subtotal required to receive the discount percent.</param>
-        public CouponFreeItemAndShippingWithSubtotal(string CurrencyCode = default(string), List<string> Items = default(List<string>), int? Limit = default(int?), List<string> ShippingMethods = default(List<string>), decimal? SubtotalAmount = default(decimal?))
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="items">A list of items that are eligible for this discount_price..</param>
+        /// <param name="limit">The limit of free items that may be received when purchasing multiple items.</param>
+        /// <param name="shippingMethods">One or more shipping methods that may be free.</param>
+        /// <param name="subtotalAmount">The amount of subtotal required to receive the discount percent.</param>
+        public CouponFreeItemAndShippingWithSubtotal(string currencyCode = default(string), List<string> items = default(List<string>), int? limit = default(int?), List<string> shippingMethods = default(List<string>), decimal? subtotalAmount = default(decimal?))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.Items = Items;
-            this.Limit = Limit;
-            this.ShippingMethods = ShippingMethods;
-            this.SubtotalAmount = SubtotalAmount;
+            this.CurrencyCode = currencyCode;
+            this.Items = items;
+            this.Limit = limit;
+            this.ShippingMethods = shippingMethods;
+            this.SubtotalAmount = subtotalAmount;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

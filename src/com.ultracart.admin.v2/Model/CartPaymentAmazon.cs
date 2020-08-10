@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartPaymentAmazon" /> class.
         /// </summary>
-        /// <param name="AmazonOrderReferenceId">Amazon order reference id.</param>
-        public CartPaymentAmazon(string AmazonOrderReferenceId = default(string))
+        /// <param name="amazonOrderReferenceId">Amazon order reference id.</param>
+        public CartPaymentAmazon(string amazonOrderReferenceId = default(string))
         {
-            this.AmazonOrderReferenceId = AmazonOrderReferenceId;
+            this.AmazonOrderReferenceId = amazonOrderReferenceId;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

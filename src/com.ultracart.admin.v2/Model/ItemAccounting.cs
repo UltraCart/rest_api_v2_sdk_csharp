@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAccounting" /> class.
         /// </summary>
-        /// <param name="AccountingCode">QuickBooks item name if different than the item id.</param>
-        /// <param name="QbClass">QuickBooks class if you are classifying items on your invoices/receipts.</param>
-        public ItemAccounting(string AccountingCode = default(string), string QbClass = default(string))
+        /// <param name="accountingCode">QuickBooks item name if different than the item id.</param>
+        /// <param name="qbClass">QuickBooks class if you are classifying items on your invoices/receipts.</param>
+        public ItemAccounting(string accountingCode = default(string), string qbClass = default(string))
         {
-            this.AccountingCode = AccountingCode;
-            this.QbClass = QbClass;
+            this.AccountingCode = accountingCode;
+            this.QbClass = qbClass;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

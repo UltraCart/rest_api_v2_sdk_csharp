@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountsReceivableRetryDayActivity" /> class.
         /// </summary>
-        /// <param name="Charge">True if a charge attempt should be made on this day.  False means the order should be rejected on this day..</param>
-        /// <param name="CouponCode">The coupon code that should be applied to this order..</param>
-        /// <param name="Day">The number of days since the order placed in Accounts Receivable.</param>
-        public AccountsReceivableRetryDayActivity(bool? Charge = default(bool?), string CouponCode = default(string), int? Day = default(int?))
+        /// <param name="charge">True if a charge attempt should be made on this day.  False means the order should be rejected on this day..</param>
+        /// <param name="couponCode">The coupon code that should be applied to this order..</param>
+        /// <param name="day">The number of days since the order placed in Accounts Receivable.</param>
+        public AccountsReceivableRetryDayActivity(bool? charge = default(bool?), string couponCode = default(string), int? day = default(int?))
         {
-            this.Charge = Charge;
-            this.CouponCode = CouponCode;
-            this.Day = Day;
+            this.Charge = charge;
+            this.CouponCode = couponCode;
+            this.Day = day;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

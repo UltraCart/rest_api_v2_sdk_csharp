@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerEmail" /> class.
         /// </summary>
-        /// <param name="CustomerProfileEmailOid">ID of the email.</param>
-        /// <param name="Email">Email.</param>
-        /// <param name="Label">Label.</param>
-        /// <param name="ReceiptNotification">CC this email on receipt notifications.</param>
-        /// <param name="RefundNotification">CC this email on refund notifications.</param>
-        /// <param name="ShipmentNotification">CC this email on shipment notifications.</param>
-        public CustomerEmail(int? CustomerProfileEmailOid = default(int?), string Email = default(string), string Label = default(string), bool? ReceiptNotification = default(bool?), bool? RefundNotification = default(bool?), bool? ShipmentNotification = default(bool?))
+        /// <param name="customerProfileEmailOid">ID of the email.</param>
+        /// <param name="email">Email.</param>
+        /// <param name="label">Label.</param>
+        /// <param name="receiptNotification">CC this email on receipt notifications.</param>
+        /// <param name="refundNotification">CC this email on refund notifications.</param>
+        /// <param name="shipmentNotification">CC this email on shipment notifications.</param>
+        public CustomerEmail(int? customerProfileEmailOid = default(int?), string email = default(string), string label = default(string), bool? receiptNotification = default(bool?), bool? refundNotification = default(bool?), bool? shipmentNotification = default(bool?))
         {
-            this.CustomerProfileEmailOid = CustomerProfileEmailOid;
-            this.Email = Email;
-            this.Label = Label;
-            this.ReceiptNotification = ReceiptNotification;
-            this.RefundNotification = RefundNotification;
-            this.ShipmentNotification = ShipmentNotification;
+            this.CustomerProfileEmailOid = customerProfileEmailOid;
+            this.Email = email;
+            this.Label = label;
+            this.ReceiptNotification = receiptNotification;
+            this.RefundNotification = refundNotification;
+            this.ShipmentNotification = shipmentNotification;
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

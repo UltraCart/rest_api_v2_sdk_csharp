@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultSet" /> class.
         /// </summary>
-        /// <param name="Count">Number of results in this set.</param>
-        /// <param name="Limit">Maximum number of results that can be returned in a set.</param>
-        /// <param name="More">True if there are more results to query.</param>
-        /// <param name="NextOffset">The next offset that you should query to retrieve more results.</param>
-        /// <param name="Offset">Offset of this result set (zero based).</param>
-        /// <param name="TotalRecords">The total number of records in the result set.  May be null if the number is not known and the client should continue iterating as long as more is true..</param>
-        public ResultSet(int? Count = default(int?), int? Limit = default(int?), bool? More = default(bool?), int? NextOffset = default(int?), int? Offset = default(int?), int? TotalRecords = default(int?))
+        /// <param name="count">Number of results in this set.</param>
+        /// <param name="limit">Maximum number of results that can be returned in a set.</param>
+        /// <param name="more">True if there are more results to query.</param>
+        /// <param name="nextOffset">The next offset that you should query to retrieve more results.</param>
+        /// <param name="offset">Offset of this result set (zero based).</param>
+        /// <param name="totalRecords">The total number of records in the result set.  May be null if the number is not known and the client should continue iterating as long as more is true..</param>
+        public ResultSet(int? count = default(int?), int? limit = default(int?), bool? more = default(bool?), int? nextOffset = default(int?), int? offset = default(int?), int? totalRecords = default(int?))
         {
-            this.Count = Count;
-            this.Limit = Limit;
-            this.More = More;
-            this.NextOffset = NextOffset;
-            this.Offset = Offset;
-            this.TotalRecords = TotalRecords;
+            this.Count = count;
+            this.Limit = limit;
+            this.More = more;
+            this.NextOffset = nextOffset;
+            this.Offset = offset;
+            this.TotalRecords = totalRecords;
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

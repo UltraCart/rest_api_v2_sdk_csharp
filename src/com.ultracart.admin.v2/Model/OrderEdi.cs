@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderEdi" /> class.
         /// </summary>
-        /// <param name="BillToEdiCode">Billing address identification code from the EDI order.  Typically DUNS or DUNS+4.</param>
-        /// <param name="EdiDepartment">Department number associated with this EDI order.</param>
-        /// <param name="EdiInternalVendorNumber">Internal vendor number associated with this EDI order.</param>
-        /// <param name="ShipToEdiCode">Shipping address identification code from the EDI order.  Typically DUNS or DUNS+4.</param>
-        public OrderEdi(string BillToEdiCode = default(string), string EdiDepartment = default(string), string EdiInternalVendorNumber = default(string), string ShipToEdiCode = default(string))
+        /// <param name="billToEdiCode">Billing address identification code from the EDI order.  Typically DUNS or DUNS+4.</param>
+        /// <param name="ediDepartment">Department number associated with this EDI order.</param>
+        /// <param name="ediInternalVendorNumber">Internal vendor number associated with this EDI order.</param>
+        /// <param name="shipToEdiCode">Shipping address identification code from the EDI order.  Typically DUNS or DUNS+4.</param>
+        public OrderEdi(string billToEdiCode = default(string), string ediDepartment = default(string), string ediInternalVendorNumber = default(string), string shipToEdiCode = default(string))
         {
-            this.BillToEdiCode = BillToEdiCode;
-            this.EdiDepartment = EdiDepartment;
-            this.EdiInternalVendorNumber = EdiInternalVendorNumber;
-            this.ShipToEdiCode = ShipToEdiCode;
+            this.BillToEdiCode = billToEdiCode;
+            this.EdiDepartment = ediDepartment;
+            this.EdiInternalVendorNumber = ediInternalVendorNumber;
+            this.ShipToEdiCode = shipToEdiCode;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

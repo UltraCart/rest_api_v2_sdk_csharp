@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponTieredPercentOffShipping" /> class.
         /// </summary>
-        /// <param name="ShippingMethods">One or more shipping methods that may receive this discount.</param>
-        /// <param name="Tiers">A list of discount tiers..</param>
-        public CouponTieredPercentOffShipping(List<string> ShippingMethods = default(List<string>), List<CouponTierPercent> Tiers = default(List<CouponTierPercent>))
+        /// <param name="shippingMethods">One or more shipping methods that may receive this discount.</param>
+        /// <param name="tiers">A list of discount tiers..</param>
+        public CouponTieredPercentOffShipping(List<string> shippingMethods = default(List<string>), List<CouponTierPercent> tiers = default(List<CouponTierPercent>))
         {
-            this.ShippingMethods = ShippingMethods;
-            this.Tiers = Tiers;
+            this.ShippingMethods = shippingMethods;
+            this.Tiers = tiers;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

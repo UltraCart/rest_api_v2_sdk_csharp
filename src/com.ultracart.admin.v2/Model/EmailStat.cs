@@ -33,70 +33,84 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailStat" /> class.
         /// </summary>
-        /// <param name="ClickCount">Count of clicked emails.</param>
-        /// <param name="ClickCountFormatted">Count of clicked emails, formatted.</param>
-        /// <param name="DeliveredCount">Count of delivered emails.</param>
-        /// <param name="DeliveredCountFormatted">Count of delivered emails, formatted.</param>
-        /// <param name="KickboxCount">Count of emails kicked.</param>
-        /// <param name="KickboxCountFormatted">Count of emails kicked, formatted.</param>
-        /// <param name="MerchantId">Merchant ID.</param>
-        /// <param name="Name">List or segment name.</param>
-        /// <param name="OpenCount">Count of opened emails.</param>
-        /// <param name="OpenCountFormatted">Count of opened emails, formatted.</param>
-        /// <param name="OrderCount">Count of orders.</param>
-        /// <param name="OrderCountFormatted">Count of orders, formatted.</param>
-        /// <param name="PermanentBounceCount">Count of emails permanently bounced.</param>
-        /// <param name="PermanentBounceCountFormatted">Count of emails permanently bounced, formatted.</param>
-        /// <param name="Profit">Profit.</param>
-        /// <param name="ProfitFormatted">Profit, formatted.</param>
-        /// <param name="Revenue">Revenue.</param>
-        /// <param name="RevenueFormatted">Revenue, formatted.</param>
-        /// <param name="SendCount">Count of emails sent.</param>
-        /// <param name="SendCountFormatted">Count of emails sent, formatted.</param>
-        /// <param name="SkippedCount">Count of skipped emails.</param>
-        /// <param name="SkippedCountFormatted">Count of skipped emails, formatted.</param>
-        /// <param name="SpamCount">Count of emails classified as spam.</param>
-        /// <param name="SpamCountFormatted">Count of emails classified as spam, formatted.</param>
-        /// <param name="StatType">Campaign, Flow or None (for anything else).</param>
-        /// <param name="Status">Status of campaign or flow.</param>
-        /// <param name="StatusDts">Status dts of campaign or flow.</param>
-        /// <param name="StorefrontOid">Storefront oid.</param>
-        /// <param name="Uuid">List or segment uuid.</param>
-        /// <param name="ViewCount">Count of views.</param>
-        /// <param name="ViewCountFormatted">Count of views, formatted.</param>
-        public EmailStat(int? ClickCount = default(int?), string ClickCountFormatted = default(string), int? DeliveredCount = default(int?), string DeliveredCountFormatted = default(string), int? KickboxCount = default(int?), string KickboxCountFormatted = default(string), string MerchantId = default(string), string Name = default(string), int? OpenCount = default(int?), string OpenCountFormatted = default(string), int? OrderCount = default(int?), string OrderCountFormatted = default(string), int? PermanentBounceCount = default(int?), string PermanentBounceCountFormatted = default(string), decimal? Profit = default(decimal?), string ProfitFormatted = default(string), decimal? Revenue = default(decimal?), string RevenueFormatted = default(string), int? SendCount = default(int?), string SendCountFormatted = default(string), int? SkippedCount = default(int?), string SkippedCountFormatted = default(string), int? SpamCount = default(int?), string SpamCountFormatted = default(string), string StatType = default(string), string Status = default(string), string StatusDts = default(string), int? StorefrontOid = default(int?), string Uuid = default(string), int? ViewCount = default(int?), string ViewCountFormatted = default(string))
+        /// <param name="clickCount">Count of clicked emails.</param>
+        /// <param name="clickCountFormatted">Count of clicked emails, formatted.</param>
+        /// <param name="conversionCount">Count of conversions.</param>
+        /// <param name="conversionCountFormatted">Count of conversions, formatted.</param>
+        /// <param name="deleted">True if campaign/flow has been archived.</param>
+        /// <param name="deliveredCount">Count of delivered emails.</param>
+        /// <param name="deliveredCountFormatted">Count of delivered emails, formatted.</param>
+        /// <param name="kickboxCount">Count of emails kicked.</param>
+        /// <param name="kickboxCountFormatted">Count of emails kicked, formatted.</param>
+        /// <param name="merchantId">Merchant ID.</param>
+        /// <param name="name">List or segment name.</param>
+        /// <param name="openCount">Count of opened emails.</param>
+        /// <param name="openCountFormatted">Count of opened emails, formatted.</param>
+        /// <param name="orderCount">Count of orders.</param>
+        /// <param name="orderCountFormatted">Count of orders, formatted.</param>
+        /// <param name="permanentBounceCount">Count of emails permanently bounced.</param>
+        /// <param name="permanentBounceCountFormatted">Count of emails permanently bounced, formatted.</param>
+        /// <param name="profit">Profit.</param>
+        /// <param name="profitFormatted">Profit, formatted.</param>
+        /// <param name="revenue">Revenue.</param>
+        /// <param name="revenueFormatted">Revenue, formatted.</param>
+        /// <param name="sendCount">Count of emails sent.</param>
+        /// <param name="sendCountFormatted">Count of emails sent, formatted.</param>
+        /// <param name="skippedCount">Count of skipped emails.</param>
+        /// <param name="skippedCountFormatted">Count of skipped emails, formatted.</param>
+        /// <param name="spamCount">Count of emails classified as spam.</param>
+        /// <param name="spamCountFormatted">Count of emails classified as spam, formatted.</param>
+        /// <param name="statType">Campaign, Flow or None (for anything else).</param>
+        /// <param name="status">Status of campaign or flow.</param>
+        /// <param name="statusDts">Status dts of campaign or flow.</param>
+        /// <param name="stepUuid">Step UUID if the statistics are at the step/email level.</param>
+        /// <param name="steps">steps.</param>
+        /// <param name="storefrontOid">Storefront oid.</param>
+        /// <param name="unsubscribeCount">Count of emails classified as unsubscribe.</param>
+        /// <param name="unsubscribeCountFormatted">Count of emails classified as unsubscribe, formatted.</param>
+        /// <param name="uuid">List/Segment uuid, or Flow/Campaign uuid depending on level of stat aggregation..</param>
+        /// <param name="viewCount">Count of views.</param>
+        /// <param name="viewCountFormatted">Count of views, formatted.</param>
+        public EmailStat(int? clickCount = default(int?), string clickCountFormatted = default(string), int? conversionCount = default(int?), string conversionCountFormatted = default(string), bool? deleted = default(bool?), int? deliveredCount = default(int?), string deliveredCountFormatted = default(string), int? kickboxCount = default(int?), string kickboxCountFormatted = default(string), string merchantId = default(string), string name = default(string), int? openCount = default(int?), string openCountFormatted = default(string), int? orderCount = default(int?), string orderCountFormatted = default(string), int? permanentBounceCount = default(int?), string permanentBounceCountFormatted = default(string), decimal? profit = default(decimal?), string profitFormatted = default(string), decimal? revenue = default(decimal?), string revenueFormatted = default(string), int? sendCount = default(int?), string sendCountFormatted = default(string), int? skippedCount = default(int?), string skippedCountFormatted = default(string), int? spamCount = default(int?), string spamCountFormatted = default(string), string statType = default(string), string status = default(string), string statusDts = default(string), string stepUuid = default(string), List<EmailStat> steps = default(List<EmailStat>), int? storefrontOid = default(int?), int? unsubscribeCount = default(int?), string unsubscribeCountFormatted = default(string), string uuid = default(string), int? viewCount = default(int?), string viewCountFormatted = default(string))
         {
-            this.ClickCount = ClickCount;
-            this.ClickCountFormatted = ClickCountFormatted;
-            this.DeliveredCount = DeliveredCount;
-            this.DeliveredCountFormatted = DeliveredCountFormatted;
-            this.KickboxCount = KickboxCount;
-            this.KickboxCountFormatted = KickboxCountFormatted;
-            this.MerchantId = MerchantId;
-            this.Name = Name;
-            this.OpenCount = OpenCount;
-            this.OpenCountFormatted = OpenCountFormatted;
-            this.OrderCount = OrderCount;
-            this.OrderCountFormatted = OrderCountFormatted;
-            this.PermanentBounceCount = PermanentBounceCount;
-            this.PermanentBounceCountFormatted = PermanentBounceCountFormatted;
-            this.Profit = Profit;
-            this.ProfitFormatted = ProfitFormatted;
-            this.Revenue = Revenue;
-            this.RevenueFormatted = RevenueFormatted;
-            this.SendCount = SendCount;
-            this.SendCountFormatted = SendCountFormatted;
-            this.SkippedCount = SkippedCount;
-            this.SkippedCountFormatted = SkippedCountFormatted;
-            this.SpamCount = SpamCount;
-            this.SpamCountFormatted = SpamCountFormatted;
-            this.StatType = StatType;
-            this.Status = Status;
-            this.StatusDts = StatusDts;
-            this.StorefrontOid = StorefrontOid;
-            this.Uuid = Uuid;
-            this.ViewCount = ViewCount;
-            this.ViewCountFormatted = ViewCountFormatted;
+            this.ClickCount = clickCount;
+            this.ClickCountFormatted = clickCountFormatted;
+            this.ConversionCount = conversionCount;
+            this.ConversionCountFormatted = conversionCountFormatted;
+            this.Deleted = deleted;
+            this.DeliveredCount = deliveredCount;
+            this.DeliveredCountFormatted = deliveredCountFormatted;
+            this.KickboxCount = kickboxCount;
+            this.KickboxCountFormatted = kickboxCountFormatted;
+            this.MerchantId = merchantId;
+            this.Name = name;
+            this.OpenCount = openCount;
+            this.OpenCountFormatted = openCountFormatted;
+            this.OrderCount = orderCount;
+            this.OrderCountFormatted = orderCountFormatted;
+            this.PermanentBounceCount = permanentBounceCount;
+            this.PermanentBounceCountFormatted = permanentBounceCountFormatted;
+            this.Profit = profit;
+            this.ProfitFormatted = profitFormatted;
+            this.Revenue = revenue;
+            this.RevenueFormatted = revenueFormatted;
+            this.SendCount = sendCount;
+            this.SendCountFormatted = sendCountFormatted;
+            this.SkippedCount = skippedCount;
+            this.SkippedCountFormatted = skippedCountFormatted;
+            this.SpamCount = spamCount;
+            this.SpamCountFormatted = spamCountFormatted;
+            this.StatType = statType;
+            this.Status = status;
+            this.StatusDts = statusDts;
+            this.StepUuid = stepUuid;
+            this.Steps = steps;
+            this.StorefrontOid = storefrontOid;
+            this.UnsubscribeCount = unsubscribeCount;
+            this.UnsubscribeCountFormatted = unsubscribeCountFormatted;
+            this.Uuid = uuid;
+            this.ViewCount = viewCount;
+            this.ViewCountFormatted = viewCountFormatted;
         }
         
         /// <summary>
@@ -112,6 +126,27 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Count of clicked emails, formatted</value>
         [DataMember(Name="click_count_formatted", EmitDefaultValue=false)]
         public string ClickCountFormatted { get; set; }
+
+        /// <summary>
+        /// Count of conversions
+        /// </summary>
+        /// <value>Count of conversions</value>
+        [DataMember(Name="conversion_count", EmitDefaultValue=false)]
+        public int? ConversionCount { get; set; }
+
+        /// <summary>
+        /// Count of conversions, formatted
+        /// </summary>
+        /// <value>Count of conversions, formatted</value>
+        [DataMember(Name="conversion_count_formatted", EmitDefaultValue=false)]
+        public string ConversionCountFormatted { get; set; }
+
+        /// <summary>
+        /// True if campaign/flow has been archived
+        /// </summary>
+        /// <value>True if campaign/flow has been archived</value>
+        [DataMember(Name="deleted", EmitDefaultValue=false)]
+        public bool? Deleted { get; set; }
 
         /// <summary>
         /// Count of delivered emails
@@ -289,6 +324,19 @@ namespace com.ultracart.admin.v2.Model
         public string StatusDts { get; set; }
 
         /// <summary>
+        /// Step UUID if the statistics are at the step/email level
+        /// </summary>
+        /// <value>Step UUID if the statistics are at the step/email level</value>
+        [DataMember(Name="step_uuid", EmitDefaultValue=false)]
+        public string StepUuid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Steps
+        /// </summary>
+        [DataMember(Name="steps", EmitDefaultValue=false)]
+        public List<EmailStat> Steps { get; set; }
+
+        /// <summary>
         /// Storefront oid
         /// </summary>
         /// <value>Storefront oid</value>
@@ -296,9 +344,23 @@ namespace com.ultracart.admin.v2.Model
         public int? StorefrontOid { get; set; }
 
         /// <summary>
-        /// List or segment uuid
+        /// Count of emails classified as unsubscribe
         /// </summary>
-        /// <value>List or segment uuid</value>
+        /// <value>Count of emails classified as unsubscribe</value>
+        [DataMember(Name="unsubscribe_count", EmitDefaultValue=false)]
+        public int? UnsubscribeCount { get; set; }
+
+        /// <summary>
+        /// Count of emails classified as unsubscribe, formatted
+        /// </summary>
+        /// <value>Count of emails classified as unsubscribe, formatted</value>
+        [DataMember(Name="unsubscribe_count_formatted", EmitDefaultValue=false)]
+        public string UnsubscribeCountFormatted { get; set; }
+
+        /// <summary>
+        /// List/Segment uuid, or Flow/Campaign uuid depending on level of stat aggregation.
+        /// </summary>
+        /// <value>List/Segment uuid, or Flow/Campaign uuid depending on level of stat aggregation.</value>
         [DataMember(Name="uuid", EmitDefaultValue=false)]
         public string Uuid { get; set; }
 
@@ -326,6 +388,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class EmailStat {\n");
             sb.Append("  ClickCount: ").Append(ClickCount).Append("\n");
             sb.Append("  ClickCountFormatted: ").Append(ClickCountFormatted).Append("\n");
+            sb.Append("  ConversionCount: ").Append(ConversionCount).Append("\n");
+            sb.Append("  ConversionCountFormatted: ").Append(ConversionCountFormatted).Append("\n");
+            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  DeliveredCount: ").Append(DeliveredCount).Append("\n");
             sb.Append("  DeliveredCountFormatted: ").Append(DeliveredCountFormatted).Append("\n");
             sb.Append("  KickboxCount: ").Append(KickboxCount).Append("\n");
@@ -351,7 +416,11 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  StatType: ").Append(StatType).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusDts: ").Append(StatusDts).Append("\n");
+            sb.Append("  StepUuid: ").Append(StepUuid).Append("\n");
+            sb.Append("  Steps: ").Append(Steps).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
+            sb.Append("  UnsubscribeCount: ").Append(UnsubscribeCount).Append("\n");
+            sb.Append("  UnsubscribeCountFormatted: ").Append(UnsubscribeCountFormatted).Append("\n");
             sb.Append("  Uuid: ").Append(Uuid).Append("\n");
             sb.Append("  ViewCount: ").Append(ViewCount).Append("\n");
             sb.Append("  ViewCountFormatted: ").Append(ViewCountFormatted).Append("\n");
@@ -363,7 +432,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -398,6 +467,21 @@ namespace com.ultracart.admin.v2.Model
                     this.ClickCountFormatted == input.ClickCountFormatted ||
                     (this.ClickCountFormatted != null &&
                     this.ClickCountFormatted.Equals(input.ClickCountFormatted))
+                ) && 
+                (
+                    this.ConversionCount == input.ConversionCount ||
+                    (this.ConversionCount != null &&
+                    this.ConversionCount.Equals(input.ConversionCount))
+                ) && 
+                (
+                    this.ConversionCountFormatted == input.ConversionCountFormatted ||
+                    (this.ConversionCountFormatted != null &&
+                    this.ConversionCountFormatted.Equals(input.ConversionCountFormatted))
+                ) && 
+                (
+                    this.Deleted == input.Deleted ||
+                    (this.Deleted != null &&
+                    this.Deleted.Equals(input.Deleted))
                 ) && 
                 (
                     this.DeliveredCount == input.DeliveredCount ||
@@ -525,9 +609,29 @@ namespace com.ultracart.admin.v2.Model
                     this.StatusDts.Equals(input.StatusDts))
                 ) && 
                 (
+                    this.StepUuid == input.StepUuid ||
+                    (this.StepUuid != null &&
+                    this.StepUuid.Equals(input.StepUuid))
+                ) && 
+                (
+                    this.Steps == input.Steps ||
+                    this.Steps != null &&
+                    this.Steps.SequenceEqual(input.Steps)
+                ) && 
+                (
                     this.StorefrontOid == input.StorefrontOid ||
                     (this.StorefrontOid != null &&
                     this.StorefrontOid.Equals(input.StorefrontOid))
+                ) && 
+                (
+                    this.UnsubscribeCount == input.UnsubscribeCount ||
+                    (this.UnsubscribeCount != null &&
+                    this.UnsubscribeCount.Equals(input.UnsubscribeCount))
+                ) && 
+                (
+                    this.UnsubscribeCountFormatted == input.UnsubscribeCountFormatted ||
+                    (this.UnsubscribeCountFormatted != null &&
+                    this.UnsubscribeCountFormatted.Equals(input.UnsubscribeCountFormatted))
                 ) && 
                 (
                     this.Uuid == input.Uuid ||
@@ -559,6 +663,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ClickCount.GetHashCode();
                 if (this.ClickCountFormatted != null)
                     hashCode = hashCode * 59 + this.ClickCountFormatted.GetHashCode();
+                if (this.ConversionCount != null)
+                    hashCode = hashCode * 59 + this.ConversionCount.GetHashCode();
+                if (this.ConversionCountFormatted != null)
+                    hashCode = hashCode * 59 + this.ConversionCountFormatted.GetHashCode();
+                if (this.Deleted != null)
+                    hashCode = hashCode * 59 + this.Deleted.GetHashCode();
                 if (this.DeliveredCount != null)
                     hashCode = hashCode * 59 + this.DeliveredCount.GetHashCode();
                 if (this.DeliveredCountFormatted != null)
@@ -609,8 +719,16 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.StatusDts != null)
                     hashCode = hashCode * 59 + this.StatusDts.GetHashCode();
+                if (this.StepUuid != null)
+                    hashCode = hashCode * 59 + this.StepUuid.GetHashCode();
+                if (this.Steps != null)
+                    hashCode = hashCode * 59 + this.Steps.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
+                if (this.UnsubscribeCount != null)
+                    hashCode = hashCode * 59 + this.UnsubscribeCount.GetHashCode();
+                if (this.UnsubscribeCountFormatted != null)
+                    hashCode = hashCode * 59 + this.UnsubscribeCountFormatted.GetHashCode();
                 if (this.Uuid != null)
                     hashCode = hashCode * 59 + this.Uuid.GetHashCode();
                 if (this.ViewCount != null)

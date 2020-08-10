@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiUserApplicationProfile" /> class.
         /// </summary>
-        /// <param name="ApiApplicationLogoUrl">Application logo URL.</param>
-        /// <param name="ApplicationDescription">Application description.</param>
-        /// <param name="ApplicationName">Application name.</param>
-        /// <param name="DeveloperName">Developer name.</param>
-        /// <param name="DeveloperWebsite">Developer website.</param>
-        public ApiUserApplicationProfile(string ApiApplicationLogoUrl = default(string), string ApplicationDescription = default(string), string ApplicationName = default(string), string DeveloperName = default(string), string DeveloperWebsite = default(string))
+        /// <param name="apiApplicationLogoUrl">Application logo URL.</param>
+        /// <param name="applicationDescription">Application description.</param>
+        /// <param name="applicationName">Application name.</param>
+        /// <param name="developerName">Developer name.</param>
+        /// <param name="developerWebsite">Developer website.</param>
+        public ApiUserApplicationProfile(string apiApplicationLogoUrl = default(string), string applicationDescription = default(string), string applicationName = default(string), string developerName = default(string), string developerWebsite = default(string))
         {
-            this.ApiApplicationLogoUrl = ApiApplicationLogoUrl;
-            this.ApplicationDescription = ApplicationDescription;
-            this.ApplicationName = ApplicationName;
-            this.DeveloperName = DeveloperName;
-            this.DeveloperWebsite = DeveloperWebsite;
+            this.ApiApplicationLogoUrl = apiApplicationLogoUrl;
+            this.ApplicationDescription = applicationDescription;
+            this.ApplicationName = applicationName;
+            this.DeveloperName = developerName;
+            this.DeveloperWebsite = developerWebsite;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

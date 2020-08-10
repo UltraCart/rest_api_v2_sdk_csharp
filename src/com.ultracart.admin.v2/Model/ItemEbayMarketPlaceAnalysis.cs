@@ -33,28 +33,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemEbayMarketPlaceAnalysis" /> class.
         /// </summary>
-        /// <param name="AdjustedPrice">Adjusted price.</param>
-        /// <param name="AdjustedShipping">Adjusted shipping.</param>
-        /// <param name="AdjustedTotal">Adjusted total.</param>
-        /// <param name="Cogs">Cost of goods sold.</param>
-        /// <param name="FinalValueFee">Final value fee.</param>
-        /// <param name="MinimumAdvertisedPrice">Minimum advertised price.</param>
-        /// <param name="OtherListings">Other listings.</param>
-        /// <param name="OurListing">OurListing.</param>
-        /// <param name="Overhead">Overhead.</param>
-        /// <param name="ProfitPotential">Profit potential.</param>
-        public ItemEbayMarketPlaceAnalysis(decimal? AdjustedPrice = default(decimal?), decimal? AdjustedShipping = default(decimal?), decimal? AdjustedTotal = default(decimal?), decimal? Cogs = default(decimal?), decimal? FinalValueFee = default(decimal?), decimal? MinimumAdvertisedPrice = default(decimal?), List<ItemEbayMarketListing> OtherListings = default(List<ItemEbayMarketListing>), ItemEbayMarketListing OurListing = default(ItemEbayMarketListing), decimal? Overhead = default(decimal?), decimal? ProfitPotential = default(decimal?))
+        /// <param name="adjustedPrice">Adjusted price.</param>
+        /// <param name="adjustedShipping">Adjusted shipping.</param>
+        /// <param name="adjustedTotal">Adjusted total.</param>
+        /// <param name="cogs">Cost of goods sold.</param>
+        /// <param name="finalValueFee">Final value fee.</param>
+        /// <param name="minimumAdvertisedPrice">Minimum advertised price.</param>
+        /// <param name="otherListings">Other listings.</param>
+        /// <param name="ourListing">ourListing.</param>
+        /// <param name="overhead">Overhead.</param>
+        /// <param name="profitPotential">Profit potential.</param>
+        public ItemEbayMarketPlaceAnalysis(decimal? adjustedPrice = default(decimal?), decimal? adjustedShipping = default(decimal?), decimal? adjustedTotal = default(decimal?), decimal? cogs = default(decimal?), decimal? finalValueFee = default(decimal?), decimal? minimumAdvertisedPrice = default(decimal?), List<ItemEbayMarketListing> otherListings = default(List<ItemEbayMarketListing>), ItemEbayMarketListing ourListing = default(ItemEbayMarketListing), decimal? overhead = default(decimal?), decimal? profitPotential = default(decimal?))
         {
-            this.AdjustedPrice = AdjustedPrice;
-            this.AdjustedShipping = AdjustedShipping;
-            this.AdjustedTotal = AdjustedTotal;
-            this.Cogs = Cogs;
-            this.FinalValueFee = FinalValueFee;
-            this.MinimumAdvertisedPrice = MinimumAdvertisedPrice;
-            this.OtherListings = OtherListings;
-            this.OurListing = OurListing;
-            this.Overhead = Overhead;
-            this.ProfitPotential = ProfitPotential;
+            this.AdjustedPrice = adjustedPrice;
+            this.AdjustedShipping = adjustedShipping;
+            this.AdjustedTotal = adjustedTotal;
+            this.Cogs = cogs;
+            this.FinalValueFee = finalValueFee;
+            this.MinimumAdvertisedPrice = minimumAdvertisedPrice;
+            this.OtherListings = otherListings;
+            this.OurListing = ourListing;
+            this.Overhead = overhead;
+            this.ProfitPotential = profitPotential;
         }
         
         /// <summary>
@@ -152,7 +152,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

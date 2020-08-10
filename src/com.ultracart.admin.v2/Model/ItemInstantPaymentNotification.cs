@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemInstantPaymentNotification" /> class.
         /// </summary>
-        /// <param name="PostOperation">True for HTTP POST instead of GET.</param>
-        /// <param name="SuccessfulResponseText">Successful response text.</param>
-        /// <param name="Url">URL.</param>
-        public ItemInstantPaymentNotification(bool? PostOperation = default(bool?), string SuccessfulResponseText = default(string), string Url = default(string))
+        /// <param name="postOperation">True for HTTP POST instead of GET.</param>
+        /// <param name="successfulResponseText">Successful response text.</param>
+        /// <param name="url">URL.</param>
+        public ItemInstantPaymentNotification(bool? postOperation = default(bool?), string successfulResponseText = default(string), string url = default(string))
         {
-            this.PostOperation = PostOperation;
-            this.SuccessfulResponseText = SuccessfulResponseText;
-            this.Url = Url;
+            this.PostOperation = postOperation;
+            this.SuccessfulResponseText = successfulResponseText;
+            this.Url = url;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

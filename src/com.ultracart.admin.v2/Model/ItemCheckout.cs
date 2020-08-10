@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemCheckout" /> class.
         /// </summary>
-        /// <param name="SuppressBuysafe">True to suppress buySAFE.</param>
-        /// <param name="Terms">Terms for purchasing this item.</param>
-        /// <param name="TermsTranslatedTextInstanceOid">Terms translated text instance identifier.</param>
-        public ItemCheckout(bool? SuppressBuysafe = default(bool?), string Terms = default(string), int? TermsTranslatedTextInstanceOid = default(int?))
+        /// <param name="suppressBuysafe">True to suppress buySAFE.</param>
+        /// <param name="terms">Terms for purchasing this item.</param>
+        /// <param name="termsTranslatedTextInstanceOid">Terms translated text instance identifier.</param>
+        public ItemCheckout(bool? suppressBuysafe = default(bool?), string terms = default(string), int? termsTranslatedTextInstanceOid = default(int?))
         {
-            this.SuppressBuysafe = SuppressBuysafe;
-            this.Terms = Terms;
-            this.TermsTranslatedTextInstanceOid = TermsTranslatedTextInstanceOid;
+            this.SuppressBuysafe = suppressBuysafe;
+            this.Terms = terms;
+            this.TermsTranslatedTextInstanceOid = termsTranslatedTextInstanceOid;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

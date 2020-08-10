@@ -39,34 +39,34 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Image for "Image"
+            /// Enum Image for value: Image
             /// </summary>
             [EnumMember(Value = "Image")]
-            Image,
+            Image = 1,
             
             /// <summary>
-            /// Enum PDF for "PDF"
+            /// Enum PDF for value: PDF
             /// </summary>
             [EnumMember(Value = "PDF")]
-            PDF,
+            PDF = 2,
             
             /// <summary>
-            /// Enum Text for "Text"
+            /// Enum Text for value: Text
             /// </summary>
             [EnumMember(Value = "Text")]
-            Text,
+            Text = 3,
             
             /// <summary>
-            /// Enum Unknown for "Unknown"
+            /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown,
+            Unknown = 4,
             
             /// <summary>
-            /// Enum Video for "Video"
+            /// Enum Video for value: Video
             /// </summary>
             [EnumMember(Value = "Video")]
-            Video
+            Video = 5
         }
 
         /// <summary>
@@ -78,26 +78,26 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartItemMultimedia" /> class.
         /// </summary>
-        /// <param name="Code">Code assigned to the multimedia.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="ExcludeFromGallery">True if the image should be excluded from galleries.</param>
-        /// <param name="ImageHeight">Image height.</param>
-        /// <param name="ImageWidth">Image width.</param>
-        /// <param name="IsDefault">True if the multimedia is the default for this type.</param>
-        /// <param name="Thumbnails">Thumbnails of the images.</param>
-        /// <param name="Type">Type of multimedia.</param>
-        /// <param name="Url">URL to view multimedia at.</param>
-        public CartItemMultimedia(string Code = default(string), string Description = default(string), bool? ExcludeFromGallery = default(bool?), int? ImageHeight = default(int?), int? ImageWidth = default(int?), bool? IsDefault = default(bool?), List<CartItemMultimediaThumbnail> Thumbnails = default(List<CartItemMultimediaThumbnail>), TypeEnum? Type = default(TypeEnum?), string Url = default(string))
+        /// <param name="code">Code assigned to the multimedia.</param>
+        /// <param name="description">Description.</param>
+        /// <param name="excludeFromGallery">True if the image should be excluded from galleries.</param>
+        /// <param name="imageHeight">Image height.</param>
+        /// <param name="imageWidth">Image width.</param>
+        /// <param name="isDefault">True if the multimedia is the default for this type.</param>
+        /// <param name="thumbnails">Thumbnails of the images.</param>
+        /// <param name="type">Type of multimedia.</param>
+        /// <param name="url">URL to view multimedia at.</param>
+        public CartItemMultimedia(string code = default(string), string description = default(string), bool? excludeFromGallery = default(bool?), int? imageHeight = default(int?), int? imageWidth = default(int?), bool? isDefault = default(bool?), List<CartItemMultimediaThumbnail> thumbnails = default(List<CartItemMultimediaThumbnail>), TypeEnum? type = default(TypeEnum?), string url = default(string))
         {
-            this.Code = Code;
-            this.Description = Description;
-            this.ExcludeFromGallery = ExcludeFromGallery;
-            this.ImageHeight = ImageHeight;
-            this.ImageWidth = ImageWidth;
-            this.IsDefault = IsDefault;
-            this.Thumbnails = Thumbnails;
-            this.Type = Type;
-            this.Url = Url;
+            this.Code = code;
+            this.Description = description;
+            this.ExcludeFromGallery = excludeFromGallery;
+            this.ImageHeight = imageHeight;
+            this.ImageWidth = imageWidth;
+            this.IsDefault = isDefault;
+            this.Thumbnails = thumbnails;
+            this.Type = type;
+            this.Url = url;
         }
         
         /// <summary>
@@ -182,7 +182,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

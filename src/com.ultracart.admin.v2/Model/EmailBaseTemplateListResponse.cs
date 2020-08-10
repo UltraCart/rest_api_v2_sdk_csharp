@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailBaseTemplateListResponse" /> class.
         /// </summary>
-        /// <param name="TemplatePaths">TemplatePaths.</param>
-        public EmailBaseTemplateListResponse(List<string> TemplatePaths = default(List<string>))
+        /// <param name="templatePaths">templatePaths.</param>
+        public EmailBaseTemplateListResponse(List<string> templatePaths = default(List<string>))
         {
-            this.TemplatePaths = TemplatePaths;
+            this.TemplatePaths = templatePaths;
         }
         
         /// <summary>
@@ -62,7 +62,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

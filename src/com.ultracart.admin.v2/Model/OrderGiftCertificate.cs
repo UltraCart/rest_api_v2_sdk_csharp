@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderGiftCertificate" /> class.
         /// </summary>
-        /// <param name="GiftCertificateAmount">GiftCertificateAmount.</param>
-        /// <param name="GiftCertificateCode">Gift certificate code used on the order.</param>
-        /// <param name="GiftCertificateOid">Gift certificate object identifier.</param>
-        public OrderGiftCertificate(Currency GiftCertificateAmount = default(Currency), string GiftCertificateCode = default(string), int? GiftCertificateOid = default(int?))
+        /// <param name="giftCertificateAmount">giftCertificateAmount.</param>
+        /// <param name="giftCertificateCode">Gift certificate code used on the order.</param>
+        /// <param name="giftCertificateOid">Gift certificate object identifier.</param>
+        public OrderGiftCertificate(Currency giftCertificateAmount = default(Currency), string giftCertificateCode = default(string), int? giftCertificateOid = default(int?))
         {
-            this.GiftCertificateAmount = GiftCertificateAmount;
-            this.GiftCertificateCode = GiftCertificateCode;
-            this.GiftCertificateOid = GiftCertificateOid;
+            this.GiftCertificateAmount = giftCertificateAmount;
+            this.GiftCertificateCode = giftCertificateCode;
+            this.GiftCertificateOid = giftCertificateOid;
         }
         
         /// <summary>
@@ -82,7 +82,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

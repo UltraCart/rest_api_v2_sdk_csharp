@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemDigitalItem" /> class.
         /// </summary>
-        /// <param name="CreationDts">File creation date.</param>
-        /// <param name="Description">Description of the digital item.</param>
-        /// <param name="FileSize">File size.</param>
-        /// <param name="MimeType">Mime type associated with the file.</param>
-        /// <param name="OriginalFilename">Original filename.</param>
-        public ItemDigitalItem(string CreationDts = default(string), string Description = default(string), long? FileSize = default(long?), string MimeType = default(string), string OriginalFilename = default(string))
+        /// <param name="creationDts">File creation date.</param>
+        /// <param name="description">Description of the digital item.</param>
+        /// <param name="fileSize">File size.</param>
+        /// <param name="mimeType">Mime type associated with the file.</param>
+        /// <param name="originalFilename">Original filename.</param>
+        public ItemDigitalItem(string creationDts = default(string), string description = default(string), long? fileSize = default(long?), string mimeType = default(string), string originalFilename = default(string))
         {
-            this.CreationDts = CreationDts;
-            this.Description = Description;
-            this.FileSize = FileSize;
-            this.MimeType = MimeType;
-            this.OriginalFilename = OriginalFilename;
+            this.CreationDts = creationDts;
+            this.Description = description;
+            this.FileSize = fileSize;
+            this.MimeType = mimeType;
+            this.OriginalFilename = originalFilename;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

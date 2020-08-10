@@ -33,24 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRestriction" /> class.
         /// </summary>
-        /// <param name="ExcludeCoupon">Exclude coupons.</param>
-        /// <param name="ExcludeFromFreePromotion">Exclude from free promotion.</param>
-        /// <param name="Items">Items.</param>
-        /// <param name="MaximumQuantity">Maximum quantity.</param>
-        /// <param name="MinimumQuantity">Minimum quantity (defaults to 1).</param>
-        /// <param name="MultipleQuantity">Multiple of quantity.</param>
-        /// <param name="OnePerCustomer">One per customer.</param>
-        /// <param name="PurchaseSeparately">Purchase separately.</param>
-        public ItemRestriction(bool? ExcludeCoupon = default(bool?), bool? ExcludeFromFreePromotion = default(bool?), List<ItemRestrictionItem> Items = default(List<ItemRestrictionItem>), int? MaximumQuantity = default(int?), int? MinimumQuantity = default(int?), int? MultipleQuantity = default(int?), bool? OnePerCustomer = default(bool?), bool? PurchaseSeparately = default(bool?))
+        /// <param name="excludeCoupon">Exclude coupons.</param>
+        /// <param name="excludeFromFreePromotion">Exclude from free promotion.</param>
+        /// <param name="items">Items.</param>
+        /// <param name="maximumQuantity">Maximum quantity.</param>
+        /// <param name="minimumQuantity">Minimum quantity (defaults to 1).</param>
+        /// <param name="multipleQuantity">Multiple of quantity.</param>
+        /// <param name="onePerCustomer">One per customer.</param>
+        /// <param name="purchaseSeparately">Purchase separately.</param>
+        public ItemRestriction(bool? excludeCoupon = default(bool?), bool? excludeFromFreePromotion = default(bool?), List<ItemRestrictionItem> items = default(List<ItemRestrictionItem>), int? maximumQuantity = default(int?), int? minimumQuantity = default(int?), int? multipleQuantity = default(int?), bool? onePerCustomer = default(bool?), bool? purchaseSeparately = default(bool?))
         {
-            this.ExcludeCoupon = ExcludeCoupon;
-            this.ExcludeFromFreePromotion = ExcludeFromFreePromotion;
-            this.Items = Items;
-            this.MaximumQuantity = MaximumQuantity;
-            this.MinimumQuantity = MinimumQuantity;
-            this.MultipleQuantity = MultipleQuantity;
-            this.OnePerCustomer = OnePerCustomer;
-            this.PurchaseSeparately = PurchaseSeparately;
+            this.ExcludeCoupon = excludeCoupon;
+            this.ExcludeFromFreePromotion = excludeFromFreePromotion;
+            this.Items = items;
+            this.MaximumQuantity = maximumQuantity;
+            this.MinimumQuantity = minimumQuantity;
+            this.MultipleQuantity = multipleQuantity;
+            this.OnePerCustomer = onePerCustomer;
+            this.PurchaseSeparately = purchaseSeparately;
         }
         
         /// <summary>
@@ -133,7 +133,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

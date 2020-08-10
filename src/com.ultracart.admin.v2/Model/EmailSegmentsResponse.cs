@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailSegmentsResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Segments">Segments.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public EmailSegmentsResponse(Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), List<EmailSegment> Segments = default(List<EmailSegment>), bool? Success = default(bool?))
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="segments">segments.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public EmailSegmentsResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), List<EmailSegment> segments = default(List<EmailSegment>), bool? success = default(bool?))
         {
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.Segments = Segments;
-            this.Success = Success;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.Segments = segments;
+            this.Success = success;
         }
         
         /// <summary>
@@ -90,7 +90,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderBuysafe" /> class.
         /// </summary>
-        /// <param name="BuysafeBondAvailable">True if a buySAFE bond was available for purchase on this order.</param>
-        /// <param name="BuysafeBondCost">BuysafeBondCost.</param>
-        /// <param name="BuysafeBondFree">True if the buySAFE bond was free for this order.</param>
-        /// <param name="BuysafeBondRefunded">BuysafeBondRefunded.</param>
-        /// <param name="BuysafeBondWanted">True if the buySAFE bond was wanted by the customer.</param>
-        /// <param name="BuysafeShoppingCartId">Shopping cart ID associated with the buySAFE bond.</param>
-        public OrderBuysafe(bool? BuysafeBondAvailable = default(bool?), Currency BuysafeBondCost = default(Currency), bool? BuysafeBondFree = default(bool?), Currency BuysafeBondRefunded = default(Currency), bool? BuysafeBondWanted = default(bool?), string BuysafeShoppingCartId = default(string))
+        /// <param name="buysafeBondAvailable">True if a buySAFE bond was available for purchase on this order.</param>
+        /// <param name="buysafeBondCost">buysafeBondCost.</param>
+        /// <param name="buysafeBondFree">True if the buySAFE bond was free for this order.</param>
+        /// <param name="buysafeBondRefunded">buysafeBondRefunded.</param>
+        /// <param name="buysafeBondWanted">True if the buySAFE bond was wanted by the customer.</param>
+        /// <param name="buysafeShoppingCartId">Shopping cart ID associated with the buySAFE bond.</param>
+        public OrderBuysafe(bool? buysafeBondAvailable = default(bool?), Currency buysafeBondCost = default(Currency), bool? buysafeBondFree = default(bool?), Currency buysafeBondRefunded = default(Currency), bool? buysafeBondWanted = default(bool?), string buysafeShoppingCartId = default(string))
         {
-            this.BuysafeBondAvailable = BuysafeBondAvailable;
-            this.BuysafeBondCost = BuysafeBondCost;
-            this.BuysafeBondFree = BuysafeBondFree;
-            this.BuysafeBondRefunded = BuysafeBondRefunded;
-            this.BuysafeBondWanted = BuysafeBondWanted;
-            this.BuysafeShoppingCartId = BuysafeShoppingCartId;
+            this.BuysafeBondAvailable = buysafeBondAvailable;
+            this.BuysafeBondCost = buysafeBondCost;
+            this.BuysafeBondFree = buysafeBondFree;
+            this.BuysafeBondRefunded = buysafeBondRefunded;
+            this.BuysafeBondWanted = buysafeBondWanted;
+            this.BuysafeShoppingCartId = buysafeShoppingCartId;
         }
         
         /// <summary>
@@ -111,7 +111,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

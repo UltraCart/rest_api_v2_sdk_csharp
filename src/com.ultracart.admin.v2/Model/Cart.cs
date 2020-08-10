@@ -33,56 +33,58 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Cart" /> class.
         /// </summary>
-        /// <param name="Affiliate">Affiliate.</param>
-        /// <param name="BaseCurrencyCode">The ISO-4217 three letter base currency code of the account.</param>
-        /// <param name="Billing">Billing.</param>
-        /// <param name="Buysafe">Buysafe.</param>
-        /// <param name="CartId">Unique identifier for this cart.</param>
-        /// <param name="Checkout">Checkout.</param>
-        /// <param name="Coupons">Coupons.</param>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="CurrencyConversion">CurrencyConversion.</param>
-        /// <param name="CustomerProfile">CustomerProfile.</param>
-        /// <param name="ExchangeRate">The exchange rate if the customer is viewing a different currency than the base.</param>
-        /// <param name="Gift">Gift.</param>
-        /// <param name="GiftCertificate">GiftCertificate.</param>
-        /// <param name="Items">Items.</param>
-        /// <param name="LanguageIsoCode">The ISO-631 three letter code the customer would like to checkout with.</param>
-        /// <param name="LoggedIn">True if the customer is logged into their profile.</param>
-        /// <param name="Marketing">Marketing.</param>
-        /// <param name="MerchantId">Merchant ID this cart is associated with.</param>
-        /// <param name="Payment">Payment.</param>
-        /// <param name="Settings">Settings.</param>
-        /// <param name="Shipping">Shipping.</param>
-        /// <param name="Summary">Summary.</param>
-        /// <param name="Taxes">Taxes.</param>
-        /// <param name="UpsellAfter">UpsellAfter.</param>
-        public Cart(CartAffiliate Affiliate = default(CartAffiliate), string BaseCurrencyCode = default(string), CartBilling Billing = default(CartBilling), CartBuysafe Buysafe = default(CartBuysafe), string CartId = default(string), CartCheckout Checkout = default(CartCheckout), List<CartCoupon> Coupons = default(List<CartCoupon>), string CurrencyCode = default(string), CartCurrencyConversion CurrencyConversion = default(CartCurrencyConversion), CartCustomerProfile CustomerProfile = default(CartCustomerProfile), decimal? ExchangeRate = default(decimal?), CartGift Gift = default(CartGift), CartGiftCertificate GiftCertificate = default(CartGiftCertificate), List<CartItem> Items = default(List<CartItem>), string LanguageIsoCode = default(string), bool? LoggedIn = default(bool?), CartMarketing Marketing = default(CartMarketing), string MerchantId = default(string), CartPayment Payment = default(CartPayment), CartSettings Settings = default(CartSettings), CartShipping Shipping = default(CartShipping), CartSummary Summary = default(CartSummary), CartTaxes Taxes = default(CartTaxes), CartUpsellAfter UpsellAfter = default(CartUpsellAfter))
+        /// <param name="affiliate">affiliate.</param>
+        /// <param name="baseCurrencyCode">The ISO-4217 three letter base currency code of the account.</param>
+        /// <param name="billing">billing.</param>
+        /// <param name="buysafe">buysafe.</param>
+        /// <param name="cartId">Unique identifier for this cart.</param>
+        /// <param name="checkout">checkout.</param>
+        /// <param name="coupons">Coupons.</param>
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="currencyConversion">currencyConversion.</param>
+        /// <param name="customerProfile">customerProfile.</param>
+        /// <param name="exchangeRate">The exchange rate if the customer is viewing a different currency than the base.</param>
+        /// <param name="gift">gift.</param>
+        /// <param name="giftCertificate">giftCertificate.</param>
+        /// <param name="items">Items.</param>
+        /// <param name="languageIsoCode">The ISO-631 three letter code the customer would like to checkout with.</param>
+        /// <param name="loggedIn">True if the customer is logged into their profile.</param>
+        /// <param name="marketing">marketing.</param>
+        /// <param name="merchantId">Merchant ID this cart is associated with.</param>
+        /// <param name="payment">payment.</param>
+        /// <param name="properties">Properties associated with the cart.</param>
+        /// <param name="settings">settings.</param>
+        /// <param name="shipping">shipping.</param>
+        /// <param name="summary">summary.</param>
+        /// <param name="taxes">taxes.</param>
+        /// <param name="upsellAfter">upsellAfter.</param>
+        public Cart(CartAffiliate affiliate = default(CartAffiliate), string baseCurrencyCode = default(string), CartBilling billing = default(CartBilling), CartBuysafe buysafe = default(CartBuysafe), string cartId = default(string), CartCheckout checkout = default(CartCheckout), List<CartCoupon> coupons = default(List<CartCoupon>), string currencyCode = default(string), CartCurrencyConversion currencyConversion = default(CartCurrencyConversion), CartCustomerProfile customerProfile = default(CartCustomerProfile), decimal? exchangeRate = default(decimal?), CartGift gift = default(CartGift), CartGiftCertificate giftCertificate = default(CartGiftCertificate), List<CartItem> items = default(List<CartItem>), string languageIsoCode = default(string), bool? loggedIn = default(bool?), CartMarketing marketing = default(CartMarketing), string merchantId = default(string), CartPayment payment = default(CartPayment), List<CartProperty> properties = default(List<CartProperty>), CartSettings settings = default(CartSettings), CartShipping shipping = default(CartShipping), CartSummary summary = default(CartSummary), CartTaxes taxes = default(CartTaxes), CartUpsellAfter upsellAfter = default(CartUpsellAfter))
         {
-            this.Affiliate = Affiliate;
-            this.BaseCurrencyCode = BaseCurrencyCode;
-            this.Billing = Billing;
-            this.Buysafe = Buysafe;
-            this.CartId = CartId;
-            this.Checkout = Checkout;
-            this.Coupons = Coupons;
-            this.CurrencyCode = CurrencyCode;
-            this.CurrencyConversion = CurrencyConversion;
-            this.CustomerProfile = CustomerProfile;
-            this.ExchangeRate = ExchangeRate;
-            this.Gift = Gift;
-            this.GiftCertificate = GiftCertificate;
-            this.Items = Items;
-            this.LanguageIsoCode = LanguageIsoCode;
-            this.LoggedIn = LoggedIn;
-            this.Marketing = Marketing;
-            this.MerchantId = MerchantId;
-            this.Payment = Payment;
-            this.Settings = Settings;
-            this.Shipping = Shipping;
-            this.Summary = Summary;
-            this.Taxes = Taxes;
-            this.UpsellAfter = UpsellAfter;
+            this.Affiliate = affiliate;
+            this.BaseCurrencyCode = baseCurrencyCode;
+            this.Billing = billing;
+            this.Buysafe = buysafe;
+            this.CartId = cartId;
+            this.Checkout = checkout;
+            this.Coupons = coupons;
+            this.CurrencyCode = currencyCode;
+            this.CurrencyConversion = currencyConversion;
+            this.CustomerProfile = customerProfile;
+            this.ExchangeRate = exchangeRate;
+            this.Gift = gift;
+            this.GiftCertificate = giftCertificate;
+            this.Items = items;
+            this.LanguageIsoCode = languageIsoCode;
+            this.LoggedIn = loggedIn;
+            this.Marketing = marketing;
+            this.MerchantId = merchantId;
+            this.Payment = payment;
+            this.Properties = properties;
+            this.Settings = settings;
+            this.Shipping = shipping;
+            this.Summary = summary;
+            this.Taxes = taxes;
+            this.UpsellAfter = upsellAfter;
         }
         
         /// <summary>
@@ -209,6 +211,13 @@ namespace com.ultracart.admin.v2.Model
         public CartPayment Payment { get; set; }
 
         /// <summary>
+        /// Properties associated with the cart
+        /// </summary>
+        /// <value>Properties associated with the cart</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<CartProperty> Properties { get; set; }
+
+        /// <summary>
         /// Gets or Sets Settings
         /// </summary>
         [DataMember(Name="settings", EmitDefaultValue=false)]
@@ -265,6 +274,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Marketing: ").Append(Marketing).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Payment: ").Append(Payment).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("  Shipping: ").Append(Shipping).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
@@ -278,7 +288,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -400,6 +410,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Payment.Equals(input.Payment))
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.Settings == input.Settings ||
                     (this.Settings != null &&
                     this.Settings.Equals(input.Settings))
@@ -473,6 +488,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Payment != null)
                     hashCode = hashCode * 59 + this.Payment.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.Settings != null)
                     hashCode = hashCode * 59 + this.Settings.GetHashCode();
                 if (this.Shipping != null)

@@ -33,12 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailStatSummaryRequest" /> class.
         /// </summary>
-        /// <param name="CommseqEmailUuids">CommseqEmailUuids.</param>
-        /// <param name="Days">Days.</param>
-        public EmailStatSummaryRequest(List<string> CommseqEmailUuids = default(List<string>), int? Days = default(int?))
+        /// <param name="commseqEmailUuids">commseqEmailUuids.</param>
+        /// <param name="commseqStepUuids">commseqStepUuids.</param>
+        /// <param name="days">days.</param>
+        public EmailStatSummaryRequest(List<string> commseqEmailUuids = default(List<string>), List<string> commseqStepUuids = default(List<string>), int? days = default(int?))
         {
-            this.CommseqEmailUuids = CommseqEmailUuids;
-            this.Days = Days;
+            this.CommseqEmailUuids = commseqEmailUuids;
+            this.CommseqStepUuids = commseqStepUuids;
+            this.Days = days;
         }
         
         /// <summary>
@@ -46,6 +48,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="commseq_email_uuids", EmitDefaultValue=false)]
         public List<string> CommseqEmailUuids { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CommseqStepUuids
+        /// </summary>
+        [DataMember(Name="commseq_step_uuids", EmitDefaultValue=false)]
+        public List<string> CommseqStepUuids { get; set; }
 
         /// <summary>
         /// Gets or Sets Days
@@ -62,6 +70,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class EmailStatSummaryRequest {\n");
             sb.Append("  CommseqEmailUuids: ").Append(CommseqEmailUuids).Append("\n");
+            sb.Append("  CommseqStepUuids: ").Append(CommseqStepUuids).Append("\n");
             sb.Append("  Days: ").Append(Days).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -71,7 +80,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -103,6 +112,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CommseqEmailUuids.SequenceEqual(input.CommseqEmailUuids)
                 ) && 
                 (
+                    this.CommseqStepUuids == input.CommseqStepUuids ||
+                    this.CommseqStepUuids != null &&
+                    this.CommseqStepUuids.SequenceEqual(input.CommseqStepUuids)
+                ) && 
+                (
                     this.Days == input.Days ||
                     (this.Days != null &&
                     this.Days.Equals(input.Days))
@@ -120,6 +134,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.CommseqEmailUuids != null)
                     hashCode = hashCode * 59 + this.CommseqEmailUuids.GetHashCode();
+                if (this.CommseqStepUuids != null)
+                    hashCode = hashCode * 59 + this.CommseqStepUuids.GetHashCode();
                 if (this.Days != null)
                     hashCode = hashCode * 59 + this.Days.GetHashCode();
                 return hashCode;

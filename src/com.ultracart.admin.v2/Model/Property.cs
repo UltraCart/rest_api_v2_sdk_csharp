@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Property" /> class.
         /// </summary>
-        /// <param name="Name">Name.</param>
-        /// <param name="Value">Value.</param>
-        public Property(string Name = default(string), string Value = default(string))
+        /// <param name="name">name.</param>
+        /// <param name="value">value.</param>
+        public Property(string name = default(string), string value = default(string))
         {
-            this.Name = Name;
-            this.Value = Value;
+            this.Name = name;
+            this.Value = value;
         }
         
         /// <summary>
@@ -71,7 +71,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

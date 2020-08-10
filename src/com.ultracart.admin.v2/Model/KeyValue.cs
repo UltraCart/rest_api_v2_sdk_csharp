@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="KeyValue" /> class.
         /// </summary>
-        /// <param name="Description">Optional description of the lookup value.</param>
-        /// <param name="Key">The key or id of this lookup value.</param>
-        /// <param name="Value">The value of this lookup value.</param>
-        public KeyValue(string Description = default(string), string Key = default(string), string Value = default(string))
+        /// <param name="description">Optional description of the lookup value.</param>
+        /// <param name="key">The key or id of this lookup value.</param>
+        /// <param name="value">The value of this lookup value.</param>
+        public KeyValue(string description = default(string), string key = default(string), string value = default(string))
         {
-            this.Description = Description;
-            this.Key = Key;
-            this.Value = Value;
+            this.Description = description;
+            this.Key = key;
+            this.Value = value;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

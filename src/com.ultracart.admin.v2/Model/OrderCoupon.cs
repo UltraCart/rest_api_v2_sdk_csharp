@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderCoupon" /> class.
         /// </summary>
-        /// <param name="AccountingCode">QuickBooks accounting code for this coupon.</param>
-        /// <param name="AutomaticallyApplied">Whether or not the coupon was automatically applied to the order.</param>
-        /// <param name="BaseCouponCode">Coupon code configured by the merchant.  Will differ if the customer used a one time coupon code generated off this base coupon.</param>
-        /// <param name="CouponCode">Coupon code entered by the customer.</param>
-        public OrderCoupon(string AccountingCode = default(string), bool? AutomaticallyApplied = default(bool?), string BaseCouponCode = default(string), string CouponCode = default(string))
+        /// <param name="accountingCode">QuickBooks accounting code for this coupon.</param>
+        /// <param name="automaticallyApplied">Whether or not the coupon was automatically applied to the order.</param>
+        /// <param name="baseCouponCode">Coupon code configured by the merchant.  Will differ if the customer used a one time coupon code generated off this base coupon.</param>
+        /// <param name="couponCode">Coupon code entered by the customer.</param>
+        public OrderCoupon(string accountingCode = default(string), bool? automaticallyApplied = default(bool?), string baseCouponCode = default(string), string couponCode = default(string))
         {
-            this.AccountingCode = AccountingCode;
-            this.AutomaticallyApplied = AutomaticallyApplied;
-            this.BaseCouponCode = BaseCouponCode;
-            this.CouponCode = CouponCode;
+            this.AccountingCode = accountingCode;
+            this.AutomaticallyApplied = automaticallyApplied;
+            this.BaseCouponCode = baseCouponCode;
+            this.CouponCode = couponCode;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

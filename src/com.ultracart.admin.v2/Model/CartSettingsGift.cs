@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsGift" /> class.
         /// </summary>
-        /// <param name="AllowGifts">True if this checkout supports gift giving.</param>
-        /// <param name="GiftCharge">GiftCharge.</param>
-        /// <param name="GiftWraps">The gift wraps available for the customer to select from.</param>
-        /// <param name="MaxMessageLength">The maximum length of the gift message the giver can enter.</param>
-        public CartSettingsGift(bool? AllowGifts = default(bool?), Currency GiftCharge = default(Currency), List<CartSettingsGiftWrap> GiftWraps = default(List<CartSettingsGiftWrap>), int? MaxMessageLength = default(int?))
+        /// <param name="allowGifts">True if this checkout supports gift giving.</param>
+        /// <param name="giftCharge">giftCharge.</param>
+        /// <param name="giftWraps">The gift wraps available for the customer to select from.</param>
+        /// <param name="maxMessageLength">The maximum length of the gift message the giver can enter.</param>
+        public CartSettingsGift(bool? allowGifts = default(bool?), Currency giftCharge = default(Currency), List<CartSettingsGiftWrap> giftWraps = default(List<CartSettingsGiftWrap>), int? maxMessageLength = default(int?))
         {
-            this.AllowGifts = AllowGifts;
-            this.GiftCharge = GiftCharge;
-            this.GiftWraps = GiftWraps;
-            this.MaxMessageLength = MaxMessageLength;
+            this.AllowGifts = allowGifts;
+            this.GiftCharge = giftCharge;
+            this.GiftWraps = giftWraps;
+            this.MaxMessageLength = maxMessageLength;
         }
         
         /// <summary>
@@ -92,7 +92,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

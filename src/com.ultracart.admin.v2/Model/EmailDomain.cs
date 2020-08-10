@@ -33,30 +33,30 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailDomain" /> class.
         /// </summary>
-        /// <param name="Comment">Comment.</param>
-        /// <param name="Dkim">Dkim.</param>
-        /// <param name="DkimStatus">DkimStatus.</param>
-        /// <param name="Domain">Domain.</param>
-        /// <param name="EspDomainUuid">EspDomainUuid.</param>
-        /// <param name="IdentityStatus">IdentityStatus.</param>
-        /// <param name="MerchantId">MerchantId.</param>
-        /// <param name="Provider">Provider.</param>
-        /// <param name="StartDkimDts">StartDkimDts.</param>
-        /// <param name="StartIdentityDts">StartIdentityDts.</param>
-        /// <param name="Verification">Verification.</param>
-        public EmailDomain(string Comment = default(string), List<VerificationRecord> Dkim = default(List<VerificationRecord>), string DkimStatus = default(string), string Domain = default(string), string EspDomainUuid = default(string), string IdentityStatus = default(string), string MerchantId = default(string), string Provider = default(string), string StartDkimDts = default(string), string StartIdentityDts = default(string), VerificationRecord Verification = default(VerificationRecord))
+        /// <param name="comment">comment.</param>
+        /// <param name="dkim">dkim.</param>
+        /// <param name="dkimStatus">dkimStatus.</param>
+        /// <param name="domain">domain.</param>
+        /// <param name="espDomainUuid">espDomainUuid.</param>
+        /// <param name="identityStatus">identityStatus.</param>
+        /// <param name="merchantId">merchantId.</param>
+        /// <param name="provider">provider.</param>
+        /// <param name="startDkimDts">startDkimDts.</param>
+        /// <param name="startIdentityDts">startIdentityDts.</param>
+        /// <param name="verification">verification.</param>
+        public EmailDomain(string comment = default(string), List<VerificationRecord> dkim = default(List<VerificationRecord>), string dkimStatus = default(string), string domain = default(string), string espDomainUuid = default(string), string identityStatus = default(string), string merchantId = default(string), string provider = default(string), string startDkimDts = default(string), string startIdentityDts = default(string), VerificationRecord verification = default(VerificationRecord))
         {
-            this.Comment = Comment;
-            this.Dkim = Dkim;
-            this.DkimStatus = DkimStatus;
-            this.Domain = Domain;
-            this.EspDomainUuid = EspDomainUuid;
-            this.IdentityStatus = IdentityStatus;
-            this.MerchantId = MerchantId;
-            this.Provider = Provider;
-            this.StartDkimDts = StartDkimDts;
-            this.StartIdentityDts = StartIdentityDts;
-            this.Verification = Verification;
+            this.Comment = comment;
+            this.Dkim = dkim;
+            this.DkimStatus = dkimStatus;
+            this.Domain = domain;
+            this.EspDomainUuid = espDomainUuid;
+            this.IdentityStatus = identityStatus;
+            this.MerchantId = merchantId;
+            this.Provider = provider;
+            this.StartDkimDts = startDkimDts;
+            this.StartIdentityDts = startIdentityDts;
+            this.Verification = verification;
         }
         
         /// <summary>
@@ -152,7 +152,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

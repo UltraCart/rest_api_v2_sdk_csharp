@@ -39,22 +39,22 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Running for "Running"
+            /// Enum Running for value: Running
             /// </summary>
             [EnumMember(Value = "Running")]
-            Running,
+            Running = 1,
             
             /// <summary>
-            /// Enum Ended for "Ended"
+            /// Enum Ended for value: Ended
             /// </summary>
             [EnumMember(Value = "Ended")]
-            Ended,
+            Ended = 2,
             
             /// <summary>
-            /// Enum Deleted for "Deleted"
+            /// Enum Deleted for value: Deleted
             /// </summary>
             [EnumMember(Value = "Deleted")]
-            Deleted
+            Deleted = 3
         }
 
         /// <summary>
@@ -66,40 +66,42 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Experiment" /> class.
         /// </summary>
-        /// <param name="ContainerId">Contained ID where the experiment element was located.</param>
-        /// <param name="DurationDays">Duration in days.</param>
-        /// <param name="EndDts">End date/time.</param>
-        /// <param name="EqualWeighting">Whether or not traffic is equally weighted or shifts over time during the experiment.</param>
-        /// <param name="Id">Experiment id.</param>
-        /// <param name="Name">Experiment name.</param>
-        /// <param name="Notes">Notes about the experiment.</param>
-        /// <param name="Objective">Objective that is being optimized.</param>
-        /// <param name="OptimizationType">Type of optimization.</param>
-        /// <param name="SessionCount">Total number of sessions in the experiment.</param>
-        /// <param name="StartDts">Start date/time.</param>
-        /// <param name="Status">Status of the experiment.</param>
-        /// <param name="StorefrontExperimentOid">Storefront Experiment Oid.</param>
-        /// <param name="StorefrontOid">Storefront oid.</param>
-        /// <param name="Uri">URI the experiment was started on.</param>
-        /// <param name="Variations">Variations being tested in the experiment.</param>
-        public Experiment(string ContainerId = default(string), int? DurationDays = default(int?), string EndDts = default(string), bool? EqualWeighting = default(bool?), string Id = default(string), string Name = default(string), string Notes = default(string), string Objective = default(string), string OptimizationType = default(string), int? SessionCount = default(int?), string StartDts = default(string), StatusEnum? Status = default(StatusEnum?), int? StorefrontExperimentOid = default(int?), int? StorefrontOid = default(int?), string Uri = default(string), List<ExperimentVariation> Variations = default(List<ExperimentVariation>))
+        /// <param name="containerId">Contained ID where the experiment element was located.</param>
+        /// <param name="durationDays">Duration in days.</param>
+        /// <param name="endDts">End date/time.</param>
+        /// <param name="equalWeighting">Whether or not traffic is equally weighted or shifts over time during the experiment.</param>
+        /// <param name="experimentType">The type of experiment.</param>
+        /// <param name="id">Experiment id.</param>
+        /// <param name="name">Experiment name.</param>
+        /// <param name="notes">Notes about the experiment.</param>
+        /// <param name="objective">Objective that is being optimized.</param>
+        /// <param name="optimizationType">Type of optimization.</param>
+        /// <param name="sessionCount">Total number of sessions in the experiment.</param>
+        /// <param name="startDts">Start date/time.</param>
+        /// <param name="status">Status of the experiment.</param>
+        /// <param name="storefrontExperimentOid">Storefront Experiment Oid.</param>
+        /// <param name="storefrontOid">Storefront oid.</param>
+        /// <param name="uri">URI the experiment was started on.</param>
+        /// <param name="variations">Variations being tested in the experiment.</param>
+        public Experiment(string containerId = default(string), int? durationDays = default(int?), string endDts = default(string), bool? equalWeighting = default(bool?), string experimentType = default(string), string id = default(string), string name = default(string), string notes = default(string), string objective = default(string), string optimizationType = default(string), int? sessionCount = default(int?), string startDts = default(string), StatusEnum? status = default(StatusEnum?), int? storefrontExperimentOid = default(int?), int? storefrontOid = default(int?), string uri = default(string), List<ExperimentVariation> variations = default(List<ExperimentVariation>))
         {
-            this.ContainerId = ContainerId;
-            this.DurationDays = DurationDays;
-            this.EndDts = EndDts;
-            this.EqualWeighting = EqualWeighting;
-            this.Id = Id;
-            this.Name = Name;
-            this.Notes = Notes;
-            this.Objective = Objective;
-            this.OptimizationType = OptimizationType;
-            this.SessionCount = SessionCount;
-            this.StartDts = StartDts;
-            this.Status = Status;
-            this.StorefrontExperimentOid = StorefrontExperimentOid;
-            this.StorefrontOid = StorefrontOid;
-            this.Uri = Uri;
-            this.Variations = Variations;
+            this.ContainerId = containerId;
+            this.DurationDays = durationDays;
+            this.EndDts = endDts;
+            this.EqualWeighting = equalWeighting;
+            this.ExperimentType = experimentType;
+            this.Id = id;
+            this.Name = name;
+            this.Notes = notes;
+            this.Objective = objective;
+            this.OptimizationType = optimizationType;
+            this.SessionCount = sessionCount;
+            this.StartDts = startDts;
+            this.Status = status;
+            this.StorefrontExperimentOid = storefrontExperimentOid;
+            this.StorefrontOid = storefrontOid;
+            this.Uri = uri;
+            this.Variations = variations;
         }
         
         /// <summary>
@@ -129,6 +131,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Whether or not traffic is equally weighted or shifts over time during the experiment</value>
         [DataMember(Name="equal_weighting", EmitDefaultValue=false)]
         public bool? EqualWeighting { get; set; }
+
+        /// <summary>
+        /// The type of experiment
+        /// </summary>
+        /// <value>The type of experiment</value>
+        [DataMember(Name="experiment_type", EmitDefaultValue=false)]
+        public string ExperimentType { get; set; }
 
         /// <summary>
         /// Experiment id
@@ -220,6 +229,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DurationDays: ").Append(DurationDays).Append("\n");
             sb.Append("  EndDts: ").Append(EndDts).Append("\n");
             sb.Append("  EqualWeighting: ").Append(EqualWeighting).Append("\n");
+            sb.Append("  ExperimentType: ").Append(ExperimentType).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
@@ -240,7 +250,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -285,6 +295,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EqualWeighting == input.EqualWeighting ||
                     (this.EqualWeighting != null &&
                     this.EqualWeighting.Equals(input.EqualWeighting))
+                ) && 
+                (
+                    this.ExperimentType == input.ExperimentType ||
+                    (this.ExperimentType != null &&
+                    this.ExperimentType.Equals(input.ExperimentType))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -365,6 +380,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EndDts.GetHashCode();
                 if (this.EqualWeighting != null)
                     hashCode = hashCode * 59 + this.EqualWeighting.GetHashCode();
+                if (this.ExperimentType != null)
+                    hashCode = hashCode * 59 + this.ExperimentType.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Name != null)

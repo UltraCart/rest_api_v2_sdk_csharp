@@ -33,40 +33,46 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailCampaign" /> class.
         /// </summary>
-        /// <param name="ClickRateFormatted">Click rate of emails.</param>
-        /// <param name="CreatedDts">Created date.</param>
-        /// <param name="Deleted">True if this campaign was deleted.</param>
-        /// <param name="EmailCampaignUuid">Email campaign UUID.</param>
-        /// <param name="EmailCommunicationSequenceUuid">Email communication sequence UUID.</param>
-        /// <param name="EspDomainUser">User of the sending address.</param>
-        /// <param name="EspDomainUuid">UUID of the sending domain.</param>
-        /// <param name="Memberships">List and segment memberships.</param>
-        /// <param name="MerchantId">Merchant ID.</param>
-        /// <param name="Name">Name of email campaign.</param>
-        /// <param name="OpenRateFormatted">Open rate of emails.</param>
-        /// <param name="RevenueFormatted">Revenue associated with campaign.</param>
-        /// <param name="ScheduledDts">Scheduled date.</param>
-        /// <param name="Status">Status of the campaign of draft, archived, and sent.</param>
-        /// <param name="StatusDts">Timestamp when the last status change happened.</param>
-        /// <param name="StorefrontOid">Storefront oid.</param>
-        public EmailCampaign(string ClickRateFormatted = default(string), string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailCampaignUuid = default(string), string EmailCommunicationSequenceUuid = default(string), string EspDomainUser = default(string), string EspDomainUuid = default(string), List<EmailListSegmentMembership> Memberships = default(List<EmailListSegmentMembership>), string MerchantId = default(string), string Name = default(string), string OpenRateFormatted = default(string), string RevenueFormatted = default(string), string ScheduledDts = default(string), string Status = default(string), string StatusDts = default(string), int? StorefrontOid = default(int?))
+        /// <param name="clickRateFormatted">Click rate of emails.</param>
+        /// <param name="createdDts">Created date.</param>
+        /// <param name="deleted">True if this campaign was deleted.</param>
+        /// <param name="emailCampaignUuid">Email campaign UUID.</param>
+        /// <param name="emailCommunicationSequenceUuid">Email communication sequence UUID.</param>
+        /// <param name="endOnceCustomerPurchases">True if the customer should end the flow once they purchase.</param>
+        /// <param name="espDomainUser">User of the sending address.</param>
+        /// <param name="espDomainUuid">UUID of the sending domain.</param>
+        /// <param name="espFriendlyName">Friendly name of the sending email.</param>
+        /// <param name="memberships">List and segment memberships.</param>
+        /// <param name="merchantId">Merchant ID.</param>
+        /// <param name="name">Name of email campaign.</param>
+        /// <param name="openRateFormatted">Open rate of emails.</param>
+        /// <param name="preventSendingDueToSpam">True if this campaign is prevented from sending at this time due to spam complaints..</param>
+        /// <param name="revenueFormatted">Revenue associated with campaign.</param>
+        /// <param name="scheduledDts">Scheduled date.</param>
+        /// <param name="status">Status of the campaign of draft, archived, and sent.</param>
+        /// <param name="statusDts">Timestamp when the last status change happened.</param>
+        /// <param name="storefrontOid">Storefront oid.</param>
+        public EmailCampaign(string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCampaignUuid = default(string), string emailCommunicationSequenceUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), List<EmailListSegmentMembership> memberships = default(List<EmailListSegmentMembership>), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), bool? preventSendingDueToSpam = default(bool?), string revenueFormatted = default(string), string scheduledDts = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?))
         {
-            this.ClickRateFormatted = ClickRateFormatted;
-            this.CreatedDts = CreatedDts;
-            this.Deleted = Deleted;
-            this.EmailCampaignUuid = EmailCampaignUuid;
-            this.EmailCommunicationSequenceUuid = EmailCommunicationSequenceUuid;
-            this.EspDomainUser = EspDomainUser;
-            this.EspDomainUuid = EspDomainUuid;
-            this.Memberships = Memberships;
-            this.MerchantId = MerchantId;
-            this.Name = Name;
-            this.OpenRateFormatted = OpenRateFormatted;
-            this.RevenueFormatted = RevenueFormatted;
-            this.ScheduledDts = ScheduledDts;
-            this.Status = Status;
-            this.StatusDts = StatusDts;
-            this.StorefrontOid = StorefrontOid;
+            this.ClickRateFormatted = clickRateFormatted;
+            this.CreatedDts = createdDts;
+            this.Deleted = deleted;
+            this.EmailCampaignUuid = emailCampaignUuid;
+            this.EmailCommunicationSequenceUuid = emailCommunicationSequenceUuid;
+            this.EndOnceCustomerPurchases = endOnceCustomerPurchases;
+            this.EspDomainUser = espDomainUser;
+            this.EspDomainUuid = espDomainUuid;
+            this.EspFriendlyName = espFriendlyName;
+            this.Memberships = memberships;
+            this.MerchantId = merchantId;
+            this.Name = name;
+            this.OpenRateFormatted = openRateFormatted;
+            this.PreventSendingDueToSpam = preventSendingDueToSpam;
+            this.RevenueFormatted = revenueFormatted;
+            this.ScheduledDts = scheduledDts;
+            this.Status = status;
+            this.StatusDts = statusDts;
+            this.StorefrontOid = storefrontOid;
         }
         
         /// <summary>
@@ -105,6 +111,13 @@ namespace com.ultracart.admin.v2.Model
         public string EmailCommunicationSequenceUuid { get; set; }
 
         /// <summary>
+        /// True if the customer should end the flow once they purchase
+        /// </summary>
+        /// <value>True if the customer should end the flow once they purchase</value>
+        [DataMember(Name="end_once_customer_purchases", EmitDefaultValue=false)]
+        public bool? EndOnceCustomerPurchases { get; set; }
+
+        /// <summary>
         /// User of the sending address
         /// </summary>
         /// <value>User of the sending address</value>
@@ -117,6 +130,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>UUID of the sending domain</value>
         [DataMember(Name="esp_domain_uuid", EmitDefaultValue=false)]
         public string EspDomainUuid { get; set; }
+
+        /// <summary>
+        /// Friendly name of the sending email
+        /// </summary>
+        /// <value>Friendly name of the sending email</value>
+        [DataMember(Name="esp_friendly_name", EmitDefaultValue=false)]
+        public string EspFriendlyName { get; set; }
 
         /// <summary>
         /// List and segment memberships
@@ -145,6 +165,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Open rate of emails</value>
         [DataMember(Name="open_rate_formatted", EmitDefaultValue=false)]
         public string OpenRateFormatted { get; set; }
+
+        /// <summary>
+        /// True if this campaign is prevented from sending at this time due to spam complaints.
+        /// </summary>
+        /// <value>True if this campaign is prevented from sending at this time due to spam complaints.</value>
+        [DataMember(Name="prevent_sending_due_to_spam", EmitDefaultValue=false)]
+        public bool? PreventSendingDueToSpam { get; set; }
 
         /// <summary>
         /// Revenue associated with campaign
@@ -194,12 +221,15 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EmailCampaignUuid: ").Append(EmailCampaignUuid).Append("\n");
             sb.Append("  EmailCommunicationSequenceUuid: ").Append(EmailCommunicationSequenceUuid).Append("\n");
+            sb.Append("  EndOnceCustomerPurchases: ").Append(EndOnceCustomerPurchases).Append("\n");
             sb.Append("  EspDomainUser: ").Append(EspDomainUser).Append("\n");
             sb.Append("  EspDomainUuid: ").Append(EspDomainUuid).Append("\n");
+            sb.Append("  EspFriendlyName: ").Append(EspFriendlyName).Append("\n");
             sb.Append("  Memberships: ").Append(Memberships).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OpenRateFormatted: ").Append(OpenRateFormatted).Append("\n");
+            sb.Append("  PreventSendingDueToSpam: ").Append(PreventSendingDueToSpam).Append("\n");
             sb.Append("  RevenueFormatted: ").Append(RevenueFormatted).Append("\n");
             sb.Append("  ScheduledDts: ").Append(ScheduledDts).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -213,7 +243,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -265,6 +295,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailCommunicationSequenceUuid.Equals(input.EmailCommunicationSequenceUuid))
                 ) && 
                 (
+                    this.EndOnceCustomerPurchases == input.EndOnceCustomerPurchases ||
+                    (this.EndOnceCustomerPurchases != null &&
+                    this.EndOnceCustomerPurchases.Equals(input.EndOnceCustomerPurchases))
+                ) && 
+                (
                     this.EspDomainUser == input.EspDomainUser ||
                     (this.EspDomainUser != null &&
                     this.EspDomainUser.Equals(input.EspDomainUser))
@@ -273,6 +308,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EspDomainUuid == input.EspDomainUuid ||
                     (this.EspDomainUuid != null &&
                     this.EspDomainUuid.Equals(input.EspDomainUuid))
+                ) && 
+                (
+                    this.EspFriendlyName == input.EspFriendlyName ||
+                    (this.EspFriendlyName != null &&
+                    this.EspFriendlyName.Equals(input.EspFriendlyName))
                 ) && 
                 (
                     this.Memberships == input.Memberships ||
@@ -293,6 +333,11 @@ namespace com.ultracart.admin.v2.Model
                     this.OpenRateFormatted == input.OpenRateFormatted ||
                     (this.OpenRateFormatted != null &&
                     this.OpenRateFormatted.Equals(input.OpenRateFormatted))
+                ) && 
+                (
+                    this.PreventSendingDueToSpam == input.PreventSendingDueToSpam ||
+                    (this.PreventSendingDueToSpam != null &&
+                    this.PreventSendingDueToSpam.Equals(input.PreventSendingDueToSpam))
                 ) && 
                 (
                     this.RevenueFormatted == input.RevenueFormatted ||
@@ -340,10 +385,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailCampaignUuid.GetHashCode();
                 if (this.EmailCommunicationSequenceUuid != null)
                     hashCode = hashCode * 59 + this.EmailCommunicationSequenceUuid.GetHashCode();
+                if (this.EndOnceCustomerPurchases != null)
+                    hashCode = hashCode * 59 + this.EndOnceCustomerPurchases.GetHashCode();
                 if (this.EspDomainUser != null)
                     hashCode = hashCode * 59 + this.EspDomainUser.GetHashCode();
                 if (this.EspDomainUuid != null)
                     hashCode = hashCode * 59 + this.EspDomainUuid.GetHashCode();
+                if (this.EspFriendlyName != null)
+                    hashCode = hashCode * 59 + this.EspFriendlyName.GetHashCode();
                 if (this.Memberships != null)
                     hashCode = hashCode * 59 + this.Memberships.GetHashCode();
                 if (this.MerchantId != null)
@@ -352,6 +401,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.OpenRateFormatted != null)
                     hashCode = hashCode * 59 + this.OpenRateFormatted.GetHashCode();
+                if (this.PreventSendingDueToSpam != null)
+                    hashCode = hashCode * 59 + this.PreventSendingDueToSpam.GetHashCode();
                 if (this.RevenueFormatted != null)
                     hashCode = hashCode * 59 + this.RevenueFormatted.GetHashCode();
                 if (this.ScheduledDts != null)

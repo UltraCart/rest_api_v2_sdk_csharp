@@ -39,16 +39,16 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum IN for "IN"
+            /// Enum IN for value: IN
             /// </summary>
             [EnumMember(Value = "IN")]
-            IN,
+            IN = 1,
             
             /// <summary>
-            /// Enum CM for "CM"
+            /// Enum CM for value: CM
             /// </summary>
             [EnumMember(Value = "CM")]
-            CM
+            CM = 2
         }
 
         /// <summary>
@@ -60,12 +60,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Distance" /> class.
         /// </summary>
-        /// <param name="Uom">Unit of measure.</param>
-        /// <param name="Value">The distance measured in UOM.</param>
-        public Distance(UomEnum? Uom = default(UomEnum?), decimal? Value = default(decimal?))
+        /// <param name="uom">Unit of measure.</param>
+        /// <param name="value">The distance measured in UOM.</param>
+        public Distance(UomEnum? uom = default(UomEnum?), decimal? value = default(decimal?))
         {
-            this.Uom = Uom;
-            this.Value = Value;
+            this.Uom = uom;
+            this.Value = value;
         }
         
 
@@ -94,7 +94,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

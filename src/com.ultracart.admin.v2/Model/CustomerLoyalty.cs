@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerLoyalty" /> class.
         /// </summary>
-        /// <param name="CurrentPoints">Current Points.</param>
-        /// <param name="LedgerEntries">Ledger entries.</param>
-        /// <param name="Redemptions">Redemptions.</param>
-        public CustomerLoyalty(int? CurrentPoints = default(int?), List<CustomerLoyaltyLedger> LedgerEntries = default(List<CustomerLoyaltyLedger>), List<CustomerLoyaltyRedemption> Redemptions = default(List<CustomerLoyaltyRedemption>))
+        /// <param name="currentPoints">Current Points.</param>
+        /// <param name="ledgerEntries">Ledger entries.</param>
+        /// <param name="redemptions">Redemptions.</param>
+        public CustomerLoyalty(int? currentPoints = default(int?), List<CustomerLoyaltyLedger> ledgerEntries = default(List<CustomerLoyaltyLedger>), List<CustomerLoyaltyRedemption> redemptions = default(List<CustomerLoyaltyRedemption>))
         {
-            this.CurrentPoints = CurrentPoints;
-            this.LedgerEntries = LedgerEntries;
-            this.Redemptions = Redemptions;
+            this.CurrentPoints = currentPoints;
+            this.LedgerEntries = ledgerEntries;
+            this.Redemptions = redemptions;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

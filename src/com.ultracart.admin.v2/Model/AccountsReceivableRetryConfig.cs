@@ -33,36 +33,36 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountsReceivableRetryConfig" /> class.
         /// </summary>
-        /// <param name="Active">True if the retry should run daily.  False puts the retry service into an inactive state for this merchant..</param>
-        /// <param name="AllowProcessLinkedAccounts">True if this account has linked accounts that it can process..</param>
-        /// <param name="CurrentServicePlan">The current service plan that the account is on..</param>
-        /// <param name="DailyActivityList">A list of days and what actions should take place on those days after an order reaches accounts receivable.</param>
-        /// <param name="ManagedByLinkedAccountMerchantId">If not null, this account is managed by the specified parent merchant id..</param>
-        /// <param name="MerchantId">UltraCart merchant ID.</param>
-        /// <param name="NotifyEmails">A list of email addresses to receive summary notifications from the retry service..</param>
-        /// <param name="NotifyRejections">If true, email addresses are notified of rejections..</param>
-        /// <param name="NotifySuccesses">If true, email addresses are notified of successful charges..</param>
-        /// <param name="ProcessLinkedAccounts">If true, all linked accounts are also processed using the same rules..</param>
-        /// <param name="ProcessingPercentage">The percentage rate charged for the service..</param>
-        /// <param name="RejectAtEnd">If true, the order is rejected the day after the last configured activity day.</param>
-        /// <param name="TrialMode">True if the account is currently in trial mode.  Set to false to exit trial mode..</param>
-        /// <param name="TrialModeExpirationDts">The date when trial mode expires.  If this date is reached without exiting trial mode, the service will de-activate..</param>
-        public AccountsReceivableRetryConfig(bool? Active = default(bool?), bool? AllowProcessLinkedAccounts = default(bool?), string CurrentServicePlan = default(string), List<AccountsReceivableRetryDayActivity> DailyActivityList = default(List<AccountsReceivableRetryDayActivity>), bool? ManagedByLinkedAccountMerchantId = default(bool?), string MerchantId = default(string), List<string> NotifyEmails = default(List<string>), bool? NotifyRejections = default(bool?), bool? NotifySuccesses = default(bool?), bool? ProcessLinkedAccounts = default(bool?), string ProcessingPercentage = default(string), bool? RejectAtEnd = default(bool?), bool? TrialMode = default(bool?), string TrialModeExpirationDts = default(string))
+        /// <param name="active">True if the retry should run daily.  False puts the retry service into an inactive state for this merchant..</param>
+        /// <param name="allowProcessLinkedAccounts">True if this account has linked accounts that it can process..</param>
+        /// <param name="currentServicePlan">The current service plan that the account is on..</param>
+        /// <param name="dailyActivityList">A list of days and what actions should take place on those days after an order reaches accounts receivable.</param>
+        /// <param name="managedByLinkedAccountMerchantId">If not null, this account is managed by the specified parent merchant id..</param>
+        /// <param name="merchantId">UltraCart merchant ID.</param>
+        /// <param name="notifyEmails">A list of email addresses to receive summary notifications from the retry service..</param>
+        /// <param name="notifyRejections">If true, email addresses are notified of rejections..</param>
+        /// <param name="notifySuccesses">If true, email addresses are notified of successful charges..</param>
+        /// <param name="processLinkedAccounts">If true, all linked accounts are also processed using the same rules..</param>
+        /// <param name="processingPercentage">The percentage rate charged for the service..</param>
+        /// <param name="rejectAtEnd">If true, the order is rejected the day after the last configured activity day.</param>
+        /// <param name="trialMode">True if the account is currently in trial mode.  Set to false to exit trial mode..</param>
+        /// <param name="trialModeExpirationDts">The date when trial mode expires.  If this date is reached without exiting trial mode, the service will de-activate..</param>
+        public AccountsReceivableRetryConfig(bool? active = default(bool?), bool? allowProcessLinkedAccounts = default(bool?), string currentServicePlan = default(string), List<AccountsReceivableRetryDayActivity> dailyActivityList = default(List<AccountsReceivableRetryDayActivity>), bool? managedByLinkedAccountMerchantId = default(bool?), string merchantId = default(string), List<string> notifyEmails = default(List<string>), bool? notifyRejections = default(bool?), bool? notifySuccesses = default(bool?), bool? processLinkedAccounts = default(bool?), string processingPercentage = default(string), bool? rejectAtEnd = default(bool?), bool? trialMode = default(bool?), string trialModeExpirationDts = default(string))
         {
-            this.Active = Active;
-            this.AllowProcessLinkedAccounts = AllowProcessLinkedAccounts;
-            this.CurrentServicePlan = CurrentServicePlan;
-            this.DailyActivityList = DailyActivityList;
-            this.ManagedByLinkedAccountMerchantId = ManagedByLinkedAccountMerchantId;
-            this.MerchantId = MerchantId;
-            this.NotifyEmails = NotifyEmails;
-            this.NotifyRejections = NotifyRejections;
-            this.NotifySuccesses = NotifySuccesses;
-            this.ProcessLinkedAccounts = ProcessLinkedAccounts;
-            this.ProcessingPercentage = ProcessingPercentage;
-            this.RejectAtEnd = RejectAtEnd;
-            this.TrialMode = TrialMode;
-            this.TrialModeExpirationDts = TrialModeExpirationDts;
+            this.Active = active;
+            this.AllowProcessLinkedAccounts = allowProcessLinkedAccounts;
+            this.CurrentServicePlan = currentServicePlan;
+            this.DailyActivityList = dailyActivityList;
+            this.ManagedByLinkedAccountMerchantId = managedByLinkedAccountMerchantId;
+            this.MerchantId = merchantId;
+            this.NotifyEmails = notifyEmails;
+            this.NotifyRejections = notifyRejections;
+            this.NotifySuccesses = notifySuccesses;
+            this.ProcessLinkedAccounts = processLinkedAccounts;
+            this.ProcessingPercentage = processingPercentage;
+            this.RejectAtEnd = rejectAtEnd;
+            this.TrialMode = trialMode;
+            this.TrialModeExpirationDts = trialModeExpirationDts;
         }
         
         /// <summary>
@@ -193,7 +193,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

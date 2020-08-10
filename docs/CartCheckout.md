@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **IpAddress** | **string** | IP Address (read only unless non-browser key authenticated) | [optional] 
 **ReturnCode** | **string** | Return code assigned for send return email operation | [optional] 
 **ScreenBrandingThemeCode** | **string** | Screen branding theme code | [optional] 
+**UserAgent** | **string** | User agent of the browser | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

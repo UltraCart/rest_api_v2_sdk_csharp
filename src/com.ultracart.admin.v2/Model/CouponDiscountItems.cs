@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponDiscountItems" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="DiscountPrice">The price (unit cost) of the discounted item.</param>
-        /// <param name="Items">A list of items that are eligible for this discount_price..</param>
-        /// <param name="Limit">The (optional) maximum quantity of discounted items..</param>
-        public CouponDiscountItems(string CurrencyCode = default(string), decimal? DiscountPrice = default(decimal?), List<string> Items = default(List<string>), int? Limit = default(int?))
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="discountPrice">The price (unit cost) of the discounted item.</param>
+        /// <param name="items">A list of items that are eligible for this discount_price..</param>
+        /// <param name="limit">The (optional) maximum quantity of discounted items..</param>
+        public CouponDiscountItems(string currencyCode = default(string), decimal? discountPrice = default(decimal?), List<string> items = default(List<string>), int? limit = default(int?))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.DiscountPrice = DiscountPrice;
-            this.Items = Items;
-            this.Limit = Limit;
+            this.CurrencyCode = currencyCode;
+            this.DiscountPrice = discountPrice;
+            this.Items = items;
+            this.Limit = limit;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

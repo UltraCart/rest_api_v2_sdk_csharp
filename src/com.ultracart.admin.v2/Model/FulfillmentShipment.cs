@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FulfillmentShipment" /> class.
         /// </summary>
-        /// <param name="FulfillmentFee">Fees charged by the fulfillment company other than the shipping cost to process the order..</param>
-        /// <param name="OrderId">Order ID that was shipped.</param>
-        /// <param name="PackageCost">The cost of the packaging used to sent this shipment.</param>
-        /// <param name="ShippingCost">The actual total cost of shipping this order.</param>
-        /// <param name="TrackingNumbers">Tracking numbers associated with the shipment.</param>
-        public FulfillmentShipment(decimal? FulfillmentFee = default(decimal?), string OrderId = default(string), decimal? PackageCost = default(decimal?), decimal? ShippingCost = default(decimal?), List<string> TrackingNumbers = default(List<string>))
+        /// <param name="fulfillmentFee">Fees charged by the fulfillment company other than the shipping cost to process the order..</param>
+        /// <param name="orderId">Order ID that was shipped.</param>
+        /// <param name="packageCost">The cost of the packaging used to sent this shipment.</param>
+        /// <param name="shippingCost">The actual total cost of shipping this order.</param>
+        /// <param name="trackingNumbers">Tracking numbers associated with the shipment.</param>
+        public FulfillmentShipment(decimal? fulfillmentFee = default(decimal?), string orderId = default(string), decimal? packageCost = default(decimal?), decimal? shippingCost = default(decimal?), List<string> trackingNumbers = default(List<string>))
         {
-            this.FulfillmentFee = FulfillmentFee;
-            this.OrderId = OrderId;
-            this.PackageCost = PackageCost;
-            this.ShippingCost = ShippingCost;
-            this.TrackingNumbers = TrackingNumbers;
+            this.FulfillmentFee = fulfillmentFee;
+            this.OrderId = orderId;
+            this.PackageCost = packageCost;
+            this.ShippingCost = shippingCost;
+            this.TrackingNumbers = trackingNumbers;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

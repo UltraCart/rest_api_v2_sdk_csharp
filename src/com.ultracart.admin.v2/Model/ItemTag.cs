@@ -39,22 +39,22 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Item for "item"
+            /// Enum Item for value: item
             /// </summary>
             [EnumMember(Value = "item")]
-            Item,
+            Item = 1,
             
             /// <summary>
-            /// Enum Order for "order"
+            /// Enum Order for value: order
             /// </summary>
             [EnumMember(Value = "order")]
-            Order,
+            Order = 2,
             
             /// <summary>
-            /// Enum Customer for "customer"
+            /// Enum Customer for value: customer
             /// </summary>
             [EnumMember(Value = "customer")]
-            Customer
+            Customer = 3
         }
 
         /// <summary>
@@ -66,12 +66,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemTag" /> class.
         /// </summary>
-        /// <param name="TagType">tag_tpe.</param>
-        /// <param name="TagValue">tag_value.</param>
-        public ItemTag(TagTypeEnum? TagType = default(TagTypeEnum?), string TagValue = default(string))
+        /// <param name="tagType">tag_tpe.</param>
+        /// <param name="tagValue">tag_value.</param>
+        public ItemTag(TagTypeEnum? tagType = default(TagTypeEnum?), string tagValue = default(string))
         {
-            this.TagType = TagType;
-            this.TagValue = TagValue;
+            this.TagType = tagType;
+            this.TagValue = tagValue;
         }
         
 
@@ -100,7 +100,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

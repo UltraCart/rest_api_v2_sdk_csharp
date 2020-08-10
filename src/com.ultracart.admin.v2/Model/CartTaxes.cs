@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartTaxes" /> class.
         /// </summary>
-        /// <param name="County">Tax county if the state requires it..</param>
-        /// <param name="Exempt">True if tax exempt.</param>
-        /// <param name="Rate">Tax rate.</param>
-        public CartTaxes(string County = default(string), bool? Exempt = default(bool?), decimal? Rate = default(decimal?))
+        /// <param name="county">Tax county if the state requires it..</param>
+        /// <param name="exempt">True if tax exempt.</param>
+        /// <param name="rate">Tax rate.</param>
+        public CartTaxes(string county = default(string), bool? exempt = default(bool?), decimal? rate = default(decimal?))
         {
-            this.County = County;
-            this.Exempt = Exempt;
-            this.Rate = Rate;
+            this.County = county;
+            this.Exempt = exempt;
+            this.Rate = rate;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

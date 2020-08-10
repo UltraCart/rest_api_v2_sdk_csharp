@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartUpsellAfter" /> class.
         /// </summary>
-        /// <param name="FinalizeAfterDts">The date/time after which the cart will finalize into an order..</param>
-        /// <param name="FinalizeAfterMinutes">The amount of inactivity in minutes after which the cart should be finalized into an order.  This will calculate the finalize_after_dts field..</param>
-        /// <param name="UpsellPathCode">Upsell path code.</param>
-        public CartUpsellAfter(string FinalizeAfterDts = default(string), int? FinalizeAfterMinutes = default(int?), string UpsellPathCode = default(string))
+        /// <param name="finalizeAfterDts">The date/time after which the cart will finalize into an order..</param>
+        /// <param name="finalizeAfterMinutes">The amount of inactivity in minutes after which the cart should be finalized into an order.  This will calculate the finalize_after_dts field..</param>
+        /// <param name="upsellPathCode">Upsell path code.</param>
+        public CartUpsellAfter(string finalizeAfterDts = default(string), int? finalizeAfterMinutes = default(int?), string upsellPathCode = default(string))
         {
-            this.FinalizeAfterDts = FinalizeAfterDts;
-            this.FinalizeAfterMinutes = FinalizeAfterMinutes;
-            this.UpsellPathCode = UpsellPathCode;
+            this.FinalizeAfterDts = finalizeAfterDts;
+            this.FinalizeAfterMinutes = finalizeAfterMinutes;
+            this.UpsellPathCode = upsellPathCode;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRelated" /> class.
         /// </summary>
-        /// <param name="NoSystemCalculatedRelatedItems">True to suppress system calculated relationships.</param>
-        /// <param name="NotRelatable">Not relatable.</param>
-        /// <param name="RelatedItems">Related items.</param>
-        public ItemRelated(bool? NoSystemCalculatedRelatedItems = default(bool?), bool? NotRelatable = default(bool?), List<ItemRelatedItem> RelatedItems = default(List<ItemRelatedItem>))
+        /// <param name="noSystemCalculatedRelatedItems">True to suppress system calculated relationships.</param>
+        /// <param name="notRelatable">Not relatable.</param>
+        /// <param name="relatedItems">Related items.</param>
+        public ItemRelated(bool? noSystemCalculatedRelatedItems = default(bool?), bool? notRelatable = default(bool?), List<ItemRelatedItem> relatedItems = default(List<ItemRelatedItem>))
         {
-            this.NoSystemCalculatedRelatedItems = NoSystemCalculatedRelatedItems;
-            this.NotRelatable = NotRelatable;
-            this.RelatedItems = RelatedItems;
+            this.NoSystemCalculatedRelatedItems = noSystemCalculatedRelatedItems;
+            this.NotRelatable = notRelatable;
+            this.RelatedItems = relatedItems;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

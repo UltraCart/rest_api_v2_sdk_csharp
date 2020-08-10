@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailListSegmentMembership" /> class.
         /// </summary>
-        /// <param name="EmailListUuid">UUID identifying this email list or null if this is a segment.</param>
-        /// <param name="EmailSegmentUuid">UUID identifying this email segment or null if this is a list.</param>
-        /// <param name="Exclude">true if customers from this list/segment is excluded from membership.</param>
-        /// <param name="Name">Name of this email list or segment.</param>
-        public EmailListSegmentMembership(string EmailListUuid = default(string), string EmailSegmentUuid = default(string), bool? Exclude = default(bool?), string Name = default(string))
+        /// <param name="emailListUuid">UUID identifying this email list or null if this is a segment.</param>
+        /// <param name="emailSegmentUuid">UUID identifying this email segment or null if this is a list.</param>
+        /// <param name="exclude">true if customers from this list/segment is excluded from membership.</param>
+        /// <param name="name">Name of this email list or segment.</param>
+        public EmailListSegmentMembership(string emailListUuid = default(string), string emailSegmentUuid = default(string), bool? exclude = default(bool?), string name = default(string))
         {
-            this.EmailListUuid = EmailListUuid;
-            this.EmailSegmentUuid = EmailSegmentUuid;
-            this.Exclude = Exclude;
-            this.Name = Name;
+            this.EmailListUuid = emailListUuid;
+            this.EmailSegmentUuid = emailSegmentUuid;
+            this.Exclude = exclude;
+            this.Name = name;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

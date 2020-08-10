@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartProfileLoginRequest" /> class.
         /// </summary>
-        /// <param name="Cart">Cart.</param>
-        /// <param name="CustomerProfileOid">Unique identifier for customer profile.  Can not be used with browser key authentication type..</param>
-        /// <param name="Password">Password for the profile.</param>
-        public CartProfileLoginRequest(Cart Cart = default(Cart), int? CustomerProfileOid = default(int?), string Password = default(string))
+        /// <param name="cart">cart.</param>
+        /// <param name="customerProfileOid">Unique identifier for customer profile.  Can not be used with browser key authentication type..</param>
+        /// <param name="password">Password for the profile.</param>
+        public CartProfileLoginRequest(Cart cart = default(Cart), int? customerProfileOid = default(int?), string password = default(string))
         {
-            this.Cart = Cart;
-            this.CustomerProfileOid = CustomerProfileOid;
-            this.Password = Password;
+            this.Cart = cart;
+            this.CustomerProfileOid = customerProfileOid;
+            this.Password = password;
         }
         
         /// <summary>
@@ -82,7 +82,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxJarConfig" /> class.
         /// </summary>
-        /// <param name="Active">True if TaxJar is active for this merchant.</param>
-        /// <param name="ApiKey">TaxJar API key.</param>
-        /// <param name="EstimateOnly">True if this TaxJar configuration is to estimate taxes only and not report placed orders to TaxJar.</param>
-        /// <param name="SendTestOrders">Send test orders through to TaxJar.  The default is to not transmit test orders to TaxJar..</param>
-        /// <param name="UseDistributionCenterFrom">Use distribution center from address.</param>
-        public TaxJarConfig(bool? Active = default(bool?), string ApiKey = default(string), bool? EstimateOnly = default(bool?), bool? SendTestOrders = default(bool?), bool? UseDistributionCenterFrom = default(bool?))
+        /// <param name="active">True if TaxJar is active for this merchant.</param>
+        /// <param name="apiKey">TaxJar API key.</param>
+        /// <param name="estimateOnly">True if this TaxJar configuration is to estimate taxes only and not report placed orders to TaxJar.</param>
+        /// <param name="sendTestOrders">Send test orders through to TaxJar.  The default is to not transmit test orders to TaxJar..</param>
+        /// <param name="useDistributionCenterFrom">Use distribution center from address.</param>
+        public TaxJarConfig(bool? active = default(bool?), string apiKey = default(string), bool? estimateOnly = default(bool?), bool? sendTestOrders = default(bool?), bool? useDistributionCenterFrom = default(bool?))
         {
-            this.Active = Active;
-            this.ApiKey = ApiKey;
-            this.EstimateOnly = EstimateOnly;
-            this.SendTestOrders = SendTestOrders;
-            this.UseDistributionCenterFrom = UseDistributionCenterFrom;
+            this.Active = active;
+            this.ApiKey = apiKey;
+            this.EstimateOnly = estimateOnly;
+            this.SendTestOrders = sendTestOrders;
+            this.UseDistributionCenterFrom = useDistributionCenterFrom;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

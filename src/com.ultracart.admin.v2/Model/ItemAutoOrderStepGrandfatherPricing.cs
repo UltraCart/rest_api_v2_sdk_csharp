@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAutoOrderStepGrandfatherPricing" /> class.
         /// </summary>
-        /// <param name="OnOrBeforeDate">On or before date.</param>
-        /// <param name="UnitCost">Unit cost.</param>
-        public ItemAutoOrderStepGrandfatherPricing(string OnOrBeforeDate = default(string), decimal? UnitCost = default(decimal?))
+        /// <param name="onOrBeforeDate">On or before date.</param>
+        /// <param name="unitCost">Unit cost.</param>
+        public ItemAutoOrderStepGrandfatherPricing(string onOrBeforeDate = default(string), decimal? unitCost = default(decimal?))
         {
-            this.OnOrBeforeDate = OnOrBeforeDate;
-            this.UnitCost = UnitCost;
+            this.OnOrBeforeDate = onOrBeforeDate;
+            this.UnitCost = unitCost;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -39,16 +39,16 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum System for "System"
+            /// Enum System for value: System
             /// </summary>
             [EnumMember(Value = "System")]
-            System,
+            System = 1,
             
             /// <summary>
-            /// Enum UserDefined for "UserDefined"
+            /// Enum UserDefined for value: UserDefined
             /// </summary>
             [EnumMember(Value = "UserDefined")]
-            UserDefined
+            UserDefined = 2
         }
 
         /// <summary>
@@ -60,14 +60,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRelatedItem" /> class.
         /// </summary>
-        /// <param name="RelatedMerchantItemId">Related item id.</param>
-        /// <param name="RelatedMerchantItemOid">Related item object identifier.</param>
-        /// <param name="Type">Relationship type.</param>
-        public ItemRelatedItem(string RelatedMerchantItemId = default(string), int? RelatedMerchantItemOid = default(int?), TypeEnum? Type = default(TypeEnum?))
+        /// <param name="relatedMerchantItemId">Related item id.</param>
+        /// <param name="relatedMerchantItemOid">Related item object identifier.</param>
+        /// <param name="type">Relationship type.</param>
+        public ItemRelatedItem(string relatedMerchantItemId = default(string), int? relatedMerchantItemOid = default(int?), TypeEnum? type = default(TypeEnum?))
         {
-            this.RelatedMerchantItemId = RelatedMerchantItemId;
-            this.RelatedMerchantItemOid = RelatedMerchantItemOid;
-            this.Type = Type;
+            this.RelatedMerchantItemId = relatedMerchantItemId;
+            this.RelatedMerchantItemOid = relatedMerchantItemOid;
+            this.Type = type;
         }
         
         /// <summary>
@@ -104,7 +104,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

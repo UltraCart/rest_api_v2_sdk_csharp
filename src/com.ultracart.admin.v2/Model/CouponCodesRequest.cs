@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponCodesRequest" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="ExpirationDts">Expiration Date.</param>
-        /// <param name="ExpirationSeconds">Expiration seconds.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Quantity">Quantity.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public CouponCodesRequest(Error Error = default(Error), string ExpirationDts = default(string), int? ExpirationSeconds = default(int?), ResponseMetadata Metadata = default(ResponseMetadata), int? Quantity = default(int?), bool? Success = default(bool?))
+        /// <param name="error">error.</param>
+        /// <param name="expirationDts">Expiration Date.</param>
+        /// <param name="expirationSeconds">Expiration seconds.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="quantity">Quantity.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public CouponCodesRequest(Error error = default(Error), string expirationDts = default(string), int? expirationSeconds = default(int?), ResponseMetadata metadata = default(ResponseMetadata), int? quantity = default(int?), bool? success = default(bool?))
         {
-            this.Error = Error;
-            this.ExpirationDts = ExpirationDts;
-            this.ExpirationSeconds = ExpirationSeconds;
-            this.Metadata = Metadata;
-            this.Quantity = Quantity;
-            this.Success = Success;
+            this.Error = error;
+            this.ExpirationDts = expirationDts;
+            this.ExpirationSeconds = expirationSeconds;
+            this.Metadata = metadata;
+            this.Quantity = quantity;
+            this.Success = success;
         }
         
         /// <summary>
@@ -111,7 +111,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

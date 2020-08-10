@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoOrderItemOption" /> class.
         /// </summary>
-        /// <param name="Label">Label.</param>
-        /// <param name="Value">Value.</param>
-        public AutoOrderItemOption(string Label = default(string), string Value = default(string))
+        /// <param name="label">Label.</param>
+        /// <param name="value">Value.</param>
+        public AutoOrderItemOption(string label = default(string), string value = default(string))
         {
-            this.Label = Label;
-            this.Value = Value;
+            this.Label = label;
+            this.Value = value;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

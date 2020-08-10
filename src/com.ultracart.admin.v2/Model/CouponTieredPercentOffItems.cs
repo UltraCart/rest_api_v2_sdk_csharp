@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponTieredPercentOffItems" /> class.
         /// </summary>
-        /// <param name="Items">A list of items of which at least one must be purchased for coupon to be valid..</param>
-        /// <param name="Limit">The maximum amount of total discount by this coupon..</param>
-        /// <param name="Tiers">A list of discount tiers..</param>
-        public CouponTieredPercentOffItems(List<string> Items = default(List<string>), decimal? Limit = default(decimal?), List<CouponTierQuantityPercent> Tiers = default(List<CouponTierQuantityPercent>))
+        /// <param name="items">A list of items of which at least one must be purchased for coupon to be valid..</param>
+        /// <param name="limit">The maximum amount of total discount by this coupon..</param>
+        /// <param name="tiers">A list of discount tiers..</param>
+        public CouponTieredPercentOffItems(List<string> items = default(List<string>), decimal? limit = default(decimal?), List<CouponTierQuantityPercent> tiers = default(List<CouponTierQuantityPercent>))
         {
-            this.Items = Items;
-            this.Limit = Limit;
-            this.Tiers = Tiers;
+            this.Items = items;
+            this.Limit = limit;
+            this.Tiers = tiers;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

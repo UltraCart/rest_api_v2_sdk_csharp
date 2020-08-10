@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckoutSetupBrowserKeyResponse" /> class.
         /// </summary>
-        /// <param name="BrowserKey">Browser key that is used to authenticate against the new linked application..</param>
-        public CheckoutSetupBrowserKeyResponse(string BrowserKey = default(string))
+        /// <param name="browserKey">Browser key that is used to authenticate against the new linked application..</param>
+        public CheckoutSetupBrowserKeyResponse(string browserKey = default(string))
         {
-            this.BrowserKey = BrowserKey;
+            this.BrowserKey = browserKey;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

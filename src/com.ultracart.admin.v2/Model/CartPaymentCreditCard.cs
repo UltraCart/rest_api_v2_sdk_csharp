@@ -33,26 +33,26 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartPaymentCreditCard" /> class.
         /// </summary>
-        /// <param name="CardExpirationMonth">Card expiration month (1-12).</param>
-        /// <param name="CardExpirationYear">Card expiration year (four digit year).</param>
-        /// <param name="CardNumber">Card number (masked to the last 4).</param>
-        /// <param name="CardNumberToken">Hosted field token for the card number.</param>
-        /// <param name="CardType">Card type.</param>
-        /// <param name="CardVerificationNumber">Card verification number (masked).</param>
-        /// <param name="CardVerificationNumberToken">Hosted field token for the card verification number.</param>
-        /// <param name="CustomerProfileCreditCardId">ID of the stored credit card to use.</param>
-        /// <param name="StoreCreditCard">True if the customer wants to store the card on their profile for future re-use.</param>
-        public CartPaymentCreditCard(int? CardExpirationMonth = default(int?), int? CardExpirationYear = default(int?), string CardNumber = default(string), string CardNumberToken = default(string), string CardType = default(string), string CardVerificationNumber = default(string), string CardVerificationNumberToken = default(string), int? CustomerProfileCreditCardId = default(int?), bool? StoreCreditCard = default(bool?))
+        /// <param name="cardExpirationMonth">Card expiration month (1-12).</param>
+        /// <param name="cardExpirationYear">Card expiration year (four digit year).</param>
+        /// <param name="cardNumber">Card number (masked to the last 4).</param>
+        /// <param name="cardNumberToken">Hosted field token for the card number.</param>
+        /// <param name="cardType">Card type.</param>
+        /// <param name="cardVerificationNumber">Card verification number (masked).</param>
+        /// <param name="cardVerificationNumberToken">Hosted field token for the card verification number.</param>
+        /// <param name="customerProfileCreditCardId">ID of the stored credit card to use.</param>
+        /// <param name="storeCreditCard">True if the customer wants to store the card on their profile for future re-use.</param>
+        public CartPaymentCreditCard(int? cardExpirationMonth = default(int?), int? cardExpirationYear = default(int?), string cardNumber = default(string), string cardNumberToken = default(string), string cardType = default(string), string cardVerificationNumber = default(string), string cardVerificationNumberToken = default(string), int? customerProfileCreditCardId = default(int?), bool? storeCreditCard = default(bool?))
         {
-            this.CardExpirationMonth = CardExpirationMonth;
-            this.CardExpirationYear = CardExpirationYear;
-            this.CardNumber = CardNumber;
-            this.CardNumberToken = CardNumberToken;
-            this.CardType = CardType;
-            this.CardVerificationNumber = CardVerificationNumber;
-            this.CardVerificationNumberToken = CardVerificationNumberToken;
-            this.CustomerProfileCreditCardId = CustomerProfileCreditCardId;
-            this.StoreCreditCard = StoreCreditCard;
+            this.CardExpirationMonth = cardExpirationMonth;
+            this.CardExpirationYear = cardExpirationYear;
+            this.CardNumber = cardNumber;
+            this.CardNumberToken = cardNumberToken;
+            this.CardType = cardType;
+            this.CardVerificationNumber = cardVerificationNumber;
+            this.CardVerificationNumberToken = cardVerificationNumberToken;
+            this.CustomerProfileCreditCardId = customerProfileCreditCardId;
+            this.StoreCreditCard = storeCreditCard;
         }
         
         /// <summary>
@@ -143,7 +143,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

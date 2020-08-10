@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemDigitalDelivery" /> class.
         /// </summary>
-        /// <param name="ActivationCodeDescription">Description of the activation code.</param>
-        /// <param name="ActivationCodeLowWarning">The number of activation codes whcih should generate a warning email.</param>
-        /// <param name="ActivationCodeRealtimeUrl">The URL to retrieve activation codes from in real-time.</param>
-        /// <param name="ActivationCodeSharedSecret">Shared secret used when communicating with the real-time URL.</param>
-        /// <param name="ActivationCodeType">Type of activation code.</param>
-        /// <param name="DigitalItems">Digital items that customer can download when this item is purchased.</param>
-        public ItemDigitalDelivery(string ActivationCodeDescription = default(string), int? ActivationCodeLowWarning = default(int?), string ActivationCodeRealtimeUrl = default(string), string ActivationCodeSharedSecret = default(string), string ActivationCodeType = default(string), List<ItemDigitalItem> DigitalItems = default(List<ItemDigitalItem>))
+        /// <param name="activationCodeDescription">Description of the activation code.</param>
+        /// <param name="activationCodeLowWarning">The number of activation codes whcih should generate a warning email.</param>
+        /// <param name="activationCodeRealtimeUrl">The URL to retrieve activation codes from in real-time.</param>
+        /// <param name="activationCodeSharedSecret">Shared secret used when communicating with the real-time URL.</param>
+        /// <param name="activationCodeType">Type of activation code.</param>
+        /// <param name="digitalItems">Digital items that customer can download when this item is purchased.</param>
+        public ItemDigitalDelivery(string activationCodeDescription = default(string), int? activationCodeLowWarning = default(int?), string activationCodeRealtimeUrl = default(string), string activationCodeSharedSecret = default(string), string activationCodeType = default(string), List<ItemDigitalItem> digitalItems = default(List<ItemDigitalItem>))
         {
-            this.ActivationCodeDescription = ActivationCodeDescription;
-            this.ActivationCodeLowWarning = ActivationCodeLowWarning;
-            this.ActivationCodeRealtimeUrl = ActivationCodeRealtimeUrl;
-            this.ActivationCodeSharedSecret = ActivationCodeSharedSecret;
-            this.ActivationCodeType = ActivationCodeType;
-            this.DigitalItems = DigitalItems;
+            this.ActivationCodeDescription = activationCodeDescription;
+            this.ActivationCodeLowWarning = activationCodeLowWarning;
+            this.ActivationCodeRealtimeUrl = activationCodeRealtimeUrl;
+            this.ActivationCodeSharedSecret = activationCodeSharedSecret;
+            this.ActivationCodeType = activationCodeType;
+            this.DigitalItems = digitalItems;
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderItemEdiIdentification" /> class.
         /// </summary>
-        /// <param name="Identification">Identification value.</param>
-        /// <param name="Quantity">Quantity associated with this identifier.</param>
-        public OrderItemEdiIdentification(string Identification = default(string), int? Quantity = default(int?))
+        /// <param name="identification">Identification value.</param>
+        /// <param name="quantity">Quantity associated with this identifier.</param>
+        public OrderItemEdiIdentification(string identification = default(string), int? quantity = default(int?))
         {
-            this.Identification = Identification;
-            this.Quantity = Quantity;
+            this.Identification = identification;
+            this.Quantity = quantity;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

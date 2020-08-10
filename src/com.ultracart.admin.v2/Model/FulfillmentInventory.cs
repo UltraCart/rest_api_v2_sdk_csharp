@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FulfillmentInventory" /> class.
         /// </summary>
-        /// <param name="ItemId">ItemId.</param>
-        /// <param name="Quantity">Quantity.</param>
-        public FulfillmentInventory(string ItemId = default(string), decimal? Quantity = default(decimal?))
+        /// <param name="itemId">itemId.</param>
+        /// <param name="quantity">quantity.</param>
+        public FulfillmentInventory(string itemId = default(string), decimal? quantity = default(decimal?))
         {
-            this.ItemId = ItemId;
-            this.Quantity = Quantity;
+            this.ItemId = itemId;
+            this.Quantity = quantity;
         }
         
         /// <summary>
@@ -71,7 +71,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

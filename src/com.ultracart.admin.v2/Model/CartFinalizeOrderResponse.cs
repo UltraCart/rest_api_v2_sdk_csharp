@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartFinalizeOrderResponse" /> class.
         /// </summary>
-        /// <param name="Errors">Error messages if the order could not be completed.</param>
-        /// <param name="NextCart">NextCart.</param>
-        /// <param name="Order">Order.</param>
-        /// <param name="OrderId">Order ID assigned to the order.</param>
-        /// <param name="Successful">True if the cart was converted successfully to an order.</param>
-        public CartFinalizeOrderResponse(List<string> Errors = default(List<string>), Cart NextCart = default(Cart), Order Order = default(Order), string OrderId = default(string), bool? Successful = default(bool?))
+        /// <param name="errors">Error messages if the order could not be completed.</param>
+        /// <param name="nextCart">nextCart.</param>
+        /// <param name="order">order.</param>
+        /// <param name="orderId">Order ID assigned to the order.</param>
+        /// <param name="successful">True if the cart was converted successfully to an order.</param>
+        public CartFinalizeOrderResponse(List<string> errors = default(List<string>), Cart nextCart = default(Cart), Order order = default(Order), string orderId = default(string), bool? successful = default(bool?))
         {
-            this.Errors = Errors;
-            this.NextCart = NextCart;
-            this.Order = Order;
-            this.OrderId = OrderId;
-            this.Successful = Successful;
+            this.Errors = errors;
+            this.NextCart = nextCart;
+            this.Order = order;
+            this.OrderId = orderId;
+            this.Successful = successful;
         }
         
         /// <summary>
@@ -101,7 +101,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

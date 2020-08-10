@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Activity" /> class.
         /// </summary>
-        /// <param name="Action">Action.</param>
-        /// <param name="Metric">Metric.</param>
-        /// <param name="Subject">Subject.</param>
-        /// <param name="Ts">Ts.</param>
-        /// <param name="Type">Type.</param>
-        /// <param name="Uuid">Uuid.</param>
-        public Activity(string Action = default(string), string Metric = default(string), string Subject = default(string), long? Ts = default(long?), string Type = default(string), string Uuid = default(string))
+        /// <param name="action">action.</param>
+        /// <param name="metric">metric.</param>
+        /// <param name="subject">subject.</param>
+        /// <param name="ts">ts.</param>
+        /// <param name="type">type.</param>
+        /// <param name="uuid">uuid.</param>
+        public Activity(string action = default(string), string metric = default(string), string subject = default(string), long? ts = default(long?), string type = default(string), string uuid = default(string))
         {
-            this.Action = Action;
-            this.Metric = Metric;
-            this.Subject = Subject;
-            this.Ts = Ts;
-            this.Type = Type;
-            this.Uuid = Uuid;
+            this.Action = action;
+            this.Metric = metric;
+            this.Subject = subject;
+            this.Ts = ts;
+            this.Type = type;
+            this.Uuid = uuid;
         }
         
         /// <summary>
@@ -107,7 +107,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

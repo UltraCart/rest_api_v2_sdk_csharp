@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartFinalizeOrderRequest" /> class.
         /// </summary>
-        /// <param name="Cart">Cart.</param>
-        /// <param name="Options">Options.</param>
-        public CartFinalizeOrderRequest(Cart Cart = default(Cart), CartFinalizeOrderRequestOptions Options = default(CartFinalizeOrderRequestOptions))
+        /// <param name="cart">cart.</param>
+        /// <param name="options">options.</param>
+        public CartFinalizeOrderRequest(Cart cart = default(Cart), CartFinalizeOrderRequestOptions options = default(CartFinalizeOrderRequestOptions))
         {
-            this.Cart = Cart;
-            this.Options = Options;
+            this.Cart = cart;
+            this.Options = options;
         }
         
         /// <summary>
@@ -71,7 +71,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

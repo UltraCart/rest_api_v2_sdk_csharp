@@ -39,82 +39,82 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Weekly for "Weekly"
+            /// Enum Weekly for value: Weekly
             /// </summary>
             [EnumMember(Value = "Weekly")]
-            Weekly,
+            Weekly = 1,
             
             /// <summary>
-            /// Enum Biweekly for "Biweekly"
+            /// Enum Biweekly for value: Biweekly
             /// </summary>
             [EnumMember(Value = "Biweekly")]
-            Biweekly,
+            Biweekly = 2,
             
             /// <summary>
-            /// Enum Every for "Every..."
+            /// Enum Every for value: Every...
             /// </summary>
             [EnumMember(Value = "Every...")]
-            Every,
+            Every = 3,
             
             /// <summary>
-            /// Enum Every10Days for "Every 10 Days"
+            /// Enum Every10Days for value: Every 10 Days
             /// </summary>
             [EnumMember(Value = "Every 10 Days")]
-            Every10Days,
+            Every10Days = 4,
             
             /// <summary>
-            /// Enum Every24Days for "Every 24 Days"
+            /// Enum Every24Days for value: Every 24 Days
             /// </summary>
             [EnumMember(Value = "Every 24 Days")]
-            Every24Days,
+            Every24Days = 5,
             
             /// <summary>
-            /// Enum Every28Days for "Every 28 Days"
+            /// Enum Every28Days for value: Every 28 Days
             /// </summary>
             [EnumMember(Value = "Every 28 Days")]
-            Every28Days,
+            Every28Days = 6,
             
             /// <summary>
-            /// Enum Monthly for "Monthly"
+            /// Enum Monthly for value: Monthly
             /// </summary>
             [EnumMember(Value = "Monthly")]
-            Monthly,
+            Monthly = 7,
             
             /// <summary>
-            /// Enum Every45Days for "Every 45 Days"
+            /// Enum Every45Days for value: Every 45 Days
             /// </summary>
             [EnumMember(Value = "Every 45 Days")]
-            Every45Days,
+            Every45Days = 8,
             
             /// <summary>
-            /// Enum Every2Months for "Every 2 Months"
+            /// Enum Every2Months for value: Every 2 Months
             /// </summary>
             [EnumMember(Value = "Every 2 Months")]
-            Every2Months,
+            Every2Months = 9,
             
             /// <summary>
-            /// Enum Every3Months for "Every 3 Months"
+            /// Enum Every3Months for value: Every 3 Months
             /// </summary>
             [EnumMember(Value = "Every 3 Months")]
-            Every3Months,
+            Every3Months = 10,
             
             /// <summary>
-            /// Enum Every4Months for "Every 4 Months"
+            /// Enum Every4Months for value: Every 4 Months
             /// </summary>
             [EnumMember(Value = "Every 4 Months")]
-            Every4Months,
+            Every4Months = 11,
             
             /// <summary>
-            /// Enum Every6Months for "Every 6 Months"
+            /// Enum Every6Months for value: Every 6 Months
             /// </summary>
             [EnumMember(Value = "Every 6 Months")]
-            Every6Months,
+            Every6Months = 12,
             
             /// <summary>
-            /// Enum Yearly for "Yearly"
+            /// Enum Yearly for value: Yearly
             /// </summary>
             [EnumMember(Value = "Yearly")]
-            Yearly
+            Yearly = 13
         }
 
         /// <summary>
@@ -126,54 +126,56 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoOrderItem" /> class.
         /// </summary>
-        /// <param name="ArbitraryItemId">Arbitrary item id that should be rebilled instead of the normal schedule.</param>
-        /// <param name="ArbitraryPercentageDiscount">An arbitrary percentage discount to provide on future rebills.</param>
-        /// <param name="ArbitraryQuantity">Arbitrary quantity to rebill.</param>
-        /// <param name="ArbitraryScheduleDays">The number of days to rebill if the frequency is set to an arbitrary number of days.</param>
-        /// <param name="ArbitraryUnitCost">Arbitrary unit cost that rebills of this item should occur at.</param>
-        /// <param name="ArbitraryUnitCostRemainingOrders">The number of rebills to give the arbitrary unit cost on before reverting to normal pricing..</param>
-        /// <param name="AutoOrderItemOid">Primary key of AutoOrderItem.</param>
-        /// <param name="Frequency">Frequency of the rebill if not a fixed schedule.</param>
-        /// <param name="FutureSchedules">The future rebill schedule for this item up to the next ten rebills.</param>
-        /// <param name="LastOrderDts">Date/time of the last order of this item.</param>
-        /// <param name="LifeTimeValue">The life time value of this item including the original purchase.</param>
-        /// <param name="NextPreshipmentNoticeDts">The date/time of when the next pre-shipment notice should be sent.</param>
-        /// <param name="NextShipmentDts">Date/time that this item is scheduled to rebill.</param>
-        /// <param name="NoOrderAfterDts">Date/time after which no additional rebills of this item should occur.</param>
-        /// <param name="NumberOfRebills">The number of times this item has rebilled.</param>
-        /// <param name="Options">Options associated with this item.</param>
-        /// <param name="OriginalItemId">The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date..</param>
-        /// <param name="OriginalQuantity">The original quantity purchased.</param>
-        /// <param name="PaypalPayerId">The PayPal Payer ID tied to this item.</param>
-        /// <param name="PaypalRecurringPaymentProfileId">The PayPal Profile ID tied to this item.</param>
-        /// <param name="PreshipmentNoticeSent">True if the preshipment notice associated with the next rebill has been sent.</param>
-        /// <param name="RebillValue">The value of the rebills of this item.</param>
-        /// <param name="RemainingRepeatCount">The number of rebills remaining before this item is complete.</param>
-        public AutoOrderItem(string ArbitraryItemId = default(string), decimal? ArbitraryPercentageDiscount = default(decimal?), decimal? ArbitraryQuantity = default(decimal?), int? ArbitraryScheduleDays = default(int?), decimal? ArbitraryUnitCost = default(decimal?), int? ArbitraryUnitCostRemainingOrders = default(int?), int? AutoOrderItemOid = default(int?), FrequencyEnum? Frequency = default(FrequencyEnum?), List<AutoOrderItemFutureSchedule> FutureSchedules = default(List<AutoOrderItemFutureSchedule>), string LastOrderDts = default(string), decimal? LifeTimeValue = default(decimal?), string NextPreshipmentNoticeDts = default(string), string NextShipmentDts = default(string), string NoOrderAfterDts = default(string), int? NumberOfRebills = default(int?), List<AutoOrderItemOption> Options = default(List<AutoOrderItemOption>), string OriginalItemId = default(string), decimal? OriginalQuantity = default(decimal?), string PaypalPayerId = default(string), string PaypalRecurringPaymentProfileId = default(string), bool? PreshipmentNoticeSent = default(bool?), decimal? RebillValue = default(decimal?), int? RemainingRepeatCount = default(int?))
+        /// <param name="arbitraryItemId">Arbitrary item id that should be rebilled instead of the normal schedule.</param>
+        /// <param name="arbitraryPercentageDiscount">An arbitrary percentage discount to provide on future rebills.</param>
+        /// <param name="arbitraryQuantity">Arbitrary quantity to rebill.</param>
+        /// <param name="arbitraryScheduleDays">The number of days to rebill if the frequency is set to an arbitrary number of days.</param>
+        /// <param name="arbitraryUnitCost">Arbitrary unit cost that rebills of this item should occur at.</param>
+        /// <param name="arbitraryUnitCostRemainingOrders">The number of rebills to give the arbitrary unit cost on before reverting to normal pricing..</param>
+        /// <param name="autoOrderItemOid">Primary key of AutoOrderItem.</param>
+        /// <param name="frequency">Frequency of the rebill if not a fixed schedule.</param>
+        /// <param name="futureSchedules">The future rebill schedule for this item up to the next ten rebills.</param>
+        /// <param name="lastOrderDts">Date/time of the last order of this item.</param>
+        /// <param name="lifeTimeValue">The life time value of this item including the original purchase.</param>
+        /// <param name="nextPreshipmentNoticeDts">The date/time of when the next pre-shipment notice should be sent.</param>
+        /// <param name="nextShipmentDts">Date/time that this item is scheduled to rebill.</param>
+        /// <param name="noOrderAfterDts">Date/time after which no additional rebills of this item should occur.</param>
+        /// <param name="numberOfRebills">The number of times this item has rebilled.</param>
+        /// <param name="options">Options associated with this item.</param>
+        /// <param name="originalItemId">The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date..</param>
+        /// <param name="originalQuantity">The original quantity purchased.</param>
+        /// <param name="paypalPayerId">The PayPal Payer ID tied to this item.</param>
+        /// <param name="paypalRecurringPaymentProfileId">The PayPal Profile ID tied to this item.</param>
+        /// <param name="preshipmentNoticeSent">True if the preshipment notice associated with the next rebill has been sent.</param>
+        /// <param name="rebillValue">The value of the rebills of this item.</param>
+        /// <param name="remainingRepeatCount">The number of rebills remaining before this item is complete.</param>
+        /// <param name="simpleSchedule">simpleSchedule.</param>
+        public AutoOrderItem(string arbitraryItemId = default(string), decimal? arbitraryPercentageDiscount = default(decimal?), decimal? arbitraryQuantity = default(decimal?), int? arbitraryScheduleDays = default(int?), decimal? arbitraryUnitCost = default(decimal?), int? arbitraryUnitCostRemainingOrders = default(int?), int? autoOrderItemOid = default(int?), FrequencyEnum? frequency = default(FrequencyEnum?), List<AutoOrderItemFutureSchedule> futureSchedules = default(List<AutoOrderItemFutureSchedule>), string lastOrderDts = default(string), decimal? lifeTimeValue = default(decimal?), string nextPreshipmentNoticeDts = default(string), string nextShipmentDts = default(string), string noOrderAfterDts = default(string), int? numberOfRebills = default(int?), List<AutoOrderItemOption> options = default(List<AutoOrderItemOption>), string originalItemId = default(string), decimal? originalQuantity = default(decimal?), string paypalPayerId = default(string), string paypalRecurringPaymentProfileId = default(string), bool? preshipmentNoticeSent = default(bool?), decimal? rebillValue = default(decimal?), int? remainingRepeatCount = default(int?), AutoOrderItemSimpleSchedule simpleSchedule = default(AutoOrderItemSimpleSchedule))
         {
-            this.ArbitraryItemId = ArbitraryItemId;
-            this.ArbitraryPercentageDiscount = ArbitraryPercentageDiscount;
-            this.ArbitraryQuantity = ArbitraryQuantity;
-            this.ArbitraryScheduleDays = ArbitraryScheduleDays;
-            this.ArbitraryUnitCost = ArbitraryUnitCost;
-            this.ArbitraryUnitCostRemainingOrders = ArbitraryUnitCostRemainingOrders;
-            this.AutoOrderItemOid = AutoOrderItemOid;
-            this.Frequency = Frequency;
-            this.FutureSchedules = FutureSchedules;
-            this.LastOrderDts = LastOrderDts;
-            this.LifeTimeValue = LifeTimeValue;
-            this.NextPreshipmentNoticeDts = NextPreshipmentNoticeDts;
-            this.NextShipmentDts = NextShipmentDts;
-            this.NoOrderAfterDts = NoOrderAfterDts;
-            this.NumberOfRebills = NumberOfRebills;
-            this.Options = Options;
-            this.OriginalItemId = OriginalItemId;
-            this.OriginalQuantity = OriginalQuantity;
-            this.PaypalPayerId = PaypalPayerId;
-            this.PaypalRecurringPaymentProfileId = PaypalRecurringPaymentProfileId;
-            this.PreshipmentNoticeSent = PreshipmentNoticeSent;
-            this.RebillValue = RebillValue;
-            this.RemainingRepeatCount = RemainingRepeatCount;
+            this.ArbitraryItemId = arbitraryItemId;
+            this.ArbitraryPercentageDiscount = arbitraryPercentageDiscount;
+            this.ArbitraryQuantity = arbitraryQuantity;
+            this.ArbitraryScheduleDays = arbitraryScheduleDays;
+            this.ArbitraryUnitCost = arbitraryUnitCost;
+            this.ArbitraryUnitCostRemainingOrders = arbitraryUnitCostRemainingOrders;
+            this.AutoOrderItemOid = autoOrderItemOid;
+            this.Frequency = frequency;
+            this.FutureSchedules = futureSchedules;
+            this.LastOrderDts = lastOrderDts;
+            this.LifeTimeValue = lifeTimeValue;
+            this.NextPreshipmentNoticeDts = nextPreshipmentNoticeDts;
+            this.NextShipmentDts = nextShipmentDts;
+            this.NoOrderAfterDts = noOrderAfterDts;
+            this.NumberOfRebills = numberOfRebills;
+            this.Options = options;
+            this.OriginalItemId = originalItemId;
+            this.OriginalQuantity = originalQuantity;
+            this.PaypalPayerId = paypalPayerId;
+            this.PaypalRecurringPaymentProfileId = paypalRecurringPaymentProfileId;
+            this.PreshipmentNoticeSent = preshipmentNoticeSent;
+            this.RebillValue = rebillValue;
+            this.RemainingRepeatCount = remainingRepeatCount;
+            this.SimpleSchedule = simpleSchedule;
         }
         
         /// <summary>
@@ -332,6 +334,12 @@ namespace com.ultracart.admin.v2.Model
         public int? RemainingRepeatCount { get; set; }
 
         /// <summary>
+        /// Gets or Sets SimpleSchedule
+        /// </summary>
+        [DataMember(Name="simple_schedule", EmitDefaultValue=false)]
+        public AutoOrderItemSimpleSchedule SimpleSchedule { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -362,6 +370,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PreshipmentNoticeSent: ").Append(PreshipmentNoticeSent).Append("\n");
             sb.Append("  RebillValue: ").Append(RebillValue).Append("\n");
             sb.Append("  RemainingRepeatCount: ").Append(RemainingRepeatCount).Append("\n");
+            sb.Append("  SimpleSchedule: ").Append(SimpleSchedule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -370,7 +379,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -510,6 +519,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RemainingRepeatCount == input.RemainingRepeatCount ||
                     (this.RemainingRepeatCount != null &&
                     this.RemainingRepeatCount.Equals(input.RemainingRepeatCount))
+                ) && 
+                (
+                    this.SimpleSchedule == input.SimpleSchedule ||
+                    (this.SimpleSchedule != null &&
+                    this.SimpleSchedule.Equals(input.SimpleSchedule))
                 );
         }
 
@@ -568,6 +582,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RebillValue.GetHashCode();
                 if (this.RemainingRepeatCount != null)
                     hashCode = hashCode * 59 + this.RemainingRepeatCount.GetHashCode();
+                if (this.SimpleSchedule != null)
+                    hashCode = hashCode * 59 + this.SimpleSchedule.GetHashCode();
                 return hashCode;
             }
         }

@@ -33,28 +33,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookLog" /> class.
         /// </summary>
-        /// <param name="DeliveryDts">Date/time of delivery.</param>
-        /// <param name="Duration">Number of milliseconds to process the notification.</param>
-        /// <param name="Request">Request payload (first 100,000 characters).</param>
-        /// <param name="RequestHeaders">Request headers sent to the server.</param>
-        /// <param name="RequestId">Request id is a unique string that you can look up in the logs.</param>
-        /// <param name="Response">Response payload (first 100,000 characters).</param>
-        /// <param name="ResponseHeaders">Response headers received from the server.</param>
-        /// <param name="StatusCode">HTTP status code received from the server.</param>
-        /// <param name="Success">True if the delivery was successful.</param>
-        /// <param name="Uri">URI of the webhook delivered to.</param>
-        public WebhookLog(string DeliveryDts = default(string), int? Duration = default(int?), string Request = default(string), List<HTTPHeader> RequestHeaders = default(List<HTTPHeader>), string RequestId = default(string), string Response = default(string), List<HTTPHeader> ResponseHeaders = default(List<HTTPHeader>), int? StatusCode = default(int?), bool? Success = default(bool?), string Uri = default(string))
+        /// <param name="deliveryDts">Date/time of delivery.</param>
+        /// <param name="duration">Number of milliseconds to process the notification.</param>
+        /// <param name="request">Request payload (first 100,000 characters).</param>
+        /// <param name="requestHeaders">Request headers sent to the server.</param>
+        /// <param name="requestId">Request id is a unique string that you can look up in the logs.</param>
+        /// <param name="response">Response payload (first 100,000 characters).</param>
+        /// <param name="responseHeaders">Response headers received from the server.</param>
+        /// <param name="statusCode">HTTP status code received from the server.</param>
+        /// <param name="success">True if the delivery was successful.</param>
+        /// <param name="uri">URI of the webhook delivered to.</param>
+        public WebhookLog(string deliveryDts = default(string), int? duration = default(int?), string request = default(string), List<HTTPHeader> requestHeaders = default(List<HTTPHeader>), string requestId = default(string), string response = default(string), List<HTTPHeader> responseHeaders = default(List<HTTPHeader>), int? statusCode = default(int?), bool? success = default(bool?), string uri = default(string))
         {
-            this.DeliveryDts = DeliveryDts;
-            this.Duration = Duration;
-            this.Request = Request;
-            this.RequestHeaders = RequestHeaders;
-            this.RequestId = RequestId;
-            this.Response = Response;
-            this.ResponseHeaders = ResponseHeaders;
-            this.StatusCode = StatusCode;
-            this.Success = Success;
-            this.Uri = Uri;
+            this.DeliveryDts = deliveryDts;
+            this.Duration = duration;
+            this.Request = request;
+            this.RequestHeaders = requestHeaders;
+            this.RequestId = requestId;
+            this.Response = response;
+            this.ResponseHeaders = responseHeaders;
+            this.StatusCode = statusCode;
+            this.Success = success;
+            this.Uri = uri;
         }
         
         /// <summary>
@@ -153,7 +153,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
-        /// <param name="DeveloperMessage">A technical message meant to be read by a developer.</param>
-        /// <param name="ErrorCode">HTTP status code.</param>
-        /// <param name="MoreInfo">Additional information often a link to additional documentation.</param>
-        /// <param name="UserMessage">An end-user friendly message suitable for display to the customer.</param>
-        public Error(string DeveloperMessage = default(string), string ErrorCode = default(string), string MoreInfo = default(string), string UserMessage = default(string))
+        /// <param name="developerMessage">A technical message meant to be read by a developer.</param>
+        /// <param name="errorCode">HTTP status code.</param>
+        /// <param name="moreInfo">Additional information often a link to additional documentation.</param>
+        /// <param name="userMessage">An end-user friendly message suitable for display to the customer.</param>
+        public Error(string developerMessage = default(string), string errorCode = default(string), string moreInfo = default(string), string userMessage = default(string))
         {
-            this.DeveloperMessage = DeveloperMessage;
-            this.ErrorCode = ErrorCode;
-            this.MoreInfo = MoreInfo;
-            this.UserMessage = UserMessage;
+            this.DeveloperMessage = developerMessage;
+            this.ErrorCode = errorCode;
+            this.MoreInfo = moreInfo;
+            this.UserMessage = userMessage;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

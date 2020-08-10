@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsTerms" /> class.
         /// </summary>
-        /// <param name="Html">HTML version of the terms.</param>
-        /// <param name="Text">Text version of the terms..</param>
-        public CartSettingsTerms(string Html = default(string), string Text = default(string))
+        /// <param name="html">HTML version of the terms.</param>
+        /// <param name="text">Text version of the terms..</param>
+        public CartSettingsTerms(string html = default(string), string text = default(string))
         {
-            this.Html = Html;
-            this.Text = Text;
+            this.Html = html;
+            this.Text = text;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

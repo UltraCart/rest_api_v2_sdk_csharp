@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailCommseq" /> class.
         /// </summary>
-        /// <param name="EmailCommunicationSequenceSteps">Array of steps.</param>
-        /// <param name="EmailCommunicationSequenceUuid">Email commseq UUID.</param>
-        /// <param name="MerchantId">Merchant ID.</param>
-        /// <param name="StorefrontOid">Storefront oid.</param>
-        public EmailCommseq(List<EmailCommseqStep> EmailCommunicationSequenceSteps = default(List<EmailCommseqStep>), string EmailCommunicationSequenceUuid = default(string), string MerchantId = default(string), int? StorefrontOid = default(int?))
+        /// <param name="emailCommunicationSequenceSteps">Array of steps.</param>
+        /// <param name="emailCommunicationSequenceUuid">Email commseq UUID.</param>
+        /// <param name="merchantId">Merchant ID.</param>
+        /// <param name="storefrontOid">Storefront oid.</param>
+        public EmailCommseq(List<EmailCommseqStep> emailCommunicationSequenceSteps = default(List<EmailCommseqStep>), string emailCommunicationSequenceUuid = default(string), string merchantId = default(string), int? storefrontOid = default(int?))
         {
-            this.EmailCommunicationSequenceSteps = EmailCommunicationSequenceSteps;
-            this.EmailCommunicationSequenceUuid = EmailCommunicationSequenceUuid;
-            this.MerchantId = MerchantId;
-            this.StorefrontOid = StorefrontOid;
+            this.EmailCommunicationSequenceSteps = emailCommunicationSequenceSteps;
+            this.EmailCommunicationSequenceUuid = emailCommunicationSequenceUuid;
+            this.MerchantId = merchantId;
+            this.StorefrontOid = storefrontOid;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

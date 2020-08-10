@@ -33,28 +33,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderChannelPartner" /> class.
         /// </summary>
-        /// <param name="AutoApprovePurchaseOrder">If true, any purchase order submitted is automatically approved.</param>
-        /// <param name="ChannelPartnerCode">The code of the channel partner.</param>
-        /// <param name="ChannelPartnerData">Additional data provided by the channel partner, read-only.</param>
-        /// <param name="ChannelPartnerOid">Channel partner object identifier, read-only and available on existing channel orders only..</param>
-        /// <param name="ChannelPartnerOrderId">The order ID assigned by the channel partner for this order.</param>
-        /// <param name="NoRealtimePaymentProcessing">Indicates this order should be placed in Account Receivable for later payment processing.</param>
-        /// <param name="SkipPaymentProcessing">Indicates this order was already paid for via a channel purchase and no payment collection should be attempted.</param>
-        /// <param name="StoreCompleted">Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order..</param>
-        /// <param name="StoreIfPaymentDeclines">If true, any failed payment will place the order in Accounts Receivable rather than rejecting it..</param>
-        /// <param name="TreatWarningsAsErrors">Any warnings are raised as errors and halt the import of the order.</param>
-        public OrderChannelPartner(bool? AutoApprovePurchaseOrder = default(bool?), string ChannelPartnerCode = default(string), string ChannelPartnerData = default(string), int? ChannelPartnerOid = default(int?), string ChannelPartnerOrderId = default(string), bool? NoRealtimePaymentProcessing = default(bool?), bool? SkipPaymentProcessing = default(bool?), bool? StoreCompleted = default(bool?), bool? StoreIfPaymentDeclines = default(bool?), bool? TreatWarningsAsErrors = default(bool?))
+        /// <param name="autoApprovePurchaseOrder">If true, any purchase order submitted is automatically approved.</param>
+        /// <param name="channelPartnerCode">The code of the channel partner.</param>
+        /// <param name="channelPartnerData">Additional data provided by the channel partner, read-only.</param>
+        /// <param name="channelPartnerOid">Channel partner object identifier, read-only and available on existing channel orders only..</param>
+        /// <param name="channelPartnerOrderId">The order ID assigned by the channel partner for this order.</param>
+        /// <param name="noRealtimePaymentProcessing">Indicates this order should be placed in Account Receivable for later payment processing.</param>
+        /// <param name="skipPaymentProcessing">Indicates this order was already paid for via a channel purchase and no payment collection should be attempted.</param>
+        /// <param name="storeCompleted">Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order..</param>
+        /// <param name="storeIfPaymentDeclines">If true, any failed payment will place the order in Accounts Receivable rather than rejecting it..</param>
+        /// <param name="treatWarningsAsErrors">Any warnings are raised as errors and halt the import of the order.</param>
+        public OrderChannelPartner(bool? autoApprovePurchaseOrder = default(bool?), string channelPartnerCode = default(string), string channelPartnerData = default(string), int? channelPartnerOid = default(int?), string channelPartnerOrderId = default(string), bool? noRealtimePaymentProcessing = default(bool?), bool? skipPaymentProcessing = default(bool?), bool? storeCompleted = default(bool?), bool? storeIfPaymentDeclines = default(bool?), bool? treatWarningsAsErrors = default(bool?))
         {
-            this.AutoApprovePurchaseOrder = AutoApprovePurchaseOrder;
-            this.ChannelPartnerCode = ChannelPartnerCode;
-            this.ChannelPartnerData = ChannelPartnerData;
-            this.ChannelPartnerOid = ChannelPartnerOid;
-            this.ChannelPartnerOrderId = ChannelPartnerOrderId;
-            this.NoRealtimePaymentProcessing = NoRealtimePaymentProcessing;
-            this.SkipPaymentProcessing = SkipPaymentProcessing;
-            this.StoreCompleted = StoreCompleted;
-            this.StoreIfPaymentDeclines = StoreIfPaymentDeclines;
-            this.TreatWarningsAsErrors = TreatWarningsAsErrors;
+            this.AutoApprovePurchaseOrder = autoApprovePurchaseOrder;
+            this.ChannelPartnerCode = channelPartnerCode;
+            this.ChannelPartnerData = channelPartnerData;
+            this.ChannelPartnerOid = channelPartnerOid;
+            this.ChannelPartnerOrderId = channelPartnerOrderId;
+            this.NoRealtimePaymentProcessing = noRealtimePaymentProcessing;
+            this.SkipPaymentProcessing = skipPaymentProcessing;
+            this.StoreCompleted = storeCompleted;
+            this.StoreIfPaymentDeclines = storeIfPaymentDeclines;
+            this.TreatWarningsAsErrors = treatWarningsAsErrors;
         }
         
         /// <summary>
@@ -153,7 +153,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,28 +33,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerReviewer" /> class.
         /// </summary>
-        /// <param name="AutoApprove">True if reviewes from this customer profile should automatically be approved.</param>
-        /// <param name="AverageOverallRating">Average overall rating of items reviewed.</param>
-        /// <param name="Expert">True if the customer is an expert.</param>
-        /// <param name="FirstReview">First review.</param>
-        /// <param name="LastReview">Last review.</param>
-        /// <param name="Location">Location of the reviewer.</param>
-        /// <param name="Nickname">Nickname of the reviewer.</param>
-        /// <param name="NumberHelpfulReviewVotes">Number of helpful review votes.</param>
-        /// <param name="Rank">Rank of this reviewer.</param>
-        /// <param name="ReviewsContributed">Number of reviews contributed.</param>
-        public CustomerReviewer(bool? AutoApprove = default(bool?), decimal? AverageOverallRating = default(decimal?), bool? Expert = default(bool?), string FirstReview = default(string), string LastReview = default(string), string Location = default(string), string Nickname = default(string), int? NumberHelpfulReviewVotes = default(int?), int? Rank = default(int?), int? ReviewsContributed = default(int?))
+        /// <param name="autoApprove">True if reviewes from this customer profile should automatically be approved.</param>
+        /// <param name="averageOverallRating">Average overall rating of items reviewed.</param>
+        /// <param name="expert">True if the customer is an expert.</param>
+        /// <param name="firstReview">First review.</param>
+        /// <param name="lastReview">Last review.</param>
+        /// <param name="location">Location of the reviewer.</param>
+        /// <param name="nickname">Nickname of the reviewer.</param>
+        /// <param name="numberHelpfulReviewVotes">Number of helpful review votes.</param>
+        /// <param name="rank">Rank of this reviewer.</param>
+        /// <param name="reviewsContributed">Number of reviews contributed.</param>
+        public CustomerReviewer(bool? autoApprove = default(bool?), decimal? averageOverallRating = default(decimal?), bool? expert = default(bool?), string firstReview = default(string), string lastReview = default(string), string location = default(string), string nickname = default(string), int? numberHelpfulReviewVotes = default(int?), int? rank = default(int?), int? reviewsContributed = default(int?))
         {
-            this.AutoApprove = AutoApprove;
-            this.AverageOverallRating = AverageOverallRating;
-            this.Expert = Expert;
-            this.FirstReview = FirstReview;
-            this.LastReview = LastReview;
-            this.Location = Location;
-            this.Nickname = Nickname;
-            this.NumberHelpfulReviewVotes = NumberHelpfulReviewVotes;
-            this.Rank = Rank;
-            this.ReviewsContributed = ReviewsContributed;
+            this.AutoApprove = autoApprove;
+            this.AverageOverallRating = averageOverallRating;
+            this.Expert = expert;
+            this.FirstReview = firstReview;
+            this.LastReview = lastReview;
+            this.Location = location;
+            this.Nickname = nickname;
+            this.NumberHelpfulReviewVotes = numberHelpfulReviewVotes;
+            this.Rank = rank;
+            this.ReviewsContributed = reviewsContributed;
         }
         
         /// <summary>
@@ -153,7 +153,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

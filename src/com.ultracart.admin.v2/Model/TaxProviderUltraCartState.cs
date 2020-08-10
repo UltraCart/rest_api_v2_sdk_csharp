@@ -33,22 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxProviderUltraCartState" /> class.
         /// </summary>
-        /// <param name="Enabled">True if this state taxes are managed by UltraCart.</param>
-        /// <param name="StateCode">State Code (2 digits).</param>
-        /// <param name="StateName">Fully spelled out state name.</param>
-        /// <param name="TaxGiftCharge">True if gift charges should be taxed in this state..</param>
-        /// <param name="TaxGiftWrap">True if gift wrap should be taxed in this state..</param>
-        /// <param name="TaxRateFormatted">State tax rate formatted for display.</param>
-        /// <param name="TaxShipping">True if shipping should be taxed in this state..</param>
-        public TaxProviderUltraCartState(bool? Enabled = default(bool?), string StateCode = default(string), string StateName = default(string), bool? TaxGiftCharge = default(bool?), bool? TaxGiftWrap = default(bool?), string TaxRateFormatted = default(string), bool? TaxShipping = default(bool?))
+        /// <param name="enabled">True if this state taxes are managed by UltraCart.</param>
+        /// <param name="stateCode">State Code (2 digits).</param>
+        /// <param name="stateName">Fully spelled out state name.</param>
+        /// <param name="taxGiftCharge">True if gift charges should be taxed in this state..</param>
+        /// <param name="taxGiftWrap">True if gift wrap should be taxed in this state..</param>
+        /// <param name="taxRateFormatted">State tax rate formatted for display.</param>
+        /// <param name="taxShipping">True if shipping should be taxed in this state..</param>
+        public TaxProviderUltraCartState(bool? enabled = default(bool?), string stateCode = default(string), string stateName = default(string), bool? taxGiftCharge = default(bool?), bool? taxGiftWrap = default(bool?), string taxRateFormatted = default(string), bool? taxShipping = default(bool?))
         {
-            this.Enabled = Enabled;
-            this.StateCode = StateCode;
-            this.StateName = StateName;
-            this.TaxGiftCharge = TaxGiftCharge;
-            this.TaxGiftWrap = TaxGiftWrap;
-            this.TaxRateFormatted = TaxRateFormatted;
-            this.TaxShipping = TaxShipping;
+            this.Enabled = enabled;
+            this.StateCode = stateCode;
+            this.StateName = stateName;
+            this.TaxGiftCharge = taxGiftCharge;
+            this.TaxGiftWrap = taxGiftWrap;
+            this.TaxRateFormatted = taxRateFormatted;
+            this.TaxShipping = taxShipping;
         }
         
         /// <summary>
@@ -123,7 +123,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

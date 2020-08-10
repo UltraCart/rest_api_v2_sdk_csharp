@@ -33,64 +33,82 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerQuery" /> class.
         /// </summary>
-        /// <param name="BillingCity">Billing city.</param>
-        /// <param name="BillingCompany">Billing company.</param>
-        /// <param name="BillingCountryCode">Billing country code.</param>
-        /// <param name="BillingDayPhone">Billing day phone.</param>
-        /// <param name="BillingEveningPhone">Billing evening phone.</param>
-        /// <param name="BillingFirstName">Billing first name.</param>
-        /// <param name="BillingLastName">Billing last name.</param>
-        /// <param name="BillingPostalCode">Billing postal code.</param>
-        /// <param name="BillingState">Billing state.</param>
-        /// <param name="Email">Email address of this customer profile.</param>
-        /// <param name="LastModifiedDtsEnd">Last modified date end.</param>
-        /// <param name="LastModifiedDtsStart">Last modified date start.</param>
-        /// <param name="PricingTierName">Pricing tier name.</param>
-        /// <param name="PricingTierOid">Pricing tier oid.</param>
-        /// <param name="QbClass">QuickBooks class to import this customer as.</param>
-        /// <param name="QuickbooksCode">QuickBooks name to import this customer as.</param>
-        /// <param name="ShippingCity">Billing city.</param>
-        /// <param name="ShippingCompany">Billing company.</param>
-        /// <param name="ShippingCountryCode">Billing country code.</param>
-        /// <param name="ShippingDayPhone">Billing day phone.</param>
-        /// <param name="ShippingEveningPhone">Billing evening phone.</param>
-        /// <param name="ShippingFirstName">Billing first name.</param>
-        /// <param name="ShippingLastName">Billing last name.</param>
-        /// <param name="ShippingPostalCode">Billing postal code.</param>
-        /// <param name="ShippingState">Billing state.</param>
-        /// <param name="SignupDtsEnd">Signup date end.</param>
-        /// <param name="SignupDtsStart">Signup date start.</param>
-        public CustomerQuery(string BillingCity = default(string), string BillingCompany = default(string), string BillingCountryCode = default(string), string BillingDayPhone = default(string), string BillingEveningPhone = default(string), string BillingFirstName = default(string), string BillingLastName = default(string), string BillingPostalCode = default(string), string BillingState = default(string), string Email = default(string), string LastModifiedDtsEnd = default(string), string LastModifiedDtsStart = default(string), string PricingTierName = default(string), int? PricingTierOid = default(int?), string QbClass = default(string), string QuickbooksCode = default(string), string ShippingCity = default(string), string ShippingCompany = default(string), string ShippingCountryCode = default(string), string ShippingDayPhone = default(string), string ShippingEveningPhone = default(string), string ShippingFirstName = default(string), string ShippingLastName = default(string), string ShippingPostalCode = default(string), string ShippingState = default(string), string SignupDtsEnd = default(string), string SignupDtsStart = default(string))
+        /// <param name="allTags">All tags the customer must have.</param>
+        /// <param name="anyTags">Any of these tags the customer must have.</param>
+        /// <param name="billingCity">Billing city.</param>
+        /// <param name="billingCompany">Billing company.</param>
+        /// <param name="billingCountryCode">Billing country code.</param>
+        /// <param name="billingDayPhone">Billing day phone.</param>
+        /// <param name="billingEveningPhone">Billing evening phone.</param>
+        /// <param name="billingFirstName">Billing first name.</param>
+        /// <param name="billingLastName">Billing last name.</param>
+        /// <param name="billingPostalCode">Billing postal code.</param>
+        /// <param name="billingState">Billing state.</param>
+        /// <param name="email">Email address of this customer profile.</param>
+        /// <param name="lastModifiedDtsEnd">Last modified date end.</param>
+        /// <param name="lastModifiedDtsStart">Last modified date start.</param>
+        /// <param name="pricingTierName">Pricing tier name.</param>
+        /// <param name="pricingTierOid">Pricing tier oid.</param>
+        /// <param name="qbClass">QuickBooks class to import this customer as.</param>
+        /// <param name="quickbooksCode">QuickBooks name to import this customer as.</param>
+        /// <param name="shippingCity">Billing city.</param>
+        /// <param name="shippingCompany">Billing company.</param>
+        /// <param name="shippingCountryCode">Billing country code.</param>
+        /// <param name="shippingDayPhone">Billing day phone.</param>
+        /// <param name="shippingEveningPhone">Billing evening phone.</param>
+        /// <param name="shippingFirstName">Billing first name.</param>
+        /// <param name="shippingLastName">Billing last name.</param>
+        /// <param name="shippingPostalCode">Billing postal code.</param>
+        /// <param name="shippingState">Billing state.</param>
+        /// <param name="signupDtsEnd">Signup date end.</param>
+        /// <param name="signupDtsStart">Signup date start.</param>
+        public CustomerQuery(List<string> allTags = default(List<string>), List<string> anyTags = default(List<string>), string billingCity = default(string), string billingCompany = default(string), string billingCountryCode = default(string), string billingDayPhone = default(string), string billingEveningPhone = default(string), string billingFirstName = default(string), string billingLastName = default(string), string billingPostalCode = default(string), string billingState = default(string), string email = default(string), string lastModifiedDtsEnd = default(string), string lastModifiedDtsStart = default(string), string pricingTierName = default(string), int? pricingTierOid = default(int?), string qbClass = default(string), string quickbooksCode = default(string), string shippingCity = default(string), string shippingCompany = default(string), string shippingCountryCode = default(string), string shippingDayPhone = default(string), string shippingEveningPhone = default(string), string shippingFirstName = default(string), string shippingLastName = default(string), string shippingPostalCode = default(string), string shippingState = default(string), string signupDtsEnd = default(string), string signupDtsStart = default(string))
         {
-            this.BillingCity = BillingCity;
-            this.BillingCompany = BillingCompany;
-            this.BillingCountryCode = BillingCountryCode;
-            this.BillingDayPhone = BillingDayPhone;
-            this.BillingEveningPhone = BillingEveningPhone;
-            this.BillingFirstName = BillingFirstName;
-            this.BillingLastName = BillingLastName;
-            this.BillingPostalCode = BillingPostalCode;
-            this.BillingState = BillingState;
-            this.Email = Email;
-            this.LastModifiedDtsEnd = LastModifiedDtsEnd;
-            this.LastModifiedDtsStart = LastModifiedDtsStart;
-            this.PricingTierName = PricingTierName;
-            this.PricingTierOid = PricingTierOid;
-            this.QbClass = QbClass;
-            this.QuickbooksCode = QuickbooksCode;
-            this.ShippingCity = ShippingCity;
-            this.ShippingCompany = ShippingCompany;
-            this.ShippingCountryCode = ShippingCountryCode;
-            this.ShippingDayPhone = ShippingDayPhone;
-            this.ShippingEveningPhone = ShippingEveningPhone;
-            this.ShippingFirstName = ShippingFirstName;
-            this.ShippingLastName = ShippingLastName;
-            this.ShippingPostalCode = ShippingPostalCode;
-            this.ShippingState = ShippingState;
-            this.SignupDtsEnd = SignupDtsEnd;
-            this.SignupDtsStart = SignupDtsStart;
+            this.AllTags = allTags;
+            this.AnyTags = anyTags;
+            this.BillingCity = billingCity;
+            this.BillingCompany = billingCompany;
+            this.BillingCountryCode = billingCountryCode;
+            this.BillingDayPhone = billingDayPhone;
+            this.BillingEveningPhone = billingEveningPhone;
+            this.BillingFirstName = billingFirstName;
+            this.BillingLastName = billingLastName;
+            this.BillingPostalCode = billingPostalCode;
+            this.BillingState = billingState;
+            this.Email = email;
+            this.LastModifiedDtsEnd = lastModifiedDtsEnd;
+            this.LastModifiedDtsStart = lastModifiedDtsStart;
+            this.PricingTierName = pricingTierName;
+            this.PricingTierOid = pricingTierOid;
+            this.QbClass = qbClass;
+            this.QuickbooksCode = quickbooksCode;
+            this.ShippingCity = shippingCity;
+            this.ShippingCompany = shippingCompany;
+            this.ShippingCountryCode = shippingCountryCode;
+            this.ShippingDayPhone = shippingDayPhone;
+            this.ShippingEveningPhone = shippingEveningPhone;
+            this.ShippingFirstName = shippingFirstName;
+            this.ShippingLastName = shippingLastName;
+            this.ShippingPostalCode = shippingPostalCode;
+            this.ShippingState = shippingState;
+            this.SignupDtsEnd = signupDtsEnd;
+            this.SignupDtsStart = signupDtsStart;
         }
         
+        /// <summary>
+        /// All tags the customer must have
+        /// </summary>
+        /// <value>All tags the customer must have</value>
+        [DataMember(Name="all_tags", EmitDefaultValue=false)]
+        public List<string> AllTags { get; set; }
+
+        /// <summary>
+        /// Any of these tags the customer must have
+        /// </summary>
+        /// <value>Any of these tags the customer must have</value>
+        [DataMember(Name="any_tags", EmitDefaultValue=false)]
+        public List<string> AnyTags { get; set; }
+
         /// <summary>
         /// Billing city
         /// </summary>
@@ -288,6 +306,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CustomerQuery {\n");
+            sb.Append("  AllTags: ").Append(AllTags).Append("\n");
+            sb.Append("  AnyTags: ").Append(AnyTags).Append("\n");
             sb.Append("  BillingCity: ").Append(BillingCity).Append("\n");
             sb.Append("  BillingCompany: ").Append(BillingCompany).Append("\n");
             sb.Append("  BillingCountryCode: ").Append(BillingCountryCode).Append("\n");
@@ -323,7 +343,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -349,6 +369,16 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AllTags == input.AllTags ||
+                    this.AllTags != null &&
+                    this.AllTags.SequenceEqual(input.AllTags)
+                ) && 
+                (
+                    this.AnyTags == input.AnyTags ||
+                    this.AnyTags != null &&
+                    this.AnyTags.SequenceEqual(input.AnyTags)
+                ) && 
                 (
                     this.BillingCity == input.BillingCity ||
                     (this.BillingCity != null &&
@@ -495,6 +525,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AllTags != null)
+                    hashCode = hashCode * 59 + this.AllTags.GetHashCode();
+                if (this.AnyTags != null)
+                    hashCode = hashCode * 59 + this.AnyTags.GetHashCode();
                 if (this.BillingCity != null)
                     hashCode = hashCode * 59 + this.BillingCity.GetHashCode();
                 if (this.BillingCompany != null)

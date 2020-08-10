@@ -33,24 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerCard" /> class.
         /// </summary>
-        /// <param name="CardExpirationMonth">Card expiration month (1-12).</param>
-        /// <param name="CardExpirationYear">Card expiration year (four digit year).</param>
-        /// <param name="CardNumber">Card number (masked to the last 4).</param>
-        /// <param name="CardNumberToken">Hosted field token for the card number.</param>
-        /// <param name="CardType">Card type.</param>
-        /// <param name="CustomerProfileCreditCardId">ID of the stored credit card to use.</param>
-        /// <param name="CustomerProfileOid">Customer profile object identifier.</param>
-        /// <param name="LastUsedDts">Last used date.</param>
-        public CustomerCard(int? CardExpirationMonth = default(int?), int? CardExpirationYear = default(int?), string CardNumber = default(string), string CardNumberToken = default(string), string CardType = default(string), int? CustomerProfileCreditCardId = default(int?), int? CustomerProfileOid = default(int?), string LastUsedDts = default(string))
+        /// <param name="cardExpirationMonth">Card expiration month (1-12).</param>
+        /// <param name="cardExpirationYear">Card expiration year (four digit year).</param>
+        /// <param name="cardNumber">Card number (masked to the last 4).</param>
+        /// <param name="cardNumberToken">Hosted field token for the card number.</param>
+        /// <param name="cardType">Card type.</param>
+        /// <param name="customerProfileCreditCardId">ID of the stored credit card to use.</param>
+        /// <param name="customerProfileOid">Customer profile object identifier.</param>
+        /// <param name="lastUsedDts">Last used date.</param>
+        public CustomerCard(int? cardExpirationMonth = default(int?), int? cardExpirationYear = default(int?), string cardNumber = default(string), string cardNumberToken = default(string), string cardType = default(string), int? customerProfileCreditCardId = default(int?), int? customerProfileOid = default(int?), string lastUsedDts = default(string))
         {
-            this.CardExpirationMonth = CardExpirationMonth;
-            this.CardExpirationYear = CardExpirationYear;
-            this.CardNumber = CardNumber;
-            this.CardNumberToken = CardNumberToken;
-            this.CardType = CardType;
-            this.CustomerProfileCreditCardId = CustomerProfileCreditCardId;
-            this.CustomerProfileOid = CustomerProfileOid;
-            this.LastUsedDts = LastUsedDts;
+            this.CardExpirationMonth = cardExpirationMonth;
+            this.CardExpirationYear = cardExpirationYear;
+            this.CardNumber = cardNumber;
+            this.CardNumberToken = cardNumberToken;
+            this.CardType = cardType;
+            this.CustomerProfileCreditCardId = customerProfileCreditCardId;
+            this.CustomerProfileOid = customerProfileOid;
+            this.LastUsedDts = lastUsedDts;
         }
         
         /// <summary>
@@ -133,7 +133,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

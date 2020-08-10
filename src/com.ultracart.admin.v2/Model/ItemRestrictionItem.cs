@@ -39,22 +39,22 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Cannotbepurchasedwith for "can not be purchased with"
+            /// Enum Cannotbepurchasedwith for value: can not be purchased with
             /// </summary>
             [EnumMember(Value = "can not be purchased with")]
-            Cannotbepurchasedwith,
+            Cannotbepurchasedwith = 1,
             
             /// <summary>
-            /// Enum Canonlybepurchasedwith for "can only be purchased with"
+            /// Enum Canonlybepurchasedwith for value: can only be purchased with
             /// </summary>
             [EnumMember(Value = "can only be purchased with")]
-            Canonlybepurchasedwith,
+            Canonlybepurchasedwith = 2,
             
             /// <summary>
-            /// Enum Mustbepurchasedwith for "must be purchased with"
+            /// Enum Mustbepurchasedwith for value: must be purchased with
             /// </summary>
             [EnumMember(Value = "must be purchased with")]
-            Mustbepurchasedwith
+            Mustbepurchasedwith = 3
         }
 
         /// <summary>
@@ -66,14 +66,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRestrictionItem" /> class.
         /// </summary>
-        /// <param name="RestrictMerchantItemId">Restrict item id.</param>
-        /// <param name="RestrictMerchantItemOid">Restrict item object identifier.</param>
-        /// <param name="Type">Restriction type.</param>
-        public ItemRestrictionItem(string RestrictMerchantItemId = default(string), int? RestrictMerchantItemOid = default(int?), TypeEnum? Type = default(TypeEnum?))
+        /// <param name="restrictMerchantItemId">Restrict item id.</param>
+        /// <param name="restrictMerchantItemOid">Restrict item object identifier.</param>
+        /// <param name="type">Restriction type.</param>
+        public ItemRestrictionItem(string restrictMerchantItemId = default(string), int? restrictMerchantItemOid = default(int?), TypeEnum? type = default(TypeEnum?))
         {
-            this.RestrictMerchantItemId = RestrictMerchantItemId;
-            this.RestrictMerchantItemOid = RestrictMerchantItemOid;
-            this.Type = Type;
+            this.RestrictMerchantItemId = restrictMerchantItemId;
+            this.RestrictMerchantItemOid = restrictMerchantItemOid;
+            this.Type = type;
         }
         
         /// <summary>
@@ -110,7 +110,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

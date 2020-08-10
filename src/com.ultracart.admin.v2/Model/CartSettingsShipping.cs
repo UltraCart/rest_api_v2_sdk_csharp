@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsShipping" /> class.
         /// </summary>
-        /// <param name="DeliverOnDate">DeliverOnDate.</param>
-        /// <param name="Estimates">Estimates for this cart.</param>
-        /// <param name="NeedShipping">True if this order needs shipping.</param>
-        /// <param name="Provinces">Provinces.</param>
-        /// <param name="ShipOnDate">ShipOnDate.</param>
-        public CartSettingsShipping(CartSettingsShippingCalendar DeliverOnDate = default(CartSettingsShippingCalendar), List<CartSettingsShippingEstimate> Estimates = default(List<CartSettingsShippingEstimate>), bool? NeedShipping = default(bool?), List<CartSettingsProvince> Provinces = default(List<CartSettingsProvince>), CartSettingsShippingCalendar ShipOnDate = default(CartSettingsShippingCalendar))
+        /// <param name="deliverOnDate">deliverOnDate.</param>
+        /// <param name="estimates">Estimates for this cart.</param>
+        /// <param name="needShipping">True if this order needs shipping.</param>
+        /// <param name="provinces">Provinces.</param>
+        /// <param name="shipOnDate">shipOnDate.</param>
+        public CartSettingsShipping(CartSettingsShippingCalendar deliverOnDate = default(CartSettingsShippingCalendar), List<CartSettingsShippingEstimate> estimates = default(List<CartSettingsShippingEstimate>), bool? needShipping = default(bool?), List<CartSettingsProvince> provinces = default(List<CartSettingsProvince>), CartSettingsShippingCalendar shipOnDate = default(CartSettingsShippingCalendar))
         {
-            this.DeliverOnDate = DeliverOnDate;
-            this.Estimates = Estimates;
-            this.NeedShipping = NeedShipping;
-            this.Provinces = Provinces;
-            this.ShipOnDate = ShipOnDate;
+            this.DeliverOnDate = deliverOnDate;
+            this.Estimates = estimates;
+            this.NeedShipping = needShipping;
+            this.Provinces = provinces;
+            this.ShipOnDate = shipOnDate;
         }
         
         /// <summary>
@@ -101,7 +101,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

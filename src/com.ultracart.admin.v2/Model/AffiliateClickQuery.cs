@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AffiliateClickQuery" /> class.
         /// </summary>
-        /// <param name="AffiliateLinkOid">Unique object identifier for for the link that this click is associated with.</param>
-        /// <param name="AffiliateOid">Affiliate ID associated with the click.</param>
-        /// <param name="ClickDtsBegin">Minimum click date/time to return.</param>
-        /// <param name="ClickDtsEnd">Maximum click date/time to return.</param>
-        /// <param name="IpAddress">IP address that generated the click.</param>
-        /// <param name="SubId">Sub ID value passed on the click.</param>
-        public AffiliateClickQuery(int? AffiliateLinkOid = default(int?), int? AffiliateOid = default(int?), string ClickDtsBegin = default(string), string ClickDtsEnd = default(string), string IpAddress = default(string), string SubId = default(string))
+        /// <param name="affiliateLinkOid">Unique object identifier for for the link that this click is associated with.</param>
+        /// <param name="affiliateOid">Affiliate ID associated with the click.</param>
+        /// <param name="clickDtsBegin">Minimum click date/time to return.</param>
+        /// <param name="clickDtsEnd">Maximum click date/time to return.</param>
+        /// <param name="ipAddress">IP address that generated the click.</param>
+        /// <param name="subId">Sub ID value passed on the click.</param>
+        public AffiliateClickQuery(int? affiliateLinkOid = default(int?), int? affiliateOid = default(int?), string clickDtsBegin = default(string), string clickDtsEnd = default(string), string ipAddress = default(string), string subId = default(string))
         {
-            this.AffiliateLinkOid = AffiliateLinkOid;
-            this.AffiliateOid = AffiliateOid;
-            this.ClickDtsBegin = ClickDtsBegin;
-            this.ClickDtsEnd = ClickDtsEnd;
-            this.IpAddress = IpAddress;
-            this.SubId = SubId;
+            this.AffiliateLinkOid = affiliateLinkOid;
+            this.AffiliateOid = affiliateOid;
+            this.ClickDtsBegin = clickDtsBegin;
+            this.ClickDtsEnd = clickDtsEnd;
+            this.IpAddress = ipAddress;
+            this.SubId = subId;
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,42 +33,44 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemPricing" /> class.
         /// </summary>
-        /// <param name="AllowArbitraryCost">Allow arbitrary cost.</param>
-        /// <param name="ArbitraryCostVelocityCode">Arbitrary cost velocity code.</param>
-        /// <param name="AutomaticPricingTierName">Automatic pricing tier name.</param>
-        /// <param name="AutomaticPricingTierOid">Automatic pricing tier object identifier.</param>
-        /// <param name="Cogs">Cost of goods sold.</param>
-        /// <param name="Cost">Cost.</param>
-        /// <param name="CurrencyCode">Currency code.</param>
-        /// <param name="ManufacturerSuggestedRetailPrice">Manufacturer suggested retail price.</param>
-        /// <param name="MaximumArbitraryCost">Maximum arbitrary cost.</param>
-        /// <param name="MinimumAdvertisedPrice">Minimum advertised price.</param>
-        /// <param name="MinimumArbitraryCost">Minimum arbitrary cost.</param>
-        /// <param name="MixAndMatchGroup">Mix and match group.</param>
-        /// <param name="MixAndMatchGroupOid">Mix and match group object identifier.</param>
-        /// <param name="SaleCost">Sale cost.</param>
-        /// <param name="SaleEnd">Sale end.</param>
-        /// <param name="SaleStart">Sale start.</param>
-        /// <param name="Tiers">Tiers.</param>
-        public ItemPricing(bool? AllowArbitraryCost = default(bool?), string ArbitraryCostVelocityCode = default(string), string AutomaticPricingTierName = default(string), int? AutomaticPricingTierOid = default(int?), decimal? Cogs = default(decimal?), decimal? Cost = default(decimal?), string CurrencyCode = default(string), decimal? ManufacturerSuggestedRetailPrice = default(decimal?), decimal? MaximumArbitraryCost = default(decimal?), decimal? MinimumAdvertisedPrice = default(decimal?), decimal? MinimumArbitraryCost = default(decimal?), string MixAndMatchGroup = default(string), int? MixAndMatchGroupOid = default(int?), decimal? SaleCost = default(decimal?), string SaleEnd = default(string), string SaleStart = default(string), List<ItemPricingTier> Tiers = default(List<ItemPricingTier>))
+        /// <param name="allowArbitraryCost">Allow arbitrary cost.</param>
+        /// <param name="arbitraryCostVelocityCode">Arbitrary cost velocity code.</param>
+        /// <param name="autoOrderCost">Cost if customer selects to receive item on auto order.  Set to zero to delete..</param>
+        /// <param name="automaticPricingTierName">Automatic pricing tier name.</param>
+        /// <param name="automaticPricingTierOid">Automatic pricing tier object identifier.</param>
+        /// <param name="cogs">Cost of goods sold.</param>
+        /// <param name="cost">Cost.</param>
+        /// <param name="currencyCode">Currency code.</param>
+        /// <param name="manufacturerSuggestedRetailPrice">Manufacturer suggested retail price.</param>
+        /// <param name="maximumArbitraryCost">Maximum arbitrary cost.</param>
+        /// <param name="minimumAdvertisedPrice">Minimum advertised price.</param>
+        /// <param name="minimumArbitraryCost">Minimum arbitrary cost.</param>
+        /// <param name="mixAndMatchGroup">Mix and match group.</param>
+        /// <param name="mixAndMatchGroupOid">Mix and match group object identifier.</param>
+        /// <param name="saleCost">Sale cost.</param>
+        /// <param name="saleEnd">Sale end.</param>
+        /// <param name="saleStart">Sale start.</param>
+        /// <param name="tiers">Tiers.</param>
+        public ItemPricing(bool? allowArbitraryCost = default(bool?), string arbitraryCostVelocityCode = default(string), decimal? autoOrderCost = default(decimal?), string automaticPricingTierName = default(string), int? automaticPricingTierOid = default(int?), decimal? cogs = default(decimal?), decimal? cost = default(decimal?), string currencyCode = default(string), decimal? manufacturerSuggestedRetailPrice = default(decimal?), decimal? maximumArbitraryCost = default(decimal?), decimal? minimumAdvertisedPrice = default(decimal?), decimal? minimumArbitraryCost = default(decimal?), string mixAndMatchGroup = default(string), int? mixAndMatchGroupOid = default(int?), decimal? saleCost = default(decimal?), string saleEnd = default(string), string saleStart = default(string), List<ItemPricingTier> tiers = default(List<ItemPricingTier>))
         {
-            this.AllowArbitraryCost = AllowArbitraryCost;
-            this.ArbitraryCostVelocityCode = ArbitraryCostVelocityCode;
-            this.AutomaticPricingTierName = AutomaticPricingTierName;
-            this.AutomaticPricingTierOid = AutomaticPricingTierOid;
-            this.Cogs = Cogs;
-            this.Cost = Cost;
-            this.CurrencyCode = CurrencyCode;
-            this.ManufacturerSuggestedRetailPrice = ManufacturerSuggestedRetailPrice;
-            this.MaximumArbitraryCost = MaximumArbitraryCost;
-            this.MinimumAdvertisedPrice = MinimumAdvertisedPrice;
-            this.MinimumArbitraryCost = MinimumArbitraryCost;
-            this.MixAndMatchGroup = MixAndMatchGroup;
-            this.MixAndMatchGroupOid = MixAndMatchGroupOid;
-            this.SaleCost = SaleCost;
-            this.SaleEnd = SaleEnd;
-            this.SaleStart = SaleStart;
-            this.Tiers = Tiers;
+            this.AllowArbitraryCost = allowArbitraryCost;
+            this.ArbitraryCostVelocityCode = arbitraryCostVelocityCode;
+            this.AutoOrderCost = autoOrderCost;
+            this.AutomaticPricingTierName = automaticPricingTierName;
+            this.AutomaticPricingTierOid = automaticPricingTierOid;
+            this.Cogs = cogs;
+            this.Cost = cost;
+            this.CurrencyCode = currencyCode;
+            this.ManufacturerSuggestedRetailPrice = manufacturerSuggestedRetailPrice;
+            this.MaximumArbitraryCost = maximumArbitraryCost;
+            this.MinimumAdvertisedPrice = minimumAdvertisedPrice;
+            this.MinimumArbitraryCost = minimumArbitraryCost;
+            this.MixAndMatchGroup = mixAndMatchGroup;
+            this.MixAndMatchGroupOid = mixAndMatchGroupOid;
+            this.SaleCost = saleCost;
+            this.SaleEnd = saleEnd;
+            this.SaleStart = saleStart;
+            this.Tiers = tiers;
         }
         
         /// <summary>
@@ -84,6 +86,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Arbitrary cost velocity code</value>
         [DataMember(Name="arbitrary_cost_velocity_code", EmitDefaultValue=false)]
         public string ArbitraryCostVelocityCode { get; set; }
+
+        /// <summary>
+        /// Cost if customer selects to receive item on auto order.  Set to zero to delete.
+        /// </summary>
+        /// <value>Cost if customer selects to receive item on auto order.  Set to zero to delete.</value>
+        [DataMember(Name="auto_order_cost", EmitDefaultValue=false)]
+        public decimal? AutoOrderCost { get; set; }
 
         /// <summary>
         /// Automatic pricing tier name
@@ -200,6 +209,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ItemPricing {\n");
             sb.Append("  AllowArbitraryCost: ").Append(AllowArbitraryCost).Append("\n");
             sb.Append("  ArbitraryCostVelocityCode: ").Append(ArbitraryCostVelocityCode).Append("\n");
+            sb.Append("  AutoOrderCost: ").Append(AutoOrderCost).Append("\n");
             sb.Append("  AutomaticPricingTierName: ").Append(AutomaticPricingTierName).Append("\n");
             sb.Append("  AutomaticPricingTierOid: ").Append(AutomaticPricingTierOid).Append("\n");
             sb.Append("  Cogs: ").Append(Cogs).Append("\n");
@@ -223,7 +233,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -258,6 +268,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ArbitraryCostVelocityCode == input.ArbitraryCostVelocityCode ||
                     (this.ArbitraryCostVelocityCode != null &&
                     this.ArbitraryCostVelocityCode.Equals(input.ArbitraryCostVelocityCode))
+                ) && 
+                (
+                    this.AutoOrderCost == input.AutoOrderCost ||
+                    (this.AutoOrderCost != null &&
+                    this.AutoOrderCost.Equals(input.AutoOrderCost))
                 ) && 
                 (
                     this.AutomaticPricingTierName == input.AutomaticPricingTierName ||
@@ -349,6 +364,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AllowArbitraryCost.GetHashCode();
                 if (this.ArbitraryCostVelocityCode != null)
                     hashCode = hashCode * 59 + this.ArbitraryCostVelocityCode.GetHashCode();
+                if (this.AutoOrderCost != null)
+                    hashCode = hashCode * 59 + this.AutoOrderCost.GetHashCode();
                 if (this.AutomaticPricingTierName != null)
                     hashCode = hashCode * 59 + this.AutomaticPricingTierName.GetHashCode();
                 if (this.AutomaticPricingTierOid != null)

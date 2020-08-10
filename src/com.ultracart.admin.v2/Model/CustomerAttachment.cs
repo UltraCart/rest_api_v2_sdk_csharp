@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerAttachment" /> class.
         /// </summary>
-        /// <param name="CustomerProfileAttachmentOid">Attachment identifier.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="FileName">File name.</param>
-        /// <param name="MimeType">Mime typoe.</param>
-        /// <param name="UploadDts">Upload date/time.</param>
-        public CustomerAttachment(int? CustomerProfileAttachmentOid = default(int?), string Description = default(string), string FileName = default(string), string MimeType = default(string), string UploadDts = default(string))
+        /// <param name="customerProfileAttachmentOid">Attachment identifier.</param>
+        /// <param name="description">Description.</param>
+        /// <param name="fileName">File name.</param>
+        /// <param name="mimeType">Mime typoe.</param>
+        /// <param name="uploadDts">Upload date/time.</param>
+        public CustomerAttachment(int? customerProfileAttachmentOid = default(int?), string description = default(string), string fileName = default(string), string mimeType = default(string), string uploadDts = default(string))
         {
-            this.CustomerProfileAttachmentOid = CustomerProfileAttachmentOid;
-            this.Description = Description;
-            this.FileName = FileName;
-            this.MimeType = MimeType;
-            this.UploadDts = UploadDts;
+            this.CustomerProfileAttachmentOid = customerProfileAttachmentOid;
+            this.Description = description;
+            this.FileName = fileName;
+            this.MimeType = mimeType;
+            this.UploadDts = uploadDts;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

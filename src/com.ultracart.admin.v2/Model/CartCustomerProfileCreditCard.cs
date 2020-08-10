@@ -39,40 +39,40 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum AMEX for "AMEX"
+            /// Enum AMEX for value: AMEX
             /// </summary>
             [EnumMember(Value = "AMEX")]
-            AMEX,
+            AMEX = 1,
             
             /// <summary>
-            /// Enum DinersClub for "Diners Club"
+            /// Enum DinersClub for value: Diners Club
             /// </summary>
             [EnumMember(Value = "Diners Club")]
-            DinersClub,
+            DinersClub = 2,
             
             /// <summary>
-            /// Enum Discover for "Discover"
+            /// Enum Discover for value: Discover
             /// </summary>
             [EnumMember(Value = "Discover")]
-            Discover,
+            Discover = 3,
             
             /// <summary>
-            /// Enum MasterCard for "MasterCard"
+            /// Enum MasterCard for value: MasterCard
             /// </summary>
             [EnumMember(Value = "MasterCard")]
-            MasterCard,
+            MasterCard = 4,
             
             /// <summary>
-            /// Enum JCB for "JCB"
+            /// Enum JCB for value: JCB
             /// </summary>
             [EnumMember(Value = "JCB")]
-            JCB,
+            JCB = 5,
             
             /// <summary>
-            /// Enum VISA for "VISA"
+            /// Enum VISA for value: VISA
             /// </summary>
             [EnumMember(Value = "VISA")]
-            VISA
+            VISA = 6
         }
 
         /// <summary>
@@ -84,20 +84,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartCustomerProfileCreditCard" /> class.
         /// </summary>
-        /// <param name="CardExpirationMonth">Card expiration month (1-12).</param>
-        /// <param name="CardExpirationYear">Card expiration year (four digit).</param>
-        /// <param name="CardNumber">Card number (masked last 4 digits).</param>
-        /// <param name="CardType">Card type.</param>
-        /// <param name="CustomerProfileCreditCardId">Unique identifier for this stored card.</param>
-        /// <param name="LastUsedDate">Last used.</param>
-        public CartCustomerProfileCreditCard(int? CardExpirationMonth = default(int?), int? CardExpirationYear = default(int?), string CardNumber = default(string), CardTypeEnum? CardType = default(CardTypeEnum?), int? CustomerProfileCreditCardId = default(int?), string LastUsedDate = default(string))
+        /// <param name="cardExpirationMonth">Card expiration month (1-12).</param>
+        /// <param name="cardExpirationYear">Card expiration year (four digit).</param>
+        /// <param name="cardNumber">Card number (masked last 4 digits).</param>
+        /// <param name="cardType">Card type.</param>
+        /// <param name="customerProfileCreditCardId">Unique identifier for this stored card.</param>
+        /// <param name="lastUsedDate">Last used.</param>
+        public CartCustomerProfileCreditCard(int? cardExpirationMonth = default(int?), int? cardExpirationYear = default(int?), string cardNumber = default(string), CardTypeEnum? cardType = default(CardTypeEnum?), int? customerProfileCreditCardId = default(int?), string lastUsedDate = default(string))
         {
-            this.CardExpirationMonth = CardExpirationMonth;
-            this.CardExpirationYear = CardExpirationYear;
-            this.CardNumber = CardNumber;
-            this.CardType = CardType;
-            this.CustomerProfileCreditCardId = CustomerProfileCreditCardId;
-            this.LastUsedDate = LastUsedDate;
+            this.CardExpirationMonth = cardExpirationMonth;
+            this.CardExpirationYear = cardExpirationYear;
+            this.CardNumber = cardNumber;
+            this.CardType = cardType;
+            this.CustomerProfileCreditCardId = customerProfileCreditCardId;
+            this.LastUsedDate = lastUsedDate;
         }
         
         /// <summary>
@@ -158,7 +158,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

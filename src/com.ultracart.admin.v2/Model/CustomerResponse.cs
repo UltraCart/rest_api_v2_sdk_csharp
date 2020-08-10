@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerResponse" /> class.
         /// </summary>
-        /// <param name="Customer">Customer.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public CustomerResponse(Customer Customer = default(Customer), Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?))
+        /// <param name="customer">customer.</param>
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public CustomerResponse(Customer customer = default(Customer), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?))
         {
-            this.Customer = Customer;
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.Success = Success;
+            this.Customer = customer;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.Success = success;
         }
         
         /// <summary>
@@ -90,7 +90,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

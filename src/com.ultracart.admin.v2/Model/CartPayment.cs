@@ -33,22 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartPayment" /> class.
         /// </summary>
-        /// <param name="Affirm">Affirm.</param>
-        /// <param name="Amazon">Amazon.</param>
-        /// <param name="Check">Check.</param>
-        /// <param name="CreditCard">CreditCard.</param>
-        /// <param name="PaymentMethod">Payment method.</param>
-        /// <param name="PurchaseOrder">PurchaseOrder.</param>
-        /// <param name="RtgCode">Rotating transaction gateway code.</param>
-        public CartPayment(CartPaymentAffirm Affirm = default(CartPaymentAffirm), CartPaymentAmazon Amazon = default(CartPaymentAmazon), CartPaymentCheck Check = default(CartPaymentCheck), CartPaymentCreditCard CreditCard = default(CartPaymentCreditCard), string PaymentMethod = default(string), CartPaymentPurchaseOrder PurchaseOrder = default(CartPaymentPurchaseOrder), string RtgCode = default(string))
+        /// <param name="affirm">affirm.</param>
+        /// <param name="amazon">amazon.</param>
+        /// <param name="check">check.</param>
+        /// <param name="creditCard">creditCard.</param>
+        /// <param name="paymentMethod">Payment method.</param>
+        /// <param name="purchaseOrder">purchaseOrder.</param>
+        /// <param name="rtgCode">Rotating transaction gateway code.</param>
+        public CartPayment(CartPaymentAffirm affirm = default(CartPaymentAffirm), CartPaymentAmazon amazon = default(CartPaymentAmazon), CartPaymentCheck check = default(CartPaymentCheck), CartPaymentCreditCard creditCard = default(CartPaymentCreditCard), string paymentMethod = default(string), CartPaymentPurchaseOrder purchaseOrder = default(CartPaymentPurchaseOrder), string rtgCode = default(string))
         {
-            this.Affirm = Affirm;
-            this.Amazon = Amazon;
-            this.Check = Check;
-            this.CreditCard = CreditCard;
-            this.PaymentMethod = PaymentMethod;
-            this.PurchaseOrder = PurchaseOrder;
-            this.RtgCode = RtgCode;
+            this.Affirm = affirm;
+            this.Amazon = amazon;
+            this.Check = check;
+            this.CreditCard = creditCard;
+            this.PaymentMethod = paymentMethod;
+            this.PurchaseOrder = purchaseOrder;
+            this.RtgCode = rtgCode;
         }
         
         /// <summary>
@@ -118,7 +118,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

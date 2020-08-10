@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UltraCartConfig" /> class.
         /// </summary>
-        /// <param name="TaxBilling">True if sales tax should be collected based on billing address instead of shipping address.</param>
-        public UltraCartConfig(bool? TaxBilling = default(bool?))
+        /// <param name="taxBilling">True if sales tax should be collected based on billing address instead of shipping address.</param>
+        public UltraCartConfig(bool? taxBilling = default(bool?))
         {
-            this.TaxBilling = TaxBilling;
+            this.TaxBilling = taxBilling;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

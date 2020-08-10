@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemEnrollment123" /> class.
         /// </summary>
-        /// <param name="Enrollment123ProductCode">Enrolment 123 product code.</param>
-        public ItemEnrollment123(string Enrollment123ProductCode = default(string))
+        /// <param name="enrollment123ProductCode">Enrolment 123 product code.</param>
+        public ItemEnrollment123(string enrollment123ProductCode = default(string))
         {
-            this.Enrollment123ProductCode = Enrollment123ProductCode;
+            this.Enrollment123ProductCode = enrollment123ProductCode;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

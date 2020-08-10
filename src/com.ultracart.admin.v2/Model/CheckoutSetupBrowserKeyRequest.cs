@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckoutSetupBrowserKeyRequest" /> class.
         /// </summary>
-        /// <param name="AllowedReferrers">Allowed referrers.  If URLs are specified, automatic translation will convert them to proper allowed referrer maskes..</param>
-        public CheckoutSetupBrowserKeyRequest(List<string> AllowedReferrers = default(List<string>))
+        /// <param name="allowedReferrers">Allowed referrers.  If URLs are specified, automatic translation will convert them to proper allowed referrer maskes..</param>
+        public CheckoutSetupBrowserKeyRequest(List<string> allowedReferrers = default(List<string>))
         {
-            this.AllowedReferrers = AllowedReferrers;
+            this.AllowedReferrers = allowedReferrers;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

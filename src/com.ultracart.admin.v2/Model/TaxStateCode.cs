@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxStateCode" /> class.
         /// </summary>
-        /// <param name="AccountingCode">Accounting code for programs such as QuickBooks.</param>
-        /// <param name="StateCode">State code (2 characters.</param>
-        /// <param name="StateName">State name.</param>
-        /// <param name="TaxRate">Tax Rate.</param>
-        /// <param name="TaxRateFormatted">Tax rate formatted.</param>
-        public TaxStateCode(string AccountingCode = default(string), string StateCode = default(string), string StateName = default(string), decimal? TaxRate = default(decimal?), string TaxRateFormatted = default(string))
+        /// <param name="accountingCode">Accounting code for programs such as QuickBooks.</param>
+        /// <param name="stateCode">State code (2 characters.</param>
+        /// <param name="stateName">State name.</param>
+        /// <param name="taxRate">Tax Rate.</param>
+        /// <param name="taxRateFormatted">Tax rate formatted.</param>
+        public TaxStateCode(string accountingCode = default(string), string stateCode = default(string), string stateName = default(string), decimal? taxRate = default(decimal?), string taxRateFormatted = default(string))
         {
-            this.AccountingCode = AccountingCode;
-            this.StateCode = StateCode;
-            this.StateName = StateName;
-            this.TaxRate = TaxRate;
-            this.TaxRateFormatted = TaxRateFormatted;
+            this.AccountingCode = accountingCode;
+            this.StateCode = stateCode;
+            this.StateName = stateName;
+            this.TaxRate = taxRate;
+            this.TaxRateFormatted = taxRateFormatted;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponAmountOffShippingWithItemsPurchase" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="DiscountAmount">The amount of shipping discount.</param>
-        /// <param name="Items">A list of items of which at least one must be purchased for coupon to be valid..</param>
-        /// <param name="ShippingMethods">One or more shipping methods that may receive this discount.</param>
-        public CouponAmountOffShippingWithItemsPurchase(string CurrencyCode = default(string), decimal? DiscountAmount = default(decimal?), List<string> Items = default(List<string>), List<string> ShippingMethods = default(List<string>))
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="discountAmount">The amount of shipping discount.</param>
+        /// <param name="items">A list of items of which at least one must be purchased for coupon to be valid..</param>
+        /// <param name="shippingMethods">One or more shipping methods that may receive this discount.</param>
+        public CouponAmountOffShippingWithItemsPurchase(string currencyCode = default(string), decimal? discountAmount = default(decimal?), List<string> items = default(List<string>), List<string> shippingMethods = default(List<string>))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.DiscountAmount = DiscountAmount;
-            this.Items = Items;
-            this.ShippingMethods = ShippingMethods;
+            this.CurrencyCode = currencyCode;
+            this.DiscountAmount = discountAmount;
+            this.Items = items;
+            this.ShippingMethods = shippingMethods;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

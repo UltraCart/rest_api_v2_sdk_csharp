@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxProviderTestResult" /> class.
         /// </summary>
-        /// <param name="Details">Details.</param>
-        /// <param name="Success">True if the connection was successful.</param>
-        public TaxProviderTestResult(string Details = default(string), bool? Success = default(bool?))
+        /// <param name="details">details.</param>
+        /// <param name="success">True if the connection was successful.</param>
+        public TaxProviderTestResult(string details = default(string), bool? success = default(bool?))
         {
-            this.Details = Details;
-            this.Success = Success;
+            this.Details = details;
+            this.Success = success;
         }
         
         /// <summary>
@@ -72,7 +72,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

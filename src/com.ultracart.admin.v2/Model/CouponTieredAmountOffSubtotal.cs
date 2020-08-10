@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponTieredAmountOffSubtotal" /> class.
         /// </summary>
-        /// <param name="Items">An optional list of items of which a quantity of one or many must be purchased for coupon to be valid.  If empty, all items apply toward subtotal amount..</param>
-        /// <param name="Tiers">A list of discount tiers..</param>
-        public CouponTieredAmountOffSubtotal(List<string> Items = default(List<string>), List<CouponTierAmount> Tiers = default(List<CouponTierAmount>))
+        /// <param name="items">An optional list of items of which a quantity of one or many must be purchased for coupon to be valid.  If empty, all items apply toward subtotal amount..</param>
+        /// <param name="tiers">A list of discount tiers..</param>
+        public CouponTieredAmountOffSubtotal(List<string> items = default(List<string>), List<CouponTierAmount> tiers = default(List<CouponTierAmount>))
         {
-            this.Items = Items;
-            this.Tiers = Tiers;
+            this.Items = items;
+            this.Tiers = tiers;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

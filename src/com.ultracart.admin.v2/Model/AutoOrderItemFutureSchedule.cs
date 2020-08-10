@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoOrderItemFutureSchedule" /> class.
         /// </summary>
-        /// <param name="ItemId">Item ID that should rebill.</param>
-        /// <param name="RebillCount">The number of times this rebill represents.</param>
-        /// <param name="ShipmentDts">Date/time that this item is scheduled to rebill.</param>
-        /// <param name="UnitCost">The unit cost of the item rebilling.</param>
-        public AutoOrderItemFutureSchedule(string ItemId = default(string), int? RebillCount = default(int?), string ShipmentDts = default(string), decimal? UnitCost = default(decimal?))
+        /// <param name="itemId">Item ID that should rebill.</param>
+        /// <param name="rebillCount">The number of times this rebill represents.</param>
+        /// <param name="shipmentDts">Date/time that this item is scheduled to rebill.</param>
+        /// <param name="unitCost">The unit cost of the item rebilling.</param>
+        public AutoOrderItemFutureSchedule(string itemId = default(string), int? rebillCount = default(int?), string shipmentDts = default(string), decimal? unitCost = default(decimal?))
         {
-            this.ItemId = ItemId;
-            this.RebillCount = RebillCount;
-            this.ShipmentDts = ShipmentDts;
-            this.UnitCost = UnitCost;
+            this.ItemId = itemId;
+            this.RebillCount = rebillCount;
+            this.ShipmentDts = shipmentDts;
+            this.UnitCost = unitCost;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,40 +33,44 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExperimentVariation" /> class.
         /// </summary>
-        /// <param name="AddToCartCount">Total add to cart count for this variation.</param>
-        /// <param name="AverageDurationSeconds">Average duration seconds per session for this variation.</param>
-        /// <param name="AverageObjectivePerSession">Average objective value per session for this variation.</param>
-        /// <param name="BounceCount">Total bounce count for this variation.</param>
-        /// <param name="ConversionRate">Conversion rate for this variation.</param>
-        /// <param name="DurationSecondsSum">Total number of seconds spent on the site for this variation.</param>
-        /// <param name="InitiateCheckoutCount">Total initiate checkout count for this variation.</param>
-        /// <param name="OrderCount">Total order count for this variation.</param>
-        /// <param name="OriginalTrafficPercentage">Percentage of the traffic the variation originally started out with.</param>
-        /// <param name="PageViewCount">Total page view count for this variation.</param>
-        /// <param name="Revenue">Total revenue for this variation.</param>
-        /// <param name="SessionCount">Total sessions for this variation.</param>
-        /// <param name="TrafficPercentage">Percentage of the traffic this variation is currently receiving.</param>
-        /// <param name="VariationName">Name of the variation.</param>
-        /// <param name="VariationNumber">Variation number.</param>
-        /// <param name="Winner">True if this variation has been declared the winner.</param>
-        public ExperimentVariation(int? AddToCartCount = default(int?), int? AverageDurationSeconds = default(int?), decimal? AverageObjectivePerSession = default(decimal?), int? BounceCount = default(int?), decimal? ConversionRate = default(decimal?), long? DurationSecondsSum = default(long?), int? InitiateCheckoutCount = default(int?), int? OrderCount = default(int?), decimal? OriginalTrafficPercentage = default(decimal?), int? PageViewCount = default(int?), decimal? Revenue = default(decimal?), int? SessionCount = default(int?), decimal? TrafficPercentage = default(decimal?), string VariationName = default(string), int? VariationNumber = default(int?), bool? Winner = default(bool?))
+        /// <param name="addToCartCount">Total add to cart count for this variation.</param>
+        /// <param name="averageDurationSeconds">Average duration seconds per session for this variation.</param>
+        /// <param name="averageObjectivePerSession">Average objective value per session for this variation.</param>
+        /// <param name="averageOrderValue">Average order value for this variation.</param>
+        /// <param name="bounceCount">Total bounce count for this variation.</param>
+        /// <param name="conversionRate">Conversion rate for this variation.</param>
+        /// <param name="durationSecondsSum">Total number of seconds spent on the site for this variation.</param>
+        /// <param name="initiateCheckoutCount">Total initiate checkout count for this variation.</param>
+        /// <param name="orderCount">Total order count for this variation.</param>
+        /// <param name="originalTrafficPercentage">Percentage of the traffic the variation originally started out with.</param>
+        /// <param name="pageViewCount">Total page view count for this variation.</param>
+        /// <param name="revenue">Total revenue for this variation.</param>
+        /// <param name="sessionCount">Total sessions for this variation.</param>
+        /// <param name="trafficPercentage">Percentage of the traffic this variation is currently receiving.</param>
+        /// <param name="url">Url of the variation if this experiment is a url experiment..</param>
+        /// <param name="variationName">Name of the variation.</param>
+        /// <param name="variationNumber">Variation number.</param>
+        /// <param name="winner">True if this variation has been declared the winner.</param>
+        public ExperimentVariation(int? addToCartCount = default(int?), int? averageDurationSeconds = default(int?), decimal? averageObjectivePerSession = default(decimal?), decimal? averageOrderValue = default(decimal?), int? bounceCount = default(int?), decimal? conversionRate = default(decimal?), long? durationSecondsSum = default(long?), int? initiateCheckoutCount = default(int?), int? orderCount = default(int?), decimal? originalTrafficPercentage = default(decimal?), int? pageViewCount = default(int?), decimal? revenue = default(decimal?), int? sessionCount = default(int?), decimal? trafficPercentage = default(decimal?), string url = default(string), string variationName = default(string), int? variationNumber = default(int?), bool? winner = default(bool?))
         {
-            this.AddToCartCount = AddToCartCount;
-            this.AverageDurationSeconds = AverageDurationSeconds;
-            this.AverageObjectivePerSession = AverageObjectivePerSession;
-            this.BounceCount = BounceCount;
-            this.ConversionRate = ConversionRate;
-            this.DurationSecondsSum = DurationSecondsSum;
-            this.InitiateCheckoutCount = InitiateCheckoutCount;
-            this.OrderCount = OrderCount;
-            this.OriginalTrafficPercentage = OriginalTrafficPercentage;
-            this.PageViewCount = PageViewCount;
-            this.Revenue = Revenue;
-            this.SessionCount = SessionCount;
-            this.TrafficPercentage = TrafficPercentage;
-            this.VariationName = VariationName;
-            this.VariationNumber = VariationNumber;
-            this.Winner = Winner;
+            this.AddToCartCount = addToCartCount;
+            this.AverageDurationSeconds = averageDurationSeconds;
+            this.AverageObjectivePerSession = averageObjectivePerSession;
+            this.AverageOrderValue = averageOrderValue;
+            this.BounceCount = bounceCount;
+            this.ConversionRate = conversionRate;
+            this.DurationSecondsSum = durationSecondsSum;
+            this.InitiateCheckoutCount = initiateCheckoutCount;
+            this.OrderCount = orderCount;
+            this.OriginalTrafficPercentage = originalTrafficPercentage;
+            this.PageViewCount = pageViewCount;
+            this.Revenue = revenue;
+            this.SessionCount = sessionCount;
+            this.TrafficPercentage = trafficPercentage;
+            this.Url = url;
+            this.VariationName = variationName;
+            this.VariationNumber = variationNumber;
+            this.Winner = winner;
         }
         
         /// <summary>
@@ -89,6 +93,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Average objective value per session for this variation</value>
         [DataMember(Name="average_objective_per_session", EmitDefaultValue=false)]
         public decimal? AverageObjectivePerSession { get; set; }
+
+        /// <summary>
+        /// Average order value for this variation
+        /// </summary>
+        /// <value>Average order value for this variation</value>
+        [DataMember(Name="average_order_value", EmitDefaultValue=false)]
+        public decimal? AverageOrderValue { get; set; }
 
         /// <summary>
         /// Total bounce count for this variation
@@ -161,6 +172,13 @@ namespace com.ultracart.admin.v2.Model
         public decimal? TrafficPercentage { get; set; }
 
         /// <summary>
+        /// Url of the variation if this experiment is a url experiment.
+        /// </summary>
+        /// <value>Url of the variation if this experiment is a url experiment.</value>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
+
+        /// <summary>
         /// Name of the variation
         /// </summary>
         /// <value>Name of the variation</value>
@@ -192,6 +210,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AddToCartCount: ").Append(AddToCartCount).Append("\n");
             sb.Append("  AverageDurationSeconds: ").Append(AverageDurationSeconds).Append("\n");
             sb.Append("  AverageObjectivePerSession: ").Append(AverageObjectivePerSession).Append("\n");
+            sb.Append("  AverageOrderValue: ").Append(AverageOrderValue).Append("\n");
             sb.Append("  BounceCount: ").Append(BounceCount).Append("\n");
             sb.Append("  ConversionRate: ").Append(ConversionRate).Append("\n");
             sb.Append("  DurationSecondsSum: ").Append(DurationSecondsSum).Append("\n");
@@ -202,6 +221,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Revenue: ").Append(Revenue).Append("\n");
             sb.Append("  SessionCount: ").Append(SessionCount).Append("\n");
             sb.Append("  TrafficPercentage: ").Append(TrafficPercentage).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  VariationName: ").Append(VariationName).Append("\n");
             sb.Append("  VariationNumber: ").Append(VariationNumber).Append("\n");
             sb.Append("  Winner: ").Append(Winner).Append("\n");
@@ -213,7 +233,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -253,6 +273,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AverageObjectivePerSession == input.AverageObjectivePerSession ||
                     (this.AverageObjectivePerSession != null &&
                     this.AverageObjectivePerSession.Equals(input.AverageObjectivePerSession))
+                ) && 
+                (
+                    this.AverageOrderValue == input.AverageOrderValue ||
+                    (this.AverageOrderValue != null &&
+                    this.AverageOrderValue.Equals(input.AverageOrderValue))
                 ) && 
                 (
                     this.BounceCount == input.BounceCount ||
@@ -305,6 +330,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TrafficPercentage.Equals(input.TrafficPercentage))
                 ) && 
                 (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
+                ) && 
+                (
                     this.VariationName == input.VariationName ||
                     (this.VariationName != null &&
                     this.VariationName.Equals(input.VariationName))
@@ -336,6 +366,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AverageDurationSeconds.GetHashCode();
                 if (this.AverageObjectivePerSession != null)
                     hashCode = hashCode * 59 + this.AverageObjectivePerSession.GetHashCode();
+                if (this.AverageOrderValue != null)
+                    hashCode = hashCode * 59 + this.AverageOrderValue.GetHashCode();
                 if (this.BounceCount != null)
                     hashCode = hashCode * 59 + this.BounceCount.GetHashCode();
                 if (this.ConversionRate != null)
@@ -356,6 +388,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SessionCount.GetHashCode();
                 if (this.TrafficPercentage != null)
                     hashCode = hashCode * 59 + this.TrafficPercentage.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.VariationName != null)
                     hashCode = hashCode * 59 + this.VariationName.GetHashCode();
                 if (this.VariationNumber != null)

@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderFormatResponse" /> class.
         /// </summary>
-        /// <param name="CssLinks">The URLs to any stylesheets that need to be included to properly view the markup..</param>
-        /// <param name="FormattedResult">The formatted result of the order.  This will be HTML or text depending upon the requested format..</param>
-        public OrderFormatResponse(List<string> CssLinks = default(List<string>), string FormattedResult = default(string))
+        /// <param name="cssLinks">The URLs to any stylesheets that need to be included to properly view the markup..</param>
+        /// <param name="formattedResult">The formatted result of the order.  This will be HTML or text depending upon the requested format..</param>
+        public OrderFormatResponse(List<string> cssLinks = default(List<string>), string formattedResult = default(string))
         {
-            this.CssLinks = CssLinks;
-            this.FormattedResult = FormattedResult;
+            this.CssLinks = cssLinks;
+            this.FormattedResult = formattedResult;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

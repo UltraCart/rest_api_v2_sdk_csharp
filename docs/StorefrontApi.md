@@ -4,38 +4,60 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AddToLibrary**](StorefrontApi.md#addtolibrary) | **POST** /storefront/code_library | Add to library
+[**ApplyToStoreFront**](StorefrontApi.md#applytostorefront) | **POST** /storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid} | Apply library item to storefront.
 [**ArchiveEmailList**](StorefrontApi.md#archiveemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive | Archive email list
 [**ArchiveEmailSegment**](StorefrontApi.md#archiveemailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive | Archive email segment
+[**BackPopulateEmailFlow**](StorefrontApi.md#backpopulateemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/backfill | Back populate email flow
 [**CheckDownloadEmailSegment**](StorefrontApi.md#checkdownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 [**CloneEmailCampaign**](StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 [**CloneEmailFlow**](StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
+[**CloneLibraryItem**](StorefrontApi.md#clonelibraryitem) | **POST** /storefront/code_library/{library_item_oid}/clone | Clone public library item.
 [**CreateEmailSendingDomain**](StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
+[**DeleteEmailCommseqStat**](StorefrontApi.md#deleteemailcommseqstat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 [**DeleteEmailEmail**](StorefrontApi.md#deleteemailemail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
 [**DeleteEmailListCustomer**](StorefrontApi.md#deleteemaillistcustomer) | **DELETE** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid} | Delete email list customer
+[**DeleteEmailPostcard**](StorefrontApi.md#deleteemailpostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 [**DeleteEmailSendingDomain**](StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 [**DeleteExperiment**](StorefrontApi.md#deleteexperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+[**DeleteLibraryItem**](StorefrontApi.md#deletelibraryitem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
+[**DuplicateLibraryItem**](StorefrontApi.md#duplicatelibraryitem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 [**GeocodeAddress**](StorefrontApi.md#geocodeaddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
 [**GetCountries**](StorefrontApi.md#getcountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
+[**GetEditorToken**](StorefrontApi.md#geteditortoken) | **GET** /storefront/{storefront_oid}/editor_token | Gets editor token
 [**GetEmailBaseTemplates**](StorefrontApi.md#getemailbasetemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
 [**GetEmailCampaign**](StorefrontApi.md#getemailcampaign) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Get email campaign
 [**GetEmailCampaigns**](StorefrontApi.md#getemailcampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
 [**GetEmailCampaignsWithStats**](StorefrontApi.md#getemailcampaignswithstats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
 [**GetEmailCommseq**](StorefrontApi.md#getemailcommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
 [**GetEmailCommseqEmailStats**](StorefrontApi.md#getemailcommseqemailstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
+[**GetEmailCommseqPostcardStats**](StorefrontApi.md#getemailcommseqpostcardstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
 [**GetEmailCommseqStatOverall**](StorefrontApi.md#getemailcommseqstatoverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
+[**GetEmailCommseqStepStats**](StorefrontApi.md#getemailcommseqstepstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 [**GetEmailCommseqStepWaiting**](StorefrontApi.md#getemailcommseqstepwaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
 [**GetEmailCommseqs**](StorefrontApi.md#getemailcommseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
+[**GetEmailCustomerEditorUrl**](StorefrontApi.md#getemailcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url | Get customers editor URL
+[**GetEmailCustomers**](StorefrontApi.md#getemailcustomers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
 [**GetEmailDashboardActivity**](StorefrontApi.md#getemaildashboardactivity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
 [**GetEmailDashboardStats**](StorefrontApi.md#getemaildashboardstats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
 [**GetEmailEmail**](StorefrontApi.md#getemailemail) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
+[**GetEmailEmailClicks**](StorefrontApi.md#getemailemailclicks) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks | Get email email clicks
+[**GetEmailEmailCustomerEditorUrl**](StorefrontApi.md#getemailemailcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/orders/{order_id}/editor_url | Get email order customer editor url
+[**GetEmailEmailOrders**](StorefrontApi.md#getemailemailorders) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/orders | Get email email orders
 [**GetEmailEmails**](StorefrontApi.md#getemailemails) | **GET** /storefront/{storefront_oid}/email/emails | Get email emails
 [**GetEmailEmailsMultiple**](StorefrontApi.md#getemailemailsmultiple) | **POST** /storefront/{storefront_oid}/email/emails/multiple | Get email emails multiple
 [**GetEmailFlow**](StorefrontApi.md#getemailflow) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Get email flow
 [**GetEmailFlows**](StorefrontApi.md#getemailflows) | **GET** /storefront/{storefront_oid}/email/flows | Get email flows
+[**GetEmailGlobalSettings**](StorefrontApi.md#getemailglobalsettings) | **GET** /storefront/email/global_settings | Get email globalsettings
 [**GetEmailList**](StorefrontApi.md#getemaillist) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
-[**GetEmailListCustomerEditorUrl**](StorefrontApi.md#getemaillistcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customers
+[**GetEmailListCustomerEditorUrl**](StorefrontApi.md#getemaillistcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customer editor url
 [**GetEmailListCustomers**](StorefrontApi.md#getemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers | Get email list customers
 [**GetEmailLists**](StorefrontApi.md#getemaillists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
+[**GetEmailPerformance**](StorefrontApi.md#getemailperformance) | **GET** /storefront/{storefront_oid}/email/performance | Get email performance
+[**GetEmailPlan**](StorefrontApi.md#getemailplan) | **GET** /storefront/{storefront_oid}/email/plan | Get email plan
+[**GetEmailPostcard**](StorefrontApi.md#getemailpostcard) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Get email postcard
+[**GetEmailPostcards**](StorefrontApi.md#getemailpostcards) | **GET** /storefront/{storefront_oid}/email/postcards | Get email postcards
+[**GetEmailPostcardsMultiple**](StorefrontApi.md#getemailpostcardsmultiple) | **POST** /storefront/{storefront_oid}/email/postcards/multiple | Get email postcards multiple
 [**GetEmailSegment**](StorefrontApi.md#getemailsegment) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Get email segment
 [**GetEmailSegmentCustomerEditorUrl**](StorefrontApi.md#getemailsegmentcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers/{email_customer_uuid}/editor_url | Get email segment customers editor URL
 [**GetEmailSegmentCustomers**](StorefrontApi.md#getemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers | Get email segment customers
@@ -43,37 +65,250 @@ Method | HTTP request | Description
 [**GetEmailSendingDomain**](StorefrontApi.md#getemailsendingdomain) | **GET** /storefront/email/sending_domain/{domain} | Get email sending domain
 [**GetEmailSendingDomainStatus**](StorefrontApi.md#getemailsendingdomainstatus) | **POST** /storefront/email/sending_domains/{domain}/status | Get email sending domain status
 [**GetEmailSendingDomains**](StorefrontApi.md#getemailsendingdomains) | **GET** /storefront/email/sending_domains | Get email sending domains
+[**GetEmailSettings**](StorefrontApi.md#getemailsettings) | **GET** /storefront/{storefront_oid}/email/settings | Get email settings
 [**GetEmailTemplate**](StorefrontApi.md#getemailtemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 [**GetEmailTemplates**](StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 [**GetEmailThirdPartyProviders**](StorefrontApi.md#getemailthirdpartyproviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 [**GetExperiments**](StorefrontApi.md#getexperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
 [**GetHistogramPropertyNames**](StorefrontApi.md#gethistogrampropertynames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
 [**GetHistogramPropertyValues**](StorefrontApi.md#gethistogrampropertyvalues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
+[**GetLibraryFilterValues**](StorefrontApi.md#getlibraryfiltervalues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
+[**GetLibraryItem**](StorefrontApi.md#getlibraryitem) | **GET** /storefront/code_library/{library_item_oid} | Get library item.
+[**GetLibraryItemsByQuery**](StorefrontApi.md#getlibraryitemsbyquery) | **POST** /storefront/code_library/query | Retrieve library items
+[**GetTransactionEmail**](StorefrontApi.md#gettransactionemail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
+[**GetTransactionEmailList**](StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
+[**GlobalUnsubscribe**](StorefrontApi.md#globalunsubscribe) | **POST** /storefront/{storefront_oid}/email/globalUnsubscribe | Globally unsubscribe a customer
 [**ImportEmailThirdPartyProviderList**](StorefrontApi.md#importemailthirdpartyproviderlist) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 [**InsertEmailCampaign**](StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
 [**InsertEmailCommseq**](StorefrontApi.md#insertemailcommseq) | **POST** /storefront/{storefront_oid}/email/commseqs | Insert email commseq
 [**InsertEmailEmail**](StorefrontApi.md#insertemailemail) | **POST** /storefront/{storefront_oid}/email/emails | Insert email email
 [**InsertEmailFlow**](StorefrontApi.md#insertemailflow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
 [**InsertEmailList**](StorefrontApi.md#insertemaillist) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
+[**InsertEmailPostcard**](StorefrontApi.md#insertemailpostcard) | **POST** /storefront/{storefront_oid}/email/postcards | Insert email postcard
 [**InsertEmailSegment**](StorefrontApi.md#insertemailsegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
 [**PrepareDownloadEmailSegment**](StorefrontApi.md#preparedownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment
+[**ReleaseEmailCommseqStepWaiting**](StorefrontApi.md#releaseemailcommseqstepwaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting/{commseq_step_uuid} | Release email communication sequence customers waiting at the specified step
+[**Review**](StorefrontApi.md#review) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review | Request a review of an email
 [**Search**](StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
 [**SearchEmailListCustomers**](StorefrontApi.md#searchemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
 [**SearchEmailSegmentCustomers**](StorefrontApi.md#searchemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
+[**SendEmailTest**](StorefrontApi.md#sendemailtest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
+[**SendPostcardTest**](StorefrontApi.md#sendpostcardtest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
 [**StartEmailCampaign**](StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 [**SubscribeToEmailList**](StorefrontApi.md#subscribetoemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 [**UpdateEmailCampaign**](StorefrontApi.md#updateemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
 [**UpdateEmailCommseq**](StorefrontApi.md#updateemailcommseq) | **PUT** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Update email commseq
+[**UpdateEmailCustomer**](StorefrontApi.md#updateemailcustomer) | **PUT** /storefront/{storefront_oid}/email/customers/{email_customer_uuid} | Update email customer
 [**UpdateEmailEmail**](StorefrontApi.md#updateemailemail) | **PUT** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Update email email
 [**UpdateEmailFlow**](StorefrontApi.md#updateemailflow) | **PUT** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Update email flow
+[**UpdateEmailGlobalSettings**](StorefrontApi.md#updateemailglobalsettings) | **POST** /storefront/email/global_settings | Update email global settings
 [**UpdateEmailList**](StorefrontApi.md#updateemaillist) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
+[**UpdateEmailPlan**](StorefrontApi.md#updateemailplan) | **POST** /storefront/{storefront_oid}/email/plan | Update email plan
+[**UpdateEmailPostcard**](StorefrontApi.md#updateemailpostcard) | **PUT** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Update email postcard
 [**UpdateEmailSegment**](StorefrontApi.md#updateemailsegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
+[**UpdateEmailSettings**](StorefrontApi.md#updateemailsettings) | **POST** /storefront/{storefront_oid}/email/settings | Update email settings
 [**UpdateExperiment**](StorefrontApi.md#updateexperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
+[**UpdateLibraryItem**](StorefrontApi.md#updatelibraryitem) | **PUT** /storefront/code_library/{library_item_oid} | Update library item. Note that only certain fields may be updated via this method.
+[**UpdateTransactionEmail**](StorefrontApi.md#updatetransactionemail) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
 
+
+<a name="addtolibrary"></a>
+# **AddToLibrary**
+> LibraryItemResponse AddToLibrary (AddLibraryItemRequest addLibraryRequest)
+
+Add to library
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class AddToLibraryExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var addLibraryRequest = new AddLibraryItemRequest(); // AddLibraryItemRequest | New library item
+
+            try
+            {
+                // Add to library
+                LibraryItemResponse result = apiInstance.AddToLibrary(addLibraryRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.AddToLibrary: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **addLibraryRequest** | [**AddLibraryItemRequest**](AddLibraryItemRequest.md)| New library item | 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="applytostorefront"></a>
+# **ApplyToStoreFront**
+> ApplyLibraryItemResponse ApplyToStoreFront (int? libraryItemOid, int? storefrontOid)
+
+Apply library item to storefront.
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class ApplyToStoreFrontExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var libraryItemOid = 56;  // int? | 
+            var storefrontOid = 56;  // int? | 
+
+            try
+            {
+                // Apply library item to storefront.
+                ApplyLibraryItemResponse result = apiInstance.ApplyToStoreFront(libraryItemOid, storefrontOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.ApplyToStoreFront: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **libraryItemOid** | **int?**|  | 
+ **storefrontOid** | **int?**|  | 
+
+### Return type
+
+[**ApplyLibraryItemResponse**](ApplyLibraryItemResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="archiveemaillist"></a>
 # **ArchiveEmailList**
-> EmailListArchiveResponse ArchiveEmailList (string storefrontOid, string emailListUuid)
+> EmailListArchiveResponse ArchiveEmailList (int? storefrontOid, string emailListUuid)
 
 Archive email list
 ### Example
@@ -128,8 +363,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailListUuid = emailListUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailListUuid = emailListUuid_example;  // string | 
 
             try
             {
@@ -151,8 +386,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailListUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailListUuid** | **string**|  | 
 
 ### Return type
 
@@ -171,7 +406,7 @@ Name | Type | Description  | Notes
 
 <a name="archiveemailsegment"></a>
 # **ArchiveEmailSegment**
-> EmailSegmentArchiveResponse ArchiveEmailSegment (string storefrontOid, string emailSegmentUuid)
+> EmailSegmentArchiveResponse ArchiveEmailSegment (int? storefrontOid, string emailSegmentUuid)
 
 Archive email segment
 ### Example
@@ -226,8 +461,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailSegmentUuid = emailSegmentUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailSegmentUuid = emailSegmentUuid_example;  // string | 
 
             try
             {
@@ -249,8 +484,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailSegmentUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailSegmentUuid** | **string**|  | 
 
 ### Return type
 
@@ -267,9 +502,109 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="backpopulateemailflow"></a>
+# **BackPopulateEmailFlow**
+> EmailFlowBackPopulateResponse BackPopulateEmailFlow (int? storefrontOid, string emailFlowUuid, EmailFlowBackPopulateRequest backPopulateRequest)
+
+Back populate email flow
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class BackPopulateEmailFlowExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var emailFlowUuid = emailFlowUuid_example;  // string | 
+            var backPopulateRequest = new EmailFlowBackPopulateRequest(); // EmailFlowBackPopulateRequest | The request to back populate
+
+            try
+            {
+                // Back populate email flow
+                EmailFlowBackPopulateResponse result = apiInstance.BackPopulateEmailFlow(storefrontOid, emailFlowUuid, backPopulateRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.BackPopulateEmailFlow: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **emailFlowUuid** | **string**|  | 
+ **backPopulateRequest** | [**EmailFlowBackPopulateRequest**](EmailFlowBackPopulateRequest.md)| The request to back populate | 
+
+### Return type
+
+[**EmailFlowBackPopulateResponse**](EmailFlowBackPopulateResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="checkdownloademailsegment"></a>
 # **CheckDownloadEmailSegment**
-> EmailSegmentDownloadPrepareResponse CheckDownloadEmailSegment (string storefrontOid, string emailSegmentUuid, string emailSegmentRebuildUuid)
+> EmailSegmentDownloadPrepareResponse CheckDownloadEmailSegment (int? storefrontOid, string emailSegmentUuid, string emailSegmentRebuildUuid)
 
 Check download of email segment
 ### Example
@@ -324,9 +659,9 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailSegmentUuid = emailSegmentUuid_example;  // string | null
-            var emailSegmentRebuildUuid = emailSegmentRebuildUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailSegmentUuid = emailSegmentUuid_example;  // string | 
+            var emailSegmentRebuildUuid = emailSegmentRebuildUuid_example;  // string | 
 
             try
             {
@@ -348,9 +683,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailSegmentUuid** | **string**| null | 
- **emailSegmentRebuildUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailSegmentUuid** | **string**|  | 
+ **emailSegmentRebuildUuid** | **string**|  | 
 
 ### Return type
 
@@ -369,7 +704,7 @@ Name | Type | Description  | Notes
 
 <a name="cloneemailcampaign"></a>
 # **CloneEmailCampaign**
-> EmailCampaignResponse CloneEmailCampaign (string storefrontOid, string emailCampaignUuid)
+> EmailCampaignResponse CloneEmailCampaign (int? storefrontOid, string emailCampaignUuid, int? targetStorefrontOid = null)
 
 Clone email campaign
 ### Example
@@ -424,13 +759,14 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailCampaignUuid = emailCampaignUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailCampaignUuid = emailCampaignUuid_example;  // string | 
+            var targetStorefrontOid = 56;  // int? |  (optional) 
 
             try
             {
                 // Clone email campaign
-                EmailCampaignResponse result = apiInstance.CloneEmailCampaign(storefrontOid, emailCampaignUuid);
+                EmailCampaignResponse result = apiInstance.CloneEmailCampaign(storefrontOid, emailCampaignUuid, targetStorefrontOid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -447,8 +783,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailCampaignUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailCampaignUuid** | **string**|  | 
+ **targetStorefrontOid** | **int?**|  | [optional] 
 
 ### Return type
 
@@ -467,7 +804,7 @@ Name | Type | Description  | Notes
 
 <a name="cloneemailflow"></a>
 # **CloneEmailFlow**
-> EmailFlowResponse CloneEmailFlow (string storefrontOid, string emailFlowUuid)
+> EmailFlowResponse CloneEmailFlow (int? storefrontOid, string emailFlowUuid, int? targetStorefrontOid = null)
 
 Clone email flow
 ### Example
@@ -522,13 +859,14 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailFlowUuid = emailFlowUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailFlowUuid = emailFlowUuid_example;  // string | 
+            var targetStorefrontOid = 56;  // int? |  (optional) 
 
             try
             {
                 // Clone email flow
-                EmailFlowResponse result = apiInstance.CloneEmailFlow(storefrontOid, emailFlowUuid);
+                EmailFlowResponse result = apiInstance.CloneEmailFlow(storefrontOid, emailFlowUuid, targetStorefrontOid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -545,12 +883,111 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailFlowUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailFlowUuid** | **string**|  | 
+ **targetStorefrontOid** | **int?**|  | [optional] 
 
 ### Return type
 
 [**EmailFlowResponse**](EmailFlowResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="clonelibraryitem"></a>
+# **CloneLibraryItem**
+> LibraryItemResponse CloneLibraryItem (int? libraryItemOid, int? storefrontOid = null)
+
+Clone public library item.
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class CloneLibraryItemExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var libraryItemOid = 56;  // int? | 
+            var storefrontOid = 56;  // int? |  (optional) 
+
+            try
+            {
+                // Clone public library item.
+                LibraryItemResponse result = apiInstance.CloneLibraryItem(libraryItemOid, storefrontOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.CloneLibraryItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **libraryItemOid** | **int?**|  | 
+ **storefrontOid** | **int?**|  | [optional] 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
 
 ### Authorization
 
@@ -620,7 +1057,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var domain = domain_example;  // string | null
+            var domain = domain_example;  // string | 
 
             try
             {
@@ -642,7 +1079,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **string**| null | 
+ **domain** | **string**|  | 
 
 ### Return type
 
@@ -659,9 +1096,106 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deleteemailcommseqstat"></a>
+# **DeleteEmailCommseqStat**
+> void DeleteEmailCommseqStat (int? storefrontOid, string commseqUuid)
+
+Delete communication sequence stats
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteEmailCommseqStatExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
+
+            try
+            {
+                // Delete communication sequence stats
+                apiInstance.DeleteEmailCommseqStat(storefrontOid, commseqUuid);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.DeleteEmailCommseqStat: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="deleteemailemail"></a>
 # **DeleteEmailEmail**
-> BaseResponse DeleteEmailEmail (string storefrontOid, string commseqEmailUuid)
+> BaseResponse DeleteEmailEmail (int? storefrontOid, string commseqEmailUuid)
 
 Delete email email
 ### Example
@@ -716,8 +1250,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var commseqEmailUuid = commseqEmailUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var commseqEmailUuid = commseqEmailUuid_example;  // string | 
 
             try
             {
@@ -739,8 +1273,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **commseqEmailUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **commseqEmailUuid** | **string**|  | 
 
 ### Return type
 
@@ -759,7 +1293,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteemaillistcustomer"></a>
 # **DeleteEmailListCustomer**
-> BaseResponse DeleteEmailListCustomer (string storefrontOid, string emailListUuid, string emailCustomerUuid)
+> BaseResponse DeleteEmailListCustomer (int? storefrontOid, string emailListUuid, string emailCustomerUuid)
 
 Delete email list customer
 ### Example
@@ -814,9 +1348,9 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailListUuid = emailListUuid_example;  // string | null
-            var emailCustomerUuid = emailCustomerUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailListUuid = emailListUuid_example;  // string | 
+            var emailCustomerUuid = emailCustomerUuid_example;  // string | 
 
             try
             {
@@ -838,9 +1372,107 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailListUuid** | **string**| null | 
- **emailCustomerUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailListUuid** | **string**|  | 
+ **emailCustomerUuid** | **string**|  | 
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteemailpostcard"></a>
+# **DeleteEmailPostcard**
+> BaseResponse DeleteEmailPostcard (int? storefrontOid, string commseqPostcardUuid)
+
+Delete email postcard
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteEmailPostcardExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqPostcardUuid = commseqPostcardUuid_example;  // string | 
+
+            try
+            {
+                // Delete email postcard
+                BaseResponse result = apiInstance.DeleteEmailPostcard(storefrontOid, commseqPostcardUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.DeleteEmailPostcard: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqPostcardUuid** | **string**|  | 
 
 ### Return type
 
@@ -914,7 +1546,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var domain = domain_example;  // string | null
+            var domain = domain_example;  // string | 
 
             try
             {
@@ -936,7 +1568,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **string**| null | 
+ **domain** | **string**|  | 
 
 ### Return type
 
@@ -955,7 +1587,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteexperiment"></a>
 # **DeleteExperiment**
-> void DeleteExperiment (string storefrontOid, int? storefrontExperimentOid)
+> void DeleteExperiment (int? storefrontOid, int? storefrontExperimentOid)
 
 Delete experiment
 ### Example
@@ -1010,8 +1642,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var storefrontExperimentOid = 56;  // int? | null
+            var storefrontOid = 56;  // int? | 
+            var storefrontExperimentOid = 56;  // int? | 
 
             try
             {
@@ -1032,8 +1664,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **storefrontExperimentOid** | **int?**| null | 
+ **storefrontOid** | **int?**|  | 
+ **storefrontExperimentOid** | **int?**|  | 
 
 ### Return type
 
@@ -1050,9 +1682,200 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deletelibraryitem"></a>
+# **DeleteLibraryItem**
+> void DeleteLibraryItem (int? libraryItemOid)
+
+Delete library item
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteLibraryItemExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var libraryItemOid = 56;  // int? | 
+
+            try
+            {
+                // Delete library item
+                apiInstance.DeleteLibraryItem(libraryItemOid);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.DeleteLibraryItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **libraryItemOid** | **int?**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="duplicatelibraryitem"></a>
+# **DuplicateLibraryItem**
+> LibraryItemResponse DuplicateLibraryItem (int? libraryItemOid)
+
+Duplicate library item.
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DuplicateLibraryItemExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var libraryItemOid = 56;  // int? | 
+
+            try
+            {
+                // Duplicate library item.
+                LibraryItemResponse result = apiInstance.DuplicateLibraryItem(libraryItemOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.DuplicateLibraryItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **libraryItemOid** | **int?**|  | 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="geocodeaddress"></a>
 # **GeocodeAddress**
-> GeocodeResponse GeocodeAddress (string storefrontOid, GeocodeRequest geocodeRequest)
+> GeocodeResponse GeocodeAddress (int? storefrontOid, GeocodeRequest geocodeRequest)
 
 Obtain lat/long for an address
 ### Example
@@ -1107,7 +1930,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
             var geocodeRequest = new GeocodeRequest(); // GeocodeRequest | geocode request
 
             try
@@ -1130,7 +1953,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
  **geocodeRequest** | [**GeocodeRequest**](GeocodeRequest.md)| geocode request | 
 
 ### Return type
@@ -1150,7 +1973,7 @@ Name | Type | Description  | Notes
 
 <a name="getcountries"></a>
 # **GetCountries**
-> CountriesResponse GetCountries (string storefrontOid)
+> CountriesResponse GetCountries (int? storefrontOid)
 
 Get countries
 
@@ -1207,7 +2030,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
 
             try
             {
@@ -1229,7 +2052,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
 
 ### Return type
 
@@ -1246,9 +2069,107 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="geteditortoken"></a>
+# **GetEditorToken**
+> EmailEditorTokenResponse GetEditorToken (int? storefrontOid)
+
+Gets editor token
+
+Fetches a temporary authentication token for the editor 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEditorTokenExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+
+            try
+            {
+                // Gets editor token
+                EmailEditorTokenResponse result = apiInstance.GetEditorToken(storefrontOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEditorToken: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+
+### Return type
+
+[**EmailEditorTokenResponse**](EmailEditorTokenResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getemailbasetemplates"></a>
 # **GetEmailBaseTemplates**
-> EmailBaseTemplateListResponse GetEmailBaseTemplates (string storefrontOid)
+> EmailBaseTemplateListResponse GetEmailBaseTemplates (int? storefrontOid)
 
 Get email communication base templates
 ### Example
@@ -1303,7 +2224,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
 
             try
             {
@@ -1325,7 +2246,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
 
 ### Return type
 
@@ -1344,7 +2265,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailcampaign"></a>
 # **GetEmailCampaign**
-> EmailCampaignResponse GetEmailCampaign (string storefrontOid, string emailCampaignUuid)
+> EmailCampaignResponse GetEmailCampaign (int? storefrontOid, string emailCampaignUuid)
 
 Get email campaign
 ### Example
@@ -1399,8 +2320,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailCampaignUuid = emailCampaignUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailCampaignUuid = emailCampaignUuid_example;  // string | 
 
             try
             {
@@ -1422,8 +2343,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailCampaignUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailCampaignUuid** | **string**|  | 
 
 ### Return type
 
@@ -1442,7 +2363,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailcampaigns"></a>
 # **GetEmailCampaigns**
-> EmailCampaignsResponse GetEmailCampaigns (string storefrontOid)
+> EmailCampaignsResponse GetEmailCampaigns (int? storefrontOid)
 
 Get email campaigns
 ### Example
@@ -1497,7 +2418,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
 
             try
             {
@@ -1519,7 +2440,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
 
 ### Return type
 
@@ -1538,7 +2459,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailcampaignswithstats"></a>
 # **GetEmailCampaignsWithStats**
-> EmailCampaignsResponse GetEmailCampaignsWithStats (string storefrontOid, string statDays)
+> EmailCampaignsResponse GetEmailCampaignsWithStats (int? storefrontOid, string statDays)
 
 Get email campaigns with stats
 ### Example
@@ -1593,8 +2514,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var statDays = statDays_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var statDays = statDays_example;  // string | 
 
             try
             {
@@ -1616,8 +2537,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **statDays** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **statDays** | **string**|  | 
 
 ### Return type
 
@@ -1636,7 +2557,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailcommseq"></a>
 # **GetEmailCommseq**
-> EmailCommseqResponse GetEmailCommseq (string storefrontOid, string commseqUuid)
+> EmailCommseqResponse GetEmailCommseq (int? storefrontOid, string commseqUuid)
 
 Get email commseq
 ### Example
@@ -1691,8 +2612,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var commseqUuid = commseqUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
 
             try
             {
@@ -1714,8 +2635,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **commseqUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
 
 ### Return type
 
@@ -1734,7 +2655,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailcommseqemailstats"></a>
 # **GetEmailCommseqEmailStats**
-> EmailStatSummaryResponse GetEmailCommseqEmailStats (string storefrontOid, string commseqUuid, EmailStatSummaryRequest statsRequest)
+> EmailStatSummaryResponse GetEmailCommseqEmailStats (int? storefrontOid, string commseqUuid, EmailStatSummaryRequest statsRequest)
 
 Get email communication sequence emails stats
 ### Example
@@ -1789,8 +2710,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var commseqUuid = commseqUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
             var statsRequest = new EmailStatSummaryRequest(); // EmailStatSummaryRequest | StatsRequest
 
             try
@@ -1813,8 +2734,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **commseqUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
  **statsRequest** | [**EmailStatSummaryRequest**](EmailStatSummaryRequest.md)| StatsRequest | 
 
 ### Return type
@@ -1832,9 +2753,109 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getemailcommseqpostcardstats"></a>
+# **GetEmailCommseqPostcardStats**
+> EmailStatPostcardSummaryResponse GetEmailCommseqPostcardStats (int? storefrontOid, string commseqUuid, EmailStatPostcardSummaryRequest statsRequest)
+
+Get email communication sequence postcard stats
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailCommseqPostcardStatsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
+            var statsRequest = new EmailStatPostcardSummaryRequest(); // EmailStatPostcardSummaryRequest | StatsRequest
+
+            try
+            {
+                // Get email communication sequence postcard stats
+                EmailStatPostcardSummaryResponse result = apiInstance.GetEmailCommseqPostcardStats(storefrontOid, commseqUuid, statsRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqPostcardStats: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
+ **statsRequest** | [**EmailStatPostcardSummaryRequest**](EmailStatPostcardSummaryRequest.md)| StatsRequest | 
+
+### Return type
+
+[**EmailStatPostcardSummaryResponse**](EmailStatPostcardSummaryResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getemailcommseqstatoverall"></a>
 # **GetEmailCommseqStatOverall**
-> EmailCommseqStatResponse GetEmailCommseqStatOverall (string storefrontOid, string commseqUuid)
+> EmailCommseqStatResponse GetEmailCommseqStatOverall (int? storefrontOid, string commseqUuid)
 
 Get communication sequence stats overall
 ### Example
@@ -1889,8 +2910,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var commseqUuid = commseqUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
 
             try
             {
@@ -1912,8 +2933,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **commseqUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
 
 ### Return type
 
@@ -1930,9 +2951,109 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getemailcommseqstepstats"></a>
+# **GetEmailCommseqStepStats**
+> EmailStepStatResponse GetEmailCommseqStepStats (int? storefrontOid, string commseqUuid, EmailStepStatRequest statsRequest)
+
+Get email communication sequence step stats
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailCommseqStepStatsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
+            var statsRequest = new EmailStepStatRequest(); // EmailStepStatRequest | StatsRequest
+
+            try
+            {
+                // Get email communication sequence step stats
+                EmailStepStatResponse result = apiInstance.GetEmailCommseqStepStats(storefrontOid, commseqUuid, statsRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqStepStats: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
+ **statsRequest** | [**EmailStepStatRequest**](EmailStepStatRequest.md)| StatsRequest | 
+
+### Return type
+
+[**EmailStepStatResponse**](EmailStepStatResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getemailcommseqstepwaiting"></a>
 # **GetEmailCommseqStepWaiting**
-> EmailStepWaitingResponse GetEmailCommseqStepWaiting (string storefrontOid, string commseqUuid, EmailStepWaitingRequest waitingRequest)
+> EmailStepWaitingResponse GetEmailCommseqStepWaiting (int? storefrontOid, string commseqUuid, EmailStepWaitingRequest waitingRequest)
 
 Get email communication sequence customers waiting at each requested step
 ### Example
@@ -1987,8 +3108,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var commseqUuid = commseqUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
             var waitingRequest = new EmailStepWaitingRequest(); // EmailStepWaitingRequest | WaitingRequest
 
             try
@@ -2011,8 +3132,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **commseqUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
  **waitingRequest** | [**EmailStepWaitingRequest**](EmailStepWaitingRequest.md)| WaitingRequest | 
 
 ### Return type
@@ -2032,7 +3153,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailcommseqs"></a>
 # **GetEmailCommseqs**
-> EmailCommseqsResponse GetEmailCommseqs (string storefrontOid)
+> EmailCommseqsResponse GetEmailCommseqs (int? storefrontOid)
 
 Get email commseqs
 ### Example
@@ -2087,7 +3208,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
 
             try
             {
@@ -2109,7 +3230,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
 
 ### Return type
 
@@ -2126,9 +3247,209 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getemailcustomereditorurl"></a>
+# **GetEmailCustomerEditorUrl**
+> EmailCustomerEditorUrlResponse GetEmailCustomerEditorUrl (int? storefrontOid, string emailCustomerUuid)
+
+Get customers editor URL
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailCustomerEditorUrlExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var emailCustomerUuid = emailCustomerUuid_example;  // string | 
+
+            try
+            {
+                // Get customers editor URL
+                EmailCustomerEditorUrlResponse result = apiInstance.GetEmailCustomerEditorUrl(storefrontOid, emailCustomerUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailCustomerEditorUrl: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **emailCustomerUuid** | **string**|  | 
+
+### Return type
+
+[**EmailCustomerEditorUrlResponse**](EmailCustomerEditorUrlResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailcustomers"></a>
+# **GetEmailCustomers**
+> EmailCustomersResponse GetEmailCustomers (int? storefrontOid, int? pageNumber = null, int? pageSize = null, string searchEmailPrefix = null)
+
+Get email customers
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailCustomersExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var pageNumber = 56;  // int? |  (optional) 
+            var pageSize = 56;  // int? |  (optional) 
+            var searchEmailPrefix = searchEmailPrefix_example;  // string |  (optional) 
+
+            try
+            {
+                // Get email customers
+                EmailCustomersResponse result = apiInstance.GetEmailCustomers(storefrontOid, pageNumber, pageSize, searchEmailPrefix);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailCustomers: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **pageNumber** | **int?**|  | [optional] 
+ **pageSize** | **int?**|  | [optional] 
+ **searchEmailPrefix** | **string**|  | [optional] 
+
+### Return type
+
+[**EmailCustomersResponse**](EmailCustomersResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getemaildashboardactivity"></a>
 # **GetEmailDashboardActivity**
-> EmailDashboardActivityResponse GetEmailDashboardActivity (string storefrontOid, int? lastRecords = null)
+> EmailDashboardActivityResponse GetEmailDashboardActivity (int? storefrontOid, int? lastRecords = null)
 
 Get email dashboard activity
 ### Example
@@ -2183,8 +3504,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var lastRecords = 56;  // int? | null (optional) 
+            var storefrontOid = 56;  // int? | 
+            var lastRecords = 56;  // int? |  (optional) 
 
             try
             {
@@ -2206,8 +3527,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **lastRecords** | **int?**| null | [optional] 
+ **storefrontOid** | **int?**|  | 
+ **lastRecords** | **int?**|  | [optional] 
 
 ### Return type
 
@@ -2226,7 +3547,7 @@ Name | Type | Description  | Notes
 
 <a name="getemaildashboardstats"></a>
 # **GetEmailDashboardStats**
-> EmailDashboardStatsResponse GetEmailDashboardStats (string storefrontOid, int? days = null)
+> EmailDashboardStatsResponse GetEmailDashboardStats (int? storefrontOid, int? days = null)
 
 Get dashboard stats
 ### Example
@@ -2281,8 +3602,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var days = 56;  // int? | null (optional) 
+            var storefrontOid = 56;  // int? | 
+            var days = 56;  // int? |  (optional) 
 
             try
             {
@@ -2304,8 +3625,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **days** | **int?**| null | [optional] 
+ **storefrontOid** | **int?**|  | 
+ **days** | **int?**|  | [optional] 
 
 ### Return type
 
@@ -2324,7 +3645,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailemail"></a>
 # **GetEmailEmail**
-> EmailCommseqEmailResponse GetEmailEmail (string storefrontOid, string commseqEmailUuid)
+> EmailCommseqEmailResponse GetEmailEmail (int? storefrontOid, string commseqEmailUuid)
 
 Get email email
 ### Example
@@ -2379,8 +3700,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var commseqEmailUuid = commseqEmailUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var commseqEmailUuid = commseqEmailUuid_example;  // string | 
 
             try
             {
@@ -2402,8 +3723,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **commseqEmailUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **commseqEmailUuid** | **string**|  | 
 
 ### Return type
 
@@ -2420,9 +3741,317 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getemailemailclicks"></a>
+# **GetEmailEmailClicks**
+> EmailClicksResponse GetEmailEmailClicks (int? storefrontOid, string commseqUuid, string commseqStepUuid, string commseqEmailUuid, int? days = null)
+
+Get email email clicks
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailEmailClicksExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
+            var commseqStepUuid = commseqStepUuid_example;  // string | 
+            var commseqEmailUuid = commseqEmailUuid_example;  // string | 
+            var days = 56;  // int? |  (optional) 
+
+            try
+            {
+                // Get email email clicks
+                EmailClicksResponse result = apiInstance.GetEmailEmailClicks(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailEmailClicks: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
+ **commseqStepUuid** | **string**|  | 
+ **commseqEmailUuid** | **string**|  | 
+ **days** | **int?**|  | [optional] 
+
+### Return type
+
+[**EmailClicksResponse**](EmailClicksResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailemailcustomereditorurl"></a>
+# **GetEmailEmailCustomerEditorUrl**
+> EmailCustomerEditorUrlResponse GetEmailEmailCustomerEditorUrl (int? storefrontOid, string commseqEmailUuid, string orderId)
+
+Get email order customer editor url
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailEmailCustomerEditorUrlExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqEmailUuid = commseqEmailUuid_example;  // string | 
+            var orderId = orderId_example;  // string | 
+
+            try
+            {
+                // Get email order customer editor url
+                EmailCustomerEditorUrlResponse result = apiInstance.GetEmailEmailCustomerEditorUrl(storefrontOid, commseqEmailUuid, orderId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailEmailCustomerEditorUrl: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqEmailUuid** | **string**|  | 
+ **orderId** | **string**|  | 
+
+### Return type
+
+[**EmailCustomerEditorUrlResponse**](EmailCustomerEditorUrlResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailemailorders"></a>
+# **GetEmailEmailOrders**
+> EmailOrdersResponse GetEmailEmailOrders (int? storefrontOid, string commseqUuid, string commseqStepUuid, string commseqEmailUuid, int? days = null)
+
+Get email email orders
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailEmailOrdersExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
+            var commseqStepUuid = commseqStepUuid_example;  // string | 
+            var commseqEmailUuid = commseqEmailUuid_example;  // string | 
+            var days = 56;  // int? |  (optional) 
+
+            try
+            {
+                // Get email email orders
+                EmailOrdersResponse result = apiInstance.GetEmailEmailOrders(storefrontOid, commseqUuid, commseqStepUuid, commseqEmailUuid, days);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailEmailOrders: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
+ **commseqStepUuid** | **string**|  | 
+ **commseqEmailUuid** | **string**|  | 
+ **days** | **int?**|  | [optional] 
+
+### Return type
+
+[**EmailOrdersResponse**](EmailOrdersResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getemailemails"></a>
 # **GetEmailEmails**
-> EmailCommseqEmailsResponse GetEmailEmails (string storefrontOid)
+> EmailCommseqEmailsResponse GetEmailEmails (int? storefrontOid)
 
 Get email emails
 ### Example
@@ -2477,7 +4106,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
 
             try
             {
@@ -2499,7 +4128,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
 
 ### Return type
 
@@ -2518,7 +4147,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailemailsmultiple"></a>
 # **GetEmailEmailsMultiple**
-> EmailCommseqEmailsResponse GetEmailEmailsMultiple (string storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest)
+> EmailCommseqEmailsResponse GetEmailEmailsMultiple (int? storefrontOid, EmailCommseqEmailsRequest emailCommseqEmailsRequest)
 
 Get email emails multiple
 ### Example
@@ -2573,7 +4202,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
             var emailCommseqEmailsRequest = new EmailCommseqEmailsRequest(); // EmailCommseqEmailsRequest | Request of email uuids
 
             try
@@ -2596,7 +4225,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
  **emailCommseqEmailsRequest** | [**EmailCommseqEmailsRequest**](EmailCommseqEmailsRequest.md)| Request of email uuids | 
 
 ### Return type
@@ -2616,7 +4245,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailflow"></a>
 # **GetEmailFlow**
-> EmailFlowResponse GetEmailFlow (string storefrontOid, string emailFlowUuid)
+> EmailFlowResponse GetEmailFlow (int? storefrontOid, string emailFlowUuid)
 
 Get email flow
 ### Example
@@ -2671,8 +4300,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailFlowUuid = emailFlowUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailFlowUuid = emailFlowUuid_example;  // string | 
 
             try
             {
@@ -2694,8 +4323,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailFlowUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailFlowUuid** | **string**|  | 
 
 ### Return type
 
@@ -2714,7 +4343,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailflows"></a>
 # **GetEmailFlows**
-> EmailFlowsResponse GetEmailFlows (string storefrontOid)
+> EmailFlowsResponse GetEmailFlows (int? storefrontOid)
 
 Get email flows
 ### Example
@@ -2769,7 +4398,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
 
             try
             {
@@ -2791,7 +4420,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
 
 ### Return type
 
@@ -2808,9 +4437,101 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getemailglobalsettings"></a>
+# **GetEmailGlobalSettings**
+> EmailGlobalSettingsResponse GetEmailGlobalSettings ()
+
+Get email globalsettings
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailGlobalSettingsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+
+            try
+            {
+                // Get email globalsettings
+                EmailGlobalSettingsResponse result = apiInstance.GetEmailGlobalSettings();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailGlobalSettings: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EmailGlobalSettingsResponse**](EmailGlobalSettingsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getemaillist"></a>
 # **GetEmailList**
-> EmailListResponse GetEmailList (string storefrontOid, string emailListUuid)
+> EmailListResponse GetEmailList (int? storefrontOid, string emailListUuid)
 
 Get email list
 ### Example
@@ -2865,8 +4586,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailListUuid = emailListUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailListUuid = emailListUuid_example;  // string | 
 
             try
             {
@@ -2888,8 +4609,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailListUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailListUuid** | **string**|  | 
 
 ### Return type
 
@@ -2908,9 +4629,9 @@ Name | Type | Description  | Notes
 
 <a name="getemaillistcustomereditorurl"></a>
 # **GetEmailListCustomerEditorUrl**
-> EmailCustomerEditorUrlResponse GetEmailListCustomerEditorUrl (string storefrontOid, string emailListUuid, string emailCustomerUuid)
+> EmailCustomerEditorUrlResponse GetEmailListCustomerEditorUrl (int? storefrontOid, string emailListUuid, string emailCustomerUuid)
 
-Get email list customers
+Get email list customer editor url
 ### Example
 ```csharp
 
@@ -2963,13 +4684,13 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailListUuid = emailListUuid_example;  // string | null
-            var emailCustomerUuid = emailCustomerUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailListUuid = emailListUuid_example;  // string | 
+            var emailCustomerUuid = emailCustomerUuid_example;  // string | 
 
             try
             {
-                // Get email list customers
+                // Get email list customer editor url
                 EmailCustomerEditorUrlResponse result = apiInstance.GetEmailListCustomerEditorUrl(storefrontOid, emailListUuid, emailCustomerUuid);
                 Debug.WriteLine(result);
             }
@@ -2987,9 +4708,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailListUuid** | **string**| null | 
- **emailCustomerUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailListUuid** | **string**|  | 
+ **emailCustomerUuid** | **string**|  | 
 
 ### Return type
 
@@ -3008,7 +4729,7 @@ Name | Type | Description  | Notes
 
 <a name="getemaillistcustomers"></a>
 # **GetEmailListCustomers**
-> EmailListCustomersResponse GetEmailListCustomers (string storefrontOid, string emailListUuid, int? pageNumber = null, int? pageSize = null)
+> EmailListCustomersResponse GetEmailListCustomers (int? storefrontOid, string emailListUuid, int? pageNumber = null, int? pageSize = null)
 
 Get email list customers
 ### Example
@@ -3063,10 +4784,10 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailListUuid = emailListUuid_example;  // string | null
-            var pageNumber = 56;  // int? | null (optional) 
-            var pageSize = 56;  // int? | null (optional) 
+            var storefrontOid = 56;  // int? | 
+            var emailListUuid = emailListUuid_example;  // string | 
+            var pageNumber = 56;  // int? |  (optional) 
+            var pageSize = 56;  // int? |  (optional) 
 
             try
             {
@@ -3088,10 +4809,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailListUuid** | **string**| null | 
- **pageNumber** | **int?**| null | [optional] 
- **pageSize** | **int?**| null | [optional] 
+ **storefrontOid** | **int?**|  | 
+ **emailListUuid** | **string**|  | 
+ **pageNumber** | **int?**|  | [optional] 
+ **pageSize** | **int?**|  | [optional] 
 
 ### Return type
 
@@ -3110,7 +4831,7 @@ Name | Type | Description  | Notes
 
 <a name="getemaillists"></a>
 # **GetEmailLists**
-> EmailListsResponse GetEmailLists (string storefrontOid)
+> EmailListsResponse GetEmailLists (int? storefrontOid)
 
 Get email lists
 ### Example
@@ -3165,7 +4886,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
 
             try
             {
@@ -3187,7 +4908,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
 
 ### Return type
 
@@ -3204,9 +4925,493 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getemailperformance"></a>
+# **GetEmailPerformance**
+> EmailPerformanceResponse GetEmailPerformance (int? storefrontOid)
+
+Get email performance
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailPerformanceExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+
+            try
+            {
+                // Get email performance
+                EmailPerformanceResponse result = apiInstance.GetEmailPerformance(storefrontOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailPerformance: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+
+### Return type
+
+[**EmailPerformanceResponse**](EmailPerformanceResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailplan"></a>
+# **GetEmailPlan**
+> EmailPlanResponse GetEmailPlan (int? storefrontOid)
+
+Get email plan
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailPlanExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+
+            try
+            {
+                // Get email plan
+                EmailPlanResponse result = apiInstance.GetEmailPlan(storefrontOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailPlan: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+
+### Return type
+
+[**EmailPlanResponse**](EmailPlanResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailpostcard"></a>
+# **GetEmailPostcard**
+> EmailCommseqPostcardResponse GetEmailPostcard (int? storefrontOid, string commseqPostcardUuid)
+
+Get email postcard
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailPostcardExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqPostcardUuid = commseqPostcardUuid_example;  // string | 
+
+            try
+            {
+                // Get email postcard
+                EmailCommseqPostcardResponse result = apiInstance.GetEmailPostcard(storefrontOid, commseqPostcardUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailPostcard: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqPostcardUuid** | **string**|  | 
+
+### Return type
+
+[**EmailCommseqPostcardResponse**](EmailCommseqPostcardResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailpostcards"></a>
+# **GetEmailPostcards**
+> EmailCommseqPostcardsResponse GetEmailPostcards (int? storefrontOid)
+
+Get email postcards
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailPostcardsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+
+            try
+            {
+                // Get email postcards
+                EmailCommseqPostcardsResponse result = apiInstance.GetEmailPostcards(storefrontOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailPostcards: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+
+### Return type
+
+[**EmailCommseqPostcardsResponse**](EmailCommseqPostcardsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailpostcardsmultiple"></a>
+# **GetEmailPostcardsMultiple**
+> EmailCommseqPostcardsResponse GetEmailPostcardsMultiple (int? storefrontOid, EmailCommseqPostcardsRequest emailCommseqPostcardsRequest)
+
+Get email postcards multiple
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailPostcardsMultipleExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var emailCommseqPostcardsRequest = new EmailCommseqPostcardsRequest(); // EmailCommseqPostcardsRequest | Request of postcard uuids
+
+            try
+            {
+                // Get email postcards multiple
+                EmailCommseqPostcardsResponse result = apiInstance.GetEmailPostcardsMultiple(storefrontOid, emailCommseqPostcardsRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailPostcardsMultiple: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **emailCommseqPostcardsRequest** | [**EmailCommseqPostcardsRequest**](EmailCommseqPostcardsRequest.md)| Request of postcard uuids | 
+
+### Return type
+
+[**EmailCommseqPostcardsResponse**](EmailCommseqPostcardsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getemailsegment"></a>
 # **GetEmailSegment**
-> EmailSegmentResponse GetEmailSegment (string storefrontOid, string emailSegmentUuid)
+> EmailSegmentResponse GetEmailSegment (int? storefrontOid, string emailSegmentUuid)
 
 Get email segment
 ### Example
@@ -3261,8 +5466,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailSegmentUuid = emailSegmentUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailSegmentUuid = emailSegmentUuid_example;  // string | 
 
             try
             {
@@ -3284,8 +5489,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailSegmentUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailSegmentUuid** | **string**|  | 
 
 ### Return type
 
@@ -3304,7 +5509,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailsegmentcustomereditorurl"></a>
 # **GetEmailSegmentCustomerEditorUrl**
-> EmailCustomerEditorUrlResponse GetEmailSegmentCustomerEditorUrl (string storefrontOid, string emailSegmentUuid, string emailCustomerUuid)
+> EmailCustomerEditorUrlResponse GetEmailSegmentCustomerEditorUrl (int? storefrontOid, string emailSegmentUuid, string emailCustomerUuid)
 
 Get email segment customers editor URL
 ### Example
@@ -3359,9 +5564,9 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailSegmentUuid = emailSegmentUuid_example;  // string | null
-            var emailCustomerUuid = emailCustomerUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailSegmentUuid = emailSegmentUuid_example;  // string | 
+            var emailCustomerUuid = emailCustomerUuid_example;  // string | 
 
             try
             {
@@ -3383,9 +5588,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailSegmentUuid** | **string**| null | 
- **emailCustomerUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailSegmentUuid** | **string**|  | 
+ **emailCustomerUuid** | **string**|  | 
 
 ### Return type
 
@@ -3404,7 +5609,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailsegmentcustomers"></a>
 # **GetEmailSegmentCustomers**
-> EmailSegmentCustomersResponse GetEmailSegmentCustomers (string storefrontOid, string emailSegmentUuid, int? pageNumber = null, int? pageSize = null)
+> EmailSegmentCustomersResponse GetEmailSegmentCustomers (int? storefrontOid, string emailSegmentUuid, int? pageNumber = null, int? pageSize = null)
 
 Get email segment customers
 ### Example
@@ -3459,10 +5664,10 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailSegmentUuid = emailSegmentUuid_example;  // string | null
-            var pageNumber = 56;  // int? | null (optional) 
-            var pageSize = 56;  // int? | null (optional) 
+            var storefrontOid = 56;  // int? | 
+            var emailSegmentUuid = emailSegmentUuid_example;  // string | 
+            var pageNumber = 56;  // int? |  (optional) 
+            var pageSize = 56;  // int? |  (optional) 
 
             try
             {
@@ -3484,10 +5689,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailSegmentUuid** | **string**| null | 
- **pageNumber** | **int?**| null | [optional] 
- **pageSize** | **int?**| null | [optional] 
+ **storefrontOid** | **int?**|  | 
+ **emailSegmentUuid** | **string**|  | 
+ **pageNumber** | **int?**|  | [optional] 
+ **pageSize** | **int?**|  | [optional] 
 
 ### Return type
 
@@ -3506,7 +5711,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailsegments"></a>
 # **GetEmailSegments**
-> EmailSegmentsResponse GetEmailSegments (string storefrontOid)
+> EmailSegmentsResponse GetEmailSegments (int? storefrontOid)
 
 Get email segments
 ### Example
@@ -3561,7 +5766,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
 
             try
             {
@@ -3583,7 +5788,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
 
 ### Return type
 
@@ -3657,7 +5862,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var domain = domain_example;  // string | null
+            var domain = domain_example;  // string | 
 
             try
             {
@@ -3679,7 +5884,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **string**| null | 
+ **domain** | **string**|  | 
 
 ### Return type
 
@@ -3753,7 +5958,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var domain = domain_example;  // string | null
+            var domain = domain_example;  // string | 
 
             try
             {
@@ -3775,7 +5980,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **string**| null | 
+ **domain** | **string**|  | 
 
 ### Return type
 
@@ -3884,9 +6089,105 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getemailsettings"></a>
+# **GetEmailSettings**
+> EmailSettingsResponse GetEmailSettings (int? storefrontOid)
+
+Get email settings
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailSettingsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+
+            try
+            {
+                // Get email settings
+                EmailSettingsResponse result = apiInstance.GetEmailSettings(storefrontOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailSettings: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+
+### Return type
+
+[**EmailSettingsResponse**](EmailSettingsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getemailtemplate"></a>
 # **GetEmailTemplate**
-> EmailTemplate GetEmailTemplate (string storefrontOid, int? emailTemplateOid)
+> EmailTemplate GetEmailTemplate (int? storefrontOid, int? emailTemplateOid)
 
 Get email template
 ### Example
@@ -3941,8 +6242,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailTemplateOid = 56;  // int? | null
+            var storefrontOid = 56;  // int? | 
+            var emailTemplateOid = 56;  // int? | 
 
             try
             {
@@ -3964,8 +6265,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailTemplateOid** | **int?**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailTemplateOid** | **int?**|  | 
 
 ### Return type
 
@@ -3984,7 +6285,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailtemplates"></a>
 # **GetEmailTemplates**
-> EmailTemplatesResponse GetEmailTemplates (string storefrontOid, string triggerType = null)
+> EmailTemplatesResponse GetEmailTemplates (int? storefrontOid, string triggerType = null)
 
 Get email templates
 ### Example
@@ -4039,8 +6340,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var triggerType = triggerType_example;  // string | null (optional) 
+            var storefrontOid = 56;  // int? | 
+            var triggerType = triggerType_example;  // string |  (optional) 
 
             try
             {
@@ -4062,8 +6363,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **triggerType** | **string**| null | [optional] 
+ **storefrontOid** | **int?**|  | 
+ **triggerType** | **string**|  | [optional] 
 
 ### Return type
 
@@ -4082,7 +6383,7 @@ Name | Type | Description  | Notes
 
 <a name="getemailthirdpartyproviders"></a>
 # **GetEmailThirdPartyProviders**
-> EmailThirdPartyProvidersResponse GetEmailThirdPartyProviders (string storefrontOid)
+> EmailThirdPartyProvidersResponse GetEmailThirdPartyProviders (int? storefrontOid)
 
 Get a list of third party email providers
 ### Example
@@ -4137,7 +6438,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
 
             try
             {
@@ -4159,7 +6460,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
 
 ### Return type
 
@@ -4178,7 +6479,7 @@ Name | Type | Description  | Notes
 
 <a name="getexperiments"></a>
 # **GetExperiments**
-> ExperimentsResponse GetExperiments (string storefrontOid)
+> ExperimentsResponse GetExperiments (int? storefrontOid)
 
 Get experiments
 ### Example
@@ -4233,7 +6534,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
 
             try
             {
@@ -4255,7 +6556,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
 
 ### Return type
 
@@ -4274,7 +6575,7 @@ Name | Type | Description  | Notes
 
 <a name="gethistogrampropertynames"></a>
 # **GetHistogramPropertyNames**
-> EmailHistogramPropertyNamesResponse GetHistogramPropertyNames (string storefrontOid, string propertyType = null)
+> EmailHistogramPropertyNamesResponse GetHistogramPropertyNames (int? storefrontOid, string propertyType = null)
 
 Get histogram property names
 
@@ -4331,8 +6632,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var propertyType = propertyType_example;  // string | null (optional) 
+            var storefrontOid = 56;  // int? | 
+            var propertyType = propertyType_example;  // string |  (optional) 
 
             try
             {
@@ -4354,8 +6655,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **propertyType** | **string**| null | [optional] 
+ **storefrontOid** | **int?**|  | 
+ **propertyType** | **string**|  | [optional] 
 
 ### Return type
 
@@ -4374,7 +6675,7 @@ Name | Type | Description  | Notes
 
 <a name="gethistogrampropertyvalues"></a>
 # **GetHistogramPropertyValues**
-> EmailHistogramPropertyValuesResponse GetHistogramPropertyValues (string storefrontOid, string propertyName = null, string propertyType = null, int? limit = null)
+> EmailHistogramPropertyValuesResponse GetHistogramPropertyValues (int? storefrontOid, string propertyName = null, string propertyType = null, int? limit = null)
 
 Get histogram property values
 
@@ -4431,10 +6732,10 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var propertyName = propertyName_example;  // string | null (optional) 
-            var propertyType = propertyType_example;  // string | null (optional) 
-            var limit = 56;  // int? | null (optional) 
+            var storefrontOid = 56;  // int? | 
+            var propertyName = propertyName_example;  // string |  (optional) 
+            var propertyType = propertyType_example;  // string |  (optional) 
+            var limit = 56;  // int? |  (optional) 
 
             try
             {
@@ -4456,10 +6757,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **propertyName** | **string**| null | [optional] 
- **propertyType** | **string**| null | [optional] 
- **limit** | **int?**| null | [optional] 
+ **storefrontOid** | **int?**|  | 
+ **propertyName** | **string**|  | [optional] 
+ **propertyType** | **string**|  | [optional] 
+ **limit** | **int?**|  | [optional] 
 
 ### Return type
 
@@ -4476,9 +6777,588 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getlibraryfiltervalues"></a>
+# **GetLibraryFilterValues**
+> LibraryFilterValuesResponse GetLibraryFilterValues ()
+
+Get library values used to populate drop down boxes for filtering.
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetLibraryFilterValuesExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+
+            try
+            {
+                // Get library values used to populate drop down boxes for filtering.
+                LibraryFilterValuesResponse result = apiInstance.GetLibraryFilterValues();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetLibraryFilterValues: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**LibraryFilterValuesResponse**](LibraryFilterValuesResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getlibraryitem"></a>
+# **GetLibraryItem**
+> LibraryItemResponse GetLibraryItem (int? libraryItemOid)
+
+Get library item.
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetLibraryItemExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var libraryItemOid = 56;  // int? | 
+
+            try
+            {
+                // Get library item.
+                LibraryItemResponse result = apiInstance.GetLibraryItem(libraryItemOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetLibraryItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **libraryItemOid** | **int?**|  | 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getlibraryitemsbyquery"></a>
+# **GetLibraryItemsByQuery**
+> LibraryItemsResponse GetLibraryItemsByQuery (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+
+Retrieve library items
+
+Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetLibraryItemsByQueryExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Maximum 10000) (optional)  (default to 10000)
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var sort = sort_example;  // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
+
+            try
+            {
+                // Retrieve library items
+                LibraryItemsResponse result = apiInstance.GetLibraryItemsByQuery(itemQuery, limit, offset, sort);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetLibraryItemsByQuery: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemQuery** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query | 
+ **limit** | **int?**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] [default to 10000]
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **string**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+
+### Return type
+
+[**LibraryItemsResponse**](LibraryItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="gettransactionemail"></a>
+# **GetTransactionEmail**
+> TransactionEmailResponse GetTransactionEmail (int? storefrontOid, string emailId)
+
+Gets a transaction email object
+
+Fetch a transactional email 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetTransactionEmailExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var emailId = emailId_example;  // string | 
+
+            try
+            {
+                // Gets a transaction email object
+                TransactionEmailResponse result = apiInstance.GetTransactionEmail(storefrontOid, emailId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetTransactionEmail: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **emailId** | **string**|  | 
+
+### Return type
+
+[**TransactionEmailResponse**](TransactionEmailResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="gettransactionemaillist"></a>
+# **GetTransactionEmailList**
+> TransactionEmailListResponse GetTransactionEmailList (int? storefrontOid)
+
+Gets a list of transaction email names
+
+Obtain a list of all transactional emails and return back just their names 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetTransactionEmailListExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+
+            try
+            {
+                // Gets a list of transaction email names
+                TransactionEmailListResponse result = apiInstance.GetTransactionEmailList(storefrontOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetTransactionEmailList: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+
+### Return type
+
+[**TransactionEmailListResponse**](TransactionEmailListResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="globalunsubscribe"></a>
+# **GlobalUnsubscribe**
+> EmailGlobalUnsubscribeResponse GlobalUnsubscribe (int? storefrontOid, EmailGlobalUnsubscribeRequest unsubscribe)
+
+Globally unsubscribe a customer
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GlobalUnsubscribeExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var unsubscribe = new EmailGlobalUnsubscribeRequest(); // EmailGlobalUnsubscribeRequest | Unsubscribe
+
+            try
+            {
+                // Globally unsubscribe a customer
+                EmailGlobalUnsubscribeResponse result = apiInstance.GlobalUnsubscribe(storefrontOid, unsubscribe);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GlobalUnsubscribe: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **unsubscribe** | [**EmailGlobalUnsubscribeRequest**](EmailGlobalUnsubscribeRequest.md)| Unsubscribe | 
+
+### Return type
+
+[**EmailGlobalUnsubscribeResponse**](EmailGlobalUnsubscribeResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="importemailthirdpartyproviderlist"></a>
 # **ImportEmailThirdPartyProviderList**
-> void ImportEmailThirdPartyProviderList (string storefrontOid, EmailThirdPartyListImportRequest importRequest)
+> void ImportEmailThirdPartyProviderList (int? storefrontOid, EmailThirdPartyListImportRequest importRequest)
 
 Import a third party provider list
 ### Example
@@ -4533,7 +7413,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
             var importRequest = new EmailThirdPartyListImportRequest(); // EmailThirdPartyListImportRequest | lists to import
 
             try
@@ -4555,7 +7435,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
  **importRequest** | [**EmailThirdPartyListImportRequest**](EmailThirdPartyListImportRequest.md)| lists to import | 
 
 ### Return type
@@ -4575,7 +7455,7 @@ void (empty response body)
 
 <a name="insertemailcampaign"></a>
 # **InsertEmailCampaign**
-> EmailCampaignResponse InsertEmailCampaign (string storefrontOid, EmailCampaign emailCampaign)
+> EmailCampaignResponse InsertEmailCampaign (int? storefrontOid, EmailCampaign emailCampaign)
 
 Insert email campaign
 ### Example
@@ -4630,7 +7510,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
             var emailCampaign = new EmailCampaign(); // EmailCampaign | Email campaign
 
             try
@@ -4653,7 +7533,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
  **emailCampaign** | [**EmailCampaign**](EmailCampaign.md)| Email campaign | 
 
 ### Return type
@@ -4673,7 +7553,7 @@ Name | Type | Description  | Notes
 
 <a name="insertemailcommseq"></a>
 # **InsertEmailCommseq**
-> EmailCommseqResponse InsertEmailCommseq (string storefrontOid, EmailCommseq emailCommseq)
+> EmailCommseqResponse InsertEmailCommseq (int? storefrontOid, EmailCommseq emailCommseq)
 
 Insert email commseq
 ### Example
@@ -4728,7 +7608,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
             var emailCommseq = new EmailCommseq(); // EmailCommseq | Email commseq
 
             try
@@ -4751,7 +7631,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
  **emailCommseq** | [**EmailCommseq**](EmailCommseq.md)| Email commseq | 
 
 ### Return type
@@ -4771,7 +7651,7 @@ Name | Type | Description  | Notes
 
 <a name="insertemailemail"></a>
 # **InsertEmailEmail**
-> EmailCommseqEmailResponse InsertEmailEmail (string storefrontOid, EmailCommseqEmail emailCommseqEmail)
+> EmailCommseqEmailResponse InsertEmailEmail (int? storefrontOid, EmailCommseqEmail emailCommseqEmail)
 
 Insert email email
 ### Example
@@ -4826,7 +7706,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
             var emailCommseqEmail = new EmailCommseqEmail(); // EmailCommseqEmail | Email email
 
             try
@@ -4849,7 +7729,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
  **emailCommseqEmail** | [**EmailCommseqEmail**](EmailCommseqEmail.md)| Email email | 
 
 ### Return type
@@ -4869,7 +7749,7 @@ Name | Type | Description  | Notes
 
 <a name="insertemailflow"></a>
 # **InsertEmailFlow**
-> EmailFlowResponse InsertEmailFlow (string storefrontOid, EmailFlow emailFlow)
+> EmailFlowResponse InsertEmailFlow (int? storefrontOid, EmailFlow emailFlow)
 
 Insert email flow
 ### Example
@@ -4924,7 +7804,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
             var emailFlow = new EmailFlow(); // EmailFlow | Email flow
 
             try
@@ -4947,7 +7827,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
  **emailFlow** | [**EmailFlow**](EmailFlow.md)| Email flow | 
 
 ### Return type
@@ -4967,7 +7847,7 @@ Name | Type | Description  | Notes
 
 <a name="insertemaillist"></a>
 # **InsertEmailList**
-> EmailListResponse InsertEmailList (string storefrontOid, EmailList emailList)
+> EmailListResponse InsertEmailList (int? storefrontOid, EmailList emailList)
 
 Insert email list
 ### Example
@@ -5022,7 +7902,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
             var emailList = new EmailList(); // EmailList | Email list
 
             try
@@ -5045,7 +7925,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
  **emailList** | [**EmailList**](EmailList.md)| Email list | 
 
 ### Return type
@@ -5063,9 +7943,107 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="insertemailpostcard"></a>
+# **InsertEmailPostcard**
+> EmailCommseqPostcardResponse InsertEmailPostcard (int? storefrontOid, EmailCommseqPostcard emailCommseqPostcard)
+
+Insert email postcard
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class InsertEmailPostcardExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var emailCommseqPostcard = new EmailCommseqPostcard(); // EmailCommseqPostcard | Email postcard
+
+            try
+            {
+                // Insert email postcard
+                EmailCommseqPostcardResponse result = apiInstance.InsertEmailPostcard(storefrontOid, emailCommseqPostcard);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.InsertEmailPostcard: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **emailCommseqPostcard** | [**EmailCommseqPostcard**](EmailCommseqPostcard.md)| Email postcard | 
+
+### Return type
+
+[**EmailCommseqPostcardResponse**](EmailCommseqPostcardResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="insertemailsegment"></a>
 # **InsertEmailSegment**
-> EmailSegmentResponse InsertEmailSegment (string storefrontOid, EmailSegment emailSegment)
+> EmailSegmentResponse InsertEmailSegment (int? storefrontOid, EmailSegment emailSegment)
 
 Insert email segment
 ### Example
@@ -5120,7 +8098,7 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
             var emailSegment = new EmailSegment(); // EmailSegment | Email segment
 
             try
@@ -5143,7 +8121,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
  **emailSegment** | [**EmailSegment**](EmailSegment.md)| Email segment | 
 
 ### Return type
@@ -5163,7 +8141,7 @@ Name | Type | Description  | Notes
 
 <a name="preparedownloademailsegment"></a>
 # **PrepareDownloadEmailSegment**
-> EmailSegmentDownloadPrepareResponse PrepareDownloadEmailSegment (string storefrontOid, string emailSegmentUuid)
+> EmailSegmentDownloadPrepareResponse PrepareDownloadEmailSegment (int? storefrontOid, string emailSegmentUuid)
 
 Prepare download of email segment
 ### Example
@@ -5218,8 +8196,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailSegmentUuid = emailSegmentUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailSegmentUuid = emailSegmentUuid_example;  // string | 
 
             try
             {
@@ -5241,8 +8219,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailSegmentUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailSegmentUuid** | **string**|  | 
 
 ### Return type
 
@@ -5259,9 +8237,208 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="releaseemailcommseqstepwaiting"></a>
+# **ReleaseEmailCommseqStepWaiting**
+> void ReleaseEmailCommseqStepWaiting (int? storefrontOid, string commseqUuid, string commseqStepUuid)
+
+Release email communication sequence customers waiting at the specified step
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class ReleaseEmailCommseqStepWaitingExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
+            var commseqStepUuid = commseqStepUuid_example;  // string | 
+
+            try
+            {
+                // Release email communication sequence customers waiting at the specified step
+                apiInstance.ReleaseEmailCommseqStepWaiting(storefrontOid, commseqUuid, commseqStepUuid);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.ReleaseEmailCommseqStepWaiting: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
+ **commseqStepUuid** | **string**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="review"></a>
+# **Review**
+> EmailCommseqEmailSendTestResponse Review (int? storefrontOid, string commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailReviewRequest)
+
+Request a review of an email
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class ReviewExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqEmailUuid = commseqEmailUuid_example;  // string | 
+            var emailCommseqEmailReviewRequest = new EmailCommseqEmailSendTestRequest(); // EmailCommseqEmailSendTestRequest | Email commseq email review request
+
+            try
+            {
+                // Request a review of an email
+                EmailCommseqEmailSendTestResponse result = apiInstance.Review(storefrontOid, commseqEmailUuid, emailCommseqEmailReviewRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.Review: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqEmailUuid** | **string**|  | 
+ **emailCommseqEmailReviewRequest** | [**EmailCommseqEmailSendTestRequest**](EmailCommseqEmailSendTestRequest.md)| Email commseq email review request | 
+
+### Return type
+
+[**EmailCommseqEmailSendTestResponse**](EmailCommseqEmailSendTestResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="search"></a>
 # **Search**
-> LookupResponse Search (string category = null, string matches = null, int? maxHits = null)
+> LookupResponse Search (string category = null, string matches = null, string storefrontOid = null, int? maxHits = null, string subcategory = null)
 
 Searches for all matching values
 ### Example
@@ -5316,14 +8493,16 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var category = category_example;  // string | null (optional) 
-            var matches = matches_example;  // string | null (optional) 
-            var maxHits = 56;  // int? | null (optional) 
+            var category = category_example;  // string |  (optional) 
+            var matches = matches_example;  // string |  (optional) 
+            var storefrontOid = storefrontOid_example;  // string |  (optional) 
+            var maxHits = 56;  // int? |  (optional) 
+            var subcategory = subcategory_example;  // string |  (optional) 
 
             try
             {
                 // Searches for all matching values
-                LookupResponse result = apiInstance.Search(category, matches, maxHits);
+                LookupResponse result = apiInstance.Search(category, matches, storefrontOid, maxHits, subcategory);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -5340,9 +8519,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **string**| null | [optional] 
- **matches** | **string**| null | [optional] 
- **maxHits** | **int?**| null | [optional] 
+ **category** | **string**|  | [optional] 
+ **matches** | **string**|  | [optional] 
+ **storefrontOid** | **string**|  | [optional] 
+ **maxHits** | **int?**|  | [optional] 
+ **subcategory** | **string**|  | [optional] 
 
 ### Return type
 
@@ -5361,7 +8542,7 @@ Name | Type | Description  | Notes
 
 <a name="searchemaillistcustomers"></a>
 # **SearchEmailListCustomers**
-> EmailListCustomersResponse SearchEmailListCustomers (string storefrontOid, string emailListUuid, string startsWith = null)
+> EmailListCustomersResponse SearchEmailListCustomers (int? storefrontOid, string emailListUuid, string startsWith = null)
 
 Search email list customers
 ### Example
@@ -5416,9 +8597,9 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailListUuid = emailListUuid_example;  // string | null
-            var startsWith = startsWith_example;  // string | null (optional) 
+            var storefrontOid = 56;  // int? | 
+            var emailListUuid = emailListUuid_example;  // string | 
+            var startsWith = startsWith_example;  // string |  (optional) 
 
             try
             {
@@ -5440,9 +8621,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailListUuid** | **string**| null | 
- **startsWith** | **string**| null | [optional] 
+ **storefrontOid** | **int?**|  | 
+ **emailListUuid** | **string**|  | 
+ **startsWith** | **string**|  | [optional] 
 
 ### Return type
 
@@ -5461,7 +8642,7 @@ Name | Type | Description  | Notes
 
 <a name="searchemailsegmentcustomers"></a>
 # **SearchEmailSegmentCustomers**
-> EmailSegmentCustomersResponse SearchEmailSegmentCustomers (string storefrontOid, string emailSegmentUuid, string startsWith = null)
+> EmailSegmentCustomersResponse SearchEmailSegmentCustomers (int? storefrontOid, string emailSegmentUuid, string startsWith = null)
 
 Search email segment customers
 ### Example
@@ -5516,9 +8697,9 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailSegmentUuid = emailSegmentUuid_example;  // string | null
-            var startsWith = startsWith_example;  // string | null (optional) 
+            var storefrontOid = 56;  // int? | 
+            var emailSegmentUuid = emailSegmentUuid_example;  // string | 
+            var startsWith = startsWith_example;  // string |  (optional) 
 
             try
             {
@@ -5540,9 +8721,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailSegmentUuid** | **string**| null | 
- **startsWith** | **string**| null | [optional] 
+ **storefrontOid** | **int?**|  | 
+ **emailSegmentUuid** | **string**|  | 
+ **startsWith** | **string**|  | [optional] 
 
 ### Return type
 
@@ -5559,9 +8740,209 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="sendemailtest"></a>
+# **SendEmailTest**
+> EmailCommseqEmailSendTestResponse SendEmailTest (int? storefrontOid, string commseqEmailUuid, EmailCommseqEmailSendTestRequest emailCommseqEmailTestRequest)
+
+Send email test
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class SendEmailTestExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqEmailUuid = commseqEmailUuid_example;  // string | 
+            var emailCommseqEmailTestRequest = new EmailCommseqEmailSendTestRequest(); // EmailCommseqEmailSendTestRequest | Email commseq email test request
+
+            try
+            {
+                // Send email test
+                EmailCommseqEmailSendTestResponse result = apiInstance.SendEmailTest(storefrontOid, commseqEmailUuid, emailCommseqEmailTestRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.SendEmailTest: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqEmailUuid** | **string**|  | 
+ **emailCommseqEmailTestRequest** | [**EmailCommseqEmailSendTestRequest**](EmailCommseqEmailSendTestRequest.md)| Email commseq email test request | 
+
+### Return type
+
+[**EmailCommseqEmailSendTestResponse**](EmailCommseqEmailSendTestResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="sendpostcardtest"></a>
+# **SendPostcardTest**
+> EmailCommseqPostcardSendTestResponse SendPostcardTest (int? storefrontOid, string commseqPostcardUuid, EmailCommseqPostcardSendTestRequest emailCommseqPostcardTestRequest)
+
+Send postcard test
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class SendPostcardTestExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqPostcardUuid = commseqPostcardUuid_example;  // string | 
+            var emailCommseqPostcardTestRequest = new EmailCommseqPostcardSendTestRequest(); // EmailCommseqPostcardSendTestRequest | Email commseq email test request
+
+            try
+            {
+                // Send postcard test
+                EmailCommseqPostcardSendTestResponse result = apiInstance.SendPostcardTest(storefrontOid, commseqPostcardUuid, emailCommseqPostcardTestRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.SendPostcardTest: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqPostcardUuid** | **string**|  | 
+ **emailCommseqPostcardTestRequest** | [**EmailCommseqPostcardSendTestRequest**](EmailCommseqPostcardSendTestRequest.md)| Email commseq email test request | 
+
+### Return type
+
+[**EmailCommseqPostcardSendTestResponse**](EmailCommseqPostcardSendTestResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="startemailcampaign"></a>
 # **StartEmailCampaign**
-> BaseResponse StartEmailCampaign (string storefrontOid, string emailCampaignUuid)
+> BaseResponse StartEmailCampaign (int? storefrontOid, string emailCampaignUuid)
 
 Start email campaign
 ### Example
@@ -5616,8 +8997,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailCampaignUuid = emailCampaignUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailCampaignUuid = emailCampaignUuid_example;  // string | 
 
             try
             {
@@ -5639,8 +9020,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailCampaignUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailCampaignUuid** | **string**|  | 
 
 ### Return type
 
@@ -5659,7 +9040,7 @@ Name | Type | Description  | Notes
 
 <a name="subscribetoemaillist"></a>
 # **SubscribeToEmailList**
-> EmailListSubscribeResponse SubscribeToEmailList (string storefrontOid, string emailListUuid, List<EmailCustomer> customers)
+> EmailListSubscribeResponse SubscribeToEmailList (int? storefrontOid, string emailListUuid, List<EmailCustomer> customers)
 
 Subscribe customers to email list
 ### Example
@@ -5714,8 +9095,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailListUuid = emailListUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailListUuid = emailListUuid_example;  // string | 
             var customers = new List<EmailCustomer>(); // List<EmailCustomer> | Customers
 
             try
@@ -5738,8 +9119,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailListUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailListUuid** | **string**|  | 
  **customers** | [**List&lt;EmailCustomer&gt;**](EmailCustomer.md)| Customers | 
 
 ### Return type
@@ -5759,7 +9140,7 @@ Name | Type | Description  | Notes
 
 <a name="updateemailcampaign"></a>
 # **UpdateEmailCampaign**
-> EmailCampaignResponse UpdateEmailCampaign (string storefrontOid, string emailCampaignUuid, EmailCampaign emailCampaign)
+> EmailCampaignResponse UpdateEmailCampaign (int? storefrontOid, string emailCampaignUuid, EmailCampaign emailCampaign)
 
 Update email campaign
 ### Example
@@ -5814,8 +9195,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailCampaignUuid = emailCampaignUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailCampaignUuid = emailCampaignUuid_example;  // string | 
             var emailCampaign = new EmailCampaign(); // EmailCampaign | Email campaign
 
             try
@@ -5838,8 +9219,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailCampaignUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailCampaignUuid** | **string**|  | 
  **emailCampaign** | [**EmailCampaign**](EmailCampaign.md)| Email campaign | 
 
 ### Return type
@@ -5859,7 +9240,7 @@ Name | Type | Description  | Notes
 
 <a name="updateemailcommseq"></a>
 # **UpdateEmailCommseq**
-> EmailCommseqResponse UpdateEmailCommseq (string storefrontOid, string commseqUuid, EmailCommseq emailCommseq)
+> EmailCommseqResponse UpdateEmailCommseq (int? storefrontOid, string commseqUuid, EmailCommseq emailCommseq)
 
 Update email commseq
 ### Example
@@ -5914,8 +9295,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var commseqUuid = commseqUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
             var emailCommseq = new EmailCommseq(); // EmailCommseq | Email commseq
 
             try
@@ -5938,8 +9319,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **commseqUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
  **emailCommseq** | [**EmailCommseq**](EmailCommseq.md)| Email commseq | 
 
 ### Return type
@@ -5957,9 +9338,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="updateemailcustomer"></a>
+# **UpdateEmailCustomer**
+> void UpdateEmailCustomer (int? storefrontOid, string emailCustomerUuid, EmailCustomer emailCustomer)
+
+Update email customer
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateEmailCustomerExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var emailCustomerUuid = emailCustomerUuid_example;  // string | 
+            var emailCustomer = new EmailCustomer(); // EmailCustomer | Email customer
+
+            try
+            {
+                // Update email customer
+                apiInstance.UpdateEmailCustomer(storefrontOid, emailCustomerUuid, emailCustomer);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.UpdateEmailCustomer: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **emailCustomerUuid** | **string**|  | 
+ **emailCustomer** | [**EmailCustomer**](EmailCustomer.md)| Email customer | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="updateemailemail"></a>
 # **UpdateEmailEmail**
-> EmailCommseqEmailResponse UpdateEmailEmail (string storefrontOid, string commseqEmailUuid, EmailCommseqEmail emailCommseqEmail)
+> EmailCommseqEmailResponse UpdateEmailEmail (int? storefrontOid, string commseqEmailUuid, EmailCommseqEmail emailCommseqEmail)
 
 Update email email
 ### Example
@@ -6014,8 +9494,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var commseqEmailUuid = commseqEmailUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var commseqEmailUuid = commseqEmailUuid_example;  // string | 
             var emailCommseqEmail = new EmailCommseqEmail(); // EmailCommseqEmail | Email commseq email
 
             try
@@ -6038,8 +9518,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **commseqEmailUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **commseqEmailUuid** | **string**|  | 
  **emailCommseqEmail** | [**EmailCommseqEmail**](EmailCommseqEmail.md)| Email commseq email | 
 
 ### Return type
@@ -6059,7 +9539,7 @@ Name | Type | Description  | Notes
 
 <a name="updateemailflow"></a>
 # **UpdateEmailFlow**
-> EmailFlowResponse UpdateEmailFlow (string storefrontOid, string emailFlowUuid, EmailFlow emailFlow)
+> EmailFlowResponse UpdateEmailFlow (int? storefrontOid, string emailFlowUuid, EmailFlow emailFlow)
 
 Update email flow
 ### Example
@@ -6114,8 +9594,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailFlowUuid = emailFlowUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailFlowUuid = emailFlowUuid_example;  // string | 
             var emailFlow = new EmailFlow(); // EmailFlow | Email flow
 
             try
@@ -6138,8 +9618,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailFlowUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailFlowUuid** | **string**|  | 
  **emailFlow** | [**EmailFlow**](EmailFlow.md)| Email flow | 
 
 ### Return type
@@ -6157,9 +9637,105 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="updateemailglobalsettings"></a>
+# **UpdateEmailGlobalSettings**
+> EmailGlobalSettingsResponse UpdateEmailGlobalSettings (EmailGlobalSettings globalSettings)
+
+Update email global settings
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateEmailGlobalSettingsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var globalSettings = new EmailGlobalSettings(); // EmailGlobalSettings | global settings request
+
+            try
+            {
+                // Update email global settings
+                EmailGlobalSettingsResponse result = apiInstance.UpdateEmailGlobalSettings(globalSettings);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.UpdateEmailGlobalSettings: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **globalSettings** | [**EmailGlobalSettings**](EmailGlobalSettings.md)| global settings request | 
+
+### Return type
+
+[**EmailGlobalSettingsResponse**](EmailGlobalSettingsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="updateemaillist"></a>
 # **UpdateEmailList**
-> EmailListResponse UpdateEmailList (string storefrontOid, string emailListUuid, EmailList emailList)
+> EmailListResponse UpdateEmailList (int? storefrontOid, string emailListUuid, EmailList emailList)
 
 Update email list
 ### Example
@@ -6214,8 +9790,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailListUuid = emailListUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailListUuid = emailListUuid_example;  // string | 
             var emailList = new EmailList(); // EmailList | Email list
 
             try
@@ -6238,8 +9814,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailListUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailListUuid** | **string**|  | 
  **emailList** | [**EmailList**](EmailList.md)| Email list | 
 
 ### Return type
@@ -6257,9 +9833,207 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="updateemailplan"></a>
+# **UpdateEmailPlan**
+> EmailPlanResponse UpdateEmailPlan (int? storefrontOid, EmailPlan settings)
+
+Update email plan
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateEmailPlanExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var settings = new EmailPlan(); // EmailPlan | plan request
+
+            try
+            {
+                // Update email plan
+                EmailPlanResponse result = apiInstance.UpdateEmailPlan(storefrontOid, settings);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.UpdateEmailPlan: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **settings** | [**EmailPlan**](EmailPlan.md)| plan request | 
+
+### Return type
+
+[**EmailPlanResponse**](EmailPlanResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateemailpostcard"></a>
+# **UpdateEmailPostcard**
+> EmailCommseqPostcardResponse UpdateEmailPostcard (int? storefrontOid, string commseqPostcardUuid, EmailCommseqPostcard emailCommseqPostcard)
+
+Update email postcard
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateEmailPostcardExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var commseqPostcardUuid = commseqPostcardUuid_example;  // string | 
+            var emailCommseqPostcard = new EmailCommseqPostcard(); // EmailCommseqPostcard | Email commseq postcard
+
+            try
+            {
+                // Update email postcard
+                EmailCommseqPostcardResponse result = apiInstance.UpdateEmailPostcard(storefrontOid, commseqPostcardUuid, emailCommseqPostcard);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.UpdateEmailPostcard: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqPostcardUuid** | **string**|  | 
+ **emailCommseqPostcard** | [**EmailCommseqPostcard**](EmailCommseqPostcard.md)| Email commseq postcard | 
+
+### Return type
+
+[**EmailCommseqPostcardResponse**](EmailCommseqPostcardResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="updateemailsegment"></a>
 # **UpdateEmailSegment**
-> EmailSegmentResponse UpdateEmailSegment (string storefrontOid, string emailSegmentUuid, EmailSegment emailSegment)
+> EmailSegmentResponse UpdateEmailSegment (int? storefrontOid, string emailSegmentUuid, EmailSegment emailSegment)
 
 Update email segment
 ### Example
@@ -6314,8 +10088,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var emailSegmentUuid = emailSegmentUuid_example;  // string | null
+            var storefrontOid = 56;  // int? | 
+            var emailSegmentUuid = emailSegmentUuid_example;  // string | 
             var emailSegment = new EmailSegment(); // EmailSegment | Email segment
 
             try
@@ -6338,8 +10112,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **emailSegmentUuid** | **string**| null | 
+ **storefrontOid** | **int?**|  | 
+ **emailSegmentUuid** | **string**|  | 
  **emailSegment** | [**EmailSegment**](EmailSegment.md)| Email segment | 
 
 ### Return type
@@ -6357,9 +10131,107 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="updateemailsettings"></a>
+# **UpdateEmailSettings**
+> EmailSettingsResponse UpdateEmailSettings (int? storefrontOid, EmailSettings settings)
+
+Update email settings
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateEmailSettingsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var settings = new EmailSettings(); // EmailSettings | settings request
+
+            try
+            {
+                // Update email settings
+                EmailSettingsResponse result = apiInstance.UpdateEmailSettings(storefrontOid, settings);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.UpdateEmailSettings: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **settings** | [**EmailSettings**](EmailSettings.md)| settings request | 
+
+### Return type
+
+[**EmailSettingsResponse**](EmailSettingsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="updateexperiment"></a>
 # **UpdateExperiment**
-> ExperimentResponse UpdateExperiment (string storefrontOid, int? storefrontExperimentOid, Experiment experiment)
+> ExperimentResponse UpdateExperiment (int? storefrontOid, int? storefrontExperimentOid, Experiment experiment)
 
 Update experiment
 ### Example
@@ -6414,8 +10286,8 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var storefrontOid = storefrontOid_example;  // string | null
-            var storefrontExperimentOid = 56;  // int? | null
+            var storefrontOid = 56;  // int? | 
+            var storefrontExperimentOid = 56;  // int? | 
             var experiment = new Experiment(); // Experiment | Experiment
 
             try
@@ -6438,13 +10310,213 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storefrontOid** | **string**| null | 
- **storefrontExperimentOid** | **int?**| null | 
+ **storefrontOid** | **int?**|  | 
+ **storefrontExperimentOid** | **int?**|  | 
  **experiment** | [**Experiment**](Experiment.md)| Experiment | 
 
 ### Return type
 
 [**ExperimentResponse**](ExperimentResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatelibraryitem"></a>
+# **UpdateLibraryItem**
+> LibraryItemResponse UpdateLibraryItem (int? libraryItemOid, LibraryItem libraryItem)
+
+Update library item. Note that only certain fields may be updated via this method.
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateLibraryItemExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var libraryItemOid = 56;  // int? | 
+            var libraryItem = new LibraryItem(); // LibraryItem | Library item
+
+            try
+            {
+                // Update library item. Note that only certain fields may be updated via this method.
+                LibraryItemResponse result = apiInstance.UpdateLibraryItem(libraryItemOid, libraryItem);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.UpdateLibraryItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **libraryItemOid** | **int?**|  | 
+ **libraryItem** | [**LibraryItem**](LibraryItem.md)| Library item | 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatetransactionemail"></a>
+# **UpdateTransactionEmail**
+> TransactionEmailResponse UpdateTransactionEmail (int? storefrontOid, string emailId, TransactionEmail transactionEmail)
+
+Updates a transaction email object
+
+Updates a transactional email 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateTransactionEmailExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var emailId = emailId_example;  // string | 
+            var transactionEmail = new TransactionEmail(); // TransactionEmail | TransactionEmail
+
+            try
+            {
+                // Updates a transaction email object
+                TransactionEmailResponse result = apiInstance.UpdateTransactionEmail(storefrontOid, emailId, transactionEmail);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.UpdateTransactionEmail: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **emailId** | **string**|  | 
+ **transactionEmail** | [**TransactionEmail**](TransactionEmail.md)| TransactionEmail | 
+
+### Return type
+
+[**TransactionEmailResponse**](TransactionEmailResponse.md)
 
 ### Authorization
 

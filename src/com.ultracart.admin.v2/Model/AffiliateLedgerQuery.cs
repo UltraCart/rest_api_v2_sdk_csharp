@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AffiliateLedgerQuery" /> class.
         /// </summary>
-        /// <param name="AffiliateOid">Affiliate ID associated with the ledger.</param>
-        /// <param name="ItemId">Item id associated with the ledger entry.</param>
-        /// <param name="OrderId">Order ID associated with the ledger entries.</param>
-        /// <param name="SubId">Sub ID value passed on the click that generated the ledger.</param>
-        /// <param name="TransactionDtsBegin">Minimum transaction date/time to return.</param>
-        /// <param name="TransactionDtsEnd">Maximum transaction date/time to return.</param>
-        public AffiliateLedgerQuery(int? AffiliateOid = default(int?), string ItemId = default(string), string OrderId = default(string), string SubId = default(string), string TransactionDtsBegin = default(string), string TransactionDtsEnd = default(string))
+        /// <param name="affiliateOid">Affiliate ID associated with the ledger.</param>
+        /// <param name="itemId">Item id associated with the ledger entry.</param>
+        /// <param name="orderId">Order ID associated with the ledger entries.</param>
+        /// <param name="subId">Sub ID value passed on the click that generated the ledger.</param>
+        /// <param name="transactionDtsBegin">Minimum transaction date/time to return.</param>
+        /// <param name="transactionDtsEnd">Maximum transaction date/time to return.</param>
+        public AffiliateLedgerQuery(int? affiliateOid = default(int?), string itemId = default(string), string orderId = default(string), string subId = default(string), string transactionDtsBegin = default(string), string transactionDtsEnd = default(string))
         {
-            this.AffiliateOid = AffiliateOid;
-            this.ItemId = ItemId;
-            this.OrderId = OrderId;
-            this.SubId = SubId;
-            this.TransactionDtsBegin = TransactionDtsBegin;
-            this.TransactionDtsEnd = TransactionDtsEnd;
+            this.AffiliateOid = affiliateOid;
+            this.ItemId = itemId;
+            this.OrderId = orderId;
+            this.SubId = subId;
+            this.TransactionDtsBegin = transactionDtsBegin;
+            this.TransactionDtsEnd = transactionDtsEnd;
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailThirdPartyListImportRequest" /> class.
         /// </summary>
-        /// <param name="Providers">providers.</param>
-        public EmailThirdPartyListImportRequest(List<EmailThirdPartyProvider> Providers = default(List<EmailThirdPartyProvider>))
+        /// <param name="providers">providers.</param>
+        public EmailThirdPartyListImportRequest(List<EmailThirdPartyProvider> providers = default(List<EmailThirdPartyProvider>))
         {
-            this.Providers = Providers;
+            this.Providers = providers;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

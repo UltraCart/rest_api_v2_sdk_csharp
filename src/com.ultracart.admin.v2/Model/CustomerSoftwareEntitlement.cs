@@ -33,24 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerSoftwareEntitlement" /> class.
         /// </summary>
-        /// <param name="ActivationCode">Activation Code Associated with the software.</param>
-        /// <param name="ActivationDts">Date/time when the activation code was created.</param>
-        /// <param name="CustomerSoftwareEntitlementOid">Customer profile software entitlement object identifier.</param>
-        /// <param name="ExpirationDts">Date/time when the activation code will expire.</param>
-        /// <param name="PurchasedViaItemDescription">Item description used to purchase this software..</param>
-        /// <param name="PurchasedViaItemId">Item ID used to purchase this software..</param>
-        /// <param name="PurchasedViaOrderId">Order ID used to purchase this software..</param>
-        /// <param name="SoftwareSku">SKU of the software.</param>
-        public CustomerSoftwareEntitlement(string ActivationCode = default(string), string ActivationDts = default(string), int? CustomerSoftwareEntitlementOid = default(int?), string ExpirationDts = default(string), string PurchasedViaItemDescription = default(string), string PurchasedViaItemId = default(string), string PurchasedViaOrderId = default(string), string SoftwareSku = default(string))
+        /// <param name="activationCode">Activation Code Associated with the software.</param>
+        /// <param name="activationDts">Date/time when the activation code was created.</param>
+        /// <param name="customerSoftwareEntitlementOid">Customer profile software entitlement object identifier.</param>
+        /// <param name="expirationDts">Date/time when the activation code will expire.</param>
+        /// <param name="purchasedViaItemDescription">Item description used to purchase this software..</param>
+        /// <param name="purchasedViaItemId">Item ID used to purchase this software..</param>
+        /// <param name="purchasedViaOrderId">Order ID used to purchase this software..</param>
+        /// <param name="softwareSku">SKU of the software.</param>
+        public CustomerSoftwareEntitlement(string activationCode = default(string), string activationDts = default(string), int? customerSoftwareEntitlementOid = default(int?), string expirationDts = default(string), string purchasedViaItemDescription = default(string), string purchasedViaItemId = default(string), string purchasedViaOrderId = default(string), string softwareSku = default(string))
         {
-            this.ActivationCode = ActivationCode;
-            this.ActivationDts = ActivationDts;
-            this.CustomerSoftwareEntitlementOid = CustomerSoftwareEntitlementOid;
-            this.ExpirationDts = ExpirationDts;
-            this.PurchasedViaItemDescription = PurchasedViaItemDescription;
-            this.PurchasedViaItemId = PurchasedViaItemId;
-            this.PurchasedViaOrderId = PurchasedViaOrderId;
-            this.SoftwareSku = SoftwareSku;
+            this.ActivationCode = activationCode;
+            this.ActivationDts = activationDts;
+            this.CustomerSoftwareEntitlementOid = customerSoftwareEntitlementOid;
+            this.ExpirationDts = expirationDts;
+            this.PurchasedViaItemDescription = purchasedViaItemDescription;
+            this.PurchasedViaItemId = purchasedViaItemId;
+            this.PurchasedViaOrderId = purchasedViaOrderId;
+            this.SoftwareSku = softwareSku;
         }
         
         /// <summary>
@@ -133,7 +133,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

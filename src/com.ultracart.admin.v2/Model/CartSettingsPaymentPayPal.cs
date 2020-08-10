@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsPaymentPayPal" /> class.
         /// </summary>
-        /// <param name="PaypalButtonAltText">PayPal button alt text.</param>
-        /// <param name="PaypalButtonUrl">PayPal button URL.</param>
-        /// <param name="PaypalCreditButtonUrl">PayPal Credit button URL.</param>
-        /// <param name="PaypalCreditLegalImageUrl">PayPal Credit legal image URL.</param>
-        /// <param name="PaypalCreditLegalUrl">PayPal Credit legal URL.</param>
-        public CartSettingsPaymentPayPal(string PaypalButtonAltText = default(string), string PaypalButtonUrl = default(string), string PaypalCreditButtonUrl = default(string), string PaypalCreditLegalImageUrl = default(string), string PaypalCreditLegalUrl = default(string))
+        /// <param name="paypalButtonAltText">PayPal button alt text.</param>
+        /// <param name="paypalButtonUrl">PayPal button URL.</param>
+        /// <param name="paypalCreditButtonUrl">PayPal Credit button URL.</param>
+        /// <param name="paypalCreditLegalImageUrl">PayPal Credit legal image URL.</param>
+        /// <param name="paypalCreditLegalUrl">PayPal Credit legal URL.</param>
+        public CartSettingsPaymentPayPal(string paypalButtonAltText = default(string), string paypalButtonUrl = default(string), string paypalCreditButtonUrl = default(string), string paypalCreditLegalImageUrl = default(string), string paypalCreditLegalUrl = default(string))
         {
-            this.PaypalButtonAltText = PaypalButtonAltText;
-            this.PaypalButtonUrl = PaypalButtonUrl;
-            this.PaypalCreditButtonUrl = PaypalCreditButtonUrl;
-            this.PaypalCreditLegalImageUrl = PaypalCreditLegalImageUrl;
-            this.PaypalCreditLegalUrl = PaypalCreditLegalUrl;
+            this.PaypalButtonAltText = paypalButtonAltText;
+            this.PaypalButtonUrl = paypalButtonUrl;
+            this.PaypalCreditButtonUrl = paypalCreditButtonUrl;
+            this.PaypalCreditLegalImageUrl = paypalCreditLegalImageUrl;
+            this.PaypalCreditLegalUrl = paypalCreditLegalUrl;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemWishlistMember" /> class.
         /// </summary>
-        /// <param name="WishlistMemberInstanceDescription">WishList Member instance description.</param>
-        /// <param name="WishlistMemberInstanceOid">WishList Member instance object identifier.</param>
-        /// <param name="WishlistMemberSku">WishList Member SKU.</param>
-        public ItemWishlistMember(string WishlistMemberInstanceDescription = default(string), int? WishlistMemberInstanceOid = default(int?), string WishlistMemberSku = default(string))
+        /// <param name="wishlistMemberInstanceDescription">WishList Member instance description.</param>
+        /// <param name="wishlistMemberInstanceOid">WishList Member instance object identifier.</param>
+        /// <param name="wishlistMemberSku">WishList Member SKU.</param>
+        public ItemWishlistMember(string wishlistMemberInstanceDescription = default(string), int? wishlistMemberInstanceOid = default(int?), string wishlistMemberSku = default(string))
         {
-            this.WishlistMemberInstanceDescription = WishlistMemberInstanceDescription;
-            this.WishlistMemberInstanceOid = WishlistMemberInstanceOid;
-            this.WishlistMemberSku = WishlistMemberSku;
+            this.WishlistMemberInstanceDescription = wishlistMemberInstanceDescription;
+            this.WishlistMemberInstanceOid = wishlistMemberInstanceOid;
+            this.WishlistMemberSku = wishlistMemberSku;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

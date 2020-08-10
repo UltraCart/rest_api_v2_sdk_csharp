@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponAmountOffSubtotalFreeShippingWithPurchase" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="DiscountAmount">The amount of subtotal discount.</param>
-        /// <param name="PurchaseAmount">The purchase amount to qualify for subtotal discount and free shipping.</param>
-        /// <param name="ShippingMethods">One or more shipping methods that may be free.</param>
-        public CouponAmountOffSubtotalFreeShippingWithPurchase(string CurrencyCode = default(string), decimal? DiscountAmount = default(decimal?), decimal? PurchaseAmount = default(decimal?), List<string> ShippingMethods = default(List<string>))
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="discountAmount">The amount of subtotal discount.</param>
+        /// <param name="purchaseAmount">The purchase amount to qualify for subtotal discount and free shipping.</param>
+        /// <param name="shippingMethods">One or more shipping methods that may be free.</param>
+        public CouponAmountOffSubtotalFreeShippingWithPurchase(string currencyCode = default(string), decimal? discountAmount = default(decimal?), decimal? purchaseAmount = default(decimal?), List<string> shippingMethods = default(List<string>))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.DiscountAmount = DiscountAmount;
-            this.PurchaseAmount = PurchaseAmount;
-            this.ShippingMethods = ShippingMethods;
+            this.CurrencyCode = currencyCode;
+            this.DiscountAmount = discountAmount;
+            this.PurchaseAmount = purchaseAmount;
+            this.ShippingMethods = shippingMethods;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

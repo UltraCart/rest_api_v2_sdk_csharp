@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OauthRevokeSuccessResponse" /> class.
         /// </summary>
-        /// <param name="Message">Message confirming revocation of credentials.</param>
-        /// <param name="Successful">True if revoke was successful.</param>
-        public OauthRevokeSuccessResponse(string Message = default(string), bool? Successful = default(bool?))
+        /// <param name="message">Message confirming revocation of credentials.</param>
+        /// <param name="successful">True if revoke was successful.</param>
+        public OauthRevokeSuccessResponse(string message = default(string), bool? successful = default(bool?))
         {
-            this.Message = Message;
-            this.Successful = Successful;
+            this.Message = message;
+            this.Successful = successful;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderItemEdi" /> class.
         /// </summary>
-        /// <param name="Identifications">Identification information receives on the EDI purchase order.</param>
-        /// <param name="Lots">Lot information.</param>
-        public OrderItemEdi(List<OrderItemEdiIdentification> Identifications = default(List<OrderItemEdiIdentification>), List<OrderItemEdiLot> Lots = default(List<OrderItemEdiLot>))
+        /// <param name="identifications">Identification information receives on the EDI purchase order.</param>
+        /// <param name="lots">Lot information.</param>
+        public OrderItemEdi(List<OrderItemEdiIdentification> identifications = default(List<OrderItemEdiIdentification>), List<OrderItemEdiLot> lots = default(List<OrderItemEdiLot>))
         {
-            this.Identifications = Identifications;
-            this.Lots = Lots;
+            this.Identifications = identifications;
+            this.Lots = lots;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAmember" /> class.
         /// </summary>
-        /// <param name="AmemberPaymentDurationDays">The number of days that the customer should be given access to the item.</param>
-        /// <param name="AmemberProductId">A-member product id give customer access to when they purchase this item.</param>
-        public ItemAmember(int? AmemberPaymentDurationDays = default(int?), string AmemberProductId = default(string))
+        /// <param name="amemberPaymentDurationDays">The number of days that the customer should be given access to the item.</param>
+        /// <param name="amemberProductId">A-member product id give customer access to when they purchase this item.</param>
+        public ItemAmember(int? amemberPaymentDurationDays = default(int?), string amemberProductId = default(string))
         {
-            this.AmemberPaymentDurationDays = AmemberPaymentDurationDays;
-            this.AmemberProductId = AmemberProductId;
+            this.AmemberPaymentDurationDays = amemberPaymentDurationDays;
+            this.AmemberProductId = amemberProductId;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

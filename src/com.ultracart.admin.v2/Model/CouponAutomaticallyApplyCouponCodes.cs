@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponAutomaticallyApplyCouponCodes" /> class.
         /// </summary>
-        /// <param name="CouponCodes">The coupon codes to automatically apply if this coupon is applied.</param>
-        public CouponAutomaticallyApplyCouponCodes(List<string> CouponCodes = default(List<string>))
+        /// <param name="couponCodes">The coupon codes to automatically apply if this coupon is applied.</param>
+        public CouponAutomaticallyApplyCouponCodes(List<string> couponCodes = default(List<string>))
         {
-            this.CouponCodes = CouponCodes;
+            this.CouponCodes = couponCodes;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

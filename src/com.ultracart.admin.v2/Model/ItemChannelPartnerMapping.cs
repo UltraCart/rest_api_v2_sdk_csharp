@@ -33,44 +33,44 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemChannelPartnerMapping" /> class.
         /// </summary>
-        /// <param name="BarcodeUa">Barcode UA (EDI only).</param>
-        /// <param name="BarcodeUc">Barcode UC (EDI only).</param>
-        /// <param name="BarcodeUi">Barcode UI (EDI only).</param>
-        /// <param name="BarcodeUk">Barcode UK (EDI only).</param>
-        /// <param name="BuyerCatalogNumber">Buyer catalog number (EDI only).</param>
-        /// <param name="BuyerDpci">Buyer DPCI (EDI only).</param>
-        /// <param name="BuyerItemNumber">Buyer item number (EDI only).</param>
-        /// <param name="ChannelPartnerCode">Channel partner code.</param>
-        /// <param name="ChannelPartnerOid">Channel partner object identifier.</param>
-        /// <param name="FromItemId">From Item ID.</param>
-        /// <param name="FromSku">From SKU.</param>
-        /// <param name="MutuallyDefinedNumber">Mutually defined number (EDI only).</param>
-        /// <param name="QuantityRatioCp">Ratio (Channel Partner).</param>
-        /// <param name="QuantityRatioUc">Ratio (UltraCart).</param>
-        /// <param name="Sku">SKU.</param>
-        /// <param name="UnitOfMeasure">Unit of measure.</param>
-        /// <param name="VendorNumber">Vendor number (EDI only).</param>
-        /// <param name="VendorStyleNumber">Vendor style number (EDI only).</param>
-        public ItemChannelPartnerMapping(string BarcodeUa = default(string), string BarcodeUc = default(string), string BarcodeUi = default(string), string BarcodeUk = default(string), string BuyerCatalogNumber = default(string), string BuyerDpci = default(string), string BuyerItemNumber = default(string), string ChannelPartnerCode = default(string), int? ChannelPartnerOid = default(int?), string FromItemId = default(string), string FromSku = default(string), string MutuallyDefinedNumber = default(string), int? QuantityRatioCp = default(int?), int? QuantityRatioUc = default(int?), string Sku = default(string), string UnitOfMeasure = default(string), string VendorNumber = default(string), string VendorStyleNumber = default(string))
+        /// <param name="barcodeUa">Barcode UA (EDI only).</param>
+        /// <param name="barcodeUc">Barcode UC (EDI only).</param>
+        /// <param name="barcodeUi">Barcode UI (EDI only).</param>
+        /// <param name="barcodeUk">Barcode UK (EDI only).</param>
+        /// <param name="buyerCatalogNumber">Buyer catalog number (EDI only).</param>
+        /// <param name="buyerDpci">Buyer DPCI (EDI only).</param>
+        /// <param name="buyerItemNumber">Buyer item number (EDI only).</param>
+        /// <param name="channelPartnerCode">Channel partner code.</param>
+        /// <param name="channelPartnerOid">Channel partner object identifier.</param>
+        /// <param name="fromItemId">From Item ID.</param>
+        /// <param name="fromSku">From SKU.</param>
+        /// <param name="mutuallyDefinedNumber">Mutually defined number (EDI only).</param>
+        /// <param name="quantityRatioCp">Ratio (Channel Partner).</param>
+        /// <param name="quantityRatioUc">Ratio (UltraCart).</param>
+        /// <param name="sku">SKU.</param>
+        /// <param name="unitOfMeasure">Unit of measure.</param>
+        /// <param name="vendorNumber">Vendor number (EDI only).</param>
+        /// <param name="vendorStyleNumber">Vendor style number (EDI only).</param>
+        public ItemChannelPartnerMapping(string barcodeUa = default(string), string barcodeUc = default(string), string barcodeUi = default(string), string barcodeUk = default(string), string buyerCatalogNumber = default(string), string buyerDpci = default(string), string buyerItemNumber = default(string), string channelPartnerCode = default(string), int? channelPartnerOid = default(int?), string fromItemId = default(string), string fromSku = default(string), string mutuallyDefinedNumber = default(string), int? quantityRatioCp = default(int?), int? quantityRatioUc = default(int?), string sku = default(string), string unitOfMeasure = default(string), string vendorNumber = default(string), string vendorStyleNumber = default(string))
         {
-            this.BarcodeUa = BarcodeUa;
-            this.BarcodeUc = BarcodeUc;
-            this.BarcodeUi = BarcodeUi;
-            this.BarcodeUk = BarcodeUk;
-            this.BuyerCatalogNumber = BuyerCatalogNumber;
-            this.BuyerDpci = BuyerDpci;
-            this.BuyerItemNumber = BuyerItemNumber;
-            this.ChannelPartnerCode = ChannelPartnerCode;
-            this.ChannelPartnerOid = ChannelPartnerOid;
-            this.FromItemId = FromItemId;
-            this.FromSku = FromSku;
-            this.MutuallyDefinedNumber = MutuallyDefinedNumber;
-            this.QuantityRatioCp = QuantityRatioCp;
-            this.QuantityRatioUc = QuantityRatioUc;
-            this.Sku = Sku;
-            this.UnitOfMeasure = UnitOfMeasure;
-            this.VendorNumber = VendorNumber;
-            this.VendorStyleNumber = VendorStyleNumber;
+            this.BarcodeUa = barcodeUa;
+            this.BarcodeUc = barcodeUc;
+            this.BarcodeUi = barcodeUi;
+            this.BarcodeUk = barcodeUk;
+            this.BuyerCatalogNumber = buyerCatalogNumber;
+            this.BuyerDpci = buyerDpci;
+            this.BuyerItemNumber = buyerItemNumber;
+            this.ChannelPartnerCode = channelPartnerCode;
+            this.ChannelPartnerOid = channelPartnerOid;
+            this.FromItemId = fromItemId;
+            this.FromSku = fromSku;
+            this.MutuallyDefinedNumber = mutuallyDefinedNumber;
+            this.QuantityRatioCp = quantityRatioCp;
+            this.QuantityRatioUc = quantityRatioUc;
+            this.Sku = sku;
+            this.UnitOfMeasure = unitOfMeasure;
+            this.VendorNumber = vendorNumber;
+            this.VendorStyleNumber = vendorStyleNumber;
         }
         
         /// <summary>
@@ -233,7 +233,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

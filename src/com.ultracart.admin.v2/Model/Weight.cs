@@ -39,22 +39,22 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum KG for "KG"
+            /// Enum KG for value: KG
             /// </summary>
             [EnumMember(Value = "KG")]
-            KG,
+            KG = 1,
             
             /// <summary>
-            /// Enum LB for "LB"
+            /// Enum LB for value: LB
             /// </summary>
             [EnumMember(Value = "LB")]
-            LB,
+            LB = 2,
             
             /// <summary>
-            /// Enum OZ for "OZ"
+            /// Enum OZ for value: OZ
             /// </summary>
             [EnumMember(Value = "OZ")]
-            OZ
+            OZ = 3
         }
 
         /// <summary>
@@ -66,12 +66,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Weight" /> class.
         /// </summary>
-        /// <param name="Uom">Unit of measure.</param>
-        /// <param name="Value">Weight.</param>
-        public Weight(UomEnum? Uom = default(UomEnum?), decimal? Value = default(decimal?))
+        /// <param name="uom">Unit of measure.</param>
+        /// <param name="value">Weight.</param>
+        public Weight(UomEnum? uom = default(UomEnum?), decimal? value = default(decimal?))
         {
-            this.Uom = Uom;
-            this.Value = Value;
+            this.Uom = uom;
+            this.Value = value;
         }
         
 
@@ -100,7 +100,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

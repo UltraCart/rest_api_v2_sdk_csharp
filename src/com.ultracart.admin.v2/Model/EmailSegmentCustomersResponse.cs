@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailSegmentCustomersResponse" /> class.
         /// </summary>
-        /// <param name="Customers">Customers on the page.</param>
-        /// <param name="PageNumber">Page number (one based offset).</param>
-        /// <param name="PageSize">Number of records per page.</param>
-        /// <param name="TotalCustomers">Total customers.</param>
-        /// <param name="TotalPages">Total number of pages.</param>
-        public EmailSegmentCustomersResponse(List<EmailSegmentCustomer> Customers = default(List<EmailSegmentCustomer>), int? PageNumber = default(int?), int? PageSize = default(int?), int? TotalCustomers = default(int?), int? TotalPages = default(int?))
+        /// <param name="customers">Customers on the page.</param>
+        /// <param name="pageNumber">Page number (one based offset).</param>
+        /// <param name="pageSize">Number of records per page.</param>
+        /// <param name="totalCustomers">Total customers.</param>
+        /// <param name="totalPages">Total number of pages.</param>
+        public EmailSegmentCustomersResponse(List<EmailSegmentCustomer> customers = default(List<EmailSegmentCustomer>), int? pageNumber = default(int?), int? pageSize = default(int?), int? totalCustomers = default(int?), int? totalPages = default(int?))
         {
-            this.Customers = Customers;
-            this.PageNumber = PageNumber;
-            this.PageSize = PageSize;
-            this.TotalCustomers = TotalCustomers;
-            this.TotalPages = TotalPages;
+            this.Customers = customers;
+            this.PageNumber = pageNumber;
+            this.PageSize = pageSize;
+            this.TotalCustomers = totalCustomers;
+            this.TotalPages = totalPages;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

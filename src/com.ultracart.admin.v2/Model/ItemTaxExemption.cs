@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemTaxExemption" /> class.
         /// </summary>
-        /// <param name="City">City.</param>
-        /// <param name="CountryCode">Country code (ISO-3166 two letter).</param>
-        /// <param name="County">County.</param>
-        /// <param name="PostalCode">Postal code.</param>
-        /// <param name="StateCode">State code.</param>
-        public ItemTaxExemption(string City = default(string), string CountryCode = default(string), string County = default(string), string PostalCode = default(string), string StateCode = default(string))
+        /// <param name="city">City.</param>
+        /// <param name="countryCode">Country code (ISO-3166 two letter).</param>
+        /// <param name="county">County.</param>
+        /// <param name="postalCode">Postal code.</param>
+        /// <param name="stateCode">State code.</param>
+        public ItemTaxExemption(string city = default(string), string countryCode = default(string), string county = default(string), string postalCode = default(string), string stateCode = default(string))
         {
-            this.City = City;
-            this.CountryCode = CountryCode;
-            this.County = County;
-            this.PostalCode = PostalCode;
-            this.StateCode = StateCode;
+            this.City = city;
+            this.CountryCode = countryCode;
+            this.County = county;
+            this.PostalCode = postalCode;
+            this.StateCode = stateCode;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

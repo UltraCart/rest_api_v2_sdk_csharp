@@ -33,38 +33,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerLoyaltyLedger" /> class.
         /// </summary>
-        /// <param name="CreatedBy">Created By.</param>
-        /// <param name="CreatedDts">Created date.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="Email">Email.</param>
-        /// <param name="ItemId">Item Id.</param>
-        /// <param name="ItemIndex">Item Index.</param>
-        /// <param name="LedgerDts">Ledger date.</param>
-        /// <param name="LoyaltyCampaignOid">Loyalty campaign oid.</param>
-        /// <param name="LoyaltyLedgerOid">Loyalty ledger oid.</param>
-        /// <param name="LoyaltyPoints">Loyalty points.</param>
-        /// <param name="ModifiedBy">Modified By.</param>
-        /// <param name="ModifiedDts">Modified date.</param>
-        /// <param name="OrderId">Order Id.</param>
-        /// <param name="Quantity">Quantity.</param>
-        /// <param name="VestingDts">Vesting date.</param>
-        public CustomerLoyaltyLedger(string CreatedBy = default(string), string CreatedDts = default(string), string Description = default(string), string Email = default(string), string ItemId = default(string), int? ItemIndex = default(int?), string LedgerDts = default(string), int? LoyaltyCampaignOid = default(int?), int? LoyaltyLedgerOid = default(int?), int? LoyaltyPoints = default(int?), string ModifiedBy = default(string), string ModifiedDts = default(string), string OrderId = default(string), int? Quantity = default(int?), string VestingDts = default(string))
+        /// <param name="createdBy">Created By.</param>
+        /// <param name="createdDts">Created date.</param>
+        /// <param name="description">Description.</param>
+        /// <param name="email">Email.</param>
+        /// <param name="itemId">Item Id.</param>
+        /// <param name="itemIndex">Item Index.</param>
+        /// <param name="ledgerDts">Ledger date.</param>
+        /// <param name="loyaltyCampaignOid">Loyalty campaign oid.</param>
+        /// <param name="loyaltyLedgerOid">Loyalty ledger oid.</param>
+        /// <param name="loyaltyPoints">Loyalty points.</param>
+        /// <param name="modifiedBy">Modified By.</param>
+        /// <param name="modifiedDts">Modified date.</param>
+        /// <param name="orderId">Order Id.</param>
+        /// <param name="quantity">Quantity.</param>
+        /// <param name="vestingDts">Vesting date.</param>
+        public CustomerLoyaltyLedger(string createdBy = default(string), string createdDts = default(string), string description = default(string), string email = default(string), string itemId = default(string), int? itemIndex = default(int?), string ledgerDts = default(string), int? loyaltyCampaignOid = default(int?), int? loyaltyLedgerOid = default(int?), int? loyaltyPoints = default(int?), string modifiedBy = default(string), string modifiedDts = default(string), string orderId = default(string), int? quantity = default(int?), string vestingDts = default(string))
         {
-            this.CreatedBy = CreatedBy;
-            this.CreatedDts = CreatedDts;
-            this.Description = Description;
-            this.Email = Email;
-            this.ItemId = ItemId;
-            this.ItemIndex = ItemIndex;
-            this.LedgerDts = LedgerDts;
-            this.LoyaltyCampaignOid = LoyaltyCampaignOid;
-            this.LoyaltyLedgerOid = LoyaltyLedgerOid;
-            this.LoyaltyPoints = LoyaltyPoints;
-            this.ModifiedBy = ModifiedBy;
-            this.ModifiedDts = ModifiedDts;
-            this.OrderId = OrderId;
-            this.Quantity = Quantity;
-            this.VestingDts = VestingDts;
+            this.CreatedBy = createdBy;
+            this.CreatedDts = createdDts;
+            this.Description = description;
+            this.Email = email;
+            this.ItemId = itemId;
+            this.ItemIndex = itemIndex;
+            this.LedgerDts = ledgerDts;
+            this.LoyaltyCampaignOid = loyaltyCampaignOid;
+            this.LoyaltyLedgerOid = loyaltyLedgerOid;
+            this.LoyaltyPoints = loyaltyPoints;
+            this.ModifiedBy = modifiedBy;
+            this.ModifiedDts = modifiedDts;
+            this.OrderId = orderId;
+            this.Quantity = quantity;
+            this.VestingDts = vestingDts;
         }
         
         /// <summary>
@@ -203,7 +203,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

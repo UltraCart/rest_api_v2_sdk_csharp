@@ -33,30 +33,52 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailSegment" /> class.
         /// </summary>
-        /// <param name="CreatedDts">Created date.</param>
-        /// <param name="Deleted">True if this campaign was deleted.</param>
-        /// <param name="EmailSegmentUuid">Email segment UUID.</param>
-        /// <param name="FacebookCustomAudience">True if you want to sync to a facebook custom audience.</param>
-        /// <param name="FilterProfileEquationJson">File profile equation json.</param>
-        /// <param name="MemberCount">Count of members in this segment.</param>
-        /// <param name="MerchantId">Merchant ID.</param>
-        /// <param name="Name">Name of email segment.</param>
-        /// <param name="RebuildRequired">True if a rebuild is required because some part of the segment has changed.</param>
-        /// <param name="StorefrontOid">Storefront oid.</param>
-        public EmailSegment(string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailSegmentUuid = default(string), bool? FacebookCustomAudience = default(bool?), string FilterProfileEquationJson = default(string), int? MemberCount = default(int?), string MerchantId = default(string), string Name = default(string), bool? RebuildRequired = default(bool?), int? StorefrontOid = default(int?))
+        /// <param name="allowCsvDownload">True if the current user has the rights to download this segment..</param>
+        /// <param name="allowFacebookAudiences">True if this StoreFront has the Facebook Analytics app connected and supports them.</param>
+        /// <param name="createdDts">Created date.</param>
+        /// <param name="deleted">True if this campaign was deleted.</param>
+        /// <param name="emailSegmentUuid">Email segment UUID.</param>
+        /// <param name="facebookCustomAudience">True if you want to sync to a facebook custom audience.</param>
+        /// <param name="filterProfileEquationJson">File profile equation json.</param>
+        /// <param name="memberCount">Count of members in this segment.</param>
+        /// <param name="merchantId">Merchant ID.</param>
+        /// <param name="name">Name of email segment.</param>
+        /// <param name="rankJson">Rank settings json.</param>
+        /// <param name="rebuildRequired">True if a rebuild is required because some part of the segment has changed.</param>
+        /// <param name="storefrontOid">Storefront oid.</param>
+        /// <param name="usedBy">Details on the flows or campaigns that use this list..</param>
+        public EmailSegment(bool? allowCsvDownload = default(bool?), bool? allowFacebookAudiences = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailSegmentUuid = default(string), bool? facebookCustomAudience = default(bool?), string filterProfileEquationJson = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string rankJson = default(string), bool? rebuildRequired = default(bool?), int? storefrontOid = default(int?), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
         {
-            this.CreatedDts = CreatedDts;
-            this.Deleted = Deleted;
-            this.EmailSegmentUuid = EmailSegmentUuid;
-            this.FacebookCustomAudience = FacebookCustomAudience;
-            this.FilterProfileEquationJson = FilterProfileEquationJson;
-            this.MemberCount = MemberCount;
-            this.MerchantId = MerchantId;
-            this.Name = Name;
-            this.RebuildRequired = RebuildRequired;
-            this.StorefrontOid = StorefrontOid;
+            this.AllowCsvDownload = allowCsvDownload;
+            this.AllowFacebookAudiences = allowFacebookAudiences;
+            this.CreatedDts = createdDts;
+            this.Deleted = deleted;
+            this.EmailSegmentUuid = emailSegmentUuid;
+            this.FacebookCustomAudience = facebookCustomAudience;
+            this.FilterProfileEquationJson = filterProfileEquationJson;
+            this.MemberCount = memberCount;
+            this.MerchantId = merchantId;
+            this.Name = name;
+            this.RankJson = rankJson;
+            this.RebuildRequired = rebuildRequired;
+            this.StorefrontOid = storefrontOid;
+            this.UsedBy = usedBy;
         }
         
+        /// <summary>
+        /// True if the current user has the rights to download this segment.
+        /// </summary>
+        /// <value>True if the current user has the rights to download this segment.</value>
+        [DataMember(Name="allow_csv_download", EmitDefaultValue=false)]
+        public bool? AllowCsvDownload { get; set; }
+
+        /// <summary>
+        /// True if this StoreFront has the Facebook Analytics app connected and supports them
+        /// </summary>
+        /// <value>True if this StoreFront has the Facebook Analytics app connected and supports them</value>
+        [DataMember(Name="allow_facebook_audiences", EmitDefaultValue=false)]
+        public bool? AllowFacebookAudiences { get; set; }
+
         /// <summary>
         /// Created date
         /// </summary>
@@ -114,6 +136,13 @@ namespace com.ultracart.admin.v2.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Rank settings json
+        /// </summary>
+        /// <value>Rank settings json</value>
+        [DataMember(Name="rank_json", EmitDefaultValue=false)]
+        public string RankJson { get; set; }
+
+        /// <summary>
         /// True if a rebuild is required because some part of the segment has changed
         /// </summary>
         /// <value>True if a rebuild is required because some part of the segment has changed</value>
@@ -128,6 +157,13 @@ namespace com.ultracart.admin.v2.Model
         public int? StorefrontOid { get; set; }
 
         /// <summary>
+        /// Details on the flows or campaigns that use this list.
+        /// </summary>
+        /// <value>Details on the flows or campaigns that use this list.</value>
+        [DataMember(Name="used_by", EmitDefaultValue=false)]
+        public List<EmailListSegmentUsedBy> UsedBy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +171,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailSegment {\n");
+            sb.Append("  AllowCsvDownload: ").Append(AllowCsvDownload).Append("\n");
+            sb.Append("  AllowFacebookAudiences: ").Append(AllowFacebookAudiences).Append("\n");
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EmailSegmentUuid: ").Append(EmailSegmentUuid).Append("\n");
@@ -143,8 +181,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MemberCount: ").Append(MemberCount).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  RankJson: ").Append(RankJson).Append("\n");
             sb.Append("  RebuildRequired: ").Append(RebuildRequired).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
+            sb.Append("  UsedBy: ").Append(UsedBy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,7 +193,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -179,6 +219,16 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AllowCsvDownload == input.AllowCsvDownload ||
+                    (this.AllowCsvDownload != null &&
+                    this.AllowCsvDownload.Equals(input.AllowCsvDownload))
+                ) && 
+                (
+                    this.AllowFacebookAudiences == input.AllowFacebookAudiences ||
+                    (this.AllowFacebookAudiences != null &&
+                    this.AllowFacebookAudiences.Equals(input.AllowFacebookAudiences))
+                ) && 
                 (
                     this.CreatedDts == input.CreatedDts ||
                     (this.CreatedDts != null &&
@@ -220,6 +270,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.RankJson == input.RankJson ||
+                    (this.RankJson != null &&
+                    this.RankJson.Equals(input.RankJson))
+                ) && 
+                (
                     this.RebuildRequired == input.RebuildRequired ||
                     (this.RebuildRequired != null &&
                     this.RebuildRequired.Equals(input.RebuildRequired))
@@ -228,6 +283,11 @@ namespace com.ultracart.admin.v2.Model
                     this.StorefrontOid == input.StorefrontOid ||
                     (this.StorefrontOid != null &&
                     this.StorefrontOid.Equals(input.StorefrontOid))
+                ) && 
+                (
+                    this.UsedBy == input.UsedBy ||
+                    this.UsedBy != null &&
+                    this.UsedBy.SequenceEqual(input.UsedBy)
                 );
         }
 
@@ -240,6 +300,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AllowCsvDownload != null)
+                    hashCode = hashCode * 59 + this.AllowCsvDownload.GetHashCode();
+                if (this.AllowFacebookAudiences != null)
+                    hashCode = hashCode * 59 + this.AllowFacebookAudiences.GetHashCode();
                 if (this.CreatedDts != null)
                     hashCode = hashCode * 59 + this.CreatedDts.GetHashCode();
                 if (this.Deleted != null)
@@ -256,10 +320,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.RankJson != null)
+                    hashCode = hashCode * 59 + this.RankJson.GetHashCode();
                 if (this.RebuildRequired != null)
                     hashCode = hashCode * 59 + this.RebuildRequired.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
+                if (this.UsedBy != null)
+                    hashCode = hashCode * 59 + this.UsedBy.GetHashCode();
                 return hashCode;
             }
         }

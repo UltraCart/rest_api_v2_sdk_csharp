@@ -33,30 +33,32 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemContent" /> class.
         /// </summary>
-        /// <param name="Assignments">StoreFront assignments.</param>
-        /// <param name="Attributes">StoreFront attributes.</param>
-        /// <param name="ExcludeFromSearch">Exclude from search.</param>
-        /// <param name="ExcludeFromTopSellers">Exclude from the top sellers list in the StoreFront.</param>
-        /// <param name="ExtendedDescription">Extended description (max 2000 characters).</param>
-        /// <param name="ExtendedDescriptionTranslatedTextInstanceOid">Extneded description text translation instance identifier.</param>
-        /// <param name="Multimedia">Multimedia.</param>
-        /// <param name="NewItem">True if the item is new.</param>
-        /// <param name="NewItemEnd">The date the item should no longer be considered new.</param>
-        /// <param name="NewItemStart">The date the item should start being considered new.</param>
-        /// <param name="ViewUrl">Legacy view URL (not used by StoreFronts).</param>
-        public ItemContent(List<ItemContentAssignment> Assignments = default(List<ItemContentAssignment>), List<ItemContentAttribute> Attributes = default(List<ItemContentAttribute>), bool? ExcludeFromSearch = default(bool?), bool? ExcludeFromTopSellers = default(bool?), string ExtendedDescription = default(string), int? ExtendedDescriptionTranslatedTextInstanceOid = default(int?), List<ItemContentMultimedia> Multimedia = default(List<ItemContentMultimedia>), bool? NewItem = default(bool?), string NewItemEnd = default(string), string NewItemStart = default(string), string ViewUrl = default(string))
+        /// <param name="assignments">StoreFront assignments.</param>
+        /// <param name="attributes">StoreFront attributes.</param>
+        /// <param name="customThankYouUrl">Custom Thank You URL.</param>
+        /// <param name="excludeFromSearch">Exclude from search.</param>
+        /// <param name="excludeFromTopSellers">Exclude from the top sellers list in the StoreFront.</param>
+        /// <param name="extendedDescription">Extended description (max 2000 characters).</param>
+        /// <param name="extendedDescriptionTranslatedTextInstanceOid">Extneded description text translation instance identifier.</param>
+        /// <param name="multimedia">Multimedia.</param>
+        /// <param name="newItem">True if the item is new.</param>
+        /// <param name="newItemEnd">The date the item should no longer be considered new.</param>
+        /// <param name="newItemStart">The date the item should start being considered new.</param>
+        /// <param name="viewUrl">Legacy view URL (not used by StoreFronts).</param>
+        public ItemContent(List<ItemContentAssignment> assignments = default(List<ItemContentAssignment>), List<ItemContentAttribute> attributes = default(List<ItemContentAttribute>), string customThankYouUrl = default(string), bool? excludeFromSearch = default(bool?), bool? excludeFromTopSellers = default(bool?), string extendedDescription = default(string), int? extendedDescriptionTranslatedTextInstanceOid = default(int?), List<ItemContentMultimedia> multimedia = default(List<ItemContentMultimedia>), bool? newItem = default(bool?), string newItemEnd = default(string), string newItemStart = default(string), string viewUrl = default(string))
         {
-            this.Assignments = Assignments;
-            this.Attributes = Attributes;
-            this.ExcludeFromSearch = ExcludeFromSearch;
-            this.ExcludeFromTopSellers = ExcludeFromTopSellers;
-            this.ExtendedDescription = ExtendedDescription;
-            this.ExtendedDescriptionTranslatedTextInstanceOid = ExtendedDescriptionTranslatedTextInstanceOid;
-            this.Multimedia = Multimedia;
-            this.NewItem = NewItem;
-            this.NewItemEnd = NewItemEnd;
-            this.NewItemStart = NewItemStart;
-            this.ViewUrl = ViewUrl;
+            this.Assignments = assignments;
+            this.Attributes = attributes;
+            this.CustomThankYouUrl = customThankYouUrl;
+            this.ExcludeFromSearch = excludeFromSearch;
+            this.ExcludeFromTopSellers = excludeFromTopSellers;
+            this.ExtendedDescription = extendedDescription;
+            this.ExtendedDescriptionTranslatedTextInstanceOid = extendedDescriptionTranslatedTextInstanceOid;
+            this.Multimedia = multimedia;
+            this.NewItem = newItem;
+            this.NewItemEnd = newItemEnd;
+            this.NewItemStart = newItemStart;
+            this.ViewUrl = viewUrl;
         }
         
         /// <summary>
@@ -72,6 +74,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>StoreFront attributes</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public List<ItemContentAttribute> Attributes { get; set; }
+
+        /// <summary>
+        /// Custom Thank You URL
+        /// </summary>
+        /// <value>Custom Thank You URL</value>
+        [DataMember(Name="custom_thank_you_url", EmitDefaultValue=false)]
+        public string CustomThankYouUrl { get; set; }
 
         /// <summary>
         /// Exclude from search
@@ -146,6 +155,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ItemContent {\n");
             sb.Append("  Assignments: ").Append(Assignments).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  CustomThankYouUrl: ").Append(CustomThankYouUrl).Append("\n");
             sb.Append("  ExcludeFromSearch: ").Append(ExcludeFromSearch).Append("\n");
             sb.Append("  ExcludeFromTopSellers: ").Append(ExcludeFromTopSellers).Append("\n");
             sb.Append("  ExtendedDescription: ").Append(ExtendedDescription).Append("\n");
@@ -163,7 +173,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -198,6 +208,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Attributes == input.Attributes ||
                     this.Attributes != null &&
                     this.Attributes.SequenceEqual(input.Attributes)
+                ) && 
+                (
+                    this.CustomThankYouUrl == input.CustomThankYouUrl ||
+                    (this.CustomThankYouUrl != null &&
+                    this.CustomThankYouUrl.Equals(input.CustomThankYouUrl))
                 ) && 
                 (
                     this.ExcludeFromSearch == input.ExcludeFromSearch ||
@@ -259,6 +274,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Assignments.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.CustomThankYouUrl != null)
+                    hashCode = hashCode * 59 + this.CustomThankYouUrl.GetHashCode();
                 if (this.ExcludeFromSearch != null)
                     hashCode = hashCode * 59 + this.ExcludeFromSearch.GetHashCode();
                 if (this.ExcludeFromTopSellers != null)

@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponPercentOffItemsAndFreeShipping" /> class.
         /// </summary>
-        /// <param name="DiscountPercent">The percentage of subtotal discount.</param>
-        /// <param name="ExcludedItems">A list of items which cannot be discounted..</param>
-        /// <param name="Items">An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items..</param>
-        public CouponPercentOffItemsAndFreeShipping(decimal? DiscountPercent = default(decimal?), List<string> ExcludedItems = default(List<string>), List<string> Items = default(List<string>))
+        /// <param name="discountPercent">The percentage of subtotal discount.</param>
+        /// <param name="excludedItems">A list of items which cannot be discounted..</param>
+        /// <param name="items">An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items..</param>
+        public CouponPercentOffItemsAndFreeShipping(decimal? discountPercent = default(decimal?), List<string> excludedItems = default(List<string>), List<string> items = default(List<string>))
         {
-            this.DiscountPercent = DiscountPercent;
-            this.ExcludedItems = ExcludedItems;
-            this.Items = Items;
+            this.DiscountPercent = discountPercent;
+            this.ExcludedItems = excludedItems;
+            this.Items = items;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,42 +33,42 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderTaxes" /> class.
         /// </summary>
-        /// <param name="ArbitraryTax">Arbitrary Tax, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system..</param>
-        /// <param name="ArbitraryTaxRate">Arbitrary tax rate, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system..</param>
-        /// <param name="ArbitraryTaxableSubtotal">Arbitrary taxable subtotal, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system..</param>
-        /// <param name="TaxCityAccountingCode">QuickBooks tax city code.</param>
-        /// <param name="TaxCountryAccountingCode">QuickBooks tax country code.</param>
-        /// <param name="TaxCounty">County used for tax calculation purposes (only in the United States).</param>
-        /// <param name="TaxCountyAccountingCode">QuickBooks tax county code.</param>
-        /// <param name="TaxGiftCharge">True if gift charge is taxed.</param>
-        /// <param name="TaxPostalCodeAccountingCode">QuickBooks tax postal code code.</param>
-        /// <param name="TaxRate">Tax rate, this is meaningless for updating an order.  For inserting a new order, if you need to override internal tax calculations, use the arbitrary fields..</param>
-        /// <param name="TaxRateCity">Tax rate at the city level.</param>
-        /// <param name="TaxRateCountry">Tax rate at the country level.</param>
-        /// <param name="TaxRateCounty">Tax rate at the county level.</param>
-        /// <param name="TaxRatePostalCode">Tax rate at the postal code level.</param>
-        /// <param name="TaxRateState">Tax rate at the state level.</param>
-        /// <param name="TaxShipping">True if shipping is taxed.</param>
-        /// <param name="TaxStateAccountingCode">QuickBooks tax state code.</param>
-        public OrderTaxes(decimal? ArbitraryTax = default(decimal?), decimal? ArbitraryTaxRate = default(decimal?), decimal? ArbitraryTaxableSubtotal = default(decimal?), string TaxCityAccountingCode = default(string), string TaxCountryAccountingCode = default(string), string TaxCounty = default(string), string TaxCountyAccountingCode = default(string), bool? TaxGiftCharge = default(bool?), string TaxPostalCodeAccountingCode = default(string), decimal? TaxRate = default(decimal?), decimal? TaxRateCity = default(decimal?), decimal? TaxRateCountry = default(decimal?), decimal? TaxRateCounty = default(decimal?), decimal? TaxRatePostalCode = default(decimal?), decimal? TaxRateState = default(decimal?), bool? TaxShipping = default(bool?), string TaxStateAccountingCode = default(string))
+        /// <param name="arbitraryTax">Arbitrary Tax, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system..</param>
+        /// <param name="arbitraryTaxRate">Arbitrary tax rate, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system..</param>
+        /// <param name="arbitraryTaxableSubtotal">Arbitrary taxable subtotal, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system..</param>
+        /// <param name="taxCityAccountingCode">QuickBooks tax city code.</param>
+        /// <param name="taxCountryAccountingCode">QuickBooks tax country code.</param>
+        /// <param name="taxCounty">County used for tax calculation purposes (only in the United States).</param>
+        /// <param name="taxCountyAccountingCode">QuickBooks tax county code.</param>
+        /// <param name="taxGiftCharge">True if gift charge is taxed.</param>
+        /// <param name="taxPostalCodeAccountingCode">QuickBooks tax postal code code.</param>
+        /// <param name="taxRate">Tax rate, this is meaningless for updating an order.  For inserting a new order, if you need to override internal tax calculations, use the arbitrary fields..</param>
+        /// <param name="taxRateCity">Tax rate at the city level.</param>
+        /// <param name="taxRateCountry">Tax rate at the country level.</param>
+        /// <param name="taxRateCounty">Tax rate at the county level.</param>
+        /// <param name="taxRatePostalCode">Tax rate at the postal code level.</param>
+        /// <param name="taxRateState">Tax rate at the state level.</param>
+        /// <param name="taxShipping">True if shipping is taxed.</param>
+        /// <param name="taxStateAccountingCode">QuickBooks tax state code.</param>
+        public OrderTaxes(decimal? arbitraryTax = default(decimal?), decimal? arbitraryTaxRate = default(decimal?), decimal? arbitraryTaxableSubtotal = default(decimal?), string taxCityAccountingCode = default(string), string taxCountryAccountingCode = default(string), string taxCounty = default(string), string taxCountyAccountingCode = default(string), bool? taxGiftCharge = default(bool?), string taxPostalCodeAccountingCode = default(string), decimal? taxRate = default(decimal?), decimal? taxRateCity = default(decimal?), decimal? taxRateCountry = default(decimal?), decimal? taxRateCounty = default(decimal?), decimal? taxRatePostalCode = default(decimal?), decimal? taxRateState = default(decimal?), bool? taxShipping = default(bool?), string taxStateAccountingCode = default(string))
         {
-            this.ArbitraryTax = ArbitraryTax;
-            this.ArbitraryTaxRate = ArbitraryTaxRate;
-            this.ArbitraryTaxableSubtotal = ArbitraryTaxableSubtotal;
-            this.TaxCityAccountingCode = TaxCityAccountingCode;
-            this.TaxCountryAccountingCode = TaxCountryAccountingCode;
-            this.TaxCounty = TaxCounty;
-            this.TaxCountyAccountingCode = TaxCountyAccountingCode;
-            this.TaxGiftCharge = TaxGiftCharge;
-            this.TaxPostalCodeAccountingCode = TaxPostalCodeAccountingCode;
-            this.TaxRate = TaxRate;
-            this.TaxRateCity = TaxRateCity;
-            this.TaxRateCountry = TaxRateCountry;
-            this.TaxRateCounty = TaxRateCounty;
-            this.TaxRatePostalCode = TaxRatePostalCode;
-            this.TaxRateState = TaxRateState;
-            this.TaxShipping = TaxShipping;
-            this.TaxStateAccountingCode = TaxStateAccountingCode;
+            this.ArbitraryTax = arbitraryTax;
+            this.ArbitraryTaxRate = arbitraryTaxRate;
+            this.ArbitraryTaxableSubtotal = arbitraryTaxableSubtotal;
+            this.TaxCityAccountingCode = taxCityAccountingCode;
+            this.TaxCountryAccountingCode = taxCountryAccountingCode;
+            this.TaxCounty = taxCounty;
+            this.TaxCountyAccountingCode = taxCountyAccountingCode;
+            this.TaxGiftCharge = taxGiftCharge;
+            this.TaxPostalCodeAccountingCode = taxPostalCodeAccountingCode;
+            this.TaxRate = taxRate;
+            this.TaxRateCity = taxRateCity;
+            this.TaxRateCountry = taxRateCountry;
+            this.TaxRateCounty = taxRateCounty;
+            this.TaxRatePostalCode = taxRatePostalCode;
+            this.TaxRateState = taxRateState;
+            this.TaxShipping = taxShipping;
+            this.TaxStateAccountingCode = taxStateAccountingCode;
         }
         
         /// <summary>
@@ -223,7 +223,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

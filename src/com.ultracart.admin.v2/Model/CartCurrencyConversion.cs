@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartCurrencyConversion" /> class.
         /// </summary>
-        /// <param name="BaseCurrencyCode">Base currency code for this merchant.</param>
-        /// <param name="Currencies">Conversion information for 1 unit of base currency to target currencies.</param>
-        public CartCurrencyConversion(string BaseCurrencyCode = default(string), List<Currency> Currencies = default(List<Currency>))
+        /// <param name="baseCurrencyCode">Base currency code for this merchant.</param>
+        /// <param name="currencies">Conversion information for 1 unit of base currency to target currencies.</param>
+        public CartCurrencyConversion(string baseCurrencyCode = default(string), List<Currency> currencies = default(List<Currency>))
         {
-            this.BaseCurrencyCode = BaseCurrencyCode;
-            this.Currencies = Currencies;
+            this.BaseCurrencyCode = baseCurrencyCode;
+            this.Currencies = currencies;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

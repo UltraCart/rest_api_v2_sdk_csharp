@@ -39,40 +39,40 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Begin for "begin"
+            /// Enum Begin for value: begin
             /// </summary>
             [EnumMember(Value = "begin")]
-            Begin,
+            Begin = 1,
             
             /// <summary>
-            /// Enum Wait for "wait"
+            /// Enum Wait for value: wait
             /// </summary>
             [EnumMember(Value = "wait")]
-            Wait,
+            Wait = 2,
             
             /// <summary>
-            /// Enum Email for "email"
+            /// Enum Email for value: email
             /// </summary>
             [EnumMember(Value = "email")]
-            Email,
+            Email = 3,
             
             /// <summary>
-            /// Enum Merge for "merge"
+            /// Enum Merge for value: merge
             /// </summary>
             [EnumMember(Value = "merge")]
-            Merge,
+            Merge = 4,
             
             /// <summary>
-            /// Enum Condition for "condition"
+            /// Enum Condition for value: condition
             /// </summary>
             [EnumMember(Value = "condition")]
-            Condition,
+            Condition = 5,
             
             /// <summary>
-            /// Enum End for "end"
+            /// Enum End for value: end
             /// </summary>
             [EnumMember(Value = "end")]
-            End
+            End = 6
         }
 
         /// <summary>
@@ -84,20 +84,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailCommseqStep" /> class.
         /// </summary>
-        /// <param name="AltChildEmailCommunicationSequenceSteps">Array of child steps for the alternate path.</param>
-        /// <param name="ChildEmailCommunicationSequenceSteps">Array of child steps.</param>
-        /// <param name="EmailCommunicationSequenceStepUuid">Email commseq step UUID.</param>
-        /// <param name="FilterProfileEquationJson">Filter profile equation JSON.</param>
-        /// <param name="StepConfigJson">Arbitrary Configuration for a step.</param>
-        /// <param name="Type">Type of step.</param>
-        public EmailCommseqStep(List<EmailCommseqStep> AltChildEmailCommunicationSequenceSteps = default(List<EmailCommseqStep>), List<EmailCommseqStep> ChildEmailCommunicationSequenceSteps = default(List<EmailCommseqStep>), string EmailCommunicationSequenceStepUuid = default(string), string FilterProfileEquationJson = default(string), string StepConfigJson = default(string), TypeEnum? Type = default(TypeEnum?))
+        /// <param name="altChildEmailCommunicationSequenceSteps">Array of child steps for the alternate path.</param>
+        /// <param name="childEmailCommunicationSequenceSteps">Array of child steps.</param>
+        /// <param name="emailCommunicationSequenceStepUuid">Email commseq step UUID.</param>
+        /// <param name="emailPendingReview">True if the content of the email associated with this step is pending review by UltraCart.</param>
+        /// <param name="emailRejected">True if the content of the email associated with this step was rejected during review by UltraCart.</param>
+        /// <param name="emailRequiresReview">True if the content of the email associated with this step requires review by UltraCart.</param>
+        /// <param name="filterProfileEquationJson">Filter profile equation JSON.</param>
+        /// <param name="merchantNotes">Internal merchant notes.</param>
+        /// <param name="stepConfigJson">Arbitrary Configuration for a step.</param>
+        /// <param name="type">Type of step.</param>
+        public EmailCommseqStep(List<EmailCommseqStep> altChildEmailCommunicationSequenceSteps = default(List<EmailCommseqStep>), List<EmailCommseqStep> childEmailCommunicationSequenceSteps = default(List<EmailCommseqStep>), string emailCommunicationSequenceStepUuid = default(string), bool? emailPendingReview = default(bool?), bool? emailRejected = default(bool?), bool? emailRequiresReview = default(bool?), string filterProfileEquationJson = default(string), string merchantNotes = default(string), string stepConfigJson = default(string), TypeEnum? type = default(TypeEnum?))
         {
-            this.AltChildEmailCommunicationSequenceSteps = AltChildEmailCommunicationSequenceSteps;
-            this.ChildEmailCommunicationSequenceSteps = ChildEmailCommunicationSequenceSteps;
-            this.EmailCommunicationSequenceStepUuid = EmailCommunicationSequenceStepUuid;
-            this.FilterProfileEquationJson = FilterProfileEquationJson;
-            this.StepConfigJson = StepConfigJson;
-            this.Type = Type;
+            this.AltChildEmailCommunicationSequenceSteps = altChildEmailCommunicationSequenceSteps;
+            this.ChildEmailCommunicationSequenceSteps = childEmailCommunicationSequenceSteps;
+            this.EmailCommunicationSequenceStepUuid = emailCommunicationSequenceStepUuid;
+            this.EmailPendingReview = emailPendingReview;
+            this.EmailRejected = emailRejected;
+            this.EmailRequiresReview = emailRequiresReview;
+            this.FilterProfileEquationJson = filterProfileEquationJson;
+            this.MerchantNotes = merchantNotes;
+            this.StepConfigJson = stepConfigJson;
+            this.Type = type;
         }
         
         /// <summary>
@@ -122,11 +130,39 @@ namespace com.ultracart.admin.v2.Model
         public string EmailCommunicationSequenceStepUuid { get; set; }
 
         /// <summary>
+        /// True if the content of the email associated with this step is pending review by UltraCart
+        /// </summary>
+        /// <value>True if the content of the email associated with this step is pending review by UltraCart</value>
+        [DataMember(Name="email_pending_review", EmitDefaultValue=false)]
+        public bool? EmailPendingReview { get; set; }
+
+        /// <summary>
+        /// True if the content of the email associated with this step was rejected during review by UltraCart
+        /// </summary>
+        /// <value>True if the content of the email associated with this step was rejected during review by UltraCart</value>
+        [DataMember(Name="email_rejected", EmitDefaultValue=false)]
+        public bool? EmailRejected { get; set; }
+
+        /// <summary>
+        /// True if the content of the email associated with this step requires review by UltraCart
+        /// </summary>
+        /// <value>True if the content of the email associated with this step requires review by UltraCart</value>
+        [DataMember(Name="email_requires_review", EmitDefaultValue=false)]
+        public bool? EmailRequiresReview { get; set; }
+
+        /// <summary>
         /// Filter profile equation JSON
         /// </summary>
         /// <value>Filter profile equation JSON</value>
         [DataMember(Name="filter_profile_equation_json", EmitDefaultValue=false)]
         public string FilterProfileEquationJson { get; set; }
+
+        /// <summary>
+        /// Internal merchant notes
+        /// </summary>
+        /// <value>Internal merchant notes</value>
+        [DataMember(Name="merchant_notes", EmitDefaultValue=false)]
+        public string MerchantNotes { get; set; }
 
         /// <summary>
         /// Arbitrary Configuration for a step
@@ -147,7 +183,11 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AltChildEmailCommunicationSequenceSteps: ").Append(AltChildEmailCommunicationSequenceSteps).Append("\n");
             sb.Append("  ChildEmailCommunicationSequenceSteps: ").Append(ChildEmailCommunicationSequenceSteps).Append("\n");
             sb.Append("  EmailCommunicationSequenceStepUuid: ").Append(EmailCommunicationSequenceStepUuid).Append("\n");
+            sb.Append("  EmailPendingReview: ").Append(EmailPendingReview).Append("\n");
+            sb.Append("  EmailRejected: ").Append(EmailRejected).Append("\n");
+            sb.Append("  EmailRequiresReview: ").Append(EmailRequiresReview).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
+            sb.Append("  MerchantNotes: ").Append(MerchantNotes).Append("\n");
             sb.Append("  StepConfigJson: ").Append(StepConfigJson).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
@@ -158,7 +198,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -200,9 +240,29 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailCommunicationSequenceStepUuid.Equals(input.EmailCommunicationSequenceStepUuid))
                 ) && 
                 (
+                    this.EmailPendingReview == input.EmailPendingReview ||
+                    (this.EmailPendingReview != null &&
+                    this.EmailPendingReview.Equals(input.EmailPendingReview))
+                ) && 
+                (
+                    this.EmailRejected == input.EmailRejected ||
+                    (this.EmailRejected != null &&
+                    this.EmailRejected.Equals(input.EmailRejected))
+                ) && 
+                (
+                    this.EmailRequiresReview == input.EmailRequiresReview ||
+                    (this.EmailRequiresReview != null &&
+                    this.EmailRequiresReview.Equals(input.EmailRequiresReview))
+                ) && 
+                (
                     this.FilterProfileEquationJson == input.FilterProfileEquationJson ||
                     (this.FilterProfileEquationJson != null &&
                     this.FilterProfileEquationJson.Equals(input.FilterProfileEquationJson))
+                ) && 
+                (
+                    this.MerchantNotes == input.MerchantNotes ||
+                    (this.MerchantNotes != null &&
+                    this.MerchantNotes.Equals(input.MerchantNotes))
                 ) && 
                 (
                     this.StepConfigJson == input.StepConfigJson ||
@@ -231,8 +291,16 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ChildEmailCommunicationSequenceSteps.GetHashCode();
                 if (this.EmailCommunicationSequenceStepUuid != null)
                     hashCode = hashCode * 59 + this.EmailCommunicationSequenceStepUuid.GetHashCode();
+                if (this.EmailPendingReview != null)
+                    hashCode = hashCode * 59 + this.EmailPendingReview.GetHashCode();
+                if (this.EmailRejected != null)
+                    hashCode = hashCode * 59 + this.EmailRejected.GetHashCode();
+                if (this.EmailRequiresReview != null)
+                    hashCode = hashCode * 59 + this.EmailRequiresReview.GetHashCode();
                 if (this.FilterProfileEquationJson != null)
                     hashCode = hashCode * 59 + this.FilterProfileEquationJson.GetHashCode();
+                if (this.MerchantNotes != null)
+                    hashCode = hashCode * 59 + this.MerchantNotes.GetHashCode();
                 if (this.StepConfigJson != null)
                     hashCode = hashCode * 59 + this.StepConfigJson.GetHashCode();
                 if (this.Type != null)

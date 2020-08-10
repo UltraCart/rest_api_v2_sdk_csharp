@@ -39,40 +39,40 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum AMEX for "AMEX"
+            /// Enum AMEX for value: AMEX
             /// </summary>
             [EnumMember(Value = "AMEX")]
-            AMEX,
+            AMEX = 1,
             
             /// <summary>
-            /// Enum DinersClub for "Diners Club"
+            /// Enum DinersClub for value: Diners Club
             /// </summary>
             [EnumMember(Value = "Diners Club")]
-            DinersClub,
+            DinersClub = 2,
             
             /// <summary>
-            /// Enum Discover for "Discover"
+            /// Enum Discover for value: Discover
             /// </summary>
             [EnumMember(Value = "Discover")]
-            Discover,
+            Discover = 3,
             
             /// <summary>
-            /// Enum JCB for "JCB"
+            /// Enum JCB for value: JCB
             /// </summary>
             [EnumMember(Value = "JCB")]
-            JCB,
+            JCB = 4,
             
             /// <summary>
-            /// Enum MasterCard for "MasterCard"
+            /// Enum MasterCard for value: MasterCard
             /// </summary>
             [EnumMember(Value = "MasterCard")]
-            MasterCard,
+            MasterCard = 5,
             
             /// <summary>
-            /// Enum VISA for "VISA"
+            /// Enum VISA for value: VISA
             /// </summary>
             [EnumMember(Value = "VISA")]
-            VISA
+            VISA = 6
         }
 
         /// <summary>
@@ -84,30 +84,30 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderPaymentCreditCard" /> class.
         /// </summary>
-        /// <param name="CardAuthTicket">Card authorization ticket.</param>
-        /// <param name="CardAuthorizationAmount">Card authorization amount.</param>
-        /// <param name="CardAuthorizationDts">Card authorization date/time.</param>
-        /// <param name="CardAuthorizationReferenceNumber">Card authorization reference number.</param>
-        /// <param name="CardExpirationMonth">Card expiration month (1-12).</param>
-        /// <param name="CardExpirationYear">Card expiration year (Four digit year).</param>
-        /// <param name="CardNumber">Card number (masked to last 4).</param>
-        /// <param name="CardNumberToken">Card number token from hosted fields used to update the cart number.</param>
-        /// <param name="CardNumberTruncated">True if the card has been truncated.</param>
-        /// <param name="CardType">Card type.</param>
-        /// <param name="CardVerificationNumberToken">Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries.</param>
-        public OrderPaymentCreditCard(string CardAuthTicket = default(string), decimal? CardAuthorizationAmount = default(decimal?), string CardAuthorizationDts = default(string), string CardAuthorizationReferenceNumber = default(string), int? CardExpirationMonth = default(int?), int? CardExpirationYear = default(int?), string CardNumber = default(string), string CardNumberToken = default(string), bool? CardNumberTruncated = default(bool?), CardTypeEnum? CardType = default(CardTypeEnum?), string CardVerificationNumberToken = default(string))
+        /// <param name="cardAuthTicket">Card authorization ticket.</param>
+        /// <param name="cardAuthorizationAmount">Card authorization amount.</param>
+        /// <param name="cardAuthorizationDts">Card authorization date/time.</param>
+        /// <param name="cardAuthorizationReferenceNumber">Card authorization reference number.</param>
+        /// <param name="cardExpirationMonth">Card expiration month (1-12).</param>
+        /// <param name="cardExpirationYear">Card expiration year (Four digit year).</param>
+        /// <param name="cardNumber">Card number (masked to last 4).</param>
+        /// <param name="cardNumberToken">Card number token from hosted fields used to update the cart number.</param>
+        /// <param name="cardNumberTruncated">True if the card has been truncated.</param>
+        /// <param name="cardType">Card type.</param>
+        /// <param name="cardVerificationNumberToken">Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries.</param>
+        public OrderPaymentCreditCard(string cardAuthTicket = default(string), decimal? cardAuthorizationAmount = default(decimal?), string cardAuthorizationDts = default(string), string cardAuthorizationReferenceNumber = default(string), int? cardExpirationMonth = default(int?), int? cardExpirationYear = default(int?), string cardNumber = default(string), string cardNumberToken = default(string), bool? cardNumberTruncated = default(bool?), CardTypeEnum? cardType = default(CardTypeEnum?), string cardVerificationNumberToken = default(string))
         {
-            this.CardAuthTicket = CardAuthTicket;
-            this.CardAuthorizationAmount = CardAuthorizationAmount;
-            this.CardAuthorizationDts = CardAuthorizationDts;
-            this.CardAuthorizationReferenceNumber = CardAuthorizationReferenceNumber;
-            this.CardExpirationMonth = CardExpirationMonth;
-            this.CardExpirationYear = CardExpirationYear;
-            this.CardNumber = CardNumber;
-            this.CardNumberToken = CardNumberToken;
-            this.CardNumberTruncated = CardNumberTruncated;
-            this.CardType = CardType;
-            this.CardVerificationNumberToken = CardVerificationNumberToken;
+            this.CardAuthTicket = cardAuthTicket;
+            this.CardAuthorizationAmount = cardAuthorizationAmount;
+            this.CardAuthorizationDts = cardAuthorizationDts;
+            this.CardAuthorizationReferenceNumber = cardAuthorizationReferenceNumber;
+            this.CardExpirationMonth = cardExpirationMonth;
+            this.CardExpirationYear = cardExpirationYear;
+            this.CardNumber = cardNumber;
+            this.CardNumberToken = cardNumberToken;
+            this.CardNumberTruncated = cardNumberTruncated;
+            this.CardType = cardType;
+            this.CardVerificationNumberToken = cardVerificationNumberToken;
         }
         
         /// <summary>
@@ -208,7 +208,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

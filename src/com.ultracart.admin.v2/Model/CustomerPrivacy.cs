@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerPrivacy" /> class.
         /// </summary>
-        /// <param name="LastUpdateDts">Last update date.</param>
-        /// <param name="Marketing">The customer has opted in to marketing.</param>
-        /// <param name="Preference">The customer has opted in to preference tracking.</param>
-        /// <param name="Statistics">The customer has opted in to statistics collection.</param>
-        public CustomerPrivacy(string LastUpdateDts = default(string), bool? Marketing = default(bool?), bool? Preference = default(bool?), bool? Statistics = default(bool?))
+        /// <param name="lastUpdateDts">Last update date.</param>
+        /// <param name="marketing">The customer has opted in to marketing.</param>
+        /// <param name="preference">The customer has opted in to preference tracking.</param>
+        /// <param name="statistics">The customer has opted in to statistics collection.</param>
+        public CustomerPrivacy(string lastUpdateDts = default(string), bool? marketing = default(bool?), bool? preference = default(bool?), bool? statistics = default(bool?))
         {
-            this.LastUpdateDts = LastUpdateDts;
-            this.Marketing = Marketing;
-            this.Preference = Preference;
-            this.Statistics = Statistics;
+            this.LastUpdateDts = lastUpdateDts;
+            this.Marketing = marketing;
+            this.Preference = preference;
+            this.Statistics = statistics;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

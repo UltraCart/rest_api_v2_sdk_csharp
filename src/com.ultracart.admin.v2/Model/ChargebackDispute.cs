@@ -33,54 +33,54 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChargebackDispute" /> class.
         /// </summary>
-        /// <param name="AccountNumber">Account number.</param>
-        /// <param name="AdjustmentRequestText">Adjustment request text.</param>
-        /// <param name="Amount">Amount.</param>
-        /// <param name="AuthCode">Auth code.</param>
-        /// <param name="CaseNumber">Case number.</param>
-        /// <param name="ChargebackDisputeOid">Chargeback Dispute Oid.</param>
-        /// <param name="ChargebackDts">Chargeback dts.</param>
-        /// <param name="Currency">Currency.</param>
-        /// <param name="CustomerCareNotes">Customer care notes.</param>
-        /// <param name="EncryptionKey">Encryption key.</param>
-        /// <param name="ExpirationDts">Expiration Dts.</param>
-        /// <param name="FaxFailureReason">Fax failure reason.</param>
-        /// <param name="FaxNumber">Fax number.</param>
-        /// <param name="FaxTransactionId">Fax transaction id.</param>
-        /// <param name="Icsid">icsid.</param>
-        /// <param name="MerchantAccountProfileOid">Merchant account profile oid.</param>
-        /// <param name="Order">Order.</param>
-        /// <param name="OrderId">Order Id.</param>
-        /// <param name="PartialCardNumber">Partial card number.</param>
-        /// <param name="PdfFileOid">PDF file oid.</param>
-        /// <param name="ReasonCode">Reason code.</param>
-        /// <param name="Status">Status.</param>
-        /// <param name="WebsiteUrl">Website URL.</param>
-        public ChargebackDispute(string AccountNumber = default(string), string AdjustmentRequestText = default(string), decimal? Amount = default(decimal?), string AuthCode = default(string), string CaseNumber = default(string), int? ChargebackDisputeOid = default(int?), string ChargebackDts = default(string), string Currency = default(string), string CustomerCareNotes = default(string), string EncryptionKey = default(string), string ExpirationDts = default(string), string FaxFailureReason = default(string), string FaxNumber = default(string), long? FaxTransactionId = default(long?), string Icsid = default(string), int? MerchantAccountProfileOid = default(int?), Order Order = default(Order), string OrderId = default(string), string PartialCardNumber = default(string), string PdfFileOid = default(string), string ReasonCode = default(string), string Status = default(string), string WebsiteUrl = default(string))
+        /// <param name="accountNumber">Account number.</param>
+        /// <param name="adjustmentRequestText">Adjustment request text.</param>
+        /// <param name="amount">Amount.</param>
+        /// <param name="authCode">Auth code.</param>
+        /// <param name="caseNumber">Case number.</param>
+        /// <param name="chargebackDisputeOid">Chargeback Dispute Oid.</param>
+        /// <param name="chargebackDts">Chargeback dts.</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="customerCareNotes">Customer care notes.</param>
+        /// <param name="encryptionKey">Encryption key.</param>
+        /// <param name="expirationDts">Expiration Dts.</param>
+        /// <param name="faxFailureReason">Fax failure reason.</param>
+        /// <param name="faxNumber">Fax number.</param>
+        /// <param name="faxTransactionId">Fax transaction id.</param>
+        /// <param name="icsid">icsid.</param>
+        /// <param name="merchantAccountProfileOid">Merchant account profile oid.</param>
+        /// <param name="order">order.</param>
+        /// <param name="orderId">Order Id.</param>
+        /// <param name="partialCardNumber">Partial card number.</param>
+        /// <param name="pdfFileOid">PDF file oid.</param>
+        /// <param name="reasonCode">Reason code.</param>
+        /// <param name="status">Status.</param>
+        /// <param name="websiteUrl">Website URL.</param>
+        public ChargebackDispute(string accountNumber = default(string), string adjustmentRequestText = default(string), decimal? amount = default(decimal?), string authCode = default(string), string caseNumber = default(string), int? chargebackDisputeOid = default(int?), string chargebackDts = default(string), string currency = default(string), string customerCareNotes = default(string), string encryptionKey = default(string), string expirationDts = default(string), string faxFailureReason = default(string), string faxNumber = default(string), long? faxTransactionId = default(long?), string icsid = default(string), int? merchantAccountProfileOid = default(int?), Order order = default(Order), string orderId = default(string), string partialCardNumber = default(string), string pdfFileOid = default(string), string reasonCode = default(string), string status = default(string), string websiteUrl = default(string))
         {
-            this.AccountNumber = AccountNumber;
-            this.AdjustmentRequestText = AdjustmentRequestText;
-            this.Amount = Amount;
-            this.AuthCode = AuthCode;
-            this.CaseNumber = CaseNumber;
-            this.ChargebackDisputeOid = ChargebackDisputeOid;
-            this.ChargebackDts = ChargebackDts;
-            this.Currency = Currency;
-            this.CustomerCareNotes = CustomerCareNotes;
-            this.EncryptionKey = EncryptionKey;
-            this.ExpirationDts = ExpirationDts;
-            this.FaxFailureReason = FaxFailureReason;
-            this.FaxNumber = FaxNumber;
-            this.FaxTransactionId = FaxTransactionId;
-            this.Icsid = Icsid;
-            this.MerchantAccountProfileOid = MerchantAccountProfileOid;
-            this.Order = Order;
-            this.OrderId = OrderId;
-            this.PartialCardNumber = PartialCardNumber;
-            this.PdfFileOid = PdfFileOid;
-            this.ReasonCode = ReasonCode;
-            this.Status = Status;
-            this.WebsiteUrl = WebsiteUrl;
+            this.AccountNumber = accountNumber;
+            this.AdjustmentRequestText = adjustmentRequestText;
+            this.Amount = amount;
+            this.AuthCode = authCode;
+            this.CaseNumber = caseNumber;
+            this.ChargebackDisputeOid = chargebackDisputeOid;
+            this.ChargebackDts = chargebackDts;
+            this.Currency = currency;
+            this.CustomerCareNotes = customerCareNotes;
+            this.EncryptionKey = encryptionKey;
+            this.ExpirationDts = expirationDts;
+            this.FaxFailureReason = faxFailureReason;
+            this.FaxNumber = faxNumber;
+            this.FaxTransactionId = faxTransactionId;
+            this.Icsid = icsid;
+            this.MerchantAccountProfileOid = merchantAccountProfileOid;
+            this.Order = order;
+            this.OrderId = orderId;
+            this.PartialCardNumber = partialCardNumber;
+            this.PdfFileOid = pdfFileOid;
+            this.ReasonCode = reasonCode;
+            this.Status = status;
+            this.WebsiteUrl = websiteUrl;
         }
         
         /// <summary>
@@ -282,7 +282,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

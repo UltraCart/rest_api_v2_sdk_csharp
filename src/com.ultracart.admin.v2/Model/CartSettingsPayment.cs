@@ -33,34 +33,34 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsPayment" /> class.
         /// </summary>
-        /// <param name="Amazon">Amazon.</param>
-        /// <param name="CreditCard">CreditCard.</param>
-        /// <param name="NeedPayment">True if this card requires a payment from the customer.</param>
-        /// <param name="Paypal">Paypal.</param>
-        /// <param name="SupportsAmazon">True if Amazon payments are available on this order.</param>
-        /// <param name="SupportsCheck">True if check payments are available on this order.</param>
-        /// <param name="SupportsCod">True if COD payments are available on this order.</param>
-        /// <param name="SupportsCreditCard">True if credit card payments are available on this order.</param>
-        /// <param name="SupportsMoneyOrder">True if money order payments are available on this order.</param>
-        /// <param name="SupportsPaypal">True if PayPal payments are available on this order.</param>
-        /// <param name="SupportsPurchaseOrder">True if purchase order payments are available on this order.</param>
-        /// <param name="SupportsQuoteRequest">True if quote requests payments are available on this order.</param>
-        /// <param name="SupportsWireTransfer">True if wire transfer payments are available on this order.</param>
-        public CartSettingsPayment(CartSettingsPaymentAmazon Amazon = default(CartSettingsPaymentAmazon), CartSettingsPaymentCreditCard CreditCard = default(CartSettingsPaymentCreditCard), bool? NeedPayment = default(bool?), CartSettingsPaymentPayPal Paypal = default(CartSettingsPaymentPayPal), bool? SupportsAmazon = default(bool?), bool? SupportsCheck = default(bool?), bool? SupportsCod = default(bool?), bool? SupportsCreditCard = default(bool?), bool? SupportsMoneyOrder = default(bool?), bool? SupportsPaypal = default(bool?), bool? SupportsPurchaseOrder = default(bool?), bool? SupportsQuoteRequest = default(bool?), bool? SupportsWireTransfer = default(bool?))
+        /// <param name="amazon">amazon.</param>
+        /// <param name="creditCard">creditCard.</param>
+        /// <param name="needPayment">True if this card requires a payment from the customer.</param>
+        /// <param name="paypal">paypal.</param>
+        /// <param name="supportsAmazon">True if Amazon payments are available on this order.</param>
+        /// <param name="supportsCheck">True if check payments are available on this order.</param>
+        /// <param name="supportsCod">True if COD payments are available on this order.</param>
+        /// <param name="supportsCreditCard">True if credit card payments are available on this order.</param>
+        /// <param name="supportsMoneyOrder">True if money order payments are available on this order.</param>
+        /// <param name="supportsPaypal">True if PayPal payments are available on this order.</param>
+        /// <param name="supportsPurchaseOrder">True if purchase order payments are available on this order.</param>
+        /// <param name="supportsQuoteRequest">True if quote requests payments are available on this order.</param>
+        /// <param name="supportsWireTransfer">True if wire transfer payments are available on this order.</param>
+        public CartSettingsPayment(CartSettingsPaymentAmazon amazon = default(CartSettingsPaymentAmazon), CartSettingsPaymentCreditCard creditCard = default(CartSettingsPaymentCreditCard), bool? needPayment = default(bool?), CartSettingsPaymentPayPal paypal = default(CartSettingsPaymentPayPal), bool? supportsAmazon = default(bool?), bool? supportsCheck = default(bool?), bool? supportsCod = default(bool?), bool? supportsCreditCard = default(bool?), bool? supportsMoneyOrder = default(bool?), bool? supportsPaypal = default(bool?), bool? supportsPurchaseOrder = default(bool?), bool? supportsQuoteRequest = default(bool?), bool? supportsWireTransfer = default(bool?))
         {
-            this.Amazon = Amazon;
-            this.CreditCard = CreditCard;
-            this.NeedPayment = NeedPayment;
-            this.Paypal = Paypal;
-            this.SupportsAmazon = SupportsAmazon;
-            this.SupportsCheck = SupportsCheck;
-            this.SupportsCod = SupportsCod;
-            this.SupportsCreditCard = SupportsCreditCard;
-            this.SupportsMoneyOrder = SupportsMoneyOrder;
-            this.SupportsPaypal = SupportsPaypal;
-            this.SupportsPurchaseOrder = SupportsPurchaseOrder;
-            this.SupportsQuoteRequest = SupportsQuoteRequest;
-            this.SupportsWireTransfer = SupportsWireTransfer;
+            this.Amazon = amazon;
+            this.CreditCard = creditCard;
+            this.NeedPayment = needPayment;
+            this.Paypal = paypal;
+            this.SupportsAmazon = supportsAmazon;
+            this.SupportsCheck = supportsCheck;
+            this.SupportsCod = supportsCod;
+            this.SupportsCreditCard = supportsCreditCard;
+            this.SupportsMoneyOrder = supportsMoneyOrder;
+            this.SupportsPaypal = supportsPaypal;
+            this.SupportsPurchaseOrder = supportsPurchaseOrder;
+            this.SupportsQuoteRequest = supportsQuoteRequest;
+            this.SupportsWireTransfer = supportsWireTransfer;
         }
         
         /// <summary>
@@ -180,7 +180,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsGiftWrap" /> class.
         /// </summary>
-        /// <param name="Cost">Cost.</param>
-        /// <param name="Title">Title of the gift wrap.</param>
-        /// <param name="Url">URL for the sample of the gift wrap.</param>
-        public CartSettingsGiftWrap(Currency Cost = default(Currency), string Title = default(string), string Url = default(string))
+        /// <param name="cost">cost.</param>
+        /// <param name="title">Title of the gift wrap.</param>
+        /// <param name="url">URL for the sample of the gift wrap.</param>
+        public CartSettingsGiftWrap(Currency cost = default(Currency), string title = default(string), string url = default(string))
         {
-            this.Cost = Cost;
-            this.Title = Title;
-            this.Url = Url;
+            this.Cost = cost;
+            this.Title = title;
+            this.Url = url;
         }
         
         /// <summary>
@@ -82,7 +82,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

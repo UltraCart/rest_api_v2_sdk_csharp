@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxProviderAvalaraCompaniesResult" /> class.
         /// </summary>
-        /// <param name="Companies">Tax companies configured by the merchant.</param>
-        public TaxProviderAvalaraCompaniesResult(List<TaxProviderAvalaraCompany> Companies = default(List<TaxProviderAvalaraCompany>))
+        /// <param name="companies">Tax companies configured by the merchant.</param>
+        public TaxProviderAvalaraCompaniesResult(List<TaxProviderAvalaraCompany> companies = default(List<TaxProviderAvalaraCompany>))
         {
-            this.Companies = Companies;
+            this.Companies = companies;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

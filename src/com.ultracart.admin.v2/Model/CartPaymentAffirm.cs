@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartPaymentAffirm" /> class.
         /// </summary>
-        /// <param name="AffirmCheckoutToken">Affirm checkout token.</param>
-        public CartPaymentAffirm(string AffirmCheckoutToken = default(string))
+        /// <param name="affirmCheckoutToken">Affirm checkout token.</param>
+        public CartPaymentAffirm(string affirmCheckoutToken = default(string))
         {
-            this.AffirmCheckoutToken = AffirmCheckoutToken;
+            this.AffirmCheckoutToken = affirmCheckoutToken;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

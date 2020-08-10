@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExperimentsResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="Experiments">Experiments.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public ExperimentsResponse(Error Error = default(Error), List<Experiment> Experiments = default(List<Experiment>), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?))
+        /// <param name="error">error.</param>
+        /// <param name="experiments">experiments.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public ExperimentsResponse(Error error = default(Error), List<Experiment> experiments = default(List<Experiment>), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?))
         {
-            this.Error = Error;
-            this.Experiments = Experiments;
-            this.Metadata = Metadata;
-            this.Success = Success;
+            this.Error = error;
+            this.Experiments = experiments;
+            this.Metadata = metadata;
+            this.Success = success;
         }
         
         /// <summary>
@@ -90,7 +90,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

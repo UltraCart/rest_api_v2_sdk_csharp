@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Error** | [**Error**](Error.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **Self** | [**TaxProviderSelf**](TaxProviderSelf.md) |  | [optional] 
+**Sovos** | [**TaxProviderSovos**](TaxProviderSovos.md) |  | [optional] 
 **Success** | **bool?** | Indicates if API call was successful | [optional] 
 **Taxjar** | [**TaxProviderTaxJar**](TaxProviderTaxJar.md) |  | [optional] 
 **Ultracart** | [**TaxProviderUltraCart**](TaxProviderUltraCart.md) |  | [optional] 

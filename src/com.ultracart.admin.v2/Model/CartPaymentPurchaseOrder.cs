@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartPaymentPurchaseOrder" /> class.
         /// </summary>
-        /// <param name="PurchaseOrderNumber">Purchase order number.</param>
-        public CartPaymentPurchaseOrder(string PurchaseOrderNumber = default(string))
+        /// <param name="purchaseOrderNumber">Purchase order number.</param>
+        public CartPaymentPurchaseOrder(string purchaseOrderNumber = default(string))
         {
-            this.PurchaseOrderNumber = PurchaseOrderNumber;
+            this.PurchaseOrderNumber = purchaseOrderNumber;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

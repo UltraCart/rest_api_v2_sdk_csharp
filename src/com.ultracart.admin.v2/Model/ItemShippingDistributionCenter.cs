@@ -33,34 +33,34 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingDistributionCenter" /> class.
         /// </summary>
-        /// <param name="AllocatedToPlacedOrders">Allocated to placed orders.</param>
-        /// <param name="AllocatedToShoppingCarts">Allocated to shopping carts.</param>
-        /// <param name="AvailableToAllocate">Available to allocate.</param>
-        /// <param name="DesiredInventoryLevel">Desired inventory level.</param>
-        /// <param name="DistributionCenterCode">Distribution center code.</param>
-        /// <param name="DistributionCenterOid">Distribution center object identifier.</param>
-        /// <param name="Eta">Estimated time of arrival.</param>
-        /// <param name="Handles">True if this distribution center handles this item.</param>
-        /// <param name="InventoryLevel">Inventory level.</param>
-        /// <param name="MaximumBackorder">Maximum back-order.</param>
-        /// <param name="ReorderInventoryLevel">Reorder inventory level (triggers notification).</param>
-        /// <param name="Sku">SKU.</param>
-        /// <param name="StockPickingLocation">Stock picking location.</param>
-        public ItemShippingDistributionCenter(decimal? AllocatedToPlacedOrders = default(decimal?), decimal? AllocatedToShoppingCarts = default(decimal?), decimal? AvailableToAllocate = default(decimal?), decimal? DesiredInventoryLevel = default(decimal?), string DistributionCenterCode = default(string), int? DistributionCenterOid = default(int?), string Eta = default(string), bool? Handles = default(bool?), decimal? InventoryLevel = default(decimal?), int? MaximumBackorder = default(int?), decimal? ReorderInventoryLevel = default(decimal?), string Sku = default(string), string StockPickingLocation = default(string))
+        /// <param name="allocatedToPlacedOrders">Allocated to placed orders.</param>
+        /// <param name="allocatedToShoppingCarts">Allocated to shopping carts.</param>
+        /// <param name="availableToAllocate">Available to allocate.</param>
+        /// <param name="desiredInventoryLevel">Desired inventory level.</param>
+        /// <param name="distributionCenterCode">Distribution center code.</param>
+        /// <param name="distributionCenterOid">Distribution center object identifier.</param>
+        /// <param name="eta">Estimated time of arrival.</param>
+        /// <param name="handles">True if this distribution center handles this item.</param>
+        /// <param name="inventoryLevel">Inventory level.</param>
+        /// <param name="maximumBackorder">Maximum back-order.</param>
+        /// <param name="reorderInventoryLevel">Reorder inventory level (triggers notification).</param>
+        /// <param name="sku">SKU.</param>
+        /// <param name="stockPickingLocation">Stock picking location.</param>
+        public ItemShippingDistributionCenter(decimal? allocatedToPlacedOrders = default(decimal?), decimal? allocatedToShoppingCarts = default(decimal?), decimal? availableToAllocate = default(decimal?), decimal? desiredInventoryLevel = default(decimal?), string distributionCenterCode = default(string), int? distributionCenterOid = default(int?), string eta = default(string), bool? handles = default(bool?), decimal? inventoryLevel = default(decimal?), int? maximumBackorder = default(int?), decimal? reorderInventoryLevel = default(decimal?), string sku = default(string), string stockPickingLocation = default(string))
         {
-            this.AllocatedToPlacedOrders = AllocatedToPlacedOrders;
-            this.AllocatedToShoppingCarts = AllocatedToShoppingCarts;
-            this.AvailableToAllocate = AvailableToAllocate;
-            this.DesiredInventoryLevel = DesiredInventoryLevel;
-            this.DistributionCenterCode = DistributionCenterCode;
-            this.DistributionCenterOid = DistributionCenterOid;
-            this.Eta = Eta;
-            this.Handles = Handles;
-            this.InventoryLevel = InventoryLevel;
-            this.MaximumBackorder = MaximumBackorder;
-            this.ReorderInventoryLevel = ReorderInventoryLevel;
-            this.Sku = Sku;
-            this.StockPickingLocation = StockPickingLocation;
+            this.AllocatedToPlacedOrders = allocatedToPlacedOrders;
+            this.AllocatedToShoppingCarts = allocatedToShoppingCarts;
+            this.AvailableToAllocate = availableToAllocate;
+            this.DesiredInventoryLevel = desiredInventoryLevel;
+            this.DistributionCenterCode = distributionCenterCode;
+            this.DistributionCenterOid = distributionCenterOid;
+            this.Eta = eta;
+            this.Handles = handles;
+            this.InventoryLevel = inventoryLevel;
+            this.MaximumBackorder = maximumBackorder;
+            this.ReorderInventoryLevel = reorderInventoryLevel;
+            this.Sku = sku;
+            this.StockPickingLocation = stockPickingLocation;
         }
         
         /// <summary>
@@ -183,7 +183,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

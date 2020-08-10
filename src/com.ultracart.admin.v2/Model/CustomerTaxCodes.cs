@@ -33,14 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerTaxCodes" /> class.
         /// </summary>
-        /// <param name="AvalaraCustomerCode">Avalara customer code.</param>
-        /// <param name="AvalaraEntityUseCode">Avalara entity use code.</param>
-        /// <param name="TaxjarCustomerId">TaxJar customer id.</param>
-        public CustomerTaxCodes(string AvalaraCustomerCode = default(string), string AvalaraEntityUseCode = default(string), string TaxjarCustomerId = default(string))
+        /// <param name="avalaraCustomerCode">Avalara customer code.</param>
+        /// <param name="avalaraEntityUseCode">Avalara entity use code.</param>
+        /// <param name="sovosCustomerCode">Sovos customer code.</param>
+        /// <param name="taxjarCustomerId">TaxJar customer id.</param>
+        public CustomerTaxCodes(string avalaraCustomerCode = default(string), string avalaraEntityUseCode = default(string), string sovosCustomerCode = default(string), string taxjarCustomerId = default(string))
         {
-            this.AvalaraCustomerCode = AvalaraCustomerCode;
-            this.AvalaraEntityUseCode = AvalaraEntityUseCode;
-            this.TaxjarCustomerId = TaxjarCustomerId;
+            this.AvalaraCustomerCode = avalaraCustomerCode;
+            this.AvalaraEntityUseCode = avalaraEntityUseCode;
+            this.SovosCustomerCode = sovosCustomerCode;
+            this.TaxjarCustomerId = taxjarCustomerId;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Avalara entity use code</value>
         [DataMember(Name="avalara_entity_use_code", EmitDefaultValue=false)]
         public string AvalaraEntityUseCode { get; set; }
+
+        /// <summary>
+        /// Sovos customer code
+        /// </summary>
+        /// <value>Sovos customer code</value>
+        [DataMember(Name="sovos_customer_code", EmitDefaultValue=false)]
+        public string SovosCustomerCode { get; set; }
 
         /// <summary>
         /// TaxJar customer id
@@ -74,6 +83,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class CustomerTaxCodes {\n");
             sb.Append("  AvalaraCustomerCode: ").Append(AvalaraCustomerCode).Append("\n");
             sb.Append("  AvalaraEntityUseCode: ").Append(AvalaraEntityUseCode).Append("\n");
+            sb.Append("  SovosCustomerCode: ").Append(SovosCustomerCode).Append("\n");
             sb.Append("  TaxjarCustomerId: ").Append(TaxjarCustomerId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -83,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -120,6 +130,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AvalaraEntityUseCode.Equals(input.AvalaraEntityUseCode))
                 ) && 
                 (
+                    this.SovosCustomerCode == input.SovosCustomerCode ||
+                    (this.SovosCustomerCode != null &&
+                    this.SovosCustomerCode.Equals(input.SovosCustomerCode))
+                ) && 
+                (
                     this.TaxjarCustomerId == input.TaxjarCustomerId ||
                     (this.TaxjarCustomerId != null &&
                     this.TaxjarCustomerId.Equals(input.TaxjarCustomerId))
@@ -139,6 +154,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AvalaraCustomerCode.GetHashCode();
                 if (this.AvalaraEntityUseCode != null)
                     hashCode = hashCode * 59 + this.AvalaraEntityUseCode.GetHashCode();
+                if (this.SovosCustomerCode != null)
+                    hashCode = hashCode * 59 + this.SovosCustomerCode.GetHashCode();
                 if (this.TaxjarCustomerId != null)
                     hashCode = hashCode * 59 + this.TaxjarCustomerId.GetHashCode();
                 return hashCode;

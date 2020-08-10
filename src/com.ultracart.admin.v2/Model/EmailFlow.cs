@@ -33,46 +33,54 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailFlow" /> class.
         /// </summary>
-        /// <param name="AllowMultipleConcurrentEnrollments">True if a customer may be enrolled in this flow multiple times.</param>
-        /// <param name="ClickRateFormatted">Click rate of emails, formatted.</param>
-        /// <param name="CreatedDts">Created date.</param>
-        /// <param name="Deleted">True if this campaign was deleted.</param>
-        /// <param name="EmailCommunicationSequenceUuid">Email communication sequence UUID.</param>
-        /// <param name="EmailFlowUuid">Email flow UUID.</param>
-        /// <param name="EspDomainUser">Username of sending email.</param>
-        /// <param name="EspDomainUuid">UUID of sending domain.</param>
-        /// <param name="FilterProfileEquationJson">File profile equation json.</param>
-        /// <param name="MerchantId">Merchant ID.</param>
-        /// <param name="Name">Name of email flow.</param>
-        /// <param name="OpenRateFormatted">Open rate of emails, formatted.</param>
-        /// <param name="RevenueFormatted">Revenue, formatted.</param>
-        /// <param name="Status">Status of the campaign of draft, archived, active, and inactive.</param>
-        /// <param name="StatusDts">Timestamp when the last status change happened.</param>
-        /// <param name="StorefrontOid">Storefront oid.</param>
-        /// <param name="TriggerParameter">Trigger parameter.</param>
-        /// <param name="TriggerParameterName">Trigger parameter name.</param>
-        /// <param name="TriggerType">Trigger type.</param>
-        public EmailFlow(bool? AllowMultipleConcurrentEnrollments = default(bool?), string ClickRateFormatted = default(string), string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailCommunicationSequenceUuid = default(string), string EmailFlowUuid = default(string), string EspDomainUser = default(string), string EspDomainUuid = default(string), string FilterProfileEquationJson = default(string), string MerchantId = default(string), string Name = default(string), string OpenRateFormatted = default(string), string RevenueFormatted = default(string), string Status = default(string), string StatusDts = default(string), int? StorefrontOid = default(int?), string TriggerParameter = default(string), string TriggerParameterName = default(string), string TriggerType = default(string))
+        /// <param name="allowMultipleConcurrentEnrollments">True if a customer may be enrolled in this flow multiple times.</param>
+        /// <param name="backPopulating">True if the flow is currently performing a back population..</param>
+        /// <param name="clickRateFormatted">Click rate of emails, formatted.</param>
+        /// <param name="createdDts">Created date.</param>
+        /// <param name="deleted">True if this campaign was deleted.</param>
+        /// <param name="emailCommunicationSequenceUuid">Email communication sequence UUID.</param>
+        /// <param name="emailFlowUuid">Email flow UUID.</param>
+        /// <param name="endOnceCustomerPurchases">True if the customer should end the flow once they purchase.</param>
+        /// <param name="enrolledCustomers">Number of enrolled customers..</param>
+        /// <param name="espDomainUser">Username of sending email.</param>
+        /// <param name="espDomainUuid">UUID of sending domain.</param>
+        /// <param name="espFriendlyName">Friendly name of the sending email.</param>
+        /// <param name="filterProfileEquationJson">File profile equation json.</param>
+        /// <param name="merchantId">Merchant ID.</param>
+        /// <param name="name">Name of email flow.</param>
+        /// <param name="openRateFormatted">Open rate of emails, formatted.</param>
+        /// <param name="revenueFormatted">Revenue, formatted.</param>
+        /// <param name="status">Status of the campaign of draft, archived, active, and inactive.</param>
+        /// <param name="statusDts">Timestamp when the last status change happened.</param>
+        /// <param name="storefrontOid">Storefront oid.</param>
+        /// <param name="triggerParameter">Trigger parameter.</param>
+        /// <param name="triggerParameterName">Trigger parameter name.</param>
+        /// <param name="triggerType">Trigger type.</param>
+        public EmailFlow(bool? allowMultipleConcurrentEnrollments = default(bool?), bool? backPopulating = default(bool?), string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), int? enrolledCustomers = default(int?), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), string revenueFormatted = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
         {
-            this.AllowMultipleConcurrentEnrollments = AllowMultipleConcurrentEnrollments;
-            this.ClickRateFormatted = ClickRateFormatted;
-            this.CreatedDts = CreatedDts;
-            this.Deleted = Deleted;
-            this.EmailCommunicationSequenceUuid = EmailCommunicationSequenceUuid;
-            this.EmailFlowUuid = EmailFlowUuid;
-            this.EspDomainUser = EspDomainUser;
-            this.EspDomainUuid = EspDomainUuid;
-            this.FilterProfileEquationJson = FilterProfileEquationJson;
-            this.MerchantId = MerchantId;
-            this.Name = Name;
-            this.OpenRateFormatted = OpenRateFormatted;
-            this.RevenueFormatted = RevenueFormatted;
-            this.Status = Status;
-            this.StatusDts = StatusDts;
-            this.StorefrontOid = StorefrontOid;
-            this.TriggerParameter = TriggerParameter;
-            this.TriggerParameterName = TriggerParameterName;
-            this.TriggerType = TriggerType;
+            this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
+            this.BackPopulating = backPopulating;
+            this.ClickRateFormatted = clickRateFormatted;
+            this.CreatedDts = createdDts;
+            this.Deleted = deleted;
+            this.EmailCommunicationSequenceUuid = emailCommunicationSequenceUuid;
+            this.EmailFlowUuid = emailFlowUuid;
+            this.EndOnceCustomerPurchases = endOnceCustomerPurchases;
+            this.EnrolledCustomers = enrolledCustomers;
+            this.EspDomainUser = espDomainUser;
+            this.EspDomainUuid = espDomainUuid;
+            this.EspFriendlyName = espFriendlyName;
+            this.FilterProfileEquationJson = filterProfileEquationJson;
+            this.MerchantId = merchantId;
+            this.Name = name;
+            this.OpenRateFormatted = openRateFormatted;
+            this.RevenueFormatted = revenueFormatted;
+            this.Status = status;
+            this.StatusDts = statusDts;
+            this.StorefrontOid = storefrontOid;
+            this.TriggerParameter = triggerParameter;
+            this.TriggerParameterName = triggerParameterName;
+            this.TriggerType = triggerType;
         }
         
         /// <summary>
@@ -81,6 +89,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if a customer may be enrolled in this flow multiple times</value>
         [DataMember(Name="allow_multiple_concurrent_enrollments", EmitDefaultValue=false)]
         public bool? AllowMultipleConcurrentEnrollments { get; set; }
+
+        /// <summary>
+        /// True if the flow is currently performing a back population.
+        /// </summary>
+        /// <value>True if the flow is currently performing a back population.</value>
+        [DataMember(Name="back_populating", EmitDefaultValue=false)]
+        public bool? BackPopulating { get; set; }
 
         /// <summary>
         /// Click rate of emails, formatted
@@ -118,6 +133,20 @@ namespace com.ultracart.admin.v2.Model
         public string EmailFlowUuid { get; set; }
 
         /// <summary>
+        /// True if the customer should end the flow once they purchase
+        /// </summary>
+        /// <value>True if the customer should end the flow once they purchase</value>
+        [DataMember(Name="end_once_customer_purchases", EmitDefaultValue=false)]
+        public bool? EndOnceCustomerPurchases { get; set; }
+
+        /// <summary>
+        /// Number of enrolled customers.
+        /// </summary>
+        /// <value>Number of enrolled customers.</value>
+        [DataMember(Name="enrolled_customers", EmitDefaultValue=false)]
+        public int? EnrolledCustomers { get; set; }
+
+        /// <summary>
         /// Username of sending email
         /// </summary>
         /// <value>Username of sending email</value>
@@ -130,6 +159,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>UUID of sending domain</value>
         [DataMember(Name="esp_domain_uuid", EmitDefaultValue=false)]
         public string EspDomainUuid { get; set; }
+
+        /// <summary>
+        /// Friendly name of the sending email
+        /// </summary>
+        /// <value>Friendly name of the sending email</value>
+        [DataMember(Name="esp_friendly_name", EmitDefaultValue=false)]
+        public string EspFriendlyName { get; set; }
 
         /// <summary>
         /// File profile equation json
@@ -217,13 +253,17 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class EmailFlow {\n");
             sb.Append("  AllowMultipleConcurrentEnrollments: ").Append(AllowMultipleConcurrentEnrollments).Append("\n");
+            sb.Append("  BackPopulating: ").Append(BackPopulating).Append("\n");
             sb.Append("  ClickRateFormatted: ").Append(ClickRateFormatted).Append("\n");
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EmailCommunicationSequenceUuid: ").Append(EmailCommunicationSequenceUuid).Append("\n");
             sb.Append("  EmailFlowUuid: ").Append(EmailFlowUuid).Append("\n");
+            sb.Append("  EndOnceCustomerPurchases: ").Append(EndOnceCustomerPurchases).Append("\n");
+            sb.Append("  EnrolledCustomers: ").Append(EnrolledCustomers).Append("\n");
             sb.Append("  EspDomainUser: ").Append(EspDomainUser).Append("\n");
             sb.Append("  EspDomainUuid: ").Append(EspDomainUuid).Append("\n");
+            sb.Append("  EspFriendlyName: ").Append(EspFriendlyName).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -243,7 +283,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -275,6 +315,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AllowMultipleConcurrentEnrollments.Equals(input.AllowMultipleConcurrentEnrollments))
                 ) && 
                 (
+                    this.BackPopulating == input.BackPopulating ||
+                    (this.BackPopulating != null &&
+                    this.BackPopulating.Equals(input.BackPopulating))
+                ) && 
+                (
                     this.ClickRateFormatted == input.ClickRateFormatted ||
                     (this.ClickRateFormatted != null &&
                     this.ClickRateFormatted.Equals(input.ClickRateFormatted))
@@ -300,6 +345,16 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailFlowUuid.Equals(input.EmailFlowUuid))
                 ) && 
                 (
+                    this.EndOnceCustomerPurchases == input.EndOnceCustomerPurchases ||
+                    (this.EndOnceCustomerPurchases != null &&
+                    this.EndOnceCustomerPurchases.Equals(input.EndOnceCustomerPurchases))
+                ) && 
+                (
+                    this.EnrolledCustomers == input.EnrolledCustomers ||
+                    (this.EnrolledCustomers != null &&
+                    this.EnrolledCustomers.Equals(input.EnrolledCustomers))
+                ) && 
+                (
                     this.EspDomainUser == input.EspDomainUser ||
                     (this.EspDomainUser != null &&
                     this.EspDomainUser.Equals(input.EspDomainUser))
@@ -308,6 +363,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EspDomainUuid == input.EspDomainUuid ||
                     (this.EspDomainUuid != null &&
                     this.EspDomainUuid.Equals(input.EspDomainUuid))
+                ) && 
+                (
+                    this.EspFriendlyName == input.EspFriendlyName ||
+                    (this.EspFriendlyName != null &&
+                    this.EspFriendlyName.Equals(input.EspFriendlyName))
                 ) && 
                 (
                     this.FilterProfileEquationJson == input.FilterProfileEquationJson ||
@@ -377,6 +437,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AllowMultipleConcurrentEnrollments != null)
                     hashCode = hashCode * 59 + this.AllowMultipleConcurrentEnrollments.GetHashCode();
+                if (this.BackPopulating != null)
+                    hashCode = hashCode * 59 + this.BackPopulating.GetHashCode();
                 if (this.ClickRateFormatted != null)
                     hashCode = hashCode * 59 + this.ClickRateFormatted.GetHashCode();
                 if (this.CreatedDts != null)
@@ -387,10 +449,16 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailCommunicationSequenceUuid.GetHashCode();
                 if (this.EmailFlowUuid != null)
                     hashCode = hashCode * 59 + this.EmailFlowUuid.GetHashCode();
+                if (this.EndOnceCustomerPurchases != null)
+                    hashCode = hashCode * 59 + this.EndOnceCustomerPurchases.GetHashCode();
+                if (this.EnrolledCustomers != null)
+                    hashCode = hashCode * 59 + this.EnrolledCustomers.GetHashCode();
                 if (this.EspDomainUser != null)
                     hashCode = hashCode * 59 + this.EspDomainUser.GetHashCode();
                 if (this.EspDomainUuid != null)
                     hashCode = hashCode * 59 + this.EspDomainUuid.GetHashCode();
+                if (this.EspFriendlyName != null)
+                    hashCode = hashCode * 59 + this.EspFriendlyName.GetHashCode();
                 if (this.FilterProfileEquationJson != null)
                     hashCode = hashCode * 59 + this.FilterProfileEquationJson.GetHashCode();
                 if (this.MerchantId != null)

@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GeocodeResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="Latitude">Latitude.</param>
-        /// <param name="Longitude">Longitude.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public GeocodeResponse(Error Error = default(Error), decimal? Latitude = default(decimal?), decimal? Longitude = default(decimal?), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?))
+        /// <param name="error">error.</param>
+        /// <param name="latitude">latitude.</param>
+        /// <param name="longitude">longitude.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public GeocodeResponse(Error error = default(Error), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?))
         {
-            this.Error = Error;
-            this.Latitude = Latitude;
-            this.Longitude = Longitude;
-            this.Metadata = Metadata;
-            this.Success = Success;
+            this.Error = error;
+            this.Latitude = latitude;
+            this.Longitude = longitude;
+            this.Metadata = metadata;
+            this.Success = success;
         }
         
         /// <summary>
@@ -99,7 +99,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

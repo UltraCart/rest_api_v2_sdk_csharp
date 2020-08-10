@@ -33,52 +33,52 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartCustomerProfile" /> class.
         /// </summary>
-        /// <param name="Allow3rdPartyBilling">True if profile is allowed to bill to their 3rd party shipping account.</param>
-        /// <param name="AllowCod">True if this profile is allowed to use a COD.</param>
-        /// <param name="AllowPurchaseOrder">True if this profile is allowed to use a purchase order.</param>
-        /// <param name="BillingAddresses">Billing addresses on file for this profile.</param>
-        /// <param name="CreditCards">Credit cards on file for this profile (masked).</param>
-        /// <param name="CustomerProfileOid">Unique identifier.</param>
-        /// <param name="DhlAccountNumber">DHL account number on file.</param>
-        /// <param name="DhlDutyAccountNumber">DHL duty account number on file.</param>
-        /// <param name="Email">Email.</param>
-        /// <param name="FedexAccountNumber">FedEx account number on file.</param>
-        /// <param name="FreeShipping">True if this profile always qualifies for free shipping.</param>
-        /// <param name="FreeShippingMinimum">The minimum aount that this profile has to purchase to qualify for free shipping.</param>
-        /// <param name="MaximumItemCount">Maximum item count this profile can purchase.</param>
-        /// <param name="MinimumItemCount">Minimum item count this profile must purchase.</param>
-        /// <param name="MinimumSubtotal">Minimum subtotal this profile must purchase.</param>
-        /// <param name="NoCoupons">True if this profile is prevented from using coupons.</param>
-        /// <param name="NoFreeShipping">True if this profile is never given free shipping.</param>
-        /// <param name="NoRealtimeCharge">True if this customers orders are not charged in real-time.</param>
-        /// <param name="PricingTiers">Pricing tier names this profile qualifies for.</param>
-        /// <param name="ShippingAddresses">Shipping addresses on file for this profile.</param>
-        /// <param name="TaxExempt">True if this profile is exempt from sales tax.</param>
-        /// <param name="UpsAccountNumber">UPS account number on file.</param>
-        public CartCustomerProfile(bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), List<CartCustomerProfileAddress> BillingAddresses = default(List<CartCustomerProfileAddress>), List<CartCustomerProfileCreditCard> CreditCards = default(List<CartCustomerProfileCreditCard>), int? CustomerProfileOid = default(int?), string DhlAccountNumber = default(string), string DhlDutyAccountNumber = default(string), string Email = default(string), string FedexAccountNumber = default(string), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), List<string> PricingTiers = default(List<string>), List<CartCustomerProfileAddress> ShippingAddresses = default(List<CartCustomerProfileAddress>), bool? TaxExempt = default(bool?), string UpsAccountNumber = default(string))
+        /// <param name="allow3rdPartyBilling">True if profile is allowed to bill to their 3rd party shipping account.</param>
+        /// <param name="allowCod">True if this profile is allowed to use a COD.</param>
+        /// <param name="allowPurchaseOrder">True if this profile is allowed to use a purchase order.</param>
+        /// <param name="billingAddresses">Billing addresses on file for this profile.</param>
+        /// <param name="creditCards">Credit cards on file for this profile (masked).</param>
+        /// <param name="customerProfileOid">Unique identifier.</param>
+        /// <param name="dhlAccountNumber">DHL account number on file.</param>
+        /// <param name="dhlDutyAccountNumber">DHL duty account number on file.</param>
+        /// <param name="email">Email.</param>
+        /// <param name="fedexAccountNumber">FedEx account number on file.</param>
+        /// <param name="freeShipping">True if this profile always qualifies for free shipping.</param>
+        /// <param name="freeShippingMinimum">The minimum aount that this profile has to purchase to qualify for free shipping.</param>
+        /// <param name="maximumItemCount">Maximum item count this profile can purchase.</param>
+        /// <param name="minimumItemCount">Minimum item count this profile must purchase.</param>
+        /// <param name="minimumSubtotal">Minimum subtotal this profile must purchase.</param>
+        /// <param name="noCoupons">True if this profile is prevented from using coupons.</param>
+        /// <param name="noFreeShipping">True if this profile is never given free shipping.</param>
+        /// <param name="noRealtimeCharge">True if this customers orders are not charged in real-time.</param>
+        /// <param name="pricingTiers">Pricing tier names this profile qualifies for.</param>
+        /// <param name="shippingAddresses">Shipping addresses on file for this profile.</param>
+        /// <param name="taxExempt">True if this profile is exempt from sales tax.</param>
+        /// <param name="upsAccountNumber">UPS account number on file.</param>
+        public CartCustomerProfile(bool? allow3rdPartyBilling = default(bool?), bool? allowCod = default(bool?), bool? allowPurchaseOrder = default(bool?), List<CartCustomerProfileAddress> billingAddresses = default(List<CartCustomerProfileAddress>), List<CartCustomerProfileCreditCard> creditCards = default(List<CartCustomerProfileCreditCard>), int? customerProfileOid = default(int?), string dhlAccountNumber = default(string), string dhlDutyAccountNumber = default(string), string email = default(string), string fedexAccountNumber = default(string), bool? freeShipping = default(bool?), decimal? freeShippingMinimum = default(decimal?), int? maximumItemCount = default(int?), int? minimumItemCount = default(int?), decimal? minimumSubtotal = default(decimal?), bool? noCoupons = default(bool?), bool? noFreeShipping = default(bool?), bool? noRealtimeCharge = default(bool?), List<string> pricingTiers = default(List<string>), List<CartCustomerProfileAddress> shippingAddresses = default(List<CartCustomerProfileAddress>), bool? taxExempt = default(bool?), string upsAccountNumber = default(string))
         {
-            this.Allow3rdPartyBilling = Allow3rdPartyBilling;
-            this.AllowCod = AllowCod;
-            this.AllowPurchaseOrder = AllowPurchaseOrder;
-            this.BillingAddresses = BillingAddresses;
-            this.CreditCards = CreditCards;
-            this.CustomerProfileOid = CustomerProfileOid;
-            this.DhlAccountNumber = DhlAccountNumber;
-            this.DhlDutyAccountNumber = DhlDutyAccountNumber;
-            this.Email = Email;
-            this.FedexAccountNumber = FedexAccountNumber;
-            this.FreeShipping = FreeShipping;
-            this.FreeShippingMinimum = FreeShippingMinimum;
-            this.MaximumItemCount = MaximumItemCount;
-            this.MinimumItemCount = MinimumItemCount;
-            this.MinimumSubtotal = MinimumSubtotal;
-            this.NoCoupons = NoCoupons;
-            this.NoFreeShipping = NoFreeShipping;
-            this.NoRealtimeCharge = NoRealtimeCharge;
-            this.PricingTiers = PricingTiers;
-            this.ShippingAddresses = ShippingAddresses;
-            this.TaxExempt = TaxExempt;
-            this.UpsAccountNumber = UpsAccountNumber;
+            this.Allow3rdPartyBilling = allow3rdPartyBilling;
+            this.AllowCod = allowCod;
+            this.AllowPurchaseOrder = allowPurchaseOrder;
+            this.BillingAddresses = billingAddresses;
+            this.CreditCards = creditCards;
+            this.CustomerProfileOid = customerProfileOid;
+            this.DhlAccountNumber = dhlAccountNumber;
+            this.DhlDutyAccountNumber = dhlDutyAccountNumber;
+            this.Email = email;
+            this.FedexAccountNumber = fedexAccountNumber;
+            this.FreeShipping = freeShipping;
+            this.FreeShippingMinimum = freeShippingMinimum;
+            this.MaximumItemCount = maximumItemCount;
+            this.MinimumItemCount = minimumItemCount;
+            this.MinimumSubtotal = minimumSubtotal;
+            this.NoCoupons = noCoupons;
+            this.NoFreeShipping = noFreeShipping;
+            this.NoRealtimeCharge = noRealtimeCharge;
+            this.PricingTiers = pricingTiers;
+            this.ShippingAddresses = shippingAddresses;
+            this.TaxExempt = taxExempt;
+            this.UpsAccountNumber = upsAccountNumber;
         }
         
         /// <summary>
@@ -273,7 +273,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

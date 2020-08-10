@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemTax" /> class.
         /// </summary>
-        /// <param name="Exemptions">Exemptions.</param>
-        /// <param name="TaxFree">True if tax free.</param>
-        /// <param name="TaxableCost">Taxable cost if different than regular cost.</param>
-        public ItemTax(List<ItemTaxExemption> Exemptions = default(List<ItemTaxExemption>), bool? TaxFree = default(bool?), decimal? TaxableCost = default(decimal?))
+        /// <param name="exemptions">Exemptions.</param>
+        /// <param name="taxFree">True if tax free.</param>
+        /// <param name="taxableCost">Taxable cost if different than regular cost.</param>
+        public ItemTax(List<ItemTaxExemption> exemptions = default(List<ItemTaxExemption>), bool? taxFree = default(bool?), decimal? taxableCost = default(decimal?))
         {
-            this.Exemptions = Exemptions;
-            this.TaxFree = TaxFree;
-            this.TaxableCost = TaxableCost;
+            this.Exemptions = exemptions;
+            this.TaxFree = taxFree;
+            this.TaxableCost = taxableCost;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

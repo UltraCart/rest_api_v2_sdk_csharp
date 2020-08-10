@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponPercentOffSubtotalLimit" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="DiscountPercent">The percentage of subtotal discount.</param>
-        /// <param name="Limit">The maximum amount of subtotal used to determine discount..</param>
-        public CouponPercentOffSubtotalLimit(string CurrencyCode = default(string), decimal? DiscountPercent = default(decimal?), decimal? Limit = default(decimal?))
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="discountPercent">The percentage of subtotal discount.</param>
+        /// <param name="limit">The maximum amount of subtotal used to determine discount..</param>
+        public CouponPercentOffSubtotalLimit(string currencyCode = default(string), decimal? discountPercent = default(decimal?), decimal? limit = default(decimal?))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.DiscountPercent = DiscountPercent;
-            this.Limit = Limit;
+            this.CurrencyCode = currencyCode;
+            this.DiscountPercent = discountPercent;
+            this.Limit = limit;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

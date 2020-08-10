@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**DeleteCustomer**](CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**GetCustomer**](CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**GetCustomers**](CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
-[**GetCustomersByQuery**](CustomerApi.md#getcustomersbyquery) | **GET** /customer/customers/query | Retrieve customers by query
+[**GetCustomersByQuery**](CustomerApi.md#getcustomersbyquery) | **POST** /customer/customers/query | Retrieve customers by query
 [**GetCustomersForDataTables**](CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**GetEditorValues**](CustomerApi.md#geteditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**GetEmailLists**](CustomerApi.md#getemaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts

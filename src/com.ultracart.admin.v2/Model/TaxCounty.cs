@@ -33,28 +33,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxCounty" /> class.
         /// </summary>
-        /// <param name="AccountingCode">Accounting code for programs such as QuickBooks.</param>
-        /// <param name="Cities">Cities within this city.</param>
-        /// <param name="County">County.</param>
-        /// <param name="CountyOid">Tax record object identifier used internally by database.</param>
-        /// <param name="DontCollectCity">Flag instructing engine to not collect city tax for this county.</param>
-        /// <param name="DontCollectCounty">Flag instructing engine to not collect county tax for this county.</param>
-        /// <param name="DontCollectPostalCode">Flag instructing engine to not collect postal code tax for this county.</param>
-        /// <param name="StateOid">Tax record object identifier used internally by database.</param>
-        /// <param name="TaxRate">Tax Rate.</param>
-        /// <param name="TaxRateFormatted">Tax rate formatted.</param>
-        public TaxCounty(string AccountingCode = default(string), List<TaxCity> Cities = default(List<TaxCity>), string County = default(string), int? CountyOid = default(int?), bool? DontCollectCity = default(bool?), bool? DontCollectCounty = default(bool?), bool? DontCollectPostalCode = default(bool?), int? StateOid = default(int?), decimal? TaxRate = default(decimal?), string TaxRateFormatted = default(string))
+        /// <param name="accountingCode">Accounting code for programs such as QuickBooks.</param>
+        /// <param name="cities">Cities within this city.</param>
+        /// <param name="county">County.</param>
+        /// <param name="countyOid">Tax record object identifier used internally by database.</param>
+        /// <param name="dontCollectCity">Flag instructing engine to not collect city tax for this county.</param>
+        /// <param name="dontCollectCounty">Flag instructing engine to not collect county tax for this county.</param>
+        /// <param name="dontCollectPostalCode">Flag instructing engine to not collect postal code tax for this county.</param>
+        /// <param name="stateOid">Tax record object identifier used internally by database.</param>
+        /// <param name="taxRate">Tax Rate.</param>
+        /// <param name="taxRateFormatted">Tax rate formatted.</param>
+        public TaxCounty(string accountingCode = default(string), List<TaxCity> cities = default(List<TaxCity>), string county = default(string), int? countyOid = default(int?), bool? dontCollectCity = default(bool?), bool? dontCollectCounty = default(bool?), bool? dontCollectPostalCode = default(bool?), int? stateOid = default(int?), decimal? taxRate = default(decimal?), string taxRateFormatted = default(string))
         {
-            this.AccountingCode = AccountingCode;
-            this.Cities = Cities;
-            this.County = County;
-            this.CountyOid = CountyOid;
-            this.DontCollectCity = DontCollectCity;
-            this.DontCollectCounty = DontCollectCounty;
-            this.DontCollectPostalCode = DontCollectPostalCode;
-            this.StateOid = StateOid;
-            this.TaxRate = TaxRate;
-            this.TaxRateFormatted = TaxRateFormatted;
+            this.AccountingCode = accountingCode;
+            this.Cities = cities;
+            this.County = county;
+            this.CountyOid = countyOid;
+            this.DontCollectCity = dontCollectCity;
+            this.DontCollectCounty = dontCollectCounty;
+            this.DontCollectPostalCode = dontCollectPostalCode;
+            this.StateOid = stateOid;
+            this.TaxRate = taxRate;
+            this.TaxRateFormatted = taxRateFormatted;
         }
         
         /// <summary>
@@ -153,7 +153,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

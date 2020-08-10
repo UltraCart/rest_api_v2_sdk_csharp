@@ -33,28 +33,39 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailList" /> class.
         /// </summary>
-        /// <param name="CreatedDts">Created date.</param>
-        /// <param name="Deleted">True if this campaign was deleted.</param>
-        /// <param name="EmailListUuid">Email list UUID.</param>
-        /// <param name="MemberCount">Count of members in this list.</param>
-        /// <param name="MerchantId">Merchant ID.</param>
-        /// <param name="Name">Name of email list.</param>
-        /// <param name="PublicDescription">Description of list shown to customer..</param>
-        /// <param name="PublicList">True if this list is public.</param>
-        /// <param name="StorefrontOid">Storefront oid.</param>
-        public EmailList(string CreatedDts = default(string), bool? Deleted = default(bool?), string EmailListUuid = default(string), int? MemberCount = default(int?), string MerchantId = default(string), string Name = default(string), string PublicDescription = default(string), bool? PublicList = default(bool?), int? StorefrontOid = default(int?))
+        /// <param name="allowCsvDownload">True if the current user has the rights to download this list..</param>
+        /// <param name="createdDts">Created date.</param>
+        /// <param name="deleted">True if this campaign was deleted.</param>
+        /// <param name="emailListUuid">Email list UUID.</param>
+        /// <param name="memberCount">Count of members in this list.</param>
+        /// <param name="merchantId">Merchant ID.</param>
+        /// <param name="name">Name of email list.</param>
+        /// <param name="publicDescription">Description of list shown to customer..</param>
+        /// <param name="publicList">True if this list is public.</param>
+        /// <param name="storefrontOid">Storefront oid.</param>
+        /// <param name="usedBy">Details on the flows or campaigns that use this list..</param>
+        public EmailList(bool? allowCsvDownload = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailListUuid = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string publicDescription = default(string), bool? publicList = default(bool?), int? storefrontOid = default(int?), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
         {
-            this.CreatedDts = CreatedDts;
-            this.Deleted = Deleted;
-            this.EmailListUuid = EmailListUuid;
-            this.MemberCount = MemberCount;
-            this.MerchantId = MerchantId;
-            this.Name = Name;
-            this.PublicDescription = PublicDescription;
-            this.PublicList = PublicList;
-            this.StorefrontOid = StorefrontOid;
+            this.AllowCsvDownload = allowCsvDownload;
+            this.CreatedDts = createdDts;
+            this.Deleted = deleted;
+            this.EmailListUuid = emailListUuid;
+            this.MemberCount = memberCount;
+            this.MerchantId = merchantId;
+            this.Name = name;
+            this.PublicDescription = publicDescription;
+            this.PublicList = publicList;
+            this.StorefrontOid = storefrontOid;
+            this.UsedBy = usedBy;
         }
         
+        /// <summary>
+        /// True if the current user has the rights to download this list.
+        /// </summary>
+        /// <value>True if the current user has the rights to download this list.</value>
+        [DataMember(Name="allow_csv_download", EmitDefaultValue=false)]
+        public bool? AllowCsvDownload { get; set; }
+
         /// <summary>
         /// Created date
         /// </summary>
@@ -119,6 +130,13 @@ namespace com.ultracart.admin.v2.Model
         public int? StorefrontOid { get; set; }
 
         /// <summary>
+        /// Details on the flows or campaigns that use this list.
+        /// </summary>
+        /// <value>Details on the flows or campaigns that use this list.</value>
+        [DataMember(Name="used_by", EmitDefaultValue=false)]
+        public List<EmailListSegmentUsedBy> UsedBy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -126,6 +144,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailList {\n");
+            sb.Append("  AllowCsvDownload: ").Append(AllowCsvDownload).Append("\n");
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EmailListUuid: ").Append(EmailListUuid).Append("\n");
@@ -135,6 +154,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PublicDescription: ").Append(PublicDescription).Append("\n");
             sb.Append("  PublicList: ").Append(PublicList).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
+            sb.Append("  UsedBy: ").Append(UsedBy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,7 +163,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -169,6 +189,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AllowCsvDownload == input.AllowCsvDownload ||
+                    (this.AllowCsvDownload != null &&
+                    this.AllowCsvDownload.Equals(input.AllowCsvDownload))
+                ) && 
                 (
                     this.CreatedDts == input.CreatedDts ||
                     (this.CreatedDts != null &&
@@ -213,6 +238,11 @@ namespace com.ultracart.admin.v2.Model
                     this.StorefrontOid == input.StorefrontOid ||
                     (this.StorefrontOid != null &&
                     this.StorefrontOid.Equals(input.StorefrontOid))
+                ) && 
+                (
+                    this.UsedBy == input.UsedBy ||
+                    this.UsedBy != null &&
+                    this.UsedBy.SequenceEqual(input.UsedBy)
                 );
         }
 
@@ -225,6 +255,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AllowCsvDownload != null)
+                    hashCode = hashCode * 59 + this.AllowCsvDownload.GetHashCode();
                 if (this.CreatedDts != null)
                     hashCode = hashCode * 59 + this.CreatedDts.GetHashCode();
                 if (this.Deleted != null)
@@ -243,6 +275,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PublicList.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
+                if (this.UsedBy != null)
+                    hashCode = hashCode * 59 + this.UsedBy.GetHashCode();
                 return hashCode;
             }
         }

@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CommseqEmailUuids** | **List&lt;string&gt;** |  | [optional] 
+**CommseqStepUuids** | **List&lt;string&gt;** |  | [optional] 
 **Days** | **int?** |  | [optional] 
 
 

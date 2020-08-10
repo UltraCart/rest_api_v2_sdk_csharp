@@ -33,46 +33,46 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartShipping" /> class.
         /// </summary>
-        /// <param name="Address1">Address line 1.</param>
-        /// <param name="Address2">Address line 2.</param>
-        /// <param name="City">City.</param>
-        /// <param name="Company">Company.</param>
-        /// <param name="CountryCode">ISO-3166 two letter country code.</param>
-        /// <param name="DayPhone">Day time phone.</param>
-        /// <param name="DeliveryDate">Date the customer is requesting delivery on. Typically used for perishable product delivery..</param>
-        /// <param name="EveningPhone">Evening phone.</param>
-        /// <param name="FirstName">First name.</param>
-        /// <param name="LastName">Last name.</param>
-        /// <param name="LiftGate">Lift gate requested (LTL shipping methods only).</param>
-        /// <param name="PostalCode">Postal code.</param>
-        /// <param name="ShipOnDate">Date the customer is requesting that the order ship on.  Typically used for perishable product delivery..</param>
-        /// <param name="ShipToResidential">True if the shipping adress is residential.  Effects the methods that are available to the customer as well as the price of the shipping method..</param>
-        /// <param name="Shipping3rdPartyAccountNumber">3rd party account number to ship against for UPS or FedEx.</param>
-        /// <param name="ShippingMethod">Shipping method.</param>
-        /// <param name="SpecialInstructions">Special instructions from the customer regarding shipping.</param>
-        /// <param name="StateRegion">State/Region.</param>
-        /// <param name="Title">Title.</param>
-        public CartShipping(string Address1 = default(string), string Address2 = default(string), string City = default(string), string Company = default(string), string CountryCode = default(string), string DayPhone = default(string), string DeliveryDate = default(string), string EveningPhone = default(string), string FirstName = default(string), string LastName = default(string), bool? LiftGate = default(bool?), string PostalCode = default(string), string ShipOnDate = default(string), bool? ShipToResidential = default(bool?), string Shipping3rdPartyAccountNumber = default(string), string ShippingMethod = default(string), string SpecialInstructions = default(string), string StateRegion = default(string), string Title = default(string))
+        /// <param name="address1">Address line 1.</param>
+        /// <param name="address2">Address line 2.</param>
+        /// <param name="city">City.</param>
+        /// <param name="company">Company.</param>
+        /// <param name="countryCode">ISO-3166 two letter country code.</param>
+        /// <param name="dayPhone">Day time phone.</param>
+        /// <param name="deliveryDate">Date the customer is requesting delivery on. Typically used for perishable product delivery..</param>
+        /// <param name="eveningPhone">Evening phone.</param>
+        /// <param name="firstName">First name.</param>
+        /// <param name="lastName">Last name.</param>
+        /// <param name="liftGate">Lift gate requested (LTL shipping methods only).</param>
+        /// <param name="postalCode">Postal code.</param>
+        /// <param name="shipOnDate">Date the customer is requesting that the order ship on.  Typically used for perishable product delivery..</param>
+        /// <param name="shipToResidential">True if the shipping adress is residential.  Effects the methods that are available to the customer as well as the price of the shipping method..</param>
+        /// <param name="shipping3rdPartyAccountNumber">3rd party account number to ship against for UPS or FedEx.</param>
+        /// <param name="shippingMethod">Shipping method.</param>
+        /// <param name="specialInstructions">Special instructions from the customer regarding shipping.</param>
+        /// <param name="stateRegion">State/Region.</param>
+        /// <param name="title">Title.</param>
+        public CartShipping(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string deliveryDate = default(string), string eveningPhone = default(string), string firstName = default(string), string lastName = default(string), bool? liftGate = default(bool?), string postalCode = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shipping3rdPartyAccountNumber = default(string), string shippingMethod = default(string), string specialInstructions = default(string), string stateRegion = default(string), string title = default(string))
         {
-            this.Address1 = Address1;
-            this.Address2 = Address2;
-            this.City = City;
-            this.Company = Company;
-            this.CountryCode = CountryCode;
-            this.DayPhone = DayPhone;
-            this.DeliveryDate = DeliveryDate;
-            this.EveningPhone = EveningPhone;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.LiftGate = LiftGate;
-            this.PostalCode = PostalCode;
-            this.ShipOnDate = ShipOnDate;
-            this.ShipToResidential = ShipToResidential;
-            this.Shipping3rdPartyAccountNumber = Shipping3rdPartyAccountNumber;
-            this.ShippingMethod = ShippingMethod;
-            this.SpecialInstructions = SpecialInstructions;
-            this.StateRegion = StateRegion;
-            this.Title = Title;
+            this.Address1 = address1;
+            this.Address2 = address2;
+            this.City = city;
+            this.Company = company;
+            this.CountryCode = countryCode;
+            this.DayPhone = dayPhone;
+            this.DeliveryDate = deliveryDate;
+            this.EveningPhone = eveningPhone;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.LiftGate = liftGate;
+            this.PostalCode = postalCode;
+            this.ShipOnDate = shipOnDate;
+            this.ShipToResidential = shipToResidential;
+            this.Shipping3rdPartyAccountNumber = shipping3rdPartyAccountNumber;
+            this.ShippingMethod = shippingMethod;
+            this.SpecialInstructions = specialInstructions;
+            this.StateRegion = stateRegion;
+            this.Title = title;
         }
         
         /// <summary>
@@ -243,7 +243,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

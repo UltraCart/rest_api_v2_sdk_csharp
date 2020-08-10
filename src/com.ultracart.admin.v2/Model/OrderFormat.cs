@@ -39,28 +39,28 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Text for "text"
+            /// Enum Text for value: text
             /// </summary>
             [EnumMember(Value = "text")]
-            Text,
+            Text = 1,
             
             /// <summary>
-            /// Enum Div for "div"
+            /// Enum Div for value: div
             /// </summary>
             [EnumMember(Value = "div")]
-            Div,
+            Div = 2,
             
             /// <summary>
-            /// Enum Table for "table"
+            /// Enum Table for value: table
             /// </summary>
             [EnumMember(Value = "table")]
-            Table,
+            Table = 3,
             
             /// <summary>
-            /// Enum Email for "email"
+            /// Enum Email for value: email
             /// </summary>
             [EnumMember(Value = "email")]
-            Email
+            Email = 4
         }
 
         /// <summary>
@@ -72,40 +72,40 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderFormat" /> class.
         /// </summary>
-        /// <param name="Context">The context to generate the order view for..</param>
-        /// <param name="DontLinkEmailToSearch">True to not link the email address to the order search.</param>
-        /// <param name="EmailAsLink">True to make the email address a clickable mailto link.</param>
-        /// <param name="FilterDistributionCenterOid">Specify a distribution center oid to filter the items displayed to that particular distribution center..</param>
-        /// <param name="FilterToItemsInContactOid">The container oid to filter items to..</param>
-        /// <param name="Format">The desired format..</param>
-        /// <param name="HideBillToAddress">True to ide the bill to address.</param>
-        /// <param name="HidePriceInformation">True to hide price information.</param>
-        /// <param name="LinkFileAttachments">True to link file attachments for download.</param>
-        /// <param name="ShowContactInfo">True to show contact information.</param>
-        /// <param name="ShowInMerchantCurrency">True to show the order in the merchant currency.</param>
-        /// <param name="ShowInternalInformation">True to show internal information about the order.</param>
-        /// <param name="ShowMerchantNotes">True to show merchant notes.</param>
-        /// <param name="ShowNonSensitivePaymentInfo">True to show non-sensitive payment information.</param>
-        /// <param name="ShowPaymentInfo">True to show payment information.</param>
-        /// <param name="Translate">True to translate the order into the native language of the customer.</param>
-        public OrderFormat(string Context = default(string), bool? DontLinkEmailToSearch = default(bool?), bool? EmailAsLink = default(bool?), int? FilterDistributionCenterOid = default(int?), int? FilterToItemsInContactOid = default(int?), FormatEnum? Format = default(FormatEnum?), bool? HideBillToAddress = default(bool?), bool? HidePriceInformation = default(bool?), bool? LinkFileAttachments = default(bool?), bool? ShowContactInfo = default(bool?), bool? ShowInMerchantCurrency = default(bool?), bool? ShowInternalInformation = default(bool?), bool? ShowMerchantNotes = default(bool?), bool? ShowNonSensitivePaymentInfo = default(bool?), bool? ShowPaymentInfo = default(bool?), bool? Translate = default(bool?))
+        /// <param name="context">The context to generate the order view for..</param>
+        /// <param name="dontLinkEmailToSearch">True to not link the email address to the order search.</param>
+        /// <param name="emailAsLink">True to make the email address a clickable mailto link.</param>
+        /// <param name="filterDistributionCenterOid">Specify a distribution center oid to filter the items displayed to that particular distribution center..</param>
+        /// <param name="filterToItemsInContactOid">The container oid to filter items to..</param>
+        /// <param name="format">The desired format..</param>
+        /// <param name="hideBillToAddress">True to ide the bill to address.</param>
+        /// <param name="hidePriceInformation">True to hide price information.</param>
+        /// <param name="linkFileAttachments">True to link file attachments for download.</param>
+        /// <param name="showContactInfo">True to show contact information.</param>
+        /// <param name="showInMerchantCurrency">True to show the order in the merchant currency.</param>
+        /// <param name="showInternalInformation">True to show internal information about the order.</param>
+        /// <param name="showMerchantNotes">True to show merchant notes.</param>
+        /// <param name="showNonSensitivePaymentInfo">True to show non-sensitive payment information.</param>
+        /// <param name="showPaymentInfo">True to show payment information.</param>
+        /// <param name="translate">True to translate the order into the native language of the customer.</param>
+        public OrderFormat(string context = default(string), bool? dontLinkEmailToSearch = default(bool?), bool? emailAsLink = default(bool?), int? filterDistributionCenterOid = default(int?), int? filterToItemsInContactOid = default(int?), FormatEnum? format = default(FormatEnum?), bool? hideBillToAddress = default(bool?), bool? hidePriceInformation = default(bool?), bool? linkFileAttachments = default(bool?), bool? showContactInfo = default(bool?), bool? showInMerchantCurrency = default(bool?), bool? showInternalInformation = default(bool?), bool? showMerchantNotes = default(bool?), bool? showNonSensitivePaymentInfo = default(bool?), bool? showPaymentInfo = default(bool?), bool? translate = default(bool?))
         {
-            this.Context = Context;
-            this.DontLinkEmailToSearch = DontLinkEmailToSearch;
-            this.EmailAsLink = EmailAsLink;
-            this.FilterDistributionCenterOid = FilterDistributionCenterOid;
-            this.FilterToItemsInContactOid = FilterToItemsInContactOid;
-            this.Format = Format;
-            this.HideBillToAddress = HideBillToAddress;
-            this.HidePriceInformation = HidePriceInformation;
-            this.LinkFileAttachments = LinkFileAttachments;
-            this.ShowContactInfo = ShowContactInfo;
-            this.ShowInMerchantCurrency = ShowInMerchantCurrency;
-            this.ShowInternalInformation = ShowInternalInformation;
-            this.ShowMerchantNotes = ShowMerchantNotes;
-            this.ShowNonSensitivePaymentInfo = ShowNonSensitivePaymentInfo;
-            this.ShowPaymentInfo = ShowPaymentInfo;
-            this.Translate = Translate;
+            this.Context = context;
+            this.DontLinkEmailToSearch = dontLinkEmailToSearch;
+            this.EmailAsLink = emailAsLink;
+            this.FilterDistributionCenterOid = filterDistributionCenterOid;
+            this.FilterToItemsInContactOid = filterToItemsInContactOid;
+            this.Format = format;
+            this.HideBillToAddress = hideBillToAddress;
+            this.HidePriceInformation = hidePriceInformation;
+            this.LinkFileAttachments = linkFileAttachments;
+            this.ShowContactInfo = showContactInfo;
+            this.ShowInMerchantCurrency = showInMerchantCurrency;
+            this.ShowInternalInformation = showInternalInformation;
+            this.ShowMerchantNotes = showMerchantNotes;
+            this.ShowNonSensitivePaymentInfo = showNonSensitivePaymentInfo;
+            this.ShowPaymentInfo = showPaymentInfo;
+            this.Translate = translate;
         }
         
         /// <summary>
@@ -246,7 +246,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

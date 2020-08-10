@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CityStateZip" /> class.
         /// </summary>
-        /// <param name="City">City.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="State">State.</param>
-        /// <param name="ValidZip">ValidZip.</param>
-        /// <param name="Zip">Zip.</param>
-        public CityStateZip(string City = default(string), string Error = default(string), string State = default(string), bool? ValidZip = default(bool?), string Zip = default(string))
+        /// <param name="city">city.</param>
+        /// <param name="error">error.</param>
+        /// <param name="state">state.</param>
+        /// <param name="validZip">validZip.</param>
+        /// <param name="zip">zip.</param>
+        public CityStateZip(string city = default(string), string error = default(string), string state = default(string), bool? validZip = default(bool?), string zip = default(string))
         {
-            this.City = City;
-            this.Error = Error;
-            this.State = State;
-            this.ValidZip = ValidZip;
-            this.Zip = Zip;
+            this.City = city;
+            this.Error = error;
+            this.State = state;
+            this.ValidZip = validZip;
+            this.Zip = zip;
         }
         
         /// <summary>
@@ -98,7 +98,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponFreeShipping" /> class.
         /// </summary>
-        /// <param name="ShippingMethods">One or more shipping methods that may be used with this coupon.</param>
-        public CouponFreeShipping(List<string> ShippingMethods = default(List<string>))
+        /// <param name="shippingMethods">One or more shipping methods that may be used with this coupon.</param>
+        public CouponFreeShipping(List<string> shippingMethods = default(List<string>))
         {
-            this.ShippingMethods = ShippingMethods;
+            this.ShippingMethods = shippingMethods;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

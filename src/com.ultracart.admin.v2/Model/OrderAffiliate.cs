@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderAffiliate" /> class.
         /// </summary>
-        /// <param name="AffiliateOid">Affiliate ID.</param>
-        /// <param name="LedgerEntries">Ledger entries associated with all the commissions earned on this order.</param>
-        /// <param name="SubId">Sub identifier provided by the affiliate on the click that generated this order.</param>
-        public OrderAffiliate(int? AffiliateOid = default(int?), List<OrderAffiliateLedger> LedgerEntries = default(List<OrderAffiliateLedger>), string SubId = default(string))
+        /// <param name="affiliateOid">Affiliate ID.</param>
+        /// <param name="ledgerEntries">Ledger entries associated with all the commissions earned on this order.</param>
+        /// <param name="subId">Sub identifier provided by the affiliate on the click that generated this order.</param>
+        public OrderAffiliate(int? affiliateOid = default(int?), List<OrderAffiliateLedger> ledgerEntries = default(List<OrderAffiliateLedger>), string subId = default(string))
         {
-            this.AffiliateOid = AffiliateOid;
-            this.LedgerEntries = LedgerEntries;
-            this.SubId = SubId;
+            this.AffiliateOid = affiliateOid;
+            this.LedgerEntries = ledgerEntries;
+            this.SubId = subId;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

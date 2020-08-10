@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemIdentifiers" /> class.
         /// </summary>
-        /// <param name="Barcode">Barcode.</param>
-        /// <param name="ManufacturerName">Manufacturer Name.</param>
-        /// <param name="ManufacturerSku">Manufacturer SKU.</param>
-        /// <param name="Unspsc">UNSPSC.</param>
-        public ItemIdentifiers(string Barcode = default(string), string ManufacturerName = default(string), string ManufacturerSku = default(string), string Unspsc = default(string))
+        /// <param name="barcode">Barcode.</param>
+        /// <param name="manufacturerName">Manufacturer Name.</param>
+        /// <param name="manufacturerSku">Manufacturer SKU.</param>
+        /// <param name="unspsc">UNSPSC.</param>
+        public ItemIdentifiers(string barcode = default(string), string manufacturerName = default(string), string manufacturerSku = default(string), string unspsc = default(string))
         {
-            this.Barcode = Barcode;
-            this.ManufacturerName = ManufacturerName;
-            this.ManufacturerSku = ManufacturerSku;
-            this.Unspsc = Unspsc;
+            this.Barcode = barcode;
+            this.ManufacturerName = manufacturerName;
+            this.ManufacturerSku = manufacturerSku;
+            this.Unspsc = unspsc;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemContentAttribute" /> class.
         /// </summary>
-        /// <param name="Name">Attribute name.</param>
-        /// <param name="TranslatedTextInstanceOid">Attribute translated text instance identifier.</param>
-        /// <param name="Type">Attribute type.</param>
-        /// <param name="Value">Attribute value.</param>
-        public ItemContentAttribute(string Name = default(string), int? TranslatedTextInstanceOid = default(int?), string Type = default(string), string Value = default(string))
+        /// <param name="name">Attribute name.</param>
+        /// <param name="translatedTextInstanceOid">Attribute translated text instance identifier.</param>
+        /// <param name="type">Attribute type.</param>
+        /// <param name="value">Attribute value.</param>
+        public ItemContentAttribute(string name = default(string), int? translatedTextInstanceOid = default(int?), string type = default(string), string value = default(string))
         {
-            this.Name = Name;
-            this.TranslatedTextInstanceOid = TranslatedTextInstanceOid;
-            this.Type = Type;
-            this.Value = Value;
+            this.Name = name;
+            this.TranslatedTextInstanceOid = translatedTextInstanceOid;
+            this.Type = type;
+            this.Value = value;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,70 +33,70 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PricingTier" /> class.
         /// </summary>
-        /// <param name="Allow3rdPartyBilling">Allow 3rd party billing.</param>
-        /// <param name="AllowCod">Allow COD.</param>
-        /// <param name="AllowPurchaseOrder">Allow purchase order.</param>
-        /// <param name="AllowQuoteRequest">Allow quote request.</param>
-        /// <param name="ApprovalNotification">ApprovalNotification.</param>
-        /// <param name="AutoApproveCod">Auto approve COD.</param>
-        /// <param name="AutoApprovePurchaseOrder">Auto approve purchase order.</param>
-        /// <param name="DefaultOnWholesaleSignup">Default on wholesale signup.</param>
-        /// <param name="DefaultPercentageDiscount">Default percentage discount.</param>
-        /// <param name="DefaultShippingMethodOid">Default shipping method oid.</param>
-        /// <param name="DefaultTier">Default tier.</param>
-        /// <param name="DisplayOnWholesaleSignup">Display on wholesale signup.</param>
-        /// <param name="ExcludeFromFreePromotion">Exclude from free promotion.</param>
-        /// <param name="ExemptShippingHandlingCharge">Exempt shipping handling charge.</param>
-        /// <param name="FreeShipping">Free shipping.</param>
-        /// <param name="FreeShippingMinimum">Free shipping minimum.</param>
-        /// <param name="MaximumItemCount">Maximum item count.</param>
-        /// <param name="MinimumItemCount">Minimum item count.</param>
-        /// <param name="MinimumSubtotal">Minimum subtotal.</param>
-        /// <param name="Name">Name.</param>
-        /// <param name="NoCoupons">No coupons.</param>
-        /// <param name="NoFreeShipping">No free shipping.</param>
-        /// <param name="NoRealtimeCharge">No realtime charge.</param>
-        /// <param name="NotValidWhenCouponPresent">Not valid when coupon present.</param>
-        /// <param name="PricingTierOid">Pricing Tier Oid.</param>
-        /// <param name="RealtimePercentageDiscount">Realtime percentage discount.</param>
-        /// <param name="SignupNotification">SignupNotification.</param>
-        /// <param name="SuppressBuysafe">Suppress buySAFE.</param>
-        /// <param name="SuppressMailingList">Suppress mailing list.</param>
-        /// <param name="TaxExempt">Tax Exempt.</param>
-        /// <param name="TrackSeparately">Track separately.</param>
-        public PricingTier(bool? Allow3rdPartyBilling = default(bool?), bool? AllowCod = default(bool?), bool? AllowPurchaseOrder = default(bool?), bool? AllowQuoteRequest = default(bool?), PricingTierNotification ApprovalNotification = default(PricingTierNotification), bool? AutoApproveCod = default(bool?), bool? AutoApprovePurchaseOrder = default(bool?), bool? DefaultOnWholesaleSignup = default(bool?), decimal? DefaultPercentageDiscount = default(decimal?), int? DefaultShippingMethodOid = default(int?), bool? DefaultTier = default(bool?), bool? DisplayOnWholesaleSignup = default(bool?), bool? ExcludeFromFreePromotion = default(bool?), bool? ExemptShippingHandlingCharge = default(bool?), bool? FreeShipping = default(bool?), decimal? FreeShippingMinimum = default(decimal?), int? MaximumItemCount = default(int?), int? MinimumItemCount = default(int?), decimal? MinimumSubtotal = default(decimal?), string Name = default(string), bool? NoCoupons = default(bool?), bool? NoFreeShipping = default(bool?), bool? NoRealtimeCharge = default(bool?), bool? NotValidWhenCouponPresent = default(bool?), int? PricingTierOid = default(int?), decimal? RealtimePercentageDiscount = default(decimal?), PricingTierNotification SignupNotification = default(PricingTierNotification), bool? SuppressBuysafe = default(bool?), bool? SuppressMailingList = default(bool?), bool? TaxExempt = default(bool?), bool? TrackSeparately = default(bool?))
+        /// <param name="allow3rdPartyBilling">Allow 3rd party billing.</param>
+        /// <param name="allowCod">Allow COD.</param>
+        /// <param name="allowPurchaseOrder">Allow purchase order.</param>
+        /// <param name="allowQuoteRequest">Allow quote request.</param>
+        /// <param name="approvalNotification">approvalNotification.</param>
+        /// <param name="autoApproveCod">Auto approve COD.</param>
+        /// <param name="autoApprovePurchaseOrder">Auto approve purchase order.</param>
+        /// <param name="defaultOnWholesaleSignup">Default on wholesale signup.</param>
+        /// <param name="defaultPercentageDiscount">Default percentage discount.</param>
+        /// <param name="defaultShippingMethodOid">Default shipping method oid.</param>
+        /// <param name="defaultTier">Default tier.</param>
+        /// <param name="displayOnWholesaleSignup">Display on wholesale signup.</param>
+        /// <param name="excludeFromFreePromotion">Exclude from free promotion.</param>
+        /// <param name="exemptShippingHandlingCharge">Exempt shipping handling charge.</param>
+        /// <param name="freeShipping">Free shipping.</param>
+        /// <param name="freeShippingMinimum">Free shipping minimum.</param>
+        /// <param name="maximumItemCount">Maximum item count.</param>
+        /// <param name="minimumItemCount">Minimum item count.</param>
+        /// <param name="minimumSubtotal">Minimum subtotal.</param>
+        /// <param name="name">Name.</param>
+        /// <param name="noCoupons">No coupons.</param>
+        /// <param name="noFreeShipping">No free shipping.</param>
+        /// <param name="noRealtimeCharge">No realtime charge.</param>
+        /// <param name="notValidWhenCouponPresent">Not valid when coupon present.</param>
+        /// <param name="pricingTierOid">Pricing Tier Oid.</param>
+        /// <param name="realtimePercentageDiscount">Realtime percentage discount.</param>
+        /// <param name="signupNotification">signupNotification.</param>
+        /// <param name="suppressBuysafe">Suppress buySAFE.</param>
+        /// <param name="suppressMailingList">Suppress mailing list.</param>
+        /// <param name="taxExempt">Tax Exempt.</param>
+        /// <param name="trackSeparately">Track separately.</param>
+        public PricingTier(bool? allow3rdPartyBilling = default(bool?), bool? allowCod = default(bool?), bool? allowPurchaseOrder = default(bool?), bool? allowQuoteRequest = default(bool?), PricingTierNotification approvalNotification = default(PricingTierNotification), bool? autoApproveCod = default(bool?), bool? autoApprovePurchaseOrder = default(bool?), bool? defaultOnWholesaleSignup = default(bool?), decimal? defaultPercentageDiscount = default(decimal?), int? defaultShippingMethodOid = default(int?), bool? defaultTier = default(bool?), bool? displayOnWholesaleSignup = default(bool?), bool? excludeFromFreePromotion = default(bool?), bool? exemptShippingHandlingCharge = default(bool?), bool? freeShipping = default(bool?), decimal? freeShippingMinimum = default(decimal?), int? maximumItemCount = default(int?), int? minimumItemCount = default(int?), decimal? minimumSubtotal = default(decimal?), string name = default(string), bool? noCoupons = default(bool?), bool? noFreeShipping = default(bool?), bool? noRealtimeCharge = default(bool?), bool? notValidWhenCouponPresent = default(bool?), int? pricingTierOid = default(int?), decimal? realtimePercentageDiscount = default(decimal?), PricingTierNotification signupNotification = default(PricingTierNotification), bool? suppressBuysafe = default(bool?), bool? suppressMailingList = default(bool?), bool? taxExempt = default(bool?), bool? trackSeparately = default(bool?))
         {
-            this.Allow3rdPartyBilling = Allow3rdPartyBilling;
-            this.AllowCod = AllowCod;
-            this.AllowPurchaseOrder = AllowPurchaseOrder;
-            this.AllowQuoteRequest = AllowQuoteRequest;
-            this.ApprovalNotification = ApprovalNotification;
-            this.AutoApproveCod = AutoApproveCod;
-            this.AutoApprovePurchaseOrder = AutoApprovePurchaseOrder;
-            this.DefaultOnWholesaleSignup = DefaultOnWholesaleSignup;
-            this.DefaultPercentageDiscount = DefaultPercentageDiscount;
-            this.DefaultShippingMethodOid = DefaultShippingMethodOid;
-            this.DefaultTier = DefaultTier;
-            this.DisplayOnWholesaleSignup = DisplayOnWholesaleSignup;
-            this.ExcludeFromFreePromotion = ExcludeFromFreePromotion;
-            this.ExemptShippingHandlingCharge = ExemptShippingHandlingCharge;
-            this.FreeShipping = FreeShipping;
-            this.FreeShippingMinimum = FreeShippingMinimum;
-            this.MaximumItemCount = MaximumItemCount;
-            this.MinimumItemCount = MinimumItemCount;
-            this.MinimumSubtotal = MinimumSubtotal;
-            this.Name = Name;
-            this.NoCoupons = NoCoupons;
-            this.NoFreeShipping = NoFreeShipping;
-            this.NoRealtimeCharge = NoRealtimeCharge;
-            this.NotValidWhenCouponPresent = NotValidWhenCouponPresent;
-            this.PricingTierOid = PricingTierOid;
-            this.RealtimePercentageDiscount = RealtimePercentageDiscount;
-            this.SignupNotification = SignupNotification;
-            this.SuppressBuysafe = SuppressBuysafe;
-            this.SuppressMailingList = SuppressMailingList;
-            this.TaxExempt = TaxExempt;
-            this.TrackSeparately = TrackSeparately;
+            this.Allow3rdPartyBilling = allow3rdPartyBilling;
+            this.AllowCod = allowCod;
+            this.AllowPurchaseOrder = allowPurchaseOrder;
+            this.AllowQuoteRequest = allowQuoteRequest;
+            this.ApprovalNotification = approvalNotification;
+            this.AutoApproveCod = autoApproveCod;
+            this.AutoApprovePurchaseOrder = autoApprovePurchaseOrder;
+            this.DefaultOnWholesaleSignup = defaultOnWholesaleSignup;
+            this.DefaultPercentageDiscount = defaultPercentageDiscount;
+            this.DefaultShippingMethodOid = defaultShippingMethodOid;
+            this.DefaultTier = defaultTier;
+            this.DisplayOnWholesaleSignup = displayOnWholesaleSignup;
+            this.ExcludeFromFreePromotion = excludeFromFreePromotion;
+            this.ExemptShippingHandlingCharge = exemptShippingHandlingCharge;
+            this.FreeShipping = freeShipping;
+            this.FreeShippingMinimum = freeShippingMinimum;
+            this.MaximumItemCount = maximumItemCount;
+            this.MinimumItemCount = minimumItemCount;
+            this.MinimumSubtotal = minimumSubtotal;
+            this.Name = name;
+            this.NoCoupons = noCoupons;
+            this.NoFreeShipping = noFreeShipping;
+            this.NoRealtimeCharge = noRealtimeCharge;
+            this.NotValidWhenCouponPresent = notValidWhenCouponPresent;
+            this.PricingTierOid = pricingTierOid;
+            this.RealtimePercentageDiscount = realtimePercentageDiscount;
+            this.SignupNotification = signupNotification;
+            this.SuppressBuysafe = suppressBuysafe;
+            this.SuppressMailingList = suppressMailingList;
+            this.TaxExempt = taxExempt;
+            this.TrackSeparately = trackSeparately;
         }
         
         /// <summary>
@@ -361,7 +361,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

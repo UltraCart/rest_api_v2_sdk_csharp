@@ -39,28 +39,28 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum NA for "NA"
+            /// Enum NA for value: NA
             /// </summary>
             [EnumMember(Value = "NA")]
-            NA,
+            NA = 1,
             
             /// <summary>
-            /// Enum No for "No"
+            /// Enum No for value: No
             /// </summary>
             [EnumMember(Value = "No")]
-            No,
+            No = 2,
             
             /// <summary>
-            /// Enum NotFound for "NotFound"
+            /// Enum NotFound for value: NotFound
             /// </summary>
             [EnumMember(Value = "NotFound")]
-            NotFound,
+            NotFound = 3,
             
             /// <summary>
-            /// Enum Yes for "Yes"
+            /// Enum Yes for value: Yes
             /// </summary>
             [EnumMember(Value = "Yes")]
-            Yes
+            Yes = 4
         }
 
         /// <summary>
@@ -72,48 +72,48 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderFraudScore" /> class.
         /// </summary>
-        /// <param name="AnonymousProxy">True if the IP address is a known anonymous proxy server.</param>
-        /// <param name="BinMatch">Whether the BIN (first six digits) matched the country.</param>
-        /// <param name="CarderEmail">True if the email address belongs to a known credit card fraudster.</param>
-        /// <param name="CountryCode">Country code.</param>
-        /// <param name="CountryMatch">Country code matches BIN country.</param>
-        /// <param name="CustomerPhoneInBillingLocation">Whether the customer&#39;s phone number is located in the area of the billing address.</param>
-        /// <param name="DistanceKm">Distance in kilometers between the IP address and the BIN.</param>
-        /// <param name="FreeEmail">True if the email address is for a free service like gmail.com.</param>
-        /// <param name="HighRiskCountry">True if the customer is in a high risk country known for internet fraud.</param>
-        /// <param name="IpCity">City associated with the IP address.</param>
-        /// <param name="IpIsp">ISP that owns the IP address.</param>
-        /// <param name="IpLatitude">Approximate latitude associated with the IP address.</param>
-        /// <param name="IpLongitude">Approximate longitude associated with the IP address.</param>
-        /// <param name="IpOrg">Organization that owns the IP address.</param>
-        /// <param name="IpRegion">State/region associated with the IP address.</param>
-        /// <param name="ProxyScore">Likelihood of the IP address being a proxy server.</param>
-        /// <param name="Score">Overall score.  This is the score that is compared to see if the order is rejected or held for review by the fraud filter rules..</param>
-        /// <param name="ShipForwarder">True if the address is a known ship forwarding company.</param>
-        /// <param name="SpamScore">Likelihood of the email address being associated with a spammer.</param>
-        /// <param name="TransparentProxy">True if the IP address that placed the order is a transparent proxy server.</param>
-        public OrderFraudScore(bool? AnonymousProxy = default(bool?), BinMatchEnum? BinMatch = default(BinMatchEnum?), bool? CarderEmail = default(bool?), string CountryCode = default(string), bool? CountryMatch = default(bool?), string CustomerPhoneInBillingLocation = default(string), int? DistanceKm = default(int?), bool? FreeEmail = default(bool?), bool? HighRiskCountry = default(bool?), string IpCity = default(string), string IpIsp = default(string), string IpLatitude = default(string), string IpLongitude = default(string), string IpOrg = default(string), string IpRegion = default(string), decimal? ProxyScore = default(decimal?), decimal? Score = default(decimal?), bool? ShipForwarder = default(bool?), decimal? SpamScore = default(decimal?), bool? TransparentProxy = default(bool?))
+        /// <param name="anonymousProxy">True if the IP address is a known anonymous proxy server.</param>
+        /// <param name="binMatch">Whether the BIN (first six digits) matched the country.</param>
+        /// <param name="carderEmail">True if the email address belongs to a known credit card fraudster.</param>
+        /// <param name="countryCode">Country code.</param>
+        /// <param name="countryMatch">Country code matches BIN country.</param>
+        /// <param name="customerPhoneInBillingLocation">Whether the customer&#39;s phone number is located in the area of the billing address.</param>
+        /// <param name="distanceKm">Distance in kilometers between the IP address and the BIN.</param>
+        /// <param name="freeEmail">True if the email address is for a free service like gmail.com.</param>
+        /// <param name="highRiskCountry">True if the customer is in a high risk country known for internet fraud.</param>
+        /// <param name="ipCity">City associated with the IP address.</param>
+        /// <param name="ipIsp">ISP that owns the IP address.</param>
+        /// <param name="ipLatitude">Approximate latitude associated with the IP address.</param>
+        /// <param name="ipLongitude">Approximate longitude associated with the IP address.</param>
+        /// <param name="ipOrg">Organization that owns the IP address.</param>
+        /// <param name="ipRegion">State/region associated with the IP address.</param>
+        /// <param name="proxyScore">Likelihood of the IP address being a proxy server.</param>
+        /// <param name="score">Overall score.  This is the score that is compared to see if the order is rejected or held for review by the fraud filter rules..</param>
+        /// <param name="shipForwarder">True if the address is a known ship forwarding company.</param>
+        /// <param name="spamScore">Likelihood of the email address being associated with a spammer.</param>
+        /// <param name="transparentProxy">True if the IP address that placed the order is a transparent proxy server.</param>
+        public OrderFraudScore(bool? anonymousProxy = default(bool?), BinMatchEnum? binMatch = default(BinMatchEnum?), bool? carderEmail = default(bool?), string countryCode = default(string), bool? countryMatch = default(bool?), string customerPhoneInBillingLocation = default(string), int? distanceKm = default(int?), bool? freeEmail = default(bool?), bool? highRiskCountry = default(bool?), string ipCity = default(string), string ipIsp = default(string), string ipLatitude = default(string), string ipLongitude = default(string), string ipOrg = default(string), string ipRegion = default(string), decimal? proxyScore = default(decimal?), decimal? score = default(decimal?), bool? shipForwarder = default(bool?), decimal? spamScore = default(decimal?), bool? transparentProxy = default(bool?))
         {
-            this.AnonymousProxy = AnonymousProxy;
-            this.BinMatch = BinMatch;
-            this.CarderEmail = CarderEmail;
-            this.CountryCode = CountryCode;
-            this.CountryMatch = CountryMatch;
-            this.CustomerPhoneInBillingLocation = CustomerPhoneInBillingLocation;
-            this.DistanceKm = DistanceKm;
-            this.FreeEmail = FreeEmail;
-            this.HighRiskCountry = HighRiskCountry;
-            this.IpCity = IpCity;
-            this.IpIsp = IpIsp;
-            this.IpLatitude = IpLatitude;
-            this.IpLongitude = IpLongitude;
-            this.IpOrg = IpOrg;
-            this.IpRegion = IpRegion;
-            this.ProxyScore = ProxyScore;
-            this.Score = Score;
-            this.ShipForwarder = ShipForwarder;
-            this.SpamScore = SpamScore;
-            this.TransparentProxy = TransparentProxy;
+            this.AnonymousProxy = anonymousProxy;
+            this.BinMatch = binMatch;
+            this.CarderEmail = carderEmail;
+            this.CountryCode = countryCode;
+            this.CountryMatch = countryMatch;
+            this.CustomerPhoneInBillingLocation = customerPhoneInBillingLocation;
+            this.DistanceKm = distanceKm;
+            this.FreeEmail = freeEmail;
+            this.HighRiskCountry = highRiskCountry;
+            this.IpCity = ipCity;
+            this.IpIsp = ipIsp;
+            this.IpLatitude = ipLatitude;
+            this.IpLongitude = ipLongitude;
+            this.IpOrg = ipOrg;
+            this.IpRegion = ipRegion;
+            this.ProxyScore = proxyScore;
+            this.Score = score;
+            this.ShipForwarder = shipForwarder;
+            this.SpamScore = spamScore;
+            this.TransparentProxy = transparentProxy;
         }
         
         /// <summary>
@@ -286,7 +286,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

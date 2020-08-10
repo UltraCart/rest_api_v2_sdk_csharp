@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderQueryBatch" /> class.
         /// </summary>
-        /// <param name="OrderIds">Order IDs.</param>
-        public OrderQueryBatch(List<string> OrderIds = default(List<string>))
+        /// <param name="orderIds">Order IDs.</param>
+        public OrderQueryBatch(List<string> orderIds = default(List<string>))
         {
-            this.OrderIds = OrderIds;
+            this.OrderIds = orderIds;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

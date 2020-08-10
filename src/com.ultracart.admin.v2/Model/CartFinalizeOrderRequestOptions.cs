@@ -33,34 +33,34 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartFinalizeOrderRequestOptions" /> class.
         /// </summary>
-        /// <param name="AutoApprovePurchaseOrder">Automatically approve the purchase order.</param>
-        /// <param name="ChannelPartnerCode">Channel partner code to associate this order with.</param>
-        /// <param name="ChannelPartnerOid">Channel partner oid to associate this order with.</param>
-        /// <param name="ChannelPartnerOrderId">Channel partner order id for reference.</param>
-        /// <param name="ConsiderRecurring">Consider this order a recurring order for the purposes of payment gateway recurring flag.</param>
-        /// <param name="CreditCardAuthorizationAmount">If the order was authorized outside of UltraCart, this is the amount of the authorization.</param>
-        /// <param name="CreditCardAuthorizationDate">If the order was authorized outside of UltraCart, this is the date/time of the authorization.</param>
-        /// <param name="CreditCardAuthorizationReferenceNumber">If the order was authorized outside of UltraCart, this is the authorization reference number.</param>
-        /// <param name="NoRealtimePaymentProcessing">Prevents normal real-time processing of the payment and sends the order to Accounts Receivable.</param>
-        /// <param name="SetupNextCart">True if the system should create another cart automatically if the current cart was logged into a profile.</param>
-        /// <param name="SkipPaymentProcessing">Skip payment processing and move the order on to shipping (or completed if no shipping required).</param>
-        /// <param name="StoreCompleted">True the order in the completed stage.</param>
-        /// <param name="StoreIfPaymentDeclines">Store the order in accounts receivable if the payment declines.</param>
-        public CartFinalizeOrderRequestOptions(bool? AutoApprovePurchaseOrder = default(bool?), string ChannelPartnerCode = default(string), int? ChannelPartnerOid = default(int?), string ChannelPartnerOrderId = default(string), bool? ConsiderRecurring = default(bool?), decimal? CreditCardAuthorizationAmount = default(decimal?), string CreditCardAuthorizationDate = default(string), string CreditCardAuthorizationReferenceNumber = default(string), bool? NoRealtimePaymentProcessing = default(bool?), bool? SetupNextCart = default(bool?), bool? SkipPaymentProcessing = default(bool?), bool? StoreCompleted = default(bool?), bool? StoreIfPaymentDeclines = default(bool?))
+        /// <param name="autoApprovePurchaseOrder">Automatically approve the purchase order.</param>
+        /// <param name="channelPartnerCode">Channel partner code to associate this order with.</param>
+        /// <param name="channelPartnerOid">Channel partner oid to associate this order with.</param>
+        /// <param name="channelPartnerOrderId">Channel partner order id for reference.</param>
+        /// <param name="considerRecurring">Consider this order a recurring order for the purposes of payment gateway recurring flag.</param>
+        /// <param name="creditCardAuthorizationAmount">If the order was authorized outside of UltraCart, this is the amount of the authorization.</param>
+        /// <param name="creditCardAuthorizationDate">If the order was authorized outside of UltraCart, this is the date/time of the authorization.</param>
+        /// <param name="creditCardAuthorizationReferenceNumber">If the order was authorized outside of UltraCart, this is the authorization reference number.</param>
+        /// <param name="noRealtimePaymentProcessing">Prevents normal real-time processing of the payment and sends the order to Accounts Receivable.</param>
+        /// <param name="setupNextCart">True if the system should create another cart automatically if the current cart was logged into a profile.</param>
+        /// <param name="skipPaymentProcessing">Skip payment processing and move the order on to shipping (or completed if no shipping required).</param>
+        /// <param name="storeCompleted">True the order in the completed stage.</param>
+        /// <param name="storeIfPaymentDeclines">Store the order in accounts receivable if the payment declines.</param>
+        public CartFinalizeOrderRequestOptions(bool? autoApprovePurchaseOrder = default(bool?), string channelPartnerCode = default(string), int? channelPartnerOid = default(int?), string channelPartnerOrderId = default(string), bool? considerRecurring = default(bool?), decimal? creditCardAuthorizationAmount = default(decimal?), string creditCardAuthorizationDate = default(string), string creditCardAuthorizationReferenceNumber = default(string), bool? noRealtimePaymentProcessing = default(bool?), bool? setupNextCart = default(bool?), bool? skipPaymentProcessing = default(bool?), bool? storeCompleted = default(bool?), bool? storeIfPaymentDeclines = default(bool?))
         {
-            this.AutoApprovePurchaseOrder = AutoApprovePurchaseOrder;
-            this.ChannelPartnerCode = ChannelPartnerCode;
-            this.ChannelPartnerOid = ChannelPartnerOid;
-            this.ChannelPartnerOrderId = ChannelPartnerOrderId;
-            this.ConsiderRecurring = ConsiderRecurring;
-            this.CreditCardAuthorizationAmount = CreditCardAuthorizationAmount;
-            this.CreditCardAuthorizationDate = CreditCardAuthorizationDate;
-            this.CreditCardAuthorizationReferenceNumber = CreditCardAuthorizationReferenceNumber;
-            this.NoRealtimePaymentProcessing = NoRealtimePaymentProcessing;
-            this.SetupNextCart = SetupNextCart;
-            this.SkipPaymentProcessing = SkipPaymentProcessing;
-            this.StoreCompleted = StoreCompleted;
-            this.StoreIfPaymentDeclines = StoreIfPaymentDeclines;
+            this.AutoApprovePurchaseOrder = autoApprovePurchaseOrder;
+            this.ChannelPartnerCode = channelPartnerCode;
+            this.ChannelPartnerOid = channelPartnerOid;
+            this.ChannelPartnerOrderId = channelPartnerOrderId;
+            this.ConsiderRecurring = considerRecurring;
+            this.CreditCardAuthorizationAmount = creditCardAuthorizationAmount;
+            this.CreditCardAuthorizationDate = creditCardAuthorizationDate;
+            this.CreditCardAuthorizationReferenceNumber = creditCardAuthorizationReferenceNumber;
+            this.NoRealtimePaymentProcessing = noRealtimePaymentProcessing;
+            this.SetupNextCart = setupNextCart;
+            this.SkipPaymentProcessing = skipPaymentProcessing;
+            this.StoreCompleted = storeCompleted;
+            this.StoreIfPaymentDeclines = storeIfPaymentDeclines;
         }
         
         /// <summary>
@@ -183,7 +183,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

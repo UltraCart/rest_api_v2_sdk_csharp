@@ -33,34 +33,34 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AvalaraConfig" /> class.
         /// </summary>
-        /// <param name="AccountId">Avalara account ID.</param>
-        /// <param name="Active">True if Avalara is active for this merchant.</param>
-        /// <param name="AvalaraOid">Unique identifier for this avalara config object.</param>
-        /// <param name="CompanyId">Avalara company ID.</param>
-        /// <param name="EnableUpc">True if this Avalara configuration is set to enable tax valuation by UPC.</param>
-        /// <param name="EstimateOnly">True if this Avalara configuration is to estimate taxes only and not report placed orders to Avalara.</param>
-        /// <param name="GuestCustomerCode">Optional customer code for customers without profiles, defaults to GuestCustomer.</param>
-        /// <param name="LastTestDts">Date/time of the connection test to Avalara.</param>
-        /// <param name="LicenseKey">Avalara license key.</param>
-        /// <param name="Sandbox">True if this Avalara instance is pointed at the Avalara Sandbox.</param>
-        /// <param name="SendTestOrders">Send test orders through to Avalara.  The default is to not transmit test orders to Avalara..</param>
-        /// <param name="ServiceUrl">Avalara service URL.</param>
-        /// <param name="TestResults">Test results of the last connection test to Avalara.</param>
-        public AvalaraConfig(string AccountId = default(string), bool? Active = default(bool?), int? AvalaraOid = default(int?), string CompanyId = default(string), bool? EnableUpc = default(bool?), bool? EstimateOnly = default(bool?), string GuestCustomerCode = default(string), string LastTestDts = default(string), string LicenseKey = default(string), bool? Sandbox = default(bool?), bool? SendTestOrders = default(bool?), string ServiceUrl = default(string), string TestResults = default(string))
+        /// <param name="accountId">Avalara account ID.</param>
+        /// <param name="active">True if Avalara is active for this merchant.</param>
+        /// <param name="avalaraOid">Unique identifier for this avalara config object.</param>
+        /// <param name="companyId">Avalara company ID.</param>
+        /// <param name="enableUpc">True if this Avalara configuration is set to enable tax valuation by UPC.</param>
+        /// <param name="estimateOnly">True if this Avalara configuration is to estimate taxes only and not report placed orders to Avalara.</param>
+        /// <param name="guestCustomerCode">Optional customer code for customers without profiles, defaults to GuestCustomer.</param>
+        /// <param name="lastTestDts">Date/time of the connection test to Avalara.</param>
+        /// <param name="licenseKey">Avalara license key.</param>
+        /// <param name="sandbox">True if this Avalara instance is pointed at the Avalara Sandbox.</param>
+        /// <param name="sendTestOrders">Send test orders through to Avalara.  The default is to not transmit test orders to Avalara..</param>
+        /// <param name="serviceUrl">Avalara service URL.</param>
+        /// <param name="testResults">Test results of the last connection test to Avalara.</param>
+        public AvalaraConfig(string accountId = default(string), bool? active = default(bool?), int? avalaraOid = default(int?), string companyId = default(string), bool? enableUpc = default(bool?), bool? estimateOnly = default(bool?), string guestCustomerCode = default(string), string lastTestDts = default(string), string licenseKey = default(string), bool? sandbox = default(bool?), bool? sendTestOrders = default(bool?), string serviceUrl = default(string), string testResults = default(string))
         {
-            this.AccountId = AccountId;
-            this.Active = Active;
-            this.AvalaraOid = AvalaraOid;
-            this.CompanyId = CompanyId;
-            this.EnableUpc = EnableUpc;
-            this.EstimateOnly = EstimateOnly;
-            this.GuestCustomerCode = GuestCustomerCode;
-            this.LastTestDts = LastTestDts;
-            this.LicenseKey = LicenseKey;
-            this.Sandbox = Sandbox;
-            this.SendTestOrders = SendTestOrders;
-            this.ServiceUrl = ServiceUrl;
-            this.TestResults = TestResults;
+            this.AccountId = accountId;
+            this.Active = active;
+            this.AvalaraOid = avalaraOid;
+            this.CompanyId = companyId;
+            this.EnableUpc = enableUpc;
+            this.EstimateOnly = estimateOnly;
+            this.GuestCustomerCode = guestCustomerCode;
+            this.LastTestDts = lastTestDts;
+            this.LicenseKey = licenseKey;
+            this.Sandbox = sandbox;
+            this.SendTestOrders = sendTestOrders;
+            this.ServiceUrl = serviceUrl;
+            this.TestResults = testResults;
         }
         
         /// <summary>
@@ -183,7 +183,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

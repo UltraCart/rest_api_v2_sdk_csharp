@@ -33,32 +33,32 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderCheckout" /> class.
         /// </summary>
-        /// <param name="Comments">Comments from the customer.  Rarely used on the single page checkout..</param>
-        /// <param name="CustomField1">Custom field 1.</param>
-        /// <param name="CustomField2">Custom field 2.</param>
-        /// <param name="CustomField3">Custom field 3.</param>
-        /// <param name="CustomField4">Custom field 4.</param>
-        /// <param name="CustomField5">Custom field 5.</param>
-        /// <param name="CustomField6">Custom field 6.</param>
-        /// <param name="CustomField7">Custom field 7.</param>
-        /// <param name="CustomerIpAddress">IP address of the customer when placing the order.</param>
-        /// <param name="ScreenBrandingThemeCode">Screen branding theme code associated with the order (legacy checkout).</param>
-        /// <param name="StorefrontHostName">StoreFront host name associated with the order.</param>
-        /// <param name="UpsellPathCode">Upsell path code assigned during the checkout that the customer went through.</param>
-        public OrderCheckout(string Comments = default(string), string CustomField1 = default(string), string CustomField2 = default(string), string CustomField3 = default(string), string CustomField4 = default(string), string CustomField5 = default(string), string CustomField6 = default(string), string CustomField7 = default(string), string CustomerIpAddress = default(string), string ScreenBrandingThemeCode = default(string), string StorefrontHostName = default(string), string UpsellPathCode = default(string))
+        /// <param name="comments">Comments from the customer.  Rarely used on the single page checkout..</param>
+        /// <param name="customField1">Custom field 1.</param>
+        /// <param name="customField2">Custom field 2.</param>
+        /// <param name="customField3">Custom field 3.</param>
+        /// <param name="customField4">Custom field 4.</param>
+        /// <param name="customField5">Custom field 5.</param>
+        /// <param name="customField6">Custom field 6.</param>
+        /// <param name="customField7">Custom field 7.</param>
+        /// <param name="customerIpAddress">IP address of the customer when placing the order.</param>
+        /// <param name="screenBrandingThemeCode">Screen branding theme code associated with the order (legacy checkout).</param>
+        /// <param name="storefrontHostName">StoreFront host name associated with the order.</param>
+        /// <param name="upsellPathCode">Upsell path code assigned during the checkout that the customer went through.</param>
+        public OrderCheckout(string comments = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customerIpAddress = default(string), string screenBrandingThemeCode = default(string), string storefrontHostName = default(string), string upsellPathCode = default(string))
         {
-            this.Comments = Comments;
-            this.CustomField1 = CustomField1;
-            this.CustomField2 = CustomField2;
-            this.CustomField3 = CustomField3;
-            this.CustomField4 = CustomField4;
-            this.CustomField5 = CustomField5;
-            this.CustomField6 = CustomField6;
-            this.CustomField7 = CustomField7;
-            this.CustomerIpAddress = CustomerIpAddress;
-            this.ScreenBrandingThemeCode = ScreenBrandingThemeCode;
-            this.StorefrontHostName = StorefrontHostName;
-            this.UpsellPathCode = UpsellPathCode;
+            this.Comments = comments;
+            this.CustomField1 = customField1;
+            this.CustomField2 = customField2;
+            this.CustomField3 = customField3;
+            this.CustomField4 = customField4;
+            this.CustomField5 = customField5;
+            this.CustomField6 = customField6;
+            this.CustomField7 = customField7;
+            this.CustomerIpAddress = customerIpAddress;
+            this.ScreenBrandingThemeCode = screenBrandingThemeCode;
+            this.StorefrontHostName = storefrontHostName;
+            this.UpsellPathCode = upsellPathCode;
         }
         
         /// <summary>
@@ -173,7 +173,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemPricingTier" /> class.
         /// </summary>
-        /// <param name="DefaultTier">True if this is the default tier.</param>
-        /// <param name="Discounts">Discounts.</param>
-        /// <param name="Limit">Limit.</param>
-        /// <param name="Name">Pricing tier name.</param>
-        /// <param name="PricingTierOid">Pricing tier object identifier.</param>
-        public ItemPricingTier(bool? DefaultTier = default(bool?), List<ItemPricingTierDiscount> Discounts = default(List<ItemPricingTierDiscount>), ItemPricingTierLimit Limit = default(ItemPricingTierLimit), string Name = default(string), int? PricingTierOid = default(int?))
+        /// <param name="defaultTier">True if this is the default tier.</param>
+        /// <param name="discounts">Discounts.</param>
+        /// <param name="limit">limit.</param>
+        /// <param name="name">Pricing tier name.</param>
+        /// <param name="pricingTierOid">Pricing tier object identifier.</param>
+        public ItemPricingTier(bool? defaultTier = default(bool?), List<ItemPricingTierDiscount> discounts = default(List<ItemPricingTierDiscount>), ItemPricingTierLimit limit = default(ItemPricingTierLimit), string name = default(string), int? pricingTierOid = default(int?))
         {
-            this.DefaultTier = DefaultTier;
-            this.Discounts = Discounts;
-            this.Limit = Limit;
-            this.Name = Name;
-            this.PricingTierOid = PricingTierOid;
+            this.DefaultTier = defaultTier;
+            this.Discounts = discounts;
+            this.Limit = limit;
+            this.Name = name;
+            this.PricingTierOid = pricingTierOid;
         }
         
         /// <summary>
@@ -102,7 +102,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

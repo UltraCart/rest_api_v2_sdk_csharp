@@ -33,64 +33,64 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderShipping" /> class.
         /// </summary>
-        /// <param name="Address1">Address line 1.</param>
-        /// <param name="Address2">Address line 2.</param>
-        /// <param name="City">City.</param>
-        /// <param name="Company">Company.</param>
-        /// <param name="CountryCode">ISO-3166 two letter country code.</param>
-        /// <param name="DayPhone">Day time phone.</param>
-        /// <param name="DayPhoneE164">Day time phone (E164 format).</param>
-        /// <param name="DeliveryDate">Date the customer is requesting delivery on.  Typically used for perishable product delivery..</param>
-        /// <param name="EveningPhone">Evening phone.</param>
-        /// <param name="FirstName">First name.</param>
-        /// <param name="LastName">Last name.</param>
-        /// <param name="LeastCostRoute">If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts..</param>
-        /// <param name="LeastCostRouteShippingMethods">List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts..</param>
-        /// <param name="LiftGate">Lift gate requested (LTL shipping methods only).</param>
-        /// <param name="PostalCode">Postal code.</param>
-        /// <param name="Rma">RMA number.</param>
-        /// <param name="ShipOnDate">Date the customer is requesting that the order ship on.  Typically used for perishable product delivery..</param>
-        /// <param name="ShipToResidential">True if the shipping address is residential.  Effects the methods that are available to the customer as well as the price of the shipping method..</param>
-        /// <param name="Shipping3rdPartyAccountNumber">Shipping 3rd party account number.</param>
-        /// <param name="ShippingDate">Date/time the order shipped on.  This date is set once the first shipment is sent to the customer..</param>
-        /// <param name="ShippingDepartmentStatus">Shipping department status.</param>
-        /// <param name="ShippingMethod">Shipping method.</param>
-        /// <param name="ShippingMethodAccountingCode">Shipping method accounting code.</param>
-        /// <param name="SpecialInstructions">Special instructions from the customer regarding shipping.</param>
-        /// <param name="StateRegion">State.</param>
-        /// <param name="Title">Title.</param>
-        /// <param name="TrackingNumbers">Tracking numbers.</param>
-        /// <param name="Weight">Weight.</param>
-        public OrderShipping(string Address1 = default(string), string Address2 = default(string), string City = default(string), string Company = default(string), string CountryCode = default(string), string DayPhone = default(string), string DayPhoneE164 = default(string), string DeliveryDate = default(string), string EveningPhone = default(string), string FirstName = default(string), string LastName = default(string), bool? LeastCostRoute = default(bool?), List<string> LeastCostRouteShippingMethods = default(List<string>), bool? LiftGate = default(bool?), string PostalCode = default(string), string Rma = default(string), string ShipOnDate = default(string), bool? ShipToResidential = default(bool?), string Shipping3rdPartyAccountNumber = default(string), string ShippingDate = default(string), string ShippingDepartmentStatus = default(string), string ShippingMethod = default(string), string ShippingMethodAccountingCode = default(string), string SpecialInstructions = default(string), string StateRegion = default(string), string Title = default(string), List<string> TrackingNumbers = default(List<string>), Weight Weight = default(Weight))
+        /// <param name="address1">Address line 1.</param>
+        /// <param name="address2">Address line 2.</param>
+        /// <param name="city">City.</param>
+        /// <param name="company">Company.</param>
+        /// <param name="countryCode">ISO-3166 two letter country code.</param>
+        /// <param name="dayPhone">Day time phone.</param>
+        /// <param name="dayPhoneE164">Day time phone (E164 format).</param>
+        /// <param name="deliveryDate">Date the customer is requesting delivery on.  Typically used for perishable product delivery..</param>
+        /// <param name="eveningPhone">Evening phone.</param>
+        /// <param name="firstName">First name.</param>
+        /// <param name="lastName">Last name.</param>
+        /// <param name="leastCostRoute">If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts..</param>
+        /// <param name="leastCostRouteShippingMethods">List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts..</param>
+        /// <param name="liftGate">Lift gate requested (LTL shipping methods only).</param>
+        /// <param name="postalCode">Postal code.</param>
+        /// <param name="rma">RMA number.</param>
+        /// <param name="shipOnDate">Date the customer is requesting that the order ship on.  Typically used for perishable product delivery..</param>
+        /// <param name="shipToResidential">True if the shipping address is residential.  Effects the methods that are available to the customer as well as the price of the shipping method..</param>
+        /// <param name="shipping3rdPartyAccountNumber">Shipping 3rd party account number.</param>
+        /// <param name="shippingDate">Date/time the order shipped on.  This date is set once the first shipment is sent to the customer..</param>
+        /// <param name="shippingDepartmentStatus">Shipping department status.</param>
+        /// <param name="shippingMethod">Shipping method.</param>
+        /// <param name="shippingMethodAccountingCode">Shipping method accounting code.</param>
+        /// <param name="specialInstructions">Special instructions from the customer regarding shipping.</param>
+        /// <param name="stateRegion">State.</param>
+        /// <param name="title">Title.</param>
+        /// <param name="trackingNumbers">Tracking numbers.</param>
+        /// <param name="weight">weight.</param>
+        public OrderShipping(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string dayPhoneE164 = default(string), string deliveryDate = default(string), string eveningPhone = default(string), string firstName = default(string), string lastName = default(string), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? liftGate = default(bool?), string postalCode = default(string), string rma = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shipping3rdPartyAccountNumber = default(string), string shippingDate = default(string), string shippingDepartmentStatus = default(string), string shippingMethod = default(string), string shippingMethodAccountingCode = default(string), string specialInstructions = default(string), string stateRegion = default(string), string title = default(string), List<string> trackingNumbers = default(List<string>), Weight weight = default(Weight))
         {
-            this.Address1 = Address1;
-            this.Address2 = Address2;
-            this.City = City;
-            this.Company = Company;
-            this.CountryCode = CountryCode;
-            this.DayPhone = DayPhone;
-            this.DayPhoneE164 = DayPhoneE164;
-            this.DeliveryDate = DeliveryDate;
-            this.EveningPhone = EveningPhone;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.LeastCostRoute = LeastCostRoute;
-            this.LeastCostRouteShippingMethods = LeastCostRouteShippingMethods;
-            this.LiftGate = LiftGate;
-            this.PostalCode = PostalCode;
-            this.Rma = Rma;
-            this.ShipOnDate = ShipOnDate;
-            this.ShipToResidential = ShipToResidential;
-            this.Shipping3rdPartyAccountNumber = Shipping3rdPartyAccountNumber;
-            this.ShippingDate = ShippingDate;
-            this.ShippingDepartmentStatus = ShippingDepartmentStatus;
-            this.ShippingMethod = ShippingMethod;
-            this.ShippingMethodAccountingCode = ShippingMethodAccountingCode;
-            this.SpecialInstructions = SpecialInstructions;
-            this.StateRegion = StateRegion;
-            this.Title = Title;
-            this.TrackingNumbers = TrackingNumbers;
-            this.Weight = Weight;
+            this.Address1 = address1;
+            this.Address2 = address2;
+            this.City = city;
+            this.Company = company;
+            this.CountryCode = countryCode;
+            this.DayPhone = dayPhone;
+            this.DayPhoneE164 = dayPhoneE164;
+            this.DeliveryDate = deliveryDate;
+            this.EveningPhone = eveningPhone;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.LeastCostRoute = leastCostRoute;
+            this.LeastCostRouteShippingMethods = leastCostRouteShippingMethods;
+            this.LiftGate = liftGate;
+            this.PostalCode = postalCode;
+            this.Rma = rma;
+            this.ShipOnDate = shipOnDate;
+            this.ShipToResidential = shipToResidential;
+            this.Shipping3rdPartyAccountNumber = shipping3rdPartyAccountNumber;
+            this.ShippingDate = shippingDate;
+            this.ShippingDepartmentStatus = shippingDepartmentStatus;
+            this.ShippingMethod = shippingMethod;
+            this.ShippingMethodAccountingCode = shippingMethodAccountingCode;
+            this.SpecialInstructions = specialInstructions;
+            this.StateRegion = stateRegion;
+            this.Title = title;
+            this.TrackingNumbers = trackingNumbers;
+            this.Weight = weight;
         }
         
         /// <summary>
@@ -332,7 +332,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

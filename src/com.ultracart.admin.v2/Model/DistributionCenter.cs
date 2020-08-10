@@ -33,76 +33,76 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DistributionCenter" /> class.
         /// </summary>
-        /// <param name="Address1">Address line 1 of the distribution center.</param>
-        /// <param name="Address2">Address line 2 of the distribution center.</param>
-        /// <param name="City">City of the distribution center.</param>
-        /// <param name="Code">Unique code for this distribution center.</param>
-        /// <param name="CountryCode">Country code of the distribution center.</param>
-        /// <param name="DefaultCenter">True if this is the default distribution center on the account.</param>
-        /// <param name="DefaultHandlesAllItems">True if this distribution center handles all new items by default.</param>
-        /// <param name="DistributionCenterOid">Distribution center object identifier.</param>
-        /// <param name="Duns">DUNS number assigned to this distribution center (EDI).</param>
-        /// <param name="EstimateFromDistributionCenterOid">Estimate shipments for this distribution center as if they came from the other distribution center.</param>
-        /// <param name="FtpPassword">Password associated with the virtual FTP.</param>
-        /// <param name="HoldBeforeShipmentMinutes">The number of minutes to hold a shipment.</param>
-        /// <param name="HoldBeforeTransmission">True if the shipment should be held before transmission and require a manual release.</param>
-        /// <param name="HoldAutoOrderBeforeShipmentMinutes">HoldAutoOrderBeforeShipmentMinutes.</param>
-        /// <param name="Latitude">Latitude where the distribution center is located.</param>
-        /// <param name="Longitude">Longitude where the distribution center is located.</param>
-        /// <param name="Name">Name of this distribution center.</param>
-        /// <param name="NoCustomerDirectShipments">True if this distribution center does not handle customer direct shipments.</param>
-        /// <param name="NoSplitShipment">True if this distribution center is not allowed to participate in a split shipment..</param>
-        /// <param name="PostalCode">Postal code of the distribution center.</param>
-        /// <param name="ProcessDays">The number of processing days required before an order ships.</param>
-        /// <param name="ProcessInventoryStartTime">The time (EST) after which inventory updates will be processed.</param>
-        /// <param name="ProcessInventoryStopTime">The time (EST) before which inventory updates will be processed.</param>
-        /// <param name="RequireAsn">True if ASNs are required for this distribution center (EDI).</param>
-        /// <param name="SendKitInsteadOfComponents">True if we should send the kit instead of the components.</param>
-        /// <param name="ShipmentCutoffTimeFriday">The time (EST) after which shipments will not be processed on Friday.</param>
-        /// <param name="ShipmentCutoffTimeMonday">The time (EST) after which shipments will not be processed on Monday.</param>
-        /// <param name="ShipmentCutoffTimeSaturday">The time (EST) after which shipments will not be processed on Saturday.</param>
-        /// <param name="ShipmentCutoffTimeSunday">The time (EST) after which shipments will not be processed on Sunday.</param>
-        /// <param name="ShipmentCutoffTimeThursday">The time (EST) after which shipments will not be processed on Thursday.</param>
-        /// <param name="ShipmentCutoffTimeTuesday">The time (EST) after which shipments will not be processed on Tuesday.</param>
-        /// <param name="ShipmentCutoffTimeWednesday">The time (EST) after which shipments will not be processed on Wednesday.</param>
-        /// <param name="State">State of the distribution center.</param>
-        /// <param name="Transport">Transport mechanism for this distribution center.</param>
-        public DistributionCenter(string Address1 = default(string), string Address2 = default(string), string City = default(string), string Code = default(string), string CountryCode = default(string), bool? DefaultCenter = default(bool?), bool? DefaultHandlesAllItems = default(bool?), int? DistributionCenterOid = default(int?), string Duns = default(string), int? EstimateFromDistributionCenterOid = default(int?), string FtpPassword = default(string), int? HoldBeforeShipmentMinutes = default(int?), bool? HoldBeforeTransmission = default(bool?), int? HoldAutoOrderBeforeShipmentMinutes = default(int?), decimal? Latitude = default(decimal?), decimal? Longitude = default(decimal?), string Name = default(string), bool? NoCustomerDirectShipments = default(bool?), bool? NoSplitShipment = default(bool?), string PostalCode = default(string), int? ProcessDays = default(int?), string ProcessInventoryStartTime = default(string), string ProcessInventoryStopTime = default(string), bool? RequireAsn = default(bool?), bool? SendKitInsteadOfComponents = default(bool?), string ShipmentCutoffTimeFriday = default(string), string ShipmentCutoffTimeMonday = default(string), string ShipmentCutoffTimeSaturday = default(string), string ShipmentCutoffTimeSunday = default(string), string ShipmentCutoffTimeThursday = default(string), string ShipmentCutoffTimeTuesday = default(string), string ShipmentCutoffTimeWednesday = default(string), string State = default(string), string Transport = default(string))
+        /// <param name="address1">Address line 1 of the distribution center.</param>
+        /// <param name="address2">Address line 2 of the distribution center.</param>
+        /// <param name="city">City of the distribution center.</param>
+        /// <param name="code">Unique code for this distribution center.</param>
+        /// <param name="countryCode">Country code of the distribution center.</param>
+        /// <param name="defaultCenter">True if this is the default distribution center on the account.</param>
+        /// <param name="defaultHandlesAllItems">True if this distribution center handles all new items by default.</param>
+        /// <param name="distributionCenterOid">Distribution center object identifier.</param>
+        /// <param name="duns">DUNS number assigned to this distribution center (EDI).</param>
+        /// <param name="estimateFromDistributionCenterOid">Estimate shipments for this distribution center as if they came from the other distribution center.</param>
+        /// <param name="ftpPassword">Password associated with the virtual FTP.</param>
+        /// <param name="holdBeforeShipmentMinutes">The number of minutes to hold a shipment.</param>
+        /// <param name="holdBeforeTransmission">True if the shipment should be held before transmission and require a manual release.</param>
+        /// <param name="holdAutoOrderBeforeShipmentMinutes">holdAutoOrderBeforeShipmentMinutes.</param>
+        /// <param name="latitude">Latitude where the distribution center is located.</param>
+        /// <param name="longitude">Longitude where the distribution center is located.</param>
+        /// <param name="name">Name of this distribution center.</param>
+        /// <param name="noCustomerDirectShipments">True if this distribution center does not handle customer direct shipments.</param>
+        /// <param name="noSplitShipment">True if this distribution center is not allowed to participate in a split shipment..</param>
+        /// <param name="postalCode">Postal code of the distribution center.</param>
+        /// <param name="processDays">The number of processing days required before an order ships.</param>
+        /// <param name="processInventoryStartTime">The time (EST) after which inventory updates will be processed.</param>
+        /// <param name="processInventoryStopTime">The time (EST) before which inventory updates will be processed.</param>
+        /// <param name="requireAsn">True if ASNs are required for this distribution center (EDI).</param>
+        /// <param name="sendKitInsteadOfComponents">True if we should send the kit instead of the components.</param>
+        /// <param name="shipmentCutoffTimeFriday">The time (EST) after which shipments will not be processed on Friday.</param>
+        /// <param name="shipmentCutoffTimeMonday">The time (EST) after which shipments will not be processed on Monday.</param>
+        /// <param name="shipmentCutoffTimeSaturday">The time (EST) after which shipments will not be processed on Saturday.</param>
+        /// <param name="shipmentCutoffTimeSunday">The time (EST) after which shipments will not be processed on Sunday.</param>
+        /// <param name="shipmentCutoffTimeThursday">The time (EST) after which shipments will not be processed on Thursday.</param>
+        /// <param name="shipmentCutoffTimeTuesday">The time (EST) after which shipments will not be processed on Tuesday.</param>
+        /// <param name="shipmentCutoffTimeWednesday">The time (EST) after which shipments will not be processed on Wednesday.</param>
+        /// <param name="state">State of the distribution center.</param>
+        /// <param name="transport">Transport mechanism for this distribution center.</param>
+        public DistributionCenter(string address1 = default(string), string address2 = default(string), string city = default(string), string code = default(string), string countryCode = default(string), bool? defaultCenter = default(bool?), bool? defaultHandlesAllItems = default(bool?), int? distributionCenterOid = default(int?), string duns = default(string), int? estimateFromDistributionCenterOid = default(int?), string ftpPassword = default(string), int? holdBeforeShipmentMinutes = default(int?), bool? holdBeforeTransmission = default(bool?), int? holdAutoOrderBeforeShipmentMinutes = default(int?), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string name = default(string), bool? noCustomerDirectShipments = default(bool?), bool? noSplitShipment = default(bool?), string postalCode = default(string), int? processDays = default(int?), string processInventoryStartTime = default(string), string processInventoryStopTime = default(string), bool? requireAsn = default(bool?), bool? sendKitInsteadOfComponents = default(bool?), string shipmentCutoffTimeFriday = default(string), string shipmentCutoffTimeMonday = default(string), string shipmentCutoffTimeSaturday = default(string), string shipmentCutoffTimeSunday = default(string), string shipmentCutoffTimeThursday = default(string), string shipmentCutoffTimeTuesday = default(string), string shipmentCutoffTimeWednesday = default(string), string state = default(string), string transport = default(string))
         {
-            this.Address1 = Address1;
-            this.Address2 = Address2;
-            this.City = City;
-            this.Code = Code;
-            this.CountryCode = CountryCode;
-            this.DefaultCenter = DefaultCenter;
-            this.DefaultHandlesAllItems = DefaultHandlesAllItems;
-            this.DistributionCenterOid = DistributionCenterOid;
-            this.Duns = Duns;
-            this.EstimateFromDistributionCenterOid = EstimateFromDistributionCenterOid;
-            this.FtpPassword = FtpPassword;
-            this.HoldBeforeShipmentMinutes = HoldBeforeShipmentMinutes;
-            this.HoldBeforeTransmission = HoldBeforeTransmission;
-            this.HoldAutoOrderBeforeShipmentMinutes = HoldAutoOrderBeforeShipmentMinutes;
-            this.Latitude = Latitude;
-            this.Longitude = Longitude;
-            this.Name = Name;
-            this.NoCustomerDirectShipments = NoCustomerDirectShipments;
-            this.NoSplitShipment = NoSplitShipment;
-            this.PostalCode = PostalCode;
-            this.ProcessDays = ProcessDays;
-            this.ProcessInventoryStartTime = ProcessInventoryStartTime;
-            this.ProcessInventoryStopTime = ProcessInventoryStopTime;
-            this.RequireAsn = RequireAsn;
-            this.SendKitInsteadOfComponents = SendKitInsteadOfComponents;
-            this.ShipmentCutoffTimeFriday = ShipmentCutoffTimeFriday;
-            this.ShipmentCutoffTimeMonday = ShipmentCutoffTimeMonday;
-            this.ShipmentCutoffTimeSaturday = ShipmentCutoffTimeSaturday;
-            this.ShipmentCutoffTimeSunday = ShipmentCutoffTimeSunday;
-            this.ShipmentCutoffTimeThursday = ShipmentCutoffTimeThursday;
-            this.ShipmentCutoffTimeTuesday = ShipmentCutoffTimeTuesday;
-            this.ShipmentCutoffTimeWednesday = ShipmentCutoffTimeWednesday;
-            this.State = State;
-            this.Transport = Transport;
+            this.Address1 = address1;
+            this.Address2 = address2;
+            this.City = city;
+            this.Code = code;
+            this.CountryCode = countryCode;
+            this.DefaultCenter = defaultCenter;
+            this.DefaultHandlesAllItems = defaultHandlesAllItems;
+            this.DistributionCenterOid = distributionCenterOid;
+            this.Duns = duns;
+            this.EstimateFromDistributionCenterOid = estimateFromDistributionCenterOid;
+            this.FtpPassword = ftpPassword;
+            this.HoldBeforeShipmentMinutes = holdBeforeShipmentMinutes;
+            this.HoldBeforeTransmission = holdBeforeTransmission;
+            this.HoldAutoOrderBeforeShipmentMinutes = holdAutoOrderBeforeShipmentMinutes;
+            this.Latitude = latitude;
+            this.Longitude = longitude;
+            this.Name = name;
+            this.NoCustomerDirectShipments = noCustomerDirectShipments;
+            this.NoSplitShipment = noSplitShipment;
+            this.PostalCode = postalCode;
+            this.ProcessDays = processDays;
+            this.ProcessInventoryStartTime = processInventoryStartTime;
+            this.ProcessInventoryStopTime = processInventoryStopTime;
+            this.RequireAsn = requireAsn;
+            this.SendKitInsteadOfComponents = sendKitInsteadOfComponents;
+            this.ShipmentCutoffTimeFriday = shipmentCutoffTimeFriday;
+            this.ShipmentCutoffTimeMonday = shipmentCutoffTimeMonday;
+            this.ShipmentCutoffTimeSaturday = shipmentCutoffTimeSaturday;
+            this.ShipmentCutoffTimeSunday = shipmentCutoffTimeSunday;
+            this.ShipmentCutoffTimeThursday = shipmentCutoffTimeThursday;
+            this.ShipmentCutoffTimeTuesday = shipmentCutoffTimeTuesday;
+            this.ShipmentCutoffTimeWednesday = shipmentCutoffTimeWednesday;
+            this.State = state;
+            this.Transport = transport;
         }
         
         /// <summary>
@@ -392,7 +392,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

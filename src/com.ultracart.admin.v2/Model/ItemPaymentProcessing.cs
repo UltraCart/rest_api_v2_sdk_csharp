@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemPaymentProcessing" /> class.
         /// </summary>
-        /// <param name="BlockPrepaid">True if prepaid cards should be blocked from buying this item.</param>
-        /// <param name="CreditCardTransactionType">Credit card transaction type.</param>
-        /// <param name="NoRealtimeCharge">True if no real-time charge should be performed on this item..</param>
-        /// <param name="PaymentMethodValidity">Payment method validity.</param>
-        /// <param name="RotatingTransactionGatewayCodes">Rotating transaction gateway codes.</param>
-        public ItemPaymentProcessing(bool? BlockPrepaid = default(bool?), string CreditCardTransactionType = default(string), bool? NoRealtimeCharge = default(bool?), List<string> PaymentMethodValidity = default(List<string>), List<string> RotatingTransactionGatewayCodes = default(List<string>))
+        /// <param name="blockPrepaid">True if prepaid cards should be blocked from buying this item.</param>
+        /// <param name="creditCardTransactionType">Credit card transaction type.</param>
+        /// <param name="noRealtimeCharge">True if no real-time charge should be performed on this item..</param>
+        /// <param name="paymentMethodValidity">Payment method validity.</param>
+        /// <param name="rotatingTransactionGatewayCodes">Rotating transaction gateway codes.</param>
+        public ItemPaymentProcessing(bool? blockPrepaid = default(bool?), string creditCardTransactionType = default(string), bool? noRealtimeCharge = default(bool?), List<string> paymentMethodValidity = default(List<string>), List<string> rotatingTransactionGatewayCodes = default(List<string>))
         {
-            this.BlockPrepaid = BlockPrepaid;
-            this.CreditCardTransactionType = CreditCardTransactionType;
-            this.NoRealtimeCharge = NoRealtimeCharge;
-            this.PaymentMethodValidity = PaymentMethodValidity;
-            this.RotatingTransactionGatewayCodes = RotatingTransactionGatewayCodes;
+            this.BlockPrepaid = blockPrepaid;
+            this.CreditCardTransactionType = creditCardTransactionType;
+            this.NoRealtimeCharge = noRealtimeCharge;
+            this.PaymentMethodValidity = paymentMethodValidity;
+            this.RotatingTransactionGatewayCodes = rotatingTransactionGatewayCodes;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettings" /> class.
         /// </summary>
-        /// <param name="Billing">Billing.</param>
-        /// <param name="Gift">Gift.</param>
-        /// <param name="Payment">Payment.</param>
-        /// <param name="Shipping">Shipping.</param>
-        /// <param name="Taxes">Taxes.</param>
-        /// <param name="Terms">Terms.</param>
-        public CartSettings(CartSettingsBilling Billing = default(CartSettingsBilling), CartSettingsGift Gift = default(CartSettingsGift), CartSettingsPayment Payment = default(CartSettingsPayment), CartSettingsShipping Shipping = default(CartSettingsShipping), CartSettingsTaxes Taxes = default(CartSettingsTaxes), CartSettingsTerms Terms = default(CartSettingsTerms))
+        /// <param name="billing">billing.</param>
+        /// <param name="gift">gift.</param>
+        /// <param name="payment">payment.</param>
+        /// <param name="shipping">shipping.</param>
+        /// <param name="taxes">taxes.</param>
+        /// <param name="terms">terms.</param>
+        public CartSettings(CartSettingsBilling billing = default(CartSettingsBilling), CartSettingsGift gift = default(CartSettingsGift), CartSettingsPayment payment = default(CartSettingsPayment), CartSettingsShipping shipping = default(CartSettingsShipping), CartSettingsTaxes taxes = default(CartSettingsTaxes), CartSettingsTerms terms = default(CartSettingsTerms))
         {
-            this.Billing = Billing;
-            this.Gift = Gift;
-            this.Payment = Payment;
-            this.Shipping = Shipping;
-            this.Taxes = Taxes;
-            this.Terms = Terms;
+            this.Billing = billing;
+            this.Gift = gift;
+            this.Payment = payment;
+            this.Shipping = shipping;
+            this.Taxes = taxes;
+            this.Terms = terms;
         }
         
         /// <summary>
@@ -107,7 +107,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

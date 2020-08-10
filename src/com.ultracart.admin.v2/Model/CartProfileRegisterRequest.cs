@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartProfileRegisterRequest" /> class.
         /// </summary>
-        /// <param name="Cart">Cart.</param>
-        /// <param name="Password">Password for the profile.</param>
-        public CartProfileRegisterRequest(Cart Cart = default(Cart), string Password = default(string))
+        /// <param name="cart">cart.</param>
+        /// <param name="password">Password for the profile.</param>
+        public CartProfileRegisterRequest(Cart cart = default(Cart), string password = default(string))
         {
-            this.Cart = Cart;
-            this.Password = Password;
+            this.Cart = cart;
+            this.Password = password;
         }
         
         /// <summary>
@@ -72,7 +72,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

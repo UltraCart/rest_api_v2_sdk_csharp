@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartMarketing" /> class.
         /// </summary>
-        /// <param name="AdvertisingSource">The advertising source the customer indicated.</param>
-        /// <param name="MailingListOptIn">True if the customer agrees to receiving marketing emails.</param>
-        public CartMarketing(string AdvertisingSource = default(string), bool? MailingListOptIn = default(bool?))
+        /// <param name="advertisingSource">The advertising source the customer indicated.</param>
+        /// <param name="mailingListOptIn">True if the customer agrees to receiving marketing emails.</param>
+        public CartMarketing(string advertisingSource = default(string), bool? mailingListOptIn = default(bool?))
         {
-            this.AdvertisingSource = AdvertisingSource;
-            this.MailingListOptIn = MailingListOptIn;
+            this.AdvertisingSource = advertisingSource;
+            this.MailingListOptIn = mailingListOptIn;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

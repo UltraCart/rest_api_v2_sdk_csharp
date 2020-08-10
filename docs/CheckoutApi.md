@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**Login**](CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
 [**Logout**](CheckoutApi.md#logout) | **POST** /checkout/cart/profile/logout | Profile logout
 [**Register**](CheckoutApi.md#register) | **POST** /checkout/cart/profile/register | Profile registration
+[**RegisterAffiliateClick**](CheckoutApi.md#registeraffiliateclick) | **POST** /checkout/affiliateClick/register | Register affiliate click
 [**RelatedItemsForCart**](CheckoutApi.md#relateditemsforcart) | **POST** /checkout/related_items | Related items
 [**RelatedItemsForItem**](CheckoutApi.md#relateditemsforitem) | **POST** /checkout/relatedItems/{item_id} | Related items (specific item)
 [**SetupBrowserKey**](CheckoutApi.md#setupbrowserkey) | **PUT** /checkout/browser_key | Setup Browser Application
@@ -1186,6 +1187,106 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CartProfileRegisterResponse**](CartProfileRegisterResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="registeraffiliateclick"></a>
+# **RegisterAffiliateClick**
+> CheckoutHandoffResponse RegisterAffiliateClick (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
+
+Register affiliate click
+
+Register an affiliate click.  Used by custom checkouts that are completely API based and do not perform checkout handoff. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class RegisterAffiliateClickExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new CheckoutApi();
+            var registerAffiliateClickRequest = new RegisterAffiliateClickRequest(); // RegisterAffiliateClickRequest | Register affiliate click request
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Register affiliate click
+                CheckoutHandoffResponse result = apiInstance.RegisterAffiliateClick(registerAffiliateClickRequest, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CheckoutApi.RegisterAffiliateClick: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registerAffiliateClickRequest** | [**RegisterAffiliateClickRequest**](RegisterAffiliateClickRequest.md)| Register affiliate click request | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**CheckoutHandoffResponse**](CheckoutHandoffResponse.md)
 
 ### Authorization
 

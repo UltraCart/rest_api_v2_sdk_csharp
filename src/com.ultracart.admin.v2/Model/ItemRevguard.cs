@@ -33,22 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemRevguard" /> class.
         /// </summary>
-        /// <param name="RevguardCanceledCsrPromptGroup">Canceled CSR prompt group.</param>
-        /// <param name="RevguardCanceledIvrPromptGroup">IVR prompt group.</param>
-        /// <param name="RevguardCanceledWebPromptGroup">Canceled web prompt group.</param>
-        /// <param name="RevguardClientBrand">Client brand.</param>
-        /// <param name="RevguardCsrPromptGroup">CSR prompt group.</param>
-        /// <param name="RevguardIvrPromptGroup">IVR prompt group.</param>
-        /// <param name="RevguardWebPromptGroup">Web prompt group.</param>
-        public ItemRevguard(long? RevguardCanceledCsrPromptGroup = default(long?), long? RevguardCanceledIvrPromptGroup = default(long?), long? RevguardCanceledWebPromptGroup = default(long?), long? RevguardClientBrand = default(long?), long? RevguardCsrPromptGroup = default(long?), long? RevguardIvrPromptGroup = default(long?), long? RevguardWebPromptGroup = default(long?))
+        /// <param name="revguardCanceledCsrPromptGroup">Canceled CSR prompt group.</param>
+        /// <param name="revguardCanceledIvrPromptGroup">IVR prompt group.</param>
+        /// <param name="revguardCanceledWebPromptGroup">Canceled web prompt group.</param>
+        /// <param name="revguardClientBrand">Client brand.</param>
+        /// <param name="revguardCsrPromptGroup">CSR prompt group.</param>
+        /// <param name="revguardIvrPromptGroup">IVR prompt group.</param>
+        /// <param name="revguardWebPromptGroup">Web prompt group.</param>
+        public ItemRevguard(long? revguardCanceledCsrPromptGroup = default(long?), long? revguardCanceledIvrPromptGroup = default(long?), long? revguardCanceledWebPromptGroup = default(long?), long? revguardClientBrand = default(long?), long? revguardCsrPromptGroup = default(long?), long? revguardIvrPromptGroup = default(long?), long? revguardWebPromptGroup = default(long?))
         {
-            this.RevguardCanceledCsrPromptGroup = RevguardCanceledCsrPromptGroup;
-            this.RevguardCanceledIvrPromptGroup = RevguardCanceledIvrPromptGroup;
-            this.RevguardCanceledWebPromptGroup = RevguardCanceledWebPromptGroup;
-            this.RevguardClientBrand = RevguardClientBrand;
-            this.RevguardCsrPromptGroup = RevguardCsrPromptGroup;
-            this.RevguardIvrPromptGroup = RevguardIvrPromptGroup;
-            this.RevguardWebPromptGroup = RevguardWebPromptGroup;
+            this.RevguardCanceledCsrPromptGroup = revguardCanceledCsrPromptGroup;
+            this.RevguardCanceledIvrPromptGroup = revguardCanceledIvrPromptGroup;
+            this.RevguardCanceledWebPromptGroup = revguardCanceledWebPromptGroup;
+            this.RevguardClientBrand = revguardClientBrand;
+            this.RevguardCsrPromptGroup = revguardCsrPromptGroup;
+            this.RevguardIvrPromptGroup = revguardIvrPromptGroup;
+            this.RevguardWebPromptGroup = revguardWebPromptGroup;
         }
         
         /// <summary>
@@ -123,7 +123,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

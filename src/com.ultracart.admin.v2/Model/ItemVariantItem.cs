@@ -33,20 +33,20 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemVariantItem" /> class.
         /// </summary>
-        /// <param name="Description">Description.</param>
-        /// <param name="MerchantItemMultimediaOid">Multimedia object identifier.</param>
-        /// <param name="VariantMerchantItemId">Variant item id.</param>
-        /// <param name="VariantMerchantItemOid">Variant item object identifier.</param>
-        /// <param name="VariationOptions">Variation options.</param>
-        /// <param name="Variations">Variations.</param>
-        public ItemVariantItem(string Description = default(string), int? MerchantItemMultimediaOid = default(int?), string VariantMerchantItemId = default(string), int? VariantMerchantItemOid = default(int?), List<string> VariationOptions = default(List<string>), List<string> Variations = default(List<string>))
+        /// <param name="description">Description.</param>
+        /// <param name="merchantItemMultimediaOid">Multimedia object identifier.</param>
+        /// <param name="variantMerchantItemId">Variant item id.</param>
+        /// <param name="variantMerchantItemOid">Variant item object identifier.</param>
+        /// <param name="variationOptions">Variation options.</param>
+        /// <param name="variations">Variations.</param>
+        public ItemVariantItem(string description = default(string), int? merchantItemMultimediaOid = default(int?), string variantMerchantItemId = default(string), int? variantMerchantItemOid = default(int?), List<string> variationOptions = default(List<string>), List<string> variations = default(List<string>))
         {
-            this.Description = Description;
-            this.MerchantItemMultimediaOid = MerchantItemMultimediaOid;
-            this.VariantMerchantItemId = VariantMerchantItemId;
-            this.VariantMerchantItemOid = VariantMerchantItemOid;
-            this.VariationOptions = VariationOptions;
-            this.Variations = Variations;
+            this.Description = description;
+            this.MerchantItemMultimediaOid = merchantItemMultimediaOid;
+            this.VariantMerchantItemId = variantMerchantItemId;
+            this.VariantMerchantItemOid = variantMerchantItemOid;
+            this.VariationOptions = variationOptions;
+            this.Variations = variations;
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

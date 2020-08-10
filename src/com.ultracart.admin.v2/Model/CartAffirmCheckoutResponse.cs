@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartAffirmCheckoutResponse" /> class.
         /// </summary>
-        /// <param name="CheckoutJson">Checkout JSON object.</param>
-        /// <param name="Errors">Errors that should be displayed to the customer.</param>
-        public CartAffirmCheckoutResponse(string CheckoutJson = default(string), List<string> Errors = default(List<string>))
+        /// <param name="checkoutJson">Checkout JSON object.</param>
+        /// <param name="errors">Errors that should be displayed to the customer.</param>
+        public CartAffirmCheckoutResponse(string checkoutJson = default(string), List<string> errors = default(List<string>))
         {
-            this.CheckoutJson = CheckoutJson;
-            this.Errors = Errors;
+            this.CheckoutJson = checkoutJson;
+            this.Errors = errors;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

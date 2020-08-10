@@ -39,163 +39,106 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Affirm for "Affirm"
+            /// Enum Affirm for value: Affirm
             /// </summary>
             [EnumMember(Value = "Affirm")]
-            Affirm,
+            Affirm = 1,
             
             /// <summary>
-            /// Enum Amazon for "Amazon"
+            /// Enum Amazon for value: Amazon
             /// </summary>
             [EnumMember(Value = "Amazon")]
-            Amazon,
+            Amazon = 2,
             
             /// <summary>
-            /// Enum AmazonSC for "Amazon SC"
+            /// Enum AmazonSC for value: Amazon SC
             /// </summary>
             [EnumMember(Value = "Amazon SC")]
-            AmazonSC,
+            AmazonSC = 3,
             
             /// <summary>
-            /// Enum Cash for "Cash"
+            /// Enum Cash for value: Cash
             /// </summary>
             [EnumMember(Value = "Cash")]
-            Cash,
+            Cash = 4,
             
             /// <summary>
-            /// Enum Check for "Check"
+            /// Enum Check for value: Check
             /// </summary>
             [EnumMember(Value = "Check")]
-            Check,
+            Check = 5,
             
             /// <summary>
-            /// Enum COD for "COD"
+            /// Enum COD for value: COD
             /// </summary>
             [EnumMember(Value = "COD")]
-            COD,
+            COD = 6,
             
             /// <summary>
-            /// Enum CreditCard for "Credit Card"
+            /// Enum CreditCard for value: Credit Card
             /// </summary>
             [EnumMember(Value = "Credit Card")]
-            CreditCard,
+            CreditCard = 7,
             
             /// <summary>
-            /// Enum EBay for "eBay"
+            /// Enum EBay for value: eBay
             /// </summary>
             [EnumMember(Value = "eBay")]
-            EBay,
+            EBay = 8,
             
             /// <summary>
-            /// Enum ECheck for "eCheck"
+            /// Enum ECheck for value: eCheck
             /// </summary>
             [EnumMember(Value = "eCheck")]
-            ECheck,
+            ECheck = 9,
             
             /// <summary>
-            /// Enum LoanHero for "LoanHero"
+            /// Enum LoanHero for value: LoanHero
             /// </summary>
             [EnumMember(Value = "LoanHero")]
-            LoanHero,
+            LoanHero = 10,
             
             /// <summary>
-            /// Enum MoneyOrder for "Money Order"
+            /// Enum MoneyOrder for value: Money Order
             /// </summary>
             [EnumMember(Value = "Money Order")]
-            MoneyOrder,
+            MoneyOrder = 11,
             
             /// <summary>
-            /// Enum PayPal for "PayPal"
+            /// Enum PayPal for value: PayPal
             /// </summary>
             [EnumMember(Value = "PayPal")]
-            PayPal,
+            PayPal = 12,
             
             /// <summary>
-            /// Enum PurchaseOrder for "Purchase Order"
+            /// Enum PurchaseOrder for value: Purchase Order
             /// </summary>
             [EnumMember(Value = "Purchase Order")]
-            PurchaseOrder,
+            PurchaseOrder = 13,
             
             /// <summary>
-            /// Enum QuoteRequest for "Quote Request"
+            /// Enum QuoteRequest for value: Quote Request
             /// </summary>
             [EnumMember(Value = "Quote Request")]
-            QuoteRequest,
+            QuoteRequest = 14,
             
             /// <summary>
-            /// Enum Unknown for "Unknown"
+            /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown,
+            Unknown = 15,
             
             /// <summary>
-            /// Enum WireTransfer for "Wire Transfer"
+            /// Enum WireTransfer for value: Wire Transfer
             /// </summary>
             [EnumMember(Value = "Wire Transfer")]
-            WireTransfer,
+            WireTransfer = 16,
             
             /// <summary>
-            /// Enum Walmart for "Walmart"
+            /// Enum Walmart for value: Walmart
             /// </summary>
             [EnumMember(Value = "Walmart")]
-            Walmart
-        }
-
-        /// <summary>
-        /// Payment status
-        /// </summary>
-        /// <value>Payment status</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum PaymentStatusEnum
-        {
-            
-            /// <summary>
-            /// Enum Unprocessed for "Unprocessed"
-            /// </summary>
-            [EnumMember(Value = "Unprocessed")]
-            Unprocessed,
-            
-            /// <summary>
-            /// Enum Authorized for "Authorized"
-            /// </summary>
-            [EnumMember(Value = "Authorized")]
-            Authorized,
-            
-            /// <summary>
-            /// Enum CaptureFailed for "Capture Failed"
-            /// </summary>
-            [EnumMember(Value = "Capture Failed")]
-            CaptureFailed,
-            
-            /// <summary>
-            /// Enum Processed for "Processed"
-            /// </summary>
-            [EnumMember(Value = "Processed")]
-            Processed,
-            
-            /// <summary>
-            /// Enum Declined for "Declined"
-            /// </summary>
-            [EnumMember(Value = "Declined")]
-            Declined,
-            
-            /// <summary>
-            /// Enum Voided for "Voided"
-            /// </summary>
-            [EnumMember(Value = "Voided")]
-            Voided,
-            
-            /// <summary>
-            /// Enum Refunded for "Refunded"
-            /// </summary>
-            [EnumMember(Value = "Refunded")]
-            Refunded,
-            
-            /// <summary>
-            /// Enum Skipped for "Skipped"
-            /// </summary>
-            [EnumMember(Value = "Skipped")]
-            Skipped
+            Walmart = 17
         }
 
         /// <summary>
@@ -208,47 +151,104 @@ namespace com.ultracart.admin.v2.Model
         /// Payment status
         /// </summary>
         /// <value>Payment status</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PaymentStatusEnum
+        {
+            
+            /// <summary>
+            /// Enum Unprocessed for value: Unprocessed
+            /// </summary>
+            [EnumMember(Value = "Unprocessed")]
+            Unprocessed = 1,
+            
+            /// <summary>
+            /// Enum Authorized for value: Authorized
+            /// </summary>
+            [EnumMember(Value = "Authorized")]
+            Authorized = 2,
+            
+            /// <summary>
+            /// Enum CaptureFailed for value: Capture Failed
+            /// </summary>
+            [EnumMember(Value = "Capture Failed")]
+            CaptureFailed = 3,
+            
+            /// <summary>
+            /// Enum Processed for value: Processed
+            /// </summary>
+            [EnumMember(Value = "Processed")]
+            Processed = 4,
+            
+            /// <summary>
+            /// Enum Declined for value: Declined
+            /// </summary>
+            [EnumMember(Value = "Declined")]
+            Declined = 5,
+            
+            /// <summary>
+            /// Enum Voided for value: Voided
+            /// </summary>
+            [EnumMember(Value = "Voided")]
+            Voided = 6,
+            
+            /// <summary>
+            /// Enum Refunded for value: Refunded
+            /// </summary>
+            [EnumMember(Value = "Refunded")]
+            Refunded = 7,
+            
+            /// <summary>
+            /// Enum Skipped for value: Skipped
+            /// </summary>
+            [EnumMember(Value = "Skipped")]
+            Skipped = 8
+        }
+
+        /// <summary>
+        /// Payment status
+        /// </summary>
+        /// <value>Payment status</value>
         [DataMember(Name="payment_status", EmitDefaultValue=false)]
         public PaymentStatusEnum? PaymentStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderPayment" /> class.
         /// </summary>
-        /// <param name="Check">Check.</param>
-        /// <param name="CreditCard">CreditCard.</param>
-        /// <param name="Echeck">Echeck.</param>
-        /// <param name="HoldForFraudReview">True if order has been held for fraud review.</param>
-        /// <param name="PaymentDts">Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true.</param>
-        /// <param name="PaymentMethod">Payment method.</param>
-        /// <param name="PaymentMethodAccountingCode">Payment method QuickBooks code.</param>
-        /// <param name="PaymentMethodDepositToAccount">Payment method QuickBooks deposit account.</param>
-        /// <param name="PaymentStatus">Payment status.</param>
-        /// <param name="PurchaseOrder">PurchaseOrder.</param>
-        /// <param name="RotatingTransactionGatewayCode">Rotating transaction gateway code used to process this order.</param>
-        /// <param name="Surcharge">Surcharge.</param>
-        /// <param name="SurchargeAccountingCode">Surcharge accounting code.</param>
-        /// <param name="SurchargeTransactionFee">Surcharge transaction fee.</param>
-        /// <param name="SurchargeTransactionPercentage">Surcharge transaction percentage.</param>
-        /// <param name="TestOrder">True if this is a test order.</param>
-        /// <param name="Transactions">Transactions associated with processing this payment.</param>
-        public OrderPayment(OrderPaymentCheck Check = default(OrderPaymentCheck), OrderPaymentCreditCard CreditCard = default(OrderPaymentCreditCard), OrderPaymentECheck Echeck = default(OrderPaymentECheck), bool? HoldForFraudReview = default(bool?), string PaymentDts = default(string), PaymentMethodEnum? PaymentMethod = default(PaymentMethodEnum?), string PaymentMethodAccountingCode = default(string), string PaymentMethodDepositToAccount = default(string), PaymentStatusEnum? PaymentStatus = default(PaymentStatusEnum?), OrderPaymentPurchaseOrder PurchaseOrder = default(OrderPaymentPurchaseOrder), string RotatingTransactionGatewayCode = default(string), Currency Surcharge = default(Currency), string SurchargeAccountingCode = default(string), decimal? SurchargeTransactionFee = default(decimal?), decimal? SurchargeTransactionPercentage = default(decimal?), bool? TestOrder = default(bool?), List<OrderPaymentTransaction> Transactions = default(List<OrderPaymentTransaction>))
+        /// <param name="check">check.</param>
+        /// <param name="creditCard">creditCard.</param>
+        /// <param name="echeck">echeck.</param>
+        /// <param name="holdForFraudReview">True if order has been held for fraud review.</param>
+        /// <param name="paymentDts">Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true.</param>
+        /// <param name="paymentMethod">Payment method.</param>
+        /// <param name="paymentMethodAccountingCode">Payment method QuickBooks code.</param>
+        /// <param name="paymentMethodDepositToAccount">Payment method QuickBooks deposit account.</param>
+        /// <param name="paymentStatus">Payment status.</param>
+        /// <param name="purchaseOrder">purchaseOrder.</param>
+        /// <param name="rotatingTransactionGatewayCode">Rotating transaction gateway code used to process this order.</param>
+        /// <param name="surcharge">surcharge.</param>
+        /// <param name="surchargeAccountingCode">Surcharge accounting code.</param>
+        /// <param name="surchargeTransactionFee">Surcharge transaction fee.</param>
+        /// <param name="surchargeTransactionPercentage">Surcharge transaction percentage.</param>
+        /// <param name="testOrder">True if this is a test order.</param>
+        /// <param name="transactions">Transactions associated with processing this payment.</param>
+        public OrderPayment(OrderPaymentCheck check = default(OrderPaymentCheck), OrderPaymentCreditCard creditCard = default(OrderPaymentCreditCard), OrderPaymentECheck echeck = default(OrderPaymentECheck), bool? holdForFraudReview = default(bool?), string paymentDts = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string paymentMethodAccountingCode = default(string), string paymentMethodDepositToAccount = default(string), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), OrderPaymentPurchaseOrder purchaseOrder = default(OrderPaymentPurchaseOrder), string rotatingTransactionGatewayCode = default(string), Currency surcharge = default(Currency), string surchargeAccountingCode = default(string), decimal? surchargeTransactionFee = default(decimal?), decimal? surchargeTransactionPercentage = default(decimal?), bool? testOrder = default(bool?), List<OrderPaymentTransaction> transactions = default(List<OrderPaymentTransaction>))
         {
-            this.Check = Check;
-            this.CreditCard = CreditCard;
-            this.Echeck = Echeck;
-            this.HoldForFraudReview = HoldForFraudReview;
-            this.PaymentDts = PaymentDts;
-            this.PaymentMethod = PaymentMethod;
-            this.PaymentMethodAccountingCode = PaymentMethodAccountingCode;
-            this.PaymentMethodDepositToAccount = PaymentMethodDepositToAccount;
-            this.PaymentStatus = PaymentStatus;
-            this.PurchaseOrder = PurchaseOrder;
-            this.RotatingTransactionGatewayCode = RotatingTransactionGatewayCode;
-            this.Surcharge = Surcharge;
-            this.SurchargeAccountingCode = SurchargeAccountingCode;
-            this.SurchargeTransactionFee = SurchargeTransactionFee;
-            this.SurchargeTransactionPercentage = SurchargeTransactionPercentage;
-            this.TestOrder = TestOrder;
-            this.Transactions = Transactions;
+            this.Check = check;
+            this.CreditCard = creditCard;
+            this.Echeck = echeck;
+            this.HoldForFraudReview = holdForFraudReview;
+            this.PaymentDts = paymentDts;
+            this.PaymentMethod = paymentMethod;
+            this.PaymentMethodAccountingCode = paymentMethodAccountingCode;
+            this.PaymentMethodDepositToAccount = paymentMethodDepositToAccount;
+            this.PaymentStatus = paymentStatus;
+            this.PurchaseOrder = purchaseOrder;
+            this.RotatingTransactionGatewayCode = rotatingTransactionGatewayCode;
+            this.Surcharge = surcharge;
+            this.SurchargeAccountingCode = surchargeAccountingCode;
+            this.SurchargeTransactionFee = surchargeTransactionFee;
+            this.SurchargeTransactionPercentage = surchargeTransactionPercentage;
+            this.TestOrder = testOrder;
+            this.Transactions = transactions;
         }
         
         /// <summary>
@@ -386,7 +386,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

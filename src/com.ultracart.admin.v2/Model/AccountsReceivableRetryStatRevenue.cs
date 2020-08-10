@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountsReceivableRetryStatRevenue" /> class.
         /// </summary>
-        /// <param name="Label">Label.</param>
-        /// <param name="Revenue">Revenue.</param>
-        public AccountsReceivableRetryStatRevenue(string Label = default(string), decimal? Revenue = default(decimal?))
+        /// <param name="label">label.</param>
+        /// <param name="revenue">revenue.</param>
+        public AccountsReceivableRetryStatRevenue(string label = default(string), decimal? revenue = default(decimal?))
         {
-            this.Label = Label;
-            this.Revenue = Revenue;
+            this.Label = label;
+            this.Revenue = revenue;
         }
         
         /// <summary>
@@ -71,7 +71,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

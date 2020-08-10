@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsShippingCalendar" /> class.
         /// </summary>
-        /// <param name="Blackouts">Specified dates that are blacked out on the calendar in ISO8601 format.</param>
-        /// <param name="DaysOfWeek">Days of week that should be enabled on the calendar (0 - Sunday through 6 - Saturday).</param>
-        /// <param name="Earliest">The earliest date that can be selected on the calendar.</param>
-        /// <param name="Require">True if the customer is required to select a date.</param>
-        /// <param name="Show">True if this calendar should be shown to the customer.</param>
-        public CartSettingsShippingCalendar(List<string> Blackouts = default(List<string>), List<bool?> DaysOfWeek = default(List<bool?>), string Earliest = default(string), bool? Require = default(bool?), bool? Show = default(bool?))
+        /// <param name="blackouts">Specified dates that are blacked out on the calendar in ISO8601 format.</param>
+        /// <param name="daysOfWeek">Days of week that should be enabled on the calendar (0 - Sunday through 6 - Saturday).</param>
+        /// <param name="earliest">The earliest date that can be selected on the calendar.</param>
+        /// <param name="require">True if the customer is required to select a date.</param>
+        /// <param name="show">True if this calendar should be shown to the customer.</param>
+        public CartSettingsShippingCalendar(List<string> blackouts = default(List<string>), List<bool?> daysOfWeek = default(List<bool?>), string earliest = default(string), bool? require = default(bool?), bool? show = default(bool?))
         {
-            this.Blackouts = Blackouts;
-            this.DaysOfWeek = DaysOfWeek;
-            this.Earliest = Earliest;
-            this.Require = Require;
-            this.Show = Show;
+            this.Blackouts = blackouts;
+            this.DaysOfWeek = daysOfWeek;
+            this.Earliest = earliest;
+            this.Require = require;
+            this.Show = show;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

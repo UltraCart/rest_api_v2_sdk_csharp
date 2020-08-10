@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailHistogramPropertyNamesResponse" /> class.
         /// </summary>
-        /// <param name="PropertyNames">PropertyNames.</param>
-        public EmailHistogramPropertyNamesResponse(List<string> PropertyNames = default(List<string>))
+        /// <param name="propertyNames">propertyNames.</param>
+        public EmailHistogramPropertyNamesResponse(List<string> propertyNames = default(List<string>))
         {
-            this.PropertyNames = PropertyNames;
+            this.PropertyNames = propertyNames;
         }
         
         /// <summary>
@@ -62,7 +62,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

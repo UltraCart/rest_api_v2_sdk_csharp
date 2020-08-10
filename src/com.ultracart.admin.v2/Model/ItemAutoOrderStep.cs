@@ -39,16 +39,16 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Item for "item"
+            /// Enum Item for value: item
             /// </summary>
             [EnumMember(Value = "item")]
-            Item,
+            Item = 1,
             
             /// <summary>
-            /// Enum Pause for "pause"
+            /// Enum Pause for value: pause
             /// </summary>
             [EnumMember(Value = "pause")]
-            Pause
+            Pause = 2
         }
 
         /// <summary>
@@ -60,38 +60,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemAutoOrderStep" /> class.
         /// </summary>
-        /// <param name="ArbitraryScheduleDays">If the schedule is arbitrary, then this is the number of days.</param>
-        /// <param name="ArbitraryUnitCost">Arbitrary unit cost used to override the regular item cost.</param>
-        /// <param name="ArbitraryUnitCostSchedules">Arbitrary unit costs schedules for more advanced discounting by rebill attempt.</param>
-        /// <param name="GrandfatherPricing">Grand-father pricing configuration if the rebill schedule has changed over time.</param>
-        /// <param name="ManagedBy">Managed by (defaults to UltraCart).</param>
-        /// <param name="PauseDays">Number of days to pause.</param>
-        /// <param name="PauseUntilDate">Wait for this step to happen until the specified date.</param>
-        /// <param name="PreshipmentNoticeDays">If set, a pre-shipment notice is sent to the customer this many days in advance.</param>
-        /// <param name="RecurringMerchantItemId">Item id to rebill.</param>
-        /// <param name="RecurringMerchantItemOid">Item object identifier to rebill.</param>
-        /// <param name="RepeatCount">Number of times to rebill.  Last step can be null for infinite.</param>
-        /// <param name="Schedule">Frequency of the rebill.</param>
-        /// <param name="SubscribeEmailListName">Email list name to subscribe the customer to when the rebill occurs.</param>
-        /// <param name="SubscribeEmailListOid">Email list identifier to subscribe the customer to when this rebill occurs.</param>
-        /// <param name="Type">Type of step (item or pause).</param>
-        public ItemAutoOrderStep(int? ArbitraryScheduleDays = default(int?), decimal? ArbitraryUnitCost = default(decimal?), List<ItemAutoOrderStepArbitraryUnitCostSchedule> ArbitraryUnitCostSchedules = default(List<ItemAutoOrderStepArbitraryUnitCostSchedule>), List<ItemAutoOrderStepGrandfatherPricing> GrandfatherPricing = default(List<ItemAutoOrderStepGrandfatherPricing>), string ManagedBy = default(string), int? PauseDays = default(int?), string PauseUntilDate = default(string), int? PreshipmentNoticeDays = default(int?), string RecurringMerchantItemId = default(string), int? RecurringMerchantItemOid = default(int?), int? RepeatCount = default(int?), string Schedule = default(string), string SubscribeEmailListName = default(string), int? SubscribeEmailListOid = default(int?), TypeEnum? Type = default(TypeEnum?))
+        /// <param name="arbitraryScheduleDays">If the schedule is arbitrary, then this is the number of days.</param>
+        /// <param name="arbitraryUnitCost">Arbitrary unit cost used to override the regular item cost.</param>
+        /// <param name="arbitraryUnitCostSchedules">Arbitrary unit costs schedules for more advanced discounting by rebill attempt.</param>
+        /// <param name="grandfatherPricing">Grand-father pricing configuration if the rebill schedule has changed over time.</param>
+        /// <param name="managedBy">Managed by (defaults to UltraCart).</param>
+        /// <param name="pauseDays">Number of days to pause.</param>
+        /// <param name="pauseUntilDate">Wait for this step to happen until the specified date.</param>
+        /// <param name="preshipmentNoticeDays">If set, a pre-shipment notice is sent to the customer this many days in advance.</param>
+        /// <param name="recurringMerchantItemId">Item id to rebill.</param>
+        /// <param name="recurringMerchantItemOid">Item object identifier to rebill.</param>
+        /// <param name="repeatCount">Number of times to rebill.  Last step can be null for infinite.</param>
+        /// <param name="schedule">Frequency of the rebill.</param>
+        /// <param name="subscribeEmailListName">Email list name to subscribe the customer to when the rebill occurs.</param>
+        /// <param name="subscribeEmailListOid">Email list identifier to subscribe the customer to when this rebill occurs.</param>
+        /// <param name="type">Type of step (item or pause).</param>
+        public ItemAutoOrderStep(int? arbitraryScheduleDays = default(int?), decimal? arbitraryUnitCost = default(decimal?), List<ItemAutoOrderStepArbitraryUnitCostSchedule> arbitraryUnitCostSchedules = default(List<ItemAutoOrderStepArbitraryUnitCostSchedule>), List<ItemAutoOrderStepGrandfatherPricing> grandfatherPricing = default(List<ItemAutoOrderStepGrandfatherPricing>), string managedBy = default(string), int? pauseDays = default(int?), string pauseUntilDate = default(string), int? preshipmentNoticeDays = default(int?), string recurringMerchantItemId = default(string), int? recurringMerchantItemOid = default(int?), int? repeatCount = default(int?), string schedule = default(string), string subscribeEmailListName = default(string), int? subscribeEmailListOid = default(int?), TypeEnum? type = default(TypeEnum?))
         {
-            this.ArbitraryScheduleDays = ArbitraryScheduleDays;
-            this.ArbitraryUnitCost = ArbitraryUnitCost;
-            this.ArbitraryUnitCostSchedules = ArbitraryUnitCostSchedules;
-            this.GrandfatherPricing = GrandfatherPricing;
-            this.ManagedBy = ManagedBy;
-            this.PauseDays = PauseDays;
-            this.PauseUntilDate = PauseUntilDate;
-            this.PreshipmentNoticeDays = PreshipmentNoticeDays;
-            this.RecurringMerchantItemId = RecurringMerchantItemId;
-            this.RecurringMerchantItemOid = RecurringMerchantItemOid;
-            this.RepeatCount = RepeatCount;
-            this.Schedule = Schedule;
-            this.SubscribeEmailListName = SubscribeEmailListName;
-            this.SubscribeEmailListOid = SubscribeEmailListOid;
-            this.Type = Type;
+            this.ArbitraryScheduleDays = arbitraryScheduleDays;
+            this.ArbitraryUnitCost = arbitraryUnitCost;
+            this.ArbitraryUnitCostSchedules = arbitraryUnitCostSchedules;
+            this.GrandfatherPricing = grandfatherPricing;
+            this.ManagedBy = managedBy;
+            this.PauseDays = pauseDays;
+            this.PauseUntilDate = pauseUntilDate;
+            this.PreshipmentNoticeDays = preshipmentNoticeDays;
+            this.RecurringMerchantItemId = recurringMerchantItemId;
+            this.RecurringMerchantItemOid = recurringMerchantItemOid;
+            this.RepeatCount = repeatCount;
+            this.Schedule = schedule;
+            this.SubscribeEmailListName = subscribeEmailListName;
+            this.SubscribeEmailListOid = subscribeEmailListOid;
+            this.Type = type;
         }
         
         /// <summary>
@@ -224,7 +224,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,30 +33,32 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartCheckout" /> class.
         /// </summary>
-        /// <param name="Comments">Comments from the customer.  Rarely used on the single page checkout..</param>
-        /// <param name="CustomField1">Custom field 1.</param>
-        /// <param name="CustomField2">Custom field 2.</param>
-        /// <param name="CustomField3">Custom field 3.</param>
-        /// <param name="CustomField4">Custom field 4.</param>
-        /// <param name="CustomField5">Custom field 5.</param>
-        /// <param name="CustomField6">Custom field 6.</param>
-        /// <param name="CustomField7">Custom field 7.</param>
-        /// <param name="IpAddress">IP Address (read only unless non-browser key authenticated).</param>
-        /// <param name="ReturnCode">Return code assigned for send return email operation.</param>
-        /// <param name="ScreenBrandingThemeCode">Screen branding theme code.</param>
-        public CartCheckout(string Comments = default(string), string CustomField1 = default(string), string CustomField2 = default(string), string CustomField3 = default(string), string CustomField4 = default(string), string CustomField5 = default(string), string CustomField6 = default(string), string CustomField7 = default(string), string IpAddress = default(string), string ReturnCode = default(string), string ScreenBrandingThemeCode = default(string))
+        /// <param name="comments">Comments from the customer.  Rarely used on the single page checkout..</param>
+        /// <param name="customField1">Custom field 1.</param>
+        /// <param name="customField2">Custom field 2.</param>
+        /// <param name="customField3">Custom field 3.</param>
+        /// <param name="customField4">Custom field 4.</param>
+        /// <param name="customField5">Custom field 5.</param>
+        /// <param name="customField6">Custom field 6.</param>
+        /// <param name="customField7">Custom field 7.</param>
+        /// <param name="ipAddress">IP Address (read only unless non-browser key authenticated).</param>
+        /// <param name="returnCode">Return code assigned for send return email operation.</param>
+        /// <param name="screenBrandingThemeCode">Screen branding theme code.</param>
+        /// <param name="userAgent">User agent of the browser.</param>
+        public CartCheckout(string comments = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string ipAddress = default(string), string returnCode = default(string), string screenBrandingThemeCode = default(string), string userAgent = default(string))
         {
-            this.Comments = Comments;
-            this.CustomField1 = CustomField1;
-            this.CustomField2 = CustomField2;
-            this.CustomField3 = CustomField3;
-            this.CustomField4 = CustomField4;
-            this.CustomField5 = CustomField5;
-            this.CustomField6 = CustomField6;
-            this.CustomField7 = CustomField7;
-            this.IpAddress = IpAddress;
-            this.ReturnCode = ReturnCode;
-            this.ScreenBrandingThemeCode = ScreenBrandingThemeCode;
+            this.Comments = comments;
+            this.CustomField1 = customField1;
+            this.CustomField2 = customField2;
+            this.CustomField3 = customField3;
+            this.CustomField4 = customField4;
+            this.CustomField5 = customField5;
+            this.CustomField6 = customField6;
+            this.CustomField7 = customField7;
+            this.IpAddress = ipAddress;
+            this.ReturnCode = returnCode;
+            this.ScreenBrandingThemeCode = screenBrandingThemeCode;
+            this.UserAgent = userAgent;
         }
         
         /// <summary>
@@ -137,6 +139,13 @@ namespace com.ultracart.admin.v2.Model
         public string ScreenBrandingThemeCode { get; set; }
 
         /// <summary>
+        /// User agent of the browser
+        /// </summary>
+        /// <value>User agent of the browser</value>
+        [DataMember(Name="user_agent", EmitDefaultValue=false)]
+        public string UserAgent { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -155,6 +164,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
             sb.Append("  ReturnCode: ").Append(ReturnCode).Append("\n");
             sb.Append("  ScreenBrandingThemeCode: ").Append(ScreenBrandingThemeCode).Append("\n");
+            sb.Append("  UserAgent: ").Append(UserAgent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -163,7 +173,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -243,6 +253,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ScreenBrandingThemeCode == input.ScreenBrandingThemeCode ||
                     (this.ScreenBrandingThemeCode != null &&
                     this.ScreenBrandingThemeCode.Equals(input.ScreenBrandingThemeCode))
+                ) && 
+                (
+                    this.UserAgent == input.UserAgent ||
+                    (this.UserAgent != null &&
+                    this.UserAgent.Equals(input.UserAgent))
                 );
         }
 
@@ -277,6 +292,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ReturnCode.GetHashCode();
                 if (this.ScreenBrandingThemeCode != null)
                     hashCode = hashCode * 59 + this.ScreenBrandingThemeCode.GetHashCode();
+                if (this.UserAgent != null)
+                    hashCode = hashCode * 59 + this.UserAgent.GetHashCode();
                 return hashCode;
             }
         }

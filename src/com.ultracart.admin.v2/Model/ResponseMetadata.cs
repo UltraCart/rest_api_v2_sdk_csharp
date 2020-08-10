@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResponseMetadata" /> class.
         /// </summary>
-        /// <param name="PayloadName">Payload name.</param>
-        /// <param name="ResultSet">ResultSet.</param>
-        public ResponseMetadata(string PayloadName = default(string), ResultSet ResultSet = default(ResultSet))
+        /// <param name="payloadName">Payload name.</param>
+        /// <param name="resultSet">resultSet.</param>
+        public ResponseMetadata(string payloadName = default(string), ResultSet resultSet = default(ResultSet))
         {
-            this.PayloadName = PayloadName;
-            this.ResultSet = ResultSet;
+            this.PayloadName = payloadName;
+            this.ResultSet = resultSet;
         }
         
         /// <summary>
@@ -72,7 +72,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

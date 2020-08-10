@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartItemOptionValue" /> class.
         /// </summary>
-        /// <param name="AdditionalCost">AdditionalCost.</param>
-        /// <param name="AdditionalWeight">AdditionalWeight.</param>
-        /// <param name="DefaultValue">True if this is the default value.</param>
-        /// <param name="DisplayOrder">Display order of the option value.</param>
-        /// <param name="Value">Value of the option the customer can select.</param>
-        public CartItemOptionValue(Currency AdditionalCost = default(Currency), Weight AdditionalWeight = default(Weight), bool? DefaultValue = default(bool?), int? DisplayOrder = default(int?), string Value = default(string))
+        /// <param name="additionalCost">additionalCost.</param>
+        /// <param name="additionalWeight">additionalWeight.</param>
+        /// <param name="defaultValue">True if this is the default value.</param>
+        /// <param name="displayOrder">Display order of the option value.</param>
+        /// <param name="value">Value of the option the customer can select.</param>
+        public CartItemOptionValue(Currency additionalCost = default(Currency), Weight additionalWeight = default(Weight), bool? defaultValue = default(bool?), int? displayOrder = default(int?), string value = default(string))
         {
-            this.AdditionalCost = AdditionalCost;
-            this.AdditionalWeight = AdditionalWeight;
-            this.DefaultValue = DefaultValue;
-            this.DisplayOrder = DisplayOrder;
-            this.Value = Value;
+            this.AdditionalCost = additionalCost;
+            this.AdditionalWeight = additionalWeight;
+            this.DefaultValue = defaultValue;
+            this.DisplayOrder = displayOrder;
+            this.Value = value;
         }
         
         /// <summary>
@@ -101,7 +101,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

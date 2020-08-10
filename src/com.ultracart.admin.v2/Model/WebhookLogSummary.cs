@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookLogSummary" /> class.
         /// </summary>
-        /// <param name="DeliveryDts">Date/time of the delivery.</param>
-        /// <param name="RequestId">Request id.</param>
-        /// <param name="Success">True if the notification was successful.</param>
-        public WebhookLogSummary(string DeliveryDts = default(string), string RequestId = default(string), bool? Success = default(bool?))
+        /// <param name="deliveryDts">Date/time of the delivery.</param>
+        /// <param name="requestId">Request id.</param>
+        /// <param name="success">True if the notification was successful.</param>
+        public WebhookLogSummary(string deliveryDts = default(string), string requestId = default(string), bool? success = default(bool?))
         {
-            this.DeliveryDts = DeliveryDts;
-            this.RequestId = RequestId;
-            this.Success = Success;
+            this.DeliveryDts = deliveryDts;
+            this.RequestId = requestId;
+            this.Success = success;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

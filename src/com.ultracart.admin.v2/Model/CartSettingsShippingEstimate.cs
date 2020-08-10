@@ -33,34 +33,34 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsShippingEstimate" /> class.
         /// </summary>
-        /// <param name="Allow3rdPartyBilling">True if this method allows the customer to use their own shipper account number.</param>
-        /// <param name="Comment">Comment to display to the customer about this method.</param>
-        /// <param name="Cost">Cost.</param>
-        /// <param name="CostBeforeDiscount">CostBeforeDiscount.</param>
-        /// <param name="DefaultMethod">True if this is the default method.</param>
-        /// <param name="Discount">Discount.</param>
-        /// <param name="Discounted">True if this method is discounted because of a coupon.</param>
-        /// <param name="DisplayName">The name to display to the customer.</param>
-        /// <param name="EstimatedDelivery">Date of the estimated delivery (or range).</param>
-        /// <param name="LiftGateOption">True if a lift gate option for this method should be offered to the customer.</param>
-        /// <param name="Name">Shipping method name.</param>
-        /// <param name="Tax">Tax.</param>
-        /// <param name="TotalTax">TotalTax.</param>
-        public CartSettingsShippingEstimate(bool? Allow3rdPartyBilling = default(bool?), string Comment = default(string), Currency Cost = default(Currency), Currency CostBeforeDiscount = default(Currency), bool? DefaultMethod = default(bool?), Currency Discount = default(Currency), bool? Discounted = default(bool?), string DisplayName = default(string), string EstimatedDelivery = default(string), bool? LiftGateOption = default(bool?), string Name = default(string), Currency Tax = default(Currency), Currency TotalTax = default(Currency))
+        /// <param name="allow3rdPartyBilling">True if this method allows the customer to use their own shipper account number.</param>
+        /// <param name="comment">Comment to display to the customer about this method.</param>
+        /// <param name="cost">cost.</param>
+        /// <param name="costBeforeDiscount">costBeforeDiscount.</param>
+        /// <param name="defaultMethod">True if this is the default method.</param>
+        /// <param name="discount">discount.</param>
+        /// <param name="discounted">True if this method is discounted because of a coupon.</param>
+        /// <param name="displayName">The name to display to the customer.</param>
+        /// <param name="estimatedDelivery">Date of the estimated delivery (or range).</param>
+        /// <param name="liftGateOption">True if a lift gate option for this method should be offered to the customer.</param>
+        /// <param name="name">Shipping method name.</param>
+        /// <param name="tax">tax.</param>
+        /// <param name="totalTax">totalTax.</param>
+        public CartSettingsShippingEstimate(bool? allow3rdPartyBilling = default(bool?), string comment = default(string), Currency cost = default(Currency), Currency costBeforeDiscount = default(Currency), bool? defaultMethod = default(bool?), Currency discount = default(Currency), bool? discounted = default(bool?), string displayName = default(string), string estimatedDelivery = default(string), bool? liftGateOption = default(bool?), string name = default(string), Currency tax = default(Currency), Currency totalTax = default(Currency))
         {
-            this.Allow3rdPartyBilling = Allow3rdPartyBilling;
-            this.Comment = Comment;
-            this.Cost = Cost;
-            this.CostBeforeDiscount = CostBeforeDiscount;
-            this.DefaultMethod = DefaultMethod;
-            this.Discount = Discount;
-            this.Discounted = Discounted;
-            this.DisplayName = DisplayName;
-            this.EstimatedDelivery = EstimatedDelivery;
-            this.LiftGateOption = LiftGateOption;
-            this.Name = Name;
-            this.Tax = Tax;
-            this.TotalTax = TotalTax;
+            this.Allow3rdPartyBilling = allow3rdPartyBilling;
+            this.Comment = comment;
+            this.Cost = cost;
+            this.CostBeforeDiscount = costBeforeDiscount;
+            this.DefaultMethod = defaultMethod;
+            this.Discount = discount;
+            this.Discounted = discounted;
+            this.DisplayName = displayName;
+            this.EstimatedDelivery = estimatedDelivery;
+            this.LiftGateOption = liftGateOption;
+            this.Name = name;
+            this.Tax = tax;
+            this.TotalTax = totalTax;
         }
         
         /// <summary>
@@ -178,7 +178,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

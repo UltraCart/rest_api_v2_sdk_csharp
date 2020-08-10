@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PricingTierNotification" /> class.
         /// </summary>
-        /// <param name="Format">Notification format.</param>
-        /// <param name="Subject">Notification subject.</param>
-        /// <param name="Text">Notification text.</param>
-        public PricingTierNotification(string Format = default(string), string Subject = default(string), string Text = default(string))
+        /// <param name="format">Notification format.</param>
+        /// <param name="subject">Notification subject.</param>
+        /// <param name="text">Notification text.</param>
+        public PricingTierNotification(string format = default(string), string subject = default(string), string text = default(string))
         {
-            this.Format = Format;
-            this.Subject = Subject;
-            this.Text = Text;
+            this.Format = format;
+            this.Subject = subject;
+            this.Text = text;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

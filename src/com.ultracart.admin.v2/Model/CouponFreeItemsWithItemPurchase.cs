@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponFreeItemsWithItemPurchase" /> class.
         /// </summary>
-        /// <param name="FreeItem">The item id of the free item that will be received when the required mix and match group quantity is purchased..</param>
-        /// <param name="FreeQuantity">The quantity of free item that will be received..</param>
-        /// <param name="Limit">The limit of free items that may be received when purchasing multiple items.</param>
-        /// <param name="RequiredPurchaseItem">Required item that must be purchased for coupon to be valid.</param>
-        /// <param name="RequiredPurchaseQuantity">Required quantity of mix and match group items that must be purchased for coupon to be valid.</param>
-        public CouponFreeItemsWithItemPurchase(string FreeItem = default(string), int? FreeQuantity = default(int?), int? Limit = default(int?), string RequiredPurchaseItem = default(string), int? RequiredPurchaseQuantity = default(int?))
+        /// <param name="freeItem">The item id of the free item that will be received when the required mix and match group quantity is purchased..</param>
+        /// <param name="freeQuantity">The quantity of free item that will be received..</param>
+        /// <param name="limit">The limit of free items that may be received when purchasing multiple items.</param>
+        /// <param name="requiredPurchaseItem">Required item that must be purchased for coupon to be valid.</param>
+        /// <param name="requiredPurchaseQuantity">Required quantity of mix and match group items that must be purchased for coupon to be valid.</param>
+        public CouponFreeItemsWithItemPurchase(string freeItem = default(string), int? freeQuantity = default(int?), int? limit = default(int?), string requiredPurchaseItem = default(string), int? requiredPurchaseQuantity = default(int?))
         {
-            this.FreeItem = FreeItem;
-            this.FreeQuantity = FreeQuantity;
-            this.Limit = Limit;
-            this.RequiredPurchaseItem = RequiredPurchaseItem;
-            this.RequiredPurchaseQuantity = RequiredPurchaseQuantity;
+            this.FreeItem = freeItem;
+            this.FreeQuantity = freeQuantity;
+            this.Limit = limit;
+            this.RequiredPurchaseItem = requiredPurchaseItem;
+            this.RequiredPurchaseQuantity = requiredPurchaseQuantity;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

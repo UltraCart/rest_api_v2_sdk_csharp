@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponDiscountItemWithItemPurchase" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="DiscountItem">The item that will be sold at the discount_price when required_purchase_item is purchased..</param>
-        /// <param name="DiscountPrice">The price (unit cost) of the discounted item.</param>
-        /// <param name="Limit">The (optional) maximum quantity of discounted items..</param>
-        /// <param name="RequiredPurchaseItem">The item that must be purchased for the discount to be applied to the discount item..</param>
-        public CouponDiscountItemWithItemPurchase(string CurrencyCode = default(string), string DiscountItem = default(string), decimal? DiscountPrice = default(decimal?), int? Limit = default(int?), string RequiredPurchaseItem = default(string))
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="discountItem">The item that will be sold at the discount_price when required_purchase_item is purchased..</param>
+        /// <param name="discountPrice">The price (unit cost) of the discounted item.</param>
+        /// <param name="limit">The (optional) maximum quantity of discounted items..</param>
+        /// <param name="requiredPurchaseItem">The item that must be purchased for the discount to be applied to the discount item..</param>
+        public CouponDiscountItemWithItemPurchase(string currencyCode = default(string), string discountItem = default(string), decimal? discountPrice = default(decimal?), int? limit = default(int?), string requiredPurchaseItem = default(string))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.DiscountItem = DiscountItem;
-            this.DiscountPrice = DiscountPrice;
-            this.Limit = Limit;
-            this.RequiredPurchaseItem = RequiredPurchaseItem;
+            this.CurrencyCode = currencyCode;
+            this.DiscountItem = discountItem;
+            this.DiscountPrice = discountPrice;
+            this.Limit = limit;
+            this.RequiredPurchaseItem = requiredPurchaseItem;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

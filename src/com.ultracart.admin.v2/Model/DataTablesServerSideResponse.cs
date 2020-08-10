@@ -33,16 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataTablesServerSideResponse" /> class.
         /// </summary>
-        /// <param name="Draw">Draw.</param>
-        /// <param name="RecordsFiltered">RecordsFiltered.</param>
-        /// <param name="RecordsTotal">RecordsTotal.</param>
-        public DataTablesServerSideResponse(int? Draw = default(int?), int? RecordsFiltered = default(int?), int? RecordsTotal = default(int?))
+        /// <param name="data">data.</param>
+        /// <param name="draw">draw.</param>
+        /// <param name="recordsFiltered">recordsFiltered.</param>
+        /// <param name="recordsTotal">recordsTotal.</param>
+        public DataTablesServerSideResponse(List<Customer> data = default(List<Customer>), int? draw = default(int?), int? recordsFiltered = default(int?), int? recordsTotal = default(int?))
         {
-            this.Draw = Draw;
-            this.RecordsFiltered = RecordsFiltered;
-            this.RecordsTotal = RecordsTotal;
+            this.Data = data;
+            this.Draw = draw;
+            this.RecordsFiltered = recordsFiltered;
+            this.RecordsTotal = recordsTotal;
         }
         
+        /// <summary>
+        /// Gets or Sets Data
+        /// </summary>
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public List<Customer> Data { get; set; }
+
         /// <summary>
         /// Gets or Sets Draw
         /// </summary>
@@ -69,6 +77,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DataTablesServerSideResponse {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Draw: ").Append(Draw).Append("\n");
             sb.Append("  RecordsFiltered: ").Append(RecordsFiltered).Append("\n");
             sb.Append("  RecordsTotal: ").Append(RecordsTotal).Append("\n");
@@ -80,7 +89,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -107,6 +116,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
+                ) && 
+                (
                     this.Draw == input.Draw ||
                     (this.Draw != null &&
                     this.Draw.Equals(input.Draw))
@@ -132,6 +146,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 if (this.Draw != null)
                     hashCode = hashCode * 59 + this.Draw.GetHashCode();
                 if (this.RecordsFiltered != null)

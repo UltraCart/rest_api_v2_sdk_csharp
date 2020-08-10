@@ -39,22 +39,22 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Invalidfor for "invalid for"
+            /// Enum Invalidfor for value: invalid for
             /// </summary>
             [EnumMember(Value = "invalid for")]
-            Invalidfor,
+            Invalidfor = 1,
             
             /// <summary>
-            /// Enum Validfor for "valid for"
+            /// Enum Validfor for value: valid for
             /// </summary>
             [EnumMember(Value = "valid for")]
-            Validfor,
+            Validfor = 2,
             
             /// <summary>
-            /// Enum Validonlyfor for "valid only for"
+            /// Enum Validonlyfor for value: valid only for
             /// </summary>
             [EnumMember(Value = "valid only for")]
-            Validonlyfor
+            Validonlyfor = 3
         }
 
         /// <summary>
@@ -66,38 +66,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingMethod" /> class.
         /// </summary>
-        /// <param name="Cost">Cost.</param>
-        /// <param name="EachAdditionalItemMarkup">Each additional item markup.</param>
-        /// <param name="FilterToIfAvailable">Filter to this method if available.</param>
-        /// <param name="FirstItemMarkup">First item markup.</param>
-        /// <param name="FixedShippingCost">Fixed shipping cost.</param>
-        /// <param name="FlatFeeMarkup">Flat fee markup.</param>
-        /// <param name="FreeShipping">Free shipping.</param>
-        /// <param name="PerItemFeeMarkup">Per item fee markup.</param>
-        /// <param name="PercentageMarkup">Percentage markup.</param>
-        /// <param name="PercentageOfItemMarkup">Percentage of item markup.</param>
-        /// <param name="RelaxRestrictionsOnUpsell">Relax restrictions on upsell.</param>
-        /// <param name="ShippingMethod">Shipping method name.</param>
-        /// <param name="ShippingMethodOid">Shipping method object identifier.</param>
-        /// <param name="ShippingMethodValidity">Shipping method validity.</param>
-        /// <param name="SignatureRequired">Signature required.</param>
-        public ItemShippingMethod(decimal? Cost = default(decimal?), decimal? EachAdditionalItemMarkup = default(decimal?), bool? FilterToIfAvailable = default(bool?), decimal? FirstItemMarkup = default(decimal?), decimal? FixedShippingCost = default(decimal?), decimal? FlatFeeMarkup = default(decimal?), bool? FreeShipping = default(bool?), decimal? PerItemFeeMarkup = default(decimal?), decimal? PercentageMarkup = default(decimal?), decimal? PercentageOfItemMarkup = default(decimal?), bool? RelaxRestrictionsOnUpsell = default(bool?), string ShippingMethod = default(string), int? ShippingMethodOid = default(int?), ShippingMethodValidityEnum? ShippingMethodValidity = default(ShippingMethodValidityEnum?), bool? SignatureRequired = default(bool?))
+        /// <param name="cost">Cost.</param>
+        /// <param name="eachAdditionalItemMarkup">Each additional item markup.</param>
+        /// <param name="filterToIfAvailable">Filter to this method if available.</param>
+        /// <param name="firstItemMarkup">First item markup.</param>
+        /// <param name="fixedShippingCost">Fixed shipping cost.</param>
+        /// <param name="flatFeeMarkup">Flat fee markup.</param>
+        /// <param name="freeShipping">Free shipping.</param>
+        /// <param name="perItemFeeMarkup">Per item fee markup.</param>
+        /// <param name="percentageMarkup">Percentage markup.</param>
+        /// <param name="percentageOfItemMarkup">Percentage of item markup.</param>
+        /// <param name="relaxRestrictionsOnUpsell">Relax restrictions on upsell.</param>
+        /// <param name="shippingMethod">Shipping method name.</param>
+        /// <param name="shippingMethodOid">Shipping method object identifier.</param>
+        /// <param name="shippingMethodValidity">Shipping method validity.</param>
+        /// <param name="signatureRequired">Signature required.</param>
+        public ItemShippingMethod(decimal? cost = default(decimal?), decimal? eachAdditionalItemMarkup = default(decimal?), bool? filterToIfAvailable = default(bool?), decimal? firstItemMarkup = default(decimal?), decimal? fixedShippingCost = default(decimal?), decimal? flatFeeMarkup = default(decimal?), bool? freeShipping = default(bool?), decimal? perItemFeeMarkup = default(decimal?), decimal? percentageMarkup = default(decimal?), decimal? percentageOfItemMarkup = default(decimal?), bool? relaxRestrictionsOnUpsell = default(bool?), string shippingMethod = default(string), int? shippingMethodOid = default(int?), ShippingMethodValidityEnum? shippingMethodValidity = default(ShippingMethodValidityEnum?), bool? signatureRequired = default(bool?))
         {
-            this.Cost = Cost;
-            this.EachAdditionalItemMarkup = EachAdditionalItemMarkup;
-            this.FilterToIfAvailable = FilterToIfAvailable;
-            this.FirstItemMarkup = FirstItemMarkup;
-            this.FixedShippingCost = FixedShippingCost;
-            this.FlatFeeMarkup = FlatFeeMarkup;
-            this.FreeShipping = FreeShipping;
-            this.PerItemFeeMarkup = PerItemFeeMarkup;
-            this.PercentageMarkup = PercentageMarkup;
-            this.PercentageOfItemMarkup = PercentageOfItemMarkup;
-            this.RelaxRestrictionsOnUpsell = RelaxRestrictionsOnUpsell;
-            this.ShippingMethod = ShippingMethod;
-            this.ShippingMethodOid = ShippingMethodOid;
-            this.ShippingMethodValidity = ShippingMethodValidity;
-            this.SignatureRequired = SignatureRequired;
+            this.Cost = cost;
+            this.EachAdditionalItemMarkup = eachAdditionalItemMarkup;
+            this.FilterToIfAvailable = filterToIfAvailable;
+            this.FirstItemMarkup = firstItemMarkup;
+            this.FixedShippingCost = fixedShippingCost;
+            this.FlatFeeMarkup = flatFeeMarkup;
+            this.FreeShipping = freeShipping;
+            this.PerItemFeeMarkup = perItemFeeMarkup;
+            this.PercentageMarkup = percentageMarkup;
+            this.PercentageOfItemMarkup = percentageOfItemMarkup;
+            this.RelaxRestrictionsOnUpsell = relaxRestrictionsOnUpsell;
+            this.ShippingMethod = shippingMethod;
+            this.ShippingMethodOid = shippingMethodOid;
+            this.ShippingMethodValidity = shippingMethodValidity;
+            this.SignatureRequired = signatureRequired;
         }
         
         /// <summary>
@@ -230,7 +230,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

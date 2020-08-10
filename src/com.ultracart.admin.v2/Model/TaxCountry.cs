@@ -33,26 +33,26 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxCountry" /> class.
         /// </summary>
-        /// <param name="AccountingCode">Accounting code for programs such as QuickBooks.</param>
-        /// <param name="CountryCode">Country code (2 characters.</param>
-        /// <param name="CountryOid">Tax record object identifier used internally by database.</param>
-        /// <param name="States">States (or regions or territories) within this country.</param>
-        /// <param name="TaxGiftCharge">True if taxation within this jurisdiction should charge tax on gift charge.</param>
-        /// <param name="TaxGiftWrap">True if taxation within this jurisdiction should charge tax on gift wrap.</param>
-        /// <param name="TaxRate">Tax Rate.</param>
-        /// <param name="TaxRateFormatted">Tax rate formatted.</param>
-        /// <param name="TaxShipping">True if taxation within this jurisdiction should charge tax on shipping.</param>
-        public TaxCountry(string AccountingCode = default(string), string CountryCode = default(string), int? CountryOid = default(int?), List<TaxState> States = default(List<TaxState>), bool? TaxGiftCharge = default(bool?), bool? TaxGiftWrap = default(bool?), decimal? TaxRate = default(decimal?), string TaxRateFormatted = default(string), bool? TaxShipping = default(bool?))
+        /// <param name="accountingCode">Accounting code for programs such as QuickBooks.</param>
+        /// <param name="countryCode">Country code (2 characters.</param>
+        /// <param name="countryOid">Tax record object identifier used internally by database.</param>
+        /// <param name="states">States (or regions or territories) within this country.</param>
+        /// <param name="taxGiftCharge">True if taxation within this jurisdiction should charge tax on gift charge.</param>
+        /// <param name="taxGiftWrap">True if taxation within this jurisdiction should charge tax on gift wrap.</param>
+        /// <param name="taxRate">Tax Rate.</param>
+        /// <param name="taxRateFormatted">Tax rate formatted.</param>
+        /// <param name="taxShipping">True if taxation within this jurisdiction should charge tax on shipping.</param>
+        public TaxCountry(string accountingCode = default(string), string countryCode = default(string), int? countryOid = default(int?), List<TaxState> states = default(List<TaxState>), bool? taxGiftCharge = default(bool?), bool? taxGiftWrap = default(bool?), decimal? taxRate = default(decimal?), string taxRateFormatted = default(string), bool? taxShipping = default(bool?))
         {
-            this.AccountingCode = AccountingCode;
-            this.CountryCode = CountryCode;
-            this.CountryOid = CountryOid;
-            this.States = States;
-            this.TaxGiftCharge = TaxGiftCharge;
-            this.TaxGiftWrap = TaxGiftWrap;
-            this.TaxRate = TaxRate;
-            this.TaxRateFormatted = TaxRateFormatted;
-            this.TaxShipping = TaxShipping;
+            this.AccountingCode = accountingCode;
+            this.CountryCode = countryCode;
+            this.CountryOid = countryOid;
+            this.States = states;
+            this.TaxGiftCharge = taxGiftCharge;
+            this.TaxGiftWrap = taxGiftWrap;
+            this.TaxRate = taxRate;
+            this.TaxRateFormatted = taxRateFormatted;
+            this.TaxShipping = taxShipping;
         }
         
         /// <summary>
@@ -143,7 +143,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

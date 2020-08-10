@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponAmountOffSubtotalWithBlockPurchase" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="DiscountAmount">The amount of subtotal discount.</param>
-        /// <param name="RequiredPurchaseItem">Required item that must be purchased for coupon to be valid.</param>
-        /// <param name="RequiredPurchaseQuantity">Discount amount is multiplied by the number of blocks.  A block is this many quantity of the required item..</param>
-        public CouponAmountOffSubtotalWithBlockPurchase(string CurrencyCode = default(string), decimal? DiscountAmount = default(decimal?), string RequiredPurchaseItem = default(string), int? RequiredPurchaseQuantity = default(int?))
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="discountAmount">The amount of subtotal discount.</param>
+        /// <param name="requiredPurchaseItem">Required item that must be purchased for coupon to be valid.</param>
+        /// <param name="requiredPurchaseQuantity">Discount amount is multiplied by the number of blocks.  A block is this many quantity of the required item..</param>
+        public CouponAmountOffSubtotalWithBlockPurchase(string currencyCode = default(string), decimal? discountAmount = default(decimal?), string requiredPurchaseItem = default(string), int? requiredPurchaseQuantity = default(int?))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.DiscountAmount = DiscountAmount;
-            this.RequiredPurchaseItem = RequiredPurchaseItem;
-            this.RequiredPurchaseQuantity = RequiredPurchaseQuantity;
+            this.CurrencyCode = currencyCode;
+            this.DiscountAmount = discountAmount;
+            this.RequiredPurchaseItem = requiredPurchaseItem;
+            this.RequiredPurchaseQuantity = requiredPurchaseQuantity;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

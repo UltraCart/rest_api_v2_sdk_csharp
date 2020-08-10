@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxProviderSelfCountriesResponse" /> class.
         /// </summary>
-        /// <param name="Countries">countries.</param>
-        public TaxProviderSelfCountriesResponse(List<TaxCountryCode> Countries = default(List<TaxCountryCode>))
+        /// <param name="countries">countries.</param>
+        public TaxProviderSelfCountriesResponse(List<TaxCountryCode> countries = default(List<TaxCountryCode>))
         {
-            this.Countries = Countries;
+            this.Countries = countries;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

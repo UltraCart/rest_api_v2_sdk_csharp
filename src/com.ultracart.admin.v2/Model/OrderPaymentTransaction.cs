@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderPaymentTransaction" /> class.
         /// </summary>
-        /// <param name="Details">Details.</param>
-        /// <param name="Successful">True if the transaction was successful.</param>
-        /// <param name="TransactionGateway">Transaction gateway.</param>
-        /// <param name="TransactionTimestamp">Transaction date/time.</param>
-        public OrderPaymentTransaction(List<OrderPaymentTransactionDetail> Details = default(List<OrderPaymentTransactionDetail>), bool? Successful = default(bool?), string TransactionGateway = default(string), string TransactionTimestamp = default(string))
+        /// <param name="details">Details.</param>
+        /// <param name="successful">True if the transaction was successful.</param>
+        /// <param name="transactionGateway">Transaction gateway.</param>
+        /// <param name="transactionTimestamp">Transaction date/time.</param>
+        public OrderPaymentTransaction(List<OrderPaymentTransactionDetail> details = default(List<OrderPaymentTransactionDetail>), bool? successful = default(bool?), string transactionGateway = default(string), string transactionTimestamp = default(string))
         {
-            this.Details = Details;
-            this.Successful = Successful;
-            this.TransactionGateway = TransactionGateway;
-            this.TransactionTimestamp = TransactionTimestamp;
+            this.Details = details;
+            this.Successful = successful;
+            this.TransactionGateway = transactionGateway;
+            this.TransactionTimestamp = transactionTimestamp;
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

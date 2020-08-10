@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingPackageRequirement" /> class.
         /// </summary>
-        /// <param name="PackageName">Package name.</param>
-        /// <param name="PackageOid">Package object identifier.</param>
-        public ItemShippingPackageRequirement(string PackageName = default(string), int? PackageOid = default(int?))
+        /// <param name="packageName">Package name.</param>
+        /// <param name="packageOid">Package object identifier.</param>
+        public ItemShippingPackageRequirement(string packageName = default(string), int? packageOid = default(int?))
         {
-            this.PackageName = PackageName;
-            this.PackageOid = PackageOid;
+            this.PackageName = packageName;
+            this.PackageOid = packageOid;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

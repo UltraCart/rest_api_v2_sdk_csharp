@@ -39,34 +39,34 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Image for "Image"
+            /// Enum Image for value: Image
             /// </summary>
             [EnumMember(Value = "Image")]
-            Image,
+            Image = 1,
             
             /// <summary>
-            /// Enum PDF for "PDF"
+            /// Enum PDF for value: PDF
             /// </summary>
             [EnumMember(Value = "PDF")]
-            PDF,
+            PDF = 2,
             
             /// <summary>
-            /// Enum Text for "Text"
+            /// Enum Text for value: Text
             /// </summary>
             [EnumMember(Value = "Text")]
-            Text,
+            Text = 3,
             
             /// <summary>
-            /// Enum Unknown for "Unknown"
+            /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown,
+            Unknown = 4,
             
             /// <summary>
-            /// Enum Video for "Video"
+            /// Enum Video for value: Video
             /// </summary>
             [EnumMember(Value = "Video")]
-            Video
+            Video = 5
         }
 
         /// <summary>
@@ -78,38 +78,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemContentMultimedia" /> class.
         /// </summary>
-        /// <param name="CloudUrl">URL where the image can be downloaded from the cloud.</param>
-        /// <param name="CloudUrlExpiration">Expiration date of the cloud URL.</param>
-        /// <param name="Code">Code assigned to the file.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="ExcludeFromGallery">True to exclude from multimedia gallery.</param>
-        /// <param name="FileName">File name.</param>
-        /// <param name="Height">Height of the image.</param>
-        /// <param name="MerchantItemMultimediaOid">Item multimedia object identifier.</param>
-        /// <param name="Orphan">True if the multimedia is an orphan of the active StoreFront themes.</param>
-        /// <param name="Placeholder">True if the object is a place holder that can be populated.</param>
-        /// <param name="TempMultimediaOid">Temporary multimedia object identifier assigned if uploading new multimedia.</param>
-        /// <param name="Thumbnails">Thumbnails of this image.</param>
-        /// <param name="Type">Type of file.</param>
-        /// <param name="Url">URL to download file (on new multimedia record this can be a URL for UltraCart to fetch).</param>
-        /// <param name="Width">Width of the image.</param>
-        public ItemContentMultimedia(string CloudUrl = default(string), string CloudUrlExpiration = default(string), string Code = default(string), string Description = default(string), bool? ExcludeFromGallery = default(bool?), string FileName = default(string), int? Height = default(int?), int? MerchantItemMultimediaOid = default(int?), bool? Orphan = default(bool?), bool? Placeholder = default(bool?), int? TempMultimediaOid = default(int?), List<ItemContentMultimediaThumbnail> Thumbnails = default(List<ItemContentMultimediaThumbnail>), TypeEnum? Type = default(TypeEnum?), string Url = default(string), int? Width = default(int?))
+        /// <param name="cloudUrl">URL where the image can be downloaded from the cloud.</param>
+        /// <param name="cloudUrlExpiration">Expiration date of the cloud URL.</param>
+        /// <param name="code">Code assigned to the file.</param>
+        /// <param name="description">Description.</param>
+        /// <param name="excludeFromGallery">True to exclude from multimedia gallery.</param>
+        /// <param name="fileName">File name.</param>
+        /// <param name="height">Height of the image.</param>
+        /// <param name="merchantItemMultimediaOid">Item multimedia object identifier.</param>
+        /// <param name="orphan">True if the multimedia is an orphan of the active StoreFront themes.</param>
+        /// <param name="placeholder">True if the object is a place holder that can be populated.</param>
+        /// <param name="tempMultimediaOid">Temporary multimedia object identifier assigned if uploading new multimedia.</param>
+        /// <param name="thumbnails">Thumbnails of this image.</param>
+        /// <param name="type">Type of file.</param>
+        /// <param name="url">URL to download file (on new multimedia record this can be a URL for UltraCart to fetch).</param>
+        /// <param name="width">Width of the image.</param>
+        public ItemContentMultimedia(string cloudUrl = default(string), string cloudUrlExpiration = default(string), string code = default(string), string description = default(string), bool? excludeFromGallery = default(bool?), string fileName = default(string), int? height = default(int?), int? merchantItemMultimediaOid = default(int?), bool? orphan = default(bool?), bool? placeholder = default(bool?), int? tempMultimediaOid = default(int?), List<ItemContentMultimediaThumbnail> thumbnails = default(List<ItemContentMultimediaThumbnail>), TypeEnum? type = default(TypeEnum?), string url = default(string), int? width = default(int?))
         {
-            this.CloudUrl = CloudUrl;
-            this.CloudUrlExpiration = CloudUrlExpiration;
-            this.Code = Code;
-            this.Description = Description;
-            this.ExcludeFromGallery = ExcludeFromGallery;
-            this.FileName = FileName;
-            this.Height = Height;
-            this.MerchantItemMultimediaOid = MerchantItemMultimediaOid;
-            this.Orphan = Orphan;
-            this.Placeholder = Placeholder;
-            this.TempMultimediaOid = TempMultimediaOid;
-            this.Thumbnails = Thumbnails;
-            this.Type = Type;
-            this.Url = Url;
-            this.Width = Width;
+            this.CloudUrl = cloudUrl;
+            this.CloudUrlExpiration = cloudUrlExpiration;
+            this.Code = code;
+            this.Description = description;
+            this.ExcludeFromGallery = excludeFromGallery;
+            this.FileName = fileName;
+            this.Height = height;
+            this.MerchantItemMultimediaOid = merchantItemMultimediaOid;
+            this.Orphan = orphan;
+            this.Placeholder = placeholder;
+            this.TempMultimediaOid = tempMultimediaOid;
+            this.Thumbnails = thumbnails;
+            this.Type = type;
+            this.Url = url;
+            this.Width = width;
         }
         
         /// <summary>
@@ -242,7 +242,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

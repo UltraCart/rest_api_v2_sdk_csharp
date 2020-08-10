@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PricingTiersResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="PricingTiers">pricing_tiers.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public PricingTiersResponse(Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), List<PricingTier> PricingTiers = default(List<PricingTier>), bool? Success = default(bool?))
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="pricingTiers">pricing_tiers.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public PricingTiersResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), List<PricingTier> pricingTiers = default(List<PricingTier>), bool? success = default(bool?))
         {
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.PricingTiers = PricingTiers;
-            this.Success = Success;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.PricingTiers = pricingTiers;
+            this.Success = success;
         }
         
         /// <summary>
@@ -91,7 +91,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

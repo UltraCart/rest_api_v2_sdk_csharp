@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TempMultimediaResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        /// <param name="TempMultimedia">TempMultimedia.</param>
-        public TempMultimediaResponse(Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), bool? Success = default(bool?), TempMultimedia TempMultimedia = default(TempMultimedia))
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        /// <param name="tempMultimedia">tempMultimedia.</param>
+        public TempMultimediaResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), TempMultimedia tempMultimedia = default(TempMultimedia))
         {
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.Success = Success;
-            this.TempMultimedia = TempMultimedia;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.Success = success;
+            this.TempMultimedia = tempMultimedia;
         }
         
         /// <summary>
@@ -90,7 +90,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

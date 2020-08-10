@@ -33,34 +33,34 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerLoyaltyRedemption" /> class.
         /// </summary>
-        /// <param name="CouponCode">Coupon code.</param>
-        /// <param name="CouponCodeOid">Coupon code OID.</param>
-        /// <param name="CouponUsed">Coupon used.</param>
-        /// <param name="DescriptionForCustomer">Description for customer.</param>
-        /// <param name="ExpirationDts">Expiration date.</param>
-        /// <param name="GiftCertificateCode">Gift certificate code.</param>
-        /// <param name="GiftCertificateOid">Gift certificate oid.</param>
-        /// <param name="LoyaltyLedgerOid">Loyalty ledger OID.</param>
-        /// <param name="LoyaltyPoints">Loyalty points.</param>
-        /// <param name="LoyaltyRedemptionOid">Loyalty redemption OID.</param>
-        /// <param name="OrderId">Order id.</param>
-        /// <param name="RedemptionDts">Redemption date.</param>
-        /// <param name="RemainingBalance">Remaining balance.</param>
-        public CustomerLoyaltyRedemption(string CouponCode = default(string), int? CouponCodeOid = default(int?), bool? CouponUsed = default(bool?), string DescriptionForCustomer = default(string), string ExpirationDts = default(string), string GiftCertificateCode = default(string), int? GiftCertificateOid = default(int?), int? LoyaltyLedgerOid = default(int?), int? LoyaltyPoints = default(int?), int? LoyaltyRedemptionOid = default(int?), string OrderId = default(string), string RedemptionDts = default(string), decimal? RemainingBalance = default(decimal?))
+        /// <param name="couponCode">Coupon code.</param>
+        /// <param name="couponCodeOid">Coupon code OID.</param>
+        /// <param name="couponUsed">Coupon used.</param>
+        /// <param name="descriptionForCustomer">Description for customer.</param>
+        /// <param name="expirationDts">Expiration date.</param>
+        /// <param name="giftCertificateCode">Gift certificate code.</param>
+        /// <param name="giftCertificateOid">Gift certificate oid.</param>
+        /// <param name="loyaltyLedgerOid">Loyalty ledger OID.</param>
+        /// <param name="loyaltyPoints">Loyalty points.</param>
+        /// <param name="loyaltyRedemptionOid">Loyalty redemption OID.</param>
+        /// <param name="orderId">Order id.</param>
+        /// <param name="redemptionDts">Redemption date.</param>
+        /// <param name="remainingBalance">Remaining balance.</param>
+        public CustomerLoyaltyRedemption(string couponCode = default(string), int? couponCodeOid = default(int?), bool? couponUsed = default(bool?), string descriptionForCustomer = default(string), string expirationDts = default(string), string giftCertificateCode = default(string), int? giftCertificateOid = default(int?), int? loyaltyLedgerOid = default(int?), int? loyaltyPoints = default(int?), int? loyaltyRedemptionOid = default(int?), string orderId = default(string), string redemptionDts = default(string), decimal? remainingBalance = default(decimal?))
         {
-            this.CouponCode = CouponCode;
-            this.CouponCodeOid = CouponCodeOid;
-            this.CouponUsed = CouponUsed;
-            this.DescriptionForCustomer = DescriptionForCustomer;
-            this.ExpirationDts = ExpirationDts;
-            this.GiftCertificateCode = GiftCertificateCode;
-            this.GiftCertificateOid = GiftCertificateOid;
-            this.LoyaltyLedgerOid = LoyaltyLedgerOid;
-            this.LoyaltyPoints = LoyaltyPoints;
-            this.LoyaltyRedemptionOid = LoyaltyRedemptionOid;
-            this.OrderId = OrderId;
-            this.RedemptionDts = RedemptionDts;
-            this.RemainingBalance = RemainingBalance;
+            this.CouponCode = couponCode;
+            this.CouponCodeOid = couponCodeOid;
+            this.CouponUsed = couponUsed;
+            this.DescriptionForCustomer = descriptionForCustomer;
+            this.ExpirationDts = expirationDts;
+            this.GiftCertificateCode = giftCertificateCode;
+            this.GiftCertificateOid = giftCertificateOid;
+            this.LoyaltyLedgerOid = loyaltyLedgerOid;
+            this.LoyaltyPoints = loyaltyPoints;
+            this.LoyaltyRedemptionOid = loyaltyRedemptionOid;
+            this.OrderId = orderId;
+            this.RedemptionDts = redemptionDts;
+            this.RemainingBalance = remainingBalance;
         }
         
         /// <summary>
@@ -183,7 +183,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

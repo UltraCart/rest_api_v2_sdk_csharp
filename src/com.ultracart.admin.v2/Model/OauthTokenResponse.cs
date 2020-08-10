@@ -39,10 +39,10 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Bearer for "bearer"
+            /// Enum Bearer for value: bearer
             /// </summary>
             [EnumMember(Value = "bearer")]
-            Bearer
+            Bearer = 1
         }
 
         /// <summary>
@@ -54,24 +54,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OauthTokenResponse" /> class.
         /// </summary>
-        /// <param name="AccessToken">Access token to use in OAuth authenticated API call.</param>
-        /// <param name="Error">Error.</param>
-        /// <param name="ErrorDescription">ErrorDescription.</param>
-        /// <param name="ErrorUri">ErrorUri.</param>
-        /// <param name="ExpiresIn">The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token.</param>
-        /// <param name="RefreshToken">The refresh token that should be used to fetch a new access token when the expiration occurs.</param>
-        /// <param name="Scope">The scope of permissions associated with teh access token.</param>
-        /// <param name="TokenType">Type of token.</param>
-        public OauthTokenResponse(string AccessToken = default(string), string Error = default(string), string ErrorDescription = default(string), string ErrorUri = default(string), string ExpiresIn = default(string), string RefreshToken = default(string), string Scope = default(string), TokenTypeEnum? TokenType = default(TokenTypeEnum?))
+        /// <param name="accessToken">Access token to use in OAuth authenticated API call.</param>
+        /// <param name="error">error.</param>
+        /// <param name="errorDescription">errorDescription.</param>
+        /// <param name="errorUri">errorUri.</param>
+        /// <param name="expiresIn">The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token.</param>
+        /// <param name="refreshToken">The refresh token that should be used to fetch a new access token when the expiration occurs.</param>
+        /// <param name="scope">The scope of permissions associated with teh access token.</param>
+        /// <param name="tokenType">Type of token.</param>
+        public OauthTokenResponse(string accessToken = default(string), string error = default(string), string errorDescription = default(string), string errorUri = default(string), string expiresIn = default(string), string refreshToken = default(string), string scope = default(string), TokenTypeEnum? tokenType = default(TokenTypeEnum?))
         {
-            this.AccessToken = AccessToken;
-            this.Error = Error;
-            this.ErrorDescription = ErrorDescription;
-            this.ErrorUri = ErrorUri;
-            this.ExpiresIn = ExpiresIn;
-            this.RefreshToken = RefreshToken;
-            this.Scope = Scope;
-            this.TokenType = TokenType;
+            this.AccessToken = accessToken;
+            this.Error = error;
+            this.ErrorDescription = errorDescription;
+            this.ErrorUri = errorUri;
+            this.ExpiresIn = expiresIn;
+            this.RefreshToken = refreshToken;
+            this.Scope = scope;
+            this.TokenType = tokenType;
         }
         
         /// <summary>
@@ -145,7 +145,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

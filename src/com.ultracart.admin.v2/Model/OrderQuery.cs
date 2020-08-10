@@ -39,163 +39,64 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum AccountsReceivable for "Accounts Receivable"
+            /// Enum AccountsReceivable for value: Accounts Receivable
             /// </summary>
             [EnumMember(Value = "Accounts Receivable")]
-            AccountsReceivable,
+            AccountsReceivable = 1,
             
             /// <summary>
-            /// Enum PendingClearance for "Pending Clearance"
+            /// Enum PendingClearance for value: Pending Clearance
             /// </summary>
             [EnumMember(Value = "Pending Clearance")]
-            PendingClearance,
+            PendingClearance = 2,
             
             /// <summary>
-            /// Enum FraudReview for "Fraud Review"
+            /// Enum FraudReview for value: Fraud Review
             /// </summary>
             [EnumMember(Value = "Fraud Review")]
-            FraudReview,
+            FraudReview = 3,
             
             /// <summary>
-            /// Enum Rejected for "Rejected"
+            /// Enum Rejected for value: Rejected
             /// </summary>
             [EnumMember(Value = "Rejected")]
-            Rejected,
+            Rejected = 4,
             
             /// <summary>
-            /// Enum ShippingDepartment for "Shipping Department"
+            /// Enum ShippingDepartment for value: Shipping Department
             /// </summary>
             [EnumMember(Value = "Shipping Department")]
-            ShippingDepartment,
+            ShippingDepartment = 5,
             
             /// <summary>
-            /// Enum CompletedOrder for "Completed Order"
+            /// Enum CompletedOrder for value: Completed Order
             /// </summary>
             [EnumMember(Value = "Completed Order")]
-            CompletedOrder,
+            CompletedOrder = 6,
             
             /// <summary>
-            /// Enum QuoteRequest for "Quote Request"
+            /// Enum QuoteRequest for value: Quote Request
             /// </summary>
             [EnumMember(Value = "Quote Request")]
-            QuoteRequest,
+            QuoteRequest = 7,
             
             /// <summary>
-            /// Enum QuoteSent for "Quote Sent"
+            /// Enum QuoteSent for value: Quote Sent
             /// </summary>
             [EnumMember(Value = "Quote Sent")]
-            QuoteSent,
+            QuoteSent = 8,
             
             /// <summary>
-            /// Enum LeastCostRouting for "Least Cost Routing"
+            /// Enum LeastCostRouting for value: Least Cost Routing
             /// </summary>
             [EnumMember(Value = "Least Cost Routing")]
-            LeastCostRouting,
+            LeastCostRouting = 9,
             
             /// <summary>
-            /// Enum Unknown for "Unknown"
+            /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown
-        }
-
-        /// <summary>
-        /// Payment method
-        /// </summary>
-        /// <value>Payment method</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum PaymentMethodEnum
-        {
-            
-            /// <summary>
-            /// Enum Affirm for "Affirm"
-            /// </summary>
-            [EnumMember(Value = "Affirm")]
-            Affirm,
-            
-            /// <summary>
-            /// Enum Amazon for "Amazon"
-            /// </summary>
-            [EnumMember(Value = "Amazon")]
-            Amazon,
-            
-            /// <summary>
-            /// Enum AmazonSC for "Amazon SC"
-            /// </summary>
-            [EnumMember(Value = "Amazon SC")]
-            AmazonSC,
-            
-            /// <summary>
-            /// Enum Cash for "Cash"
-            /// </summary>
-            [EnumMember(Value = "Cash")]
-            Cash,
-            
-            /// <summary>
-            /// Enum Check for "Check"
-            /// </summary>
-            [EnumMember(Value = "Check")]
-            Check,
-            
-            /// <summary>
-            /// Enum COD for "COD"
-            /// </summary>
-            [EnumMember(Value = "COD")]
-            COD,
-            
-            /// <summary>
-            /// Enum CreditCard for "Credit Card"
-            /// </summary>
-            [EnumMember(Value = "Credit Card")]
-            CreditCard,
-            
-            /// <summary>
-            /// Enum ECheck for "eCheck"
-            /// </summary>
-            [EnumMember(Value = "eCheck")]
-            ECheck,
-            
-            /// <summary>
-            /// Enum LoanHero for "LoanHero"
-            /// </summary>
-            [EnumMember(Value = "LoanHero")]
-            LoanHero,
-            
-            /// <summary>
-            /// Enum MoneyOrder for "Money Order"
-            /// </summary>
-            [EnumMember(Value = "Money Order")]
-            MoneyOrder,
-            
-            /// <summary>
-            /// Enum PayPal for "PayPal"
-            /// </summary>
-            [EnumMember(Value = "PayPal")]
-            PayPal,
-            
-            /// <summary>
-            /// Enum PurchaseOrder for "Purchase Order"
-            /// </summary>
-            [EnumMember(Value = "Purchase Order")]
-            PurchaseOrder,
-            
-            /// <summary>
-            /// Enum QuoteRequest for "Quote Request"
-            /// </summary>
-            [EnumMember(Value = "Quote Request")]
-            QuoteRequest,
-            
-            /// <summary>
-            /// Enum Unknown for "Unknown"
-            /// </summary>
-            [EnumMember(Value = "Unknown")]
-            Unknown,
-            
-            /// <summary>
-            /// Enum WireTransfer for "Wire Transfer"
-            /// </summary>
-            [EnumMember(Value = "Wire Transfer")]
-            WireTransfer
+            Unknown = 10
         }
 
         /// <summary>
@@ -208,73 +109,172 @@ namespace com.ultracart.admin.v2.Model
         /// Payment method
         /// </summary>
         /// <value>Payment method</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PaymentMethodEnum
+        {
+            
+            /// <summary>
+            /// Enum Affirm for value: Affirm
+            /// </summary>
+            [EnumMember(Value = "Affirm")]
+            Affirm = 1,
+            
+            /// <summary>
+            /// Enum Amazon for value: Amazon
+            /// </summary>
+            [EnumMember(Value = "Amazon")]
+            Amazon = 2,
+            
+            /// <summary>
+            /// Enum AmazonSC for value: Amazon SC
+            /// </summary>
+            [EnumMember(Value = "Amazon SC")]
+            AmazonSC = 3,
+            
+            /// <summary>
+            /// Enum Cash for value: Cash
+            /// </summary>
+            [EnumMember(Value = "Cash")]
+            Cash = 4,
+            
+            /// <summary>
+            /// Enum Check for value: Check
+            /// </summary>
+            [EnumMember(Value = "Check")]
+            Check = 5,
+            
+            /// <summary>
+            /// Enum COD for value: COD
+            /// </summary>
+            [EnumMember(Value = "COD")]
+            COD = 6,
+            
+            /// <summary>
+            /// Enum CreditCard for value: Credit Card
+            /// </summary>
+            [EnumMember(Value = "Credit Card")]
+            CreditCard = 7,
+            
+            /// <summary>
+            /// Enum ECheck for value: eCheck
+            /// </summary>
+            [EnumMember(Value = "eCheck")]
+            ECheck = 8,
+            
+            /// <summary>
+            /// Enum LoanHero for value: LoanHero
+            /// </summary>
+            [EnumMember(Value = "LoanHero")]
+            LoanHero = 9,
+            
+            /// <summary>
+            /// Enum MoneyOrder for value: Money Order
+            /// </summary>
+            [EnumMember(Value = "Money Order")]
+            MoneyOrder = 10,
+            
+            /// <summary>
+            /// Enum PayPal for value: PayPal
+            /// </summary>
+            [EnumMember(Value = "PayPal")]
+            PayPal = 11,
+            
+            /// <summary>
+            /// Enum PurchaseOrder for value: Purchase Order
+            /// </summary>
+            [EnumMember(Value = "Purchase Order")]
+            PurchaseOrder = 12,
+            
+            /// <summary>
+            /// Enum QuoteRequest for value: Quote Request
+            /// </summary>
+            [EnumMember(Value = "Quote Request")]
+            QuoteRequest = 13,
+            
+            /// <summary>
+            /// Enum Unknown for value: Unknown
+            /// </summary>
+            [EnumMember(Value = "Unknown")]
+            Unknown = 14,
+            
+            /// <summary>
+            /// Enum WireTransfer for value: Wire Transfer
+            /// </summary>
+            [EnumMember(Value = "Wire Transfer")]
+            WireTransfer = 15
+        }
+
+        /// <summary>
+        /// Payment method
+        /// </summary>
+        /// <value>Payment method</value>
         [DataMember(Name="payment_method", EmitDefaultValue=false)]
         public PaymentMethodEnum? PaymentMethod { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderQuery" /> class.
         /// </summary>
-        /// <param name="CcEmail">CC Email.</param>
-        /// <param name="ChannelPartnerCode">The code of the channel partner.</param>
-        /// <param name="ChannelPartnerOrderId">The order ID assigned by the channel partner for this order.</param>
-        /// <param name="City">City.</param>
-        /// <param name="Company">Company.</param>
-        /// <param name="CountryCode">ISO-3166 two letter country code.</param>
-        /// <param name="CreationDateBegin">Date/time that the order was created.</param>
-        /// <param name="CreationDateEnd">Date/time that the order was created.</param>
-        /// <param name="CurrentStage">Current stage that the order is in..</param>
-        /// <param name="CustomerProfileOid">The customer profile to find associated orders for.</param>
-        /// <param name="Email">Email.</param>
-        /// <param name="FirstName">First name.</param>
-        /// <param name="ItemId">Item ID.</param>
-        /// <param name="LastName">Last name.</param>
-        /// <param name="OrderId">Order ID.</param>
-        /// <param name="PaymentDateBegin">Date/time that the order was successfully processed.</param>
-        /// <param name="PaymentDateEnd">Date/time that the order was successfully processed.</param>
-        /// <param name="PaymentMethod">Payment method.</param>
-        /// <param name="Phone">Phone.</param>
-        /// <param name="PostalCode">Postal code.</param>
-        /// <param name="PurchaseOrderNumber">Purchase order number.</param>
-        /// <param name="RefundDateBegin">Date/time that the order was refunded.</param>
-        /// <param name="RefundDateEnd">Date/time that the order was refunded.</param>
-        /// <param name="Rma">RMA number.</param>
-        /// <param name="ScreenBrandingThemeCode">Screen branding theme code associated with the order (legacy checkout).</param>
-        /// <param name="ShipmentDateBegin">Date/time that the order was shipping.</param>
-        /// <param name="ShipmentDateEnd">Date/time that the order was shipped.</param>
-        /// <param name="StateRegion">State for United States otherwise region or province for other countries.</param>
-        /// <param name="StorefrontHostName">StoreFront host name associated with the order.</param>
-        /// <param name="Total">Total.</param>
-        public OrderQuery(string CcEmail = default(string), string ChannelPartnerCode = default(string), string ChannelPartnerOrderId = default(string), string City = default(string), string Company = default(string), string CountryCode = default(string), string CreationDateBegin = default(string), string CreationDateEnd = default(string), CurrentStageEnum? CurrentStage = default(CurrentStageEnum?), int? CustomerProfileOid = default(int?), string Email = default(string), string FirstName = default(string), string ItemId = default(string), string LastName = default(string), string OrderId = default(string), string PaymentDateBegin = default(string), string PaymentDateEnd = default(string), PaymentMethodEnum? PaymentMethod = default(PaymentMethodEnum?), string Phone = default(string), string PostalCode = default(string), string PurchaseOrderNumber = default(string), string RefundDateBegin = default(string), string RefundDateEnd = default(string), string Rma = default(string), string ScreenBrandingThemeCode = default(string), string ShipmentDateBegin = default(string), string ShipmentDateEnd = default(string), string StateRegion = default(string), string StorefrontHostName = default(string), decimal? Total = default(decimal?))
+        /// <param name="ccEmail">CC Email.</param>
+        /// <param name="channelPartnerCode">The code of the channel partner.</param>
+        /// <param name="channelPartnerOrderId">The order ID assigned by the channel partner for this order.</param>
+        /// <param name="city">City.</param>
+        /// <param name="company">Company.</param>
+        /// <param name="countryCode">ISO-3166 two letter country code.</param>
+        /// <param name="creationDateBegin">Date/time that the order was created.</param>
+        /// <param name="creationDateEnd">Date/time that the order was created.</param>
+        /// <param name="currentStage">Current stage that the order is in..</param>
+        /// <param name="customerProfileOid">The customer profile to find associated orders for.</param>
+        /// <param name="email">Email.</param>
+        /// <param name="firstName">First name.</param>
+        /// <param name="itemId">Item ID.</param>
+        /// <param name="lastName">Last name.</param>
+        /// <param name="orderId">Order ID.</param>
+        /// <param name="paymentDateBegin">Date/time that the order was successfully processed.</param>
+        /// <param name="paymentDateEnd">Date/time that the order was successfully processed.</param>
+        /// <param name="paymentMethod">Payment method.</param>
+        /// <param name="phone">Phone.</param>
+        /// <param name="postalCode">Postal code.</param>
+        /// <param name="purchaseOrderNumber">Purchase order number.</param>
+        /// <param name="refundDateBegin">Date/time that the order was refunded.</param>
+        /// <param name="refundDateEnd">Date/time that the order was refunded.</param>
+        /// <param name="rma">RMA number.</param>
+        /// <param name="screenBrandingThemeCode">Screen branding theme code associated with the order (legacy checkout).</param>
+        /// <param name="shipmentDateBegin">Date/time that the order was shipping.</param>
+        /// <param name="shipmentDateEnd">Date/time that the order was shipped.</param>
+        /// <param name="stateRegion">State for United States otherwise region or province for other countries.</param>
+        /// <param name="storefrontHostName">StoreFront host name associated with the order.</param>
+        /// <param name="total">Total.</param>
+        public OrderQuery(string ccEmail = default(string), string channelPartnerCode = default(string), string channelPartnerOrderId = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string creationDateBegin = default(string), string creationDateEnd = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), int? customerProfileOid = default(int?), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string orderId = default(string), string paymentDateBegin = default(string), string paymentDateEnd = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string phone = default(string), string postalCode = default(string), string purchaseOrderNumber = default(string), string refundDateBegin = default(string), string refundDateEnd = default(string), string rma = default(string), string screenBrandingThemeCode = default(string), string shipmentDateBegin = default(string), string shipmentDateEnd = default(string), string stateRegion = default(string), string storefrontHostName = default(string), decimal? total = default(decimal?))
         {
-            this.CcEmail = CcEmail;
-            this.ChannelPartnerCode = ChannelPartnerCode;
-            this.ChannelPartnerOrderId = ChannelPartnerOrderId;
-            this.City = City;
-            this.Company = Company;
-            this.CountryCode = CountryCode;
-            this.CreationDateBegin = CreationDateBegin;
-            this.CreationDateEnd = CreationDateEnd;
-            this.CurrentStage = CurrentStage;
-            this.CustomerProfileOid = CustomerProfileOid;
-            this.Email = Email;
-            this.FirstName = FirstName;
-            this.ItemId = ItemId;
-            this.LastName = LastName;
-            this.OrderId = OrderId;
-            this.PaymentDateBegin = PaymentDateBegin;
-            this.PaymentDateEnd = PaymentDateEnd;
-            this.PaymentMethod = PaymentMethod;
-            this.Phone = Phone;
-            this.PostalCode = PostalCode;
-            this.PurchaseOrderNumber = PurchaseOrderNumber;
-            this.RefundDateBegin = RefundDateBegin;
-            this.RefundDateEnd = RefundDateEnd;
-            this.Rma = Rma;
-            this.ScreenBrandingThemeCode = ScreenBrandingThemeCode;
-            this.ShipmentDateBegin = ShipmentDateBegin;
-            this.ShipmentDateEnd = ShipmentDateEnd;
-            this.StateRegion = StateRegion;
-            this.StorefrontHostName = StorefrontHostName;
-            this.Total = Total;
+            this.CcEmail = ccEmail;
+            this.ChannelPartnerCode = channelPartnerCode;
+            this.ChannelPartnerOrderId = channelPartnerOrderId;
+            this.City = city;
+            this.Company = company;
+            this.CountryCode = countryCode;
+            this.CreationDateBegin = creationDateBegin;
+            this.CreationDateEnd = creationDateEnd;
+            this.CurrentStage = currentStage;
+            this.CustomerProfileOid = customerProfileOid;
+            this.Email = email;
+            this.FirstName = firstName;
+            this.ItemId = itemId;
+            this.LastName = lastName;
+            this.OrderId = orderId;
+            this.PaymentDateBegin = paymentDateBegin;
+            this.PaymentDateEnd = paymentDateEnd;
+            this.PaymentMethod = paymentMethod;
+            this.Phone = phone;
+            this.PostalCode = postalCode;
+            this.PurchaseOrderNumber = purchaseOrderNumber;
+            this.RefundDateBegin = refundDateBegin;
+            this.RefundDateEnd = refundDateEnd;
+            this.Rma = rma;
+            this.ScreenBrandingThemeCode = screenBrandingThemeCode;
+            this.ShipmentDateBegin = shipmentDateBegin;
+            this.ShipmentDateEnd = shipmentDateEnd;
+            this.StateRegion = stateRegion;
+            this.StorefrontHostName = storefrontHostName;
+            this.Total = total;
         }
         
         /// <summary>
@@ -521,7 +521,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

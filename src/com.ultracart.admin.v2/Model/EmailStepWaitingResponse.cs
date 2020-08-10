@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailStepWaitingResponse" /> class.
         /// </summary>
-        /// <param name="StepWaitings">StepWaitings.</param>
-        public EmailStepWaitingResponse(List<StepWaiting> StepWaitings = default(List<StepWaiting>))
+        /// <param name="stepWaitings">stepWaitings.</param>
+        public EmailStepWaitingResponse(List<StepWaiting> stepWaitings = default(List<StepWaiting>))
         {
-            this.StepWaitings = StepWaitings;
+            this.StepWaitings = stepWaitings;
         }
         
         /// <summary>
@@ -62,7 +62,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

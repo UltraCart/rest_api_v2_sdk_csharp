@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **OverrideAffiliateId** | **int?** | Override the affiliate id given credit for rebills of this auto order | [optional] 
 **RebillOrders** | [**List&lt;Order&gt;**](Order.md) | Rebill orders that have taken place on this auto order | [optional] 
 **RotatingTransactionGatewayCode** | **string** | The RTG code associated with this order for future rebills | [optional] 
+**Status** | **string** | The status of the auto order | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

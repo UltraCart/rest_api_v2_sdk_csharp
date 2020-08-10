@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderInternal" /> class.
         /// </summary>
-        /// <param name="ExportedToAccounting">True if the order has been exported to QuickBooks. If QuickBooks is not configured, then this will already be true.</param>
-        /// <param name="MerchantNotes">Merchant notes.</param>
-        /// <param name="PlacedByUser">If placed via the BEOE, this is the user that placed the order.</param>
-        /// <param name="RefundByUser">User that issued the refund.</param>
-        /// <param name="SalesRepCode">Sales rep code associated with the order.</param>
-        public OrderInternal(bool? ExportedToAccounting = default(bool?), string MerchantNotes = default(string), string PlacedByUser = default(string), string RefundByUser = default(string), string SalesRepCode = default(string))
+        /// <param name="exportedToAccounting">True if the order has been exported to QuickBooks. If QuickBooks is not configured, then this will already be true.</param>
+        /// <param name="merchantNotes">Merchant notes.</param>
+        /// <param name="placedByUser">If placed via the BEOE, this is the user that placed the order.</param>
+        /// <param name="refundByUser">User that issued the refund.</param>
+        /// <param name="salesRepCode">Sales rep code associated with the order.</param>
+        public OrderInternal(bool? exportedToAccounting = default(bool?), string merchantNotes = default(string), string placedByUser = default(string), string refundByUser = default(string), string salesRepCode = default(string))
         {
-            this.ExportedToAccounting = ExportedToAccounting;
-            this.MerchantNotes = MerchantNotes;
-            this.PlacedByUser = PlacedByUser;
-            this.RefundByUser = RefundByUser;
-            this.SalesRepCode = SalesRepCode;
+            this.ExportedToAccounting = exportedToAccounting;
+            this.MerchantNotes = merchantNotes;
+            this.PlacedByUser = placedByUser;
+            this.RefundByUser = refundByUser;
+            this.SalesRepCode = salesRepCode;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

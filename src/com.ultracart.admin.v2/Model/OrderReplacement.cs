@@ -33,38 +33,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderReplacement" /> class.
         /// </summary>
-        /// <param name="AdditionalMerchantNotesNewOrder">Additional merchant notes to append to the new order.</param>
-        /// <param name="AdditionalMerchantNotesOriginalOrder">Additional merchant notes to append to the original order.</param>
-        /// <param name="CustomField1">Custom field 1.</param>
-        /// <param name="CustomField2">Custom field 2.</param>
-        /// <param name="CustomField3">Custom field 3.</param>
-        /// <param name="CustomField4">Custom field 4.</param>
-        /// <param name="CustomField5">Custom field 5.</param>
-        /// <param name="CustomField6">Custom field 6.</param>
-        /// <param name="CustomField7">Custom field 7.</param>
-        /// <param name="Free">Set to true if this replacement shipment should be free for the customer..</param>
-        /// <param name="ImmediateCharge">Set to true if you want to immediately charge the payment on this order, otherwise it will go to Accounts Receivable..</param>
-        /// <param name="Items">Items to include in the replacement order.</param>
-        /// <param name="OriginalOrderId">Original order id.</param>
-        /// <param name="ShippingMethod">Shipping method to use.  If not specified or invalid then least cost shipping will take place..</param>
-        /// <param name="SkipPayment">Set to true if you want to skip the payment as if it was successful..</param>
-        public OrderReplacement(string AdditionalMerchantNotesNewOrder = default(string), string AdditionalMerchantNotesOriginalOrder = default(string), string CustomField1 = default(string), string CustomField2 = default(string), string CustomField3 = default(string), string CustomField4 = default(string), string CustomField5 = default(string), string CustomField6 = default(string), string CustomField7 = default(string), bool? Free = default(bool?), bool? ImmediateCharge = default(bool?), List<OrderReplacementItem> Items = default(List<OrderReplacementItem>), string OriginalOrderId = default(string), string ShippingMethod = default(string), bool? SkipPayment = default(bool?))
+        /// <param name="additionalMerchantNotesNewOrder">Additional merchant notes to append to the new order.</param>
+        /// <param name="additionalMerchantNotesOriginalOrder">Additional merchant notes to append to the original order.</param>
+        /// <param name="customField1">Custom field 1.</param>
+        /// <param name="customField2">Custom field 2.</param>
+        /// <param name="customField3">Custom field 3.</param>
+        /// <param name="customField4">Custom field 4.</param>
+        /// <param name="customField5">Custom field 5.</param>
+        /// <param name="customField6">Custom field 6.</param>
+        /// <param name="customField7">Custom field 7.</param>
+        /// <param name="free">Set to true if this replacement shipment should be free for the customer..</param>
+        /// <param name="immediateCharge">Set to true if you want to immediately charge the payment on this order, otherwise it will go to Accounts Receivable..</param>
+        /// <param name="items">Items to include in the replacement order.</param>
+        /// <param name="originalOrderId">Original order id.</param>
+        /// <param name="shippingMethod">Shipping method to use.  If not specified or invalid then least cost shipping will take place..</param>
+        /// <param name="skipPayment">Set to true if you want to skip the payment as if it was successful..</param>
+        public OrderReplacement(string additionalMerchantNotesNewOrder = default(string), string additionalMerchantNotesOriginalOrder = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), bool? free = default(bool?), bool? immediateCharge = default(bool?), List<OrderReplacementItem> items = default(List<OrderReplacementItem>), string originalOrderId = default(string), string shippingMethod = default(string), bool? skipPayment = default(bool?))
         {
-            this.AdditionalMerchantNotesNewOrder = AdditionalMerchantNotesNewOrder;
-            this.AdditionalMerchantNotesOriginalOrder = AdditionalMerchantNotesOriginalOrder;
-            this.CustomField1 = CustomField1;
-            this.CustomField2 = CustomField2;
-            this.CustomField3 = CustomField3;
-            this.CustomField4 = CustomField4;
-            this.CustomField5 = CustomField5;
-            this.CustomField6 = CustomField6;
-            this.CustomField7 = CustomField7;
-            this.Free = Free;
-            this.ImmediateCharge = ImmediateCharge;
-            this.Items = Items;
-            this.OriginalOrderId = OriginalOrderId;
-            this.ShippingMethod = ShippingMethod;
-            this.SkipPayment = SkipPayment;
+            this.AdditionalMerchantNotesNewOrder = additionalMerchantNotesNewOrder;
+            this.AdditionalMerchantNotesOriginalOrder = additionalMerchantNotesOriginalOrder;
+            this.CustomField1 = customField1;
+            this.CustomField2 = customField2;
+            this.CustomField3 = customField3;
+            this.CustomField4 = customField4;
+            this.CustomField5 = customField5;
+            this.CustomField6 = customField6;
+            this.CustomField7 = customField7;
+            this.Free = free;
+            this.ImmediateCharge = immediateCharge;
+            this.Items = items;
+            this.OriginalOrderId = originalOrderId;
+            this.ShippingMethod = shippingMethod;
+            this.SkipPayment = skipPayment;
         }
         
         /// <summary>
@@ -203,7 +203,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

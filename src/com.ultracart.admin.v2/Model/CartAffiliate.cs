@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartAffiliate" /> class.
         /// </summary>
-        /// <param name="AffiliateId">Affiliate id associated with the cart.</param>
-        /// <param name="AffiliateSubId">Affiliate sub id associated with the cart.</param>
-        public CartAffiliate(int? AffiliateId = default(int?), string AffiliateSubId = default(string))
+        /// <param name="affiliateId">Affiliate id associated with the cart.</param>
+        /// <param name="affiliateSubId">Affiliate sub id associated with the cart.</param>
+        public CartAffiliate(int? affiliateId = default(int?), string affiliateSubId = default(string))
         {
-            this.AffiliateId = AffiliateId;
-            this.AffiliateSubId = AffiliateSubId;
+            this.AffiliateId = affiliateId;
+            this.AffiliateSubId = affiliateSubId;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

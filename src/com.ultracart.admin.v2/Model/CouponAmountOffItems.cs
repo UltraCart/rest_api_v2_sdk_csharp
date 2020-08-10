@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponAmountOffItems" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="DiscountAmount">The amount of shipping discount.</param>
-        /// <param name="Items">A list of items which are eligible for the discount amount..</param>
-        public CouponAmountOffItems(string CurrencyCode = default(string), decimal? DiscountAmount = default(decimal?), List<string> Items = default(List<string>))
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="discountAmount">The amount of shipping discount.</param>
+        /// <param name="items">A list of items which are eligible for the discount amount..</param>
+        public CouponAmountOffItems(string currencyCode = default(string), decimal? discountAmount = default(decimal?), List<string> items = default(List<string>))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.DiscountAmount = DiscountAmount;
-            this.Items = Items;
+            this.CurrencyCode = currencyCode;
+            this.DiscountAmount = discountAmount;
+            this.Items = items;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

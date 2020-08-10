@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HTTPHeader" /> class.
         /// </summary>
-        /// <param name="Name">Name of the HTTP header.</param>
-        /// <param name="Value">Value of the HTTP header.</param>
-        public HTTPHeader(string Name = default(string), string Value = default(string))
+        /// <param name="name">Name of the HTTP header.</param>
+        /// <param name="value">Value of the HTTP header.</param>
+        public HTTPHeader(string name = default(string), string value = default(string))
         {
-            this.Name = Name;
-            this.Value = Value;
+            this.Name = name;
+            this.Value = value;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

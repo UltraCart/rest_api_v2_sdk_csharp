@@ -31,48 +31,83 @@ namespace com.ultracart.admin.v2.Model
     public partial class AutoOrder :  IEquatable<AutoOrder>, IValidatableObject
     {
         /// <summary>
+        /// The status of the auto order
+        /// </summary>
+        /// <value>The status of the auto order</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
+        {
+            
+            /// <summary>
+            /// Enum Active for value: active
+            /// </summary>
+            [EnumMember(Value = "active")]
+            Active = 1,
+            
+            /// <summary>
+            /// Enum Canceled for value: canceled
+            /// </summary>
+            [EnumMember(Value = "canceled")]
+            Canceled = 2,
+            
+            /// <summary>
+            /// Enum Disabled for value: disabled
+            /// </summary>
+            [EnumMember(Value = "disabled")]
+            Disabled = 3
+        }
+
+        /// <summary>
+        /// The status of the auto order
+        /// </summary>
+        /// <value>The status of the auto order</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public StatusEnum? Status { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="AutoOrder" /> class.
         /// </summary>
-        /// <param name="AutoOrderCode">Unique code assigned to this auto order.</param>
-        /// <param name="AutoOrderOid">Auto order object identifier.</param>
-        /// <param name="CancelAfterNextXOrders">Cancel this auto order after X additional rebills.</param>
-        /// <param name="CancelDowngrade">True if the auto order was canceled because the customer purchased a downgrade item.</param>
-        /// <param name="CancelUpgrade">True if the auto order was canceled because the customer purchased an upgrade item.</param>
-        /// <param name="CanceledByUser">The user that canceled the auto order.</param>
-        /// <param name="CanceledDts">The date/time that the auto order was canceled.</param>
-        /// <param name="Completed">True if the auto order ran successfully to completion.</param>
-        /// <param name="CreditCardAttempt">The number of credit card attempts that have taken place.</param>
-        /// <param name="DisabledDts">The date/time the auto order was disabled due to failed rebills.</param>
-        /// <param name="Enabled">True if this auto order is enabled.</param>
-        /// <param name="FailureReason">The reason this auto order failed during the last rebill attempt.</param>
-        /// <param name="Items">The items that are setup to rebill.</param>
-        /// <param name="NextAttempt">The next time that the auto order will be attempted for processing.</param>
-        /// <param name="OriginalOrder">OriginalOrder.</param>
-        /// <param name="OriginalOrderId">The original order id that this auto order is associated with..</param>
-        /// <param name="OverrideAffiliateId">Override the affiliate id given credit for rebills of this auto order.</param>
-        /// <param name="RebillOrders">Rebill orders that have taken place on this auto order.</param>
-        /// <param name="RotatingTransactionGatewayCode">The RTG code associated with this order for future rebills.</param>
-        public AutoOrder(string AutoOrderCode = default(string), int? AutoOrderOid = default(int?), int? CancelAfterNextXOrders = default(int?), bool? CancelDowngrade = default(bool?), bool? CancelUpgrade = default(bool?), string CanceledByUser = default(string), string CanceledDts = default(string), bool? Completed = default(bool?), int? CreditCardAttempt = default(int?), string DisabledDts = default(string), bool? Enabled = default(bool?), string FailureReason = default(string), List<AutoOrderItem> Items = default(List<AutoOrderItem>), string NextAttempt = default(string), Order OriginalOrder = default(Order), string OriginalOrderId = default(string), int? OverrideAffiliateId = default(int?), List<Order> RebillOrders = default(List<Order>), string RotatingTransactionGatewayCode = default(string))
+        /// <param name="autoOrderCode">Unique code assigned to this auto order.</param>
+        /// <param name="autoOrderOid">Auto order object identifier.</param>
+        /// <param name="cancelAfterNextXOrders">Cancel this auto order after X additional rebills.</param>
+        /// <param name="cancelDowngrade">True if the auto order was canceled because the customer purchased a downgrade item.</param>
+        /// <param name="cancelUpgrade">True if the auto order was canceled because the customer purchased an upgrade item.</param>
+        /// <param name="canceledByUser">The user that canceled the auto order.</param>
+        /// <param name="canceledDts">The date/time that the auto order was canceled.</param>
+        /// <param name="completed">True if the auto order ran successfully to completion.</param>
+        /// <param name="creditCardAttempt">The number of credit card attempts that have taken place.</param>
+        /// <param name="disabledDts">The date/time the auto order was disabled due to failed rebills.</param>
+        /// <param name="enabled">True if this auto order is enabled.</param>
+        /// <param name="failureReason">The reason this auto order failed during the last rebill attempt.</param>
+        /// <param name="items">The items that are setup to rebill.</param>
+        /// <param name="nextAttempt">The next time that the auto order will be attempted for processing.</param>
+        /// <param name="originalOrder">originalOrder.</param>
+        /// <param name="originalOrderId">The original order id that this auto order is associated with..</param>
+        /// <param name="overrideAffiliateId">Override the affiliate id given credit for rebills of this auto order.</param>
+        /// <param name="rebillOrders">Rebill orders that have taken place on this auto order.</param>
+        /// <param name="rotatingTransactionGatewayCode">The RTG code associated with this order for future rebills.</param>
+        /// <param name="status">The status of the auto order.</param>
+        public AutoOrder(string autoOrderCode = default(string), int? autoOrderOid = default(int?), int? cancelAfterNextXOrders = default(int?), bool? cancelDowngrade = default(bool?), bool? cancelUpgrade = default(bool?), string canceledByUser = default(string), string canceledDts = default(string), bool? completed = default(bool?), int? creditCardAttempt = default(int?), string disabledDts = default(string), bool? enabled = default(bool?), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int? overrideAffiliateId = default(int?), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
         {
-            this.AutoOrderCode = AutoOrderCode;
-            this.AutoOrderOid = AutoOrderOid;
-            this.CancelAfterNextXOrders = CancelAfterNextXOrders;
-            this.CancelDowngrade = CancelDowngrade;
-            this.CancelUpgrade = CancelUpgrade;
-            this.CanceledByUser = CanceledByUser;
-            this.CanceledDts = CanceledDts;
-            this.Completed = Completed;
-            this.CreditCardAttempt = CreditCardAttempt;
-            this.DisabledDts = DisabledDts;
-            this.Enabled = Enabled;
-            this.FailureReason = FailureReason;
-            this.Items = Items;
-            this.NextAttempt = NextAttempt;
-            this.OriginalOrder = OriginalOrder;
-            this.OriginalOrderId = OriginalOrderId;
-            this.OverrideAffiliateId = OverrideAffiliateId;
-            this.RebillOrders = RebillOrders;
-            this.RotatingTransactionGatewayCode = RotatingTransactionGatewayCode;
+            this.AutoOrderCode = autoOrderCode;
+            this.AutoOrderOid = autoOrderOid;
+            this.CancelAfterNextXOrders = cancelAfterNextXOrders;
+            this.CancelDowngrade = cancelDowngrade;
+            this.CancelUpgrade = cancelUpgrade;
+            this.CanceledByUser = canceledByUser;
+            this.CanceledDts = canceledDts;
+            this.Completed = completed;
+            this.CreditCardAttempt = creditCardAttempt;
+            this.DisabledDts = disabledDts;
+            this.Enabled = enabled;
+            this.FailureReason = failureReason;
+            this.Items = items;
+            this.NextAttempt = nextAttempt;
+            this.OriginalOrder = originalOrder;
+            this.OriginalOrderId = originalOrderId;
+            this.OverrideAffiliateId = overrideAffiliateId;
+            this.RebillOrders = rebillOrders;
+            this.RotatingTransactionGatewayCode = rotatingTransactionGatewayCode;
+            this.Status = status;
         }
         
         /// <summary>
@@ -207,6 +242,7 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="rotating_transaction_gateway_code", EmitDefaultValue=false)]
         public string RotatingTransactionGatewayCode { get; set; }
 
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -234,6 +270,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  OverrideAffiliateId: ").Append(OverrideAffiliateId).Append("\n");
             sb.Append("  RebillOrders: ").Append(RebillOrders).Append("\n");
             sb.Append("  RotatingTransactionGatewayCode: ").Append(RotatingTransactionGatewayCode).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -242,7 +279,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -362,6 +399,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RotatingTransactionGatewayCode == input.RotatingTransactionGatewayCode ||
                     (this.RotatingTransactionGatewayCode != null &&
                     this.RotatingTransactionGatewayCode.Equals(input.RotatingTransactionGatewayCode))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -412,6 +454,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RebillOrders.GetHashCode();
                 if (this.RotatingTransactionGatewayCode != null)
                     hashCode = hashCode * 59 + this.RotatingTransactionGatewayCode.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }

@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemsRequest" /> class.
         /// </summary>
-        /// <param name="Items">items.</param>
-        public ItemsRequest(List<Item> Items = default(List<Item>))
+        /// <param name="items">items.</param>
+        public ItemsRequest(List<Item> items = default(List<Item>))
         {
-            this.Items = Items;
+            this.Items = items;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

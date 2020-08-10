@@ -33,30 +33,30 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AffiliateClick" /> class.
         /// </summary>
-        /// <param name="AffiliateClickOid">Unique object identifier for this click.</param>
-        /// <param name="AffiliateLinkOid">Unique object identifier for for the link that this click is associated with.</param>
-        /// <param name="AffiliateOid">Affiliate object ID associated with this click.</param>
-        /// <param name="ClickDts">Date/time that the click was made.</param>
-        /// <param name="IpAddress">IP address that generated the click.</param>
-        /// <param name="LandingPage">URL of the landing page the customer was sent to..</param>
-        /// <param name="LandingPageQueryString">Query string on the landing page URL the customer was sent to..</param>
-        /// <param name="Link">Link.</param>
-        /// <param name="Referrer">URL that referred the click (Browser Header Referer).</param>
-        /// <param name="ReferrerQueryString">Query string that was on the referrer URL..</param>
-        /// <param name="SubId">Sub ID value passed on the click.</param>
-        public AffiliateClick(int? AffiliateClickOid = default(int?), int? AffiliateLinkOid = default(int?), int? AffiliateOid = default(int?), string ClickDts = default(string), string IpAddress = default(string), string LandingPage = default(string), string LandingPageQueryString = default(string), AffiliateLink Link = default(AffiliateLink), string Referrer = default(string), string ReferrerQueryString = default(string), string SubId = default(string))
+        /// <param name="affiliateClickOid">Unique object identifier for this click.</param>
+        /// <param name="affiliateLinkOid">Unique object identifier for for the link that this click is associated with.</param>
+        /// <param name="affiliateOid">Affiliate object ID associated with this click.</param>
+        /// <param name="clickDts">Date/time that the click was made.</param>
+        /// <param name="ipAddress">IP address that generated the click.</param>
+        /// <param name="landingPage">URL of the landing page the customer was sent to..</param>
+        /// <param name="landingPageQueryString">Query string on the landing page URL the customer was sent to..</param>
+        /// <param name="link">link.</param>
+        /// <param name="referrer">URL that referred the click (Browser Header Referer).</param>
+        /// <param name="referrerQueryString">Query string that was on the referrer URL..</param>
+        /// <param name="subId">Sub ID value passed on the click.</param>
+        public AffiliateClick(int? affiliateClickOid = default(int?), int? affiliateLinkOid = default(int?), int? affiliateOid = default(int?), string clickDts = default(string), string ipAddress = default(string), string landingPage = default(string), string landingPageQueryString = default(string), AffiliateLink link = default(AffiliateLink), string referrer = default(string), string referrerQueryString = default(string), string subId = default(string))
         {
-            this.AffiliateClickOid = AffiliateClickOid;
-            this.AffiliateLinkOid = AffiliateLinkOid;
-            this.AffiliateOid = AffiliateOid;
-            this.ClickDts = ClickDts;
-            this.IpAddress = IpAddress;
-            this.LandingPage = LandingPage;
-            this.LandingPageQueryString = LandingPageQueryString;
-            this.Link = Link;
-            this.Referrer = Referrer;
-            this.ReferrerQueryString = ReferrerQueryString;
-            this.SubId = SubId;
+            this.AffiliateClickOid = affiliateClickOid;
+            this.AffiliateLinkOid = affiliateLinkOid;
+            this.AffiliateOid = affiliateOid;
+            this.ClickDts = clickDts;
+            this.IpAddress = ipAddress;
+            this.LandingPage = landingPage;
+            this.LandingPageQueryString = landingPageQueryString;
+            this.Link = link;
+            this.Referrer = referrer;
+            this.ReferrerQueryString = referrerQueryString;
+            this.SubId = subId;
         }
         
         /// <summary>
@@ -162,7 +162,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

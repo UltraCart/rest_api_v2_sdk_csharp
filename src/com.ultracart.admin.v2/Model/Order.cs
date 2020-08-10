@@ -39,64 +39,64 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum AccountsReceivable for "Accounts Receivable"
+            /// Enum AccountsReceivable for value: Accounts Receivable
             /// </summary>
             [EnumMember(Value = "Accounts Receivable")]
-            AccountsReceivable,
+            AccountsReceivable = 1,
             
             /// <summary>
-            /// Enum PendingClearance for "Pending Clearance"
+            /// Enum PendingClearance for value: Pending Clearance
             /// </summary>
             [EnumMember(Value = "Pending Clearance")]
-            PendingClearance,
+            PendingClearance = 2,
             
             /// <summary>
-            /// Enum FraudReview for "Fraud Review"
+            /// Enum FraudReview for value: Fraud Review
             /// </summary>
             [EnumMember(Value = "Fraud Review")]
-            FraudReview,
+            FraudReview = 3,
             
             /// <summary>
-            /// Enum Rejected for "Rejected"
+            /// Enum Rejected for value: Rejected
             /// </summary>
             [EnumMember(Value = "Rejected")]
-            Rejected,
+            Rejected = 4,
             
             /// <summary>
-            /// Enum ShippingDepartment for "Shipping Department"
+            /// Enum ShippingDepartment for value: Shipping Department
             /// </summary>
             [EnumMember(Value = "Shipping Department")]
-            ShippingDepartment,
+            ShippingDepartment = 5,
             
             /// <summary>
-            /// Enum CompletedOrder for "Completed Order"
+            /// Enum CompletedOrder for value: Completed Order
             /// </summary>
             [EnumMember(Value = "Completed Order")]
-            CompletedOrder,
+            CompletedOrder = 6,
             
             /// <summary>
-            /// Enum QuoteRequest for "Quote Request"
+            /// Enum QuoteRequest for value: Quote Request
             /// </summary>
             [EnumMember(Value = "Quote Request")]
-            QuoteRequest,
+            QuoteRequest = 7,
             
             /// <summary>
-            /// Enum QuoteSent for "Quote Sent"
+            /// Enum QuoteSent for value: Quote Sent
             /// </summary>
             [EnumMember(Value = "Quote Sent")]
-            QuoteSent,
+            QuoteSent = 8,
             
             /// <summary>
-            /// Enum LeastCostRouting for "Least Cost Routing"
+            /// Enum LeastCostRouting for value: Least Cost Routing
             /// </summary>
             [EnumMember(Value = "Least Cost Routing")]
-            LeastCostRouting,
+            LeastCostRouting = 9,
             
             /// <summary>
-            /// Enum Unknown for "Unknown"
+            /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown
+            Unknown = 10
         }
 
         /// <summary>
@@ -108,76 +108,76 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Order" /> class.
         /// </summary>
-        /// <param name="Affiliates">Affiliates if any were associated with the order.  The first one in the array sent the order and each subsequent affiliate is the recruiter that earns a downline commission..</param>
-        /// <param name="AutoOrder">AutoOrder.</param>
-        /// <param name="Billing">Billing.</param>
-        /// <param name="Buysafe">Buysafe.</param>
-        /// <param name="ChannelPartner">ChannelPartner.</param>
-        /// <param name="Checkout">Checkout.</param>
-        /// <param name="Coupons">Coupons.</param>
-        /// <param name="CreationDts">Date/time that the order was created.</param>
-        /// <param name="CurrencyCode">Currency code that the customer used if different than the merchant&#39;s base currency code.</param>
-        /// <param name="CurrentStage">Current stage that the order is in..</param>
-        /// <param name="CustomerProfile">CustomerProfile.</param>
-        /// <param name="DigitalOrder">DigitalOrder.</param>
-        /// <param name="Edi">Edi.</param>
-        /// <param name="ExchangeRate">Exchange rate at the time the order was placed if currency code is different than the base currency.</param>
-        /// <param name="FraudScore">FraudScore.</param>
-        /// <param name="Gift">Gift.</param>
-        /// <param name="GiftCertificate">GiftCertificate.</param>
-        /// <param name="_Internal">_Internal.</param>
-        /// <param name="Items">Items.</param>
-        /// <param name="LanguageIsoCode">Three letter ISO-639 language code used by the customer during the checkout if different than the default language.</param>
-        /// <param name="LinkedShipment">LinkedShipment.</param>
-        /// <param name="Marketing">Marketing.</param>
-        /// <param name="MerchantId">UltraCart merchant ID owning this order.</param>
-        /// <param name="OrderId">Order ID.</param>
-        /// <param name="Payment">Payment.</param>
-        /// <param name="Properties">Properties, available only through update, not through insert due to the nature of how properties are handled internally.</param>
-        /// <param name="Quote">Quote.</param>
-        /// <param name="RefundDts">If the order was refunded, the date/time that the last refund occurred.</param>
-        /// <param name="RejectDts">If the order was rejected, the date/time that the rejection occurred.</param>
-        /// <param name="Salesforce">Salesforce.</param>
-        /// <param name="Shipping">Shipping.</param>
-        /// <param name="Summary">Summary.</param>
-        /// <param name="Tags">tags, available only through update, not through insert due to the nature of how tags are handled internally.</param>
-        /// <param name="Taxes">Taxes.</param>
-        public Order(List<OrderAffiliate> Affiliates = default(List<OrderAffiliate>), OrderAutoOrder AutoOrder = default(OrderAutoOrder), OrderBilling Billing = default(OrderBilling), OrderBuysafe Buysafe = default(OrderBuysafe), OrderChannelPartner ChannelPartner = default(OrderChannelPartner), OrderCheckout Checkout = default(OrderCheckout), List<OrderCoupon> Coupons = default(List<OrderCoupon>), string CreationDts = default(string), string CurrencyCode = default(string), CurrentStageEnum? CurrentStage = default(CurrentStageEnum?), Customer CustomerProfile = default(Customer), OrderDigitalOrder DigitalOrder = default(OrderDigitalOrder), OrderEdi Edi = default(OrderEdi), decimal? ExchangeRate = default(decimal?), OrderFraudScore FraudScore = default(OrderFraudScore), OrderGift Gift = default(OrderGift), OrderGiftCertificate GiftCertificate = default(OrderGiftCertificate), OrderInternal _Internal = default(OrderInternal), List<OrderItem> Items = default(List<OrderItem>), string LanguageIsoCode = default(string), OrderLinkedShipment LinkedShipment = default(OrderLinkedShipment), OrderMarketing Marketing = default(OrderMarketing), string MerchantId = default(string), string OrderId = default(string), OrderPayment Payment = default(OrderPayment), List<OrderProperty> Properties = default(List<OrderProperty>), OrderQuote Quote = default(OrderQuote), string RefundDts = default(string), string RejectDts = default(string), OrderSalesforce Salesforce = default(OrderSalesforce), OrderShipping Shipping = default(OrderShipping), OrderSummary Summary = default(OrderSummary), List<OrderTag> Tags = default(List<OrderTag>), OrderTaxes Taxes = default(OrderTaxes))
+        /// <param name="affiliates">Affiliates if any were associated with the order.  The first one in the array sent the order and each subsequent affiliate is the recruiter that earns a downline commission..</param>
+        /// <param name="autoOrder">autoOrder.</param>
+        /// <param name="billing">billing.</param>
+        /// <param name="buysafe">buysafe.</param>
+        /// <param name="channelPartner">channelPartner.</param>
+        /// <param name="checkout">checkout.</param>
+        /// <param name="coupons">Coupons.</param>
+        /// <param name="creationDts">Date/time that the order was created.</param>
+        /// <param name="currencyCode">Currency code that the customer used if different than the merchant&#39;s base currency code.</param>
+        /// <param name="currentStage">Current stage that the order is in..</param>
+        /// <param name="customerProfile">customerProfile.</param>
+        /// <param name="digitalOrder">digitalOrder.</param>
+        /// <param name="edi">edi.</param>
+        /// <param name="exchangeRate">Exchange rate at the time the order was placed if currency code is different than the base currency.</param>
+        /// <param name="fraudScore">fraudScore.</param>
+        /// <param name="gift">gift.</param>
+        /// <param name="giftCertificate">giftCertificate.</param>
+        /// <param name="_internal">_internal.</param>
+        /// <param name="items">Items.</param>
+        /// <param name="languageIsoCode">Three letter ISO-639 language code used by the customer during the checkout if different than the default language.</param>
+        /// <param name="linkedShipment">linkedShipment.</param>
+        /// <param name="marketing">marketing.</param>
+        /// <param name="merchantId">UltraCart merchant ID owning this order.</param>
+        /// <param name="orderId">Order ID.</param>
+        /// <param name="payment">payment.</param>
+        /// <param name="properties">Properties, available only through update, not through insert due to the nature of how properties are handled internally.</param>
+        /// <param name="quote">quote.</param>
+        /// <param name="refundDts">If the order was refunded, the date/time that the last refund occurred.</param>
+        /// <param name="rejectDts">If the order was rejected, the date/time that the rejection occurred.</param>
+        /// <param name="salesforce">salesforce.</param>
+        /// <param name="shipping">shipping.</param>
+        /// <param name="summary">summary.</param>
+        /// <param name="tags">tags, available only through update, not through insert due to the nature of how tags are handled internally.</param>
+        /// <param name="taxes">taxes.</param>
+        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), decimal? exchangeRate = default(decimal?), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string rejectDts = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes))
         {
-            this.Affiliates = Affiliates;
-            this.AutoOrder = AutoOrder;
-            this.Billing = Billing;
-            this.Buysafe = Buysafe;
-            this.ChannelPartner = ChannelPartner;
-            this.Checkout = Checkout;
-            this.Coupons = Coupons;
-            this.CreationDts = CreationDts;
-            this.CurrencyCode = CurrencyCode;
-            this.CurrentStage = CurrentStage;
-            this.CustomerProfile = CustomerProfile;
-            this.DigitalOrder = DigitalOrder;
-            this.Edi = Edi;
-            this.ExchangeRate = ExchangeRate;
-            this.FraudScore = FraudScore;
-            this.Gift = Gift;
-            this.GiftCertificate = GiftCertificate;
-            this._Internal = _Internal;
-            this.Items = Items;
-            this.LanguageIsoCode = LanguageIsoCode;
-            this.LinkedShipment = LinkedShipment;
-            this.Marketing = Marketing;
-            this.MerchantId = MerchantId;
-            this.OrderId = OrderId;
-            this.Payment = Payment;
-            this.Properties = Properties;
-            this.Quote = Quote;
-            this.RefundDts = RefundDts;
-            this.RejectDts = RejectDts;
-            this.Salesforce = Salesforce;
-            this.Shipping = Shipping;
-            this.Summary = Summary;
-            this.Tags = Tags;
-            this.Taxes = Taxes;
+            this.Affiliates = affiliates;
+            this.AutoOrder = autoOrder;
+            this.Billing = billing;
+            this.Buysafe = buysafe;
+            this.ChannelPartner = channelPartner;
+            this.Checkout = checkout;
+            this.Coupons = coupons;
+            this.CreationDts = creationDts;
+            this.CurrencyCode = currencyCode;
+            this.CurrentStage = currentStage;
+            this.CustomerProfile = customerProfile;
+            this.DigitalOrder = digitalOrder;
+            this.Edi = edi;
+            this.ExchangeRate = exchangeRate;
+            this.FraudScore = fraudScore;
+            this.Gift = gift;
+            this.GiftCertificate = giftCertificate;
+            this.Internal = _internal;
+            this.Items = items;
+            this.LanguageIsoCode = languageIsoCode;
+            this.LinkedShipment = linkedShipment;
+            this.Marketing = marketing;
+            this.MerchantId = merchantId;
+            this.OrderId = orderId;
+            this.Payment = payment;
+            this.Properties = properties;
+            this.Quote = quote;
+            this.RefundDts = refundDts;
+            this.RejectDts = rejectDts;
+            this.Salesforce = salesforce;
+            this.Shipping = shipping;
+            this.Summary = summary;
+            this.Tags = tags;
+            this.Taxes = taxes;
         }
         
         /// <summary>
@@ -283,10 +283,10 @@ namespace com.ultracart.admin.v2.Model
         public OrderGiftCertificate GiftCertificate { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Internal
+        /// Gets or Sets Internal
         /// </summary>
         [DataMember(Name="internal", EmitDefaultValue=false)]
-        public OrderInternal _Internal { get; set; }
+        public OrderInternal Internal { get; set; }
 
         /// <summary>
         /// Items
@@ -417,7 +417,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FraudScore: ").Append(FraudScore).Append("\n");
             sb.Append("  Gift: ").Append(Gift).Append("\n");
             sb.Append("  GiftCertificate: ").Append(GiftCertificate).Append("\n");
-            sb.Append("  _Internal: ").Append(_Internal).Append("\n");
+            sb.Append("  Internal: ").Append(Internal).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  LanguageIsoCode: ").Append(LanguageIsoCode).Append("\n");
             sb.Append("  LinkedShipment: ").Append(LinkedShipment).Append("\n");
@@ -442,7 +442,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -554,9 +554,9 @@ namespace com.ultracart.admin.v2.Model
                     this.GiftCertificate.Equals(input.GiftCertificate))
                 ) && 
                 (
-                    this._Internal == input._Internal ||
-                    (this._Internal != null &&
-                    this._Internal.Equals(input._Internal))
+                    this.Internal == input.Internal ||
+                    (this.Internal != null &&
+                    this.Internal.Equals(input.Internal))
                 ) && 
                 (
                     this.Items == input.Items ||
@@ -683,8 +683,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Gift.GetHashCode();
                 if (this.GiftCertificate != null)
                     hashCode = hashCode * 59 + this.GiftCertificate.GetHashCode();
-                if (this._Internal != null)
-                    hashCode = hashCode * 59 + this._Internal.GetHashCode();
+                if (this.Internal != null)
+                    hashCode = hashCode * 59 + this.Internal.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.LanguageIsoCode != null)

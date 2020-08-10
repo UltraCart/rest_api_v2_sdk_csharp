@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartSettingsPaymentCreditCard" /> class.
         /// </summary>
-        /// <param name="CollectCreditCardVerificationNumber">True if the credit card verification number should be collected.</param>
-        /// <param name="CreditCardTypes">Available credit card types.</param>
-        /// <param name="HostedFieldsShoppingCartToken">The shoppingCartToken needed for proper initialization of hosted fields collection.</param>
-        public CartSettingsPaymentCreditCard(bool? CollectCreditCardVerificationNumber = default(bool?), List<string> CreditCardTypes = default(List<string>), string HostedFieldsShoppingCartToken = default(string))
+        /// <param name="collectCreditCardVerificationNumber">True if the credit card verification number should be collected.</param>
+        /// <param name="creditCardTypes">Available credit card types.</param>
+        /// <param name="hostedFieldsShoppingCartToken">The shoppingCartToken needed for proper initialization of hosted fields collection.</param>
+        public CartSettingsPaymentCreditCard(bool? collectCreditCardVerificationNumber = default(bool?), List<string> creditCardTypes = default(List<string>), string hostedFieldsShoppingCartToken = default(string))
         {
-            this.CollectCreditCardVerificationNumber = CollectCreditCardVerificationNumber;
-            this.CreditCardTypes = CreditCardTypes;
-            this.HostedFieldsShoppingCartToken = HostedFieldsShoppingCartToken;
+            this.CollectCreditCardVerificationNumber = collectCreditCardVerificationNumber;
+            this.CreditCardTypes = creditCardTypes;
+            this.HostedFieldsShoppingCartToken = hostedFieldsShoppingCartToken;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

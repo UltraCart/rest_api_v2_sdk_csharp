@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemContentAssignment" /> class.
         /// </summary>
-        /// <param name="GroupOid">Page (group) object identifier.</param>
-        /// <param name="GroupPath">Page (group) path.</param>
-        /// <param name="Host">StoreFront host name.</param>
-        /// <param name="SortOrder">Sort order (optional).</param>
-        /// <param name="UrlPart">URL part if the item id is not used.</param>
-        public ItemContentAssignment(int? GroupOid = default(int?), string GroupPath = default(string), string Host = default(string), int? SortOrder = default(int?), string UrlPart = default(string))
+        /// <param name="groupOid">Page (group) object identifier.</param>
+        /// <param name="groupPath">Page (group) path.</param>
+        /// <param name="host">StoreFront host name.</param>
+        /// <param name="sortOrder">Sort order (optional).</param>
+        /// <param name="urlPart">URL part if the item id is not used.</param>
+        public ItemContentAssignment(int? groupOid = default(int?), string groupPath = default(string), string host = default(string), int? sortOrder = default(int?), string urlPart = default(string))
         {
-            this.GroupOid = GroupOid;
-            this.GroupPath = GroupPath;
-            this.Host = Host;
-            this.SortOrder = SortOrder;
-            this.UrlPart = UrlPart;
+            this.GroupOid = groupOid;
+            this.GroupPath = groupPath;
+            this.Host = host;
+            this.SortOrder = sortOrder;
+            this.UrlPart = urlPart;
         }
         
         /// <summary>
@@ -103,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

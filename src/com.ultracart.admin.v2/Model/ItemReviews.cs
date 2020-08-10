@@ -33,22 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemReviews" /> class.
         /// </summary>
-        /// <param name="HasApprovedReview">True if the item has an approved review.</param>
-        /// <param name="HasReview">True if the item has a review.</param>
-        /// <param name="ReviewCount">Number of approved reviews.</param>
-        /// <param name="ReviewOverall">Overall score of reviews.</param>
-        /// <param name="ReviewTemplateName">Review template name.</param>
-        /// <param name="ReviewTemplateOid">Review template object identifier.</param>
-        /// <param name="Reviewable">True if the item is reviewable.</param>
-        public ItemReviews(bool? HasApprovedReview = default(bool?), bool? HasReview = default(bool?), int? ReviewCount = default(int?), decimal? ReviewOverall = default(decimal?), string ReviewTemplateName = default(string), int? ReviewTemplateOid = default(int?), bool? Reviewable = default(bool?))
+        /// <param name="hasApprovedReview">True if the item has an approved review.</param>
+        /// <param name="hasReview">True if the item has a review.</param>
+        /// <param name="reviewCount">Number of approved reviews.</param>
+        /// <param name="reviewOverall">Overall score of reviews.</param>
+        /// <param name="reviewTemplateName">Review template name.</param>
+        /// <param name="reviewTemplateOid">Review template object identifier.</param>
+        /// <param name="reviewable">True if the item is reviewable.</param>
+        public ItemReviews(bool? hasApprovedReview = default(bool?), bool? hasReview = default(bool?), int? reviewCount = default(int?), decimal? reviewOverall = default(decimal?), string reviewTemplateName = default(string), int? reviewTemplateOid = default(int?), bool? reviewable = default(bool?))
         {
-            this.HasApprovedReview = HasApprovedReview;
-            this.HasReview = HasReview;
-            this.ReviewCount = ReviewCount;
-            this.ReviewOverall = ReviewOverall;
-            this.ReviewTemplateName = ReviewTemplateName;
-            this.ReviewTemplateOid = ReviewTemplateOid;
-            this.Reviewable = Reviewable;
+            this.HasApprovedReview = hasApprovedReview;
+            this.HasReview = hasReview;
+            this.ReviewCount = reviewCount;
+            this.ReviewOverall = reviewOverall;
+            this.ReviewTemplateName = reviewTemplateName;
+            this.ReviewTemplateOid = reviewTemplateOid;
+            this.Reviewable = reviewable;
         }
         
         /// <summary>
@@ -123,7 +123,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponFreeShippingWithSubtotal" /> class.
         /// </summary>
-        /// <param name="CurrencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
-        /// <param name="PurchaseAmount">The purchase amount to qualify for subtotal discount and free shipping.</param>
-        /// <param name="ShippingMethods">One or more shipping methods that may be used with this coupon.</param>
-        public CouponFreeShippingWithSubtotal(string CurrencyCode = default(string), decimal? PurchaseAmount = default(decimal?), List<string> ShippingMethods = default(List<string>))
+        /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
+        /// <param name="purchaseAmount">The purchase amount to qualify for subtotal discount and free shipping.</param>
+        /// <param name="shippingMethods">One or more shipping methods that may be used with this coupon.</param>
+        public CouponFreeShippingWithSubtotal(string currencyCode = default(string), decimal? purchaseAmount = default(decimal?), List<string> shippingMethods = default(List<string>))
         {
-            this.CurrencyCode = CurrencyCode;
-            this.PurchaseAmount = PurchaseAmount;
-            this.ShippingMethods = ShippingMethods;
+            this.CurrencyCode = currencyCode;
+            this.PurchaseAmount = purchaseAmount;
+            this.ShippingMethods = shippingMethods;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

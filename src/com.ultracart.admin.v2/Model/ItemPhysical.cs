@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemPhysical" /> class.
         /// </summary>
-        /// <param name="Height">Height.</param>
-        /// <param name="Length">Length.</param>
-        /// <param name="Weight">Weight.</param>
-        /// <param name="Width">Width.</param>
-        public ItemPhysical(Distance Height = default(Distance), Distance Length = default(Distance), Weight Weight = default(Weight), Distance Width = default(Distance))
+        /// <param name="height">height.</param>
+        /// <param name="length">length.</param>
+        /// <param name="weight">weight.</param>
+        /// <param name="width">width.</param>
+        public ItemPhysical(Distance height = default(Distance), Distance length = default(Distance), Weight weight = default(Weight), Distance width = default(Distance))
         {
-            this.Height = Height;
-            this.Length = Length;
-            this.Weight = Weight;
-            this.Width = Width;
+            this.Height = height;
+            this.Length = length;
+            this.Weight = weight;
+            this.Width = width;
         }
         
         /// <summary>
@@ -89,7 +89,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

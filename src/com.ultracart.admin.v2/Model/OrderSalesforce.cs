@@ -33,10 +33,10 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderSalesforce" /> class.
         /// </summary>
-        /// <param name="SalesforceOpportunityId">Salesforce.com opportunity id.</param>
-        public OrderSalesforce(string SalesforceOpportunityId = default(string))
+        /// <param name="salesforceOpportunityId">Salesforce.com opportunity id.</param>
+        public OrderSalesforce(string salesforceOpportunityId = default(string))
         {
-            this.SalesforceOpportunityId = SalesforceOpportunityId;
+            this.SalesforceOpportunityId = salesforceOpportunityId;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

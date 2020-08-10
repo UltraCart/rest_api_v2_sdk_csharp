@@ -33,16 +33,34 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookEventCategory" /> class.
         /// </summary>
-        /// <param name="EventCategory">Name of the event category.</param>
-        /// <param name="Events">The events within the category.  Individual subscription flags contained within the child object..</param>
-        /// <param name="Subscribed">True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier..</param>
-        public WebhookEventCategory(string EventCategory = default(string), List<WebhookEventSubscription> Events = default(List<WebhookEventSubscription>), bool? Subscribed = default(bool?))
+        /// <param name="anySubscribed">True if any events are subscribed to..</param>
+        /// <param name="availableExpansions">Array of available expansion constants.</param>
+        /// <param name="eventCategory">Name of the event category.</param>
+        /// <param name="events">The events within the category.  Individual subscription flags contained within the child object..</param>
+        /// <param name="subscribed">True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier..</param>
+        public WebhookEventCategory(bool? anySubscribed = default(bool?), List<string> availableExpansions = default(List<string>), string eventCategory = default(string), List<WebhookEventSubscription> events = default(List<WebhookEventSubscription>), bool? subscribed = default(bool?))
         {
-            this.EventCategory = EventCategory;
-            this.Events = Events;
-            this.Subscribed = Subscribed;
+            this.AnySubscribed = anySubscribed;
+            this.AvailableExpansions = availableExpansions;
+            this.EventCategory = eventCategory;
+            this.Events = events;
+            this.Subscribed = subscribed;
         }
         
+        /// <summary>
+        /// True if any events are subscribed to.
+        /// </summary>
+        /// <value>True if any events are subscribed to.</value>
+        [DataMember(Name="any_subscribed", EmitDefaultValue=false)]
+        public bool? AnySubscribed { get; set; }
+
+        /// <summary>
+        /// Array of available expansion constants
+        /// </summary>
+        /// <value>Array of available expansion constants</value>
+        [DataMember(Name="available_expansions", EmitDefaultValue=false)]
+        public List<string> AvailableExpansions { get; set; }
+
         /// <summary>
         /// Name of the event category
         /// </summary>
@@ -72,6 +90,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class WebhookEventCategory {\n");
+            sb.Append("  AnySubscribed: ").Append(AnySubscribed).Append("\n");
+            sb.Append("  AvailableExpansions: ").Append(AvailableExpansions).Append("\n");
             sb.Append("  EventCategory: ").Append(EventCategory).Append("\n");
             sb.Append("  Events: ").Append(Events).Append("\n");
             sb.Append("  Subscribed: ").Append(Subscribed).Append("\n");
@@ -83,7 +103,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -110,6 +130,16 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AnySubscribed == input.AnySubscribed ||
+                    (this.AnySubscribed != null &&
+                    this.AnySubscribed.Equals(input.AnySubscribed))
+                ) && 
+                (
+                    this.AvailableExpansions == input.AvailableExpansions ||
+                    this.AvailableExpansions != null &&
+                    this.AvailableExpansions.SequenceEqual(input.AvailableExpansions)
+                ) && 
+                (
                     this.EventCategory == input.EventCategory ||
                     (this.EventCategory != null &&
                     this.EventCategory.Equals(input.EventCategory))
@@ -135,6 +165,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AnySubscribed != null)
+                    hashCode = hashCode * 59 + this.AnySubscribed.GetHashCode();
+                if (this.AvailableExpansions != null)
+                    hashCode = hashCode * 59 + this.AvailableExpansions.GetHashCode();
                 if (this.EventCategory != null)
                     hashCode = hashCode * 59 + this.EventCategory.GetHashCode();
                 if (this.Events != null)

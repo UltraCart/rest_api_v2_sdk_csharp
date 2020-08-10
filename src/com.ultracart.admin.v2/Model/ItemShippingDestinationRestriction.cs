@@ -39,16 +39,16 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Validonlyfor for "valid only for"
+            /// Enum Validonlyfor for value: valid only for
             /// </summary>
             [EnumMember(Value = "valid only for")]
-            Validonlyfor,
+            Validonlyfor = 1,
             
             /// <summary>
-            /// Enum Invalidfor for "invalid for"
+            /// Enum Invalidfor for value: invalid for
             /// </summary>
             [EnumMember(Value = "invalid for")]
-            Invalidfor
+            Invalidfor = 2
         }
 
         /// <summary>
@@ -60,14 +60,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemShippingDestinationRestriction" /> class.
         /// </summary>
-        /// <param name="CountryCode">Country code (ISO-3166 two letter).</param>
-        /// <param name="State">State.</param>
-        /// <param name="Validity">Validity.</param>
-        public ItemShippingDestinationRestriction(string CountryCode = default(string), string State = default(string), ValidityEnum? Validity = default(ValidityEnum?))
+        /// <param name="countryCode">Country code (ISO-3166 two letter).</param>
+        /// <param name="state">State.</param>
+        /// <param name="validity">Validity.</param>
+        public ItemShippingDestinationRestriction(string countryCode = default(string), string state = default(string), ValidityEnum? validity = default(ValidityEnum?))
         {
-            this.CountryCode = CountryCode;
-            this.State = State;
-            this.Validity = Validity;
+            this.CountryCode = countryCode;
+            this.State = state;
+            this.Validity = validity;
         }
         
         /// <summary>
@@ -104,7 +104,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

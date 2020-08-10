@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderReplacementItem" /> class.
         /// </summary>
-        /// <param name="ArbitraryUnitCost">Cost to charge the customer if specified.  If not specified then the default item cost is used..</param>
-        /// <param name="MerchantItemId">Item ID.</param>
-        /// <param name="Quantity">Quantity.</param>
-        public OrderReplacementItem(decimal? ArbitraryUnitCost = default(decimal?), string MerchantItemId = default(string), decimal? Quantity = default(decimal?))
+        /// <param name="arbitraryUnitCost">Cost to charge the customer if specified.  If not specified then the default item cost is used..</param>
+        /// <param name="merchantItemId">Item ID.</param>
+        /// <param name="quantity">Quantity.</param>
+        public OrderReplacementItem(decimal? arbitraryUnitCost = default(decimal?), string merchantItemId = default(string), decimal? quantity = default(decimal?))
         {
-            this.ArbitraryUnitCost = ArbitraryUnitCost;
-            this.MerchantItemId = MerchantItemId;
-            this.Quantity = Quantity;
+            this.ArbitraryUnitCost = arbitraryUnitCost;
+            this.MerchantItemId = merchantItemId;
+            this.Quantity = quantity;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

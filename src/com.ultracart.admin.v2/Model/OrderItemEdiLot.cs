@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderItemEdiLot" /> class.
         /// </summary>
-        /// <param name="LotExpiration">Log expiration.</param>
-        /// <param name="LotNumber">Lot number.</param>
-        /// <param name="LotQuantity">Lot quantity.</param>
-        public OrderItemEdiLot(string LotExpiration = default(string), string LotNumber = default(string), int? LotQuantity = default(int?))
+        /// <param name="lotExpiration">Log expiration.</param>
+        /// <param name="lotNumber">Lot number.</param>
+        /// <param name="lotQuantity">Lot quantity.</param>
+        public OrderItemEdiLot(string lotExpiration = default(string), string lotNumber = default(string), int? lotQuantity = default(int?))
         {
-            this.LotExpiration = LotExpiration;
-            this.LotNumber = LotNumber;
-            this.LotQuantity = LotQuantity;
+            this.LotExpiration = lotExpiration;
+            this.LotNumber = lotNumber;
+            this.LotQuantity = lotQuantity;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

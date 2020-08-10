@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartProfileLoginResponse" /> class.
         /// </summary>
-        /// <param name="Cart">Cart.</param>
-        /// <param name="Errors">Errors to display to the customer if they failed any of the validations checked.</param>
-        public CartProfileLoginResponse(Cart Cart = default(Cart), List<string> Errors = default(List<string>))
+        /// <param name="cart">cart.</param>
+        /// <param name="errors">Errors to display to the customer if they failed any of the validations checked.</param>
+        public CartProfileLoginResponse(Cart cart = default(Cart), List<string> errors = default(List<string>))
         {
-            this.Cart = Cart;
-            this.Errors = Errors;
+            this.Cart = cart;
+            this.Errors = errors;
         }
         
         /// <summary>
@@ -72,7 +72,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

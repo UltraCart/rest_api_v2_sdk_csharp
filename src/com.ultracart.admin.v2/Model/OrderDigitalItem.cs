@@ -33,24 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderDigitalItem" /> class.
         /// </summary>
-        /// <param name="FileSize">File size.</param>
-        /// <param name="LastDownload">Last download.</param>
-        /// <param name="LastDownloadIpAddress">IP address that performed the last download.</param>
-        /// <param name="OriginalFilename">Original file name.</param>
-        /// <param name="ProductCode">Item id associated with this item.</param>
-        /// <param name="ProductDescription">Item description associated with this item.</param>
-        /// <param name="RemainingDownloads">Remaining number of downloads.</param>
-        /// <param name="Url">URL that the customer can click to download the specific digital item.</param>
-        public OrderDigitalItem(long? FileSize = default(long?), string LastDownload = default(string), string LastDownloadIpAddress = default(string), string OriginalFilename = default(string), string ProductCode = default(string), string ProductDescription = default(string), int? RemainingDownloads = default(int?), string Url = default(string))
+        /// <param name="fileSize">File size.</param>
+        /// <param name="lastDownload">Last download.</param>
+        /// <param name="lastDownloadIpAddress">IP address that performed the last download.</param>
+        /// <param name="originalFilename">Original file name.</param>
+        /// <param name="productCode">Item id associated with this item.</param>
+        /// <param name="productDescription">Item description associated with this item.</param>
+        /// <param name="remainingDownloads">Remaining number of downloads.</param>
+        /// <param name="url">URL that the customer can click to download the specific digital item.</param>
+        public OrderDigitalItem(long? fileSize = default(long?), string lastDownload = default(string), string lastDownloadIpAddress = default(string), string originalFilename = default(string), string productCode = default(string), string productDescription = default(string), int? remainingDownloads = default(int?), string url = default(string))
         {
-            this.FileSize = FileSize;
-            this.LastDownload = LastDownload;
-            this.LastDownloadIpAddress = LastDownloadIpAddress;
-            this.OriginalFilename = OriginalFilename;
-            this.ProductCode = ProductCode;
-            this.ProductDescription = ProductDescription;
-            this.RemainingDownloads = RemainingDownloads;
-            this.Url = Url;
+            this.FileSize = fileSize;
+            this.LastDownload = lastDownload;
+            this.LastDownloadIpAddress = lastDownloadIpAddress;
+            this.OriginalFilename = originalFilename;
+            this.ProductCode = productCode;
+            this.ProductDescription = productDescription;
+            this.RemainingDownloads = remainingDownloads;
+            this.Url = url;
         }
         
         /// <summary>
@@ -133,7 +133,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

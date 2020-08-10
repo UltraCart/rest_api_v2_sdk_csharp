@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemPricingTierLimit" /> class.
         /// </summary>
-        /// <param name="CumulativeOrderLimit">Cumulative order limit.</param>
-        /// <param name="IndividualOrderLimit">Individual order limit.</param>
-        /// <param name="MultipleQuantity">Multiple quantity.</param>
-        public ItemPricingTierLimit(int? CumulativeOrderLimit = default(int?), int? IndividualOrderLimit = default(int?), int? MultipleQuantity = default(int?))
+        /// <param name="cumulativeOrderLimit">Cumulative order limit.</param>
+        /// <param name="individualOrderLimit">Individual order limit.</param>
+        /// <param name="multipleQuantity">Multiple quantity.</param>
+        public ItemPricingTierLimit(int? cumulativeOrderLimit = default(int?), int? individualOrderLimit = default(int?), int? multipleQuantity = default(int?))
         {
-            this.CumulativeOrderLimit = CumulativeOrderLimit;
-            this.IndividualOrderLimit = IndividualOrderLimit;
-            this.MultipleQuantity = MultipleQuantity;
+            this.CumulativeOrderLimit = cumulativeOrderLimit;
+            this.IndividualOrderLimit = individualOrderLimit;
+            this.MultipleQuantity = multipleQuantity;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

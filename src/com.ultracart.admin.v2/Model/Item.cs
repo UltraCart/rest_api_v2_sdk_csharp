@@ -33,104 +33,108 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Item" /> class.
         /// </summary>
-        /// <param name="Accounting">Accounting.</param>
-        /// <param name="Amember">Amember.</param>
-        /// <param name="AutoOrder">AutoOrder.</param>
-        /// <param name="Ccbill">Ccbill.</param>
-        /// <param name="ChannelPartnerMappings">Channel Partner Item Mapping.</param>
-        /// <param name="Chargeback">Chargeback.</param>
-        /// <param name="Checkout">Checkout.</param>
-        /// <param name="Content">Content.</param>
-        /// <param name="CreationDts">Date/time of creation.</param>
-        /// <param name="Description">Description of the item up to 500 characters..</param>
-        /// <param name="DescriptionTranslatedTextInstanceOid">Description translated text instance id.</param>
-        /// <param name="DigitalDelivery">DigitalDelivery.</param>
-        /// <param name="Ebay">Ebay.</param>
-        /// <param name="EmailNotifications">EmailNotifications.</param>
-        /// <param name="Enrollment123">Enrollment123.</param>
-        /// <param name="GiftCertificate">GiftCertificate.</param>
-        /// <param name="GoogleProductSearch">GoogleProductSearch.</param>
-        /// <param name="Identifiers">Identifiers.</param>
-        /// <param name="Inactive">True if this item is inactive and can not be purchased.</param>
-        /// <param name="InstantPaymentNotifications">InstantPaymentNotifications.</param>
-        /// <param name="_Internal">_Internal.</param>
-        /// <param name="Kit">True if this item is a kit.</param>
-        /// <param name="KitDefinition">KitDefinition.</param>
-        /// <param name="LastModifiedDts">Date/time of last modification.</param>
-        /// <param name="MerchantId">UltraCart merchant ID owning item.</param>
-        /// <param name="MerchantItemId">Unique item id assigned to this item.</param>
-        /// <param name="MerchantItemOid">Unique object identifier for this item.</param>
-        /// <param name="Options">Options.</param>
-        /// <param name="ParentCategoryId">Parent category of the item.  Zero indicates the root folder..</param>
-        /// <param name="ParentCategoryPath">Parent category path.  / indicates the root folder..</param>
-        /// <param name="PaymentProcessing">PaymentProcessing.</param>
-        /// <param name="Physical">Physical.</param>
-        /// <param name="Pricing">Pricing.</param>
-        /// <param name="Properties">Properties.</param>
-        /// <param name="RealtimePricing">RealtimePricing.</param>
-        /// <param name="Related">Related.</param>
-        /// <param name="Reporting">Reporting.</param>
-        /// <param name="Restriction">Restriction.</param>
-        /// <param name="Revguard">Revguard.</param>
-        /// <param name="Reviews">Reviews.</param>
-        /// <param name="Salesforce">Salesforce.</param>
-        /// <param name="Shipping">Shipping.</param>
-        /// <param name="Tags">Tags.</param>
-        /// <param name="Tax">Tax.</param>
-        /// <param name="ThirdPartyEmailMarketing">3rd Party Email Marketing.</param>
-        /// <param name="VariantItems">Variant Items.</param>
-        /// <param name="Variations">Variations.</param>
-        /// <param name="WishlistMember">WishlistMember.</param>
-        public Item(ItemAccounting Accounting = default(ItemAccounting), ItemAmember Amember = default(ItemAmember), ItemAutoOrder AutoOrder = default(ItemAutoOrder), ItemCCBill Ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> ChannelPartnerMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback Chargeback = default(ItemChargeback), ItemCheckout Checkout = default(ItemCheckout), ItemContent Content = default(ItemContent), string CreationDts = default(string), string Description = default(string), int? DescriptionTranslatedTextInstanceOid = default(int?), ItemDigitalDelivery DigitalDelivery = default(ItemDigitalDelivery), ItemEbay Ebay = default(ItemEbay), ItemEmailNotifications EmailNotifications = default(ItemEmailNotifications), ItemEnrollment123 Enrollment123 = default(ItemEnrollment123), ItemGiftCertificate GiftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch GoogleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers Identifiers = default(ItemIdentifiers), bool? Inactive = default(bool?), ItemInstantPaymentNotifications InstantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _Internal = default(ItemInternal), bool? Kit = default(bool?), ItemKitDefinition KitDefinition = default(ItemKitDefinition), string LastModifiedDts = default(string), string MerchantId = default(string), string MerchantItemId = default(string), int? MerchantItemOid = default(int?), List<ItemOption> Options = default(List<ItemOption>), int? ParentCategoryId = default(int?), string ParentCategoryPath = default(string), ItemPaymentProcessing PaymentProcessing = default(ItemPaymentProcessing), ItemPhysical Physical = default(ItemPhysical), ItemPricing Pricing = default(ItemPricing), List<ItemProperty> Properties = default(List<ItemProperty>), ItemRealtimePricing RealtimePricing = default(ItemRealtimePricing), ItemRelated Related = default(ItemRelated), ItemReporting Reporting = default(ItemReporting), ItemRestriction Restriction = default(ItemRestriction), ItemRevguard Revguard = default(ItemRevguard), ItemReviews Reviews = default(ItemReviews), ItemSalesforce Salesforce = default(ItemSalesforce), ItemShipping Shipping = default(ItemShipping), ItemTags Tags = default(ItemTags), ItemTax Tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> ThirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> VariantItems = default(List<ItemVariantItem>), List<ItemVariation> Variations = default(List<ItemVariation>), ItemWishlistMember WishlistMember = default(ItemWishlistMember))
+        /// <param name="accounting">accounting.</param>
+        /// <param name="amember">amember.</param>
+        /// <param name="autoOrder">autoOrder.</param>
+        /// <param name="ccbill">ccbill.</param>
+        /// <param name="channelPartnerMappings">Channel Partner Item Mapping.</param>
+        /// <param name="chargeback">chargeback.</param>
+        /// <param name="checkout">checkout.</param>
+        /// <param name="content">content.</param>
+        /// <param name="creationDts">Date/time of creation.</param>
+        /// <param name="description">Description of the item up to 500 characters..</param>
+        /// <param name="descriptionTranslatedTextInstanceOid">Description translated text instance id.</param>
+        /// <param name="digitalDelivery">digitalDelivery.</param>
+        /// <param name="ebay">ebay.</param>
+        /// <param name="emailNotifications">emailNotifications.</param>
+        /// <param name="enrollment123">enrollment123.</param>
+        /// <param name="giftCertificate">giftCertificate.</param>
+        /// <param name="googleProductSearch">googleProductSearch.</param>
+        /// <param name="identifiers">identifiers.</param>
+        /// <param name="inactive">True if this item is inactive and can not be purchased.</param>
+        /// <param name="instantPaymentNotifications">instantPaymentNotifications.</param>
+        /// <param name="_internal">_internal.</param>
+        /// <param name="kit">True if this item is a kit.</param>
+        /// <param name="kitComponentOnly">True if this item can only be usd as a kit component.</param>
+        /// <param name="kitDefinition">kitDefinition.</param>
+        /// <param name="lastModifiedDts">Date/time of last modification.</param>
+        /// <param name="merchantId">UltraCart merchant ID owning item.</param>
+        /// <param name="merchantItemId">Unique item id assigned to this item.</param>
+        /// <param name="merchantItemOid">Unique object identifier for this item.</param>
+        /// <param name="options">Options.</param>
+        /// <param name="parentCategoryId">Parent category of the item.  Zero indicates the root folder..</param>
+        /// <param name="parentCategoryPath">Parent category path.  / indicates the root folder..</param>
+        /// <param name="paymentProcessing">paymentProcessing.</param>
+        /// <param name="physical">physical.</param>
+        /// <param name="pricing">pricing.</param>
+        /// <param name="properties">Properties.</param>
+        /// <param name="realtimePricing">realtimePricing.</param>
+        /// <param name="recommendReplenishmentDays">Number of days to recommend replenishment after.  Null is not configured.  Set to zero to disable..</param>
+        /// <param name="related">related.</param>
+        /// <param name="reporting">reporting.</param>
+        /// <param name="restriction">restriction.</param>
+        /// <param name="revguard">revguard.</param>
+        /// <param name="reviews">reviews.</param>
+        /// <param name="salesforce">salesforce.</param>
+        /// <param name="shipping">shipping.</param>
+        /// <param name="tags">tags.</param>
+        /// <param name="tax">tax.</param>
+        /// <param name="thirdPartyEmailMarketing">3rd Party Email Marketing.</param>
+        /// <param name="variantItems">Variant Items.</param>
+        /// <param name="variations">Variations.</param>
+        /// <param name="wishlistMember">wishlistMember.</param>
+        public Item(ItemAccounting accounting = default(ItemAccounting), ItemAmember amember = default(ItemAmember), ItemAutoOrder autoOrder = default(ItemAutoOrder), ItemCCBill ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> channelPartnerMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback chargeback = default(ItemChargeback), ItemCheckout checkout = default(ItemCheckout), ItemContent content = default(ItemContent), string creationDts = default(string), string description = default(string), int? descriptionTranslatedTextInstanceOid = default(int?), ItemDigitalDelivery digitalDelivery = default(ItemDigitalDelivery), ItemEbay ebay = default(ItemEbay), ItemEmailNotifications emailNotifications = default(ItemEmailNotifications), ItemEnrollment123 enrollment123 = default(ItemEnrollment123), ItemGiftCertificate giftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch googleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers identifiers = default(ItemIdentifiers), bool? inactive = default(bool?), ItemInstantPaymentNotifications instantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _internal = default(ItemInternal), bool? kit = default(bool?), bool? kitComponentOnly = default(bool?), ItemKitDefinition kitDefinition = default(ItemKitDefinition), string lastModifiedDts = default(string), string merchantId = default(string), string merchantItemId = default(string), int? merchantItemOid = default(int?), List<ItemOption> options = default(List<ItemOption>), int? parentCategoryId = default(int?), string parentCategoryPath = default(string), ItemPaymentProcessing paymentProcessing = default(ItemPaymentProcessing), ItemPhysical physical = default(ItemPhysical), ItemPricing pricing = default(ItemPricing), List<ItemProperty> properties = default(List<ItemProperty>), ItemRealtimePricing realtimePricing = default(ItemRealtimePricing), int? recommendReplenishmentDays = default(int?), ItemRelated related = default(ItemRelated), ItemReporting reporting = default(ItemReporting), ItemRestriction restriction = default(ItemRestriction), ItemRevguard revguard = default(ItemRevguard), ItemReviews reviews = default(ItemReviews), ItemSalesforce salesforce = default(ItemSalesforce), ItemShipping shipping = default(ItemShipping), ItemTags tags = default(ItemTags), ItemTax tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> thirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> variantItems = default(List<ItemVariantItem>), List<ItemVariation> variations = default(List<ItemVariation>), ItemWishlistMember wishlistMember = default(ItemWishlistMember))
         {
-            this.Accounting = Accounting;
-            this.Amember = Amember;
-            this.AutoOrder = AutoOrder;
-            this.Ccbill = Ccbill;
-            this.ChannelPartnerMappings = ChannelPartnerMappings;
-            this.Chargeback = Chargeback;
-            this.Checkout = Checkout;
-            this.Content = Content;
-            this.CreationDts = CreationDts;
-            this.Description = Description;
-            this.DescriptionTranslatedTextInstanceOid = DescriptionTranslatedTextInstanceOid;
-            this.DigitalDelivery = DigitalDelivery;
-            this.Ebay = Ebay;
-            this.EmailNotifications = EmailNotifications;
-            this.Enrollment123 = Enrollment123;
-            this.GiftCertificate = GiftCertificate;
-            this.GoogleProductSearch = GoogleProductSearch;
-            this.Identifiers = Identifiers;
-            this.Inactive = Inactive;
-            this.InstantPaymentNotifications = InstantPaymentNotifications;
-            this._Internal = _Internal;
-            this.Kit = Kit;
-            this.KitDefinition = KitDefinition;
-            this.LastModifiedDts = LastModifiedDts;
-            this.MerchantId = MerchantId;
-            this.MerchantItemId = MerchantItemId;
-            this.MerchantItemOid = MerchantItemOid;
-            this.Options = Options;
-            this.ParentCategoryId = ParentCategoryId;
-            this.ParentCategoryPath = ParentCategoryPath;
-            this.PaymentProcessing = PaymentProcessing;
-            this.Physical = Physical;
-            this.Pricing = Pricing;
-            this.Properties = Properties;
-            this.RealtimePricing = RealtimePricing;
-            this.Related = Related;
-            this.Reporting = Reporting;
-            this.Restriction = Restriction;
-            this.Revguard = Revguard;
-            this.Reviews = Reviews;
-            this.Salesforce = Salesforce;
-            this.Shipping = Shipping;
-            this.Tags = Tags;
-            this.Tax = Tax;
-            this.ThirdPartyEmailMarketing = ThirdPartyEmailMarketing;
-            this.VariantItems = VariantItems;
-            this.Variations = Variations;
-            this.WishlistMember = WishlistMember;
+            this.Accounting = accounting;
+            this.Amember = amember;
+            this.AutoOrder = autoOrder;
+            this.Ccbill = ccbill;
+            this.ChannelPartnerMappings = channelPartnerMappings;
+            this.Chargeback = chargeback;
+            this.Checkout = checkout;
+            this.Content = content;
+            this.CreationDts = creationDts;
+            this.Description = description;
+            this.DescriptionTranslatedTextInstanceOid = descriptionTranslatedTextInstanceOid;
+            this.DigitalDelivery = digitalDelivery;
+            this.Ebay = ebay;
+            this.EmailNotifications = emailNotifications;
+            this.Enrollment123 = enrollment123;
+            this.GiftCertificate = giftCertificate;
+            this.GoogleProductSearch = googleProductSearch;
+            this.Identifiers = identifiers;
+            this.Inactive = inactive;
+            this.InstantPaymentNotifications = instantPaymentNotifications;
+            this.Internal = _internal;
+            this.Kit = kit;
+            this.KitComponentOnly = kitComponentOnly;
+            this.KitDefinition = kitDefinition;
+            this.LastModifiedDts = lastModifiedDts;
+            this.MerchantId = merchantId;
+            this.MerchantItemId = merchantItemId;
+            this.MerchantItemOid = merchantItemOid;
+            this.Options = options;
+            this.ParentCategoryId = parentCategoryId;
+            this.ParentCategoryPath = parentCategoryPath;
+            this.PaymentProcessing = paymentProcessing;
+            this.Physical = physical;
+            this.Pricing = pricing;
+            this.Properties = properties;
+            this.RealtimePricing = realtimePricing;
+            this.RecommendReplenishmentDays = recommendReplenishmentDays;
+            this.Related = related;
+            this.Reporting = reporting;
+            this.Restriction = restriction;
+            this.Revguard = revguard;
+            this.Reviews = reviews;
+            this.Salesforce = salesforce;
+            this.Shipping = shipping;
+            this.Tags = tags;
+            this.Tax = tax;
+            this.ThirdPartyEmailMarketing = thirdPartyEmailMarketing;
+            this.VariantItems = variantItems;
+            this.Variations = variations;
+            this.WishlistMember = wishlistMember;
         }
         
         /// <summary>
@@ -259,10 +263,10 @@ namespace com.ultracart.admin.v2.Model
         public ItemInstantPaymentNotifications InstantPaymentNotifications { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Internal
+        /// Gets or Sets Internal
         /// </summary>
         [DataMember(Name="internal", EmitDefaultValue=false)]
-        public ItemInternal _Internal { get; set; }
+        public ItemInternal Internal { get; set; }
 
         /// <summary>
         /// True if this item is a kit
@@ -270,6 +274,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if this item is a kit</value>
         [DataMember(Name="kit", EmitDefaultValue=false)]
         public bool? Kit { get; set; }
+
+        /// <summary>
+        /// True if this item can only be usd as a kit component
+        /// </summary>
+        /// <value>True if this item can only be usd as a kit component</value>
+        [DataMember(Name="kit_component_only", EmitDefaultValue=false)]
+        public bool? KitComponentOnly { get; set; }
 
         /// <summary>
         /// Gets or Sets KitDefinition
@@ -356,6 +367,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="realtime_pricing", EmitDefaultValue=false)]
         public ItemRealtimePricing RealtimePricing { get; set; }
+
+        /// <summary>
+        /// Number of days to recommend replenishment after.  Null is not configured.  Set to zero to disable.
+        /// </summary>
+        /// <value>Number of days to recommend replenishment after.  Null is not configured.  Set to zero to disable.</value>
+        [DataMember(Name="recommend_replenishment_days", EmitDefaultValue=false)]
+        public int? RecommendReplenishmentDays { get; set; }
 
         /// <summary>
         /// Gets or Sets Related
@@ -466,8 +484,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  Inactive: ").Append(Inactive).Append("\n");
             sb.Append("  InstantPaymentNotifications: ").Append(InstantPaymentNotifications).Append("\n");
-            sb.Append("  _Internal: ").Append(_Internal).Append("\n");
+            sb.Append("  Internal: ").Append(Internal).Append("\n");
             sb.Append("  Kit: ").Append(Kit).Append("\n");
+            sb.Append("  KitComponentOnly: ").Append(KitComponentOnly).Append("\n");
             sb.Append("  KitDefinition: ").Append(KitDefinition).Append("\n");
             sb.Append("  LastModifiedDts: ").Append(LastModifiedDts).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
@@ -481,6 +500,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Pricing: ").Append(Pricing).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  RealtimePricing: ").Append(RealtimePricing).Append("\n");
+            sb.Append("  RecommendReplenishmentDays: ").Append(RecommendReplenishmentDays).Append("\n");
             sb.Append("  Related: ").Append(Related).Append("\n");
             sb.Append("  Reporting: ").Append(Reporting).Append("\n");
             sb.Append("  Restriction: ").Append(Restriction).Append("\n");
@@ -502,7 +522,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -629,14 +649,19 @@ namespace com.ultracart.admin.v2.Model
                     this.InstantPaymentNotifications.Equals(input.InstantPaymentNotifications))
                 ) && 
                 (
-                    this._Internal == input._Internal ||
-                    (this._Internal != null &&
-                    this._Internal.Equals(input._Internal))
+                    this.Internal == input.Internal ||
+                    (this.Internal != null &&
+                    this.Internal.Equals(input.Internal))
                 ) && 
                 (
                     this.Kit == input.Kit ||
                     (this.Kit != null &&
                     this.Kit.Equals(input.Kit))
+                ) && 
+                (
+                    this.KitComponentOnly == input.KitComponentOnly ||
+                    (this.KitComponentOnly != null &&
+                    this.KitComponentOnly.Equals(input.KitComponentOnly))
                 ) && 
                 (
                     this.KitDefinition == input.KitDefinition ||
@@ -702,6 +727,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RealtimePricing == input.RealtimePricing ||
                     (this.RealtimePricing != null &&
                     this.RealtimePricing.Equals(input.RealtimePricing))
+                ) && 
+                (
+                    this.RecommendReplenishmentDays == input.RecommendReplenishmentDays ||
+                    (this.RecommendReplenishmentDays != null &&
+                    this.RecommendReplenishmentDays.Equals(input.RecommendReplenishmentDays))
                 ) && 
                 (
                     this.Related == input.Related ||
@@ -819,10 +849,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Inactive.GetHashCode();
                 if (this.InstantPaymentNotifications != null)
                     hashCode = hashCode * 59 + this.InstantPaymentNotifications.GetHashCode();
-                if (this._Internal != null)
-                    hashCode = hashCode * 59 + this._Internal.GetHashCode();
+                if (this.Internal != null)
+                    hashCode = hashCode * 59 + this.Internal.GetHashCode();
                 if (this.Kit != null)
                     hashCode = hashCode * 59 + this.Kit.GetHashCode();
+                if (this.KitComponentOnly != null)
+                    hashCode = hashCode * 59 + this.KitComponentOnly.GetHashCode();
                 if (this.KitDefinition != null)
                     hashCode = hashCode * 59 + this.KitDefinition.GetHashCode();
                 if (this.LastModifiedDts != null)
@@ -849,6 +881,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.RealtimePricing != null)
                     hashCode = hashCode * 59 + this.RealtimePricing.GetHashCode();
+                if (this.RecommendReplenishmentDays != null)
+                    hashCode = hashCode * 59 + this.RecommendReplenishmentDays.GetHashCode();
                 if (this.Related != null)
                     hashCode = hashCode * 59 + this.Related.GetHashCode();
                 if (this.Reporting != null)

@@ -33,14 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartItemAttribute" /> class.
         /// </summary>
-        /// <param name="Name">Name of the attribute.</param>
-        /// <param name="Type">Type of attribute.</param>
-        /// <param name="Value">Value of the attribute.</param>
-        public CartItemAttribute(string Name = default(string), string Type = default(string), string Value = default(string))
+        /// <param name="name">Name of the attribute.</param>
+        /// <param name="type">Type of attribute.</param>
+        /// <param name="value">Value of the attribute.</param>
+        public CartItemAttribute(string name = default(string), string type = default(string), string value = default(string))
         {
-            this.Name = Name;
-            this.Type = Type;
-            this.Value = Value;
+            this.Name = name;
+            this.Type = type;
+            this.Value = value;
         }
         
         /// <summary>
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

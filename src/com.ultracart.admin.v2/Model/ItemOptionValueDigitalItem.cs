@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemOptionValueDigitalItem" /> class.
         /// </summary>
-        /// <param name="DigitalItemOid">Digital item object identifier.</param>
-        /// <param name="OriginalFilename">Original filename.</param>
-        public ItemOptionValueDigitalItem(int? DigitalItemOid = default(int?), string OriginalFilename = default(string))
+        /// <param name="digitalItemOid">Digital item object identifier.</param>
+        /// <param name="originalFilename">Original filename.</param>
+        public ItemOptionValueDigitalItem(int? digitalItemOid = default(int?), string originalFilename = default(string))
         {
-            this.DigitalItemOid = DigitalItemOid;
-            this.OriginalFilename = OriginalFilename;
+            this.DigitalItemOid = digitalItemOid;
+            this.OriginalFilename = originalFilename;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

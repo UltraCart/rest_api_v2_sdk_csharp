@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailThirdPartyProvidersResponse" /> class.
         /// </summary>
-        /// <param name="Error">Error.</param>
-        /// <param name="Metadata">Metadata.</param>
-        /// <param name="Providers">Providers.</param>
-        /// <param name="Success">Indicates if API call was successful.</param>
-        public EmailThirdPartyProvidersResponse(Error Error = default(Error), ResponseMetadata Metadata = default(ResponseMetadata), List<EmailThirdPartyProvider> Providers = default(List<EmailThirdPartyProvider>), bool? Success = default(bool?))
+        /// <param name="error">error.</param>
+        /// <param name="metadata">metadata.</param>
+        /// <param name="providers">providers.</param>
+        /// <param name="success">Indicates if API call was successful.</param>
+        public EmailThirdPartyProvidersResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), List<EmailThirdPartyProvider> providers = default(List<EmailThirdPartyProvider>), bool? success = default(bool?))
         {
-            this.Error = Error;
-            this.Metadata = Metadata;
-            this.Providers = Providers;
-            this.Success = Success;
+            this.Error = error;
+            this.Metadata = metadata;
+            this.Providers = providers;
+            this.Success = success;
         }
         
         /// <summary>
@@ -90,7 +90,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

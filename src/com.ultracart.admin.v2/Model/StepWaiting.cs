@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StepWaiting" /> class.
         /// </summary>
-        /// <param name="CommseqStepUuid">CommseqStepUuid.</param>
-        /// <param name="NumberWaiting">NumberWaiting.</param>
-        public StepWaiting(string CommseqStepUuid = default(string), int? NumberWaiting = default(int?))
+        /// <param name="commseqStepUuid">commseqStepUuid.</param>
+        /// <param name="numberWaiting">numberWaiting.</param>
+        public StepWaiting(string commseqStepUuid = default(string), int? numberWaiting = default(int?))
         {
-            this.CommseqStepUuid = CommseqStepUuid;
-            this.NumberWaiting = NumberWaiting;
+            this.CommseqStepUuid = commseqStepUuid;
+            this.NumberWaiting = numberWaiting;
         }
         
         /// <summary>
@@ -71,7 +71,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

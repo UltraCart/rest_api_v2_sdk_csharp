@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemEmailNotifications" /> class.
         /// </summary>
-        /// <param name="SkipReceipt">Skip receipt email to customer.</param>
-        /// <param name="SkipShipmentNotification">Skip shipment notification to customer.</param>
-        public ItemEmailNotifications(bool? SkipReceipt = default(bool?), bool? SkipShipmentNotification = default(bool?))
+        /// <param name="skipReceipt">Skip receipt email to customer.</param>
+        /// <param name="skipShipmentNotification">Skip shipment notification to customer.</param>
+        public ItemEmailNotifications(bool? skipReceipt = default(bool?), bool? skipShipmentNotification = default(bool?))
         {
-            this.SkipReceipt = SkipReceipt;
-            this.SkipShipmentNotification = SkipShipmentNotification;
+            this.SkipReceipt = skipReceipt;
+            this.SkipShipmentNotification = skipShipmentNotification;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

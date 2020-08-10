@@ -39,46 +39,46 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Dropdown for "dropdown"
+            /// Enum Dropdown for value: dropdown
             /// </summary>
             [EnumMember(Value = "dropdown")]
-            Dropdown,
+            Dropdown = 1,
             
             /// <summary>
-            /// Enum Fileattachment for "file attachment"
+            /// Enum Fileattachment for value: file attachment
             /// </summary>
             [EnumMember(Value = "file attachment")]
-            Fileattachment,
+            Fileattachment = 2,
             
             /// <summary>
-            /// Enum Fixed for "fixed"
+            /// Enum Fixed for value: fixed
             /// </summary>
             [EnumMember(Value = "fixed")]
-            Fixed,
+            Fixed = 3,
             
             /// <summary>
-            /// Enum Hidden for "hidden"
+            /// Enum Hidden for value: hidden
             /// </summary>
             [EnumMember(Value = "hidden")]
-            Hidden,
+            Hidden = 4,
             
             /// <summary>
-            /// Enum Multiline for "multiline"
+            /// Enum Multiline for value: multiline
             /// </summary>
             [EnumMember(Value = "multiline")]
-            Multiline,
+            Multiline = 5,
             
             /// <summary>
-            /// Enum Radio for "radio"
+            /// Enum Radio for value: radio
             /// </summary>
             [EnumMember(Value = "radio")]
-            Radio,
+            Radio = 6,
             
             /// <summary>
-            /// Enum Single for "single"
+            /// Enum Single for value: single
             /// </summary>
             [EnumMember(Value = "single")]
-            Single
+            Single = 7
         }
 
         /// <summary>
@@ -90,36 +90,36 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemOption" /> class.
         /// </summary>
-        /// <param name="CostIfSpecified">Cost if specified.</param>
-        /// <param name="CostPerLetter">Cost per letter.</param>
-        /// <param name="CostPerLine">Cost per line.</param>
-        /// <param name="IgnoreIfDefault">Ignore this option on the order if the default value is selected.</param>
-        /// <param name="Label">Label.</param>
-        /// <param name="LabelTranslatedTextInstanceOid">Label translated text instance ID.</param>
-        /// <param name="Name">Name.</param>
-        /// <param name="NameTranslatedTextInstanceOid">Name translated text instance ID.</param>
-        /// <param name="OneTimeFee">One time fee.</param>
-        /// <param name="OptionOid">Option object identifier.</param>
-        /// <param name="Required">True if the customer is required to specify an answer.</param>
-        /// <param name="SystemOption">True if this is a system option.</param>
-        /// <param name="Type">Type of option.</param>
-        /// <param name="Values">Values.</param>
-        public ItemOption(decimal? CostIfSpecified = default(decimal?), decimal? CostPerLetter = default(decimal?), decimal? CostPerLine = default(decimal?), bool? IgnoreIfDefault = default(bool?), string Label = default(string), int? LabelTranslatedTextInstanceOid = default(int?), string Name = default(string), int? NameTranslatedTextInstanceOid = default(int?), bool? OneTimeFee = default(bool?), int? OptionOid = default(int?), bool? Required = default(bool?), bool? SystemOption = default(bool?), TypeEnum? Type = default(TypeEnum?), List<ItemOptionValue> Values = default(List<ItemOptionValue>))
+        /// <param name="costIfSpecified">Cost if specified.</param>
+        /// <param name="costPerLetter">Cost per letter.</param>
+        /// <param name="costPerLine">Cost per line.</param>
+        /// <param name="ignoreIfDefault">Ignore this option on the order if the default value is selected.</param>
+        /// <param name="label">Label.</param>
+        /// <param name="labelTranslatedTextInstanceOid">Label translated text instance ID.</param>
+        /// <param name="name">Name.</param>
+        /// <param name="nameTranslatedTextInstanceOid">Name translated text instance ID.</param>
+        /// <param name="oneTimeFee">One time fee.</param>
+        /// <param name="optionOid">Option object identifier.</param>
+        /// <param name="required">True if the customer is required to specify an answer.</param>
+        /// <param name="systemOption">True if this is a system option.</param>
+        /// <param name="type">Type of option.</param>
+        /// <param name="values">Values.</param>
+        public ItemOption(decimal? costIfSpecified = default(decimal?), decimal? costPerLetter = default(decimal?), decimal? costPerLine = default(decimal?), bool? ignoreIfDefault = default(bool?), string label = default(string), int? labelTranslatedTextInstanceOid = default(int?), string name = default(string), int? nameTranslatedTextInstanceOid = default(int?), bool? oneTimeFee = default(bool?), int? optionOid = default(int?), bool? required = default(bool?), bool? systemOption = default(bool?), TypeEnum? type = default(TypeEnum?), List<ItemOptionValue> values = default(List<ItemOptionValue>))
         {
-            this.CostIfSpecified = CostIfSpecified;
-            this.CostPerLetter = CostPerLetter;
-            this.CostPerLine = CostPerLine;
-            this.IgnoreIfDefault = IgnoreIfDefault;
-            this.Label = Label;
-            this.LabelTranslatedTextInstanceOid = LabelTranslatedTextInstanceOid;
-            this.Name = Name;
-            this.NameTranslatedTextInstanceOid = NameTranslatedTextInstanceOid;
-            this.OneTimeFee = OneTimeFee;
-            this.OptionOid = OptionOid;
-            this.Required = Required;
-            this.SystemOption = SystemOption;
-            this.Type = Type;
-            this.Values = Values;
+            this.CostIfSpecified = costIfSpecified;
+            this.CostPerLetter = costPerLetter;
+            this.CostPerLine = costPerLine;
+            this.IgnoreIfDefault = ignoreIfDefault;
+            this.Label = label;
+            this.LabelTranslatedTextInstanceOid = labelTranslatedTextInstanceOid;
+            this.Name = name;
+            this.NameTranslatedTextInstanceOid = nameTranslatedTextInstanceOid;
+            this.OneTimeFee = oneTimeFee;
+            this.OptionOid = optionOid;
+            this.Required = required;
+            this.SystemOption = systemOption;
+            this.Type = type;
+            this.Values = values;
         }
         
         /// <summary>
@@ -244,7 +244,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

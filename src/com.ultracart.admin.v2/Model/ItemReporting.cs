@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemReporting" /> class.
         /// </summary>
-        /// <param name="ReportAsUpsell">Report as an upsell.</param>
-        /// <param name="ReportPickableQuantities">Report pickable quantities.</param>
-        public ItemReporting(bool? ReportAsUpsell = default(bool?), List<int?> ReportPickableQuantities = default(List<int?>))
+        /// <param name="reportAsUpsell">Report as an upsell.</param>
+        /// <param name="reportPickableQuantities">Report pickable quantities.</param>
+        public ItemReporting(bool? reportAsUpsell = default(bool?), List<int?> reportPickableQuantities = default(List<int?>))
         {
-            this.ReportAsUpsell = ReportAsUpsell;
-            this.ReportPickableQuantities = ReportPickableQuantities;
+            this.ReportAsUpsell = reportAsUpsell;
+            this.ReportPickableQuantities = reportPickableQuantities;
         }
         
         /// <summary>
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

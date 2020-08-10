@@ -33,42 +33,42 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerBilling" /> class.
         /// </summary>
-        /// <param name="Address1">Address line 1.</param>
-        /// <param name="Address2">Address line 2.</param>
-        /// <param name="City">City.</param>
-        /// <param name="Company">Company.</param>
-        /// <param name="CountryCode">ISO-3166 two letter country code.</param>
-        /// <param name="CustomerBillingOid">Customer profile billing object identifier.</param>
-        /// <param name="CustomerProfileOid">Customer profile object identifier.</param>
-        /// <param name="DayPhone">Day phone.</param>
-        /// <param name="DefaultBilling">Default billing.</param>
-        /// <param name="EveningPhone">Evening phone.</param>
-        /// <param name="FirstName">First name.</param>
-        /// <param name="LastName">Last name.</param>
-        /// <param name="LastUsedDts">Last used date.</param>
-        /// <param name="PostalCode">Postal code.</param>
-        /// <param name="StateRegion">State for United States otherwise region or province for other countries.</param>
-        /// <param name="TaxCounty">Tax County.</param>
-        /// <param name="Title">Title.</param>
-        public CustomerBilling(string Address1 = default(string), string Address2 = default(string), string City = default(string), string Company = default(string), string CountryCode = default(string), int? CustomerBillingOid = default(int?), int? CustomerProfileOid = default(int?), string DayPhone = default(string), bool? DefaultBilling = default(bool?), string EveningPhone = default(string), string FirstName = default(string), string LastName = default(string), string LastUsedDts = default(string), string PostalCode = default(string), string StateRegion = default(string), string TaxCounty = default(string), string Title = default(string))
+        /// <param name="address1">Address line 1.</param>
+        /// <param name="address2">Address line 2.</param>
+        /// <param name="city">City.</param>
+        /// <param name="company">Company.</param>
+        /// <param name="countryCode">ISO-3166 two letter country code.</param>
+        /// <param name="customerBillingOid">Customer profile billing object identifier.</param>
+        /// <param name="customerProfileOid">Customer profile object identifier.</param>
+        /// <param name="dayPhone">Day phone.</param>
+        /// <param name="defaultBilling">Default billing.</param>
+        /// <param name="eveningPhone">Evening phone.</param>
+        /// <param name="firstName">First name.</param>
+        /// <param name="lastName">Last name.</param>
+        /// <param name="lastUsedDts">Last used date.</param>
+        /// <param name="postalCode">Postal code.</param>
+        /// <param name="stateRegion">State for United States otherwise region or province for other countries.</param>
+        /// <param name="taxCounty">Tax County.</param>
+        /// <param name="title">Title.</param>
+        public CustomerBilling(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), int? customerBillingOid = default(int?), int? customerProfileOid = default(int?), string dayPhone = default(string), bool? defaultBilling = default(bool?), string eveningPhone = default(string), string firstName = default(string), string lastName = default(string), string lastUsedDts = default(string), string postalCode = default(string), string stateRegion = default(string), string taxCounty = default(string), string title = default(string))
         {
-            this.Address1 = Address1;
-            this.Address2 = Address2;
-            this.City = City;
-            this.Company = Company;
-            this.CountryCode = CountryCode;
-            this.CustomerBillingOid = CustomerBillingOid;
-            this.CustomerProfileOid = CustomerProfileOid;
-            this.DayPhone = DayPhone;
-            this.DefaultBilling = DefaultBilling;
-            this.EveningPhone = EveningPhone;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.LastUsedDts = LastUsedDts;
-            this.PostalCode = PostalCode;
-            this.StateRegion = StateRegion;
-            this.TaxCounty = TaxCounty;
-            this.Title = Title;
+            this.Address1 = address1;
+            this.Address2 = address2;
+            this.City = city;
+            this.Company = company;
+            this.CountryCode = countryCode;
+            this.CustomerBillingOid = customerBillingOid;
+            this.CustomerProfileOid = customerProfileOid;
+            this.DayPhone = dayPhone;
+            this.DefaultBilling = defaultBilling;
+            this.EveningPhone = eveningPhone;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.LastUsedDts = lastUsedDts;
+            this.PostalCode = postalCode;
+            this.StateRegion = stateRegion;
+            this.TaxCounty = taxCounty;
+            this.Title = title;
         }
         
         /// <summary>
@@ -223,7 +223,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

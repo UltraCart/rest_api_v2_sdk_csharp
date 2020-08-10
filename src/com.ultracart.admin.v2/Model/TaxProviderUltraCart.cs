@@ -33,18 +33,18 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaxProviderUltraCart" /> class.
         /// </summary>
-        /// <param name="Configuration">Configuration.</param>
-        /// <param name="Description">Description.</param>
-        /// <param name="Selected">Selected.</param>
-        /// <param name="States">States in the union showing their management status.</param>
-        /// <param name="Title">Title.</param>
-        public TaxProviderUltraCart(UltraCartConfig Configuration = default(UltraCartConfig), string Description = default(string), bool? Selected = default(bool?), List<TaxProviderUltraCartState> States = default(List<TaxProviderUltraCartState>), string Title = default(string))
+        /// <param name="configuration">configuration.</param>
+        /// <param name="description">Description.</param>
+        /// <param name="selected">Selected.</param>
+        /// <param name="states">States in the union showing their management status.</param>
+        /// <param name="title">Title.</param>
+        public TaxProviderUltraCart(UltraCartConfig configuration = default(UltraCartConfig), string description = default(string), bool? selected = default(bool?), List<TaxProviderUltraCartState> states = default(List<TaxProviderUltraCartState>), string title = default(string))
         {
-            this.Configuration = Configuration;
-            this.Description = Description;
-            this.Selected = Selected;
-            this.States = States;
-            this.Title = Title;
+            this.Configuration = configuration;
+            this.Description = description;
+            this.Selected = selected;
+            this.States = states;
+            this.Title = title;
         }
         
         /// <summary>
@@ -102,7 +102,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

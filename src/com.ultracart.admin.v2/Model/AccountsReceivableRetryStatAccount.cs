@@ -33,16 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountsReceivableRetryStatAccount" /> class.
         /// </summary>
-        /// <param name="Days">Days.</param>
-        /// <param name="MerchantId">MerchantId.</param>
-        /// <param name="Overall">Overall.</param>
-        /// <param name="RevenueForPeriod">RevenueForPeriod.</param>
-        public AccountsReceivableRetryStatAccount(List<AccountsReceivableRetryStatMetrics> Days = default(List<AccountsReceivableRetryStatMetrics>), string MerchantId = default(string), AccountsReceivableRetryStatMetrics Overall = default(AccountsReceivableRetryStatMetrics), List<AccountsReceivableRetryStatRevenue> RevenueForPeriod = default(List<AccountsReceivableRetryStatRevenue>))
+        /// <param name="days">days.</param>
+        /// <param name="merchantId">merchantId.</param>
+        /// <param name="overall">overall.</param>
+        /// <param name="revenueForPeriod">revenueForPeriod.</param>
+        public AccountsReceivableRetryStatAccount(List<AccountsReceivableRetryStatMetrics> days = default(List<AccountsReceivableRetryStatMetrics>), string merchantId = default(string), AccountsReceivableRetryStatMetrics overall = default(AccountsReceivableRetryStatMetrics), List<AccountsReceivableRetryStatRevenue> revenueForPeriod = default(List<AccountsReceivableRetryStatRevenue>))
         {
-            this.Days = Days;
-            this.MerchantId = MerchantId;
-            this.Overall = Overall;
-            this.RevenueForPeriod = RevenueForPeriod;
+            this.Days = days;
+            this.MerchantId = merchantId;
+            this.Overall = overall;
+            this.RevenueForPeriod = revenueForPeriod;
         }
         
         /// <summary>
@@ -89,7 +89,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

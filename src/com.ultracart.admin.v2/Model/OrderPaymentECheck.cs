@@ -39,37 +39,16 @@ namespace com.ultracart.admin.v2.Model
         {
             
             /// <summary>
-            /// Enum Checking for "Checking"
+            /// Enum Checking for value: Checking
             /// </summary>
             [EnumMember(Value = "Checking")]
-            Checking,
+            Checking = 1,
             
             /// <summary>
-            /// Enum Savings for "Savings"
+            /// Enum Savings for value: Savings
             /// </summary>
             [EnumMember(Value = "Savings")]
-            Savings
-        }
-
-        /// <summary>
-        /// Bank owner type
-        /// </summary>
-        /// <value>Bank owner type</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum BankOwnerTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum Personal for "Personal"
-            /// </summary>
-            [EnumMember(Value = "Personal")]
-            Personal,
-            
-            /// <summary>
-            /// Enum Business for "Business"
-            /// </summary>
-            [EnumMember(Value = "Business")]
-            Business
+            Savings = 2
         }
 
         /// <summary>
@@ -82,33 +61,54 @@ namespace com.ultracart.admin.v2.Model
         /// Bank owner type
         /// </summary>
         /// <value>Bank owner type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum BankOwnerTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Personal for value: Personal
+            /// </summary>
+            [EnumMember(Value = "Personal")]
+            Personal = 1,
+            
+            /// <summary>
+            /// Enum Business for value: Business
+            /// </summary>
+            [EnumMember(Value = "Business")]
+            Business = 2
+        }
+
+        /// <summary>
+        /// Bank owner type
+        /// </summary>
+        /// <value>Bank owner type</value>
         [DataMember(Name="bank_owner_type", EmitDefaultValue=false)]
         public BankOwnerTypeEnum? BankOwnerType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderPaymentECheck" /> class.
         /// </summary>
-        /// <param name="BankAbaCode">Bank routing code.</param>
-        /// <param name="BankAccountName">Bank account name.</param>
-        /// <param name="BankAccountNumber">Bank account number (masked to last 4).</param>
-        /// <param name="BankAccountType">Bank account type.</param>
-        /// <param name="BankName">Bank name.</param>
-        /// <param name="BankOwnerType">Bank owner type.</param>
-        /// <param name="CustomerTaxId">Customer tax id (masked to last 4).</param>
-        /// <param name="DriversLicenseDob">Driver license date of birth.</param>
-        /// <param name="DriversLicenseNumber">Driver license number (masked to last 4).</param>
-        /// <param name="DriversLicenseState">Driver license state.</param>
-        public OrderPaymentECheck(string BankAbaCode = default(string), string BankAccountName = default(string), string BankAccountNumber = default(string), BankAccountTypeEnum? BankAccountType = default(BankAccountTypeEnum?), string BankName = default(string), BankOwnerTypeEnum? BankOwnerType = default(BankOwnerTypeEnum?), string CustomerTaxId = default(string), string DriversLicenseDob = default(string), string DriversLicenseNumber = default(string), string DriversLicenseState = default(string))
+        /// <param name="bankAbaCode">Bank routing code.</param>
+        /// <param name="bankAccountName">Bank account name.</param>
+        /// <param name="bankAccountNumber">Bank account number (masked to last 4).</param>
+        /// <param name="bankAccountType">Bank account type.</param>
+        /// <param name="bankName">Bank name.</param>
+        /// <param name="bankOwnerType">Bank owner type.</param>
+        /// <param name="customerTaxId">Customer tax id (masked to last 4).</param>
+        /// <param name="driversLicenseDob">Driver license date of birth.</param>
+        /// <param name="driversLicenseNumber">Driver license number (masked to last 4).</param>
+        /// <param name="driversLicenseState">Driver license state.</param>
+        public OrderPaymentECheck(string bankAbaCode = default(string), string bankAccountName = default(string), string bankAccountNumber = default(string), BankAccountTypeEnum? bankAccountType = default(BankAccountTypeEnum?), string bankName = default(string), BankOwnerTypeEnum? bankOwnerType = default(BankOwnerTypeEnum?), string customerTaxId = default(string), string driversLicenseDob = default(string), string driversLicenseNumber = default(string), string driversLicenseState = default(string))
         {
-            this.BankAbaCode = BankAbaCode;
-            this.BankAccountName = BankAccountName;
-            this.BankAccountNumber = BankAccountNumber;
-            this.BankAccountType = BankAccountType;
-            this.BankName = BankName;
-            this.BankOwnerType = BankOwnerType;
-            this.CustomerTaxId = CustomerTaxId;
-            this.DriversLicenseDob = DriversLicenseDob;
-            this.DriversLicenseNumber = DriversLicenseNumber;
-            this.DriversLicenseState = DriversLicenseState;
+            this.BankAbaCode = bankAbaCode;
+            this.BankAccountName = bankAccountName;
+            this.BankAccountNumber = bankAccountNumber;
+            this.BankAccountType = bankAccountType;
+            this.BankName = bankName;
+            this.BankOwnerType = bankOwnerType;
+            this.CustomerTaxId = customerTaxId;
+            this.DriversLicenseDob = driversLicenseDob;
+            this.DriversLicenseNumber = driversLicenseNumber;
+            this.DriversLicenseState = driversLicenseState;
         }
         
         /// <summary>
@@ -195,7 +195,7 @@ namespace com.ultracart.admin.v2.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

@@ -905,3 +905,17 @@ Class | Method | HTTP request | Description
 - **API key parameter name**: x-ultracart-simple-key
 - **Location**: HTTP header
 
+# CHANGE LOG
+
+| Version | Date | Comments |
+| 3.0.10 | 08/10/2020 | Method for registering an affliate click via the SDK |
+| 3.0.8 | 08/05/2020 | stub for code library 'getLibraryFilterValues' for populating drop down lists |
+| 3.0.4 | 08/05/2020 | fixed misspell of 'version' in LibraryItem object. |
+| 3.0.3 | 08/04/2020 | added description to addToLibrary call to allow for initial description |
+| 3.0.2 | 08/03/2020 | added option on email render step config to allow override of subject, added flow/campaign flag to end once customer purchases |
+| 3.0.1 | 07/27/2020 | added init_json to storefront communication email objects |
+| 3.0.0 | 07/01/2020 | upgraded our swagger-codegen fork to the latest swagger source code. this was a major changes so we jumped version numbers.  please test all code. |
+
+Some changes jump version numbers due to multiple commits for bug fixes, omissions, and errors.
+At UltraCart, we eat our own dog food, and we increment the version number for every commit in order
+to generate a new javascript npm.  For this reason, version gaps will be found in the change log above.

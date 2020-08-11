@@ -908,6 +908,7 @@ Class | Method | HTTP request | Description
 # CHANGE LOG
 
 | Version | Date | Comments |
+| --: | :-: | --- |
 | 3.0.10 | 08/10/2020 | Method for registering an affliate click via the SDK |
 | 3.0.8 | 08/05/2020 | stub for code library 'getLibraryFilterValues' for populating drop down lists |
 | 3.0.4 | 08/05/2020 | fixed misspell of 'version' in LibraryItem object. |

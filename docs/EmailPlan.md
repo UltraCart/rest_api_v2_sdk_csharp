@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **AdditionalCustomers** | **int?** |  | [optional] 
 **AdditionalEmails** | **int?** |  | [optional] 
 **AllowListImport** | **bool?** |  | [optional] 
+**AllowTrackingEmails** | **bool?** |  | [optional] 
 **CustomerTiers** | [**List&lt;EmailPlanAdditional&gt;**](EmailPlanAdditional.md) |  | [optional] 
 **InitialSendingLimits** | **int?** |  | [optional] 
 **PlanCustomers** | **int?** |  | [optional] 

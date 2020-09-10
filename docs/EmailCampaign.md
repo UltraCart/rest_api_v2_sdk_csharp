@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **PreventSendingDueToSpam** | **bool?** | True if this campaign is prevented from sending at this time due to spam complaints. | [optional] 
 **RevenueFormatted** | **string** | Revenue associated with campaign | [optional] 
 **ScheduledDts** | **string** | Scheduled date | [optional] 
+**ScreenshotLargeFullUrl** | **string** | URL to a large full length screenshot | [optional] 
 **Status** | **string** | Status of the campaign of draft, archived, and sent | [optional] 
 **StatusDts** | **string** | Timestamp when the last status change happened | [optional] 
 **StorefrontOid** | **int?** | Storefront oid | [optional] 

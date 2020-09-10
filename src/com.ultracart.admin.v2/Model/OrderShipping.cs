@@ -59,9 +59,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="specialInstructions">Special instructions from the customer regarding shipping.</param>
         /// <param name="stateRegion">State.</param>
         /// <param name="title">Title.</param>
+        /// <param name="trackingNumberDetails">Tracking number details.</param>
         /// <param name="trackingNumbers">Tracking numbers.</param>
         /// <param name="weight">weight.</param>
-        public OrderShipping(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string dayPhoneE164 = default(string), string deliveryDate = default(string), string eveningPhone = default(string), string firstName = default(string), string lastName = default(string), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? liftGate = default(bool?), string postalCode = default(string), string rma = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shipping3rdPartyAccountNumber = default(string), string shippingDate = default(string), string shippingDepartmentStatus = default(string), string shippingMethod = default(string), string shippingMethodAccountingCode = default(string), string specialInstructions = default(string), string stateRegion = default(string), string title = default(string), List<string> trackingNumbers = default(List<string>), Weight weight = default(Weight))
+        public OrderShipping(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string dayPhoneE164 = default(string), string deliveryDate = default(string), string eveningPhone = default(string), string firstName = default(string), string lastName = default(string), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? liftGate = default(bool?), string postalCode = default(string), string rma = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shipping3rdPartyAccountNumber = default(string), string shippingDate = default(string), string shippingDepartmentStatus = default(string), string shippingMethod = default(string), string shippingMethodAccountingCode = default(string), string specialInstructions = default(string), string stateRegion = default(string), string title = default(string), List<OrderTrackingNumberDetails> trackingNumberDetails = default(List<OrderTrackingNumberDetails>), List<string> trackingNumbers = default(List<string>), Weight weight = default(Weight))
         {
             this.Address1 = address1;
             this.Address2 = address2;
@@ -89,6 +90,7 @@ namespace com.ultracart.admin.v2.Model
             this.SpecialInstructions = specialInstructions;
             this.StateRegion = stateRegion;
             this.Title = title;
+            this.TrackingNumberDetails = trackingNumberDetails;
             this.TrackingNumbers = trackingNumbers;
             this.Weight = weight;
         }
@@ -276,6 +278,13 @@ namespace com.ultracart.admin.v2.Model
         public string Title { get; set; }
 
         /// <summary>
+        /// Tracking number details
+        /// </summary>
+        /// <value>Tracking number details</value>
+        [DataMember(Name="tracking_number_details", EmitDefaultValue=false)]
+        public List<OrderTrackingNumberDetails> TrackingNumberDetails { get; set; }
+
+        /// <summary>
         /// Tracking numbers
         /// </summary>
         /// <value>Tracking numbers</value>
@@ -322,6 +331,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  SpecialInstructions: ").Append(SpecialInstructions).Append("\n");
             sb.Append("  StateRegion: ").Append(StateRegion).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  TrackingNumberDetails: ").Append(TrackingNumberDetails).Append("\n");
             sb.Append("  TrackingNumbers: ").Append(TrackingNumbers).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("}\n");
@@ -489,6 +499,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Title.Equals(input.Title))
                 ) && 
                 (
+                    this.TrackingNumberDetails == input.TrackingNumberDetails ||
+                    this.TrackingNumberDetails != null &&
+                    this.TrackingNumberDetails.SequenceEqual(input.TrackingNumberDetails)
+                ) && 
+                (
                     this.TrackingNumbers == input.TrackingNumbers ||
                     this.TrackingNumbers != null &&
                     this.TrackingNumbers.SequenceEqual(input.TrackingNumbers)
@@ -561,6 +576,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.StateRegion.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.TrackingNumberDetails != null)
+                    hashCode = hashCode * 59 + this.TrackingNumberDetails.GetHashCode();
                 if (this.TrackingNumbers != null)
                     hashCode = hashCode * 59 + this.TrackingNumbers.GetHashCode();
                 if (this.Weight != null)

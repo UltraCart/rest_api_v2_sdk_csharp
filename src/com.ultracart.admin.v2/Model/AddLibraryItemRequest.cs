@@ -36,16 +36,24 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="cjson">Cjson to be added to library.</param>
         /// <param name="contentType">flow, campaign, cjson, email, transactional_email or upsell.</param>
         /// <param name="description">description of library item.</param>
+        /// <param name="emailName">Required if content_type is transactional_email. This is the name of the email template (html, not text).  This name should have a .vm file extension.  An example is auto_order_cancel_html.vm.</param>
+        /// <param name="emailPath">Required if content_type is transactional_email. This is the full path to the email template stored in the file system.  This defines which StoreFront contains the desired email template.  An example is /themes/Elements/core/emails/auto_order_cancel_html.vm.</param>
+        /// <param name="screenshots">Screenshot urls for display.</param>
         /// <param name="storefrontOid">StoreFront oid where content originates necessary for tracking down relative assets.</param>
         /// <param name="title">title of library item, usually the name of the flow or campaign, or description of cjson.</param>
+        /// <param name="upsellOfferOid">Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer..</param>
         /// <param name="uuid">UUID of communication flow or campaign, null if this item is neither.</param>
-        public AddLibraryItemRequest(string cjson = default(string), string contentType = default(string), string description = default(string), int? storefrontOid = default(int?), string title = default(string), string uuid = default(string))
+        public AddLibraryItemRequest(string cjson = default(string), string contentType = default(string), string description = default(string), string emailName = default(string), string emailPath = default(string), List<LibraryItemScreenshot> screenshots = default(List<LibraryItemScreenshot>), int? storefrontOid = default(int?), string title = default(string), int? upsellOfferOid = default(int?), string uuid = default(string))
         {
             this.Cjson = cjson;
             this.ContentType = contentType;
             this.Description = description;
+            this.EmailName = emailName;
+            this.EmailPath = emailPath;
+            this.Screenshots = screenshots;
             this.StorefrontOid = storefrontOid;
             this.Title = title;
+            this.UpsellOfferOid = upsellOfferOid;
             this.Uuid = uuid;
         }
         
@@ -71,6 +79,27 @@ namespace com.ultracart.admin.v2.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// Required if content_type is transactional_email. This is the name of the email template (html, not text).  This name should have a .vm file extension.  An example is auto_order_cancel_html.vm
+        /// </summary>
+        /// <value>Required if content_type is transactional_email. This is the name of the email template (html, not text).  This name should have a .vm file extension.  An example is auto_order_cancel_html.vm</value>
+        [DataMember(Name="email_name", EmitDefaultValue=false)]
+        public string EmailName { get; set; }
+
+        /// <summary>
+        /// Required if content_type is transactional_email. This is the full path to the email template stored in the file system.  This defines which StoreFront contains the desired email template.  An example is /themes/Elements/core/emails/auto_order_cancel_html.vm
+        /// </summary>
+        /// <value>Required if content_type is transactional_email. This is the full path to the email template stored in the file system.  This defines which StoreFront contains the desired email template.  An example is /themes/Elements/core/emails/auto_order_cancel_html.vm</value>
+        [DataMember(Name="email_path", EmitDefaultValue=false)]
+        public string EmailPath { get; set; }
+
+        /// <summary>
+        /// Screenshot urls for display
+        /// </summary>
+        /// <value>Screenshot urls for display</value>
+        [DataMember(Name="screenshots", EmitDefaultValue=false)]
+        public List<LibraryItemScreenshot> Screenshots { get; set; }
+
+        /// <summary>
         /// StoreFront oid where content originates necessary for tracking down relative assets
         /// </summary>
         /// <value>StoreFront oid where content originates necessary for tracking down relative assets</value>
@@ -83,6 +112,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>title of library item, usually the name of the flow or campaign, or description of cjson</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer.
+        /// </summary>
+        /// <value>Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer.</value>
+        [DataMember(Name="upsell_offer_oid", EmitDefaultValue=false)]
+        public int? UpsellOfferOid { get; set; }
 
         /// <summary>
         /// UUID of communication flow or campaign, null if this item is neither
@@ -102,8 +138,12 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Cjson: ").Append(Cjson).Append("\n");
             sb.Append("  ContentType: ").Append(ContentType).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  EmailName: ").Append(EmailName).Append("\n");
+            sb.Append("  EmailPath: ").Append(EmailPath).Append("\n");
+            sb.Append("  Screenshots: ").Append(Screenshots).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  UpsellOfferOid: ").Append(UpsellOfferOid).Append("\n");
             sb.Append("  Uuid: ").Append(Uuid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -155,6 +195,21 @@ namespace com.ultracart.admin.v2.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.EmailName == input.EmailName ||
+                    (this.EmailName != null &&
+                    this.EmailName.Equals(input.EmailName))
+                ) && 
+                (
+                    this.EmailPath == input.EmailPath ||
+                    (this.EmailPath != null &&
+                    this.EmailPath.Equals(input.EmailPath))
+                ) && 
+                (
+                    this.Screenshots == input.Screenshots ||
+                    this.Screenshots != null &&
+                    this.Screenshots.SequenceEqual(input.Screenshots)
+                ) && 
+                (
                     this.StorefrontOid == input.StorefrontOid ||
                     (this.StorefrontOid != null &&
                     this.StorefrontOid.Equals(input.StorefrontOid))
@@ -163,6 +218,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.UpsellOfferOid == input.UpsellOfferOid ||
+                    (this.UpsellOfferOid != null &&
+                    this.UpsellOfferOid.Equals(input.UpsellOfferOid))
                 ) && 
                 (
                     this.Uuid == input.Uuid ||
@@ -186,10 +246,18 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ContentType.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.EmailName != null)
+                    hashCode = hashCode * 59 + this.EmailName.GetHashCode();
+                if (this.EmailPath != null)
+                    hashCode = hashCode * 59 + this.EmailPath.GetHashCode();
+                if (this.Screenshots != null)
+                    hashCode = hashCode * 59 + this.Screenshots.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.UpsellOfferOid != null)
+                    hashCode = hashCode * 59 + this.UpsellOfferOid.GetHashCode();
                 if (this.Uuid != null)
                     hashCode = hashCode * 59 + this.Uuid.GetHashCode();
                 return hashCode;

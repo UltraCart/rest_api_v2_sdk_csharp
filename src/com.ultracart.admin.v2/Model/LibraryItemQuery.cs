@@ -37,17 +37,25 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="contentType">Library item content type such as flow, campaign, cjson, email, or transactional_email.</param>
         /// <param name="description">Description of library item.</param>
         /// <param name="industry">Industry.</param>
-        /// <param name="publicItems">Boolean, true returns back public items as well as merchant owned items.</param>
+        /// <param name="priceHigh">Maximum price.</param>
+        /// <param name="priceLow">Minimum price.</param>
+        /// <param name="publishedDtsBegin">Minimum published date/time.</param>
+        /// <param name="publishedDtsEnd">Maximum published date/time.</param>
+        /// <param name="sourceOfPublished">Boolean, true if this library item has been published and is the master copy of that published work.</param>
         /// <param name="style">Library item style.</param>
         /// <param name="title">Title of the library item.</param>
         /// <param name="type">Library item type such as header, footer, shipping block, etc.</param>
-        public LibraryItemQuery(string category = default(string), string contentType = default(string), string description = default(string), string industry = default(string), bool? publicItems = default(bool?), string style = default(string), string title = default(string), string type = default(string))
+        public LibraryItemQuery(string category = default(string), string contentType = default(string), string description = default(string), string industry = default(string), decimal? priceHigh = default(decimal?), decimal? priceLow = default(decimal?), string publishedDtsBegin = default(string), string publishedDtsEnd = default(string), bool? sourceOfPublished = default(bool?), string style = default(string), string title = default(string), string type = default(string))
         {
             this.Category = category;
             this.ContentType = contentType;
             this.Description = description;
             this.Industry = industry;
-            this.PublicItems = publicItems;
+            this.PriceHigh = priceHigh;
+            this.PriceLow = priceLow;
+            this.PublishedDtsBegin = publishedDtsBegin;
+            this.PublishedDtsEnd = publishedDtsEnd;
+            this.SourceOfPublished = sourceOfPublished;
             this.Style = style;
             this.Title = title;
             this.Type = type;
@@ -82,11 +90,39 @@ namespace com.ultracart.admin.v2.Model
         public string Industry { get; set; }
 
         /// <summary>
-        /// Boolean, true returns back public items as well as merchant owned items
+        /// Maximum price
         /// </summary>
-        /// <value>Boolean, true returns back public items as well as merchant owned items</value>
-        [DataMember(Name="public_items", EmitDefaultValue=false)]
-        public bool? PublicItems { get; set; }
+        /// <value>Maximum price</value>
+        [DataMember(Name="price_high", EmitDefaultValue=false)]
+        public decimal? PriceHigh { get; set; }
+
+        /// <summary>
+        /// Minimum price
+        /// </summary>
+        /// <value>Minimum price</value>
+        [DataMember(Name="price_low", EmitDefaultValue=false)]
+        public decimal? PriceLow { get; set; }
+
+        /// <summary>
+        /// Minimum published date/time
+        /// </summary>
+        /// <value>Minimum published date/time</value>
+        [DataMember(Name="published_dts_begin", EmitDefaultValue=false)]
+        public string PublishedDtsBegin { get; set; }
+
+        /// <summary>
+        /// Maximum published date/time
+        /// </summary>
+        /// <value>Maximum published date/time</value>
+        [DataMember(Name="published_dts_end", EmitDefaultValue=false)]
+        public string PublishedDtsEnd { get; set; }
+
+        /// <summary>
+        /// Boolean, true if this library item has been published and is the master copy of that published work
+        /// </summary>
+        /// <value>Boolean, true if this library item has been published and is the master copy of that published work</value>
+        [DataMember(Name="source_of_published", EmitDefaultValue=false)]
+        public bool? SourceOfPublished { get; set; }
 
         /// <summary>
         /// Library item style
@@ -121,7 +157,11 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ContentType: ").Append(ContentType).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Industry: ").Append(Industry).Append("\n");
-            sb.Append("  PublicItems: ").Append(PublicItems).Append("\n");
+            sb.Append("  PriceHigh: ").Append(PriceHigh).Append("\n");
+            sb.Append("  PriceLow: ").Append(PriceLow).Append("\n");
+            sb.Append("  PublishedDtsBegin: ").Append(PublishedDtsBegin).Append("\n");
+            sb.Append("  PublishedDtsEnd: ").Append(PublishedDtsEnd).Append("\n");
+            sb.Append("  SourceOfPublished: ").Append(SourceOfPublished).Append("\n");
             sb.Append("  Style: ").Append(Style).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -180,9 +220,29 @@ namespace com.ultracart.admin.v2.Model
                     this.Industry.Equals(input.Industry))
                 ) && 
                 (
-                    this.PublicItems == input.PublicItems ||
-                    (this.PublicItems != null &&
-                    this.PublicItems.Equals(input.PublicItems))
+                    this.PriceHigh == input.PriceHigh ||
+                    (this.PriceHigh != null &&
+                    this.PriceHigh.Equals(input.PriceHigh))
+                ) && 
+                (
+                    this.PriceLow == input.PriceLow ||
+                    (this.PriceLow != null &&
+                    this.PriceLow.Equals(input.PriceLow))
+                ) && 
+                (
+                    this.PublishedDtsBegin == input.PublishedDtsBegin ||
+                    (this.PublishedDtsBegin != null &&
+                    this.PublishedDtsBegin.Equals(input.PublishedDtsBegin))
+                ) && 
+                (
+                    this.PublishedDtsEnd == input.PublishedDtsEnd ||
+                    (this.PublishedDtsEnd != null &&
+                    this.PublishedDtsEnd.Equals(input.PublishedDtsEnd))
+                ) && 
+                (
+                    this.SourceOfPublished == input.SourceOfPublished ||
+                    (this.SourceOfPublished != null &&
+                    this.SourceOfPublished.Equals(input.SourceOfPublished))
                 ) && 
                 (
                     this.Style == input.Style ||
@@ -218,8 +278,16 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Industry != null)
                     hashCode = hashCode * 59 + this.Industry.GetHashCode();
-                if (this.PublicItems != null)
-                    hashCode = hashCode * 59 + this.PublicItems.GetHashCode();
+                if (this.PriceHigh != null)
+                    hashCode = hashCode * 59 + this.PriceHigh.GetHashCode();
+                if (this.PriceLow != null)
+                    hashCode = hashCode * 59 + this.PriceLow.GetHashCode();
+                if (this.PublishedDtsBegin != null)
+                    hashCode = hashCode * 59 + this.PublishedDtsBegin.GetHashCode();
+                if (this.PublishedDtsEnd != null)
+                    hashCode = hashCode * 59 + this.PublishedDtsEnd.GetHashCode();
+                if (this.SourceOfPublished != null)
+                    hashCode = hashCode * 59 + this.SourceOfPublished.GetHashCode();
                 if (this.Style != null)
                     hashCode = hashCode * 59 + this.Style.GetHashCode();
                 if (this.Title != null)

@@ -1201,7 +1201,7 @@ Name | Type | Description  | Notes
 
 <a name="registeraffiliateclick"></a>
 # **RegisterAffiliateClick**
-> CheckoutHandoffResponse RegisterAffiliateClick (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
+> RegisterAffiliateClickResponse RegisterAffiliateClick (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
 
 Register affiliate click
 
@@ -1264,7 +1264,7 @@ namespace Example
             try
             {
                 // Register affiliate click
-                CheckoutHandoffResponse result = apiInstance.RegisterAffiliateClick(registerAffiliateClickRequest, expand);
+                RegisterAffiliateClickResponse result = apiInstance.RegisterAffiliateClick(registerAffiliateClickRequest, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1286,7 +1286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CheckoutHandoffResponse**](CheckoutHandoffResponse.md)
+[**RegisterAffiliateClickResponse**](RegisterAffiliateClickResponse.md)
 
 ### Authorization
 

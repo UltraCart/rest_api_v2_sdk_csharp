@@ -50,13 +50,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="name">Name of email flow.</param>
         /// <param name="openRateFormatted">Open rate of emails, formatted.</param>
         /// <param name="revenueFormatted">Revenue, formatted.</param>
+        /// <param name="screenshotLargeFullUrl">URL to a large full length screenshot.</param>
         /// <param name="status">Status of the campaign of draft, archived, active, and inactive.</param>
         /// <param name="statusDts">Timestamp when the last status change happened.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
         /// <param name="triggerParameter">Trigger parameter.</param>
         /// <param name="triggerParameterName">Trigger parameter name.</param>
         /// <param name="triggerType">Trigger type.</param>
-        public EmailFlow(bool? allowMultipleConcurrentEnrollments = default(bool?), bool? backPopulating = default(bool?), string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), int? enrolledCustomers = default(int?), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), string revenueFormatted = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
+        public EmailFlow(bool? allowMultipleConcurrentEnrollments = default(bool?), bool? backPopulating = default(bool?), string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), int? enrolledCustomers = default(int?), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), string revenueFormatted = default(string), string screenshotLargeFullUrl = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
         {
             this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
             this.BackPopulating = backPopulating;
@@ -75,6 +76,7 @@ namespace com.ultracart.admin.v2.Model
             this.Name = name;
             this.OpenRateFormatted = openRateFormatted;
             this.RevenueFormatted = revenueFormatted;
+            this.ScreenshotLargeFullUrl = screenshotLargeFullUrl;
             this.Status = status;
             this.StatusDts = statusDts;
             this.StorefrontOid = storefrontOid;
@@ -203,6 +205,13 @@ namespace com.ultracart.admin.v2.Model
         public string RevenueFormatted { get; set; }
 
         /// <summary>
+        /// URL to a large full length screenshot
+        /// </summary>
+        /// <value>URL to a large full length screenshot</value>
+        [DataMember(Name="screenshot_large_full_url", EmitDefaultValue=false)]
+        public string ScreenshotLargeFullUrl { get; set; }
+
+        /// <summary>
         /// Status of the campaign of draft, archived, active, and inactive
         /// </summary>
         /// <value>Status of the campaign of draft, archived, active, and inactive</value>
@@ -269,6 +278,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OpenRateFormatted: ").Append(OpenRateFormatted).Append("\n");
             sb.Append("  RevenueFormatted: ").Append(RevenueFormatted).Append("\n");
+            sb.Append("  ScreenshotLargeFullUrl: ").Append(ScreenshotLargeFullUrl).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusDts: ").Append(StatusDts).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
@@ -395,6 +405,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RevenueFormatted.Equals(input.RevenueFormatted))
                 ) && 
                 (
+                    this.ScreenshotLargeFullUrl == input.ScreenshotLargeFullUrl ||
+                    (this.ScreenshotLargeFullUrl != null &&
+                    this.ScreenshotLargeFullUrl.Equals(input.ScreenshotLargeFullUrl))
+                ) && 
+                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
@@ -469,6 +484,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OpenRateFormatted.GetHashCode();
                 if (this.RevenueFormatted != null)
                     hashCode = hashCode * 59 + this.RevenueFormatted.GetHashCode();
+                if (this.ScreenshotLargeFullUrl != null)
+                    hashCode = hashCode * 59 + this.ScreenshotLargeFullUrl.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.StatusDts != null)

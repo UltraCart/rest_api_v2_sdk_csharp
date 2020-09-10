@@ -215,29 +215,6 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailFlowResponse</returns>
         ApiResponse<EmailFlowResponse> CloneEmailFlowWithHttpInfo (int? storefrontOid, string emailFlowUuid, int? targetStorefrontOid = null);
         /// <summary>
-        /// Clone public library item.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"> (optional)</param>
-        /// <returns>LibraryItemResponse</returns>
-        LibraryItemResponse CloneLibraryItem (int? libraryItemOid, int? storefrontOid = null);
-
-        /// <summary>
-        /// Clone public library item.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"> (optional)</param>
-        /// <returns>ApiResponse of LibraryItemResponse</returns>
-        ApiResponse<LibraryItemResponse> CloneLibraryItemWithHttpInfo (int? libraryItemOid, int? storefrontOid = null);
-        /// <summary>
         /// Create email campaign
         /// </summary>
         /// <remarks>
@@ -547,6 +524,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailCampaignUuid"></param>
         /// <returns>ApiResponse of EmailCampaignResponse</returns>
         ApiResponse<EmailCampaignResponse> GetEmailCampaignWithHttpInfo (int? storefrontOid, string emailCampaignUuid);
+        /// <summary>
+        /// Get email campaign screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignUuid"></param>
+        /// <returns>ScreenshotsResponse</returns>
+        ScreenshotsResponse GetEmailCampaignScreenshots (int? storefrontOid, string emailCampaignUuid);
+
+        /// <summary>
+        /// Get email campaign screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignUuid"></param>
+        /// <returns>ApiResponse of ScreenshotsResponse</returns>
+        ApiResponse<ScreenshotsResponse> GetEmailCampaignScreenshotsWithHttpInfo (int? storefrontOid, string emailCampaignUuid);
         /// <summary>
         /// Get email campaigns
         /// </summary>
@@ -1027,6 +1027,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailFlowUuid"></param>
         /// <returns>ApiResponse of EmailFlowResponse</returns>
         ApiResponse<EmailFlowResponse> GetEmailFlowWithHttpInfo (int? storefrontOid, string emailFlowUuid);
+        /// <summary>
+        /// Get email flow screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowUuid"></param>
+        /// <returns>ScreenshotsResponse</returns>
+        ScreenshotsResponse GetEmailFlowScreenshots (int? storefrontOid, string emailFlowUuid);
+
+        /// <summary>
+        /// Get email flow screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowUuid"></param>
+        /// <returns>ApiResponse of ScreenshotsResponse</returns>
+        ApiResponse<ScreenshotsResponse> GetEmailFlowScreenshotsWithHttpInfo (int? storefrontOid, string emailFlowUuid);
         /// <summary>
         /// Get email flows
         /// </summary>
@@ -1629,32 +1652,26 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of LibraryItemResponse</returns>
         ApiResponse<LibraryItemResponse> GetLibraryItemWithHttpInfo (int? libraryItemOid);
         /// <summary>
-        /// Retrieve library items
+        /// Get thumbnail parameters
         /// </summary>
         /// <remarks>
-        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemQuery">Item query</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <returns>LibraryItemsResponse</returns>
-        LibraryItemsResponse GetLibraryItemsByQuery (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+        /// <param name="thumbnailParameters">Thumbnail Parameters</param>
+        /// <returns>ThumbnailParametersResponse</returns>
+        ThumbnailParametersResponse GetThumbnailParameters (ThumbnailParametersRequest thumbnailParameters);
 
         /// <summary>
-        /// Retrieve library items
+        /// Get thumbnail parameters
         /// </summary>
         /// <remarks>
-        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemQuery">Item query</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <returns>ApiResponse of LibraryItemsResponse</returns>
-        ApiResponse<LibraryItemsResponse> GetLibraryItemsByQueryWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+        /// <param name="thumbnailParameters">Thumbnail Parameters</param>
+        /// <returns>ApiResponse of ThumbnailParametersResponse</returns>
+        ApiResponse<ThumbnailParametersResponse> GetThumbnailParametersWithHttpInfo (ThumbnailParametersRequest thumbnailParameters);
         /// <summary>
         /// Gets a transaction email object
         /// </summary>
@@ -1930,6 +1947,50 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailSegmentDownloadPrepareResponse</returns>
         ApiResponse<EmailSegmentDownloadPrepareResponse> PrepareDownloadEmailSegmentWithHttpInfo (int? storefrontOid, string emailSegmentUuid);
         /// <summary>
+        /// Publish library item.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>LibraryItemResponse</returns>
+        LibraryItemResponse PublishLibraryItem (int? libraryItemOid);
+
+        /// <summary>
+        /// Publish library item.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>ApiResponse of LibraryItemResponse</returns>
+        ApiResponse<LibraryItemResponse> PublishLibraryItemWithHttpInfo (int? libraryItemOid);
+        /// <summary>
+        /// Purchase public library item, which creates a copy of the item in your personal code library
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="storefrontOid"> (optional)</param>
+        /// <returns>LibraryItemResponse</returns>
+        LibraryItemResponse PurchaseLibraryItem (int? libraryItemOid, int? storefrontOid = null);
+
+        /// <summary>
+        /// Purchase public library item, which creates a copy of the item in your personal code library
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="storefrontOid"> (optional)</param>
+        /// <returns>ApiResponse of LibraryItemResponse</returns>
+        ApiResponse<LibraryItemResponse> PurchaseLibraryItemWithHttpInfo (int? libraryItemOid, int? storefrontOid = null);
+        /// <summary>
         /// Release email communication sequence customers waiting at the specified step
         /// </summary>
         /// <remarks>
@@ -2058,6 +2119,87 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="startsWith"> (optional)</param>
         /// <returns>ApiResponse of EmailSegmentCustomersResponse</returns>
         ApiResponse<EmailSegmentCustomersResponse> SearchEmailSegmentCustomersWithHttpInfo (int? storefrontOid, string emailSegmentUuid, string startsWith = null);
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>LibraryItemsResponse</returns>
+        LibraryItemsResponse SearchLibraryItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of LibraryItemsResponse</returns>
+        ApiResponse<LibraryItemsResponse> SearchLibraryItemsWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>LibraryItemsResponse</returns>
+        LibraryItemsResponse SearchPublishedItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of LibraryItemsResponse</returns>
+        ApiResponse<LibraryItemsResponse> SearchPublishedItemsWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>LibraryItemsResponse</returns>
+        LibraryItemsResponse SearchSharedItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of LibraryItemsResponse</returns>
+        ApiResponse<LibraryItemsResponse> SearchSharedItemsWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
         /// <summary>
         /// Send email test
         /// </summary>
@@ -2689,29 +2831,6 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailFlowResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailFlowResponse>> CloneEmailFlowAsyncWithHttpInfo (int? storefrontOid, string emailFlowUuid, int? targetStorefrontOid = null);
         /// <summary>
-        /// Clone public library item.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"> (optional)</param>
-        /// <returns>Task of LibraryItemResponse</returns>
-        System.Threading.Tasks.Task<LibraryItemResponse> CloneLibraryItemAsync (int? libraryItemOid, int? storefrontOid = null);
-
-        /// <summary>
-        /// Clone public library item.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"> (optional)</param>
-        /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> CloneLibraryItemAsyncWithHttpInfo (int? libraryItemOid, int? storefrontOid = null);
-        /// <summary>
         /// Create email campaign
         /// </summary>
         /// <remarks>
@@ -3021,6 +3140,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailCampaignUuid"></param>
         /// <returns>Task of ApiResponse (EmailCampaignResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailCampaignResponse>> GetEmailCampaignAsyncWithHttpInfo (int? storefrontOid, string emailCampaignUuid);
+        /// <summary>
+        /// Get email campaign screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignUuid"></param>
+        /// <returns>Task of ScreenshotsResponse</returns>
+        System.Threading.Tasks.Task<ScreenshotsResponse> GetEmailCampaignScreenshotsAsync (int? storefrontOid, string emailCampaignUuid);
+
+        /// <summary>
+        /// Get email campaign screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignUuid"></param>
+        /// <returns>Task of ApiResponse (ScreenshotsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenshotsResponse>> GetEmailCampaignScreenshotsAsyncWithHttpInfo (int? storefrontOid, string emailCampaignUuid);
         /// <summary>
         /// Get email campaigns
         /// </summary>
@@ -3501,6 +3643,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailFlowUuid"></param>
         /// <returns>Task of ApiResponse (EmailFlowResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailFlowResponse>> GetEmailFlowAsyncWithHttpInfo (int? storefrontOid, string emailFlowUuid);
+        /// <summary>
+        /// Get email flow screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowUuid"></param>
+        /// <returns>Task of ScreenshotsResponse</returns>
+        System.Threading.Tasks.Task<ScreenshotsResponse> GetEmailFlowScreenshotsAsync (int? storefrontOid, string emailFlowUuid);
+
+        /// <summary>
+        /// Get email flow screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowUuid"></param>
+        /// <returns>Task of ApiResponse (ScreenshotsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenshotsResponse>> GetEmailFlowScreenshotsAsyncWithHttpInfo (int? storefrontOid, string emailFlowUuid);
         /// <summary>
         /// Get email flows
         /// </summary>
@@ -4103,32 +4268,26 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> GetLibraryItemAsyncWithHttpInfo (int? libraryItemOid);
         /// <summary>
-        /// Retrieve library items
+        /// Get thumbnail parameters
         /// </summary>
         /// <remarks>
-        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemQuery">Item query</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <returns>Task of LibraryItemsResponse</returns>
-        System.Threading.Tasks.Task<LibraryItemsResponse> GetLibraryItemsByQueryAsync (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+        /// <param name="thumbnailParameters">Thumbnail Parameters</param>
+        /// <returns>Task of ThumbnailParametersResponse</returns>
+        System.Threading.Tasks.Task<ThumbnailParametersResponse> GetThumbnailParametersAsync (ThumbnailParametersRequest thumbnailParameters);
 
         /// <summary>
-        /// Retrieve library items
+        /// Get thumbnail parameters
         /// </summary>
         /// <remarks>
-        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemQuery">Item query</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> GetLibraryItemsByQueryAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+        /// <param name="thumbnailParameters">Thumbnail Parameters</param>
+        /// <returns>Task of ApiResponse (ThumbnailParametersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ThumbnailParametersResponse>> GetThumbnailParametersAsyncWithHttpInfo (ThumbnailParametersRequest thumbnailParameters);
         /// <summary>
         /// Gets a transaction email object
         /// </summary>
@@ -4404,6 +4563,50 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailSegmentDownloadPrepareResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailSegmentDownloadPrepareResponse>> PrepareDownloadEmailSegmentAsyncWithHttpInfo (int? storefrontOid, string emailSegmentUuid);
         /// <summary>
+        /// Publish library item.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of LibraryItemResponse</returns>
+        System.Threading.Tasks.Task<LibraryItemResponse> PublishLibraryItemAsync (int? libraryItemOid);
+
+        /// <summary>
+        /// Publish library item.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> PublishLibraryItemAsyncWithHttpInfo (int? libraryItemOid);
+        /// <summary>
+        /// Purchase public library item, which creates a copy of the item in your personal code library
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="storefrontOid"> (optional)</param>
+        /// <returns>Task of LibraryItemResponse</returns>
+        System.Threading.Tasks.Task<LibraryItemResponse> PurchaseLibraryItemAsync (int? libraryItemOid, int? storefrontOid = null);
+
+        /// <summary>
+        /// Purchase public library item, which creates a copy of the item in your personal code library
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="storefrontOid"> (optional)</param>
+        /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> PurchaseLibraryItemAsyncWithHttpInfo (int? libraryItemOid, int? storefrontOid = null);
+        /// <summary>
         /// Release email communication sequence customers waiting at the specified step
         /// </summary>
         /// <remarks>
@@ -4532,6 +4735,87 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="startsWith"> (optional)</param>
         /// <returns>Task of ApiResponse (EmailSegmentCustomersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailSegmentCustomersResponse>> SearchEmailSegmentCustomersAsyncWithHttpInfo (int? storefrontOid, string emailSegmentUuid, string startsWith = null);
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of LibraryItemsResponse</returns>
+        System.Threading.Tasks.Task<LibraryItemsResponse> SearchLibraryItemsAsync (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> SearchLibraryItemsAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of LibraryItemsResponse</returns>
+        System.Threading.Tasks.Task<LibraryItemsResponse> SearchPublishedItemsAsync (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> SearchPublishedItemsAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of LibraryItemsResponse</returns>
+        System.Threading.Tasks.Task<LibraryItemsResponse> SearchSharedItemsAsync (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Retrieve library items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> SearchSharedItemsAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
         /// <summary>
         /// Send email test
         /// </summary>
@@ -6552,179 +6836,6 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailFlowResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailFlowResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowResponse)));
-        }
-
-        /// <summary>
-        /// Clone public library item. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"> (optional)</param>
-        /// <returns>LibraryItemResponse</returns>
-        public LibraryItemResponse CloneLibraryItem (int? libraryItemOid, int? storefrontOid = null)
-        {
-             ApiResponse<LibraryItemResponse> localVarResponse = CloneLibraryItemWithHttpInfo(libraryItemOid, storefrontOid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Clone public library item. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"> (optional)</param>
-        /// <returns>ApiResponse of LibraryItemResponse</returns>
-        public ApiResponse< LibraryItemResponse > CloneLibraryItemWithHttpInfo (int? libraryItemOid, int? storefrontOid = null)
-        {
-            // verify the required parameter 'libraryItemOid' is set
-            if (libraryItemOid == null)
-                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->CloneLibraryItem");
-
-            var localVarPath = "/storefront/code_library/{library_item_oid}/clone";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
-            if (storefrontOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_oid", storefrontOid)); // query parameter
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CloneLibraryItem", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<LibraryItemResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (LibraryItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemResponse)));
-        }
-
-        /// <summary>
-        /// Clone public library item. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"> (optional)</param>
-        /// <returns>Task of LibraryItemResponse</returns>
-        public async System.Threading.Tasks.Task<LibraryItemResponse> CloneLibraryItemAsync (int? libraryItemOid, int? storefrontOid = null)
-        {
-             ApiResponse<LibraryItemResponse> localVarResponse = await CloneLibraryItemAsyncWithHttpInfo(libraryItemOid, storefrontOid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Clone public library item. 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"> (optional)</param>
-        /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> CloneLibraryItemAsyncWithHttpInfo (int? libraryItemOid, int? storefrontOid = null)
-        {
-            // verify the required parameter 'libraryItemOid' is set
-            if (libraryItemOid == null)
-                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->CloneLibraryItem");
-
-            var localVarPath = "/storefront/code_library/{library_item_oid}/clone";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
-            if (storefrontOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_oid", storefrontOid)); // query parameter
-
-            // authentication (ultraCartBrowserApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
-            {
-                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
-            }
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CloneLibraryItem", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<LibraryItemResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (LibraryItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemResponse)));
         }
 
         /// <summary>
@@ -9167,6 +9278,185 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailCampaignResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailCampaignResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignResponse)));
+        }
+
+        /// <summary>
+        /// Get email campaign screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignUuid"></param>
+        /// <returns>ScreenshotsResponse</returns>
+        public ScreenshotsResponse GetEmailCampaignScreenshots (int? storefrontOid, string emailCampaignUuid)
+        {
+             ApiResponse<ScreenshotsResponse> localVarResponse = GetEmailCampaignScreenshotsWithHttpInfo(storefrontOid, emailCampaignUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email campaign screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignUuid"></param>
+        /// <returns>ApiResponse of ScreenshotsResponse</returns>
+        public ApiResponse< ScreenshotsResponse > GetEmailCampaignScreenshotsWithHttpInfo (int? storefrontOid, string emailCampaignUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCampaignScreenshots");
+            // verify the required parameter 'emailCampaignUuid' is set
+            if (emailCampaignUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignUuid' when calling StorefrontApi->GetEmailCampaignScreenshots");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/screenshots";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCampaignUuid != null) localVarPathParams.Add("email_campaign_uuid", this.Configuration.ApiClient.ParameterToString(emailCampaignUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCampaignScreenshots", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenshotsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenshotsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenshotsResponse)));
+        }
+
+        /// <summary>
+        /// Get email campaign screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignUuid"></param>
+        /// <returns>Task of ScreenshotsResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenshotsResponse> GetEmailCampaignScreenshotsAsync (int? storefrontOid, string emailCampaignUuid)
+        {
+             ApiResponse<ScreenshotsResponse> localVarResponse = await GetEmailCampaignScreenshotsAsyncWithHttpInfo(storefrontOid, emailCampaignUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email campaign screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignUuid"></param>
+        /// <returns>Task of ApiResponse (ScreenshotsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenshotsResponse>> GetEmailCampaignScreenshotsAsyncWithHttpInfo (int? storefrontOid, string emailCampaignUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCampaignScreenshots");
+            // verify the required parameter 'emailCampaignUuid' is set
+            if (emailCampaignUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignUuid' when calling StorefrontApi->GetEmailCampaignScreenshots");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/screenshots";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCampaignUuid != null) localVarPathParams.Add("email_campaign_uuid", this.Configuration.ApiClient.ParameterToString(emailCampaignUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCampaignScreenshots", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenshotsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenshotsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenshotsResponse)));
         }
 
         /// <summary>
@@ -12895,6 +13185,185 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailFlowResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailFlowResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowResponse)));
+        }
+
+        /// <summary>
+        /// Get email flow screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowUuid"></param>
+        /// <returns>ScreenshotsResponse</returns>
+        public ScreenshotsResponse GetEmailFlowScreenshots (int? storefrontOid, string emailFlowUuid)
+        {
+             ApiResponse<ScreenshotsResponse> localVarResponse = GetEmailFlowScreenshotsWithHttpInfo(storefrontOid, emailFlowUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email flow screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowUuid"></param>
+        /// <returns>ApiResponse of ScreenshotsResponse</returns>
+        public ApiResponse< ScreenshotsResponse > GetEmailFlowScreenshotsWithHttpInfo (int? storefrontOid, string emailFlowUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailFlowScreenshots");
+            // verify the required parameter 'emailFlowUuid' is set
+            if (emailFlowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowUuid' when calling StorefrontApi->GetEmailFlowScreenshots");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flows/{email_flow_uuid}/screenshots";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailFlowUuid != null) localVarPathParams.Add("email_flow_uuid", this.Configuration.ApiClient.ParameterToString(emailFlowUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailFlowScreenshots", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenshotsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenshotsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenshotsResponse)));
+        }
+
+        /// <summary>
+        /// Get email flow screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowUuid"></param>
+        /// <returns>Task of ScreenshotsResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenshotsResponse> GetEmailFlowScreenshotsAsync (int? storefrontOid, string emailFlowUuid)
+        {
+             ApiResponse<ScreenshotsResponse> localVarResponse = await GetEmailFlowScreenshotsAsyncWithHttpInfo(storefrontOid, emailFlowUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email flow screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowUuid"></param>
+        /// <returns>Task of ApiResponse (ScreenshotsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenshotsResponse>> GetEmailFlowScreenshotsAsyncWithHttpInfo (int? storefrontOid, string emailFlowUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailFlowScreenshots");
+            // verify the required parameter 'emailFlowUuid' is set
+            if (emailFlowUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowUuid' when calling StorefrontApi->GetEmailFlowScreenshots");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flows/{email_flow_uuid}/screenshots";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailFlowUuid != null) localVarPathParams.Add("email_flow_uuid", this.Configuration.ApiClient.ParameterToString(emailFlowUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailFlowScreenshots", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenshotsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenshotsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenshotsResponse)));
         }
 
         /// <summary>
@@ -17571,36 +18040,30 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// Get thumbnail parameters 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemQuery">Item query</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <returns>LibraryItemsResponse</returns>
-        public LibraryItemsResponse GetLibraryItemsByQuery (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        /// <param name="thumbnailParameters">Thumbnail Parameters</param>
+        /// <returns>ThumbnailParametersResponse</returns>
+        public ThumbnailParametersResponse GetThumbnailParameters (ThumbnailParametersRequest thumbnailParameters)
         {
-             ApiResponse<LibraryItemsResponse> localVarResponse = GetLibraryItemsByQueryWithHttpInfo(itemQuery, limit, offset, sort);
+             ApiResponse<ThumbnailParametersResponse> localVarResponse = GetThumbnailParametersWithHttpInfo(thumbnailParameters);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// Get thumbnail parameters 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemQuery">Item query</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <returns>ApiResponse of LibraryItemsResponse</returns>
-        public ApiResponse< LibraryItemsResponse > GetLibraryItemsByQueryWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        /// <param name="thumbnailParameters">Thumbnail Parameters</param>
+        /// <returns>ApiResponse of ThumbnailParametersResponse</returns>
+        public ApiResponse< ThumbnailParametersResponse > GetThumbnailParametersWithHttpInfo (ThumbnailParametersRequest thumbnailParameters)
         {
-            // verify the required parameter 'itemQuery' is set
-            if (itemQuery == null)
-                throw new ApiException(400, "Missing required parameter 'itemQuery' when calling StorefrontApi->GetLibraryItemsByQuery");
+            // verify the required parameter 'thumbnailParameters' is set
+            if (thumbnailParameters == null)
+                throw new ApiException(400, "Missing required parameter 'thumbnailParameters' when calling StorefrontApi->GetThumbnailParameters");
 
-            var localVarPath = "/storefront/code_library/query";
+            var localVarPath = "/storefront/thumbnailParameters";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -17622,18 +18085,20 @@ namespace com.ultracart.admin.v2.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
-            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
-            if (itemQuery != null && itemQuery.GetType() != typeof(byte[]))
+            if (thumbnailParameters != null && thumbnailParameters.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(itemQuery); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(thumbnailParameters); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = itemQuery; // byte array
+                localVarPostBody = thumbnailParameters; // byte array
             }
 
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
             // authentication (ultraCartOauth) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -17655,47 +18120,41 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetLibraryItemsByQuery", localVarResponse);
+                Exception exception = ExceptionFactory("GetThumbnailParameters", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+            return new ApiResponse<ThumbnailParametersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+                (ThumbnailParametersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ThumbnailParametersResponse)));
         }
 
         /// <summary>
-        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// Get thumbnail parameters 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemQuery">Item query</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <returns>Task of LibraryItemsResponse</returns>
-        public async System.Threading.Tasks.Task<LibraryItemsResponse> GetLibraryItemsByQueryAsync (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        /// <param name="thumbnailParameters">Thumbnail Parameters</param>
+        /// <returns>Task of ThumbnailParametersResponse</returns>
+        public async System.Threading.Tasks.Task<ThumbnailParametersResponse> GetThumbnailParametersAsync (ThumbnailParametersRequest thumbnailParameters)
         {
-             ApiResponse<LibraryItemsResponse> localVarResponse = await GetLibraryItemsByQueryAsyncWithHttpInfo(itemQuery, limit, offset, sort);
+             ApiResponse<ThumbnailParametersResponse> localVarResponse = await GetThumbnailParametersAsyncWithHttpInfo(thumbnailParameters);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// Get thumbnail parameters 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="itemQuery">Item query</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> GetLibraryItemsByQueryAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        /// <param name="thumbnailParameters">Thumbnail Parameters</param>
+        /// <returns>Task of ApiResponse (ThumbnailParametersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ThumbnailParametersResponse>> GetThumbnailParametersAsyncWithHttpInfo (ThumbnailParametersRequest thumbnailParameters)
         {
-            // verify the required parameter 'itemQuery' is set
-            if (itemQuery == null)
-                throw new ApiException(400, "Missing required parameter 'itemQuery' when calling StorefrontApi->GetLibraryItemsByQuery");
+            // verify the required parameter 'thumbnailParameters' is set
+            if (thumbnailParameters == null)
+                throw new ApiException(400, "Missing required parameter 'thumbnailParameters' when calling StorefrontApi->GetThumbnailParameters");
 
-            var localVarPath = "/storefront/code_library/query";
+            var localVarPath = "/storefront/thumbnailParameters";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -17717,18 +18176,20 @@ namespace com.ultracart.admin.v2.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
-            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
-            if (itemQuery != null && itemQuery.GetType() != typeof(byte[]))
+            if (thumbnailParameters != null && thumbnailParameters.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(itemQuery); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(thumbnailParameters); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = itemQuery; // byte array
+                localVarPostBody = thumbnailParameters; // byte array
             }
 
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
             // authentication (ultraCartOauth) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -17750,13 +18211,13 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetLibraryItemsByQuery", localVarResponse);
+                Exception exception = ExceptionFactory("GetThumbnailParameters", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+            return new ApiResponse<ThumbnailParametersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+                (ThumbnailParametersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ThumbnailParametersResponse)));
         }
 
         /// <summary>
@@ -20020,6 +20481,346 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Publish library item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>LibraryItemResponse</returns>
+        public LibraryItemResponse PublishLibraryItem (int? libraryItemOid)
+        {
+             ApiResponse<LibraryItemResponse> localVarResponse = PublishLibraryItemWithHttpInfo(libraryItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Publish library item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>ApiResponse of LibraryItemResponse</returns>
+        public ApiResponse< LibraryItemResponse > PublishLibraryItemWithHttpInfo (int? libraryItemOid)
+        {
+            // verify the required parameter 'libraryItemOid' is set
+            if (libraryItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->PublishLibraryItem");
+
+            var localVarPath = "/storefront/code_library/{library_item_oid}/publish";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PublishLibraryItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemResponse)));
+        }
+
+        /// <summary>
+        /// Publish library item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of LibraryItemResponse</returns>
+        public async System.Threading.Tasks.Task<LibraryItemResponse> PublishLibraryItemAsync (int? libraryItemOid)
+        {
+             ApiResponse<LibraryItemResponse> localVarResponse = await PublishLibraryItemAsyncWithHttpInfo(libraryItemOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Publish library item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> PublishLibraryItemAsyncWithHttpInfo (int? libraryItemOid)
+        {
+            // verify the required parameter 'libraryItemOid' is set
+            if (libraryItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->PublishLibraryItem");
+
+            var localVarPath = "/storefront/code_library/{library_item_oid}/publish";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PublishLibraryItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemResponse)));
+        }
+
+        /// <summary>
+        /// Purchase public library item, which creates a copy of the item in your personal code library 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="storefrontOid"> (optional)</param>
+        /// <returns>LibraryItemResponse</returns>
+        public LibraryItemResponse PurchaseLibraryItem (int? libraryItemOid, int? storefrontOid = null)
+        {
+             ApiResponse<LibraryItemResponse> localVarResponse = PurchaseLibraryItemWithHttpInfo(libraryItemOid, storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Purchase public library item, which creates a copy of the item in your personal code library 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="storefrontOid"> (optional)</param>
+        /// <returns>ApiResponse of LibraryItemResponse</returns>
+        public ApiResponse< LibraryItemResponse > PurchaseLibraryItemWithHttpInfo (int? libraryItemOid, int? storefrontOid = null)
+        {
+            // verify the required parameter 'libraryItemOid' is set
+            if (libraryItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->PurchaseLibraryItem");
+
+            var localVarPath = "/storefront/code_library/{library_item_oid}/purchase";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+            if (storefrontOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_oid", storefrontOid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PurchaseLibraryItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemResponse)));
+        }
+
+        /// <summary>
+        /// Purchase public library item, which creates a copy of the item in your personal code library 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="storefrontOid"> (optional)</param>
+        /// <returns>Task of LibraryItemResponse</returns>
+        public async System.Threading.Tasks.Task<LibraryItemResponse> PurchaseLibraryItemAsync (int? libraryItemOid, int? storefrontOid = null)
+        {
+             ApiResponse<LibraryItemResponse> localVarResponse = await PurchaseLibraryItemAsyncWithHttpInfo(libraryItemOid, storefrontOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Purchase public library item, which creates a copy of the item in your personal code library 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <param name="storefrontOid"> (optional)</param>
+        /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> PurchaseLibraryItemAsyncWithHttpInfo (int? libraryItemOid, int? storefrontOid = null)
+        {
+            // verify the required parameter 'libraryItemOid' is set
+            if (libraryItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->PurchaseLibraryItem");
+
+            var localVarPath = "/storefront/code_library/{library_item_oid}/purchase";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+            if (storefrontOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_oid", storefrontOid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PurchaseLibraryItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemResponse)));
+        }
+
+        /// <summary>
         /// Release email communication sequence customers waiting at the specified step 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -20966,6 +21767,573 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailSegmentCustomersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailSegmentCustomersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSegmentCustomersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>LibraryItemsResponse</returns>
+        public LibraryItemsResponse SearchLibraryItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<LibraryItemsResponse> localVarResponse = SearchLibraryItemsWithHttpInfo(itemQuery, limit, offset, sort);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of LibraryItemsResponse</returns>
+        public ApiResponse< LibraryItemsResponse > SearchLibraryItemsWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'itemQuery' is set
+            if (itemQuery == null)
+                throw new ApiException(400, "Missing required parameter 'itemQuery' when calling StorefrontApi->SearchLibraryItems");
+
+            var localVarPath = "/storefront/code_library/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (itemQuery != null && itemQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchLibraryItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of LibraryItemsResponse</returns>
+        public async System.Threading.Tasks.Task<LibraryItemsResponse> SearchLibraryItemsAsync (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<LibraryItemsResponse> localVarResponse = await SearchLibraryItemsAsyncWithHttpInfo(itemQuery, limit, offset, sort);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> SearchLibraryItemsAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'itemQuery' is set
+            if (itemQuery == null)
+                throw new ApiException(400, "Missing required parameter 'itemQuery' when calling StorefrontApi->SearchLibraryItems");
+
+            var localVarPath = "/storefront/code_library/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (itemQuery != null && itemQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchLibraryItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>LibraryItemsResponse</returns>
+        public LibraryItemsResponse SearchPublishedItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<LibraryItemsResponse> localVarResponse = SearchPublishedItemsWithHttpInfo(itemQuery, limit, offset, sort);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of LibraryItemsResponse</returns>
+        public ApiResponse< LibraryItemsResponse > SearchPublishedItemsWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'itemQuery' is set
+            if (itemQuery == null)
+                throw new ApiException(400, "Missing required parameter 'itemQuery' when calling StorefrontApi->SearchPublishedItems");
+
+            var localVarPath = "/storefront/code_library/search_published";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (itemQuery != null && itemQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchPublishedItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of LibraryItemsResponse</returns>
+        public async System.Threading.Tasks.Task<LibraryItemsResponse> SearchPublishedItemsAsync (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<LibraryItemsResponse> localVarResponse = await SearchPublishedItemsAsyncWithHttpInfo(itemQuery, limit, offset, sort);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> SearchPublishedItemsAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'itemQuery' is set
+            if (itemQuery == null)
+                throw new ApiException(400, "Missing required parameter 'itemQuery' when calling StorefrontApi->SearchPublishedItems");
+
+            var localVarPath = "/storefront/code_library/search_published";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (itemQuery != null && itemQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchPublishedItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>LibraryItemsResponse</returns>
+        public LibraryItemsResponse SearchSharedItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<LibraryItemsResponse> localVarResponse = SearchSharedItemsWithHttpInfo(itemQuery, limit, offset, sort);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of LibraryItemsResponse</returns>
+        public ApiResponse< LibraryItemsResponse > SearchSharedItemsWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'itemQuery' is set
+            if (itemQuery == null)
+                throw new ApiException(400, "Missing required parameter 'itemQuery' when calling StorefrontApi->SearchSharedItems");
+
+            var localVarPath = "/storefront/code_library/search_shared";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (itemQuery != null && itemQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchSharedItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of LibraryItemsResponse</returns>
+        public async System.Threading.Tasks.Task<LibraryItemsResponse> SearchSharedItemsAsync (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<LibraryItemsResponse> localVarResponse = await SearchSharedItemsAsyncWithHttpInfo(itemQuery, limit, offset, sort);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve library items Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> SearchSharedItemsAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'itemQuery' is set
+            if (itemQuery == null)
+                throw new ApiException(400, "Missing required parameter 'itemQuery' when calling StorefrontApi->SearchSharedItems");
+
+            var localVarPath = "/storefront/code_library/search_shared";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (itemQuery != null && itemQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchSharedItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
         }
 
         /// <summary>

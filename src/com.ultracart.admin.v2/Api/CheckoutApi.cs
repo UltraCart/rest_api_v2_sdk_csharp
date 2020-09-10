@@ -295,8 +295,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerAffiliateClickRequest">Register affiliate click request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>CheckoutHandoffResponse</returns>
-        CheckoutHandoffResponse RegisterAffiliateClick (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null);
+        /// <returns>RegisterAffiliateClickResponse</returns>
+        RegisterAffiliateClickResponse RegisterAffiliateClick (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null);
 
         /// <summary>
         /// Register affiliate click
@@ -307,8 +307,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerAffiliateClickRequest">Register affiliate click request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of CheckoutHandoffResponse</returns>
-        ApiResponse<CheckoutHandoffResponse> RegisterAffiliateClickWithHttpInfo (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null);
+        /// <returns>ApiResponse of RegisterAffiliateClickResponse</returns>
+        ApiResponse<RegisterAffiliateClickResponse> RegisterAffiliateClickWithHttpInfo (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null);
         /// <summary>
         /// Related items
         /// </summary>
@@ -697,8 +697,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerAffiliateClickRequest">Register affiliate click request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of CheckoutHandoffResponse</returns>
-        System.Threading.Tasks.Task<CheckoutHandoffResponse> RegisterAffiliateClickAsync (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null);
+        /// <returns>Task of RegisterAffiliateClickResponse</returns>
+        System.Threading.Tasks.Task<RegisterAffiliateClickResponse> RegisterAffiliateClickAsync (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null);
 
         /// <summary>
         /// Register affiliate click
@@ -709,8 +709,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerAffiliateClickRequest">Register affiliate click request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (CheckoutHandoffResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CheckoutHandoffResponse>> RegisterAffiliateClickAsyncWithHttpInfo (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null);
+        /// <returns>Task of ApiResponse (RegisterAffiliateClickResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RegisterAffiliateClickResponse>> RegisterAffiliateClickAsyncWithHttpInfo (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null);
         /// <summary>
         /// Related items
         /// </summary>
@@ -3028,10 +3028,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerAffiliateClickRequest">Register affiliate click request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>CheckoutHandoffResponse</returns>
-        public CheckoutHandoffResponse RegisterAffiliateClick (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
+        /// <returns>RegisterAffiliateClickResponse</returns>
+        public RegisterAffiliateClickResponse RegisterAffiliateClick (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
         {
-             ApiResponse<CheckoutHandoffResponse> localVarResponse = RegisterAffiliateClickWithHttpInfo(registerAffiliateClickRequest, expand);
+             ApiResponse<RegisterAffiliateClickResponse> localVarResponse = RegisterAffiliateClickWithHttpInfo(registerAffiliateClickRequest, expand);
              return localVarResponse.Data;
         }
 
@@ -3041,8 +3041,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerAffiliateClickRequest">Register affiliate click request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of CheckoutHandoffResponse</returns>
-        public ApiResponse< CheckoutHandoffResponse > RegisterAffiliateClickWithHttpInfo (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
+        /// <returns>ApiResponse of RegisterAffiliateClickResponse</returns>
+        public ApiResponse< RegisterAffiliateClickResponse > RegisterAffiliateClickWithHttpInfo (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
         {
             // verify the required parameter 'registerAffiliateClickRequest' is set
             if (registerAffiliateClickRequest == null)
@@ -3110,9 +3110,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CheckoutHandoffResponse>(localVarStatusCode,
+            return new ApiResponse<RegisterAffiliateClickResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CheckoutHandoffResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CheckoutHandoffResponse)));
+                (RegisterAffiliateClickResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RegisterAffiliateClickResponse)));
         }
 
         /// <summary>
@@ -3121,10 +3121,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerAffiliateClickRequest">Register affiliate click request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of CheckoutHandoffResponse</returns>
-        public async System.Threading.Tasks.Task<CheckoutHandoffResponse> RegisterAffiliateClickAsync (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
+        /// <returns>Task of RegisterAffiliateClickResponse</returns>
+        public async System.Threading.Tasks.Task<RegisterAffiliateClickResponse> RegisterAffiliateClickAsync (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
         {
-             ApiResponse<CheckoutHandoffResponse> localVarResponse = await RegisterAffiliateClickAsyncWithHttpInfo(registerAffiliateClickRequest, expand);
+             ApiResponse<RegisterAffiliateClickResponse> localVarResponse = await RegisterAffiliateClickAsyncWithHttpInfo(registerAffiliateClickRequest, expand);
              return localVarResponse.Data;
 
         }
@@ -3135,8 +3135,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerAffiliateClickRequest">Register affiliate click request</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (CheckoutHandoffResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CheckoutHandoffResponse>> RegisterAffiliateClickAsyncWithHttpInfo (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
+        /// <returns>Task of ApiResponse (RegisterAffiliateClickResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RegisterAffiliateClickResponse>> RegisterAffiliateClickAsyncWithHttpInfo (RegisterAffiliateClickRequest registerAffiliateClickRequest, string expand = null)
         {
             // verify the required parameter 'registerAffiliateClickRequest' is set
             if (registerAffiliateClickRequest == null)
@@ -3204,9 +3204,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CheckoutHandoffResponse>(localVarStatusCode,
+            return new ApiResponse<RegisterAffiliateClickResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CheckoutHandoffResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CheckoutHandoffResponse)));
+                (RegisterAffiliateClickResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RegisterAffiliateClickResponse)));
         }
 
         /// <summary>

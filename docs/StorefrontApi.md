@@ -12,7 +12,6 @@ Method | HTTP request | Description
 [**CheckDownloadEmailSegment**](StorefrontApi.md#checkdownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 [**CloneEmailCampaign**](StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 [**CloneEmailFlow**](StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
-[**CloneLibraryItem**](StorefrontApi.md#clonelibraryitem) | **POST** /storefront/code_library/{library_item_oid}/clone | Clone public library item.
 [**CreateEmailSendingDomain**](StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
 [**DeleteEmailCommseqStat**](StorefrontApi.md#deleteemailcommseqstat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 [**DeleteEmailEmail**](StorefrontApi.md#deleteemailemail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
@@ -27,6 +26,7 @@ Method | HTTP request | Description
 [**GetEditorToken**](StorefrontApi.md#geteditortoken) | **GET** /storefront/{storefront_oid}/editor_token | Gets editor token
 [**GetEmailBaseTemplates**](StorefrontApi.md#getemailbasetemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
 [**GetEmailCampaign**](StorefrontApi.md#getemailcampaign) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Get email campaign
+[**GetEmailCampaignScreenshots**](StorefrontApi.md#getemailcampaignscreenshots) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/screenshots | Get email campaign screenshots
 [**GetEmailCampaigns**](StorefrontApi.md#getemailcampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
 [**GetEmailCampaignsWithStats**](StorefrontApi.md#getemailcampaignswithstats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
 [**GetEmailCommseq**](StorefrontApi.md#getemailcommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
@@ -47,6 +47,7 @@ Method | HTTP request | Description
 [**GetEmailEmails**](StorefrontApi.md#getemailemails) | **GET** /storefront/{storefront_oid}/email/emails | Get email emails
 [**GetEmailEmailsMultiple**](StorefrontApi.md#getemailemailsmultiple) | **POST** /storefront/{storefront_oid}/email/emails/multiple | Get email emails multiple
 [**GetEmailFlow**](StorefrontApi.md#getemailflow) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Get email flow
+[**GetEmailFlowScreenshots**](StorefrontApi.md#getemailflowscreenshots) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/screenshots | Get email flow screenshots
 [**GetEmailFlows**](StorefrontApi.md#getemailflows) | **GET** /storefront/{storefront_oid}/email/flows | Get email flows
 [**GetEmailGlobalSettings**](StorefrontApi.md#getemailglobalsettings) | **GET** /storefront/email/global_settings | Get email globalsettings
 [**GetEmailList**](StorefrontApi.md#getemaillist) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
@@ -74,7 +75,7 @@ Method | HTTP request | Description
 [**GetHistogramPropertyValues**](StorefrontApi.md#gethistogrampropertyvalues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
 [**GetLibraryFilterValues**](StorefrontApi.md#getlibraryfiltervalues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
 [**GetLibraryItem**](StorefrontApi.md#getlibraryitem) | **GET** /storefront/code_library/{library_item_oid} | Get library item.
-[**GetLibraryItemsByQuery**](StorefrontApi.md#getlibraryitemsbyquery) | **POST** /storefront/code_library/query | Retrieve library items
+[**GetThumbnailParameters**](StorefrontApi.md#getthumbnailparameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 [**GetTransactionEmail**](StorefrontApi.md#gettransactionemail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 [**GetTransactionEmailList**](StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
 [**GlobalUnsubscribe**](StorefrontApi.md#globalunsubscribe) | **POST** /storefront/{storefront_oid}/email/globalUnsubscribe | Globally unsubscribe a customer
@@ -87,11 +88,16 @@ Method | HTTP request | Description
 [**InsertEmailPostcard**](StorefrontApi.md#insertemailpostcard) | **POST** /storefront/{storefront_oid}/email/postcards | Insert email postcard
 [**InsertEmailSegment**](StorefrontApi.md#insertemailsegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
 [**PrepareDownloadEmailSegment**](StorefrontApi.md#preparedownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment
+[**PublishLibraryItem**](StorefrontApi.md#publishlibraryitem) | **POST** /storefront/code_library/{library_item_oid}/publish | Publish library item.
+[**PurchaseLibraryItem**](StorefrontApi.md#purchaselibraryitem) | **POST** /storefront/code_library/{library_item_oid}/purchase | Purchase public library item, which creates a copy of the item in your personal code library
 [**ReleaseEmailCommseqStepWaiting**](StorefrontApi.md#releaseemailcommseqstepwaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting/{commseq_step_uuid} | Release email communication sequence customers waiting at the specified step
 [**Review**](StorefrontApi.md#review) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review | Request a review of an email
 [**Search**](StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
 [**SearchEmailListCustomers**](StorefrontApi.md#searchemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
 [**SearchEmailSegmentCustomers**](StorefrontApi.md#searchemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
+[**SearchLibraryItems**](StorefrontApi.md#searchlibraryitems) | **POST** /storefront/code_library/search | Retrieve library items
+[**SearchPublishedItems**](StorefrontApi.md#searchpublisheditems) | **POST** /storefront/code_library/search_published | Retrieve library items
+[**SearchSharedItems**](StorefrontApi.md#searchshareditems) | **POST** /storefront/code_library/search_shared | Retrieve library items
 [**SendEmailTest**](StorefrontApi.md#sendemailtest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 [**SendPostcardTest**](StorefrontApi.md#sendpostcardtest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
 [**StartEmailCampaign**](StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
@@ -890,104 +896,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailFlowResponse**](EmailFlowResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="clonelibraryitem"></a>
-# **CloneLibraryItem**
-> LibraryItemResponse CloneLibraryItem (int? libraryItemOid, int? storefrontOid = null)
-
-Clone public library item.
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CloneLibraryItemExample
-    {
-        public void main()
-        {
-
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
-
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartBrowserApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new StorefrontApi();
-            var libraryItemOid = 56;  // int? | 
-            var storefrontOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Clone public library item.
-                LibraryItemResponse result = apiInstance.CloneLibraryItem(libraryItemOid, storefrontOid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.CloneLibraryItem: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **libraryItemOid** | **int?**|  | 
- **storefrontOid** | **int?**|  | [optional] 
-
-### Return type
-
-[**LibraryItemResponse**](LibraryItemResponse.md)
 
 ### Authorization
 
@@ -2349,6 +2257,104 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailCampaignResponse**](EmailCampaignResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailcampaignscreenshots"></a>
+# **GetEmailCampaignScreenshots**
+> ScreenshotsResponse GetEmailCampaignScreenshots (int? storefrontOid, string emailCampaignUuid)
+
+Get email campaign screenshots
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailCampaignScreenshotsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var emailCampaignUuid = emailCampaignUuid_example;  // string | 
+
+            try
+            {
+                // Get email campaign screenshots
+                ScreenshotsResponse result = apiInstance.GetEmailCampaignScreenshots(storefrontOid, emailCampaignUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailCampaignScreenshots: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **emailCampaignUuid** | **string**|  | 
+
+### Return type
+
+[**ScreenshotsResponse**](ScreenshotsResponse.md)
 
 ### Authorization
 
@@ -4329,6 +4335,104 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailFlowResponse**](EmailFlowResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailflowscreenshots"></a>
+# **GetEmailFlowScreenshots**
+> ScreenshotsResponse GetEmailFlowScreenshots (int? storefrontOid, string emailFlowUuid)
+
+Get email flow screenshots
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailFlowScreenshotsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var storefrontOid = 56;  // int? | 
+            var emailFlowUuid = emailFlowUuid_example;  // string | 
+
+            try
+            {
+                // Get email flow screenshots
+                ScreenshotsResponse result = apiInstance.GetEmailFlowScreenshots(storefrontOid, emailFlowUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailFlowScreenshots: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **emailFlowUuid** | **string**|  | 
+
+### Return type
+
+[**ScreenshotsResponse**](ScreenshotsResponse.md)
 
 ### Authorization
 
@@ -6965,13 +7069,11 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getlibraryitemsbyquery"></a>
-# **GetLibraryItemsByQuery**
-> LibraryItemsResponse GetLibraryItemsByQuery (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+<a name="getthumbnailparameters"></a>
+# **GetThumbnailParameters**
+> ThumbnailParametersResponse GetThumbnailParameters (ThumbnailParametersRequest thumbnailParameters)
 
-Retrieve library items
-
-Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+Get thumbnail parameters
 ### Example
 ```csharp
 
@@ -6983,7 +7085,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class GetLibraryItemsByQueryExample
+    public class GetThumbnailParametersExample
     {
         public void main()
         {
@@ -6993,6 +7095,15 @@ namespace Example
 
             // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
             // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
 
             // ------------------------------------------------------------
             // OAUTH AUTHENTICATION
@@ -7015,20 +7126,17 @@ namespace Example
               
 
             var apiInstance = new StorefrontApi();
-            var itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
-            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Maximum 10000) (optional)  (default to 10000)
-            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = sort_example;  // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
+            var thumbnailParameters = new ThumbnailParametersRequest(); // ThumbnailParametersRequest | Thumbnail Parameters
 
             try
             {
-                // Retrieve library items
-                LibraryItemsResponse result = apiInstance.GetLibraryItemsByQuery(itemQuery, limit, offset, sort);
+                // Get thumbnail parameters
+                ThumbnailParametersResponse result = apiInstance.GetThumbnailParameters(thumbnailParameters);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling StorefrontApi.GetLibraryItemsByQuery: " + e.Message );
+                Debug.Print("Exception when calling StorefrontApi.GetThumbnailParameters: " + e.Message );
             }
         }
     }
@@ -7040,18 +7148,15 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemQuery** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query | 
- **limit** | **int?**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] [default to 10000]
- **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **sort** | **string**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **thumbnailParameters** | [**ThumbnailParametersRequest**](ThumbnailParametersRequest.md)| Thumbnail Parameters | 
 
 ### Return type
 
-[**LibraryItemsResponse**](LibraryItemsResponse.md)
+[**ThumbnailParametersResponse**](ThumbnailParametersResponse.md)
 
 ### Authorization
 
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 
@@ -8237,6 +8342,200 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="publishlibraryitem"></a>
+# **PublishLibraryItem**
+> LibraryItemResponse PublishLibraryItem (int? libraryItemOid)
+
+Publish library item.
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class PublishLibraryItemExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var libraryItemOid = 56;  // int? | 
+
+            try
+            {
+                // Publish library item.
+                LibraryItemResponse result = apiInstance.PublishLibraryItem(libraryItemOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.PublishLibraryItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **libraryItemOid** | **int?**|  | 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="purchaselibraryitem"></a>
+# **PurchaseLibraryItem**
+> LibraryItemResponse PurchaseLibraryItem (int? libraryItemOid, int? storefrontOid = null)
+
+Purchase public library item, which creates a copy of the item in your personal code library
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class PurchaseLibraryItemExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartBrowserApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-browser-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var libraryItemOid = 56;  // int? | 
+            var storefrontOid = 56;  // int? |  (optional) 
+
+            try
+            {
+                // Purchase public library item, which creates a copy of the item in your personal code library
+                LibraryItemResponse result = apiInstance.PurchaseLibraryItem(libraryItemOid, storefrontOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.PurchaseLibraryItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **libraryItemOid** | **int?**|  | 
+ **storefrontOid** | **int?**|  | [optional] 
+
+### Return type
+
+[**LibraryItemResponse**](LibraryItemResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="releaseemailcommseqstepwaiting"></a>
 # **ReleaseEmailCommseqStepWaiting**
 > void ReleaseEmailCommseqStepWaiting (int? storefrontOid, string commseqUuid, string commseqStepUuid)
@@ -8732,6 +9031,291 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="searchlibraryitems"></a>
+# **SearchLibraryItems**
+> LibraryItemsResponse SearchLibraryItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+
+Retrieve library items
+
+Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class SearchLibraryItemsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Maximum 10000) (optional)  (default to 10000)
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var sort = sort_example;  // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
+
+            try
+            {
+                // Retrieve library items
+                LibraryItemsResponse result = apiInstance.SearchLibraryItems(itemQuery, limit, offset, sort);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.SearchLibraryItems: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemQuery** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query | 
+ **limit** | **int?**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] [default to 10000]
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **string**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+
+### Return type
+
+[**LibraryItemsResponse**](LibraryItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="searchpublisheditems"></a>
+# **SearchPublishedItems**
+> LibraryItemsResponse SearchPublishedItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+
+Retrieve library items
+
+Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class SearchPublishedItemsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Maximum 10000) (optional)  (default to 10000)
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var sort = sort_example;  // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
+
+            try
+            {
+                // Retrieve library items
+                LibraryItemsResponse result = apiInstance.SearchPublishedItems(itemQuery, limit, offset, sort);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.SearchPublishedItems: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemQuery** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query | 
+ **limit** | **int?**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] [default to 10000]
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **string**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+
+### Return type
+
+[**LibraryItemsResponse**](LibraryItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="searchshareditems"></a>
+# **SearchSharedItems**
+> LibraryItemsResponse SearchSharedItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+
+Retrieve library items
+
+Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class SearchSharedItemsExample
+    {
+        public void main()
+        {
+
+            // This is required.  See https://www.ultracart.com/api/versioning.html
+            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+
+            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
+            // https://www.ultracart.com/api/authentication.html
+
+            // ------------------------------------------------------------
+            // OAUTH AUTHENTICATION
+            // Use this authentication method for third party applications,
+            // where your application is acting on behalf of numerous merchants.
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            Configuration.Default.AccessToken
+                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
+            // ------------------------------------------------------------
+
+
+            // ------------------------------------------------------------
+            // SIMPLE KEY AUTHENTICATION
+            // Configure API key authorization: ultraCartSimpleApiKey
+            // TODO - Replace the key below with your own key.  The key below is not a real key.
+            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
+            // ------------------------------------------------------------
+              
+
+            var apiInstance = new StorefrontApi();
+            var itemQuery = new LibraryItemQuery(); // LibraryItemQuery | Item query
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Maximum 10000) (optional)  (default to 10000)
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var sort = sort_example;  // string | The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
+
+            try
+            {
+                // Retrieve library items
+                LibraryItemsResponse result = apiInstance.SearchSharedItems(itemQuery, limit, offset, sort);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.SearchSharedItems: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemQuery** | [**LibraryItemQuery**](LibraryItemQuery.md)| Item query | 
+ **limit** | **int?**| The maximum number of records to return on this one API call. (Maximum 10000) | [optional] [default to 10000]
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **string**| The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+
+### Return type
+
+[**LibraryItemsResponse**](LibraryItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 

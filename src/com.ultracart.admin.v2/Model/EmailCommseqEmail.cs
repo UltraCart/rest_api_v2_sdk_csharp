@@ -47,12 +47,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="previewText">Preview text.</param>
         /// <param name="rejected">True if the content of this email was rejected during review by UltraCart.</param>
         /// <param name="requiresReview">True if the content of this email is requires review by UltraCart.</param>
+        /// <param name="screenshotLargeFullUrl">URL to screenshot in large form factor full page.</param>
+        /// <param name="screenshotLargeViewportUrl">URL to screenshot in large form factor viewport.</param>
+        /// <param name="screenshotSmallFullUrl">URL to screenshot in small form factor full page.</param>
+        /// <param name="screenshotSmallViewportUrl">URL to screenshot in small form factor viewport.</param>
         /// <param name="smartSending">Smart sending.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
         /// <param name="subject">Subject.</param>
         /// <param name="transactionalEmail">Transactional email.</param>
         /// <param name="version">Version.</param>
-        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? transactionalEmail = default(bool?), int? version = default(int?))
+        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? transactionalEmail = default(bool?), int? version = default(int?))
         {
             this.Deleted = deleted;
             this.EditedByUser = editedByUser;
@@ -68,6 +72,10 @@ namespace com.ultracart.admin.v2.Model
             this.PreviewText = previewText;
             this.Rejected = rejected;
             this.RequiresReview = requiresReview;
+            this.ScreenshotLargeFullUrl = screenshotLargeFullUrl;
+            this.ScreenshotLargeViewportUrl = screenshotLargeViewportUrl;
+            this.ScreenshotSmallFullUrl = screenshotSmallFullUrl;
+            this.ScreenshotSmallViewportUrl = screenshotSmallViewportUrl;
             this.SmartSending = smartSending;
             this.StorefrontOid = storefrontOid;
             this.Subject = subject;
@@ -174,6 +182,34 @@ namespace com.ultracart.admin.v2.Model
         public bool? RequiresReview { get; set; }
 
         /// <summary>
+        /// URL to screenshot in large form factor full page
+        /// </summary>
+        /// <value>URL to screenshot in large form factor full page</value>
+        [DataMember(Name="screenshot_large_full_url", EmitDefaultValue=false)]
+        public string ScreenshotLargeFullUrl { get; set; }
+
+        /// <summary>
+        /// URL to screenshot in large form factor viewport
+        /// </summary>
+        /// <value>URL to screenshot in large form factor viewport</value>
+        [DataMember(Name="screenshot_large_viewport_url", EmitDefaultValue=false)]
+        public string ScreenshotLargeViewportUrl { get; set; }
+
+        /// <summary>
+        /// URL to screenshot in small form factor full page
+        /// </summary>
+        /// <value>URL to screenshot in small form factor full page</value>
+        [DataMember(Name="screenshot_small_full_url", EmitDefaultValue=false)]
+        public string ScreenshotSmallFullUrl { get; set; }
+
+        /// <summary>
+        /// URL to screenshot in small form factor viewport
+        /// </summary>
+        /// <value>URL to screenshot in small form factor viewport</value>
+        [DataMember(Name="screenshot_small_viewport_url", EmitDefaultValue=false)]
+        public string ScreenshotSmallViewportUrl { get; set; }
+
+        /// <summary>
         /// Smart sending
         /// </summary>
         /// <value>Smart sending</value>
@@ -230,6 +266,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PreviewText: ").Append(PreviewText).Append("\n");
             sb.Append("  Rejected: ").Append(Rejected).Append("\n");
             sb.Append("  RequiresReview: ").Append(RequiresReview).Append("\n");
+            sb.Append("  ScreenshotLargeFullUrl: ").Append(ScreenshotLargeFullUrl).Append("\n");
+            sb.Append("  ScreenshotLargeViewportUrl: ").Append(ScreenshotLargeViewportUrl).Append("\n");
+            sb.Append("  ScreenshotSmallFullUrl: ").Append(ScreenshotSmallFullUrl).Append("\n");
+            sb.Append("  ScreenshotSmallViewportUrl: ").Append(ScreenshotSmallViewportUrl).Append("\n");
             sb.Append("  SmartSending: ").Append(SmartSending).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
@@ -340,6 +380,26 @@ namespace com.ultracart.admin.v2.Model
                     this.RequiresReview.Equals(input.RequiresReview))
                 ) && 
                 (
+                    this.ScreenshotLargeFullUrl == input.ScreenshotLargeFullUrl ||
+                    (this.ScreenshotLargeFullUrl != null &&
+                    this.ScreenshotLargeFullUrl.Equals(input.ScreenshotLargeFullUrl))
+                ) && 
+                (
+                    this.ScreenshotLargeViewportUrl == input.ScreenshotLargeViewportUrl ||
+                    (this.ScreenshotLargeViewportUrl != null &&
+                    this.ScreenshotLargeViewportUrl.Equals(input.ScreenshotLargeViewportUrl))
+                ) && 
+                (
+                    this.ScreenshotSmallFullUrl == input.ScreenshotSmallFullUrl ||
+                    (this.ScreenshotSmallFullUrl != null &&
+                    this.ScreenshotSmallFullUrl.Equals(input.ScreenshotSmallFullUrl))
+                ) && 
+                (
+                    this.ScreenshotSmallViewportUrl == input.ScreenshotSmallViewportUrl ||
+                    (this.ScreenshotSmallViewportUrl != null &&
+                    this.ScreenshotSmallViewportUrl.Equals(input.ScreenshotSmallViewportUrl))
+                ) && 
+                (
                     this.SmartSending == input.SmartSending ||
                     (this.SmartSending != null &&
                     this.SmartSending.Equals(input.SmartSending))
@@ -403,6 +463,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Rejected.GetHashCode();
                 if (this.RequiresReview != null)
                     hashCode = hashCode * 59 + this.RequiresReview.GetHashCode();
+                if (this.ScreenshotLargeFullUrl != null)
+                    hashCode = hashCode * 59 + this.ScreenshotLargeFullUrl.GetHashCode();
+                if (this.ScreenshotLargeViewportUrl != null)
+                    hashCode = hashCode * 59 + this.ScreenshotLargeViewportUrl.GetHashCode();
+                if (this.ScreenshotSmallFullUrl != null)
+                    hashCode = hashCode * 59 + this.ScreenshotSmallFullUrl.GetHashCode();
+                if (this.ScreenshotSmallViewportUrl != null)
+                    hashCode = hashCode * 59 + this.ScreenshotSmallViewportUrl.GetHashCode();
                 if (this.SmartSending != null)
                     hashCode = hashCode * 59 + this.SmartSending.GetHashCode();
                 if (this.StorefrontOid != null)

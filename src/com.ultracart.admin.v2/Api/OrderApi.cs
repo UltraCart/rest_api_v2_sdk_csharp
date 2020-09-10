@@ -361,6 +361,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrderResponse</returns>
         ApiResponse<OrderResponse> InsertOrderWithHttpInfo (Order order, string expand = null);
         /// <summary>
+        /// Process payment
+        /// </summary>
+        /// <remarks>
+        /// Process payment on order 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to process payment on</param>
+        /// <param name="processPaymentRequest">Process payment parameters</param>
+        /// <returns>OrderProcessPaymentResponse</returns>
+        OrderProcessPaymentResponse ProcessPayment (string orderId, OrderProcessPaymentRequest processPaymentRequest);
+
+        /// <summary>
+        /// Process payment
+        /// </summary>
+        /// <remarks>
+        /// Process payment on order 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to process payment on</param>
+        /// <param name="processPaymentRequest">Process payment parameters</param>
+        /// <returns>ApiResponse of OrderProcessPaymentResponse</returns>
+        ApiResponse<OrderProcessPaymentResponse> ProcessPaymentWithHttpInfo (string orderId, OrderProcessPaymentRequest processPaymentRequest);
+        /// <summary>
         /// Refund an order
         /// </summary>
         /// <remarks>
@@ -844,6 +867,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderResponse>> InsertOrderAsyncWithHttpInfo (Order order, string expand = null);
+        /// <summary>
+        /// Process payment
+        /// </summary>
+        /// <remarks>
+        /// Process payment on order 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to process payment on</param>
+        /// <param name="processPaymentRequest">Process payment parameters</param>
+        /// <returns>Task of OrderProcessPaymentResponse</returns>
+        System.Threading.Tasks.Task<OrderProcessPaymentResponse> ProcessPaymentAsync (string orderId, OrderProcessPaymentRequest processPaymentRequest);
+
+        /// <summary>
+        /// Process payment
+        /// </summary>
+        /// <remarks>
+        /// Process payment on order 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to process payment on</param>
+        /// <param name="processPaymentRequest">Process payment parameters</param>
+        /// <returns>Task of ApiResponse (OrderProcessPaymentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderProcessPaymentResponse>> ProcessPaymentAsyncWithHttpInfo (string orderId, OrderProcessPaymentRequest processPaymentRequest);
         /// <summary>
         /// Refund an order
         /// </summary>
@@ -3280,6 +3326,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrderResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Process payment Process payment on order 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to process payment on</param>
+        /// <param name="processPaymentRequest">Process payment parameters</param>
+        /// <returns>OrderProcessPaymentResponse</returns>
+        public OrderProcessPaymentResponse ProcessPayment (string orderId, OrderProcessPaymentRequest processPaymentRequest)
+        {
+             ApiResponse<OrderProcessPaymentResponse> localVarResponse = ProcessPaymentWithHttpInfo(orderId, processPaymentRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Process payment Process payment on order 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to process payment on</param>
+        /// <param name="processPaymentRequest">Process payment parameters</param>
+        /// <returns>ApiResponse of OrderProcessPaymentResponse</returns>
+        public ApiResponse< OrderProcessPaymentResponse > ProcessPaymentWithHttpInfo (string orderId, OrderProcessPaymentRequest processPaymentRequest)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->ProcessPayment");
+            // verify the required parameter 'processPaymentRequest' is set
+            if (processPaymentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'processPaymentRequest' when calling OrderApi->ProcessPayment");
+
+            var localVarPath = "/order/orders/{order_id}/process_payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (processPaymentRequest != null && processPaymentRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(processPaymentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = processPaymentRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ProcessPayment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderProcessPaymentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderProcessPaymentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderProcessPaymentResponse)));
+        }
+
+        /// <summary>
+        /// Process payment Process payment on order 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to process payment on</param>
+        /// <param name="processPaymentRequest">Process payment parameters</param>
+        /// <returns>Task of OrderProcessPaymentResponse</returns>
+        public async System.Threading.Tasks.Task<OrderProcessPaymentResponse> ProcessPaymentAsync (string orderId, OrderProcessPaymentRequest processPaymentRequest)
+        {
+             ApiResponse<OrderProcessPaymentResponse> localVarResponse = await ProcessPaymentAsyncWithHttpInfo(orderId, processPaymentRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Process payment Process payment on order 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to process payment on</param>
+        /// <param name="processPaymentRequest">Process payment parameters</param>
+        /// <returns>Task of ApiResponse (OrderProcessPaymentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderProcessPaymentResponse>> ProcessPaymentAsyncWithHttpInfo (string orderId, OrderProcessPaymentRequest processPaymentRequest)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->ProcessPayment");
+            // verify the required parameter 'processPaymentRequest' is set
+            if (processPaymentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'processPaymentRequest' when calling OrderApi->ProcessPayment");
+
+            var localVarPath = "/order/orders/{order_id}/process_payment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (processPaymentRequest != null && processPaymentRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(processPaymentRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = processPaymentRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ProcessPayment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderProcessPaymentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderProcessPaymentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderProcessPaymentResponse)));
         }
 
         /// <summary>

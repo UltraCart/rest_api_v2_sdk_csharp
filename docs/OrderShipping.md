@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **SpecialInstructions** | **string** | Special instructions from the customer regarding shipping | [optional] 
 **StateRegion** | **string** | State | [optional] 
 **Title** | **string** | Title | [optional] 
+**TrackingNumberDetails** | [**List&lt;OrderTrackingNumberDetails&gt;**](OrderTrackingNumberDetails.md) | Tracking number details | [optional] 
 **TrackingNumbers** | **List&lt;string&gt;** | Tracking numbers | [optional] 
 **Weight** | [**Weight**](Weight.md) |  | [optional] 
 

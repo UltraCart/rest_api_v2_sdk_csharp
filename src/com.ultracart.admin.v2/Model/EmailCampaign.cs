@@ -49,10 +49,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="preventSendingDueToSpam">True if this campaign is prevented from sending at this time due to spam complaints..</param>
         /// <param name="revenueFormatted">Revenue associated with campaign.</param>
         /// <param name="scheduledDts">Scheduled date.</param>
+        /// <param name="screenshotLargeFullUrl">URL to a large full length screenshot.</param>
         /// <param name="status">Status of the campaign of draft, archived, and sent.</param>
         /// <param name="statusDts">Timestamp when the last status change happened.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
-        public EmailCampaign(string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCampaignUuid = default(string), string emailCommunicationSequenceUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), List<EmailListSegmentMembership> memberships = default(List<EmailListSegmentMembership>), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), bool? preventSendingDueToSpam = default(bool?), string revenueFormatted = default(string), string scheduledDts = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?))
+        public EmailCampaign(string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCampaignUuid = default(string), string emailCommunicationSequenceUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), List<EmailListSegmentMembership> memberships = default(List<EmailListSegmentMembership>), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), bool? preventSendingDueToSpam = default(bool?), string revenueFormatted = default(string), string scheduledDts = default(string), string screenshotLargeFullUrl = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?))
         {
             this.ClickRateFormatted = clickRateFormatted;
             this.CreatedDts = createdDts;
@@ -70,6 +71,7 @@ namespace com.ultracart.admin.v2.Model
             this.PreventSendingDueToSpam = preventSendingDueToSpam;
             this.RevenueFormatted = revenueFormatted;
             this.ScheduledDts = scheduledDts;
+            this.ScreenshotLargeFullUrl = screenshotLargeFullUrl;
             this.Status = status;
             this.StatusDts = statusDts;
             this.StorefrontOid = storefrontOid;
@@ -188,6 +190,13 @@ namespace com.ultracart.admin.v2.Model
         public string ScheduledDts { get; set; }
 
         /// <summary>
+        /// URL to a large full length screenshot
+        /// </summary>
+        /// <value>URL to a large full length screenshot</value>
+        [DataMember(Name="screenshot_large_full_url", EmitDefaultValue=false)]
+        public string ScreenshotLargeFullUrl { get; set; }
+
+        /// <summary>
         /// Status of the campaign of draft, archived, and sent
         /// </summary>
         /// <value>Status of the campaign of draft, archived, and sent</value>
@@ -232,6 +241,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PreventSendingDueToSpam: ").Append(PreventSendingDueToSpam).Append("\n");
             sb.Append("  RevenueFormatted: ").Append(RevenueFormatted).Append("\n");
             sb.Append("  ScheduledDts: ").Append(ScheduledDts).Append("\n");
+            sb.Append("  ScreenshotLargeFullUrl: ").Append(ScreenshotLargeFullUrl).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusDts: ").Append(StatusDts).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
@@ -350,6 +360,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ScheduledDts.Equals(input.ScheduledDts))
                 ) && 
                 (
+                    this.ScreenshotLargeFullUrl == input.ScreenshotLargeFullUrl ||
+                    (this.ScreenshotLargeFullUrl != null &&
+                    this.ScreenshotLargeFullUrl.Equals(input.ScreenshotLargeFullUrl))
+                ) && 
+                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
@@ -407,6 +422,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RevenueFormatted.GetHashCode();
                 if (this.ScheduledDts != null)
                     hashCode = hashCode * 59 + this.ScheduledDts.GetHashCode();
+                if (this.ScreenshotLargeFullUrl != null)
+                    hashCode = hashCode * 59 + this.ScreenshotLargeFullUrl.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.StatusDts != null)

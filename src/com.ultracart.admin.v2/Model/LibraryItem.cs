@@ -41,12 +41,26 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="industries">industries.</param>
         /// <param name="libraryItemOid">libraryItemOid.</param>
         /// <param name="merchantId">merchantId.</param>
-        /// <param name="publicItem">publicItem.</param>
-        /// <param name="publishedDts">publishedDts.</param>
+        /// <param name="price">The price of the published item.  Null for any private library items..</param>
+        /// <param name="priceFormatted">The formatted price of the published item.  Null for any private library items..</param>
+        /// <param name="published">True if this library item is a published item (not source).</param>
+        /// <param name="publishedFromLibraryItemOid">The source item used to publish this item.  This allows for comparisons between source and published.</param>
+        /// <param name="publishedVersion">The source version when this item was published.  This allows for out-of-date alerts to be shown when there is a difference between source and published.</param>
+        /// <param name="purchased">True if this library item has been purchased.</param>
+        /// <param name="purchasedFromLibraryItemOid">The published item that was purchased to make this item.  This allows for comparisons between published and purchased.</param>
+        /// <param name="purchasedVersion">The published version when this item was purchased.  This allows for out-of-date alerts to be shown when there is a difference between published and purchased.</param>
+        /// <param name="screenshots">screenshots.</param>
+        /// <param name="shareWithAccounts">shareWithAccounts.</param>
+        /// <param name="shareWithOtherEmails">shareWithOtherEmails.</param>
+        /// <param name="shared">True if this item is shared from another merchant account.</param>
+        /// <param name="source">True if this library item has been published.</param>
+        /// <param name="sourceToLibraryItemOid">This oid points to the published library item, if there is one..</param>
+        /// <param name="sourceVersion">The version of this item.  Increment every time the item is saved..</param>
         /// <param name="style">style.</param>
+        /// <param name="timesPurchased">timesPurchased.</param>
         /// <param name="title">title.</param>
         /// <param name="type">type.</param>
-        public LibraryItem(List<LibraryItemAsset> assets = default(List<LibraryItemAsset>), List<string> categories = default(List<string>), string content = default(string), string contentType = default(string), string description = default(string), List<string> industries = default(List<string>), int? libraryItemOid = default(int?), string merchantId = default(string), bool? publicItem = default(bool?), string publishedDts = default(string), string style = default(string), string title = default(string), string type = default(string))
+        public LibraryItem(List<LibraryItemAsset> assets = default(List<LibraryItemAsset>), List<string> categories = default(List<string>), string content = default(string), string contentType = default(string), string description = default(string), List<string> industries = default(List<string>), int? libraryItemOid = default(int?), string merchantId = default(string), decimal? price = default(decimal?), string priceFormatted = default(string), bool? published = default(bool?), int? publishedFromLibraryItemOid = default(int?), int? publishedVersion = default(int?), bool? purchased = default(bool?), int? purchasedFromLibraryItemOid = default(int?), int? purchasedVersion = default(int?), List<LibraryItemScreenshot> screenshots = default(List<LibraryItemScreenshot>), List<LibraryItemAccount> shareWithAccounts = default(List<LibraryItemAccount>), List<LibraryItemEmail> shareWithOtherEmails = default(List<LibraryItemEmail>), bool? shared = default(bool?), bool? source = default(bool?), int? sourceToLibraryItemOid = default(int?), int? sourceVersion = default(int?), string style = default(string), int? timesPurchased = default(int?), string title = default(string), string type = default(string))
         {
             this.Assets = assets;
             this.Categories = categories;
@@ -56,9 +70,23 @@ namespace com.ultracart.admin.v2.Model
             this.Industries = industries;
             this.LibraryItemOid = libraryItemOid;
             this.MerchantId = merchantId;
-            this.PublicItem = publicItem;
-            this.PublishedDts = publishedDts;
+            this.Price = price;
+            this.PriceFormatted = priceFormatted;
+            this.Published = published;
+            this.PublishedFromLibraryItemOid = publishedFromLibraryItemOid;
+            this.PublishedVersion = publishedVersion;
+            this.Purchased = purchased;
+            this.PurchasedFromLibraryItemOid = purchasedFromLibraryItemOid;
+            this.PurchasedVersion = purchasedVersion;
+            this.Screenshots = screenshots;
+            this.ShareWithAccounts = shareWithAccounts;
+            this.ShareWithOtherEmails = shareWithOtherEmails;
+            this.Shared = shared;
+            this.Source = source;
+            this.SourceToLibraryItemOid = sourceToLibraryItemOid;
+            this.SourceVersion = sourceVersion;
             this.Style = style;
+            this.TimesPurchased = timesPurchased;
             this.Title = title;
             this.Type = type;
         }
@@ -112,22 +140,118 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PublicItem
+        /// The price of the published item.  Null for any private library items.
         /// </summary>
-        [DataMember(Name="public_item", EmitDefaultValue=false)]
-        public bool? PublicItem { get; set; }
+        /// <value>The price of the published item.  Null for any private library items.</value>
+        [DataMember(Name="price", EmitDefaultValue=false)]
+        public decimal? Price { get; set; }
 
         /// <summary>
-        /// Gets or Sets PublishedDts
+        /// The formatted price of the published item.  Null for any private library items.
         /// </summary>
-        [DataMember(Name="published_dts", EmitDefaultValue=false)]
-        public string PublishedDts { get; set; }
+        /// <value>The formatted price of the published item.  Null for any private library items.</value>
+        [DataMember(Name="price_formatted", EmitDefaultValue=false)]
+        public string PriceFormatted { get; set; }
+
+        /// <summary>
+        /// True if this library item is a published item (not source)
+        /// </summary>
+        /// <value>True if this library item is a published item (not source)</value>
+        [DataMember(Name="published", EmitDefaultValue=false)]
+        public bool? Published { get; set; }
+
+        /// <summary>
+        /// The source item used to publish this item.  This allows for comparisons between source and published
+        /// </summary>
+        /// <value>The source item used to publish this item.  This allows for comparisons between source and published</value>
+        [DataMember(Name="published_from_library_item_oid", EmitDefaultValue=false)]
+        public int? PublishedFromLibraryItemOid { get; set; }
+
+        /// <summary>
+        /// The source version when this item was published.  This allows for out-of-date alerts to be shown when there is a difference between source and published
+        /// </summary>
+        /// <value>The source version when this item was published.  This allows for out-of-date alerts to be shown when there is a difference between source and published</value>
+        [DataMember(Name="published_version", EmitDefaultValue=false)]
+        public int? PublishedVersion { get; set; }
+
+        /// <summary>
+        /// True if this library item has been purchased
+        /// </summary>
+        /// <value>True if this library item has been purchased</value>
+        [DataMember(Name="purchased", EmitDefaultValue=false)]
+        public bool? Purchased { get; set; }
+
+        /// <summary>
+        /// The published item that was purchased to make this item.  This allows for comparisons between published and purchased
+        /// </summary>
+        /// <value>The published item that was purchased to make this item.  This allows for comparisons between published and purchased</value>
+        [DataMember(Name="purchased_from_library_item_oid", EmitDefaultValue=false)]
+        public int? PurchasedFromLibraryItemOid { get; set; }
+
+        /// <summary>
+        /// The published version when this item was purchased.  This allows for out-of-date alerts to be shown when there is a difference between published and purchased
+        /// </summary>
+        /// <value>The published version when this item was purchased.  This allows for out-of-date alerts to be shown when there is a difference between published and purchased</value>
+        [DataMember(Name="purchased_version", EmitDefaultValue=false)]
+        public int? PurchasedVersion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Screenshots
+        /// </summary>
+        [DataMember(Name="screenshots", EmitDefaultValue=false)]
+        public List<LibraryItemScreenshot> Screenshots { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShareWithAccounts
+        /// </summary>
+        [DataMember(Name="share_with_accounts", EmitDefaultValue=false)]
+        public List<LibraryItemAccount> ShareWithAccounts { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShareWithOtherEmails
+        /// </summary>
+        [DataMember(Name="share_with_other_emails", EmitDefaultValue=false)]
+        public List<LibraryItemEmail> ShareWithOtherEmails { get; set; }
+
+        /// <summary>
+        /// True if this item is shared from another merchant account
+        /// </summary>
+        /// <value>True if this item is shared from another merchant account</value>
+        [DataMember(Name="shared", EmitDefaultValue=false)]
+        public bool? Shared { get; set; }
+
+        /// <summary>
+        /// True if this library item has been published
+        /// </summary>
+        /// <value>True if this library item has been published</value>
+        [DataMember(Name="source", EmitDefaultValue=false)]
+        public bool? Source { get; set; }
+
+        /// <summary>
+        /// This oid points to the published library item, if there is one.
+        /// </summary>
+        /// <value>This oid points to the published library item, if there is one.</value>
+        [DataMember(Name="source_to_library_item_oid", EmitDefaultValue=false)]
+        public int? SourceToLibraryItemOid { get; set; }
+
+        /// <summary>
+        /// The version of this item.  Increment every time the item is saved.
+        /// </summary>
+        /// <value>The version of this item.  Increment every time the item is saved.</value>
+        [DataMember(Name="source_version", EmitDefaultValue=false)]
+        public int? SourceVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Style
         /// </summary>
         [DataMember(Name="style", EmitDefaultValue=false)]
         public string Style { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TimesPurchased
+        /// </summary>
+        [DataMember(Name="times_purchased", EmitDefaultValue=false)]
+        public int? TimesPurchased { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
@@ -157,9 +281,23 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Industries: ").Append(Industries).Append("\n");
             sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
-            sb.Append("  PublicItem: ").Append(PublicItem).Append("\n");
-            sb.Append("  PublishedDts: ").Append(PublishedDts).Append("\n");
+            sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  PriceFormatted: ").Append(PriceFormatted).Append("\n");
+            sb.Append("  Published: ").Append(Published).Append("\n");
+            sb.Append("  PublishedFromLibraryItemOid: ").Append(PublishedFromLibraryItemOid).Append("\n");
+            sb.Append("  PublishedVersion: ").Append(PublishedVersion).Append("\n");
+            sb.Append("  Purchased: ").Append(Purchased).Append("\n");
+            sb.Append("  PurchasedFromLibraryItemOid: ").Append(PurchasedFromLibraryItemOid).Append("\n");
+            sb.Append("  PurchasedVersion: ").Append(PurchasedVersion).Append("\n");
+            sb.Append("  Screenshots: ").Append(Screenshots).Append("\n");
+            sb.Append("  ShareWithAccounts: ").Append(ShareWithAccounts).Append("\n");
+            sb.Append("  ShareWithOtherEmails: ").Append(ShareWithOtherEmails).Append("\n");
+            sb.Append("  Shared: ").Append(Shared).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  SourceToLibraryItemOid: ").Append(SourceToLibraryItemOid).Append("\n");
+            sb.Append("  SourceVersion: ").Append(SourceVersion).Append("\n");
             sb.Append("  Style: ").Append(Style).Append("\n");
+            sb.Append("  TimesPurchased: ").Append(TimesPurchased).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
@@ -237,19 +375,89 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
-                    this.PublicItem == input.PublicItem ||
-                    (this.PublicItem != null &&
-                    this.PublicItem.Equals(input.PublicItem))
+                    this.Price == input.Price ||
+                    (this.Price != null &&
+                    this.Price.Equals(input.Price))
                 ) && 
                 (
-                    this.PublishedDts == input.PublishedDts ||
-                    (this.PublishedDts != null &&
-                    this.PublishedDts.Equals(input.PublishedDts))
+                    this.PriceFormatted == input.PriceFormatted ||
+                    (this.PriceFormatted != null &&
+                    this.PriceFormatted.Equals(input.PriceFormatted))
+                ) && 
+                (
+                    this.Published == input.Published ||
+                    (this.Published != null &&
+                    this.Published.Equals(input.Published))
+                ) && 
+                (
+                    this.PublishedFromLibraryItemOid == input.PublishedFromLibraryItemOid ||
+                    (this.PublishedFromLibraryItemOid != null &&
+                    this.PublishedFromLibraryItemOid.Equals(input.PublishedFromLibraryItemOid))
+                ) && 
+                (
+                    this.PublishedVersion == input.PublishedVersion ||
+                    (this.PublishedVersion != null &&
+                    this.PublishedVersion.Equals(input.PublishedVersion))
+                ) && 
+                (
+                    this.Purchased == input.Purchased ||
+                    (this.Purchased != null &&
+                    this.Purchased.Equals(input.Purchased))
+                ) && 
+                (
+                    this.PurchasedFromLibraryItemOid == input.PurchasedFromLibraryItemOid ||
+                    (this.PurchasedFromLibraryItemOid != null &&
+                    this.PurchasedFromLibraryItemOid.Equals(input.PurchasedFromLibraryItemOid))
+                ) && 
+                (
+                    this.PurchasedVersion == input.PurchasedVersion ||
+                    (this.PurchasedVersion != null &&
+                    this.PurchasedVersion.Equals(input.PurchasedVersion))
+                ) && 
+                (
+                    this.Screenshots == input.Screenshots ||
+                    this.Screenshots != null &&
+                    this.Screenshots.SequenceEqual(input.Screenshots)
+                ) && 
+                (
+                    this.ShareWithAccounts == input.ShareWithAccounts ||
+                    this.ShareWithAccounts != null &&
+                    this.ShareWithAccounts.SequenceEqual(input.ShareWithAccounts)
+                ) && 
+                (
+                    this.ShareWithOtherEmails == input.ShareWithOtherEmails ||
+                    this.ShareWithOtherEmails != null &&
+                    this.ShareWithOtherEmails.SequenceEqual(input.ShareWithOtherEmails)
+                ) && 
+                (
+                    this.Shared == input.Shared ||
+                    (this.Shared != null &&
+                    this.Shared.Equals(input.Shared))
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
+                ) && 
+                (
+                    this.SourceToLibraryItemOid == input.SourceToLibraryItemOid ||
+                    (this.SourceToLibraryItemOid != null &&
+                    this.SourceToLibraryItemOid.Equals(input.SourceToLibraryItemOid))
+                ) && 
+                (
+                    this.SourceVersion == input.SourceVersion ||
+                    (this.SourceVersion != null &&
+                    this.SourceVersion.Equals(input.SourceVersion))
                 ) && 
                 (
                     this.Style == input.Style ||
                     (this.Style != null &&
                     this.Style.Equals(input.Style))
+                ) && 
+                (
+                    this.TimesPurchased == input.TimesPurchased ||
+                    (this.TimesPurchased != null &&
+                    this.TimesPurchased.Equals(input.TimesPurchased))
                 ) && 
                 (
                     this.Title == input.Title ||
@@ -288,12 +496,40 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
-                if (this.PublicItem != null)
-                    hashCode = hashCode * 59 + this.PublicItem.GetHashCode();
-                if (this.PublishedDts != null)
-                    hashCode = hashCode * 59 + this.PublishedDts.GetHashCode();
+                if (this.Price != null)
+                    hashCode = hashCode * 59 + this.Price.GetHashCode();
+                if (this.PriceFormatted != null)
+                    hashCode = hashCode * 59 + this.PriceFormatted.GetHashCode();
+                if (this.Published != null)
+                    hashCode = hashCode * 59 + this.Published.GetHashCode();
+                if (this.PublishedFromLibraryItemOid != null)
+                    hashCode = hashCode * 59 + this.PublishedFromLibraryItemOid.GetHashCode();
+                if (this.PublishedVersion != null)
+                    hashCode = hashCode * 59 + this.PublishedVersion.GetHashCode();
+                if (this.Purchased != null)
+                    hashCode = hashCode * 59 + this.Purchased.GetHashCode();
+                if (this.PurchasedFromLibraryItemOid != null)
+                    hashCode = hashCode * 59 + this.PurchasedFromLibraryItemOid.GetHashCode();
+                if (this.PurchasedVersion != null)
+                    hashCode = hashCode * 59 + this.PurchasedVersion.GetHashCode();
+                if (this.Screenshots != null)
+                    hashCode = hashCode * 59 + this.Screenshots.GetHashCode();
+                if (this.ShareWithAccounts != null)
+                    hashCode = hashCode * 59 + this.ShareWithAccounts.GetHashCode();
+                if (this.ShareWithOtherEmails != null)
+                    hashCode = hashCode * 59 + this.ShareWithOtherEmails.GetHashCode();
+                if (this.Shared != null)
+                    hashCode = hashCode * 59 + this.Shared.GetHashCode();
+                if (this.Source != null)
+                    hashCode = hashCode * 59 + this.Source.GetHashCode();
+                if (this.SourceToLibraryItemOid != null)
+                    hashCode = hashCode * 59 + this.SourceToLibraryItemOid.GetHashCode();
+                if (this.SourceVersion != null)
+                    hashCode = hashCode * 59 + this.SourceVersion.GetHashCode();
                 if (this.Style != null)
                     hashCode = hashCode * 59 + this.Style.GetHashCode();
+                if (this.TimesPurchased != null)
+                    hashCode = hashCode * 59 + this.TimesPurchased.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Type != null)

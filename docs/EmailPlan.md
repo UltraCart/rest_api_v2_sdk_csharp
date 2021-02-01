@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalCustomers** | **int?** |  | [optional] 
 **AdditionalEmails** | **int?** |  | [optional] 
+**AdditionalFee** | **decimal?** |  | [optional] 
 **AllowListImport** | **bool?** |  | [optional] 
 **AllowTrackingEmails** | **bool?** |  | [optional] 
 **CustomerTiers** | [**List&lt;EmailPlanAdditional&gt;**](EmailPlanAdditional.md) |  | [optional] 

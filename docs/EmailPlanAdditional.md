@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 **CanDowngrade** | **bool?** |  | [optional] 
 **CanUpgrade** | **bool?** |  | [optional] 
 **Cost** | **decimal?** |  | [optional] 
+**CostChange** | **decimal?** |  | [optional] 
+**CostChangeFormatted** | **string** |  | [optional] 
 **CostFormatted** | **string** |  | [optional] 
 **Customers** | **int?** |  | [optional] 
 **Emails** | **int?** |  | [optional] 

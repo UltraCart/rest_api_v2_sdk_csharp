@@ -35,6 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="additionalCustomers">additionalCustomers.</param>
         /// <param name="additionalEmails">additionalEmails.</param>
+        /// <param name="additionalFee">additionalFee.</param>
         /// <param name="allowListImport">allowListImport.</param>
         /// <param name="allowTrackingEmails">allowTrackingEmails.</param>
         /// <param name="customerTiers">customerTiers.</param>
@@ -49,10 +50,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="totalCustomers">totalCustomers.</param>
         /// <param name="totalEmails">totalEmails.</param>
         /// <param name="upgradeTo">upgradeTo.</param>
-        public EmailPlan(int? additionalCustomers = default(int?), int? additionalEmails = default(int?), bool? allowListImport = default(bool?), bool? allowTrackingEmails = default(bool?), List<EmailPlanAdditional> customerTiers = default(List<EmailPlanAdditional>), int? initialSendingLimits = default(int?), int? planCustomers = default(int?), int? planEmails = default(int?), string planName = default(string), string planNameFormatted = default(string), int? requireOrderWithinLastDays = default(int?), int? revenuePercent = default(int?), int? spamPercentLimit = default(int?), int? totalCustomers = default(int?), int? totalEmails = default(int?), int? upgradeTo = default(int?))
+        public EmailPlan(int? additionalCustomers = default(int?), int? additionalEmails = default(int?), decimal? additionalFee = default(decimal?), bool? allowListImport = default(bool?), bool? allowTrackingEmails = default(bool?), List<EmailPlanAdditional> customerTiers = default(List<EmailPlanAdditional>), int? initialSendingLimits = default(int?), int? planCustomers = default(int?), int? planEmails = default(int?), string planName = default(string), string planNameFormatted = default(string), int? requireOrderWithinLastDays = default(int?), int? revenuePercent = default(int?), int? spamPercentLimit = default(int?), int? totalCustomers = default(int?), int? totalEmails = default(int?), int? upgradeTo = default(int?))
         {
             this.AdditionalCustomers = additionalCustomers;
             this.AdditionalEmails = additionalEmails;
+            this.AdditionalFee = additionalFee;
             this.AllowListImport = allowListImport;
             this.AllowTrackingEmails = allowTrackingEmails;
             this.CustomerTiers = customerTiers;
@@ -80,6 +82,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="additional_emails", EmitDefaultValue=false)]
         public int? AdditionalEmails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AdditionalFee
+        /// </summary>
+        [DataMember(Name="additional_fee", EmitDefaultValue=false)]
+        public decimal? AdditionalFee { get; set; }
 
         /// <summary>
         /// Gets or Sets AllowListImport
@@ -175,6 +183,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class EmailPlan {\n");
             sb.Append("  AdditionalCustomers: ").Append(AdditionalCustomers).Append("\n");
             sb.Append("  AdditionalEmails: ").Append(AdditionalEmails).Append("\n");
+            sb.Append("  AdditionalFee: ").Append(AdditionalFee).Append("\n");
             sb.Append("  AllowListImport: ").Append(AllowListImport).Append("\n");
             sb.Append("  AllowTrackingEmails: ").Append(AllowTrackingEmails).Append("\n");
             sb.Append("  CustomerTiers: ").Append(CustomerTiers).Append("\n");
@@ -232,6 +241,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AdditionalEmails == input.AdditionalEmails ||
                     (this.AdditionalEmails != null &&
                     this.AdditionalEmails.Equals(input.AdditionalEmails))
+                ) && 
+                (
+                    this.AdditionalFee == input.AdditionalFee ||
+                    (this.AdditionalFee != null &&
+                    this.AdditionalFee.Equals(input.AdditionalFee))
                 ) && 
                 (
                     this.AllowListImport == input.AllowListImport ||
@@ -318,6 +332,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AdditionalCustomers.GetHashCode();
                 if (this.AdditionalEmails != null)
                     hashCode = hashCode * 59 + this.AdditionalEmails.GetHashCode();
+                if (this.AdditionalFee != null)
+                    hashCode = hashCode * 59 + this.AdditionalFee.GetHashCode();
                 if (this.AllowListImport != null)
                     hashCode = hashCode * 59 + this.AllowListImport.GetHashCode();
                 if (this.AllowTrackingEmails != null)

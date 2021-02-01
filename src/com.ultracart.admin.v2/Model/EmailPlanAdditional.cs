@@ -36,14 +36,18 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="canDowngrade">canDowngrade.</param>
         /// <param name="canUpgrade">canUpgrade.</param>
         /// <param name="cost">cost.</param>
+        /// <param name="costChange">costChange.</param>
+        /// <param name="costChangeFormatted">costChangeFormatted.</param>
         /// <param name="costFormatted">costFormatted.</param>
         /// <param name="customers">customers.</param>
         /// <param name="emails">emails.</param>
-        public EmailPlanAdditional(bool? canDowngrade = default(bool?), bool? canUpgrade = default(bool?), decimal? cost = default(decimal?), string costFormatted = default(string), int? customers = default(int?), int? emails = default(int?))
+        public EmailPlanAdditional(bool? canDowngrade = default(bool?), bool? canUpgrade = default(bool?), decimal? cost = default(decimal?), decimal? costChange = default(decimal?), string costChangeFormatted = default(string), string costFormatted = default(string), int? customers = default(int?), int? emails = default(int?))
         {
             this.CanDowngrade = canDowngrade;
             this.CanUpgrade = canUpgrade;
             this.Cost = cost;
+            this.CostChange = costChange;
+            this.CostChangeFormatted = costChangeFormatted;
             this.CostFormatted = costFormatted;
             this.Customers = customers;
             this.Emails = emails;
@@ -66,6 +70,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="cost", EmitDefaultValue=false)]
         public decimal? Cost { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CostChange
+        /// </summary>
+        [DataMember(Name="cost_change", EmitDefaultValue=false)]
+        public decimal? CostChange { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CostChangeFormatted
+        /// </summary>
+        [DataMember(Name="cost_change_formatted", EmitDefaultValue=false)]
+        public string CostChangeFormatted { get; set; }
 
         /// <summary>
         /// Gets or Sets CostFormatted
@@ -96,6 +112,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CanDowngrade: ").Append(CanDowngrade).Append("\n");
             sb.Append("  CanUpgrade: ").Append(CanUpgrade).Append("\n");
             sb.Append("  Cost: ").Append(Cost).Append("\n");
+            sb.Append("  CostChange: ").Append(CostChange).Append("\n");
+            sb.Append("  CostChangeFormatted: ").Append(CostChangeFormatted).Append("\n");
             sb.Append("  CostFormatted: ").Append(CostFormatted).Append("\n");
             sb.Append("  Customers: ").Append(Customers).Append("\n");
             sb.Append("  Emails: ").Append(Emails).Append("\n");
@@ -149,6 +167,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Cost.Equals(input.Cost))
                 ) && 
                 (
+                    this.CostChange == input.CostChange ||
+                    (this.CostChange != null &&
+                    this.CostChange.Equals(input.CostChange))
+                ) && 
+                (
+                    this.CostChangeFormatted == input.CostChangeFormatted ||
+                    (this.CostChangeFormatted != null &&
+                    this.CostChangeFormatted.Equals(input.CostChangeFormatted))
+                ) && 
+                (
                     this.CostFormatted == input.CostFormatted ||
                     (this.CostFormatted != null &&
                     this.CostFormatted.Equals(input.CostFormatted))
@@ -180,6 +208,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CanUpgrade.GetHashCode();
                 if (this.Cost != null)
                     hashCode = hashCode * 59 + this.Cost.GetHashCode();
+                if (this.CostChange != null)
+                    hashCode = hashCode * 59 + this.CostChange.GetHashCode();
+                if (this.CostChangeFormatted != null)
+                    hashCode = hashCode * 59 + this.CostChangeFormatted.GetHashCode();
                 if (this.CostFormatted != null)
                     hashCode = hashCode * 59 + this.CostFormatted.GetHashCode();
                 if (this.Customers != null)

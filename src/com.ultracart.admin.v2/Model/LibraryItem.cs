@@ -34,6 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="LibraryItem" /> class.
         /// </summary>
         /// <param name="assets">assets.</param>
+        /// <param name="attributes">attributes.</param>
         /// <param name="categories">categories.</param>
         /// <param name="content">content.</param>
         /// <param name="contentType">contentType.</param>
@@ -41,14 +42,25 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="industries">industries.</param>
         /// <param name="libraryItemOid">libraryItemOid.</param>
         /// <param name="merchantId">merchantId.</param>
+        /// <param name="myPurchasedVersion">If this is a public item and the merchant has already purchased it, this is their version.  If not yet purchased, this will be zero.  This value will only be populated during a searchPublicItems() call..</param>
+        /// <param name="originalObjectId">This id points to the original object that was added to the library. For flows and campaigns, this is a uuid string.  For upsells, it is an oid integer.  For transactional_emails, it is an email name..</param>
         /// <param name="price">The price of the published item.  Null for any private library items..</param>
         /// <param name="priceFormatted">The formatted price of the published item.  Null for any private library items..</param>
         /// <param name="published">True if this library item is a published item (not source).</param>
+        /// <param name="publishedDts">The timestamp of the last published version.</param>
         /// <param name="publishedFromLibraryItemOid">The source item used to publish this item.  This allows for comparisons between source and published.</param>
+        /// <param name="publishedMeta">publishedMeta.</param>
         /// <param name="publishedVersion">The source version when this item was published.  This allows for out-of-date alerts to be shown when there is a difference between source and published.</param>
         /// <param name="purchased">True if this library item has been purchased.</param>
         /// <param name="purchasedFromLibraryItemOid">The published item that was purchased to make this item.  This allows for comparisons between published and purchased.</param>
+        /// <param name="purchasedMeta">purchasedMeta.</param>
         /// <param name="purchasedVersion">The published version when this item was purchased.  This allows for out-of-date alerts to be shown when there is a difference between published and purchased.</param>
+        /// <param name="rejected">Any published library reviewed by UltraCart staff for malicious or inappropriate content will have this flag set to true.  This is always false for non-published items.</param>
+        /// <param name="rejectedReason">Any rejected published item will have this field populated with the reason..</param>
+        /// <param name="releaseNotes">Release notes specific to each published version and only appearing on public items..</param>
+        /// <param name="releaseVersion">This counter records how many times a library item has been published.  This is used to show version history..</param>
+        /// <param name="reviewed">Any published library items must be reviewed by UltraCart staff for malicious content.  This flag shows the status of that review.  This is always false for non-published items.</param>
+        /// <param name="reviewedDts">This is the timestamp for a published items formal review by UltraCart staff for malicious content..</param>
         /// <param name="screenshots">screenshots.</param>
         /// <param name="shareWithAccounts">shareWithAccounts.</param>
         /// <param name="shareWithOtherEmails">shareWithOtherEmails.</param>
@@ -60,9 +72,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="timesPurchased">timesPurchased.</param>
         /// <param name="title">title.</param>
         /// <param name="type">type.</param>
-        public LibraryItem(List<LibraryItemAsset> assets = default(List<LibraryItemAsset>), List<string> categories = default(List<string>), string content = default(string), string contentType = default(string), string description = default(string), List<string> industries = default(List<string>), int? libraryItemOid = default(int?), string merchantId = default(string), decimal? price = default(decimal?), string priceFormatted = default(string), bool? published = default(bool?), int? publishedFromLibraryItemOid = default(int?), int? publishedVersion = default(int?), bool? purchased = default(bool?), int? purchasedFromLibraryItemOid = default(int?), int? purchasedVersion = default(int?), List<LibraryItemScreenshot> screenshots = default(List<LibraryItemScreenshot>), List<LibraryItemAccount> shareWithAccounts = default(List<LibraryItemAccount>), List<LibraryItemEmail> shareWithOtherEmails = default(List<LibraryItemEmail>), bool? shared = default(bool?), bool? source = default(bool?), int? sourceToLibraryItemOid = default(int?), int? sourceVersion = default(int?), string style = default(string), int? timesPurchased = default(int?), string title = default(string), string type = default(string))
+        /// <param name="underReview">True if this library item was published but is awaiting review from UltraCart staff..</param>
+        public LibraryItem(List<LibraryItemAsset> assets = default(List<LibraryItemAsset>), List<LibraryItemAttribute> attributes = default(List<LibraryItemAttribute>), List<string> categories = default(List<string>), string content = default(string), string contentType = default(string), string description = default(string), List<string> industries = default(List<string>), int? libraryItemOid = default(int?), string merchantId = default(string), int? myPurchasedVersion = default(int?), string originalObjectId = default(string), decimal? price = default(decimal?), string priceFormatted = default(string), bool? published = default(bool?), Object publishedDts = default(Object), int? publishedFromLibraryItemOid = default(int?), LibraryItemPublishedMeta publishedMeta = default(LibraryItemPublishedMeta), int? publishedVersion = default(int?), bool? purchased = default(bool?), int? purchasedFromLibraryItemOid = default(int?), LibraryItemPurchasedMeta purchasedMeta = default(LibraryItemPurchasedMeta), int? purchasedVersion = default(int?), bool? rejected = default(bool?), string rejectedReason = default(string), string releaseNotes = default(string), int? releaseVersion = default(int?), bool? reviewed = default(bool?), Object reviewedDts = default(Object), List<LibraryItemScreenshot> screenshots = default(List<LibraryItemScreenshot>), List<LibraryItemAccount> shareWithAccounts = default(List<LibraryItemAccount>), List<LibraryItemEmail> shareWithOtherEmails = default(List<LibraryItemEmail>), bool? shared = default(bool?), bool? source = default(bool?), int? sourceToLibraryItemOid = default(int?), int? sourceVersion = default(int?), string style = default(string), int? timesPurchased = default(int?), string title = default(string), string type = default(string), bool? underReview = default(bool?))
         {
             this.Assets = assets;
+            this.Attributes = attributes;
             this.Categories = categories;
             this.Content = content;
             this.ContentType = contentType;
@@ -70,14 +84,25 @@ namespace com.ultracart.admin.v2.Model
             this.Industries = industries;
             this.LibraryItemOid = libraryItemOid;
             this.MerchantId = merchantId;
+            this.MyPurchasedVersion = myPurchasedVersion;
+            this.OriginalObjectId = originalObjectId;
             this.Price = price;
             this.PriceFormatted = priceFormatted;
             this.Published = published;
+            this.PublishedDts = publishedDts;
             this.PublishedFromLibraryItemOid = publishedFromLibraryItemOid;
+            this.PublishedMeta = publishedMeta;
             this.PublishedVersion = publishedVersion;
             this.Purchased = purchased;
             this.PurchasedFromLibraryItemOid = purchasedFromLibraryItemOid;
+            this.PurchasedMeta = purchasedMeta;
             this.PurchasedVersion = purchasedVersion;
+            this.Rejected = rejected;
+            this.RejectedReason = rejectedReason;
+            this.ReleaseNotes = releaseNotes;
+            this.ReleaseVersion = releaseVersion;
+            this.Reviewed = reviewed;
+            this.ReviewedDts = reviewedDts;
             this.Screenshots = screenshots;
             this.ShareWithAccounts = shareWithAccounts;
             this.ShareWithOtherEmails = shareWithOtherEmails;
@@ -89,6 +114,7 @@ namespace com.ultracart.admin.v2.Model
             this.TimesPurchased = timesPurchased;
             this.Title = title;
             this.Type = type;
+            this.UnderReview = underReview;
         }
         
         /// <summary>
@@ -96,6 +122,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="assets", EmitDefaultValue=false)]
         public List<LibraryItemAsset> Assets { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Attributes
+        /// </summary>
+        [DataMember(Name="attributes", EmitDefaultValue=false)]
+        public List<LibraryItemAttribute> Attributes { get; set; }
 
         /// <summary>
         /// Gets or Sets Categories
@@ -140,6 +172,20 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
+        /// If this is a public item and the merchant has already purchased it, this is their version.  If not yet purchased, this will be zero.  This value will only be populated during a searchPublicItems() call.
+        /// </summary>
+        /// <value>If this is a public item and the merchant has already purchased it, this is their version.  If not yet purchased, this will be zero.  This value will only be populated during a searchPublicItems() call.</value>
+        [DataMember(Name="my_purchased_version", EmitDefaultValue=false)]
+        public int? MyPurchasedVersion { get; set; }
+
+        /// <summary>
+        /// This id points to the original object that was added to the library. For flows and campaigns, this is a uuid string.  For upsells, it is an oid integer.  For transactional_emails, it is an email name.
+        /// </summary>
+        /// <value>This id points to the original object that was added to the library. For flows and campaigns, this is a uuid string.  For upsells, it is an oid integer.  For transactional_emails, it is an email name.</value>
+        [DataMember(Name="original_object_id", EmitDefaultValue=false)]
+        public string OriginalObjectId { get; set; }
+
+        /// <summary>
         /// The price of the published item.  Null for any private library items.
         /// </summary>
         /// <value>The price of the published item.  Null for any private library items.</value>
@@ -161,11 +207,24 @@ namespace com.ultracart.admin.v2.Model
         public bool? Published { get; set; }
 
         /// <summary>
+        /// The timestamp of the last published version
+        /// </summary>
+        /// <value>The timestamp of the last published version</value>
+        [DataMember(Name="published_dts", EmitDefaultValue=false)]
+        public Object PublishedDts { get; set; }
+
+        /// <summary>
         /// The source item used to publish this item.  This allows for comparisons between source and published
         /// </summary>
         /// <value>The source item used to publish this item.  This allows for comparisons between source and published</value>
         [DataMember(Name="published_from_library_item_oid", EmitDefaultValue=false)]
         public int? PublishedFromLibraryItemOid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PublishedMeta
+        /// </summary>
+        [DataMember(Name="published_meta", EmitDefaultValue=false)]
+        public LibraryItemPublishedMeta PublishedMeta { get; set; }
 
         /// <summary>
         /// The source version when this item was published.  This allows for out-of-date alerts to be shown when there is a difference between source and published
@@ -189,11 +248,59 @@ namespace com.ultracart.admin.v2.Model
         public int? PurchasedFromLibraryItemOid { get; set; }
 
         /// <summary>
+        /// Gets or Sets PurchasedMeta
+        /// </summary>
+        [DataMember(Name="purchased_meta", EmitDefaultValue=false)]
+        public LibraryItemPurchasedMeta PurchasedMeta { get; set; }
+
+        /// <summary>
         /// The published version when this item was purchased.  This allows for out-of-date alerts to be shown when there is a difference between published and purchased
         /// </summary>
         /// <value>The published version when this item was purchased.  This allows for out-of-date alerts to be shown when there is a difference between published and purchased</value>
         [DataMember(Name="purchased_version", EmitDefaultValue=false)]
         public int? PurchasedVersion { get; set; }
+
+        /// <summary>
+        /// Any published library reviewed by UltraCart staff for malicious or inappropriate content will have this flag set to true.  This is always false for non-published items
+        /// </summary>
+        /// <value>Any published library reviewed by UltraCart staff for malicious or inappropriate content will have this flag set to true.  This is always false for non-published items</value>
+        [DataMember(Name="rejected", EmitDefaultValue=false)]
+        public bool? Rejected { get; set; }
+
+        /// <summary>
+        /// Any rejected published item will have this field populated with the reason.
+        /// </summary>
+        /// <value>Any rejected published item will have this field populated with the reason.</value>
+        [DataMember(Name="rejected_reason", EmitDefaultValue=false)]
+        public string RejectedReason { get; set; }
+
+        /// <summary>
+        /// Release notes specific to each published version and only appearing on public items.
+        /// </summary>
+        /// <value>Release notes specific to each published version and only appearing on public items.</value>
+        [DataMember(Name="release_notes", EmitDefaultValue=false)]
+        public string ReleaseNotes { get; set; }
+
+        /// <summary>
+        /// This counter records how many times a library item has been published.  This is used to show version history.
+        /// </summary>
+        /// <value>This counter records how many times a library item has been published.  This is used to show version history.</value>
+        [DataMember(Name="release_version", EmitDefaultValue=false)]
+        public int? ReleaseVersion { get; set; }
+
+        /// <summary>
+        /// Any published library items must be reviewed by UltraCart staff for malicious content.  This flag shows the status of that review.  This is always false for non-published items
+        /// </summary>
+        /// <value>Any published library items must be reviewed by UltraCart staff for malicious content.  This flag shows the status of that review.  This is always false for non-published items</value>
+        [DataMember(Name="reviewed", EmitDefaultValue=false)]
+        public bool? Reviewed { get; set; }
+
+        /// <summary>
+        /// This is the timestamp for a published items formal review by UltraCart staff for malicious content.
+        /// </summary>
+        /// <value>This is the timestamp for a published items formal review by UltraCart staff for malicious content.</value>
+        [DataMember(Name="reviewed_dts", EmitDefaultValue=false)]
+        public Object ReviewedDts { get; set; }
 
         /// <summary>
         /// Gets or Sets Screenshots
@@ -266,6 +373,13 @@ namespace com.ultracart.admin.v2.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// True if this library item was published but is awaiting review from UltraCart staff.
+        /// </summary>
+        /// <value>True if this library item was published but is awaiting review from UltraCart staff.</value>
+        [DataMember(Name="under_review", EmitDefaultValue=false)]
+        public bool? UnderReview { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -274,6 +388,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class LibraryItem {\n");
             sb.Append("  Assets: ").Append(Assets).Append("\n");
+            sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Categories: ").Append(Categories).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  ContentType: ").Append(ContentType).Append("\n");
@@ -281,14 +396,25 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Industries: ").Append(Industries).Append("\n");
             sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  MyPurchasedVersion: ").Append(MyPurchasedVersion).Append("\n");
+            sb.Append("  OriginalObjectId: ").Append(OriginalObjectId).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  PriceFormatted: ").Append(PriceFormatted).Append("\n");
             sb.Append("  Published: ").Append(Published).Append("\n");
+            sb.Append("  PublishedDts: ").Append(PublishedDts).Append("\n");
             sb.Append("  PublishedFromLibraryItemOid: ").Append(PublishedFromLibraryItemOid).Append("\n");
+            sb.Append("  PublishedMeta: ").Append(PublishedMeta).Append("\n");
             sb.Append("  PublishedVersion: ").Append(PublishedVersion).Append("\n");
             sb.Append("  Purchased: ").Append(Purchased).Append("\n");
             sb.Append("  PurchasedFromLibraryItemOid: ").Append(PurchasedFromLibraryItemOid).Append("\n");
+            sb.Append("  PurchasedMeta: ").Append(PurchasedMeta).Append("\n");
             sb.Append("  PurchasedVersion: ").Append(PurchasedVersion).Append("\n");
+            sb.Append("  Rejected: ").Append(Rejected).Append("\n");
+            sb.Append("  RejectedReason: ").Append(RejectedReason).Append("\n");
+            sb.Append("  ReleaseNotes: ").Append(ReleaseNotes).Append("\n");
+            sb.Append("  ReleaseVersion: ").Append(ReleaseVersion).Append("\n");
+            sb.Append("  Reviewed: ").Append(Reviewed).Append("\n");
+            sb.Append("  ReviewedDts: ").Append(ReviewedDts).Append("\n");
             sb.Append("  Screenshots: ").Append(Screenshots).Append("\n");
             sb.Append("  ShareWithAccounts: ").Append(ShareWithAccounts).Append("\n");
             sb.Append("  ShareWithOtherEmails: ").Append(ShareWithOtherEmails).Append("\n");
@@ -300,6 +426,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  TimesPurchased: ").Append(TimesPurchased).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  UnderReview: ").Append(UnderReview).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -340,6 +467,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Assets.SequenceEqual(input.Assets)
                 ) && 
                 (
+                    this.Attributes == input.Attributes ||
+                    this.Attributes != null &&
+                    this.Attributes.SequenceEqual(input.Attributes)
+                ) && 
+                (
                     this.Categories == input.Categories ||
                     this.Categories != null &&
                     this.Categories.SequenceEqual(input.Categories)
@@ -375,6 +507,16 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
+                    this.MyPurchasedVersion == input.MyPurchasedVersion ||
+                    (this.MyPurchasedVersion != null &&
+                    this.MyPurchasedVersion.Equals(input.MyPurchasedVersion))
+                ) && 
+                (
+                    this.OriginalObjectId == input.OriginalObjectId ||
+                    (this.OriginalObjectId != null &&
+                    this.OriginalObjectId.Equals(input.OriginalObjectId))
+                ) && 
+                (
                     this.Price == input.Price ||
                     (this.Price != null &&
                     this.Price.Equals(input.Price))
@@ -390,9 +532,19 @@ namespace com.ultracart.admin.v2.Model
                     this.Published.Equals(input.Published))
                 ) && 
                 (
+                    this.PublishedDts == input.PublishedDts ||
+                    (this.PublishedDts != null &&
+                    this.PublishedDts.Equals(input.PublishedDts))
+                ) && 
+                (
                     this.PublishedFromLibraryItemOid == input.PublishedFromLibraryItemOid ||
                     (this.PublishedFromLibraryItemOid != null &&
                     this.PublishedFromLibraryItemOid.Equals(input.PublishedFromLibraryItemOid))
+                ) && 
+                (
+                    this.PublishedMeta == input.PublishedMeta ||
+                    (this.PublishedMeta != null &&
+                    this.PublishedMeta.Equals(input.PublishedMeta))
                 ) && 
                 (
                     this.PublishedVersion == input.PublishedVersion ||
@@ -410,9 +562,44 @@ namespace com.ultracart.admin.v2.Model
                     this.PurchasedFromLibraryItemOid.Equals(input.PurchasedFromLibraryItemOid))
                 ) && 
                 (
+                    this.PurchasedMeta == input.PurchasedMeta ||
+                    (this.PurchasedMeta != null &&
+                    this.PurchasedMeta.Equals(input.PurchasedMeta))
+                ) && 
+                (
                     this.PurchasedVersion == input.PurchasedVersion ||
                     (this.PurchasedVersion != null &&
                     this.PurchasedVersion.Equals(input.PurchasedVersion))
+                ) && 
+                (
+                    this.Rejected == input.Rejected ||
+                    (this.Rejected != null &&
+                    this.Rejected.Equals(input.Rejected))
+                ) && 
+                (
+                    this.RejectedReason == input.RejectedReason ||
+                    (this.RejectedReason != null &&
+                    this.RejectedReason.Equals(input.RejectedReason))
+                ) && 
+                (
+                    this.ReleaseNotes == input.ReleaseNotes ||
+                    (this.ReleaseNotes != null &&
+                    this.ReleaseNotes.Equals(input.ReleaseNotes))
+                ) && 
+                (
+                    this.ReleaseVersion == input.ReleaseVersion ||
+                    (this.ReleaseVersion != null &&
+                    this.ReleaseVersion.Equals(input.ReleaseVersion))
+                ) && 
+                (
+                    this.Reviewed == input.Reviewed ||
+                    (this.Reviewed != null &&
+                    this.Reviewed.Equals(input.Reviewed))
+                ) && 
+                (
+                    this.ReviewedDts == input.ReviewedDts ||
+                    (this.ReviewedDts != null &&
+                    this.ReviewedDts.Equals(input.ReviewedDts))
                 ) && 
                 (
                     this.Screenshots == input.Screenshots ||
@@ -468,6 +655,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.UnderReview == input.UnderReview ||
+                    (this.UnderReview != null &&
+                    this.UnderReview.Equals(input.UnderReview))
                 );
         }
 
@@ -482,6 +674,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Assets != null)
                     hashCode = hashCode * 59 + this.Assets.GetHashCode();
+                if (this.Attributes != null)
+                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Categories != null)
                     hashCode = hashCode * 59 + this.Categories.GetHashCode();
                 if (this.Content != null)
@@ -496,22 +690,44 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.MyPurchasedVersion != null)
+                    hashCode = hashCode * 59 + this.MyPurchasedVersion.GetHashCode();
+                if (this.OriginalObjectId != null)
+                    hashCode = hashCode * 59 + this.OriginalObjectId.GetHashCode();
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
                 if (this.PriceFormatted != null)
                     hashCode = hashCode * 59 + this.PriceFormatted.GetHashCode();
                 if (this.Published != null)
                     hashCode = hashCode * 59 + this.Published.GetHashCode();
+                if (this.PublishedDts != null)
+                    hashCode = hashCode * 59 + this.PublishedDts.GetHashCode();
                 if (this.PublishedFromLibraryItemOid != null)
                     hashCode = hashCode * 59 + this.PublishedFromLibraryItemOid.GetHashCode();
+                if (this.PublishedMeta != null)
+                    hashCode = hashCode * 59 + this.PublishedMeta.GetHashCode();
                 if (this.PublishedVersion != null)
                     hashCode = hashCode * 59 + this.PublishedVersion.GetHashCode();
                 if (this.Purchased != null)
                     hashCode = hashCode * 59 + this.Purchased.GetHashCode();
                 if (this.PurchasedFromLibraryItemOid != null)
                     hashCode = hashCode * 59 + this.PurchasedFromLibraryItemOid.GetHashCode();
+                if (this.PurchasedMeta != null)
+                    hashCode = hashCode * 59 + this.PurchasedMeta.GetHashCode();
                 if (this.PurchasedVersion != null)
                     hashCode = hashCode * 59 + this.PurchasedVersion.GetHashCode();
+                if (this.Rejected != null)
+                    hashCode = hashCode * 59 + this.Rejected.GetHashCode();
+                if (this.RejectedReason != null)
+                    hashCode = hashCode * 59 + this.RejectedReason.GetHashCode();
+                if (this.ReleaseNotes != null)
+                    hashCode = hashCode * 59 + this.ReleaseNotes.GetHashCode();
+                if (this.ReleaseVersion != null)
+                    hashCode = hashCode * 59 + this.ReleaseVersion.GetHashCode();
+                if (this.Reviewed != null)
+                    hashCode = hashCode * 59 + this.Reviewed.GetHashCode();
+                if (this.ReviewedDts != null)
+                    hashCode = hashCode * 59 + this.ReviewedDts.GetHashCode();
                 if (this.Screenshots != null)
                     hashCode = hashCode * 59 + this.Screenshots.GetHashCode();
                 if (this.ShareWithAccounts != null)
@@ -534,6 +750,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.UnderReview != null)
+                    hashCode = hashCode * 59 + this.UnderReview.GetHashCode();
                 return hashCode;
             }
         }

@@ -32,8 +32,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponOid">The coupon_oid to delete.</param>
-        /// <returns>CouponResponse</returns>
-        CouponResponse DeleteCoupon (int? couponOid);
+        /// <returns></returns>
+        void DeleteCoupon (int? couponOid);
 
         /// <summary>
         /// Delete a coupon
@@ -43,8 +43,71 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponOid">The coupon_oid to delete.</param>
-        /// <returns>ApiResponse of CouponResponse</returns>
-        ApiResponse<CouponResponse> DeleteCouponWithHttpInfo (int? couponOid);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteCouponWithHttpInfo (int? couponOid);
+        /// <summary>
+        /// Deletes multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Delete coupons on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns></returns>
+        void DeleteCouponsByCode (CouponDeletesRequest couponDeleteRequest);
+
+        /// <summary>
+        /// Deletes multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Delete coupons on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteCouponsByCodeWithHttpInfo (CouponDeletesRequest couponDeleteRequest);
+        /// <summary>
+        /// Deletes multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Delete coupons on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns></returns>
+        void DeleteCouponsByOid (CouponDeletesRequest couponDeleteRequest);
+
+        /// <summary>
+        /// Deletes multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Delete coupons on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteCouponsByOidWithHttpInfo (CouponDeletesRequest couponDeleteRequest);
+        /// <summary>
+        /// Determines if a coupon merchant code already exists
+        /// </summary>
+        /// <remarks>
+        /// Determines if a coupon merchant code already exists. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to examine.</param>
+        /// <returns>CouponExistsResponse</returns>
+        CouponExistsResponse DoesCouponCodeExist (string merchantCode);
+
+        /// <summary>
+        /// Determines if a coupon merchant code already exists
+        /// </summary>
+        /// <remarks>
+        /// Determines if a coupon merchant code already exists. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to examine.</param>
+        /// <returns>ApiResponse of CouponExistsResponse</returns>
+        ApiResponse<CouponExistsResponse> DoesCouponCodeExistWithHttpInfo (string merchantCode);
         /// <summary>
         /// Generates one time codes for a coupon
         /// </summary>
@@ -91,6 +154,25 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="couponCodesRequest">Coupon code generation parameters</param>
         /// <returns>ApiResponse of CouponCodesResponse</returns>
         ApiResponse<CouponCodesResponse> GenerateOneTimeCodesByMerchantCodeWithHttpInfo (string merchantCode, CouponCodesRequest couponCodesRequest);
+        /// <summary>
+        /// Retrieve auto apply rules and conditions
+        /// </summary>
+        /// <remarks>
+        /// Retrieve auto apply rules and conditions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CouponAutoApplyConditions</returns>
+        CouponAutoApplyConditions GetAutoApply ();
+
+        /// <summary>
+        /// Retrieve auto apply rules and conditions
+        /// </summary>
+        /// <remarks>
+        /// Retrieve auto apply rules and conditions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CouponAutoApplyConditions</returns>
+        ApiResponse<CouponAutoApplyConditions> GetAutoApplyWithHttpInfo ();
         /// <summary>
         /// Retrieve a coupon
         /// </summary>
@@ -254,6 +336,75 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CouponResponse</returns>
         ApiResponse<CouponResponse> InsertCouponWithHttpInfo (Coupon coupon, string expand = null);
         /// <summary>
+        /// Insert multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Insert multiple coupon on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>CouponsResponse</returns>
+        CouponsResponse InsertCoupons (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null);
+
+        /// <summary>
+        /// Insert multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Insert multiple coupon on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of CouponsResponse</returns>
+        ApiResponse<CouponsResponse> InsertCouponsWithHttpInfo (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null);
+        /// <summary>
+        /// Searches for items to display within a coupon editor and assign to coupons
+        /// </summary>
+        /// <remarks>
+        /// Searches for items to display within a coupon editor and assign to coupons 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="s"> (optional)</param>
+        /// <param name="m"> (optional)</param>
+        /// <returns>CouponItemSearchResultsResponse</returns>
+        CouponItemSearchResultsResponse SearchItems (string s = null, int? m = null);
+
+        /// <summary>
+        /// Searches for items to display within a coupon editor and assign to coupons
+        /// </summary>
+        /// <remarks>
+        /// Searches for items to display within a coupon editor and assign to coupons 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="s"> (optional)</param>
+        /// <param name="m"> (optional)</param>
+        /// <returns>ApiResponse of CouponItemSearchResultsResponse</returns>
+        ApiResponse<CouponItemSearchResultsResponse> SearchItemsWithHttpInfo (string s = null, int? m = null);
+        /// <summary>
+        /// Update auto apply rules and conditions
+        /// </summary>
+        /// <remarks>
+        /// Update auto apply rules and conditions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conditions">Conditions</param>
+        /// <returns></returns>
+        void UpdateAutoApply (CouponAutoApplyConditions conditions);
+
+        /// <summary>
+        /// Update auto apply rules and conditions
+        /// </summary>
+        /// <remarks>
+        /// Update auto apply rules and conditions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conditions">Conditions</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateAutoApplyWithHttpInfo (CouponAutoApplyConditions conditions);
+        /// <summary>
         /// Update a coupon
         /// </summary>
         /// <remarks>
@@ -278,6 +429,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CouponResponse</returns>
         ApiResponse<CouponResponse> UpdateCouponWithHttpInfo (Coupon coupon, int? couponOid, string expand = null);
+        /// <summary>
+        /// Update multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Update multiple coupon on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>CouponsResponse</returns>
+        CouponsResponse UpdateCoupons (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null, bool? async = null);
+
+        /// <summary>
+        /// Update multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Update multiple coupon on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>ApiResponse of CouponsResponse</returns>
+        ApiResponse<CouponsResponse> UpdateCouponsWithHttpInfo (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null, bool? async = null);
+        /// <summary>
+        /// Upload one-time codes for a coupon
+        /// </summary>
+        /// <remarks>
+        /// Upload one-time codes for a coupon 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponOid">The coupon oid to associate with the provided one-time codes.</param>
+        /// <param name="uploadCouponCodesRequest">One-time coupon codes</param>
+        /// <returns>UploadCouponCodesResponse</returns>
+        UploadCouponCodesResponse UploadCouponCodes (int? couponOid, UploadCouponCodesRequest uploadCouponCodesRequest);
+
+        /// <summary>
+        /// Upload one-time codes for a coupon
+        /// </summary>
+        /// <remarks>
+        /// Upload one-time codes for a coupon 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponOid">The coupon oid to associate with the provided one-time codes.</param>
+        /// <param name="uploadCouponCodesRequest">One-time coupon codes</param>
+        /// <returns>ApiResponse of UploadCouponCodesResponse</returns>
+        ApiResponse<UploadCouponCodesResponse> UploadCouponCodesWithHttpInfo (int? couponOid, UploadCouponCodesRequest uploadCouponCodesRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -288,8 +489,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponOid">The coupon_oid to delete.</param>
-        /// <returns>Task of CouponResponse</returns>
-        System.Threading.Tasks.Task<CouponResponse> DeleteCouponAsync (int? couponOid);
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteCouponAsync (int? couponOid);
 
         /// <summary>
         /// Delete a coupon
@@ -299,8 +500,71 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponOid">The coupon_oid to delete.</param>
-        /// <returns>Task of ApiResponse (CouponResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CouponResponse>> DeleteCouponAsyncWithHttpInfo (int? couponOid);
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCouponAsyncWithHttpInfo (int? couponOid);
+        /// <summary>
+        /// Deletes multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Delete coupons on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteCouponsByCodeAsync (CouponDeletesRequest couponDeleteRequest);
+
+        /// <summary>
+        /// Deletes multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Delete coupons on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCouponsByCodeAsyncWithHttpInfo (CouponDeletesRequest couponDeleteRequest);
+        /// <summary>
+        /// Deletes multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Delete coupons on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteCouponsByOidAsync (CouponDeletesRequest couponDeleteRequest);
+
+        /// <summary>
+        /// Deletes multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Delete coupons on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCouponsByOidAsyncWithHttpInfo (CouponDeletesRequest couponDeleteRequest);
+        /// <summary>
+        /// Determines if a coupon merchant code already exists
+        /// </summary>
+        /// <remarks>
+        /// Determines if a coupon merchant code already exists. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to examine.</param>
+        /// <returns>Task of CouponExistsResponse</returns>
+        System.Threading.Tasks.Task<CouponExistsResponse> DoesCouponCodeExistAsync (string merchantCode);
+
+        /// <summary>
+        /// Determines if a coupon merchant code already exists
+        /// </summary>
+        /// <remarks>
+        /// Determines if a coupon merchant code already exists. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to examine.</param>
+        /// <returns>Task of ApiResponse (CouponExistsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CouponExistsResponse>> DoesCouponCodeExistAsyncWithHttpInfo (string merchantCode);
         /// <summary>
         /// Generates one time codes for a coupon
         /// </summary>
@@ -347,6 +611,25 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="couponCodesRequest">Coupon code generation parameters</param>
         /// <returns>Task of ApiResponse (CouponCodesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CouponCodesResponse>> GenerateOneTimeCodesByMerchantCodeAsyncWithHttpInfo (string merchantCode, CouponCodesRequest couponCodesRequest);
+        /// <summary>
+        /// Retrieve auto apply rules and conditions
+        /// </summary>
+        /// <remarks>
+        /// Retrieve auto apply rules and conditions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CouponAutoApplyConditions</returns>
+        System.Threading.Tasks.Task<CouponAutoApplyConditions> GetAutoApplyAsync ();
+
+        /// <summary>
+        /// Retrieve auto apply rules and conditions
+        /// </summary>
+        /// <remarks>
+        /// Retrieve auto apply rules and conditions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CouponAutoApplyConditions)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CouponAutoApplyConditions>> GetAutoApplyAsyncWithHttpInfo ();
         /// <summary>
         /// Retrieve a coupon
         /// </summary>
@@ -510,6 +793,75 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (CouponResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CouponResponse>> InsertCouponAsyncWithHttpInfo (Coupon coupon, string expand = null);
         /// <summary>
+        /// Insert multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Insert multiple coupon on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of CouponsResponse</returns>
+        System.Threading.Tasks.Task<CouponsResponse> InsertCouponsAsync (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null);
+
+        /// <summary>
+        /// Insert multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Insert multiple coupon on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (CouponsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CouponsResponse>> InsertCouponsAsyncWithHttpInfo (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null);
+        /// <summary>
+        /// Searches for items to display within a coupon editor and assign to coupons
+        /// </summary>
+        /// <remarks>
+        /// Searches for items to display within a coupon editor and assign to coupons 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="s"> (optional)</param>
+        /// <param name="m"> (optional)</param>
+        /// <returns>Task of CouponItemSearchResultsResponse</returns>
+        System.Threading.Tasks.Task<CouponItemSearchResultsResponse> SearchItemsAsync (string s = null, int? m = null);
+
+        /// <summary>
+        /// Searches for items to display within a coupon editor and assign to coupons
+        /// </summary>
+        /// <remarks>
+        /// Searches for items to display within a coupon editor and assign to coupons 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="s"> (optional)</param>
+        /// <param name="m"> (optional)</param>
+        /// <returns>Task of ApiResponse (CouponItemSearchResultsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CouponItemSearchResultsResponse>> SearchItemsAsyncWithHttpInfo (string s = null, int? m = null);
+        /// <summary>
+        /// Update auto apply rules and conditions
+        /// </summary>
+        /// <remarks>
+        /// Update auto apply rules and conditions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conditions">Conditions</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateAutoApplyAsync (CouponAutoApplyConditions conditions);
+
+        /// <summary>
+        /// Update auto apply rules and conditions
+        /// </summary>
+        /// <remarks>
+        /// Update auto apply rules and conditions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conditions">Conditions</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAutoApplyAsyncWithHttpInfo (CouponAutoApplyConditions conditions);
+        /// <summary>
         /// Update a coupon
         /// </summary>
         /// <remarks>
@@ -534,6 +886,56 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CouponResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CouponResponse>> UpdateCouponAsyncWithHttpInfo (Coupon coupon, int? couponOid, string expand = null);
+        /// <summary>
+        /// Update multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Update multiple coupon on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>Task of CouponsResponse</returns>
+        System.Threading.Tasks.Task<CouponsResponse> UpdateCouponsAsync (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null, bool? async = null);
+
+        /// <summary>
+        /// Update multiple coupons
+        /// </summary>
+        /// <remarks>
+        /// Update multiple coupon on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>Task of ApiResponse (CouponsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CouponsResponse>> UpdateCouponsAsyncWithHttpInfo (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null, bool? async = null);
+        /// <summary>
+        /// Upload one-time codes for a coupon
+        /// </summary>
+        /// <remarks>
+        /// Upload one-time codes for a coupon 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponOid">The coupon oid to associate with the provided one-time codes.</param>
+        /// <param name="uploadCouponCodesRequest">One-time coupon codes</param>
+        /// <returns>Task of UploadCouponCodesResponse</returns>
+        System.Threading.Tasks.Task<UploadCouponCodesResponse> UploadCouponCodesAsync (int? couponOid, UploadCouponCodesRequest uploadCouponCodesRequest);
+
+        /// <summary>
+        /// Upload one-time codes for a coupon
+        /// </summary>
+        /// <remarks>
+        /// Upload one-time codes for a coupon 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponOid">The coupon oid to associate with the provided one-time codes.</param>
+        /// <param name="uploadCouponCodesRequest">One-time coupon codes</param>
+        /// <returns>Task of ApiResponse (UploadCouponCodesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UploadCouponCodesResponse>> UploadCouponCodesAsyncWithHttpInfo (int? couponOid, UploadCouponCodesRequest uploadCouponCodesRequest);
         #endregion Asynchronous Operations
     }
 
@@ -639,11 +1041,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponOid">The coupon_oid to delete.</param>
-        /// <returns>CouponResponse</returns>
-        public CouponResponse DeleteCoupon (int? couponOid)
+        /// <returns></returns>
+        public void DeleteCoupon (int? couponOid)
         {
-             ApiResponse<CouponResponse> localVarResponse = DeleteCouponWithHttpInfo(couponOid);
-             return localVarResponse.Data;
+             DeleteCouponWithHttpInfo(couponOid);
         }
 
         /// <summary>
@@ -651,8 +1052,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponOid">The coupon_oid to delete.</param>
-        /// <returns>ApiResponse of CouponResponse</returns>
-        public ApiResponse< CouponResponse > DeleteCouponWithHttpInfo (int? couponOid)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteCouponWithHttpInfo (int? couponOid)
         {
             // verify the required parameter 'couponOid' is set
             if (couponOid == null)
@@ -707,9 +1108,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CouponResponse>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CouponResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponResponse)));
+                null);
         }
 
         /// <summary>
@@ -717,11 +1118,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponOid">The coupon_oid to delete.</param>
-        /// <returns>Task of CouponResponse</returns>
-        public async System.Threading.Tasks.Task<CouponResponse> DeleteCouponAsync (int? couponOid)
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteCouponAsync (int? couponOid)
         {
-             ApiResponse<CouponResponse> localVarResponse = await DeleteCouponAsyncWithHttpInfo(couponOid);
-             return localVarResponse.Data;
+             await DeleteCouponAsyncWithHttpInfo(couponOid);
 
         }
 
@@ -730,8 +1130,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponOid">The coupon_oid to delete.</param>
-        /// <returns>Task of ApiResponse (CouponResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CouponResponse>> DeleteCouponAsyncWithHttpInfo (int? couponOid)
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCouponAsyncWithHttpInfo (int? couponOid)
         {
             // verify the required parameter 'couponOid' is set
             if (couponOid == null)
@@ -786,9 +1186,504 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CouponResponse>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CouponResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponResponse)));
+                null);
+        }
+
+        /// <summary>
+        /// Deletes multiple coupons Delete coupons on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns></returns>
+        public void DeleteCouponsByCode (CouponDeletesRequest couponDeleteRequest)
+        {
+             DeleteCouponsByCodeWithHttpInfo(couponDeleteRequest);
+        }
+
+        /// <summary>
+        /// Deletes multiple coupons Delete coupons on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteCouponsByCodeWithHttpInfo (CouponDeletesRequest couponDeleteRequest)
+        {
+            // verify the required parameter 'couponDeleteRequest' is set
+            if (couponDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'couponDeleteRequest' when calling CouponApi->DeleteCouponsByCode");
+
+            var localVarPath = "/coupon/coupons/by_code";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (couponDeleteRequest != null && couponDeleteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(couponDeleteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = couponDeleteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCouponsByCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Deletes multiple coupons Delete coupons on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteCouponsByCodeAsync (CouponDeletesRequest couponDeleteRequest)
+        {
+             await DeleteCouponsByCodeAsyncWithHttpInfo(couponDeleteRequest);
+
+        }
+
+        /// <summary>
+        /// Deletes multiple coupons Delete coupons on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCouponsByCodeAsyncWithHttpInfo (CouponDeletesRequest couponDeleteRequest)
+        {
+            // verify the required parameter 'couponDeleteRequest' is set
+            if (couponDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'couponDeleteRequest' when calling CouponApi->DeleteCouponsByCode");
+
+            var localVarPath = "/coupon/coupons/by_code";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (couponDeleteRequest != null && couponDeleteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(couponDeleteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = couponDeleteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCouponsByCode", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Deletes multiple coupons Delete coupons on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns></returns>
+        public void DeleteCouponsByOid (CouponDeletesRequest couponDeleteRequest)
+        {
+             DeleteCouponsByOidWithHttpInfo(couponDeleteRequest);
+        }
+
+        /// <summary>
+        /// Deletes multiple coupons Delete coupons on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteCouponsByOidWithHttpInfo (CouponDeletesRequest couponDeleteRequest)
+        {
+            // verify the required parameter 'couponDeleteRequest' is set
+            if (couponDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'couponDeleteRequest' when calling CouponApi->DeleteCouponsByOid");
+
+            var localVarPath = "/coupon/coupons/by_oid";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (couponDeleteRequest != null && couponDeleteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(couponDeleteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = couponDeleteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCouponsByOid", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Deletes multiple coupons Delete coupons on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteCouponsByOidAsync (CouponDeletesRequest couponDeleteRequest)
+        {
+             await DeleteCouponsByOidAsyncWithHttpInfo(couponDeleteRequest);
+
+        }
+
+        /// <summary>
+        /// Deletes multiple coupons Delete coupons on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponDeleteRequest">Coupon oids to delete</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCouponsByOidAsyncWithHttpInfo (CouponDeletesRequest couponDeleteRequest)
+        {
+            // verify the required parameter 'couponDeleteRequest' is set
+            if (couponDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'couponDeleteRequest' when calling CouponApi->DeleteCouponsByOid");
+
+            var localVarPath = "/coupon/coupons/by_oid";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (couponDeleteRequest != null && couponDeleteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(couponDeleteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = couponDeleteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteCouponsByOid", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Determines if a coupon merchant code already exists Determines if a coupon merchant code already exists. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to examine.</param>
+        /// <returns>CouponExistsResponse</returns>
+        public CouponExistsResponse DoesCouponCodeExist (string merchantCode)
+        {
+             ApiResponse<CouponExistsResponse> localVarResponse = DoesCouponCodeExistWithHttpInfo(merchantCode);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Determines if a coupon merchant code already exists Determines if a coupon merchant code already exists. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to examine.</param>
+        /// <returns>ApiResponse of CouponExistsResponse</returns>
+        public ApiResponse< CouponExistsResponse > DoesCouponCodeExistWithHttpInfo (string merchantCode)
+        {
+            // verify the required parameter 'merchantCode' is set
+            if (merchantCode == null)
+                throw new ApiException(400, "Missing required parameter 'merchantCode' when calling CouponApi->DoesCouponCodeExist");
+
+            var localVarPath = "/coupon/coupons/merchant_code/{merchant_code}/exists";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantCode != null) localVarPathParams.Add("merchant_code", this.Configuration.ApiClient.ParameterToString(merchantCode)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DoesCouponCodeExist", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponExistsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponExistsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponExistsResponse)));
+        }
+
+        /// <summary>
+        /// Determines if a coupon merchant code already exists Determines if a coupon merchant code already exists. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to examine.</param>
+        /// <returns>Task of CouponExistsResponse</returns>
+        public async System.Threading.Tasks.Task<CouponExistsResponse> DoesCouponCodeExistAsync (string merchantCode)
+        {
+             ApiResponse<CouponExistsResponse> localVarResponse = await DoesCouponCodeExistAsyncWithHttpInfo(merchantCode);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Determines if a coupon merchant code already exists Determines if a coupon merchant code already exists. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantCode">The coupon merchant code to examine.</param>
+        /// <returns>Task of ApiResponse (CouponExistsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CouponExistsResponse>> DoesCouponCodeExistAsyncWithHttpInfo (string merchantCode)
+        {
+            // verify the required parameter 'merchantCode' is set
+            if (merchantCode == null)
+                throw new ApiException(400, "Missing required parameter 'merchantCode' when calling CouponApi->DoesCouponCodeExist");
+
+            var localVarPath = "/coupon/coupons/merchant_code/{merchant_code}/exists";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantCode != null) localVarPathParams.Add("merchant_code", this.Configuration.ApiClient.ParameterToString(merchantCode)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DoesCouponCodeExist", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponExistsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponExistsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponExistsResponse)));
         }
 
         /// <summary>
@@ -1155,6 +2050,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CouponCodesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CouponCodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponCodesResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve auto apply rules and conditions Retrieve auto apply rules and conditions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CouponAutoApplyConditions</returns>
+        public CouponAutoApplyConditions GetAutoApply ()
+        {
+             ApiResponse<CouponAutoApplyConditions> localVarResponse = GetAutoApplyWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve auto apply rules and conditions Retrieve auto apply rules and conditions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CouponAutoApplyConditions</returns>
+        public ApiResponse< CouponAutoApplyConditions > GetAutoApplyWithHttpInfo ()
+        {
+
+            var localVarPath = "/coupon/auto_apply";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAutoApply", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponAutoApplyConditions>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponAutoApplyConditions) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponAutoApplyConditions)));
+        }
+
+        /// <summary>
+        /// Retrieve auto apply rules and conditions Retrieve auto apply rules and conditions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CouponAutoApplyConditions</returns>
+        public async System.Threading.Tasks.Task<CouponAutoApplyConditions> GetAutoApplyAsync ()
+        {
+             ApiResponse<CouponAutoApplyConditions> localVarResponse = await GetAutoApplyAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve auto apply rules and conditions Retrieve auto apply rules and conditions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CouponAutoApplyConditions)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CouponAutoApplyConditions>> GetAutoApplyAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/coupon/auto_apply";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAutoApply", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponAutoApplyConditions>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponAutoApplyConditions) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponAutoApplyConditions)));
         }
 
         /// <summary>
@@ -2224,6 +3264,515 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Insert multiple coupons Insert multiple coupon on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>CouponsResponse</returns>
+        public CouponsResponse InsertCoupons (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null)
+        {
+             ApiResponse<CouponsResponse> localVarResponse = InsertCouponsWithHttpInfo(couponsRequest, expand, placeholders);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert multiple coupons Insert multiple coupon on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of CouponsResponse</returns>
+        public ApiResponse< CouponsResponse > InsertCouponsWithHttpInfo (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null)
+        {
+            // verify the required parameter 'couponsRequest' is set
+            if (couponsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'couponsRequest' when calling CouponApi->InsertCoupons");
+
+            var localVarPath = "/coupon/coupons/batch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+            if (couponsRequest != null && couponsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(couponsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = couponsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertCoupons", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponsResponse)));
+        }
+
+        /// <summary>
+        /// Insert multiple coupons Insert multiple coupon on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of CouponsResponse</returns>
+        public async System.Threading.Tasks.Task<CouponsResponse> InsertCouponsAsync (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null)
+        {
+             ApiResponse<CouponsResponse> localVarResponse = await InsertCouponsAsyncWithHttpInfo(couponsRequest, expand, placeholders);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert multiple coupons Insert multiple coupon on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (CouponsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CouponsResponse>> InsertCouponsAsyncWithHttpInfo (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null)
+        {
+            // verify the required parameter 'couponsRequest' is set
+            if (couponsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'couponsRequest' when calling CouponApi->InsertCoupons");
+
+            var localVarPath = "/coupon/coupons/batch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+            if (couponsRequest != null && couponsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(couponsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = couponsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertCoupons", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponsResponse)));
+        }
+
+        /// <summary>
+        /// Searches for items to display within a coupon editor and assign to coupons Searches for items to display within a coupon editor and assign to coupons 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="s"> (optional)</param>
+        /// <param name="m"> (optional)</param>
+        /// <returns>CouponItemSearchResultsResponse</returns>
+        public CouponItemSearchResultsResponse SearchItems (string s = null, int? m = null)
+        {
+             ApiResponse<CouponItemSearchResultsResponse> localVarResponse = SearchItemsWithHttpInfo(s, m);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Searches for items to display within a coupon editor and assign to coupons Searches for items to display within a coupon editor and assign to coupons 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="s"> (optional)</param>
+        /// <param name="m"> (optional)</param>
+        /// <returns>ApiResponse of CouponItemSearchResultsResponse</returns>
+        public ApiResponse< CouponItemSearchResultsResponse > SearchItemsWithHttpInfo (string s = null, int? m = null)
+        {
+
+            var localVarPath = "/coupon/searchItems";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (s != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "s", s)); // query parameter
+            if (m != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "m", m)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponItemSearchResultsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponItemSearchResultsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponItemSearchResultsResponse)));
+        }
+
+        /// <summary>
+        /// Searches for items to display within a coupon editor and assign to coupons Searches for items to display within a coupon editor and assign to coupons 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="s"> (optional)</param>
+        /// <param name="m"> (optional)</param>
+        /// <returns>Task of CouponItemSearchResultsResponse</returns>
+        public async System.Threading.Tasks.Task<CouponItemSearchResultsResponse> SearchItemsAsync (string s = null, int? m = null)
+        {
+             ApiResponse<CouponItemSearchResultsResponse> localVarResponse = await SearchItemsAsyncWithHttpInfo(s, m);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Searches for items to display within a coupon editor and assign to coupons Searches for items to display within a coupon editor and assign to coupons 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="s"> (optional)</param>
+        /// <param name="m"> (optional)</param>
+        /// <returns>Task of ApiResponse (CouponItemSearchResultsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CouponItemSearchResultsResponse>> SearchItemsAsyncWithHttpInfo (string s = null, int? m = null)
+        {
+
+            var localVarPath = "/coupon/searchItems";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (s != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "s", s)); // query parameter
+            if (m != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "m", m)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponItemSearchResultsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponItemSearchResultsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponItemSearchResultsResponse)));
+        }
+
+        /// <summary>
+        /// Update auto apply rules and conditions Update auto apply rules and conditions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conditions">Conditions</param>
+        /// <returns></returns>
+        public void UpdateAutoApply (CouponAutoApplyConditions conditions)
+        {
+             UpdateAutoApplyWithHttpInfo(conditions);
+        }
+
+        /// <summary>
+        /// Update auto apply rules and conditions Update auto apply rules and conditions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conditions">Conditions</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateAutoApplyWithHttpInfo (CouponAutoApplyConditions conditions)
+        {
+            // verify the required parameter 'conditions' is set
+            if (conditions == null)
+                throw new ApiException(400, "Missing required parameter 'conditions' when calling CouponApi->UpdateAutoApply");
+
+            var localVarPath = "/coupon/auto_apply";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conditions != null && conditions.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(conditions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = conditions; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAutoApply", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update auto apply rules and conditions Update auto apply rules and conditions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conditions">Conditions</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateAutoApplyAsync (CouponAutoApplyConditions conditions)
+        {
+             await UpdateAutoApplyAsyncWithHttpInfo(conditions);
+
+        }
+
+        /// <summary>
+        /// Update auto apply rules and conditions Update auto apply rules and conditions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conditions">Conditions</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAutoApplyAsyncWithHttpInfo (CouponAutoApplyConditions conditions)
+        {
+            // verify the required parameter 'conditions' is set
+            if (conditions == null)
+                throw new ApiException(400, "Missing required parameter 'conditions' when calling CouponApi->UpdateAutoApply");
+
+            var localVarPath = "/coupon/auto_apply";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conditions != null && conditions.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(conditions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = conditions; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAutoApply", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
         /// Update a coupon Update a coupon on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2410,6 +3959,378 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CouponResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CouponResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponResponse)));
+        }
+
+        /// <summary>
+        /// Update multiple coupons Update multiple coupon on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>CouponsResponse</returns>
+        public CouponsResponse UpdateCoupons (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null, bool? async = null)
+        {
+             ApiResponse<CouponsResponse> localVarResponse = UpdateCouponsWithHttpInfo(couponsRequest, expand, placeholders, async);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update multiple coupons Update multiple coupon on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>ApiResponse of CouponsResponse</returns>
+        public ApiResponse< CouponsResponse > UpdateCouponsWithHttpInfo (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null, bool? async = null)
+        {
+            // verify the required parameter 'couponsRequest' is set
+            if (couponsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'couponsRequest' when calling CouponApi->UpdateCoupons");
+
+            var localVarPath = "/coupon/coupons/batch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+            if (async != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_async", async)); // query parameter
+            if (couponsRequest != null && couponsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(couponsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = couponsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCoupons", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponsResponse)));
+        }
+
+        /// <summary>
+        /// Update multiple coupons Update multiple coupon on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>Task of CouponsResponse</returns>
+        public async System.Threading.Tasks.Task<CouponsResponse> UpdateCouponsAsync (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null, bool? async = null)
+        {
+             ApiResponse<CouponsResponse> localVarResponse = await UpdateCouponsAsyncWithHttpInfo(couponsRequest, expand, placeholders, async);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update multiple coupons Update multiple coupon on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
+        /// <returns>Task of ApiResponse (CouponsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CouponsResponse>> UpdateCouponsAsyncWithHttpInfo (CouponsRequest couponsRequest, string expand = null, bool? placeholders = null, bool? async = null)
+        {
+            // verify the required parameter 'couponsRequest' is set
+            if (couponsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'couponsRequest' when calling CouponApi->UpdateCoupons");
+
+            var localVarPath = "/coupon/coupons/batch";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+            if (async != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_async", async)); // query parameter
+            if (couponsRequest != null && couponsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(couponsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = couponsRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCoupons", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CouponsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CouponsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CouponsResponse)));
+        }
+
+        /// <summary>
+        /// Upload one-time codes for a coupon Upload one-time codes for a coupon 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponOid">The coupon oid to associate with the provided one-time codes.</param>
+        /// <param name="uploadCouponCodesRequest">One-time coupon codes</param>
+        /// <returns>UploadCouponCodesResponse</returns>
+        public UploadCouponCodesResponse UploadCouponCodes (int? couponOid, UploadCouponCodesRequest uploadCouponCodesRequest)
+        {
+             ApiResponse<UploadCouponCodesResponse> localVarResponse = UploadCouponCodesWithHttpInfo(couponOid, uploadCouponCodesRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Upload one-time codes for a coupon Upload one-time codes for a coupon 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponOid">The coupon oid to associate with the provided one-time codes.</param>
+        /// <param name="uploadCouponCodesRequest">One-time coupon codes</param>
+        /// <returns>ApiResponse of UploadCouponCodesResponse</returns>
+        public ApiResponse< UploadCouponCodesResponse > UploadCouponCodesWithHttpInfo (int? couponOid, UploadCouponCodesRequest uploadCouponCodesRequest)
+        {
+            // verify the required parameter 'couponOid' is set
+            if (couponOid == null)
+                throw new ApiException(400, "Missing required parameter 'couponOid' when calling CouponApi->UploadCouponCodes");
+            // verify the required parameter 'uploadCouponCodesRequest' is set
+            if (uploadCouponCodesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'uploadCouponCodesRequest' when calling CouponApi->UploadCouponCodes");
+
+            var localVarPath = "/coupon/coupons/{coupon_oid}/upload_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (couponOid != null) localVarPathParams.Add("coupon_oid", this.Configuration.ApiClient.ParameterToString(couponOid)); // path parameter
+            if (uploadCouponCodesRequest != null && uploadCouponCodesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(uploadCouponCodesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = uploadCouponCodesRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UploadCouponCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UploadCouponCodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UploadCouponCodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UploadCouponCodesResponse)));
+        }
+
+        /// <summary>
+        /// Upload one-time codes for a coupon Upload one-time codes for a coupon 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponOid">The coupon oid to associate with the provided one-time codes.</param>
+        /// <param name="uploadCouponCodesRequest">One-time coupon codes</param>
+        /// <returns>Task of UploadCouponCodesResponse</returns>
+        public async System.Threading.Tasks.Task<UploadCouponCodesResponse> UploadCouponCodesAsync (int? couponOid, UploadCouponCodesRequest uploadCouponCodesRequest)
+        {
+             ApiResponse<UploadCouponCodesResponse> localVarResponse = await UploadCouponCodesAsyncWithHttpInfo(couponOid, uploadCouponCodesRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Upload one-time codes for a coupon Upload one-time codes for a coupon 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="couponOid">The coupon oid to associate with the provided one-time codes.</param>
+        /// <param name="uploadCouponCodesRequest">One-time coupon codes</param>
+        /// <returns>Task of ApiResponse (UploadCouponCodesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UploadCouponCodesResponse>> UploadCouponCodesAsyncWithHttpInfo (int? couponOid, UploadCouponCodesRequest uploadCouponCodesRequest)
+        {
+            // verify the required parameter 'couponOid' is set
+            if (couponOid == null)
+                throw new ApiException(400, "Missing required parameter 'couponOid' when calling CouponApi->UploadCouponCodes");
+            // verify the required parameter 'uploadCouponCodesRequest' is set
+            if (uploadCouponCodesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'uploadCouponCodesRequest' when calling CouponApi->UploadCouponCodes");
+
+            var localVarPath = "/coupon/coupons/{coupon_oid}/upload_codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (couponOid != null) localVarPathParams.Add("coupon_oid", this.Configuration.ApiClient.ParameterToString(couponOid)); // path parameter
+            if (uploadCouponCodesRequest != null && uploadCouponCodesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(uploadCouponCodesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = uploadCouponCodesRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UploadCouponCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UploadCouponCodesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UploadCouponCodesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UploadCouponCodesResponse)));
         }
 
     }

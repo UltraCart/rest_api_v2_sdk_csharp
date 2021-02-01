@@ -37,12 +37,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="values">values.</param>
-        public LookupResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), List<KeyValue> values = default(List<KeyValue>))
+        /// <param name="warning">warning.</param>
+        public LookupResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), List<KeyValue> values = default(List<KeyValue>), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Metadata = metadata;
             this.Success = success;
             this.Values = values;
+            this.Warning = warning;
         }
         
         /// <summary>
@@ -71,6 +73,12 @@ namespace com.ultracart.admin.v2.Model
         public List<KeyValue> Values { get; set; }
 
         /// <summary>
+        /// Gets or Sets Warning
+        /// </summary>
+        [DataMember(Name="warning", EmitDefaultValue=false)]
+        public Warning Warning { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +90,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
+            sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,6 +144,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Values == input.Values ||
                     this.Values != null &&
                     this.Values.SequenceEqual(input.Values)
+                ) && 
+                (
+                    this.Warning == input.Warning ||
+                    (this.Warning != null &&
+                    this.Warning.Equals(input.Warning))
                 );
         }
 
@@ -155,6 +169,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Values != null)
                     hashCode = hashCode * 59 + this.Values.GetHashCode();
+                if (this.Warning != null)
+                    hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;
             }
         }

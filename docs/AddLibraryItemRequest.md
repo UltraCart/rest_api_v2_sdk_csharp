@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Attributes** | [**List&lt;LibraryItemAttribute&gt;**](LibraryItemAttribute.md) | Attributes associated with the library item to contain additional configuration. | [optional] 
 **Cjson** | **string** | Cjson to be added to library | [optional] 
 **ContentType** | **string** | flow, campaign, cjson, email, transactional_email or upsell | [optional] 
 **Description** | **string** | description of library item | [optional] 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 **StorefrontOid** | **int?** | StoreFront oid where content originates necessary for tracking down relative assets | [optional] 
 **Title** | **string** | title of library item, usually the name of the flow or campaign, or description of cjson | [optional] 
 **UpsellOfferOid** | **int?** | Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer. | [optional] 
-**Uuid** | **string** | UUID of communication flow or campaign, null if this item is neither | [optional] 
+**Uuid** | **string** | UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

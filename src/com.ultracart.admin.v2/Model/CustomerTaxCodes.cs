@@ -37,12 +37,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="avalaraEntityUseCode">Avalara entity use code.</param>
         /// <param name="sovosCustomerCode">Sovos customer code.</param>
         /// <param name="taxjarCustomerId">TaxJar customer id.</param>
-        public CustomerTaxCodes(string avalaraCustomerCode = default(string), string avalaraEntityUseCode = default(string), string sovosCustomerCode = default(string), string taxjarCustomerId = default(string))
+        /// <param name="taxjarExemptionType">TaxJar exemption type.</param>
+        public CustomerTaxCodes(string avalaraCustomerCode = default(string), string avalaraEntityUseCode = default(string), string sovosCustomerCode = default(string), string taxjarCustomerId = default(string), string taxjarExemptionType = default(string))
         {
             this.AvalaraCustomerCode = avalaraCustomerCode;
             this.AvalaraEntityUseCode = avalaraEntityUseCode;
             this.SovosCustomerCode = sovosCustomerCode;
             this.TaxjarCustomerId = taxjarCustomerId;
+            this.TaxjarExemptionType = taxjarExemptionType;
         }
         
         /// <summary>
@@ -74,6 +76,13 @@ namespace com.ultracart.admin.v2.Model
         public string TaxjarCustomerId { get; set; }
 
         /// <summary>
+        /// TaxJar exemption type
+        /// </summary>
+        /// <value>TaxJar exemption type</value>
+        [DataMember(Name="taxjar_exemption_type", EmitDefaultValue=false)]
+        public string TaxjarExemptionType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +94,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AvalaraEntityUseCode: ").Append(AvalaraEntityUseCode).Append("\n");
             sb.Append("  SovosCustomerCode: ").Append(SovosCustomerCode).Append("\n");
             sb.Append("  TaxjarCustomerId: ").Append(TaxjarCustomerId).Append("\n");
+            sb.Append("  TaxjarExemptionType: ").Append(TaxjarExemptionType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +148,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TaxjarCustomerId == input.TaxjarCustomerId ||
                     (this.TaxjarCustomerId != null &&
                     this.TaxjarCustomerId.Equals(input.TaxjarCustomerId))
+                ) && 
+                (
+                    this.TaxjarExemptionType == input.TaxjarExemptionType ||
+                    (this.TaxjarExemptionType != null &&
+                    this.TaxjarExemptionType.Equals(input.TaxjarExemptionType))
                 );
         }
 
@@ -158,6 +173,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SovosCustomerCode.GetHashCode();
                 if (this.TaxjarCustomerId != null)
                     hashCode = hashCode * 59 + this.TaxjarCustomerId.GetHashCode();
+                if (this.TaxjarExemptionType != null)
+                    hashCode = hashCode * 59 + this.TaxjarExemptionType.GetHashCode();
                 return hashCode;
             }
         }

@@ -43,9 +43,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="customField7">Custom field 7.</param>
         /// <param name="ipAddress">IP Address (read only unless non-browser key authenticated).</param>
         /// <param name="returnCode">Return code assigned for send return email operation.</param>
+        /// <param name="returnUrl">The URL to redirect the customer to when they return from an abandon cart email.  Must be https protocol..</param>
         /// <param name="screenBrandingThemeCode">Screen branding theme code.</param>
+        /// <param name="storefrontHostName">StoreFront Host Name.</param>
         /// <param name="userAgent">User agent of the browser.</param>
-        public CartCheckout(string comments = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string ipAddress = default(string), string returnCode = default(string), string screenBrandingThemeCode = default(string), string userAgent = default(string))
+        public CartCheckout(string comments = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string ipAddress = default(string), string returnCode = default(string), string returnUrl = default(string), string screenBrandingThemeCode = default(string), string storefrontHostName = default(string), string userAgent = default(string))
         {
             this.Comments = comments;
             this.CustomField1 = customField1;
@@ -57,7 +59,9 @@ namespace com.ultracart.admin.v2.Model
             this.CustomField7 = customField7;
             this.IpAddress = ipAddress;
             this.ReturnCode = returnCode;
+            this.ReturnUrl = returnUrl;
             this.ScreenBrandingThemeCode = screenBrandingThemeCode;
+            this.StorefrontHostName = storefrontHostName;
             this.UserAgent = userAgent;
         }
         
@@ -132,11 +136,25 @@ namespace com.ultracart.admin.v2.Model
         public string ReturnCode { get; set; }
 
         /// <summary>
+        /// The URL to redirect the customer to when they return from an abandon cart email.  Must be https protocol.
+        /// </summary>
+        /// <value>The URL to redirect the customer to when they return from an abandon cart email.  Must be https protocol.</value>
+        [DataMember(Name="return_url", EmitDefaultValue=false)]
+        public string ReturnUrl { get; set; }
+
+        /// <summary>
         /// Screen branding theme code
         /// </summary>
         /// <value>Screen branding theme code</value>
         [DataMember(Name="screen_branding_theme_code", EmitDefaultValue=false)]
         public string ScreenBrandingThemeCode { get; set; }
+
+        /// <summary>
+        /// StoreFront Host Name
+        /// </summary>
+        /// <value>StoreFront Host Name</value>
+        [DataMember(Name="storefront_host_name", EmitDefaultValue=false)]
+        public string StorefrontHostName { get; set; }
 
         /// <summary>
         /// User agent of the browser
@@ -163,7 +181,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CustomField7: ").Append(CustomField7).Append("\n");
             sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
             sb.Append("  ReturnCode: ").Append(ReturnCode).Append("\n");
+            sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append("\n");
             sb.Append("  ScreenBrandingThemeCode: ").Append(ScreenBrandingThemeCode).Append("\n");
+            sb.Append("  StorefrontHostName: ").Append(StorefrontHostName).Append("\n");
             sb.Append("  UserAgent: ").Append(UserAgent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -250,9 +270,19 @@ namespace com.ultracart.admin.v2.Model
                     this.ReturnCode.Equals(input.ReturnCode))
                 ) && 
                 (
+                    this.ReturnUrl == input.ReturnUrl ||
+                    (this.ReturnUrl != null &&
+                    this.ReturnUrl.Equals(input.ReturnUrl))
+                ) && 
+                (
                     this.ScreenBrandingThemeCode == input.ScreenBrandingThemeCode ||
                     (this.ScreenBrandingThemeCode != null &&
                     this.ScreenBrandingThemeCode.Equals(input.ScreenBrandingThemeCode))
+                ) && 
+                (
+                    this.StorefrontHostName == input.StorefrontHostName ||
+                    (this.StorefrontHostName != null &&
+                    this.StorefrontHostName.Equals(input.StorefrontHostName))
                 ) && 
                 (
                     this.UserAgent == input.UserAgent ||
@@ -290,8 +320,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.IpAddress.GetHashCode();
                 if (this.ReturnCode != null)
                     hashCode = hashCode * 59 + this.ReturnCode.GetHashCode();
+                if (this.ReturnUrl != null)
+                    hashCode = hashCode * 59 + this.ReturnUrl.GetHashCode();
                 if (this.ScreenBrandingThemeCode != null)
                     hashCode = hashCode * 59 + this.ScreenBrandingThemeCode.GetHashCode();
+                if (this.StorefrontHostName != null)
+                    hashCode = hashCode * 59 + this.StorefrontHostName.GetHashCode();
                 if (this.UserAgent != null)
                     hashCode = hashCode * 59 + this.UserAgent.GetHashCode();
                 return hashCode;
@@ -351,6 +385,12 @@ namespace com.ultracart.admin.v2.Model
             if(this.CustomField7 != null && this.CustomField7.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomField7, length must be less than 50.", new [] { "CustomField7" });
+            }
+
+            // ReturnUrl (string) maxLength
+            if(this.ReturnUrl != null && this.ReturnUrl.Length > 2048)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReturnUrl, length must be less than 2048.", new [] { "ReturnUrl" });
             }
 
             // ScreenBrandingThemeCode (string) maxLength

@@ -60,7 +60,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="pricingTierOid">Pricing Tier Oid.</param>
         /// <param name="realtimePercentageDiscount">Realtime percentage discount.</param>
         /// <param name="signupNotification">signupNotification.</param>
-        /// <param name="suppressBuysafe">Suppress buySAFE.</param>
+        /// <param name="suppressBuysafe">Suppress buySAFE (deprecated).</param>
         /// <param name="suppressMailingList">Suppress mailing list.</param>
         /// <param name="taxExempt">Tax Exempt.</param>
         /// <param name="trackSeparately">Track separately.</param>
@@ -287,9 +287,9 @@ namespace com.ultracart.admin.v2.Model
         public PricingTierNotification SignupNotification { get; set; }
 
         /// <summary>
-        /// Suppress buySAFE
+        /// Suppress buySAFE (deprecated)
         /// </summary>
-        /// <value>Suppress buySAFE</value>
+        /// <value>Suppress buySAFE (deprecated)</value>
         [DataMember(Name="suppress_buysafe", EmitDefaultValue=false)]
         public bool? SuppressBuysafe { get; set; }
 

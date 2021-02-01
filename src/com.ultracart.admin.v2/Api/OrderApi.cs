@@ -25,6 +25,29 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Adjusts an order total
+        /// </summary>
+        /// <remarks>
+        /// Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="desiredTotal">The desired total with no formatting. example 123.45</param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse AdjustOrderTotal (string orderId, string desiredTotal);
+
+        /// <summary>
+        /// Adjusts an order total
+        /// </summary>
+        /// <remarks>
+        /// Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="desiredTotal">The desired total with no formatting. example 123.45</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> AdjustOrderTotalWithHttpInfo (string orderId, string desiredTotal);
+        /// <summary>
         /// Cancel an order
         /// </summary>
         /// <remarks>
@@ -531,6 +554,29 @@ namespace com.ultracart.admin.v2.Api
         ApiResponse<OrderResponse> UpdateOrderWithHttpInfo (Order order, string orderId, string expand = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Adjusts an order total
+        /// </summary>
+        /// <remarks>
+        /// Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="desiredTotal">The desired total with no formatting. example 123.45</param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> AdjustOrderTotalAsync (string orderId, string desiredTotal);
+
+        /// <summary>
+        /// Adjusts an order total
+        /// </summary>
+        /// <remarks>
+        /// Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="desiredTotal">The desired total with no formatting. example 123.45</param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> AdjustOrderTotalAsyncWithHttpInfo (string orderId, string desiredTotal);
         /// <summary>
         /// Cancel an order
         /// </summary>
@@ -1134,6 +1180,175 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Adjusts an order total Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="desiredTotal">The desired total with no formatting. example 123.45</param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse AdjustOrderTotal (string orderId, string desiredTotal)
+        {
+             ApiResponse<BaseResponse> localVarResponse = AdjustOrderTotalWithHttpInfo(orderId, desiredTotal);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Adjusts an order total Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="desiredTotal">The desired total with no formatting. example 123.45</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse< BaseResponse > AdjustOrderTotalWithHttpInfo (string orderId, string desiredTotal)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->AdjustOrderTotal");
+            // verify the required parameter 'desiredTotal' is set
+            if (desiredTotal == null)
+                throw new ApiException(400, "Missing required parameter 'desiredTotal' when calling OrderApi->AdjustOrderTotal");
+
+            var localVarPath = "/order/orders/{order_id}/adjust_order_total/{desired_total}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (desiredTotal != null) localVarPathParams.Add("desired_total", this.Configuration.ApiClient.ParameterToString(desiredTotal)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AdjustOrderTotal", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Adjusts an order total Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="desiredTotal">The desired total with no formatting. example 123.45</param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> AdjustOrderTotalAsync (string orderId, string desiredTotal)
+        {
+             ApiResponse<BaseResponse> localVarResponse = await AdjustOrderTotalAsyncWithHttpInfo(orderId, desiredTotal);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Adjusts an order total Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order.  Returns true if successful. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="desiredTotal">The desired total with no formatting. example 123.45</param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> AdjustOrderTotalAsyncWithHttpInfo (string orderId, string desiredTotal)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->AdjustOrderTotal");
+            // verify the required parameter 'desiredTotal' is set
+            if (desiredTotal == null)
+                throw new ApiException(400, "Missing required parameter 'desiredTotal' when calling OrderApi->AdjustOrderTotal");
+
+            var localVarPath = "/order/orders/{order_id}/adjust_order_total/{desired_total}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (desiredTotal != null) localVarPathParams.Add("desired_total", this.Configuration.ApiClient.ParameterToString(desiredTotal)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AdjustOrderTotal", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
         }
 
         /// <summary>

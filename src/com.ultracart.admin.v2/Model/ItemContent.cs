@@ -38,7 +38,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="customThankYouUrl">Custom Thank You URL.</param>
         /// <param name="excludeFromSearch">Exclude from search.</param>
         /// <param name="excludeFromTopSellers">Exclude from the top sellers list in the StoreFront.</param>
-        /// <param name="extendedDescription">Extended description (max 2000 characters).</param>
+        /// <param name="extendedDescription">Extended description (max 10000 characters).</param>
         /// <param name="extendedDescriptionTranslatedTextInstanceOid">Extneded description text translation instance identifier.</param>
         /// <param name="multimedia">Multimedia.</param>
         /// <param name="newItem">True if the item is new.</param>
@@ -97,9 +97,9 @@ namespace com.ultracart.admin.v2.Model
         public bool? ExcludeFromTopSellers { get; set; }
 
         /// <summary>
-        /// Extended description (max 2000 characters)
+        /// Extended description (max 10000 characters)
         /// </summary>
-        /// <value>Extended description (max 2000 characters)</value>
+        /// <value>Extended description (max 10000 characters)</value>
         [DataMember(Name="extended_description", EmitDefaultValue=false)]
         public string ExtendedDescription { get; set; }
 
@@ -306,9 +306,9 @@ namespace com.ultracart.admin.v2.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ExtendedDescription (string) maxLength
-            if(this.ExtendedDescription != null && this.ExtendedDescription.Length > 2000)
+            if(this.ExtendedDescription != null && this.ExtendedDescription.Length > 10000)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExtendedDescription, length must be less than 2000.", new [] { "ExtendedDescription" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExtendedDescription, length must be less than 10000.", new [] { "ExtendedDescription" });
             }
 
             yield break;

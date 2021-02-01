@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CustomThankYouUrl** | **string** | Custom Thank You URL | [optional] 
 **ExcludeFromSearch** | **bool?** | Exclude from search | [optional] 
 **ExcludeFromTopSellers** | **bool?** | Exclude from the top sellers list in the StoreFront | [optional] 
-**ExtendedDescription** | **string** | Extended description (max 2000 characters) | [optional] 
+**ExtendedDescription** | **string** | Extended description (max 10000 characters) | [optional] 
 **ExtendedDescriptionTranslatedTextInstanceOid** | **int?** | Extneded description text translation instance identifier | [optional] 
 **Multimedia** | [**List&lt;ItemContentMultimedia&gt;**](ItemContentMultimedia.md) | Multimedia | [optional] 
 **NewItem** | **bool?** | True if the item is new | [optional] 

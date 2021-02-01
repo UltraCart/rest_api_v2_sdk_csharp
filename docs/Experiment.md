@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Experiment name | [optional] 
 **Notes** | **string** | Notes about the experiment | [optional] 
 **Objective** | **string** | Objective that is being optimized | [optional] 
+**ObjectiveParameter** | **string** | Objective parameter (such as event name) that is being optimized | [optional] 
 **OptimizationType** | **string** | Type of optimization | [optional] 
 **SessionCount** | **int?** | Total number of sessions in the experiment | [optional] 
 **StartDts** | **string** | Start date/time | [optional] 

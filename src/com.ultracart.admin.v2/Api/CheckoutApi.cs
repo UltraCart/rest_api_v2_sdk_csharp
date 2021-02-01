@@ -174,6 +174,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CartResponse</returns>
         ApiResponse<CartResponse> GetCartByReturnCodeWithHttpInfo (string returnCode, string expand = null);
         /// <summary>
+        /// Get cart (by return token)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the encrypted return token parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnToken">Return token provided by StoreFront Communications (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CartResponse</returns>
+        CartResponse GetCartByReturnToken (string returnToken = null, string expand = null);
+
+        /// <summary>
+        /// Get cart (by return token)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the encrypted return token parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnToken">Return token provided by StoreFront Communications (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CartResponse</returns>
+        ApiResponse<CartResponse> GetCartByReturnTokenWithHttpInfo (string returnToken = null, string expand = null);
+        /// <summary>
         /// Get state/province list for a country code
         /// </summary>
         /// <remarks>
@@ -198,7 +221,7 @@ namespace com.ultracart.admin.v2.Api
         /// Handoff cart
         /// </summary>
         /// <remarks>
-        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -210,7 +233,7 @@ namespace com.ultracart.admin.v2.Api
         /// Handoff cart
         /// </summary>
         /// <remarks>
-        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -576,6 +599,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (CartResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CartResponse>> GetCartByReturnCodeAsyncWithHttpInfo (string returnCode, string expand = null);
         /// <summary>
+        /// Get cart (by return token)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the encrypted return token parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnToken">Return token provided by StoreFront Communications (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CartResponse</returns>
+        System.Threading.Tasks.Task<CartResponse> GetCartByReturnTokenAsync (string returnToken = null, string expand = null);
+
+        /// <summary>
+        /// Get cart (by return token)
+        /// </summary>
+        /// <remarks>
+        /// Get a cart specified by the encrypted return token parameter. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnToken">Return token provided by StoreFront Communications (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CartResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CartResponse>> GetCartByReturnTokenAsyncWithHttpInfo (string returnToken = null, string expand = null);
+        /// <summary>
         /// Get state/province list for a country code
         /// </summary>
         /// <remarks>
@@ -600,7 +646,7 @@ namespace com.ultracart.admin.v2.Api
         /// Handoff cart
         /// </summary>
         /// <remarks>
-        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -612,7 +658,7 @@ namespace com.ultracart.admin.v2.Api
         /// Handoff cart
         /// </summary>
         /// <remarks>
-        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+        /// Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -2108,6 +2154,173 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get cart (by return token) Get a cart specified by the encrypted return token parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnToken">Return token provided by StoreFront Communications (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>CartResponse</returns>
+        public CartResponse GetCartByReturnToken (string returnToken = null, string expand = null)
+        {
+             ApiResponse<CartResponse> localVarResponse = GetCartByReturnTokenWithHttpInfo(returnToken, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get cart (by return token) Get a cart specified by the encrypted return token parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnToken">Return token provided by StoreFront Communications (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of CartResponse</returns>
+        public ApiResponse< CartResponse > GetCartByReturnTokenWithHttpInfo (string returnToken = null, string expand = null)
+        {
+
+            var localVarPath = "/checkout/return_token";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (returnToken != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "return_token", returnToken)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCartByReturnToken", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CartResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CartResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
+        }
+
+        /// <summary>
+        /// Get cart (by return token) Get a cart specified by the encrypted return token parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnToken">Return token provided by StoreFront Communications (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of CartResponse</returns>
+        public async System.Threading.Tasks.Task<CartResponse> GetCartByReturnTokenAsync (string returnToken = null, string expand = null)
+        {
+             ApiResponse<CartResponse> localVarResponse = await GetCartByReturnTokenAsyncWithHttpInfo(returnToken, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get cart (by return token) Get a cart specified by the encrypted return token parameter. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="returnToken">Return token provided by StoreFront Communications (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (CartResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CartResponse>> GetCartByReturnTokenAsyncWithHttpInfo (string returnToken = null, string expand = null)
+        {
+
+            var localVarPath = "/checkout/return_token";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (returnToken != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "return_token", returnToken)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCartByReturnToken", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CartResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CartResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CartResponse)));
+        }
+
+        /// <summary>
         /// Get state/province list for a country code Lookup a state/province list for a given country code 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2275,7 +2488,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -2288,7 +2501,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -2368,7 +2581,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>
@@ -2382,7 +2595,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing). 
+        /// Handoff cart Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm, transfer to Sezzle or finalization of the order (including upsell processing). 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="handoffRequest">Handoff request</param>

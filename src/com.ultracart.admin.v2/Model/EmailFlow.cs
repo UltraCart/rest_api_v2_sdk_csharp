@@ -44,12 +44,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="enrolledCustomers">Number of enrolled customers..</param>
         /// <param name="espDomainUser">Username of sending email.</param>
         /// <param name="espDomainUuid">UUID of sending domain.</param>
+        /// <param name="espFlowFolderUuid">Flow folder UUID.  Null for uncategorized.</param>
         /// <param name="espFriendlyName">Friendly name of the sending email.</param>
         /// <param name="filterProfileEquationJson">File profile equation json.</param>
+        /// <param name="libraryItemOid">If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated..</param>
         /// <param name="merchantId">Merchant ID.</param>
         /// <param name="name">Name of email flow.</param>
         /// <param name="openRateFormatted">Open rate of emails, formatted.</param>
         /// <param name="revenueFormatted">Revenue, formatted.</param>
+        /// <param name="revenuePerCustomerFormatted">Revenue per customer, formatted.</param>
         /// <param name="screenshotLargeFullUrl">URL to a large full length screenshot.</param>
         /// <param name="status">Status of the campaign of draft, archived, active, and inactive.</param>
         /// <param name="statusDts">Timestamp when the last status change happened.</param>
@@ -57,7 +60,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="triggerParameter">Trigger parameter.</param>
         /// <param name="triggerParameterName">Trigger parameter name.</param>
         /// <param name="triggerType">Trigger type.</param>
-        public EmailFlow(bool? allowMultipleConcurrentEnrollments = default(bool?), bool? backPopulating = default(bool?), string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), int? enrolledCustomers = default(int?), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), string revenueFormatted = default(string), string screenshotLargeFullUrl = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
+        public EmailFlow(bool? allowMultipleConcurrentEnrollments = default(bool?), bool? backPopulating = default(bool?), string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), int? enrolledCustomers = default(int?), string espDomainUser = default(string), string espDomainUuid = default(string), string espFlowFolderUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), int? libraryItemOid = default(int?), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string screenshotLargeFullUrl = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
         {
             this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
             this.BackPopulating = backPopulating;
@@ -70,12 +73,15 @@ namespace com.ultracart.admin.v2.Model
             this.EnrolledCustomers = enrolledCustomers;
             this.EspDomainUser = espDomainUser;
             this.EspDomainUuid = espDomainUuid;
+            this.EspFlowFolderUuid = espFlowFolderUuid;
             this.EspFriendlyName = espFriendlyName;
             this.FilterProfileEquationJson = filterProfileEquationJson;
+            this.LibraryItemOid = libraryItemOid;
             this.MerchantId = merchantId;
             this.Name = name;
             this.OpenRateFormatted = openRateFormatted;
             this.RevenueFormatted = revenueFormatted;
+            this.RevenuePerCustomerFormatted = revenuePerCustomerFormatted;
             this.ScreenshotLargeFullUrl = screenshotLargeFullUrl;
             this.Status = status;
             this.StatusDts = statusDts;
@@ -163,6 +169,13 @@ namespace com.ultracart.admin.v2.Model
         public string EspDomainUuid { get; set; }
 
         /// <summary>
+        /// Flow folder UUID.  Null for uncategorized
+        /// </summary>
+        /// <value>Flow folder UUID.  Null for uncategorized</value>
+        [DataMember(Name="esp_flow_folder_uuid", EmitDefaultValue=false)]
+        public string EspFlowFolderUuid { get; set; }
+
+        /// <summary>
         /// Friendly name of the sending email
         /// </summary>
         /// <value>Friendly name of the sending email</value>
@@ -175,6 +188,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>File profile equation json</value>
         [DataMember(Name="filter_profile_equation_json", EmitDefaultValue=false)]
         public string FilterProfileEquationJson { get; set; }
+
+        /// <summary>
+        /// If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+        /// </summary>
+        /// <value>If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.</value>
+        [DataMember(Name="library_item_oid", EmitDefaultValue=false)]
+        public int? LibraryItemOid { get; set; }
 
         /// <summary>
         /// Merchant ID
@@ -203,6 +223,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Revenue, formatted</value>
         [DataMember(Name="revenue_formatted", EmitDefaultValue=false)]
         public string RevenueFormatted { get; set; }
+
+        /// <summary>
+        /// Revenue per customer, formatted
+        /// </summary>
+        /// <value>Revenue per customer, formatted</value>
+        [DataMember(Name="revenue_per_customer_formatted", EmitDefaultValue=false)]
+        public string RevenuePerCustomerFormatted { get; set; }
 
         /// <summary>
         /// URL to a large full length screenshot
@@ -272,12 +299,15 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EnrolledCustomers: ").Append(EnrolledCustomers).Append("\n");
             sb.Append("  EspDomainUser: ").Append(EspDomainUser).Append("\n");
             sb.Append("  EspDomainUuid: ").Append(EspDomainUuid).Append("\n");
+            sb.Append("  EspFlowFolderUuid: ").Append(EspFlowFolderUuid).Append("\n");
             sb.Append("  EspFriendlyName: ").Append(EspFriendlyName).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
+            sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OpenRateFormatted: ").Append(OpenRateFormatted).Append("\n");
             sb.Append("  RevenueFormatted: ").Append(RevenueFormatted).Append("\n");
+            sb.Append("  RevenuePerCustomerFormatted: ").Append(RevenuePerCustomerFormatted).Append("\n");
             sb.Append("  ScreenshotLargeFullUrl: ").Append(ScreenshotLargeFullUrl).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusDts: ").Append(StatusDts).Append("\n");
@@ -375,6 +405,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EspDomainUuid.Equals(input.EspDomainUuid))
                 ) && 
                 (
+                    this.EspFlowFolderUuid == input.EspFlowFolderUuid ||
+                    (this.EspFlowFolderUuid != null &&
+                    this.EspFlowFolderUuid.Equals(input.EspFlowFolderUuid))
+                ) && 
+                (
                     this.EspFriendlyName == input.EspFriendlyName ||
                     (this.EspFriendlyName != null &&
                     this.EspFriendlyName.Equals(input.EspFriendlyName))
@@ -383,6 +418,11 @@ namespace com.ultracart.admin.v2.Model
                     this.FilterProfileEquationJson == input.FilterProfileEquationJson ||
                     (this.FilterProfileEquationJson != null &&
                     this.FilterProfileEquationJson.Equals(input.FilterProfileEquationJson))
+                ) && 
+                (
+                    this.LibraryItemOid == input.LibraryItemOid ||
+                    (this.LibraryItemOid != null &&
+                    this.LibraryItemOid.Equals(input.LibraryItemOid))
                 ) && 
                 (
                     this.MerchantId == input.MerchantId ||
@@ -403,6 +443,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RevenueFormatted == input.RevenueFormatted ||
                     (this.RevenueFormatted != null &&
                     this.RevenueFormatted.Equals(input.RevenueFormatted))
+                ) && 
+                (
+                    this.RevenuePerCustomerFormatted == input.RevenuePerCustomerFormatted ||
+                    (this.RevenuePerCustomerFormatted != null &&
+                    this.RevenuePerCustomerFormatted.Equals(input.RevenuePerCustomerFormatted))
                 ) && 
                 (
                     this.ScreenshotLargeFullUrl == input.ScreenshotLargeFullUrl ||
@@ -472,10 +517,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EspDomainUser.GetHashCode();
                 if (this.EspDomainUuid != null)
                     hashCode = hashCode * 59 + this.EspDomainUuid.GetHashCode();
+                if (this.EspFlowFolderUuid != null)
+                    hashCode = hashCode * 59 + this.EspFlowFolderUuid.GetHashCode();
                 if (this.EspFriendlyName != null)
                     hashCode = hashCode * 59 + this.EspFriendlyName.GetHashCode();
                 if (this.FilterProfileEquationJson != null)
                     hashCode = hashCode * 59 + this.FilterProfileEquationJson.GetHashCode();
+                if (this.LibraryItemOid != null)
+                    hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Name != null)
@@ -484,6 +533,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OpenRateFormatted.GetHashCode();
                 if (this.RevenueFormatted != null)
                     hashCode = hashCode * 59 + this.RevenueFormatted.GetHashCode();
+                if (this.RevenuePerCustomerFormatted != null)
+                    hashCode = hashCode * 59 + this.RevenuePerCustomerFormatted.GetHashCode();
                 if (this.ScreenshotLargeFullUrl != null)
                     hashCode = hashCode * 59 + this.ScreenshotLargeFullUrl.GetHashCode();
                 if (this.Status != null)

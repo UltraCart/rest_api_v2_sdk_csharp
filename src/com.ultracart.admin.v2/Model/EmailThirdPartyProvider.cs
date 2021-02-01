@@ -38,13 +38,21 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="lists">lists.</param>
         /// <param name="logoUrl">logo_url.</param>
         /// <param name="name">name.</param>
-        public EmailThirdPartyProvider(string connectUrl = default(string), int? listCount = default(int?), List<EmailThirdPartyList> lists = default(List<EmailThirdPartyList>), string logoUrl = default(string), string name = default(string))
+        /// <param name="supportsAddTags">True if this provider can support adding tags.</param>
+        /// <param name="supportsListSubscribe">True if this provider can support list subscribe.</param>
+        /// <param name="supportsListUnsubscribe">True if this provider can support list unsubscribe.</param>
+        /// <param name="supportsRemoveTags">True if this provider can support remove tags.</param>
+        public EmailThirdPartyProvider(string connectUrl = default(string), int? listCount = default(int?), List<EmailThirdPartyList> lists = default(List<EmailThirdPartyList>), string logoUrl = default(string), string name = default(string), bool? supportsAddTags = default(bool?), bool? supportsListSubscribe = default(bool?), bool? supportsListUnsubscribe = default(bool?), bool? supportsRemoveTags = default(bool?))
         {
             this.ConnectUrl = connectUrl;
             this.ListCount = listCount;
             this.Lists = lists;
             this.LogoUrl = logoUrl;
             this.Name = name;
+            this.SupportsAddTags = supportsAddTags;
+            this.SupportsListSubscribe = supportsListSubscribe;
+            this.SupportsListUnsubscribe = supportsListUnsubscribe;
+            this.SupportsRemoveTags = supportsRemoveTags;
         }
         
         /// <summary>
@@ -83,6 +91,34 @@ namespace com.ultracart.admin.v2.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// True if this provider can support adding tags
+        /// </summary>
+        /// <value>True if this provider can support adding tags</value>
+        [DataMember(Name="supports_add_tags", EmitDefaultValue=false)]
+        public bool? SupportsAddTags { get; set; }
+
+        /// <summary>
+        /// True if this provider can support list subscribe
+        /// </summary>
+        /// <value>True if this provider can support list subscribe</value>
+        [DataMember(Name="supports_list_subscribe", EmitDefaultValue=false)]
+        public bool? SupportsListSubscribe { get; set; }
+
+        /// <summary>
+        /// True if this provider can support list unsubscribe
+        /// </summary>
+        /// <value>True if this provider can support list unsubscribe</value>
+        [DataMember(Name="supports_list_unsubscribe", EmitDefaultValue=false)]
+        public bool? SupportsListUnsubscribe { get; set; }
+
+        /// <summary>
+        /// True if this provider can support remove tags
+        /// </summary>
+        /// <value>True if this provider can support remove tags</value>
+        [DataMember(Name="supports_remove_tags", EmitDefaultValue=false)]
+        public bool? SupportsRemoveTags { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +131,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Lists: ").Append(Lists).Append("\n");
             sb.Append("  LogoUrl: ").Append(LogoUrl).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  SupportsAddTags: ").Append(SupportsAddTags).Append("\n");
+            sb.Append("  SupportsListSubscribe: ").Append(SupportsListSubscribe).Append("\n");
+            sb.Append("  SupportsListUnsubscribe: ").Append(SupportsListUnsubscribe).Append("\n");
+            sb.Append("  SupportsRemoveTags: ").Append(SupportsRemoveTags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +193,26 @@ namespace com.ultracart.admin.v2.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.SupportsAddTags == input.SupportsAddTags ||
+                    (this.SupportsAddTags != null &&
+                    this.SupportsAddTags.Equals(input.SupportsAddTags))
+                ) && 
+                (
+                    this.SupportsListSubscribe == input.SupportsListSubscribe ||
+                    (this.SupportsListSubscribe != null &&
+                    this.SupportsListSubscribe.Equals(input.SupportsListSubscribe))
+                ) && 
+                (
+                    this.SupportsListUnsubscribe == input.SupportsListUnsubscribe ||
+                    (this.SupportsListUnsubscribe != null &&
+                    this.SupportsListUnsubscribe.Equals(input.SupportsListUnsubscribe))
+                ) && 
+                (
+                    this.SupportsRemoveTags == input.SupportsRemoveTags ||
+                    (this.SupportsRemoveTags != null &&
+                    this.SupportsRemoveTags.Equals(input.SupportsRemoveTags))
                 );
         }
 
@@ -175,6 +235,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LogoUrl.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.SupportsAddTags != null)
+                    hashCode = hashCode * 59 + this.SupportsAddTags.GetHashCode();
+                if (this.SupportsListSubscribe != null)
+                    hashCode = hashCode * 59 + this.SupportsListSubscribe.GetHashCode();
+                if (this.SupportsListUnsubscribe != null)
+                    hashCode = hashCode * 59 + this.SupportsListUnsubscribe.GetHashCode();
+                if (this.SupportsRemoveTags != null)
+                    hashCode = hashCode * 59 + this.SupportsRemoveTags.GetHashCode();
                 return hashCode;
             }
         }

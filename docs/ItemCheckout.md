@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SuppressBuysafe** | **bool?** | True to suppress buySAFE | [optional] 
+**SuppressBuysafe** | **bool?** | True to suppress buySAFE (deprecated) | [optional] 
 **Terms** | **string** | Terms for purchasing this item | [optional] 
 **TermsTranslatedTextInstanceOid** | **int?** | Terms translated text instance identifier | [optional] 
 

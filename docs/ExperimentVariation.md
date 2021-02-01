@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **BounceCount** | **int?** | Total bounce count for this variation | [optional] 
 **ConversionRate** | **decimal?** | Conversion rate for this variation | [optional] 
 **DurationSecondsSum** | **long?** | Total number of seconds spent on the site for this variation | [optional] 
+**EventCount** | **int?** | Total event ocunt for this variation | [optional] 
 **InitiateCheckoutCount** | **int?** | Total initiate checkout count for this variation | [optional] 
 **OrderCount** | **int?** | Total order count for this variation | [optional] 
 **OriginalTrafficPercentage** | **decimal?** | Percentage of the traffic the variation originally started out with | [optional] 

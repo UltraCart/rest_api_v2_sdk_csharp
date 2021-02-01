@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **EmailTemplateVmPath** | **string** | Email template virtual path | [optional] 
 **FilterProfileEquationJson** | **string** | Filter profile equation json | [optional] 
 **IndividuallyRender** | **bool?** | Individually render | [optional] 
+**LibraryItemOid** | **int?** | If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated. | [optional] 
 **MerchantId** | **string** | Merchant ID | [optional] 
 **PendingReview** | **bool?** | True if the content of this email is pending review by UltraCart | [optional] 
 **PreviewText** | **string** | Preview text | [optional] 

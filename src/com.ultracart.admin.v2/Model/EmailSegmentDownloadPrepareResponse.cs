@@ -40,7 +40,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="percentageComplete">percentageComplete.</param>
         /// <param name="proceed">proceed.</param>
         /// <param name="success">Indicates if API call was successful.</param>
-        public EmailSegmentDownloadPrepareResponse(string emailSegmentRebuildUuid = default(string), string emailSegmentUuid = default(string), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), decimal? percentageComplete = default(decimal?), bool? proceed = default(bool?), bool? success = default(bool?))
+        /// <param name="warning">warning.</param>
+        public EmailSegmentDownloadPrepareResponse(string emailSegmentRebuildUuid = default(string), string emailSegmentUuid = default(string), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), decimal? percentageComplete = default(decimal?), bool? proceed = default(bool?), bool? success = default(bool?), Warning warning = default(Warning))
         {
             this.EmailSegmentRebuildUuid = emailSegmentRebuildUuid;
             this.EmailSegmentUuid = emailSegmentUuid;
@@ -49,6 +50,7 @@ namespace com.ultracart.admin.v2.Model
             this.PercentageComplete = percentageComplete;
             this.Proceed = proceed;
             this.Success = success;
+            this.Warning = warning;
         }
         
         /// <summary>
@@ -95,6 +97,12 @@ namespace com.ultracart.admin.v2.Model
         public bool? Success { get; set; }
 
         /// <summary>
+        /// Gets or Sets Warning
+        /// </summary>
+        [DataMember(Name="warning", EmitDefaultValue=false)]
+        public Warning Warning { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,6 +117,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PercentageComplete: ").Append(PercentageComplete).Append("\n");
             sb.Append("  Proceed: ").Append(Proceed).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,6 +186,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
+                ) && 
+                (
+                    this.Warning == input.Warning ||
+                    (this.Warning != null &&
+                    this.Warning.Equals(input.Warning))
                 );
         }
 
@@ -203,6 +217,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Proceed.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
+                if (this.Warning != null)
+                    hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;
             }
         }

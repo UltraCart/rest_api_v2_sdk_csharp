@@ -37,12 +37,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="tempMultimedia">tempMultimedia.</param>
-        public TempMultimediaResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), TempMultimedia tempMultimedia = default(TempMultimedia))
+        /// <param name="warning">warning.</param>
+        public TempMultimediaResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), TempMultimedia tempMultimedia = default(TempMultimedia), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Metadata = metadata;
             this.Success = success;
             this.TempMultimedia = tempMultimedia;
+            this.Warning = warning;
         }
         
         /// <summary>
@@ -71,6 +73,12 @@ namespace com.ultracart.admin.v2.Model
         public TempMultimedia TempMultimedia { get; set; }
 
         /// <summary>
+        /// Gets or Sets Warning
+        /// </summary>
+        [DataMember(Name="warning", EmitDefaultValue=false)]
+        public Warning Warning { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +90,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  TempMultimedia: ").Append(TempMultimedia).Append("\n");
+            sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,6 +144,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TempMultimedia == input.TempMultimedia ||
                     (this.TempMultimedia != null &&
                     this.TempMultimedia.Equals(input.TempMultimedia))
+                ) && 
+                (
+                    this.Warning == input.Warning ||
+                    (this.Warning != null &&
+                    this.Warning.Equals(input.Warning))
                 );
         }
 
@@ -155,6 +169,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.TempMultimedia != null)
                     hashCode = hashCode * 59 + this.TempMultimedia.GetHashCode();
+                if (this.Warning != null)
+                    hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;
             }
         }

@@ -13,7 +13,9 @@ Name | Type | Description | Notes
 **CustomField7** | **string** | Custom field 7 | [optional] 
 **IpAddress** | **string** | IP Address (read only unless non-browser key authenticated) | [optional] 
 **ReturnCode** | **string** | Return code assigned for send return email operation | [optional] 
+**ReturnUrl** | **string** | The URL to redirect the customer to when they return from an abandon cart email.  Must be https protocol. | [optional] 
 **ScreenBrandingThemeCode** | **string** | Screen branding theme code | [optional] 
+**StorefrontHostName** | **string** | StoreFront Host Name | [optional] 
 **UserAgent** | **string** | User agent of the browser | [optional] 
 
 

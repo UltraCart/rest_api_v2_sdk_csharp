@@ -66,7 +66,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Affirm for value: affirm
             /// </summary>
             [EnumMember(Value = "affirm")]
-            Affirm = 5
+            Affirm = 5,
+            
+            /// <summary>
+            /// Enum Sezzle for value: sezzle
+            /// </summary>
+            [EnumMember(Value = "sezzle")]
+            Sezzle = 6
         }
 
         /// <summary>

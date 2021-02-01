@@ -42,6 +42,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="emailTemplateVmPath">Email template virtual path.</param>
         /// <param name="filterProfileEquationJson">Filter profile equation json.</param>
         /// <param name="individuallyRender">Individually render.</param>
+        /// <param name="libraryItemOid">If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated..</param>
         /// <param name="merchantId">Merchant ID.</param>
         /// <param name="pendingReview">True if the content of this email is pending review by UltraCart.</param>
         /// <param name="previewText">Preview text.</param>
@@ -56,7 +57,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="subject">Subject.</param>
         /// <param name="transactionalEmail">Transactional email.</param>
         /// <param name="version">Version.</param>
-        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? transactionalEmail = default(bool?), int? version = default(int?))
+        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), int? libraryItemOid = default(int?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? transactionalEmail = default(bool?), int? version = default(int?))
         {
             this.Deleted = deleted;
             this.EditedByUser = editedByUser;
@@ -67,6 +68,7 @@ namespace com.ultracart.admin.v2.Model
             this.EmailTemplateVmPath = emailTemplateVmPath;
             this.FilterProfileEquationJson = filterProfileEquationJson;
             this.IndividuallyRender = individuallyRender;
+            this.LibraryItemOid = libraryItemOid;
             this.MerchantId = merchantId;
             this.PendingReview = pendingReview;
             this.PreviewText = previewText;
@@ -145,6 +147,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Individually render</value>
         [DataMember(Name="individually_render", EmitDefaultValue=false)]
         public bool? IndividuallyRender { get; set; }
+
+        /// <summary>
+        /// If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+        /// </summary>
+        /// <value>If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.</value>
+        [DataMember(Name="library_item_oid", EmitDefaultValue=false)]
+        public int? LibraryItemOid { get; set; }
 
         /// <summary>
         /// Merchant ID
@@ -261,6 +270,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EmailTemplateVmPath: ").Append(EmailTemplateVmPath).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
             sb.Append("  IndividuallyRender: ").Append(IndividuallyRender).Append("\n");
+            sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  PendingReview: ").Append(PendingReview).Append("\n");
             sb.Append("  PreviewText: ").Append(PreviewText).Append("\n");
@@ -353,6 +363,11 @@ namespace com.ultracart.admin.v2.Model
                     this.IndividuallyRender == input.IndividuallyRender ||
                     (this.IndividuallyRender != null &&
                     this.IndividuallyRender.Equals(input.IndividuallyRender))
+                ) && 
+                (
+                    this.LibraryItemOid == input.LibraryItemOid ||
+                    (this.LibraryItemOid != null &&
+                    this.LibraryItemOid.Equals(input.LibraryItemOid))
                 ) && 
                 (
                     this.MerchantId == input.MerchantId ||
@@ -453,6 +468,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FilterProfileEquationJson.GetHashCode();
                 if (this.IndividuallyRender != null)
                     hashCode = hashCode * 59 + this.IndividuallyRender.GetHashCode();
+                if (this.LibraryItemOid != null)
+                    hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.PendingReview != null)

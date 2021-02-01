@@ -33,18 +33,99 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponEditorValues" /> class.
         /// </summary>
+        /// <param name="affiliates">affiliates.</param>
         /// <param name="couponTypes">coupon_types.</param>
-        public CouponEditorValues(List<string> couponTypes = default(List<string>))
+        /// <param name="couponTypesForDisplay">coupon_types_for_display.</param>
+        /// <param name="currencyCodes">currency_codes.</param>
+        /// <param name="deprecatedThemes">deprecated_themes.</param>
+        /// <param name="mixAndMatchNames">mix_and_match_names.</param>
+        /// <param name="shippingMethods">shipping_methods.</param>
+        /// <param name="storefronts">storefronts.</param>
+        /// <param name="usableBy">usable_by.</param>
+        /// <param name="validWithOtherCoupons">valid_with_other_coupons.</param>
+        public CouponEditorValues(List<SimpleValue> affiliates = default(List<SimpleValue>), List<string> couponTypes = default(List<string>), List<CouponType> couponTypesForDisplay = default(List<CouponType>), List<string> currencyCodes = default(List<string>), List<SimpleValue> deprecatedThemes = default(List<SimpleValue>), List<string> mixAndMatchNames = default(List<string>), List<string> shippingMethods = default(List<string>), List<SimpleValue> storefronts = default(List<SimpleValue>), List<SimpleValue> usableBy = default(List<SimpleValue>), List<string> validWithOtherCoupons = default(List<string>))
         {
+            this.Affiliates = affiliates;
             this.CouponTypes = couponTypes;
+            this.CouponTypesForDisplay = couponTypesForDisplay;
+            this.CurrencyCodes = currencyCodes;
+            this.DeprecatedThemes = deprecatedThemes;
+            this.MixAndMatchNames = mixAndMatchNames;
+            this.ShippingMethods = shippingMethods;
+            this.Storefronts = storefronts;
+            this.UsableBy = usableBy;
+            this.ValidWithOtherCoupons = validWithOtherCoupons;
         }
         
+        /// <summary>
+        /// affiliates
+        /// </summary>
+        /// <value>affiliates</value>
+        [DataMember(Name="affiliates", EmitDefaultValue=false)]
+        public List<SimpleValue> Affiliates { get; set; }
+
         /// <summary>
         /// coupon_types
         /// </summary>
         /// <value>coupon_types</value>
         [DataMember(Name="coupon_types", EmitDefaultValue=false)]
         public List<string> CouponTypes { get; set; }
+
+        /// <summary>
+        /// coupon_types_for_display
+        /// </summary>
+        /// <value>coupon_types_for_display</value>
+        [DataMember(Name="coupon_types_for_display", EmitDefaultValue=false)]
+        public List<CouponType> CouponTypesForDisplay { get; set; }
+
+        /// <summary>
+        /// currency_codes
+        /// </summary>
+        /// <value>currency_codes</value>
+        [DataMember(Name="currency_codes", EmitDefaultValue=false)]
+        public List<string> CurrencyCodes { get; set; }
+
+        /// <summary>
+        /// deprecated_themes
+        /// </summary>
+        /// <value>deprecated_themes</value>
+        [DataMember(Name="deprecated_themes", EmitDefaultValue=false)]
+        public List<SimpleValue> DeprecatedThemes { get; set; }
+
+        /// <summary>
+        /// mix_and_match_names
+        /// </summary>
+        /// <value>mix_and_match_names</value>
+        [DataMember(Name="mix_and_match_names", EmitDefaultValue=false)]
+        public List<string> MixAndMatchNames { get; set; }
+
+        /// <summary>
+        /// shipping_methods
+        /// </summary>
+        /// <value>shipping_methods</value>
+        [DataMember(Name="shipping_methods", EmitDefaultValue=false)]
+        public List<string> ShippingMethods { get; set; }
+
+        /// <summary>
+        /// storefronts
+        /// </summary>
+        /// <value>storefronts</value>
+        [DataMember(Name="storefronts", EmitDefaultValue=false)]
+        public List<SimpleValue> Storefronts { get; set; }
+
+        /// <summary>
+        /// usable_by
+        /// </summary>
+        /// <value>usable_by</value>
+        [DataMember(Name="usable_by", EmitDefaultValue=false)]
+        public List<SimpleValue> UsableBy { get; set; }
+
+        /// <summary>
+        /// valid_with_other_coupons
+        /// </summary>
+        /// <value>valid_with_other_coupons</value>
+        [DataMember(Name="valid_with_other_coupons", EmitDefaultValue=false)]
+        public List<string> ValidWithOtherCoupons { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,7 +135,16 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CouponEditorValues {\n");
+            sb.Append("  Affiliates: ").Append(Affiliates).Append("\n");
             sb.Append("  CouponTypes: ").Append(CouponTypes).Append("\n");
+            sb.Append("  CouponTypesForDisplay: ").Append(CouponTypesForDisplay).Append("\n");
+            sb.Append("  CurrencyCodes: ").Append(CurrencyCodes).Append("\n");
+            sb.Append("  DeprecatedThemes: ").Append(DeprecatedThemes).Append("\n");
+            sb.Append("  MixAndMatchNames: ").Append(MixAndMatchNames).Append("\n");
+            sb.Append("  ShippingMethods: ").Append(ShippingMethods).Append("\n");
+            sb.Append("  Storefronts: ").Append(Storefronts).Append("\n");
+            sb.Append("  UsableBy: ").Append(UsableBy).Append("\n");
+            sb.Append("  ValidWithOtherCoupons: ").Append(ValidWithOtherCoupons).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,9 +180,54 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Affiliates == input.Affiliates ||
+                    this.Affiliates != null &&
+                    this.Affiliates.SequenceEqual(input.Affiliates)
+                ) && 
+                (
                     this.CouponTypes == input.CouponTypes ||
                     this.CouponTypes != null &&
                     this.CouponTypes.SequenceEqual(input.CouponTypes)
+                ) && 
+                (
+                    this.CouponTypesForDisplay == input.CouponTypesForDisplay ||
+                    this.CouponTypesForDisplay != null &&
+                    this.CouponTypesForDisplay.SequenceEqual(input.CouponTypesForDisplay)
+                ) && 
+                (
+                    this.CurrencyCodes == input.CurrencyCodes ||
+                    this.CurrencyCodes != null &&
+                    this.CurrencyCodes.SequenceEqual(input.CurrencyCodes)
+                ) && 
+                (
+                    this.DeprecatedThemes == input.DeprecatedThemes ||
+                    this.DeprecatedThemes != null &&
+                    this.DeprecatedThemes.SequenceEqual(input.DeprecatedThemes)
+                ) && 
+                (
+                    this.MixAndMatchNames == input.MixAndMatchNames ||
+                    this.MixAndMatchNames != null &&
+                    this.MixAndMatchNames.SequenceEqual(input.MixAndMatchNames)
+                ) && 
+                (
+                    this.ShippingMethods == input.ShippingMethods ||
+                    this.ShippingMethods != null &&
+                    this.ShippingMethods.SequenceEqual(input.ShippingMethods)
+                ) && 
+                (
+                    this.Storefronts == input.Storefronts ||
+                    this.Storefronts != null &&
+                    this.Storefronts.SequenceEqual(input.Storefronts)
+                ) && 
+                (
+                    this.UsableBy == input.UsableBy ||
+                    this.UsableBy != null &&
+                    this.UsableBy.SequenceEqual(input.UsableBy)
+                ) && 
+                (
+                    this.ValidWithOtherCoupons == input.ValidWithOtherCoupons ||
+                    this.ValidWithOtherCoupons != null &&
+                    this.ValidWithOtherCoupons.SequenceEqual(input.ValidWithOtherCoupons)
                 );
         }
 
@@ -105,8 +240,26 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Affiliates != null)
+                    hashCode = hashCode * 59 + this.Affiliates.GetHashCode();
                 if (this.CouponTypes != null)
                     hashCode = hashCode * 59 + this.CouponTypes.GetHashCode();
+                if (this.CouponTypesForDisplay != null)
+                    hashCode = hashCode * 59 + this.CouponTypesForDisplay.GetHashCode();
+                if (this.CurrencyCodes != null)
+                    hashCode = hashCode * 59 + this.CurrencyCodes.GetHashCode();
+                if (this.DeprecatedThemes != null)
+                    hashCode = hashCode * 59 + this.DeprecatedThemes.GetHashCode();
+                if (this.MixAndMatchNames != null)
+                    hashCode = hashCode * 59 + this.MixAndMatchNames.GetHashCode();
+                if (this.ShippingMethods != null)
+                    hashCode = hashCode * 59 + this.ShippingMethods.GetHashCode();
+                if (this.Storefronts != null)
+                    hashCode = hashCode * 59 + this.Storefronts.GetHashCode();
+                if (this.UsableBy != null)
+                    hashCode = hashCode * 59 + this.UsableBy.GetHashCode();
+                if (this.ValidWithOtherCoupons != null)
+                    hashCode = hashCode * 59 + this.ValidWithOtherCoupons.GetHashCode();
                 return hashCode;
             }
         }

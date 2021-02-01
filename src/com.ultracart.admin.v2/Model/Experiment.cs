@@ -75,6 +75,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="name">Experiment name.</param>
         /// <param name="notes">Notes about the experiment.</param>
         /// <param name="objective">Objective that is being optimized.</param>
+        /// <param name="objectiveParameter">Objective parameter (such as event name) that is being optimized.</param>
         /// <param name="optimizationType">Type of optimization.</param>
         /// <param name="sessionCount">Total number of sessions in the experiment.</param>
         /// <param name="startDts">Start date/time.</param>
@@ -83,7 +84,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="storefrontOid">Storefront oid.</param>
         /// <param name="uri">URI the experiment was started on.</param>
         /// <param name="variations">Variations being tested in the experiment.</param>
-        public Experiment(string containerId = default(string), int? durationDays = default(int?), string endDts = default(string), bool? equalWeighting = default(bool?), string experimentType = default(string), string id = default(string), string name = default(string), string notes = default(string), string objective = default(string), string optimizationType = default(string), int? sessionCount = default(int?), string startDts = default(string), StatusEnum? status = default(StatusEnum?), int? storefrontExperimentOid = default(int?), int? storefrontOid = default(int?), string uri = default(string), List<ExperimentVariation> variations = default(List<ExperimentVariation>))
+        public Experiment(string containerId = default(string), int? durationDays = default(int?), string endDts = default(string), bool? equalWeighting = default(bool?), string experimentType = default(string), string id = default(string), string name = default(string), string notes = default(string), string objective = default(string), string objectiveParameter = default(string), string optimizationType = default(string), int? sessionCount = default(int?), string startDts = default(string), StatusEnum? status = default(StatusEnum?), int? storefrontExperimentOid = default(int?), int? storefrontOid = default(int?), string uri = default(string), List<ExperimentVariation> variations = default(List<ExperimentVariation>))
         {
             this.ContainerId = containerId;
             this.DurationDays = durationDays;
@@ -94,6 +95,7 @@ namespace com.ultracart.admin.v2.Model
             this.Name = name;
             this.Notes = notes;
             this.Objective = objective;
+            this.ObjectiveParameter = objectiveParameter;
             this.OptimizationType = optimizationType;
             this.SessionCount = sessionCount;
             this.StartDts = startDts;
@@ -168,6 +170,13 @@ namespace com.ultracart.admin.v2.Model
         public string Objective { get; set; }
 
         /// <summary>
+        /// Objective parameter (such as event name) that is being optimized
+        /// </summary>
+        /// <value>Objective parameter (such as event name) that is being optimized</value>
+        [DataMember(Name="objective_parameter", EmitDefaultValue=false)]
+        public string ObjectiveParameter { get; set; }
+
+        /// <summary>
         /// Type of optimization
         /// </summary>
         /// <value>Type of optimization</value>
@@ -234,6 +243,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  Objective: ").Append(Objective).Append("\n");
+            sb.Append("  ObjectiveParameter: ").Append(ObjectiveParameter).Append("\n");
             sb.Append("  OptimizationType: ").Append(OptimizationType).Append("\n");
             sb.Append("  SessionCount: ").Append(SessionCount).Append("\n");
             sb.Append("  StartDts: ").Append(StartDts).Append("\n");
@@ -322,6 +332,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Objective.Equals(input.Objective))
                 ) && 
                 (
+                    this.ObjectiveParameter == input.ObjectiveParameter ||
+                    (this.ObjectiveParameter != null &&
+                    this.ObjectiveParameter.Equals(input.ObjectiveParameter))
+                ) && 
+                (
                     this.OptimizationType == input.OptimizationType ||
                     (this.OptimizationType != null &&
                     this.OptimizationType.Equals(input.OptimizationType))
@@ -390,6 +405,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Notes.GetHashCode();
                 if (this.Objective != null)
                     hashCode = hashCode * 59 + this.Objective.GetHashCode();
+                if (this.ObjectiveParameter != null)
+                    hashCode = hashCode * 59 + this.ObjectiveParameter.GetHashCode();
                 if (this.OptimizationType != null)
                     hashCode = hashCode * 59 + this.OptimizationType.GetHashCode();
                 if (this.SessionCount != null)

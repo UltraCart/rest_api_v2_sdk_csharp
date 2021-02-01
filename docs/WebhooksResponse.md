@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Error** | [**Error**](Error.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **Success** | **bool?** | Indicates if API call was successful | [optional] 
+**Warning** | [**Warning**](Warning.md) |  | [optional] 
 **Webhooks** | [**List&lt;Webhook&gt;**](Webhook.md) |  | [optional] 
 
 

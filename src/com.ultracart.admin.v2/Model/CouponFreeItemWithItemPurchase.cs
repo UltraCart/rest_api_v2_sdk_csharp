@@ -35,11 +35,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="items">A list of free items which will receive a discount if one of the required purchase items is purchased..</param>
         /// <param name="limit">The (optional) maximum quantity of discounted items..</param>
+        /// <param name="matchRequiredPurchaseItemToFreeItem">If true then the free item is matched 1:1 with the free item in the list..</param>
         /// <param name="requiredPurchaseItems">Required items (at least one from the list) that must be purchased for coupon to be valid.</param>
-        public CouponFreeItemWithItemPurchase(List<string> items = default(List<string>), int? limit = default(int?), List<string> requiredPurchaseItems = default(List<string>))
+        public CouponFreeItemWithItemPurchase(List<string> items = default(List<string>), int? limit = default(int?), bool? matchRequiredPurchaseItemToFreeItem = default(bool?), List<string> requiredPurchaseItems = default(List<string>))
         {
             this.Items = items;
             this.Limit = limit;
+            this.MatchRequiredPurchaseItemToFreeItem = matchRequiredPurchaseItemToFreeItem;
             this.RequiredPurchaseItems = requiredPurchaseItems;
         }
         
@@ -58,6 +60,13 @@ namespace com.ultracart.admin.v2.Model
         public int? Limit { get; set; }
 
         /// <summary>
+        /// If true then the free item is matched 1:1 with the free item in the list.
+        /// </summary>
+        /// <value>If true then the free item is matched 1:1 with the free item in the list.</value>
+        [DataMember(Name="match_required_purchase_item_to_free_item", EmitDefaultValue=false)]
+        public bool? MatchRequiredPurchaseItemToFreeItem { get; set; }
+
+        /// <summary>
         /// Required items (at least one from the list) that must be purchased for coupon to be valid
         /// </summary>
         /// <value>Required items (at least one from the list) that must be purchased for coupon to be valid</value>
@@ -74,6 +83,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class CouponFreeItemWithItemPurchase {\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
+            sb.Append("  MatchRequiredPurchaseItemToFreeItem: ").Append(MatchRequiredPurchaseItemToFreeItem).Append("\n");
             sb.Append("  RequiredPurchaseItems: ").Append(RequiredPurchaseItems).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -120,6 +130,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Limit.Equals(input.Limit))
                 ) && 
                 (
+                    this.MatchRequiredPurchaseItemToFreeItem == input.MatchRequiredPurchaseItemToFreeItem ||
+                    (this.MatchRequiredPurchaseItemToFreeItem != null &&
+                    this.MatchRequiredPurchaseItemToFreeItem.Equals(input.MatchRequiredPurchaseItemToFreeItem))
+                ) && 
+                (
                     this.RequiredPurchaseItems == input.RequiredPurchaseItems ||
                     this.RequiredPurchaseItems != null &&
                     this.RequiredPurchaseItems.SequenceEqual(input.RequiredPurchaseItems)
@@ -139,6 +154,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.Limit != null)
                     hashCode = hashCode * 59 + this.Limit.GetHashCode();
+                if (this.MatchRequiredPurchaseItemToFreeItem != null)
+                    hashCode = hashCode * 59 + this.MatchRequiredPurchaseItemToFreeItem.GetHashCode();
                 if (this.RequiredPurchaseItems != null)
                     hashCode = hashCode * 59 + this.RequiredPurchaseItems.GetHashCode();
                 return hashCode;

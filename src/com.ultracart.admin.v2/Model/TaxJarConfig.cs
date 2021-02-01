@@ -36,13 +36,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="active">True if TaxJar is active for this merchant.</param>
         /// <param name="apiKey">TaxJar API key.</param>
         /// <param name="estimateOnly">True if this TaxJar configuration is to estimate taxes only and not report placed orders to TaxJar.</param>
+        /// <param name="sendOutsideNexus">Send orders outside your nexus TaxJar.  The default is to not transmit outside orders to TaxJar to reduce API calls.  However, this will prevent TaxJar from dynamically creating new Nexus when thresholds are exceeded for a state..</param>
         /// <param name="sendTestOrders">Send test orders through to TaxJar.  The default is to not transmit test orders to TaxJar..</param>
         /// <param name="useDistributionCenterFrom">Use distribution center from address.</param>
-        public TaxJarConfig(bool? active = default(bool?), string apiKey = default(string), bool? estimateOnly = default(bool?), bool? sendTestOrders = default(bool?), bool? useDistributionCenterFrom = default(bool?))
+        public TaxJarConfig(bool? active = default(bool?), string apiKey = default(string), bool? estimateOnly = default(bool?), bool? sendOutsideNexus = default(bool?), bool? sendTestOrders = default(bool?), bool? useDistributionCenterFrom = default(bool?))
         {
             this.Active = active;
             this.ApiKey = apiKey;
             this.EstimateOnly = estimateOnly;
+            this.SendOutsideNexus = sendOutsideNexus;
             this.SendTestOrders = sendTestOrders;
             this.UseDistributionCenterFrom = useDistributionCenterFrom;
         }
@@ -69,6 +71,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? EstimateOnly { get; set; }
 
         /// <summary>
+        /// Send orders outside your nexus TaxJar.  The default is to not transmit outside orders to TaxJar to reduce API calls.  However, this will prevent TaxJar from dynamically creating new Nexus when thresholds are exceeded for a state.
+        /// </summary>
+        /// <value>Send orders outside your nexus TaxJar.  The default is to not transmit outside orders to TaxJar to reduce API calls.  However, this will prevent TaxJar from dynamically creating new Nexus when thresholds are exceeded for a state.</value>
+        [DataMember(Name="send_outside_nexus", EmitDefaultValue=false)]
+        public bool? SendOutsideNexus { get; set; }
+
+        /// <summary>
         /// Send test orders through to TaxJar.  The default is to not transmit test orders to TaxJar.
         /// </summary>
         /// <value>Send test orders through to TaxJar.  The default is to not transmit test orders to TaxJar.</value>
@@ -93,6 +102,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  ApiKey: ").Append(ApiKey).Append("\n");
             sb.Append("  EstimateOnly: ").Append(EstimateOnly).Append("\n");
+            sb.Append("  SendOutsideNexus: ").Append(SendOutsideNexus).Append("\n");
             sb.Append("  SendTestOrders: ").Append(SendTestOrders).Append("\n");
             sb.Append("  UseDistributionCenterFrom: ").Append(UseDistributionCenterFrom).Append("\n");
             sb.Append("}\n");
@@ -145,6 +155,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EstimateOnly.Equals(input.EstimateOnly))
                 ) && 
                 (
+                    this.SendOutsideNexus == input.SendOutsideNexus ||
+                    (this.SendOutsideNexus != null &&
+                    this.SendOutsideNexus.Equals(input.SendOutsideNexus))
+                ) && 
+                (
                     this.SendTestOrders == input.SendTestOrders ||
                     (this.SendTestOrders != null &&
                     this.SendTestOrders.Equals(input.SendTestOrders))
@@ -171,6 +186,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ApiKey.GetHashCode();
                 if (this.EstimateOnly != null)
                     hashCode = hashCode * 59 + this.EstimateOnly.GetHashCode();
+                if (this.SendOutsideNexus != null)
+                    hashCode = hashCode * 59 + this.SendOutsideNexus.GetHashCode();
                 if (this.SendTestOrders != null)
                     hashCode = hashCode * 59 + this.SendTestOrders.GetHashCode();
                 if (this.UseDistributionCenterFrom != null)

@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AddLibraryItemRequest" /> class.
         /// </summary>
+        /// <param name="attributes">Attributes associated with the library item to contain additional configuration..</param>
         /// <param name="cjson">Cjson to be added to library.</param>
         /// <param name="contentType">flow, campaign, cjson, email, transactional_email or upsell.</param>
         /// <param name="description">description of library item.</param>
@@ -42,9 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="storefrontOid">StoreFront oid where content originates necessary for tracking down relative assets.</param>
         /// <param name="title">title of library item, usually the name of the flow or campaign, or description of cjson.</param>
         /// <param name="upsellOfferOid">Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer..</param>
-        /// <param name="uuid">UUID of communication flow or campaign, null if this item is neither.</param>
-        public AddLibraryItemRequest(string cjson = default(string), string contentType = default(string), string description = default(string), string emailName = default(string), string emailPath = default(string), List<LibraryItemScreenshot> screenshots = default(List<LibraryItemScreenshot>), int? storefrontOid = default(int?), string title = default(string), int? upsellOfferOid = default(int?), string uuid = default(string))
+        /// <param name="uuid">UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name.</param>
+        public AddLibraryItemRequest(List<LibraryItemAttribute> attributes = default(List<LibraryItemAttribute>), string cjson = default(string), string contentType = default(string), string description = default(string), string emailName = default(string), string emailPath = default(string), List<LibraryItemScreenshot> screenshots = default(List<LibraryItemScreenshot>), int? storefrontOid = default(int?), string title = default(string), int? upsellOfferOid = default(int?), string uuid = default(string))
         {
+            this.Attributes = attributes;
             this.Cjson = cjson;
             this.ContentType = contentType;
             this.Description = description;
@@ -57,6 +59,13 @@ namespace com.ultracart.admin.v2.Model
             this.Uuid = uuid;
         }
         
+        /// <summary>
+        /// Attributes associated with the library item to contain additional configuration.
+        /// </summary>
+        /// <value>Attributes associated with the library item to contain additional configuration.</value>
+        [DataMember(Name="attributes", EmitDefaultValue=false)]
+        public List<LibraryItemAttribute> Attributes { get; set; }
+
         /// <summary>
         /// Cjson to be added to library
         /// </summary>
@@ -121,9 +130,9 @@ namespace com.ultracart.admin.v2.Model
         public int? UpsellOfferOid { get; set; }
 
         /// <summary>
-        /// UUID of communication flow or campaign, null if this item is neither
+        /// UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name
         /// </summary>
-        /// <value>UUID of communication flow or campaign, null if this item is neither</value>
+        /// <value>UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name</value>
         [DataMember(Name="uuid", EmitDefaultValue=false)]
         public string Uuid { get; set; }
 
@@ -135,6 +144,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AddLibraryItemRequest {\n");
+            sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Cjson: ").Append(Cjson).Append("\n");
             sb.Append("  ContentType: ").Append(ContentType).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -179,6 +189,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Attributes == input.Attributes ||
+                    this.Attributes != null &&
+                    this.Attributes.SequenceEqual(input.Attributes)
+                ) && 
                 (
                     this.Cjson == input.Cjson ||
                     (this.Cjson != null &&
@@ -240,6 +255,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Attributes != null)
+                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Cjson != null)
                     hashCode = hashCode * 59 + this.Cjson.GetHashCode();
                 if (this.ContentType != null)

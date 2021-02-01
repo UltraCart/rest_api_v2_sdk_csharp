@@ -36,12 +36,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
+        /// <param name="warning">warning.</param>
         /// <param name="webhook">webhook.</param>
-        public WebhookResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Webhook webhook = default(Webhook))
+        public WebhookResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning), Webhook webhook = default(Webhook))
         {
             this.Error = error;
             this.Metadata = metadata;
             this.Success = success;
+            this.Warning = warning;
             this.Webhook = webhook;
         }
         
@@ -65,6 +67,12 @@ namespace com.ultracart.admin.v2.Model
         public bool? Success { get; set; }
 
         /// <summary>
+        /// Gets or Sets Warning
+        /// </summary>
+        [DataMember(Name="warning", EmitDefaultValue=false)]
+        public Warning Warning { get; set; }
+
+        /// <summary>
         /// Gets or Sets Webhook
         /// </summary>
         [DataMember(Name="webhook", EmitDefaultValue=false)]
@@ -81,6 +89,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("  Webhook: ").Append(Webhook).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -132,6 +141,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Success.Equals(input.Success))
                 ) && 
                 (
+                    this.Warning == input.Warning ||
+                    (this.Warning != null &&
+                    this.Warning.Equals(input.Warning))
+                ) && 
+                (
                     this.Webhook == input.Webhook ||
                     (this.Webhook != null &&
                     this.Webhook.Equals(input.Webhook))
@@ -153,6 +167,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
+                if (this.Warning != null)
+                    hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 if (this.Webhook != null)
                     hashCode = hashCode * 59 + this.Webhook.GetHashCode();
                 return hashCode;

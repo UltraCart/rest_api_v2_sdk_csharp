@@ -37,12 +37,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="thumbnailUrlSuffix">Suffix to append to the larger image URL to obtain the thumbnail.</param>
-        public ThumbnailParametersResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), string thumbnailUrlSuffix = default(string))
+        /// <param name="warning">warning.</param>
+        public ThumbnailParametersResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), string thumbnailUrlSuffix = default(string), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Metadata = metadata;
             this.Success = success;
             this.ThumbnailUrlSuffix = thumbnailUrlSuffix;
+            this.Warning = warning;
         }
         
         /// <summary>
@@ -72,6 +74,12 @@ namespace com.ultracart.admin.v2.Model
         public string ThumbnailUrlSuffix { get; set; }
 
         /// <summary>
+        /// Gets or Sets Warning
+        /// </summary>
+        [DataMember(Name="warning", EmitDefaultValue=false)]
+        public Warning Warning { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +91,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  ThumbnailUrlSuffix: ").Append(ThumbnailUrlSuffix).Append("\n");
+            sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +145,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ThumbnailUrlSuffix == input.ThumbnailUrlSuffix ||
                     (this.ThumbnailUrlSuffix != null &&
                     this.ThumbnailUrlSuffix.Equals(input.ThumbnailUrlSuffix))
+                ) && 
+                (
+                    this.Warning == input.Warning ||
+                    (this.Warning != null &&
+                    this.Warning.Equals(input.Warning))
                 );
         }
 
@@ -156,6 +170,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.ThumbnailUrlSuffix != null)
                     hashCode = hashCode * 59 + this.ThumbnailUrlSuffix.GetHashCode();
+                if (this.Warning != null)
+                    hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;
             }
         }

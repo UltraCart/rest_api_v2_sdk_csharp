@@ -31,7 +31,7 @@ namespace com.ultracart.admin.v2.Api
         /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addLibraryRequest">New library item</param>
+        /// <param name="addLibraryRequest">New library item request</param>
         /// <returns>LibraryItemResponse</returns>
         LibraryItemResponse AddToLibrary (AddLibraryItemRequest addLibraryRequest);
 
@@ -42,7 +42,7 @@ namespace com.ultracart.admin.v2.Api
         /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addLibraryRequest">New library item</param>
+        /// <param name="addLibraryRequest">New library item request</param>
         /// <returns>ApiResponse of LibraryItemResponse</returns>
         ApiResponse<LibraryItemResponse> AddToLibraryWithHttpInfo (AddLibraryItemRequest addLibraryRequest);
         /// <summary>
@@ -52,10 +52,9 @@ namespace com.ultracart.admin.v2.Api
         /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"></param>
+        /// <param name="applyLibraryRequest">New library item</param>
         /// <returns>ApplyLibraryItemResponse</returns>
-        ApplyLibraryItemResponse ApplyToStoreFront (int? libraryItemOid, int? storefrontOid);
+        ApplyLibraryItemResponse ApplyToStoreFront (ApplyLibraryItemRequest applyLibraryRequest);
 
         /// <summary>
         /// Apply library item to storefront.
@@ -64,10 +63,9 @@ namespace com.ultracart.admin.v2.Api
         /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"></param>
+        /// <param name="applyLibraryRequest">New library item</param>
         /// <returns>ApiResponse of ApplyLibraryItemResponse</returns>
-        ApiResponse<ApplyLibraryItemResponse> ApplyToStoreFrontWithHttpInfo (int? libraryItemOid, int? storefrontOid);
+        ApiResponse<ApplyLibraryItemResponse> ApplyToStoreFrontWithHttpInfo (ApplyLibraryItemRequest applyLibraryRequest);
         /// <summary>
         /// Archive email list
         /// </summary>
@@ -236,6 +234,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailSendingDomainResponse</returns>
         ApiResponse<EmailSendingDomainResponse> CreateEmailSendingDomainWithHttpInfo (string domain);
         /// <summary>
+        /// Delete email campaignFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse DeleteEmailCampaignFolder (int? storefrontOid, string emailCampaignFolderUuid);
+
+        /// <summary>
+        /// Delete email campaignFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> DeleteEmailCampaignFolderWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid);
+        /// <summary>
         /// Delete communication sequence stats
         /// </summary>
         /// <remarks>
@@ -281,6 +302,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="commseqEmailUuid"></param>
         /// <returns>ApiResponse of BaseResponse</returns>
         ApiResponse<BaseResponse> DeleteEmailEmailWithHttpInfo (int? storefrontOid, string commseqEmailUuid);
+        /// <summary>
+        /// Delete email flowFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse DeleteEmailFlowFolder (int? storefrontOid, string emailFlowFolderUuid);
+
+        /// <summary>
+        /// Delete email flowFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> DeleteEmailFlowFolderWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid);
         /// <summary>
         /// Delete email list customer
         /// </summary>
@@ -395,6 +439,50 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteLibraryItemWithHttpInfo (int? libraryItemOid);
         /// <summary>
+        /// Delete all published versions for a library item, including anything in review.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns></returns>
+        void DeleteLibraryItemPublishedVersions (int? libraryItemOid);
+
+        /// <summary>
+        /// Delete all published versions for a library item, including anything in review.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteLibraryItemPublishedVersionsWithHttpInfo (int? libraryItemOid);
+        /// <summary>
+        /// Delete screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>ScreenRecordingSegmentResponse</returns>
+        ScreenRecordingSegmentResponse DeleteScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid);
+
+        /// <summary>
+        /// Delete screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
+        ApiResponse<ScreenRecordingSegmentResponse> DeleteScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid);
+        /// <summary>
         /// Duplicate library item.
         /// </summary>
         /// <remarks>
@@ -415,6 +503,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="libraryItemOid"></param>
         /// <returns>ApiResponse of LibraryItemResponse</returns>
         ApiResponse<LibraryItemResponse> DuplicateLibraryItemWithHttpInfo (int? libraryItemOid);
+        /// <summary>
+        /// Update favorite flag on screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update favorite flag on screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns></returns>
+        void FavoriteScreenRecording (int? storefrontOid, string screenRecordingUuid);
+
+        /// <summary>
+        /// Update favorite flag on screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update favorite flag on screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> FavoriteScreenRecordingWithHttpInfo (int? storefrontOid, string screenRecordingUuid);
         /// <summary>
         /// Obtain lat/long for an address
         /// </summary>
@@ -524,6 +635,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailCampaignUuid"></param>
         /// <returns>ApiResponse of EmailCampaignResponse</returns>
         ApiResponse<EmailCampaignResponse> GetEmailCampaignWithHttpInfo (int? storefrontOid, string emailCampaignUuid);
+        /// <summary>
+        /// Get email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>EmailCampaignFolderResponse</returns>
+        EmailCampaignFolderResponse GetEmailCampaignFolder (int? storefrontOid, string emailCampaignFolderUuid);
+
+        /// <summary>
+        /// Get email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>ApiResponse of EmailCampaignFolderResponse</returns>
+        ApiResponse<EmailCampaignFolderResponse> GetEmailCampaignFolderWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid);
+        /// <summary>
+        /// Get email campaign folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>EmailCampaignFoldersResponse</returns>
+        EmailCampaignFoldersResponse GetEmailCampaignFolders (int? storefrontOid);
+
+        /// <summary>
+        /// Get email campaign folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of EmailCampaignFoldersResponse</returns>
+        ApiResponse<EmailCampaignFoldersResponse> GetEmailCampaignFoldersWithHttpInfo (int? storefrontOid);
         /// <summary>
         /// Get email campaign screenshots
         /// </summary>
@@ -1027,6 +1182,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailFlowUuid"></param>
         /// <returns>ApiResponse of EmailFlowResponse</returns>
         ApiResponse<EmailFlowResponse> GetEmailFlowWithHttpInfo (int? storefrontOid, string emailFlowUuid);
+        /// <summary>
+        /// Get email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>EmailFlowFolderResponse</returns>
+        EmailFlowFolderResponse GetEmailFlowFolder (int? storefrontOid, string emailFlowFolderUuid);
+
+        /// <summary>
+        /// Get email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>ApiResponse of EmailFlowFolderResponse</returns>
+        ApiResponse<EmailFlowFolderResponse> GetEmailFlowFolderWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid);
+        /// <summary>
+        /// Get email flow folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>EmailFlowFoldersResponse</returns>
+        EmailFlowFoldersResponse GetEmailFlowFolders (int? storefrontOid);
+
+        /// <summary>
+        /// Get email flow folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of EmailFlowFoldersResponse</returns>
+        ApiResponse<EmailFlowFoldersResponse> GetEmailFlowFoldersWithHttpInfo (int? storefrontOid);
         /// <summary>
         /// Get email flow screenshots
         /// </summary>
@@ -1652,6 +1851,240 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of LibraryItemResponse</returns>
         ApiResponse<LibraryItemResponse> GetLibraryItemWithHttpInfo (int? libraryItemOid);
         /// <summary>
+        /// Get all published versions for a library item.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>LibraryItemsResponse</returns>
+        LibraryItemsResponse GetLibraryItemPublishedVersions (int? libraryItemOid);
+
+        /// <summary>
+        /// Get all published versions for a library item.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>ApiResponse of LibraryItemsResponse</returns>
+        ApiResponse<LibraryItemsResponse> GetLibraryItemPublishedVersionsWithHttpInfo (int? libraryItemOid);
+        /// <summary>
+        /// Retrieve pricing tiers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the pricing tiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>PricingTiersResponse</returns>
+        PricingTiersResponse GetPricingTiers (string expand = null);
+
+        /// <summary>
+        /// Retrieve pricing tiers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the pricing tiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of PricingTiersResponse</returns>
+        ApiResponse<PricingTiersResponse> GetPricingTiersWithHttpInfo (string expand = null);
+        /// <summary>
+        /// Get screen recording
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>ScreenRecordingResponse</returns>
+        ScreenRecordingResponse GetScreenRecording (int? storefrontOid, string screenRecordingUuid);
+
+        /// <summary>
+        /// Get screen recording
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>ApiResponse of ScreenRecordingResponse</returns>
+        ApiResponse<ScreenRecordingResponse> GetScreenRecordingWithHttpInfo (int? storefrontOid, string screenRecordingUuid);
+        /// <summary>
+        /// Get screen recording page view data
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording page view data 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>ScreenRecordingResponse</returns>
+        ScreenRecordingResponse GetScreenRecordingPageViewData (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
+
+        /// <summary>
+        /// Get screen recording page view data
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording page view data 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>ApiResponse of ScreenRecordingResponse</returns>
+        ApiResponse<ScreenRecordingResponse> GetScreenRecordingPageViewDataWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
+        /// <summary>
+        /// Get screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>ScreenRecordingSegmentResponse</returns>
+        ScreenRecordingSegmentResponse GetScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid);
+
+        /// <summary>
+        /// Get screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
+        ApiResponse<ScreenRecordingSegmentResponse> GetScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid);
+        /// <summary>
+        /// Get screen recording segments
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ScreenRecordingSegmentsResponse</returns>
+        ScreenRecordingSegmentsResponse GetScreenRecordingSegments (int? storefrontOid);
+
+        /// <summary>
+        /// Get screen recording segments
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingSegmentsResponse</returns>
+        ApiResponse<ScreenRecordingSegmentsResponse> GetScreenRecordingSegmentsWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Get screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ScreenRecordingSettingsResponse</returns>
+        ScreenRecordingSettingsResponse GetScreenRecordingSettings (int? storefrontOid);
+
+        /// <summary>
+        /// Get screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingSettingsResponse</returns>
+        ApiResponse<ScreenRecordingSettingsResponse> GetScreenRecordingSettingsWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Get tags used by screen recording
+        /// </summary>
+        /// <remarks>
+        /// Get tags used by screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ScreenRecordingTagsResponse</returns>
+        ScreenRecordingTagsResponse GetScreenRecordingTags (int? storefrontOid);
+
+        /// <summary>
+        /// Get tags used by screen recording
+        /// </summary>
+        /// <remarks>
+        /// Get tags used by screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingTagsResponse</returns>
+        ApiResponse<ScreenRecordingTagsResponse> GetScreenRecordingTagsWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Query screen recordings
+        /// </summary>
+        /// <remarks>
+        /// Query screen recordings 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ScreenRecordingQueryResponse</returns>
+        ScreenRecordingQueryResponse GetScreenRecordingsByQuery (int? storefrontOid, ScreenRecordingQueryRequest query, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Query screen recordings
+        /// </summary>
+        /// <remarks>
+        /// Query screen recordings 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of ScreenRecordingQueryResponse</returns>
+        ApiResponse<ScreenRecordingQueryResponse> GetScreenRecordingsByQueryWithHttpInfo (int? storefrontOid, ScreenRecordingQueryRequest query, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
+        /// Get screen recordings by segment
+        /// </summary>
+        /// <remarks>
+        /// Get screen recordings by segment 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ScreenRecordingQueryResponse</returns>
+        ScreenRecordingQueryResponse GetScreenRecordingsBySegment (int? storefrontOid, int? screenRecordingSegmentOid, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Get screen recordings by segment
+        /// </summary>
+        /// <remarks>
+        /// Get screen recordings by segment 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of ScreenRecordingQueryResponse</returns>
+        ApiResponse<ScreenRecordingQueryResponse> GetScreenRecordingsBySegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
         /// Get thumbnail parameters
         /// </summary>
         /// <remarks>
@@ -1716,6 +2149,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <returns>ApiResponse of TransactionEmailListResponse</returns>
         ApiResponse<TransactionEmailListResponse> GetTransactionEmailListWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Get transactional email screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailId"></param>
+        /// <returns>ScreenshotsResponse</returns>
+        ScreenshotsResponse GetTransactionEmailScreenshots (int? storefrontOid, string emailId);
+
+        /// <summary>
+        /// Get transactional email screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailId"></param>
+        /// <returns>ApiResponse of ScreenshotsResponse</returns>
+        ApiResponse<ScreenshotsResponse> GetTransactionEmailScreenshotsWithHttpInfo (int? storefrontOid, string emailId);
         /// <summary>
         /// Globally unsubscribe a customer
         /// </summary>
@@ -1786,6 +2242,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailCampaignResponse</returns>
         ApiResponse<EmailCampaignResponse> InsertEmailCampaignWithHttpInfo (int? storefrontOid, EmailCampaign emailCampaign);
         /// <summary>
+        /// Insert email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>EmailCampaignFolderResponse</returns>
+        EmailCampaignFolderResponse InsertEmailCampaignFolder (int? storefrontOid, EmailCampaignFolder emailCampaignFolder);
+
+        /// <summary>
+        /// Insert email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>ApiResponse of EmailCampaignFolderResponse</returns>
+        ApiResponse<EmailCampaignFolderResponse> InsertEmailCampaignFolderWithHttpInfo (int? storefrontOid, EmailCampaignFolder emailCampaignFolder);
+        /// <summary>
         /// Insert email commseq
         /// </summary>
         /// <remarks>
@@ -1854,6 +2333,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailFlow">Email flow</param>
         /// <returns>ApiResponse of EmailFlowResponse</returns>
         ApiResponse<EmailFlowResponse> InsertEmailFlowWithHttpInfo (int? storefrontOid, EmailFlow emailFlow);
+        /// <summary>
+        /// Insert email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>EmailFlowFolderResponse</returns>
+        EmailFlowFolderResponse InsertEmailFlowFolder (int? storefrontOid, EmailFlowFolder emailFlowFolder);
+
+        /// <summary>
+        /// Insert email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>ApiResponse of EmailFlowFolderResponse</returns>
+        ApiResponse<EmailFlowFolderResponse> InsertEmailFlowFolderWithHttpInfo (int? storefrontOid, EmailFlowFolder emailFlowFolder);
         /// <summary>
         /// Insert email list
         /// </summary>
@@ -1924,6 +2426,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailSegmentResponse</returns>
         ApiResponse<EmailSegmentResponse> InsertEmailSegmentWithHttpInfo (int? storefrontOid, EmailSegment emailSegment);
         /// <summary>
+        /// Insert screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>ScreenRecordingSegmentResponse</returns>
+        ScreenRecordingSegmentResponse InsertScreenRecordingSegment (int? storefrontOid, ScreenRecordingSegment segment);
+
+        /// <summary>
+        /// Insert screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
+        ApiResponse<ScreenRecordingSegmentResponse> InsertScreenRecordingSegmentWithHttpInfo (int? storefrontOid, ScreenRecordingSegment segment);
+        /// <summary>
         /// Prepare download of email segment
         /// </summary>
         /// <remarks>
@@ -1954,8 +2479,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="libraryItemOid"></param>
+        /// <param name="publishLibraryRequest">Publish library item request</param>
         /// <returns>LibraryItemResponse</returns>
-        LibraryItemResponse PublishLibraryItem (int? libraryItemOid);
+        LibraryItemResponse PublishLibraryItem (int? libraryItemOid, PublishLibraryItemRequest publishLibraryRequest);
 
         /// <summary>
         /// Publish library item.
@@ -1965,8 +2491,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="libraryItemOid"></param>
+        /// <param name="publishLibraryRequest">Publish library item request</param>
         /// <returns>ApiResponse of LibraryItemResponse</returns>
-        ApiResponse<LibraryItemResponse> PublishLibraryItemWithHttpInfo (int? libraryItemOid);
+        ApiResponse<LibraryItemResponse> PublishLibraryItemWithHttpInfo (int? libraryItemOid, PublishLibraryItemRequest publishLibraryRequest);
         /// <summary>
         /// Purchase public library item, which creates a copy of the item in your personal code library
         /// </summary>
@@ -2069,6 +2596,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="subcategory"> (optional)</param>
         /// <returns>ApiResponse of LookupResponse</returns>
         ApiResponse<LookupResponse> SearchWithHttpInfo (string category = null, string matches = null, string storefrontOid = null, int? maxHits = null, string subcategory = null);
+        /// <summary>
+        /// Searches for all matching values (using POST)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>LookupResponse</returns>
+        LookupResponse Search2 (LookupRequest lookupRequest);
+
+        /// <summary>
+        /// Searches for all matching values (using POST)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>ApiResponse of LookupResponse</returns>
+        ApiResponse<LookupResponse> Search2WithHttpInfo (LookupRequest lookupRequest);
         /// <summary>
         /// Search email list customers
         /// </summary>
@@ -2173,6 +2721,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>ApiResponse of LibraryItemsResponse</returns>
         ApiResponse<LibraryItemsResponse> SearchPublishedItemsWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
+        /// Retrieve library items needing review or rejected
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>LibraryItemsResponse</returns>
+        LibraryItemsResponse SearchReviewItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Retrieve library items needing review or rejected
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of LibraryItemsResponse</returns>
+        ApiResponse<LibraryItemsResponse> SearchReviewItemsWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
         /// <summary>
         /// Retrieve library items
         /// </summary>
@@ -2299,6 +2874,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailListSubscribeResponse</returns>
         ApiResponse<EmailListSubscribeResponse> SubscribeToEmailListWithHttpInfo (int? storefrontOid, string emailListUuid, List<EmailCustomer> customers);
         /// <summary>
+        /// Remove favorite flag on screen recording
+        /// </summary>
+        /// <remarks>
+        /// Remove favorite flag on screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns></returns>
+        void UnfavoriteScreenRecording (int? storefrontOid, string screenRecordingUuid);
+
+        /// <summary>
+        /// Remove favorite flag on screen recording
+        /// </summary>
+        /// <remarks>
+        /// Remove favorite flag on screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UnfavoriteScreenRecordingWithHttpInfo (int? storefrontOid, string screenRecordingUuid);
+        /// <summary>
         /// Update email campaign
         /// </summary>
         /// <remarks>
@@ -2323,6 +2921,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailCampaign">Email campaign</param>
         /// <returns>ApiResponse of EmailCampaignResponse</returns>
         ApiResponse<EmailCampaignResponse> UpdateEmailCampaignWithHttpInfo (int? storefrontOid, string emailCampaignUuid, EmailCampaign emailCampaign);
+        /// <summary>
+        /// Update email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>EmailCampaignFolderResponse</returns>
+        EmailCampaignFolderResponse UpdateEmailCampaignFolder (int? storefrontOid, string emailCampaignFolderUuid, EmailCampaignFolder emailCampaignFolder);
+
+        /// <summary>
+        /// Update email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>ApiResponse of EmailCampaignFolderResponse</returns>
+        ApiResponse<EmailCampaignFolderResponse> UpdateEmailCampaignFolderWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid, EmailCampaignFolder emailCampaignFolder);
         /// <summary>
         /// Update email commseq
         /// </summary>
@@ -2423,6 +3046,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailFlow">Email flow</param>
         /// <returns>ApiResponse of EmailFlowResponse</returns>
         ApiResponse<EmailFlowResponse> UpdateEmailFlowWithHttpInfo (int? storefrontOid, string emailFlowUuid, EmailFlow emailFlow);
+        /// <summary>
+        /// Update email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>EmailFlowFolderResponse</returns>
+        EmailFlowFolderResponse UpdateEmailFlowFolder (int? storefrontOid, string emailFlowFolderUuid, EmailFlowFolder emailFlowFolder);
+
+        /// <summary>
+        /// Update email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>ApiResponse of EmailFlowFolderResponse</returns>
+        ApiResponse<EmailFlowFolderResponse> UpdateEmailFlowFolderWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid, EmailFlowFolder emailFlowFolder);
         /// <summary>
         /// Update email global settings
         /// </summary>
@@ -2614,6 +3262,79 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of LibraryItemResponse</returns>
         ApiResponse<LibraryItemResponse> UpdateLibraryItemWithHttpInfo (int? libraryItemOid, LibraryItem libraryItem);
         /// <summary>
+        /// Update screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>ScreenRecordingSegmentResponse</returns>
+        ScreenRecordingSegmentResponse UpdateScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid, ScreenRecordingSegment segment);
+
+        /// <summary>
+        /// Update screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
+        ApiResponse<ScreenRecordingSegmentResponse> UpdateScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid, ScreenRecordingSegment segment);
+        /// <summary>
+        /// Update screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="settings">Settings</param>
+        /// <returns>ScreenRecordingSettingsResponse</returns>
+        ScreenRecordingSettingsResponse UpdateScreenRecordingSettings (int? storefrontOid, ScreenRecordingSettings settings);
+
+        /// <summary>
+        /// Update screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="settings">Settings</param>
+        /// <returns>ApiResponse of ScreenRecordingSettingsResponse</returns>
+        ApiResponse<ScreenRecordingSettingsResponse> UpdateScreenRecordingSettingsWithHttpInfo (int? storefrontOid, ScreenRecordingSettings settings);
+        /// <summary>
+        /// Update tags on a screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update tags on a screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="tags">Tags</param>
+        /// <returns></returns>
+        void UpdateScreenRecordingTags (int? storefrontOid, string screenRecordingUuid, ScreenRecordingTagsRequest tags);
+
+        /// <summary>
+        /// Update tags on a screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update tags on a screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="tags">Tags</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateScreenRecordingTagsWithHttpInfo (int? storefrontOid, string screenRecordingUuid, ScreenRecordingTagsRequest tags);
+        /// <summary>
         /// Updates a transaction email object
         /// </summary>
         /// <remarks>
@@ -2647,7 +3368,7 @@ namespace com.ultracart.admin.v2.Api
         /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addLibraryRequest">New library item</param>
+        /// <param name="addLibraryRequest">New library item request</param>
         /// <returns>Task of LibraryItemResponse</returns>
         System.Threading.Tasks.Task<LibraryItemResponse> AddToLibraryAsync (AddLibraryItemRequest addLibraryRequest);
 
@@ -2658,7 +3379,7 @@ namespace com.ultracart.admin.v2.Api
         /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addLibraryRequest">New library item</param>
+        /// <param name="addLibraryRequest">New library item request</param>
         /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> AddToLibraryAsyncWithHttpInfo (AddLibraryItemRequest addLibraryRequest);
         /// <summary>
@@ -2668,10 +3389,9 @@ namespace com.ultracart.admin.v2.Api
         /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"></param>
+        /// <param name="applyLibraryRequest">New library item</param>
         /// <returns>Task of ApplyLibraryItemResponse</returns>
-        System.Threading.Tasks.Task<ApplyLibraryItemResponse> ApplyToStoreFrontAsync (int? libraryItemOid, int? storefrontOid);
+        System.Threading.Tasks.Task<ApplyLibraryItemResponse> ApplyToStoreFrontAsync (ApplyLibraryItemRequest applyLibraryRequest);
 
         /// <summary>
         /// Apply library item to storefront.
@@ -2680,10 +3400,9 @@ namespace com.ultracart.admin.v2.Api
         /// 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"></param>
+        /// <param name="applyLibraryRequest">New library item</param>
         /// <returns>Task of ApiResponse (ApplyLibraryItemResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplyLibraryItemResponse>> ApplyToStoreFrontAsyncWithHttpInfo (int? libraryItemOid, int? storefrontOid);
+        System.Threading.Tasks.Task<ApiResponse<ApplyLibraryItemResponse>> ApplyToStoreFrontAsyncWithHttpInfo (ApplyLibraryItemRequest applyLibraryRequest);
         /// <summary>
         /// Archive email list
         /// </summary>
@@ -2852,6 +3571,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailSendingDomainResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailSendingDomainResponse>> CreateEmailSendingDomainAsyncWithHttpInfo (string domain);
         /// <summary>
+        /// Delete email campaignFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> DeleteEmailCampaignFolderAsync (int? storefrontOid, string emailCampaignFolderUuid);
+
+        /// <summary>
+        /// Delete email campaignFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteEmailCampaignFolderAsyncWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid);
+        /// <summary>
         /// Delete communication sequence stats
         /// </summary>
         /// <remarks>
@@ -2897,6 +3639,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="commseqEmailUuid"></param>
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteEmailEmailAsyncWithHttpInfo (int? storefrontOid, string commseqEmailUuid);
+        /// <summary>
+        /// Delete email flowFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> DeleteEmailFlowFolderAsync (int? storefrontOid, string emailFlowFolderUuid);
+
+        /// <summary>
+        /// Delete email flowFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteEmailFlowFolderAsyncWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid);
         /// <summary>
         /// Delete email list customer
         /// </summary>
@@ -3011,6 +3776,50 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLibraryItemAsyncWithHttpInfo (int? libraryItemOid);
         /// <summary>
+        /// Delete all published versions for a library item, including anything in review.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteLibraryItemPublishedVersionsAsync (int? libraryItemOid);
+
+        /// <summary>
+        /// Delete all published versions for a library item, including anything in review.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLibraryItemPublishedVersionsAsyncWithHttpInfo (int? libraryItemOid);
+        /// <summary>
+        /// Delete screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>Task of ScreenRecordingSegmentResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingSegmentResponse> DeleteScreenRecordingSegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid);
+
+        /// <summary>
+        /// Delete screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> DeleteScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid);
+        /// <summary>
         /// Duplicate library item.
         /// </summary>
         /// <remarks>
@@ -3031,6 +3840,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="libraryItemOid"></param>
         /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> DuplicateLibraryItemAsyncWithHttpInfo (int? libraryItemOid);
+        /// <summary>
+        /// Update favorite flag on screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update favorite flag on screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task FavoriteScreenRecordingAsync (int? storefrontOid, string screenRecordingUuid);
+
+        /// <summary>
+        /// Update favorite flag on screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update favorite flag on screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> FavoriteScreenRecordingAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid);
         /// <summary>
         /// Obtain lat/long for an address
         /// </summary>
@@ -3140,6 +3972,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailCampaignUuid"></param>
         /// <returns>Task of ApiResponse (EmailCampaignResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailCampaignResponse>> GetEmailCampaignAsyncWithHttpInfo (int? storefrontOid, string emailCampaignUuid);
+        /// <summary>
+        /// Get email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>Task of EmailCampaignFolderResponse</returns>
+        System.Threading.Tasks.Task<EmailCampaignFolderResponse> GetEmailCampaignFolderAsync (int? storefrontOid, string emailCampaignFolderUuid);
+
+        /// <summary>
+        /// Get email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>Task of ApiResponse (EmailCampaignFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailCampaignFolderResponse>> GetEmailCampaignFolderAsyncWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid);
+        /// <summary>
+        /// Get email campaign folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of EmailCampaignFoldersResponse</returns>
+        System.Threading.Tasks.Task<EmailCampaignFoldersResponse> GetEmailCampaignFoldersAsync (int? storefrontOid);
+
+        /// <summary>
+        /// Get email campaign folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (EmailCampaignFoldersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailCampaignFoldersResponse>> GetEmailCampaignFoldersAsyncWithHttpInfo (int? storefrontOid);
         /// <summary>
         /// Get email campaign screenshots
         /// </summary>
@@ -3643,6 +4519,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailFlowUuid"></param>
         /// <returns>Task of ApiResponse (EmailFlowResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailFlowResponse>> GetEmailFlowAsyncWithHttpInfo (int? storefrontOid, string emailFlowUuid);
+        /// <summary>
+        /// Get email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>Task of EmailFlowFolderResponse</returns>
+        System.Threading.Tasks.Task<EmailFlowFolderResponse> GetEmailFlowFolderAsync (int? storefrontOid, string emailFlowFolderUuid);
+
+        /// <summary>
+        /// Get email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>Task of ApiResponse (EmailFlowFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailFlowFolderResponse>> GetEmailFlowFolderAsyncWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid);
+        /// <summary>
+        /// Get email flow folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of EmailFlowFoldersResponse</returns>
+        System.Threading.Tasks.Task<EmailFlowFoldersResponse> GetEmailFlowFoldersAsync (int? storefrontOid);
+
+        /// <summary>
+        /// Get email flow folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (EmailFlowFoldersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailFlowFoldersResponse>> GetEmailFlowFoldersAsyncWithHttpInfo (int? storefrontOid);
         /// <summary>
         /// Get email flow screenshots
         /// </summary>
@@ -4268,6 +5188,240 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> GetLibraryItemAsyncWithHttpInfo (int? libraryItemOid);
         /// <summary>
+        /// Get all published versions for a library item.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of LibraryItemsResponse</returns>
+        System.Threading.Tasks.Task<LibraryItemsResponse> GetLibraryItemPublishedVersionsAsync (int? libraryItemOid);
+
+        /// <summary>
+        /// Get all published versions for a library item.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> GetLibraryItemPublishedVersionsAsyncWithHttpInfo (int? libraryItemOid);
+        /// <summary>
+        /// Retrieve pricing tiers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the pricing tiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of PricingTiersResponse</returns>
+        System.Threading.Tasks.Task<PricingTiersResponse> GetPricingTiersAsync (string expand = null);
+
+        /// <summary>
+        /// Retrieve pricing tiers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the pricing tiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (PricingTiersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PricingTiersResponse>> GetPricingTiersAsyncWithHttpInfo (string expand = null);
+        /// <summary>
+        /// Get screen recording
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of ScreenRecordingResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingResponse> GetScreenRecordingAsync (int? storefrontOid, string screenRecordingUuid);
+
+        /// <summary>
+        /// Get screen recording
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingResponse>> GetScreenRecordingAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid);
+        /// <summary>
+        /// Get screen recording page view data
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording page view data 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>Task of ScreenRecordingResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingResponse> GetScreenRecordingPageViewDataAsync (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
+
+        /// <summary>
+        /// Get screen recording page view data
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording page view data 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingResponse>> GetScreenRecordingPageViewDataAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
+        /// <summary>
+        /// Get screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>Task of ScreenRecordingSegmentResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingSegmentResponse> GetScreenRecordingSegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid);
+
+        /// <summary>
+        /// Get screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> GetScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid);
+        /// <summary>
+        /// Get screen recording segments
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ScreenRecordingSegmentsResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingSegmentsResponse> GetScreenRecordingSegmentsAsync (int? storefrontOid);
+
+        /// <summary>
+        /// Get screen recording segments
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSegmentsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentsResponse>> GetScreenRecordingSegmentsAsyncWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Get screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ScreenRecordingSettingsResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingSettingsResponse> GetScreenRecordingSettingsAsync (int? storefrontOid);
+
+        /// <summary>
+        /// Get screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSettingsResponse>> GetScreenRecordingSettingsAsyncWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Get tags used by screen recording
+        /// </summary>
+        /// <remarks>
+        /// Get tags used by screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ScreenRecordingTagsResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingTagsResponse> GetScreenRecordingTagsAsync (int? storefrontOid);
+
+        /// <summary>
+        /// Get tags used by screen recording
+        /// </summary>
+        /// <remarks>
+        /// Get tags used by screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingTagsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingTagsResponse>> GetScreenRecordingTagsAsyncWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Query screen recordings
+        /// </summary>
+        /// <remarks>
+        /// Query screen recordings 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ScreenRecordingQueryResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingQueryResponse> GetScreenRecordingsByQueryAsync (int? storefrontOid, ScreenRecordingQueryRequest query, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Query screen recordings
+        /// </summary>
+        /// <remarks>
+        /// Query screen recordings 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingQueryResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingQueryResponse>> GetScreenRecordingsByQueryAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingQueryRequest query, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
+        /// Get screen recordings by segment
+        /// </summary>
+        /// <remarks>
+        /// Get screen recordings by segment 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ScreenRecordingQueryResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingQueryResponse> GetScreenRecordingsBySegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Get screen recordings by segment
+        /// </summary>
+        /// <remarks>
+        /// Get screen recordings by segment 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingQueryResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingQueryResponse>> GetScreenRecordingsBySegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
         /// Get thumbnail parameters
         /// </summary>
         /// <remarks>
@@ -4332,6 +5486,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <returns>Task of ApiResponse (TransactionEmailListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransactionEmailListResponse>> GetTransactionEmailListAsyncWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Get transactional email screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailId"></param>
+        /// <returns>Task of ScreenshotsResponse</returns>
+        System.Threading.Tasks.Task<ScreenshotsResponse> GetTransactionEmailScreenshotsAsync (int? storefrontOid, string emailId);
+
+        /// <summary>
+        /// Get transactional email screenshots
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailId"></param>
+        /// <returns>Task of ApiResponse (ScreenshotsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenshotsResponse>> GetTransactionEmailScreenshotsAsyncWithHttpInfo (int? storefrontOid, string emailId);
         /// <summary>
         /// Globally unsubscribe a customer
         /// </summary>
@@ -4402,6 +5579,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailCampaignResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailCampaignResponse>> InsertEmailCampaignAsyncWithHttpInfo (int? storefrontOid, EmailCampaign emailCampaign);
         /// <summary>
+        /// Insert email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>Task of EmailCampaignFolderResponse</returns>
+        System.Threading.Tasks.Task<EmailCampaignFolderResponse> InsertEmailCampaignFolderAsync (int? storefrontOid, EmailCampaignFolder emailCampaignFolder);
+
+        /// <summary>
+        /// Insert email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>Task of ApiResponse (EmailCampaignFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailCampaignFolderResponse>> InsertEmailCampaignFolderAsyncWithHttpInfo (int? storefrontOid, EmailCampaignFolder emailCampaignFolder);
+        /// <summary>
         /// Insert email commseq
         /// </summary>
         /// <remarks>
@@ -4470,6 +5670,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailFlow">Email flow</param>
         /// <returns>Task of ApiResponse (EmailFlowResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailFlowResponse>> InsertEmailFlowAsyncWithHttpInfo (int? storefrontOid, EmailFlow emailFlow);
+        /// <summary>
+        /// Insert email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>Task of EmailFlowFolderResponse</returns>
+        System.Threading.Tasks.Task<EmailFlowFolderResponse> InsertEmailFlowFolderAsync (int? storefrontOid, EmailFlowFolder emailFlowFolder);
+
+        /// <summary>
+        /// Insert email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>Task of ApiResponse (EmailFlowFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailFlowFolderResponse>> InsertEmailFlowFolderAsyncWithHttpInfo (int? storefrontOid, EmailFlowFolder emailFlowFolder);
         /// <summary>
         /// Insert email list
         /// </summary>
@@ -4540,6 +5763,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailSegmentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailSegmentResponse>> InsertEmailSegmentAsyncWithHttpInfo (int? storefrontOid, EmailSegment emailSegment);
         /// <summary>
+        /// Insert screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>Task of ScreenRecordingSegmentResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingSegmentResponse> InsertScreenRecordingSegmentAsync (int? storefrontOid, ScreenRecordingSegment segment);
+
+        /// <summary>
+        /// Insert screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> InsertScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingSegment segment);
+        /// <summary>
         /// Prepare download of email segment
         /// </summary>
         /// <remarks>
@@ -4570,8 +5816,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="libraryItemOid"></param>
+        /// <param name="publishLibraryRequest">Publish library item request</param>
         /// <returns>Task of LibraryItemResponse</returns>
-        System.Threading.Tasks.Task<LibraryItemResponse> PublishLibraryItemAsync (int? libraryItemOid);
+        System.Threading.Tasks.Task<LibraryItemResponse> PublishLibraryItemAsync (int? libraryItemOid, PublishLibraryItemRequest publishLibraryRequest);
 
         /// <summary>
         /// Publish library item.
@@ -4581,8 +5828,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="libraryItemOid"></param>
+        /// <param name="publishLibraryRequest">Publish library item request</param>
         /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> PublishLibraryItemAsyncWithHttpInfo (int? libraryItemOid);
+        System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> PublishLibraryItemAsyncWithHttpInfo (int? libraryItemOid, PublishLibraryItemRequest publishLibraryRequest);
         /// <summary>
         /// Purchase public library item, which creates a copy of the item in your personal code library
         /// </summary>
@@ -4685,6 +5933,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="subcategory"> (optional)</param>
         /// <returns>Task of ApiResponse (LookupResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LookupResponse>> SearchAsyncWithHttpInfo (string category = null, string matches = null, string storefrontOid = null, int? maxHits = null, string subcategory = null);
+        /// <summary>
+        /// Searches for all matching values (using POST)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>Task of LookupResponse</returns>
+        System.Threading.Tasks.Task<LookupResponse> Search2Async (LookupRequest lookupRequest);
+
+        /// <summary>
+        /// Searches for all matching values (using POST)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>Task of ApiResponse (LookupResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LookupResponse>> Search2AsyncWithHttpInfo (LookupRequest lookupRequest);
         /// <summary>
         /// Search email list customers
         /// </summary>
@@ -4789,6 +6058,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> SearchPublishedItemsAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
+        /// Retrieve library items needing review or rejected
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of LibraryItemsResponse</returns>
+        System.Threading.Tasks.Task<LibraryItemsResponse> SearchReviewItemsAsync (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
+
+        /// <summary>
+        /// Retrieve library items needing review or rejected
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> SearchReviewItemsAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null);
         /// <summary>
         /// Retrieve library items
         /// </summary>
@@ -4915,6 +6211,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailListSubscribeResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailListSubscribeResponse>> SubscribeToEmailListAsyncWithHttpInfo (int? storefrontOid, string emailListUuid, List<EmailCustomer> customers);
         /// <summary>
+        /// Remove favorite flag on screen recording
+        /// </summary>
+        /// <remarks>
+        /// Remove favorite flag on screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UnfavoriteScreenRecordingAsync (int? storefrontOid, string screenRecordingUuid);
+
+        /// <summary>
+        /// Remove favorite flag on screen recording
+        /// </summary>
+        /// <remarks>
+        /// Remove favorite flag on screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UnfavoriteScreenRecordingAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid);
+        /// <summary>
         /// Update email campaign
         /// </summary>
         /// <remarks>
@@ -4939,6 +6258,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailCampaign">Email campaign</param>
         /// <returns>Task of ApiResponse (EmailCampaignResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailCampaignResponse>> UpdateEmailCampaignAsyncWithHttpInfo (int? storefrontOid, string emailCampaignUuid, EmailCampaign emailCampaign);
+        /// <summary>
+        /// Update email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>Task of EmailCampaignFolderResponse</returns>
+        System.Threading.Tasks.Task<EmailCampaignFolderResponse> UpdateEmailCampaignFolderAsync (int? storefrontOid, string emailCampaignFolderUuid, EmailCampaignFolder emailCampaignFolder);
+
+        /// <summary>
+        /// Update email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>Task of ApiResponse (EmailCampaignFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailCampaignFolderResponse>> UpdateEmailCampaignFolderAsyncWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid, EmailCampaignFolder emailCampaignFolder);
         /// <summary>
         /// Update email commseq
         /// </summary>
@@ -5039,6 +6383,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailFlow">Email flow</param>
         /// <returns>Task of ApiResponse (EmailFlowResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailFlowResponse>> UpdateEmailFlowAsyncWithHttpInfo (int? storefrontOid, string emailFlowUuid, EmailFlow emailFlow);
+        /// <summary>
+        /// Update email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>Task of EmailFlowFolderResponse</returns>
+        System.Threading.Tasks.Task<EmailFlowFolderResponse> UpdateEmailFlowFolderAsync (int? storefrontOid, string emailFlowFolderUuid, EmailFlowFolder emailFlowFolder);
+
+        /// <summary>
+        /// Update email flow folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>Task of ApiResponse (EmailFlowFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailFlowFolderResponse>> UpdateEmailFlowFolderAsyncWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid, EmailFlowFolder emailFlowFolder);
         /// <summary>
         /// Update email global settings
         /// </summary>
@@ -5230,6 +6599,79 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> UpdateLibraryItemAsyncWithHttpInfo (int? libraryItemOid, LibraryItem libraryItem);
         /// <summary>
+        /// Update screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>Task of ScreenRecordingSegmentResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingSegmentResponse> UpdateScreenRecordingSegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid, ScreenRecordingSegment segment);
+
+        /// <summary>
+        /// Update screen recording segment
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> UpdateScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid, ScreenRecordingSegment segment);
+        /// <summary>
+        /// Update screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="settings">Settings</param>
+        /// <returns>Task of ScreenRecordingSettingsResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingSettingsResponse> UpdateScreenRecordingSettingsAsync (int? storefrontOid, ScreenRecordingSettings settings);
+
+        /// <summary>
+        /// Update screen recording settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="settings">Settings</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSettingsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSettingsResponse>> UpdateScreenRecordingSettingsAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingSettings settings);
+        /// <summary>
+        /// Update tags on a screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update tags on a screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="tags">Tags</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateScreenRecordingTagsAsync (int? storefrontOid, string screenRecordingUuid, ScreenRecordingTagsRequest tags);
+
+        /// <summary>
+        /// Update tags on a screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update tags on a screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="tags">Tags</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateScreenRecordingTagsAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid, ScreenRecordingTagsRequest tags);
+        /// <summary>
         /// Updates a transaction email object
         /// </summary>
         /// <remarks>
@@ -5358,7 +6800,7 @@ namespace com.ultracart.admin.v2.Api
         /// Add to library 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addLibraryRequest">New library item</param>
+        /// <param name="addLibraryRequest">New library item request</param>
         /// <returns>LibraryItemResponse</returns>
         public LibraryItemResponse AddToLibrary (AddLibraryItemRequest addLibraryRequest)
         {
@@ -5370,7 +6812,7 @@ namespace com.ultracart.admin.v2.Api
         /// Add to library 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addLibraryRequest">New library item</param>
+        /// <param name="addLibraryRequest">New library item request</param>
         /// <returns>ApiResponse of LibraryItemResponse</returns>
         public ApiResponse< LibraryItemResponse > AddToLibraryWithHttpInfo (AddLibraryItemRequest addLibraryRequest)
         {
@@ -5448,7 +6890,7 @@ namespace com.ultracart.admin.v2.Api
         /// Add to library 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addLibraryRequest">New library item</param>
+        /// <param name="addLibraryRequest">New library item request</param>
         /// <returns>Task of LibraryItemResponse</returns>
         public async System.Threading.Tasks.Task<LibraryItemResponse> AddToLibraryAsync (AddLibraryItemRequest addLibraryRequest)
         {
@@ -5461,7 +6903,7 @@ namespace com.ultracart.admin.v2.Api
         /// Add to library 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addLibraryRequest">New library item</param>
+        /// <param name="addLibraryRequest">New library item request</param>
         /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> AddToLibraryAsyncWithHttpInfo (AddLibraryItemRequest addLibraryRequest)
         {
@@ -5539,12 +6981,11 @@ namespace com.ultracart.admin.v2.Api
         /// Apply library item to storefront. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"></param>
+        /// <param name="applyLibraryRequest">New library item</param>
         /// <returns>ApplyLibraryItemResponse</returns>
-        public ApplyLibraryItemResponse ApplyToStoreFront (int? libraryItemOid, int? storefrontOid)
+        public ApplyLibraryItemResponse ApplyToStoreFront (ApplyLibraryItemRequest applyLibraryRequest)
         {
-             ApiResponse<ApplyLibraryItemResponse> localVarResponse = ApplyToStoreFrontWithHttpInfo(libraryItemOid, storefrontOid);
+             ApiResponse<ApplyLibraryItemResponse> localVarResponse = ApplyToStoreFrontWithHttpInfo(applyLibraryRequest);
              return localVarResponse.Data;
         }
 
@@ -5552,19 +6993,15 @@ namespace com.ultracart.admin.v2.Api
         /// Apply library item to storefront. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"></param>
+        /// <param name="applyLibraryRequest">New library item</param>
         /// <returns>ApiResponse of ApplyLibraryItemResponse</returns>
-        public ApiResponse< ApplyLibraryItemResponse > ApplyToStoreFrontWithHttpInfo (int? libraryItemOid, int? storefrontOid)
+        public ApiResponse< ApplyLibraryItemResponse > ApplyToStoreFrontWithHttpInfo (ApplyLibraryItemRequest applyLibraryRequest)
         {
-            // verify the required parameter 'libraryItemOid' is set
-            if (libraryItemOid == null)
-                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->ApplyToStoreFront");
-            // verify the required parameter 'storefrontOid' is set
-            if (storefrontOid == null)
-                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->ApplyToStoreFront");
+            // verify the required parameter 'applyLibraryRequest' is set
+            if (applyLibraryRequest == null)
+                throw new ApiException(400, "Missing required parameter 'applyLibraryRequest' when calling StorefrontApi->ApplyToStoreFront");
 
-            var localVarPath = "/storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid}";
+            var localVarPath = "/storefront/code_library/apply";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5586,8 +7023,14 @@ namespace com.ultracart.admin.v2.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
-            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (applyLibraryRequest != null && applyLibraryRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(applyLibraryRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = applyLibraryRequest; // byte array
+            }
 
             // authentication (ultraCartBrowserApiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
@@ -5628,12 +7071,11 @@ namespace com.ultracart.admin.v2.Api
         /// Apply library item to storefront. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"></param>
+        /// <param name="applyLibraryRequest">New library item</param>
         /// <returns>Task of ApplyLibraryItemResponse</returns>
-        public async System.Threading.Tasks.Task<ApplyLibraryItemResponse> ApplyToStoreFrontAsync (int? libraryItemOid, int? storefrontOid)
+        public async System.Threading.Tasks.Task<ApplyLibraryItemResponse> ApplyToStoreFrontAsync (ApplyLibraryItemRequest applyLibraryRequest)
         {
-             ApiResponse<ApplyLibraryItemResponse> localVarResponse = await ApplyToStoreFrontAsyncWithHttpInfo(libraryItemOid, storefrontOid);
+             ApiResponse<ApplyLibraryItemResponse> localVarResponse = await ApplyToStoreFrontAsyncWithHttpInfo(applyLibraryRequest);
              return localVarResponse.Data;
 
         }
@@ -5642,19 +7084,15 @@ namespace com.ultracart.admin.v2.Api
         /// Apply library item to storefront. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="libraryItemOid"></param>
-        /// <param name="storefrontOid"></param>
+        /// <param name="applyLibraryRequest">New library item</param>
         /// <returns>Task of ApiResponse (ApplyLibraryItemResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApplyLibraryItemResponse>> ApplyToStoreFrontAsyncWithHttpInfo (int? libraryItemOid, int? storefrontOid)
+        public async System.Threading.Tasks.Task<ApiResponse<ApplyLibraryItemResponse>> ApplyToStoreFrontAsyncWithHttpInfo (ApplyLibraryItemRequest applyLibraryRequest)
         {
-            // verify the required parameter 'libraryItemOid' is set
-            if (libraryItemOid == null)
-                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->ApplyToStoreFront");
-            // verify the required parameter 'storefrontOid' is set
-            if (storefrontOid == null)
-                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->ApplyToStoreFront");
+            // verify the required parameter 'applyLibraryRequest' is set
+            if (applyLibraryRequest == null)
+                throw new ApiException(400, "Missing required parameter 'applyLibraryRequest' when calling StorefrontApi->ApplyToStoreFront");
 
-            var localVarPath = "/storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid}";
+            var localVarPath = "/storefront/code_library/apply";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5676,8 +7114,14 @@ namespace com.ultracart.admin.v2.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
-            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (applyLibraryRequest != null && applyLibraryRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(applyLibraryRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = applyLibraryRequest; // byte array
+            }
 
             // authentication (ultraCartBrowserApiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
@@ -7006,6 +8450,185 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Delete email campaignFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse DeleteEmailCampaignFolder (int? storefrontOid, string emailCampaignFolderUuid)
+        {
+             ApiResponse<BaseResponse> localVarResponse = DeleteEmailCampaignFolderWithHttpInfo(storefrontOid, emailCampaignFolderUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete email campaignFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse< BaseResponse > DeleteEmailCampaignFolderWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->DeleteEmailCampaignFolder");
+            // verify the required parameter 'emailCampaignFolderUuid' is set
+            if (emailCampaignFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignFolderUuid' when calling StorefrontApi->DeleteEmailCampaignFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCampaignFolderUuid != null) localVarPathParams.Add("email_campaign_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailCampaignFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteEmailCampaignFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Delete email campaignFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> DeleteEmailCampaignFolderAsync (int? storefrontOid, string emailCampaignFolderUuid)
+        {
+             ApiResponse<BaseResponse> localVarResponse = await DeleteEmailCampaignFolderAsyncWithHttpInfo(storefrontOid, emailCampaignFolderUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete email campaignFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteEmailCampaignFolderAsyncWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->DeleteEmailCampaignFolder");
+            // verify the required parameter 'emailCampaignFolderUuid' is set
+            if (emailCampaignFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignFolderUuid' when calling StorefrontApi->DeleteEmailCampaignFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCampaignFolderUuid != null) localVarPathParams.Add("email_campaign_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailCampaignFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteEmailCampaignFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
         /// Delete communication sequence stats 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7353,6 +8976,185 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteEmailEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Delete email flowFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse DeleteEmailFlowFolder (int? storefrontOid, string emailFlowFolderUuid)
+        {
+             ApiResponse<BaseResponse> localVarResponse = DeleteEmailFlowFolderWithHttpInfo(storefrontOid, emailFlowFolderUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete email flowFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse< BaseResponse > DeleteEmailFlowFolderWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->DeleteEmailFlowFolder");
+            // verify the required parameter 'emailFlowFolderUuid' is set
+            if (emailFlowFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowFolderUuid' when calling StorefrontApi->DeleteEmailFlowFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailFlowFolderUuid != null) localVarPathParams.Add("email_flow_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailFlowFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteEmailFlowFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Delete email flowFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> DeleteEmailFlowFolderAsync (int? storefrontOid, string emailFlowFolderUuid)
+        {
+             ApiResponse<BaseResponse> localVarResponse = await DeleteEmailFlowFolderAsyncWithHttpInfo(storefrontOid, emailFlowFolderUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete email flowFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteEmailFlowFolderAsyncWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->DeleteEmailFlowFolder");
+            // verify the required parameter 'emailFlowFolderUuid' is set
+            if (emailFlowFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowFolderUuid' when calling StorefrontApi->DeleteEmailFlowFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailFlowFolderUuid != null) localVarPathParams.Add("email_flow_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailFlowFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteEmailFlowFolder", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -8241,6 +10043,350 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Delete all published versions for a library item, including anything in review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns></returns>
+        public void DeleteLibraryItemPublishedVersions (int? libraryItemOid)
+        {
+             DeleteLibraryItemPublishedVersionsWithHttpInfo(libraryItemOid);
+        }
+
+        /// <summary>
+        /// Delete all published versions for a library item, including anything in review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteLibraryItemPublishedVersionsWithHttpInfo (int? libraryItemOid)
+        {
+            // verify the required parameter 'libraryItemOid' is set
+            if (libraryItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->DeleteLibraryItemPublishedVersions");
+
+            var localVarPath = "/storefront/code_library/{library_item_oid}/published_versions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteLibraryItemPublishedVersions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete all published versions for a library item, including anything in review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteLibraryItemPublishedVersionsAsync (int? libraryItemOid)
+        {
+             await DeleteLibraryItemPublishedVersionsAsyncWithHttpInfo(libraryItemOid);
+
+        }
+
+        /// <summary>
+        /// Delete all published versions for a library item, including anything in review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLibraryItemPublishedVersionsAsyncWithHttpInfo (int? libraryItemOid)
+        {
+            // verify the required parameter 'libraryItemOid' is set
+            if (libraryItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->DeleteLibraryItemPublishedVersions");
+
+            var localVarPath = "/storefront/code_library/{library_item_oid}/published_versions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteLibraryItemPublishedVersions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>ScreenRecordingSegmentResponse</returns>
+        public ScreenRecordingSegmentResponse DeleteScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid)
+        {
+             ApiResponse<ScreenRecordingSegmentResponse> localVarResponse = DeleteScreenRecordingSegmentWithHttpInfo(storefrontOid, screenRecordingSegmentOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
+        public ApiResponse< ScreenRecordingSegmentResponse > DeleteScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->DeleteScreenRecordingSegment");
+            // verify the required parameter 'screenRecordingSegmentOid' is set
+            if (screenRecordingSegmentOid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingSegmentOid' when calling StorefrontApi->DeleteScreenRecordingSegment");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingSegmentOid != null) localVarPathParams.Add("screen_recording_segment_oid", this.Configuration.ApiClient.ParameterToString(screenRecordingSegmentOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteScreenRecordingSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Delete screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>Task of ScreenRecordingSegmentResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingSegmentResponse> DeleteScreenRecordingSegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid)
+        {
+             ApiResponse<ScreenRecordingSegmentResponse> localVarResponse = await DeleteScreenRecordingSegmentAsyncWithHttpInfo(storefrontOid, screenRecordingSegmentOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> DeleteScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->DeleteScreenRecordingSegment");
+            // verify the required parameter 'screenRecordingSegmentOid' is set
+            if (screenRecordingSegmentOid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingSegmentOid' when calling StorefrontApi->DeleteScreenRecordingSegment");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingSegmentOid != null) localVarPathParams.Add("screen_recording_segment_oid", this.Configuration.ApiClient.ParameterToString(screenRecordingSegmentOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteScreenRecordingSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+        }
+
+        /// <summary>
         /// Duplicate library item. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -8405,6 +10551,173 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<LibraryItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (LibraryItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemResponse)));
+        }
+
+        /// <summary>
+        /// Update favorite flag on screen recording Update favorite flag on screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns></returns>
+        public void FavoriteScreenRecording (int? storefrontOid, string screenRecordingUuid)
+        {
+             FavoriteScreenRecordingWithHttpInfo(storefrontOid, screenRecordingUuid);
+        }
+
+        /// <summary>
+        /// Update favorite flag on screen recording Update favorite flag on screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> FavoriteScreenRecordingWithHttpInfo (int? storefrontOid, string screenRecordingUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->FavoriteScreenRecording");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->FavoriteScreenRecording");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("FavoriteScreenRecording", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update favorite flag on screen recording Update favorite flag on screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task FavoriteScreenRecordingAsync (int? storefrontOid, string screenRecordingUuid)
+        {
+             await FavoriteScreenRecordingAsyncWithHttpInfo(storefrontOid, screenRecordingUuid);
+
+        }
+
+        /// <summary>
+        /// Update favorite flag on screen recording Update favorite flag on screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> FavoriteScreenRecordingAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->FavoriteScreenRecording");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->FavoriteScreenRecording");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("FavoriteScreenRecording", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
@@ -9278,6 +11591,352 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailCampaignResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailCampaignResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignResponse)));
+        }
+
+        /// <summary>
+        /// Get email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>EmailCampaignFolderResponse</returns>
+        public EmailCampaignFolderResponse GetEmailCampaignFolder (int? storefrontOid, string emailCampaignFolderUuid)
+        {
+             ApiResponse<EmailCampaignFolderResponse> localVarResponse = GetEmailCampaignFolderWithHttpInfo(storefrontOid, emailCampaignFolderUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>ApiResponse of EmailCampaignFolderResponse</returns>
+        public ApiResponse< EmailCampaignFolderResponse > GetEmailCampaignFolderWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCampaignFolder");
+            // verify the required parameter 'emailCampaignFolderUuid' is set
+            if (emailCampaignFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignFolderUuid' when calling StorefrontApi->GetEmailCampaignFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCampaignFolderUuid != null) localVarPathParams.Add("email_campaign_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailCampaignFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCampaignFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCampaignFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailCampaignFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignFolderResponse)));
+        }
+
+        /// <summary>
+        /// Get email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>Task of EmailCampaignFolderResponse</returns>
+        public async System.Threading.Tasks.Task<EmailCampaignFolderResponse> GetEmailCampaignFolderAsync (int? storefrontOid, string emailCampaignFolderUuid)
+        {
+             ApiResponse<EmailCampaignFolderResponse> localVarResponse = await GetEmailCampaignFolderAsyncWithHttpInfo(storefrontOid, emailCampaignFolderUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <returns>Task of ApiResponse (EmailCampaignFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailCampaignFolderResponse>> GetEmailCampaignFolderAsyncWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCampaignFolder");
+            // verify the required parameter 'emailCampaignFolderUuid' is set
+            if (emailCampaignFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignFolderUuid' when calling StorefrontApi->GetEmailCampaignFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCampaignFolderUuid != null) localVarPathParams.Add("email_campaign_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailCampaignFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCampaignFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCampaignFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailCampaignFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignFolderResponse)));
+        }
+
+        /// <summary>
+        /// Get email campaign folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>EmailCampaignFoldersResponse</returns>
+        public EmailCampaignFoldersResponse GetEmailCampaignFolders (int? storefrontOid)
+        {
+             ApiResponse<EmailCampaignFoldersResponse> localVarResponse = GetEmailCampaignFoldersWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email campaign folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of EmailCampaignFoldersResponse</returns>
+        public ApiResponse< EmailCampaignFoldersResponse > GetEmailCampaignFoldersWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCampaignFolders");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaign_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCampaignFolders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCampaignFoldersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailCampaignFoldersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignFoldersResponse)));
+        }
+
+        /// <summary>
+        /// Get email campaign folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of EmailCampaignFoldersResponse</returns>
+        public async System.Threading.Tasks.Task<EmailCampaignFoldersResponse> GetEmailCampaignFoldersAsync (int? storefrontOid)
+        {
+             ApiResponse<EmailCampaignFoldersResponse> localVarResponse = await GetEmailCampaignFoldersAsyncWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email campaign folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (EmailCampaignFoldersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailCampaignFoldersResponse>> GetEmailCampaignFoldersAsyncWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCampaignFolders");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaign_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCampaignFolders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCampaignFoldersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailCampaignFoldersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignFoldersResponse)));
         }
 
         /// <summary>
@@ -13185,6 +15844,352 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailFlowResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailFlowResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowResponse)));
+        }
+
+        /// <summary>
+        /// Get email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>EmailFlowFolderResponse</returns>
+        public EmailFlowFolderResponse GetEmailFlowFolder (int? storefrontOid, string emailFlowFolderUuid)
+        {
+             ApiResponse<EmailFlowFolderResponse> localVarResponse = GetEmailFlowFolderWithHttpInfo(storefrontOid, emailFlowFolderUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>ApiResponse of EmailFlowFolderResponse</returns>
+        public ApiResponse< EmailFlowFolderResponse > GetEmailFlowFolderWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailFlowFolder");
+            // verify the required parameter 'emailFlowFolderUuid' is set
+            if (emailFlowFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowFolderUuid' when calling StorefrontApi->GetEmailFlowFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailFlowFolderUuid != null) localVarPathParams.Add("email_flow_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailFlowFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailFlowFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailFlowFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailFlowFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowFolderResponse)));
+        }
+
+        /// <summary>
+        /// Get email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>Task of EmailFlowFolderResponse</returns>
+        public async System.Threading.Tasks.Task<EmailFlowFolderResponse> GetEmailFlowFolderAsync (int? storefrontOid, string emailFlowFolderUuid)
+        {
+             ApiResponse<EmailFlowFolderResponse> localVarResponse = await GetEmailFlowFolderAsyncWithHttpInfo(storefrontOid, emailFlowFolderUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <returns>Task of ApiResponse (EmailFlowFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailFlowFolderResponse>> GetEmailFlowFolderAsyncWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailFlowFolder");
+            // verify the required parameter 'emailFlowFolderUuid' is set
+            if (emailFlowFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowFolderUuid' when calling StorefrontApi->GetEmailFlowFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailFlowFolderUuid != null) localVarPathParams.Add("email_flow_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailFlowFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailFlowFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailFlowFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailFlowFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowFolderResponse)));
+        }
+
+        /// <summary>
+        /// Get email flow folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>EmailFlowFoldersResponse</returns>
+        public EmailFlowFoldersResponse GetEmailFlowFolders (int? storefrontOid)
+        {
+             ApiResponse<EmailFlowFoldersResponse> localVarResponse = GetEmailFlowFoldersWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email flow folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of EmailFlowFoldersResponse</returns>
+        public ApiResponse< EmailFlowFoldersResponse > GetEmailFlowFoldersWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailFlowFolders");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flow_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailFlowFolders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailFlowFoldersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailFlowFoldersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowFoldersResponse)));
+        }
+
+        /// <summary>
+        /// Get email flow folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of EmailFlowFoldersResponse</returns>
+        public async System.Threading.Tasks.Task<EmailFlowFoldersResponse> GetEmailFlowFoldersAsync (int? storefrontOid)
+        {
+             ApiResponse<EmailFlowFoldersResponse> localVarResponse = await GetEmailFlowFoldersAsyncWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email flow folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (EmailFlowFoldersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailFlowFoldersResponse>> GetEmailFlowFoldersAsyncWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailFlowFolders");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flow_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailFlowFolders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailFlowFoldersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailFlowFoldersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowFoldersResponse)));
         }
 
         /// <summary>
@@ -18040,6 +21045,1732 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get all published versions for a library item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>LibraryItemsResponse</returns>
+        public LibraryItemsResponse GetLibraryItemPublishedVersions (int? libraryItemOid)
+        {
+             ApiResponse<LibraryItemsResponse> localVarResponse = GetLibraryItemPublishedVersionsWithHttpInfo(libraryItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all published versions for a library item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>ApiResponse of LibraryItemsResponse</returns>
+        public ApiResponse< LibraryItemsResponse > GetLibraryItemPublishedVersionsWithHttpInfo (int? libraryItemOid)
+        {
+            // verify the required parameter 'libraryItemOid' is set
+            if (libraryItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->GetLibraryItemPublishedVersions");
+
+            var localVarPath = "/storefront/code_library/{library_item_oid}/published_versions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLibraryItemPublishedVersions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+        }
+
+        /// <summary>
+        /// Get all published versions for a library item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of LibraryItemsResponse</returns>
+        public async System.Threading.Tasks.Task<LibraryItemsResponse> GetLibraryItemPublishedVersionsAsync (int? libraryItemOid)
+        {
+             ApiResponse<LibraryItemsResponse> localVarResponse = await GetLibraryItemPublishedVersionsAsyncWithHttpInfo(libraryItemOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get all published versions for a library item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="libraryItemOid"></param>
+        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> GetLibraryItemPublishedVersionsAsyncWithHttpInfo (int? libraryItemOid)
+        {
+            // verify the required parameter 'libraryItemOid' is set
+            if (libraryItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->GetLibraryItemPublishedVersions");
+
+            var localVarPath = "/storefront/code_library/{library_item_oid}/published_versions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLibraryItemPublishedVersions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve pricing tiers Retrieves the pricing tiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>PricingTiersResponse</returns>
+        public PricingTiersResponse GetPricingTiers (string expand = null)
+        {
+             ApiResponse<PricingTiersResponse> localVarResponse = GetPricingTiersWithHttpInfo(expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve pricing tiers Retrieves the pricing tiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of PricingTiersResponse</returns>
+        public ApiResponse< PricingTiersResponse > GetPricingTiersWithHttpInfo (string expand = null)
+        {
+
+            var localVarPath = "/storefront/pricing_tiers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPricingTiers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PricingTiersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PricingTiersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PricingTiersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve pricing tiers Retrieves the pricing tiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of PricingTiersResponse</returns>
+        public async System.Threading.Tasks.Task<PricingTiersResponse> GetPricingTiersAsync (string expand = null)
+        {
+             ApiResponse<PricingTiersResponse> localVarResponse = await GetPricingTiersAsyncWithHttpInfo(expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve pricing tiers Retrieves the pricing tiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (PricingTiersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PricingTiersResponse>> GetPricingTiersAsyncWithHttpInfo (string expand = null)
+        {
+
+            var localVarPath = "/storefront/pricing_tiers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPricingTiers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PricingTiersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PricingTiersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PricingTiersResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording Get screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>ScreenRecordingResponse</returns>
+        public ScreenRecordingResponse GetScreenRecording (int? storefrontOid, string screenRecordingUuid)
+        {
+             ApiResponse<ScreenRecordingResponse> localVarResponse = GetScreenRecordingWithHttpInfo(storefrontOid, screenRecordingUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get screen recording Get screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>ApiResponse of ScreenRecordingResponse</returns>
+        public ApiResponse< ScreenRecordingResponse > GetScreenRecordingWithHttpInfo (int? storefrontOid, string screenRecordingUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecording");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->GetScreenRecording");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecording", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording Get screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of ScreenRecordingResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingResponse> GetScreenRecordingAsync (int? storefrontOid, string screenRecordingUuid)
+        {
+             ApiResponse<ScreenRecordingResponse> localVarResponse = await GetScreenRecordingAsyncWithHttpInfo(storefrontOid, screenRecordingUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get screen recording Get screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingResponse>> GetScreenRecordingAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecording");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->GetScreenRecording");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecording", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording page view data Get screen recording page view data 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>ScreenRecordingResponse</returns>
+        public ScreenRecordingResponse GetScreenRecordingPageViewData (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+        {
+             ApiResponse<ScreenRecordingResponse> localVarResponse = GetScreenRecordingPageViewDataWithHttpInfo(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get screen recording page view data Get screen recording page view data 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>ApiResponse of ScreenRecordingResponse</returns>
+        public ApiResponse< ScreenRecordingResponse > GetScreenRecordingPageViewDataWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingPageViewData");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->GetScreenRecordingPageViewData");
+            // verify the required parameter 'screenRecordingPageViewUuid' is set
+            if (screenRecordingPageViewUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingPageViewUuid' when calling StorefrontApi->GetScreenRecordingPageViewData");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/page_view_data/{screen_recording_page_view_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+            if (screenRecordingPageViewUuid != null) localVarPathParams.Add("screen_recording_page_view_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingPageViewUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingPageViewData", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording page view data Get screen recording page view data 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>Task of ScreenRecordingResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingResponse> GetScreenRecordingPageViewDataAsync (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+        {
+             ApiResponse<ScreenRecordingResponse> localVarResponse = await GetScreenRecordingPageViewDataAsyncWithHttpInfo(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get screen recording page view data Get screen recording page view data 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="screenRecordingPageViewUuid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingResponse>> GetScreenRecordingPageViewDataAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingPageViewData");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->GetScreenRecordingPageViewData");
+            // verify the required parameter 'screenRecordingPageViewUuid' is set
+            if (screenRecordingPageViewUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingPageViewUuid' when calling StorefrontApi->GetScreenRecordingPageViewData");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/page_view_data/{screen_recording_page_view_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+            if (screenRecordingPageViewUuid != null) localVarPathParams.Add("screen_recording_page_view_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingPageViewUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingPageViewData", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>ScreenRecordingSegmentResponse</returns>
+        public ScreenRecordingSegmentResponse GetScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid)
+        {
+             ApiResponse<ScreenRecordingSegmentResponse> localVarResponse = GetScreenRecordingSegmentWithHttpInfo(storefrontOid, screenRecordingSegmentOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
+        public ApiResponse< ScreenRecordingSegmentResponse > GetScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingSegment");
+            // verify the required parameter 'screenRecordingSegmentOid' is set
+            if (screenRecordingSegmentOid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingSegmentOid' when calling StorefrontApi->GetScreenRecordingSegment");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingSegmentOid != null) localVarPathParams.Add("screen_recording_segment_oid", this.Configuration.ApiClient.ParameterToString(screenRecordingSegmentOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>Task of ScreenRecordingSegmentResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingSegmentResponse> GetScreenRecordingSegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid)
+        {
+             ApiResponse<ScreenRecordingSegmentResponse> localVarResponse = await GetScreenRecordingSegmentAsyncWithHttpInfo(storefrontOid, screenRecordingSegmentOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> GetScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingSegment");
+            // verify the required parameter 'screenRecordingSegmentOid' is set
+            if (screenRecordingSegmentOid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingSegmentOid' when calling StorefrontApi->GetScreenRecordingSegment");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingSegmentOid != null) localVarPathParams.Add("screen_recording_segment_oid", this.Configuration.ApiClient.ParameterToString(screenRecordingSegmentOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording segments 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ScreenRecordingSegmentsResponse</returns>
+        public ScreenRecordingSegmentsResponse GetScreenRecordingSegments (int? storefrontOid)
+        {
+             ApiResponse<ScreenRecordingSegmentsResponse> localVarResponse = GetScreenRecordingSegmentsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get screen recording segments 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingSegmentsResponse</returns>
+        public ApiResponse< ScreenRecordingSegmentsResponse > GetScreenRecordingSegmentsWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingSegments");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingSegments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSegmentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSegmentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentsResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording segments 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ScreenRecordingSegmentsResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingSegmentsResponse> GetScreenRecordingSegmentsAsync (int? storefrontOid)
+        {
+             ApiResponse<ScreenRecordingSegmentsResponse> localVarResponse = await GetScreenRecordingSegmentsAsyncWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get screen recording segments 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSegmentsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentsResponse>> GetScreenRecordingSegmentsAsyncWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingSegments");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingSegments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSegmentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSegmentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentsResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording settings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ScreenRecordingSettingsResponse</returns>
+        public ScreenRecordingSettingsResponse GetScreenRecordingSettings (int? storefrontOid)
+        {
+             ApiResponse<ScreenRecordingSettingsResponse> localVarResponse = GetScreenRecordingSettingsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get screen recording settings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingSettingsResponse</returns>
+        public ApiResponse< ScreenRecordingSettingsResponse > GetScreenRecordingSettingsWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingSettings");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording settings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ScreenRecordingSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingSettingsResponse> GetScreenRecordingSettingsAsync (int? storefrontOid)
+        {
+             ApiResponse<ScreenRecordingSettingsResponse> localVarResponse = await GetScreenRecordingSettingsAsyncWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get screen recording settings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSettingsResponse>> GetScreenRecordingSettingsAsyncWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingSettings");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Get tags used by screen recording Get tags used by screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ScreenRecordingTagsResponse</returns>
+        public ScreenRecordingTagsResponse GetScreenRecordingTags (int? storefrontOid)
+        {
+             ApiResponse<ScreenRecordingTagsResponse> localVarResponse = GetScreenRecordingTagsWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get tags used by screen recording Get tags used by screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingTagsResponse</returns>
+        public ApiResponse< ScreenRecordingTagsResponse > GetScreenRecordingTagsWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingTags");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/tags";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingTags", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingTagsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingTagsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingTagsResponse)));
+        }
+
+        /// <summary>
+        /// Get tags used by screen recording Get tags used by screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ScreenRecordingTagsResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingTagsResponse> GetScreenRecordingTagsAsync (int? storefrontOid)
+        {
+             ApiResponse<ScreenRecordingTagsResponse> localVarResponse = await GetScreenRecordingTagsAsyncWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get tags used by screen recording Get tags used by screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingTagsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingTagsResponse>> GetScreenRecordingTagsAsyncWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingTags");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/tags";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingTags", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingTagsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingTagsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingTagsResponse)));
+        }
+
+        /// <summary>
+        /// Query screen recordings Query screen recordings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ScreenRecordingQueryResponse</returns>
+        public ScreenRecordingQueryResponse GetScreenRecordingsByQuery (int? storefrontOid, ScreenRecordingQueryRequest query, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<ScreenRecordingQueryResponse> localVarResponse = GetScreenRecordingsByQueryWithHttpInfo(storefrontOid, query, limit, offset, sort);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query screen recordings Query screen recordings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of ScreenRecordingQueryResponse</returns>
+        public ApiResponse< ScreenRecordingQueryResponse > GetScreenRecordingsByQueryWithHttpInfo (int? storefrontOid, ScreenRecordingQueryRequest query, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingsByQuery");
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ApiException(400, "Missing required parameter 'query' when calling StorefrontApi->GetScreenRecordingsByQuery");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (query != null && query.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(query); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = query; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingsByQuery", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingQueryResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingQueryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingQueryResponse)));
+        }
+
+        /// <summary>
+        /// Query screen recordings Query screen recordings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ScreenRecordingQueryResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingQueryResponse> GetScreenRecordingsByQueryAsync (int? storefrontOid, ScreenRecordingQueryRequest query, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<ScreenRecordingQueryResponse> localVarResponse = await GetScreenRecordingsByQueryAsyncWithHttpInfo(storefrontOid, query, limit, offset, sort);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Query screen recordings Query screen recordings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingQueryResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingQueryResponse>> GetScreenRecordingsByQueryAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingQueryRequest query, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingsByQuery");
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ApiException(400, "Missing required parameter 'query' when calling StorefrontApi->GetScreenRecordingsByQuery");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (query != null && query.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(query); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = query; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingsByQuery", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingQueryResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingQueryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingQueryResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recordings by segment Get screen recordings by segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ScreenRecordingQueryResponse</returns>
+        public ScreenRecordingQueryResponse GetScreenRecordingsBySegment (int? storefrontOid, int? screenRecordingSegmentOid, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<ScreenRecordingQueryResponse> localVarResponse = GetScreenRecordingsBySegmentWithHttpInfo(storefrontOid, screenRecordingSegmentOid, limit, offset, sort);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get screen recordings by segment Get screen recordings by segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of ScreenRecordingQueryResponse</returns>
+        public ApiResponse< ScreenRecordingQueryResponse > GetScreenRecordingsBySegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingsBySegment");
+            // verify the required parameter 'screenRecordingSegmentOid' is set
+            if (screenRecordingSegmentOid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingSegmentOid' when calling StorefrontApi->GetScreenRecordingsBySegment");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingSegmentOid != null) localVarPathParams.Add("screen_recording_segment_oid", this.Configuration.ApiClient.ParameterToString(screenRecordingSegmentOid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingsBySegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingQueryResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingQueryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingQueryResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recordings by segment Get screen recordings by segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ScreenRecordingQueryResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingQueryResponse> GetScreenRecordingsBySegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<ScreenRecordingQueryResponse> localVarResponse = await GetScreenRecordingsBySegmentAsyncWithHttpInfo(storefrontOid, screenRecordingSegmentOid, limit, offset, sort);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get screen recordings by segment Get screen recordings by segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingQueryResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingQueryResponse>> GetScreenRecordingsBySegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetScreenRecordingsBySegment");
+            // verify the required parameter 'screenRecordingSegmentOid' is set
+            if (screenRecordingSegmentOid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingSegmentOid' when calling StorefrontApi->GetScreenRecordingsBySegment");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingSegmentOid != null) localVarPathParams.Add("screen_recording_segment_oid", this.Configuration.ApiClient.ParameterToString(screenRecordingSegmentOid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetScreenRecordingsBySegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingQueryResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingQueryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingQueryResponse)));
+        }
+
+        /// <summary>
         /// Get thumbnail parameters 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -18564,6 +23295,185 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<TransactionEmailListResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (TransactionEmailListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TransactionEmailListResponse)));
+        }
+
+        /// <summary>
+        /// Get transactional email screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailId"></param>
+        /// <returns>ScreenshotsResponse</returns>
+        public ScreenshotsResponse GetTransactionEmailScreenshots (int? storefrontOid, string emailId)
+        {
+             ApiResponse<ScreenshotsResponse> localVarResponse = GetTransactionEmailScreenshotsWithHttpInfo(storefrontOid, emailId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get transactional email screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailId"></param>
+        /// <returns>ApiResponse of ScreenshotsResponse</returns>
+        public ApiResponse< ScreenshotsResponse > GetTransactionEmailScreenshotsWithHttpInfo (int? storefrontOid, string emailId)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetTransactionEmailScreenshots");
+            // verify the required parameter 'emailId' is set
+            if (emailId == null)
+                throw new ApiException(400, "Missing required parameter 'emailId' when calling StorefrontApi->GetTransactionEmailScreenshots");
+
+            var localVarPath = "/storefront/{storefront_oid}/transaction_email/list/{email_id}/screenshots";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailId != null) localVarPathParams.Add("email_id", this.Configuration.ApiClient.ParameterToString(emailId)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTransactionEmailScreenshots", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenshotsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenshotsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenshotsResponse)));
+        }
+
+        /// <summary>
+        /// Get transactional email screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailId"></param>
+        /// <returns>Task of ScreenshotsResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenshotsResponse> GetTransactionEmailScreenshotsAsync (int? storefrontOid, string emailId)
+        {
+             ApiResponse<ScreenshotsResponse> localVarResponse = await GetTransactionEmailScreenshotsAsyncWithHttpInfo(storefrontOid, emailId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get transactional email screenshots 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailId"></param>
+        /// <returns>Task of ApiResponse (ScreenshotsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenshotsResponse>> GetTransactionEmailScreenshotsAsyncWithHttpInfo (int? storefrontOid, string emailId)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetTransactionEmailScreenshots");
+            // verify the required parameter 'emailId' is set
+            if (emailId == null)
+                throw new ApiException(400, "Missing required parameter 'emailId' when calling StorefrontApi->GetTransactionEmailScreenshots");
+
+            var localVarPath = "/storefront/{storefront_oid}/transaction_email/list/{email_id}/screenshots";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailId != null) localVarPathParams.Add("email_id", this.Configuration.ApiClient.ParameterToString(emailId)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTransactionEmailScreenshots", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenshotsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenshotsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenshotsResponse)));
         }
 
         /// <summary>
@@ -19141,6 +24051,199 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailCampaignResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailCampaignResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignResponse)));
+        }
+
+        /// <summary>
+        /// Insert email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>EmailCampaignFolderResponse</returns>
+        public EmailCampaignFolderResponse InsertEmailCampaignFolder (int? storefrontOid, EmailCampaignFolder emailCampaignFolder)
+        {
+             ApiResponse<EmailCampaignFolderResponse> localVarResponse = InsertEmailCampaignFolderWithHttpInfo(storefrontOid, emailCampaignFolder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>ApiResponse of EmailCampaignFolderResponse</returns>
+        public ApiResponse< EmailCampaignFolderResponse > InsertEmailCampaignFolderWithHttpInfo (int? storefrontOid, EmailCampaignFolder emailCampaignFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->InsertEmailCampaignFolder");
+            // verify the required parameter 'emailCampaignFolder' is set
+            if (emailCampaignFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignFolder' when calling StorefrontApi->InsertEmailCampaignFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaign_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCampaignFolder != null && emailCampaignFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailCampaignFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailCampaignFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertEmailCampaignFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCampaignFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailCampaignFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignFolderResponse)));
+        }
+
+        /// <summary>
+        /// Insert email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>Task of EmailCampaignFolderResponse</returns>
+        public async System.Threading.Tasks.Task<EmailCampaignFolderResponse> InsertEmailCampaignFolderAsync (int? storefrontOid, EmailCampaignFolder emailCampaignFolder)
+        {
+             ApiResponse<EmailCampaignFolderResponse> localVarResponse = await InsertEmailCampaignFolderAsyncWithHttpInfo(storefrontOid, emailCampaignFolder);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>Task of ApiResponse (EmailCampaignFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailCampaignFolderResponse>> InsertEmailCampaignFolderAsyncWithHttpInfo (int? storefrontOid, EmailCampaignFolder emailCampaignFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->InsertEmailCampaignFolder");
+            // verify the required parameter 'emailCampaignFolder' is set
+            if (emailCampaignFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignFolder' when calling StorefrontApi->InsertEmailCampaignFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaign_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCampaignFolder != null && emailCampaignFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailCampaignFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailCampaignFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertEmailCampaignFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCampaignFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailCampaignFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignFolderResponse)));
         }
 
         /// <summary>
@@ -19723,6 +24826,199 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Insert email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>EmailFlowFolderResponse</returns>
+        public EmailFlowFolderResponse InsertEmailFlowFolder (int? storefrontOid, EmailFlowFolder emailFlowFolder)
+        {
+             ApiResponse<EmailFlowFolderResponse> localVarResponse = InsertEmailFlowFolderWithHttpInfo(storefrontOid, emailFlowFolder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>ApiResponse of EmailFlowFolderResponse</returns>
+        public ApiResponse< EmailFlowFolderResponse > InsertEmailFlowFolderWithHttpInfo (int? storefrontOid, EmailFlowFolder emailFlowFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->InsertEmailFlowFolder");
+            // verify the required parameter 'emailFlowFolder' is set
+            if (emailFlowFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowFolder' when calling StorefrontApi->InsertEmailFlowFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flow_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailFlowFolder != null && emailFlowFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailFlowFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailFlowFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertEmailFlowFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailFlowFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailFlowFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowFolderResponse)));
+        }
+
+        /// <summary>
+        /// Insert email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>Task of EmailFlowFolderResponse</returns>
+        public async System.Threading.Tasks.Task<EmailFlowFolderResponse> InsertEmailFlowFolderAsync (int? storefrontOid, EmailFlowFolder emailFlowFolder)
+        {
+             ApiResponse<EmailFlowFolderResponse> localVarResponse = await InsertEmailFlowFolderAsyncWithHttpInfo(storefrontOid, emailFlowFolder);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>Task of ApiResponse (EmailFlowFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailFlowFolderResponse>> InsertEmailFlowFolderAsyncWithHttpInfo (int? storefrontOid, EmailFlowFolder emailFlowFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->InsertEmailFlowFolder");
+            // verify the required parameter 'emailFlowFolder' is set
+            if (emailFlowFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowFolder' when calling StorefrontApi->InsertEmailFlowFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flow_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailFlowFolder != null && emailFlowFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailFlowFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailFlowFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertEmailFlowFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailFlowFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailFlowFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowFolderResponse)));
+        }
+
+        /// <summary>
         /// Insert email list 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -20302,6 +25598,199 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Insert screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>ScreenRecordingSegmentResponse</returns>
+        public ScreenRecordingSegmentResponse InsertScreenRecordingSegment (int? storefrontOid, ScreenRecordingSegment segment)
+        {
+             ApiResponse<ScreenRecordingSegmentResponse> localVarResponse = InsertScreenRecordingSegmentWithHttpInfo(storefrontOid, segment);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
+        public ApiResponse< ScreenRecordingSegmentResponse > InsertScreenRecordingSegmentWithHttpInfo (int? storefrontOid, ScreenRecordingSegment segment)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->InsertScreenRecordingSegment");
+            // verify the required parameter 'segment' is set
+            if (segment == null)
+                throw new ApiException(400, "Missing required parameter 'segment' when calling StorefrontApi->InsertScreenRecordingSegment");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (segment != null && segment.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(segment); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = segment; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertScreenRecordingSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Insert screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>Task of ScreenRecordingSegmentResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingSegmentResponse> InsertScreenRecordingSegmentAsync (int? storefrontOid, ScreenRecordingSegment segment)
+        {
+             ApiResponse<ScreenRecordingSegmentResponse> localVarResponse = await InsertScreenRecordingSegmentAsyncWithHttpInfo(storefrontOid, segment);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> InsertScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingSegment segment)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->InsertScreenRecordingSegment");
+            // verify the required parameter 'segment' is set
+            if (segment == null)
+                throw new ApiException(400, "Missing required parameter 'segment' when calling StorefrontApi->InsertScreenRecordingSegment");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (segment != null && segment.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(segment); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = segment; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertScreenRecordingSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+        }
+
+        /// <summary>
         /// Prepare download of email segment 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -20485,10 +25974,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="libraryItemOid"></param>
+        /// <param name="publishLibraryRequest">Publish library item request</param>
         /// <returns>LibraryItemResponse</returns>
-        public LibraryItemResponse PublishLibraryItem (int? libraryItemOid)
+        public LibraryItemResponse PublishLibraryItem (int? libraryItemOid, PublishLibraryItemRequest publishLibraryRequest)
         {
-             ApiResponse<LibraryItemResponse> localVarResponse = PublishLibraryItemWithHttpInfo(libraryItemOid);
+             ApiResponse<LibraryItemResponse> localVarResponse = PublishLibraryItemWithHttpInfo(libraryItemOid, publishLibraryRequest);
              return localVarResponse.Data;
         }
 
@@ -20497,12 +25987,16 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="libraryItemOid"></param>
+        /// <param name="publishLibraryRequest">Publish library item request</param>
         /// <returns>ApiResponse of LibraryItemResponse</returns>
-        public ApiResponse< LibraryItemResponse > PublishLibraryItemWithHttpInfo (int? libraryItemOid)
+        public ApiResponse< LibraryItemResponse > PublishLibraryItemWithHttpInfo (int? libraryItemOid, PublishLibraryItemRequest publishLibraryRequest)
         {
             // verify the required parameter 'libraryItemOid' is set
             if (libraryItemOid == null)
                 throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->PublishLibraryItem");
+            // verify the required parameter 'publishLibraryRequest' is set
+            if (publishLibraryRequest == null)
+                throw new ApiException(400, "Missing required parameter 'publishLibraryRequest' when calling StorefrontApi->PublishLibraryItem");
 
             var localVarPath = "/storefront/code_library/{library_item_oid}/publish";
             var localVarPathParams = new Dictionary<String, String>();
@@ -20527,6 +26021,14 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+            if (publishLibraryRequest != null && publishLibraryRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(publishLibraryRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = publishLibraryRequest; // byte array
+            }
 
             // authentication (ultraCartBrowserApiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
@@ -20568,10 +26070,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="libraryItemOid"></param>
+        /// <param name="publishLibraryRequest">Publish library item request</param>
         /// <returns>Task of LibraryItemResponse</returns>
-        public async System.Threading.Tasks.Task<LibraryItemResponse> PublishLibraryItemAsync (int? libraryItemOid)
+        public async System.Threading.Tasks.Task<LibraryItemResponse> PublishLibraryItemAsync (int? libraryItemOid, PublishLibraryItemRequest publishLibraryRequest)
         {
-             ApiResponse<LibraryItemResponse> localVarResponse = await PublishLibraryItemAsyncWithHttpInfo(libraryItemOid);
+             ApiResponse<LibraryItemResponse> localVarResponse = await PublishLibraryItemAsyncWithHttpInfo(libraryItemOid, publishLibraryRequest);
              return localVarResponse.Data;
 
         }
@@ -20581,12 +26084,16 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="libraryItemOid"></param>
+        /// <param name="publishLibraryRequest">Publish library item request</param>
         /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> PublishLibraryItemAsyncWithHttpInfo (int? libraryItemOid)
+        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> PublishLibraryItemAsyncWithHttpInfo (int? libraryItemOid, PublishLibraryItemRequest publishLibraryRequest)
         {
             // verify the required parameter 'libraryItemOid' is set
             if (libraryItemOid == null)
                 throw new ApiException(400, "Missing required parameter 'libraryItemOid' when calling StorefrontApi->PublishLibraryItem");
+            // verify the required parameter 'publishLibraryRequest' is set
+            if (publishLibraryRequest == null)
+                throw new ApiException(400, "Missing required parameter 'publishLibraryRequest' when calling StorefrontApi->PublishLibraryItem");
 
             var localVarPath = "/storefront/code_library/{library_item_oid}/publish";
             var localVarPathParams = new Dictionary<String, String>();
@@ -20611,6 +26118,14 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (libraryItemOid != null) localVarPathParams.Add("library_item_oid", this.Configuration.ApiClient.ParameterToString(libraryItemOid)); // path parameter
+            if (publishLibraryRequest != null && publishLibraryRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(publishLibraryRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = publishLibraryRequest; // byte array
+            }
 
             // authentication (ultraCartBrowserApiKey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
@@ -21400,6 +26915,187 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Searches for all matching values (using POST) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>LookupResponse</returns>
+        public LookupResponse Search2 (LookupRequest lookupRequest)
+        {
+             ApiResponse<LookupResponse> localVarResponse = Search2WithHttpInfo(lookupRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Searches for all matching values (using POST) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>ApiResponse of LookupResponse</returns>
+        public ApiResponse< LookupResponse > Search2WithHttpInfo (LookupRequest lookupRequest)
+        {
+            // verify the required parameter 'lookupRequest' is set
+            if (lookupRequest == null)
+                throw new ApiException(400, "Missing required parameter 'lookupRequest' when calling StorefrontApi->Search2");
+
+            var localVarPath = "/storefront/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (lookupRequest != null && lookupRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(lookupRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = lookupRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Search2", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LookupResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LookupResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LookupResponse)));
+        }
+
+        /// <summary>
+        /// Searches for all matching values (using POST) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>Task of LookupResponse</returns>
+        public async System.Threading.Tasks.Task<LookupResponse> Search2Async (LookupRequest lookupRequest)
+        {
+             ApiResponse<LookupResponse> localVarResponse = await Search2AsyncWithHttpInfo(lookupRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Searches for all matching values (using POST) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>Task of ApiResponse (LookupResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LookupResponse>> Search2AsyncWithHttpInfo (LookupRequest lookupRequest)
+        {
+            // verify the required parameter 'lookupRequest' is set
+            if (lookupRequest == null)
+                throw new ApiException(400, "Missing required parameter 'lookupRequest' when calling StorefrontApi->Search2");
+
+            var localVarPath = "/storefront/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (lookupRequest != null && lookupRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(lookupRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = lookupRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Search2", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LookupResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LookupResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LookupResponse)));
+        }
+
+        /// <summary>
         /// Search email list customers 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -22139,6 +27835,195 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("SearchPublishedItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve library items needing review or rejected Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>LibraryItemsResponse</returns>
+        public LibraryItemsResponse SearchReviewItems (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<LibraryItemsResponse> localVarResponse = SearchReviewItemsWithHttpInfo(itemQuery, limit, offset, sort);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve library items needing review or rejected Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>ApiResponse of LibraryItemsResponse</returns>
+        public ApiResponse< LibraryItemsResponse > SearchReviewItemsWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'itemQuery' is set
+            if (itemQuery == null)
+                throw new ApiException(400, "Missing required parameter 'itemQuery' when calling StorefrontApi->SearchReviewItems");
+
+            var localVarPath = "/storefront/code_library/search_review";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (itemQuery != null && itemQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchReviewItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LibraryItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LibraryItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve library items needing review or rejected Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of LibraryItemsResponse</returns>
+        public async System.Threading.Tasks.Task<LibraryItemsResponse> SearchReviewItemsAsync (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+             ApiResponse<LibraryItemsResponse> localVarResponse = await SearchReviewItemsAsyncWithHttpInfo(itemQuery, limit, offset, sort);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve library items needing review or rejected Retrieves a library items based on a query object.  If no parameters are specified, the API call will default to the merchant id only.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemQuery">Item query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> SearchReviewItemsAsyncWithHttpInfo (LibraryItemQuery itemQuery, int? limit = null, int? offset = null, string sort = null)
+        {
+            // verify the required parameter 'itemQuery' is set
+            if (itemQuery == null)
+                throw new ApiException(400, "Missing required parameter 'itemQuery' when calling StorefrontApi->SearchReviewItems");
+
+            var localVarPath = "/storefront/code_library/search_review";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (itemQuery != null && itemQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(itemQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = itemQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchReviewItems", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -23131,6 +29016,173 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Remove favorite flag on screen recording Remove favorite flag on screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns></returns>
+        public void UnfavoriteScreenRecording (int? storefrontOid, string screenRecordingUuid)
+        {
+             UnfavoriteScreenRecordingWithHttpInfo(storefrontOid, screenRecordingUuid);
+        }
+
+        /// <summary>
+        /// Remove favorite flag on screen recording Remove favorite flag on screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UnfavoriteScreenRecordingWithHttpInfo (int? storefrontOid, string screenRecordingUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UnfavoriteScreenRecording");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->UnfavoriteScreenRecording");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnfavoriteScreenRecording", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Remove favorite flag on screen recording Remove favorite flag on screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UnfavoriteScreenRecordingAsync (int? storefrontOid, string screenRecordingUuid)
+        {
+             await UnfavoriteScreenRecordingAsyncWithHttpInfo(storefrontOid, screenRecordingUuid);
+
+        }
+
+        /// <summary>
+        /// Remove favorite flag on screen recording Remove favorite flag on screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UnfavoriteScreenRecordingAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UnfavoriteScreenRecording");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->UnfavoriteScreenRecording");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnfavoriteScreenRecording", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
         /// Update email campaign 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -23333,6 +29385,211 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailCampaignResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailCampaignResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignResponse)));
+        }
+
+        /// <summary>
+        /// Update email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>EmailCampaignFolderResponse</returns>
+        public EmailCampaignFolderResponse UpdateEmailCampaignFolder (int? storefrontOid, string emailCampaignFolderUuid, EmailCampaignFolder emailCampaignFolder)
+        {
+             ApiResponse<EmailCampaignFolderResponse> localVarResponse = UpdateEmailCampaignFolderWithHttpInfo(storefrontOid, emailCampaignFolderUuid, emailCampaignFolder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>ApiResponse of EmailCampaignFolderResponse</returns>
+        public ApiResponse< EmailCampaignFolderResponse > UpdateEmailCampaignFolderWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid, EmailCampaignFolder emailCampaignFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateEmailCampaignFolder");
+            // verify the required parameter 'emailCampaignFolderUuid' is set
+            if (emailCampaignFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignFolderUuid' when calling StorefrontApi->UpdateEmailCampaignFolder");
+            // verify the required parameter 'emailCampaignFolder' is set
+            if (emailCampaignFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignFolder' when calling StorefrontApi->UpdateEmailCampaignFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCampaignFolderUuid != null) localVarPathParams.Add("email_campaign_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailCampaignFolderUuid)); // path parameter
+            if (emailCampaignFolder != null && emailCampaignFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailCampaignFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailCampaignFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateEmailCampaignFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCampaignFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailCampaignFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignFolderResponse)));
+        }
+
+        /// <summary>
+        /// Update email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>Task of EmailCampaignFolderResponse</returns>
+        public async System.Threading.Tasks.Task<EmailCampaignFolderResponse> UpdateEmailCampaignFolderAsync (int? storefrontOid, string emailCampaignFolderUuid, EmailCampaignFolder emailCampaignFolder)
+        {
+             ApiResponse<EmailCampaignFolderResponse> localVarResponse = await UpdateEmailCampaignFolderAsyncWithHttpInfo(storefrontOid, emailCampaignFolderUuid, emailCampaignFolder);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCampaignFolderUuid"></param>
+        /// <param name="emailCampaignFolder">Email campaign folder</param>
+        /// <returns>Task of ApiResponse (EmailCampaignFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailCampaignFolderResponse>> UpdateEmailCampaignFolderAsyncWithHttpInfo (int? storefrontOid, string emailCampaignFolderUuid, EmailCampaignFolder emailCampaignFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateEmailCampaignFolder");
+            // verify the required parameter 'emailCampaignFolderUuid' is set
+            if (emailCampaignFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignFolderUuid' when calling StorefrontApi->UpdateEmailCampaignFolder");
+            // verify the required parameter 'emailCampaignFolder' is set
+            if (emailCampaignFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailCampaignFolder' when calling StorefrontApi->UpdateEmailCampaignFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCampaignFolderUuid != null) localVarPathParams.Add("email_campaign_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailCampaignFolderUuid)); // path parameter
+            if (emailCampaignFolder != null && emailCampaignFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailCampaignFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailCampaignFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateEmailCampaignFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCampaignFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailCampaignFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCampaignFolderResponse)));
         }
 
         /// <summary>
@@ -24151,6 +30408,211 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailFlowResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailFlowResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowResponse)));
+        }
+
+        /// <summary>
+        /// Update email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>EmailFlowFolderResponse</returns>
+        public EmailFlowFolderResponse UpdateEmailFlowFolder (int? storefrontOid, string emailFlowFolderUuid, EmailFlowFolder emailFlowFolder)
+        {
+             ApiResponse<EmailFlowFolderResponse> localVarResponse = UpdateEmailFlowFolderWithHttpInfo(storefrontOid, emailFlowFolderUuid, emailFlowFolder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>ApiResponse of EmailFlowFolderResponse</returns>
+        public ApiResponse< EmailFlowFolderResponse > UpdateEmailFlowFolderWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid, EmailFlowFolder emailFlowFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateEmailFlowFolder");
+            // verify the required parameter 'emailFlowFolderUuid' is set
+            if (emailFlowFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowFolderUuid' when calling StorefrontApi->UpdateEmailFlowFolder");
+            // verify the required parameter 'emailFlowFolder' is set
+            if (emailFlowFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowFolder' when calling StorefrontApi->UpdateEmailFlowFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailFlowFolderUuid != null) localVarPathParams.Add("email_flow_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailFlowFolderUuid)); // path parameter
+            if (emailFlowFolder != null && emailFlowFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailFlowFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailFlowFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateEmailFlowFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailFlowFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailFlowFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowFolderResponse)));
+        }
+
+        /// <summary>
+        /// Update email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>Task of EmailFlowFolderResponse</returns>
+        public async System.Threading.Tasks.Task<EmailFlowFolderResponse> UpdateEmailFlowFolderAsync (int? storefrontOid, string emailFlowFolderUuid, EmailFlowFolder emailFlowFolder)
+        {
+             ApiResponse<EmailFlowFolderResponse> localVarResponse = await UpdateEmailFlowFolderAsyncWithHttpInfo(storefrontOid, emailFlowFolderUuid, emailFlowFolder);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update email flow folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailFlowFolderUuid"></param>
+        /// <param name="emailFlowFolder">Email flow folder</param>
+        /// <returns>Task of ApiResponse (EmailFlowFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailFlowFolderResponse>> UpdateEmailFlowFolderAsyncWithHttpInfo (int? storefrontOid, string emailFlowFolderUuid, EmailFlowFolder emailFlowFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateEmailFlowFolder");
+            // verify the required parameter 'emailFlowFolderUuid' is set
+            if (emailFlowFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowFolderUuid' when calling StorefrontApi->UpdateEmailFlowFolder");
+            // verify the required parameter 'emailFlowFolder' is set
+            if (emailFlowFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailFlowFolder' when calling StorefrontApi->UpdateEmailFlowFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailFlowFolderUuid != null) localVarPathParams.Add("email_flow_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailFlowFolderUuid)); // path parameter
+            if (emailFlowFolder != null && emailFlowFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailFlowFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailFlowFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateEmailFlowFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailFlowFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailFlowFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailFlowFolderResponse)));
         }
 
         /// <summary>
@@ -25731,6 +32193,597 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<LibraryItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (LibraryItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemResponse)));
+        }
+
+        /// <summary>
+        /// Update screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>ScreenRecordingSegmentResponse</returns>
+        public ScreenRecordingSegmentResponse UpdateScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid, ScreenRecordingSegment segment)
+        {
+             ApiResponse<ScreenRecordingSegmentResponse> localVarResponse = UpdateScreenRecordingSegmentWithHttpInfo(storefrontOid, screenRecordingSegmentOid, segment);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
+        public ApiResponse< ScreenRecordingSegmentResponse > UpdateScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid, ScreenRecordingSegment segment)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateScreenRecordingSegment");
+            // verify the required parameter 'screenRecordingSegmentOid' is set
+            if (screenRecordingSegmentOid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingSegmentOid' when calling StorefrontApi->UpdateScreenRecordingSegment");
+            // verify the required parameter 'segment' is set
+            if (segment == null)
+                throw new ApiException(400, "Missing required parameter 'segment' when calling StorefrontApi->UpdateScreenRecordingSegment");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingSegmentOid != null) localVarPathParams.Add("screen_recording_segment_oid", this.Configuration.ApiClient.ParameterToString(screenRecordingSegmentOid)); // path parameter
+            if (segment != null && segment.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(segment); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = segment; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateScreenRecordingSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Update screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>Task of ScreenRecordingSegmentResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingSegmentResponse> UpdateScreenRecordingSegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid, ScreenRecordingSegment segment)
+        {
+             ApiResponse<ScreenRecordingSegmentResponse> localVarResponse = await UpdateScreenRecordingSegmentAsyncWithHttpInfo(storefrontOid, screenRecordingSegmentOid, segment);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update screen recording segment 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingSegmentOid"></param>
+        /// <param name="segment">Segment</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> UpdateScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid, ScreenRecordingSegment segment)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateScreenRecordingSegment");
+            // verify the required parameter 'screenRecordingSegmentOid' is set
+            if (screenRecordingSegmentOid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingSegmentOid' when calling StorefrontApi->UpdateScreenRecordingSegment");
+            // verify the required parameter 'segment' is set
+            if (segment == null)
+                throw new ApiException(400, "Missing required parameter 'segment' when calling StorefrontApi->UpdateScreenRecordingSegment");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingSegmentOid != null) localVarPathParams.Add("screen_recording_segment_oid", this.Configuration.ApiClient.ParameterToString(screenRecordingSegmentOid)); // path parameter
+            if (segment != null && segment.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(segment); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = segment; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateScreenRecordingSegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Update screen recording settings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="settings">Settings</param>
+        /// <returns>ScreenRecordingSettingsResponse</returns>
+        public ScreenRecordingSettingsResponse UpdateScreenRecordingSettings (int? storefrontOid, ScreenRecordingSettings settings)
+        {
+             ApiResponse<ScreenRecordingSettingsResponse> localVarResponse = UpdateScreenRecordingSettingsWithHttpInfo(storefrontOid, settings);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update screen recording settings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="settings">Settings</param>
+        /// <returns>ApiResponse of ScreenRecordingSettingsResponse</returns>
+        public ApiResponse< ScreenRecordingSettingsResponse > UpdateScreenRecordingSettingsWithHttpInfo (int? storefrontOid, ScreenRecordingSettings settings)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateScreenRecordingSettings");
+            // verify the required parameter 'settings' is set
+            if (settings == null)
+                throw new ApiException(400, "Missing required parameter 'settings' when calling StorefrontApi->UpdateScreenRecordingSettings");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (settings != null && settings.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(settings); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = settings; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateScreenRecordingSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Update screen recording settings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="settings">Settings</param>
+        /// <returns>Task of ScreenRecordingSettingsResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingSettingsResponse> UpdateScreenRecordingSettingsAsync (int? storefrontOid, ScreenRecordingSettings settings)
+        {
+             ApiResponse<ScreenRecordingSettingsResponse> localVarResponse = await UpdateScreenRecordingSettingsAsyncWithHttpInfo(storefrontOid, settings);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update screen recording settings 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="settings">Settings</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingSettingsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSettingsResponse>> UpdateScreenRecordingSettingsAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingSettings settings)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateScreenRecordingSettings");
+            // verify the required parameter 'settings' is set
+            if (settings == null)
+                throw new ApiException(400, "Missing required parameter 'settings' when calling StorefrontApi->UpdateScreenRecordingSettings");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/settings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (settings != null && settings.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(settings); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = settings; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateScreenRecordingSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingSettingsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingSettingsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSettingsResponse)));
+        }
+
+        /// <summary>
+        /// Update tags on a screen recording Update tags on a screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="tags">Tags</param>
+        /// <returns></returns>
+        public void UpdateScreenRecordingTags (int? storefrontOid, string screenRecordingUuid, ScreenRecordingTagsRequest tags)
+        {
+             UpdateScreenRecordingTagsWithHttpInfo(storefrontOid, screenRecordingUuid, tags);
+        }
+
+        /// <summary>
+        /// Update tags on a screen recording Update tags on a screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="tags">Tags</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateScreenRecordingTagsWithHttpInfo (int? storefrontOid, string screenRecordingUuid, ScreenRecordingTagsRequest tags)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateScreenRecordingTags");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->UpdateScreenRecordingTags");
+            // verify the required parameter 'tags' is set
+            if (tags == null)
+                throw new ApiException(400, "Missing required parameter 'tags' when calling StorefrontApi->UpdateScreenRecordingTags");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+            if (tags != null && tags.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(tags); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = tags; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateScreenRecordingTags", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update tags on a screen recording Update tags on a screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="tags">Tags</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateScreenRecordingTagsAsync (int? storefrontOid, string screenRecordingUuid, ScreenRecordingTagsRequest tags)
+        {
+             await UpdateScreenRecordingTagsAsyncWithHttpInfo(storefrontOid, screenRecordingUuid, tags);
+
+        }
+
+        /// <summary>
+        /// Update tags on a screen recording Update tags on a screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="tags">Tags</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateScreenRecordingTagsAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid, ScreenRecordingTagsRequest tags)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateScreenRecordingTags");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->UpdateScreenRecordingTags");
+            // verify the required parameter 'tags' is set
+            if (tags == null)
+                throw new ApiException(400, "Missing required parameter 'tags' when calling StorefrontApi->UpdateScreenRecordingTags");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+            if (tags != null && tags.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(tags); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = tags; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateScreenRecordingTags", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>

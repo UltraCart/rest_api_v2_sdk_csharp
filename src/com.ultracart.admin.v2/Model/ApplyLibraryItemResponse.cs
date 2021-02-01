@@ -33,39 +33,59 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplyLibraryItemResponse" /> class.
         /// </summary>
-        /// <param name="cjson">Cjson from library item, only populated if this library item was a cjson snippet.</param>
-        /// <param name="contentType">flow, campaign, cjson, or upsell.</param>
+        /// <param name="attributes">Attributes from the library item.</param>
+        /// <param name="cjson">Cjson from library item, only populated if this library item was a cjson snippet or marketing email (not transactional).</param>
+        /// <param name="contentType">flow, campaign, cjson, upsell, transactional_email or email.</param>
+        /// <param name="emailTemplateVmPath">If a marketing email was applied, this is the path to the template encapsulating the cjson.  This is needed for the UltraCart UI..</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="storefrontOid">StoreFront oid where content originates necessary for tracking down relative assets.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="title">title of library item, usually the name of the flow or campaign, or description of cjson.</param>
-        /// <param name="uuid">UUID of communication flow or campaign if this library item was a campaign or flow.</param>
-        public ApplyLibraryItemResponse(string cjson = default(string), string contentType = default(string), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), int? storefrontOid = default(int?), bool? success = default(bool?), string title = default(string), string uuid = default(string))
+        /// <param name="uuid">UUID of marketing email or communication flow/campaign if this library item was an email, campaign or flow.</param>
+        /// <param name="warning">warning.</param>
+        public ApplyLibraryItemResponse(List<LibraryItemAttribute> attributes = default(List<LibraryItemAttribute>), string cjson = default(string), string contentType = default(string), string emailTemplateVmPath = default(string), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), int? storefrontOid = default(int?), bool? success = default(bool?), string title = default(string), string uuid = default(string), Warning warning = default(Warning))
         {
+            this.Attributes = attributes;
             this.Cjson = cjson;
             this.ContentType = contentType;
+            this.EmailTemplateVmPath = emailTemplateVmPath;
             this.Error = error;
             this.Metadata = metadata;
             this.StorefrontOid = storefrontOid;
             this.Success = success;
             this.Title = title;
             this.Uuid = uuid;
+            this.Warning = warning;
         }
         
         /// <summary>
-        /// Cjson from library item, only populated if this library item was a cjson snippet
+        /// Attributes from the library item
         /// </summary>
-        /// <value>Cjson from library item, only populated if this library item was a cjson snippet</value>
+        /// <value>Attributes from the library item</value>
+        [DataMember(Name="attributes", EmitDefaultValue=false)]
+        public List<LibraryItemAttribute> Attributes { get; set; }
+
+        /// <summary>
+        /// Cjson from library item, only populated if this library item was a cjson snippet or marketing email (not transactional)
+        /// </summary>
+        /// <value>Cjson from library item, only populated if this library item was a cjson snippet or marketing email (not transactional)</value>
         [DataMember(Name="cjson", EmitDefaultValue=false)]
         public string Cjson { get; set; }
 
         /// <summary>
-        /// flow, campaign, cjson, or upsell
+        /// flow, campaign, cjson, upsell, transactional_email or email
         /// </summary>
-        /// <value>flow, campaign, cjson, or upsell</value>
+        /// <value>flow, campaign, cjson, upsell, transactional_email or email</value>
         [DataMember(Name="content_type", EmitDefaultValue=false)]
         public string ContentType { get; set; }
+
+        /// <summary>
+        /// If a marketing email was applied, this is the path to the template encapsulating the cjson.  This is needed for the UltraCart UI.
+        /// </summary>
+        /// <value>If a marketing email was applied, this is the path to the template encapsulating the cjson.  This is needed for the UltraCart UI.</value>
+        [DataMember(Name="email_template_vm_path", EmitDefaultValue=false)]
+        public string EmailTemplateVmPath { get; set; }
 
         /// <summary>
         /// Gets or Sets Error
@@ -101,11 +121,17 @@ namespace com.ultracart.admin.v2.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// UUID of communication flow or campaign if this library item was a campaign or flow
+        /// UUID of marketing email or communication flow/campaign if this library item was an email, campaign or flow
         /// </summary>
-        /// <value>UUID of communication flow or campaign if this library item was a campaign or flow</value>
+        /// <value>UUID of marketing email or communication flow/campaign if this library item was an email, campaign or flow</value>
         [DataMember(Name="uuid", EmitDefaultValue=false)]
         public string Uuid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Warning
+        /// </summary>
+        [DataMember(Name="warning", EmitDefaultValue=false)]
+        public Warning Warning { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -115,14 +141,17 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ApplyLibraryItemResponse {\n");
+            sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Cjson: ").Append(Cjson).Append("\n");
             sb.Append("  ContentType: ").Append(ContentType).Append("\n");
+            sb.Append("  EmailTemplateVmPath: ").Append(EmailTemplateVmPath).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Uuid: ").Append(Uuid).Append("\n");
+            sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,6 +187,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Attributes == input.Attributes ||
+                    this.Attributes != null &&
+                    this.Attributes.SequenceEqual(input.Attributes)
+                ) && 
+                (
                     this.Cjson == input.Cjson ||
                     (this.Cjson != null &&
                     this.Cjson.Equals(input.Cjson))
@@ -166,6 +200,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ContentType == input.ContentType ||
                     (this.ContentType != null &&
                     this.ContentType.Equals(input.ContentType))
+                ) && 
+                (
+                    this.EmailTemplateVmPath == input.EmailTemplateVmPath ||
+                    (this.EmailTemplateVmPath != null &&
+                    this.EmailTemplateVmPath.Equals(input.EmailTemplateVmPath))
                 ) && 
                 (
                     this.Error == input.Error ||
@@ -196,6 +235,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Uuid == input.Uuid ||
                     (this.Uuid != null &&
                     this.Uuid.Equals(input.Uuid))
+                ) && 
+                (
+                    this.Warning == input.Warning ||
+                    (this.Warning != null &&
+                    this.Warning.Equals(input.Warning))
                 );
         }
 
@@ -208,10 +252,14 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Attributes != null)
+                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Cjson != null)
                     hashCode = hashCode * 59 + this.Cjson.GetHashCode();
                 if (this.ContentType != null)
                     hashCode = hashCode * 59 + this.ContentType.GetHashCode();
+                if (this.EmailTemplateVmPath != null)
+                    hashCode = hashCode * 59 + this.EmailTemplateVmPath.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)
@@ -224,6 +272,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Uuid != null)
                     hashCode = hashCode * 59 + this.Uuid.GetHashCode();
+                if (this.Warning != null)
+                    hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;
             }
         }

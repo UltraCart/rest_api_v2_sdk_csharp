@@ -36,11 +36,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="currencyCode">The ISO-4217 three letter currency code the customer is viewing prices in.</param>
         /// <param name="discountAmount">The amount of shipping discount.</param>
         /// <param name="items">A list of items which are eligible for the discount amount..</param>
-        public CouponAmountOffItems(string currencyCode = default(string), decimal? discountAmount = default(decimal?), List<string> items = default(List<string>))
+        /// <param name="limit">The limit of items which are eligible for the discount amount..</param>
+        public CouponAmountOffItems(string currencyCode = default(string), decimal? discountAmount = default(decimal?), List<string> items = default(List<string>), int? limit = default(int?))
         {
             this.CurrencyCode = currencyCode;
             this.DiscountAmount = discountAmount;
             this.Items = items;
+            this.Limit = limit;
         }
         
         /// <summary>
@@ -65,6 +67,13 @@ namespace com.ultracart.admin.v2.Model
         public List<string> Items { get; set; }
 
         /// <summary>
+        /// The limit of items which are eligible for the discount amount.
+        /// </summary>
+        /// <value>The limit of items which are eligible for the discount amount.</value>
+        [DataMember(Name="limit", EmitDefaultValue=false)]
+        public int? Limit { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +84,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
             sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
+            sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +133,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Items == input.Items ||
                     this.Items != null &&
                     this.Items.SequenceEqual(input.Items)
+                ) && 
+                (
+                    this.Limit == input.Limit ||
+                    (this.Limit != null &&
+                    this.Limit.Equals(input.Limit))
                 );
         }
 
@@ -141,6 +156,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DiscountAmount.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
+                if (this.Limit != null)
+                    hashCode = hashCode * 59 + this.Limit.GetHashCode();
                 return hashCode;
             }
         }

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AvalaraEntityUseCode** | **string** | Avalara entity use code | [optional] 
 **SovosCustomerCode** | **string** | Sovos customer code | [optional] 
 **TaxjarCustomerId** | **string** | TaxJar customer id | [optional] 
+**TaxjarExemptionType** | **string** | TaxJar exemption type | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

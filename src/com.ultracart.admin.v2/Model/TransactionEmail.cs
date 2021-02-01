@@ -43,6 +43,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="handlebarVariables">Handlebar Variables available for email template.</param>
         /// <param name="invalid">Invalid will be true if the template cannot compile.</param>
         /// <param name="lastModified">Last modified timestamp.</param>
+        /// <param name="libraryItemOid">If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated..</param>
         /// <param name="options">Options that help govern how and when this template is used.</param>
         /// <param name="path">directory path where template is stored in file system.</param>
         /// <param name="size">Size of file in friendly description.</param>
@@ -52,7 +53,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="syntaxErrors">Any syntax errors contained within the tempalate.</param>
         /// <param name="templatePathRelativePath">Internal value used to locate the template in the filesystem.</param>
         /// <param name="themeRelativePath">Theme relative path in the filesystem..</param>
-        public TransactionEmail(string content = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), string espUser = default(string), bool? fileExists = default(bool?), string fileName = default(string), string group = default(string), List<string> handlebarVariables = default(List<string>), bool? invalid = default(bool?), string lastModified = default(string), List<TransactionEmailOption> options = default(List<TransactionEmailOption>), string path = default(string), string size = default(string), int? storeFrontFsDirectoryOid = default(int?), int? storeFrontFsFileOid = default(int?), string subject = default(string), string syntaxErrors = default(string), string templatePathRelativePath = default(string), string themeRelativePath = default(string))
+        public TransactionEmail(string content = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), string espUser = default(string), bool? fileExists = default(bool?), string fileName = default(string), string group = default(string), List<string> handlebarVariables = default(List<string>), bool? invalid = default(bool?), string lastModified = default(string), int? libraryItemOid = default(int?), List<TransactionEmailOption> options = default(List<TransactionEmailOption>), string path = default(string), string size = default(string), int? storeFrontFsDirectoryOid = default(int?), int? storeFrontFsFileOid = default(int?), string subject = default(string), string syntaxErrors = default(string), string templatePathRelativePath = default(string), string themeRelativePath = default(string))
         {
             this.Content = content;
             this.EspDomainUuid = espDomainUuid;
@@ -64,6 +65,7 @@ namespace com.ultracart.admin.v2.Model
             this.HandlebarVariables = handlebarVariables;
             this.Invalid = invalid;
             this.LastModified = lastModified;
+            this.LibraryItemOid = libraryItemOid;
             this.Options = options;
             this.Path = path;
             this.Size = size;
@@ -146,6 +148,13 @@ namespace com.ultracart.admin.v2.Model
         public string LastModified { get; set; }
 
         /// <summary>
+        /// If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+        /// </summary>
+        /// <value>If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.</value>
+        [DataMember(Name="library_item_oid", EmitDefaultValue=false)]
+        public int? LibraryItemOid { get; set; }
+
+        /// <summary>
         /// Options that help govern how and when this template is used
         /// </summary>
         /// <value>Options that help govern how and when this template is used</value>
@@ -226,6 +235,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  HandlebarVariables: ").Append(HandlebarVariables).Append("\n");
             sb.Append("  Invalid: ").Append(Invalid).Append("\n");
             sb.Append("  LastModified: ").Append(LastModified).Append("\n");
+            sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
@@ -320,6 +330,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LastModified.Equals(input.LastModified))
                 ) && 
                 (
+                    this.LibraryItemOid == input.LibraryItemOid ||
+                    (this.LibraryItemOid != null &&
+                    this.LibraryItemOid.Equals(input.LibraryItemOid))
+                ) && 
+                (
                     this.Options == input.Options ||
                     this.Options != null &&
                     this.Options.SequenceEqual(input.Options)
@@ -395,6 +410,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Invalid.GetHashCode();
                 if (this.LastModified != null)
                     hashCode = hashCode * 59 + this.LastModified.GetHashCode();
+                if (this.LibraryItemOid != null)
+                    hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
                 if (this.Options != null)
                     hashCode = hashCode * 59 + this.Options.GetHashCode();
                 if (this.Path != null)

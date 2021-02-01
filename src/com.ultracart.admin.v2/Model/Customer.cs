@@ -81,7 +81,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="shipping">Shipping addresses for this customer.</param>
         /// <param name="signupDts">Signup date.</param>
         /// <param name="softwareEntitlements">Software entitlements owned by this customer.</param>
-        /// <param name="suppressBuysafe">Suppress buySAFE.</param>
+        /// <param name="suppressBuysafe">Suppress buySAFE (deprecated).</param>
         /// <param name="tags">Tags for this customer.</param>
         /// <param name="taxCodes">taxCodes.</param>
         /// <param name="taxExempt">True if the customer is tax exempt.</param>
@@ -484,9 +484,9 @@ namespace com.ultracart.admin.v2.Model
         public List<CustomerSoftwareEntitlement> SoftwareEntitlements { get; set; }
 
         /// <summary>
-        /// Suppress buySAFE
+        /// Suppress buySAFE (deprecated)
         /// </summary>
-        /// <value>Suppress buySAFE</value>
+        /// <value>Suppress buySAFE (deprecated)</value>
         [DataMember(Name="suppress_buysafe", EmitDefaultValue=false)]
         public bool? SuppressBuysafe { get; set; }
 

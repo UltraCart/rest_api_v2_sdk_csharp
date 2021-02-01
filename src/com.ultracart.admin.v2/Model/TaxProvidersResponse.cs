@@ -41,7 +41,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="taxjar">taxjar.</param>
         /// <param name="ultracart">ultracart.</param>
-        public TaxProvidersResponse(TaxProviderAvalara avalara = default(TaxProviderAvalara), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), TaxProviderSelf self = default(TaxProviderSelf), TaxProviderSovos sovos = default(TaxProviderSovos), bool? success = default(bool?), TaxProviderTaxJar taxjar = default(TaxProviderTaxJar), TaxProviderUltraCart ultracart = default(TaxProviderUltraCart))
+        /// <param name="warning">warning.</param>
+        public TaxProvidersResponse(TaxProviderAvalara avalara = default(TaxProviderAvalara), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), TaxProviderSelf self = default(TaxProviderSelf), TaxProviderSovos sovos = default(TaxProviderSovos), bool? success = default(bool?), TaxProviderTaxJar taxjar = default(TaxProviderTaxJar), TaxProviderUltraCart ultracart = default(TaxProviderUltraCart), Warning warning = default(Warning))
         {
             this.Avalara = avalara;
             this.Error = error;
@@ -51,6 +52,7 @@ namespace com.ultracart.admin.v2.Model
             this.Success = success;
             this.Taxjar = taxjar;
             this.Ultracart = ultracart;
+            this.Warning = warning;
         }
         
         /// <summary>
@@ -103,6 +105,12 @@ namespace com.ultracart.admin.v2.Model
         public TaxProviderUltraCart Ultracart { get; set; }
 
         /// <summary>
+        /// Gets or Sets Warning
+        /// </summary>
+        [DataMember(Name="warning", EmitDefaultValue=false)]
+        public Warning Warning { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -118,6 +126,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Taxjar: ").Append(Taxjar).Append("\n");
             sb.Append("  Ultracart: ").Append(Ultracart).Append("\n");
+            sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -191,6 +200,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Ultracart == input.Ultracart ||
                     (this.Ultracart != null &&
                     this.Ultracart.Equals(input.Ultracart))
+                ) && 
+                (
+                    this.Warning == input.Warning ||
+                    (this.Warning != null &&
+                    this.Warning.Equals(input.Warning))
                 );
         }
 
@@ -219,6 +233,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Taxjar.GetHashCode();
                 if (this.Ultracart != null)
                     hashCode = hashCode * 59 + this.Ultracart.GetHashCode();
+                if (this.Warning != null)
+                    hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;
             }
         }

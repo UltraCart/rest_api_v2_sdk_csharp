@@ -33,7 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemCheckout" /> class.
         /// </summary>
-        /// <param name="suppressBuysafe">True to suppress buySAFE.</param>
+        /// <param name="suppressBuysafe">True to suppress buySAFE (deprecated).</param>
         /// <param name="terms">Terms for purchasing this item.</param>
         /// <param name="termsTranslatedTextInstanceOid">Terms translated text instance identifier.</param>
         public ItemCheckout(bool? suppressBuysafe = default(bool?), string terms = default(string), int? termsTranslatedTextInstanceOid = default(int?))
@@ -44,9 +44,9 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// True to suppress buySAFE
+        /// True to suppress buySAFE (deprecated)
         /// </summary>
-        /// <value>True to suppress buySAFE</value>
+        /// <value>True to suppress buySAFE (deprecated)</value>
         [DataMember(Name="suppress_buysafe", EmitDefaultValue=false)]
         public bool? SuppressBuysafe { get; set; }
 

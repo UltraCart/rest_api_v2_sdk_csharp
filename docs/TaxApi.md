@@ -57,33 +57,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var city = city_example;  // string | The city being deleted.
             var taxCity = new TaxCity(); // TaxCity | tax city to be deleted
 
@@ -147,33 +124,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var countryCode = countryCode_example;  // string | The country code being deleted.
             var taxCountry = new TaxCountry(); // TaxCountry | tax country to be deleted
 
@@ -237,33 +191,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var county = county_example;  // string | The county being deleted.
             var taxCounty = new TaxCounty(); // TaxCounty | tax county to be deleted
 
@@ -327,33 +258,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var postalCode = postalCode_example;  // string | The postal code being deleted.
             var taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be deleted
 
@@ -417,33 +325,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var stateCode = stateCode_example;  // string | The state code being deleted.
             var taxState = new TaxState(); // TaxState | tax state to be deleted
 
@@ -507,33 +392,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
 
             try
             {
@@ -592,33 +454,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
 
             try
@@ -681,33 +520,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
 
             try
             {
@@ -766,33 +582,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
 
             try
             {
@@ -851,33 +644,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
 
             try
             {
@@ -936,33 +706,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var countryCode = countryCode_example;  // string | The country code regions desired.
 
             try
@@ -1025,33 +772,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
 
             try
             {
@@ -1110,33 +834,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
 
             try
             {
@@ -1195,33 +896,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
 
             try
             {
@@ -1280,33 +958,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
 
             try
             {
@@ -1365,33 +1020,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
 
             try
             {
@@ -1450,33 +1082,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var limit = 56;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
             var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
@@ -1543,33 +1152,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var providerName = providerName_example;  // string | The tax provider to set active.
 
             try
@@ -1632,33 +1218,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
 
             try
@@ -1721,33 +1284,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var taxProviderSelf = new TaxProviderSelf(); // TaxProviderSelf | TaxProviderSelf object
 
             try
@@ -1810,33 +1350,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var city = city_example;  // string | The city being updated.
             var taxCity = new TaxCity(); // TaxCity | tax city to be updated
 
@@ -1901,33 +1418,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var countryCode = countryCode_example;  // string | The country code being updated.
             var taxCountry = new TaxCountry(); // TaxCountry | tax country to be updated
 
@@ -1992,33 +1486,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var county = county_example;  // string | The county being updated.
             var taxCounty = new TaxCounty(); // TaxCounty | tax county to be updated
 
@@ -2083,33 +1554,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var postalCode = postalCode_example;  // string | The postal code being updated.
             var taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be updated
 
@@ -2174,33 +1622,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var stateCode = stateCode_example;  // string | The state code being updated.
             var taxState = new TaxState(); // TaxState | tax state to be updated
 
@@ -2265,33 +1690,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var taxProviderSovos = new TaxProviderSovos(); // TaxProviderSovos | TaxProviderSovos object
 
             try
@@ -2354,33 +1756,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var taxProviderTaxJar = new TaxProviderTaxJar(); // TaxProviderTaxJar | TaxProviderTaxJar object
 
             try
@@ -2443,33 +1822,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new TaxApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new TaxApi();
             var taxProviderUltracart = new TaxProviderUltraCart(); // TaxProviderUltraCart | TaxProviderUltraCart object
 
             try

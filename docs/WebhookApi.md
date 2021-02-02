@@ -37,33 +37,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new WebhookApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new WebhookApi();
             var webhookOid = 56;  // int? | The webhook oid to delete.
 
             try
@@ -125,33 +102,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new WebhookApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new WebhookApi();
             var webhook = new Webhook(); // Webhook | Webhook to delete
 
             try
@@ -214,33 +168,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new WebhookApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new WebhookApi();
             var webhookOid = 56;  // int? | The webhook oid that owns the log.
             var requestId = requestId_example;  // string | The request id associated with the log to view.
 
@@ -305,33 +236,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new WebhookApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new WebhookApi();
             var webhookOid = 56;  // int? | The webhook oid to retrieve log summaries for.
             var limit = 56;  // int? | The maximum number of records to return on this one API call. (optional)  (default to 100)
             var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
@@ -400,33 +308,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new WebhookApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new WebhookApi();
             var limit = 56;  // int? | The maximum number of records to return on this one API call. (optional)  (default to 100)
             var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
             var sort = sort_example;  // string | The sort order of the webhooks.  See documentation for examples (optional) 
@@ -495,33 +380,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new WebhookApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new WebhookApi();
             var webhook = new Webhook(); // Webhook | Webhook to create
             var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
@@ -586,33 +448,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new WebhookApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new WebhookApi();
             var webhookOid = 56;  // int? | The webhook oid that is receiving the reflowed events.
             var eventName = eventName_example;  // string | The event to reflow.
 
@@ -677,33 +516,10 @@ namespace Example
         public void main()
         {
 
-            // This is required.  See https://www.ultracart.com/api/versioning.html
-            Configuration.Default.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new WebhookApi(simpleKey);
 
-            // You will need ONE of the authentication methods below.  Most applications will use a Simple API Key
-            // https://www.ultracart.com/api/authentication.html
-
-            // ------------------------------------------------------------
-            // OAUTH AUTHENTICATION
-            // Use this authentication method for third party applications,
-            // where your application is acting on behalf of numerous merchants.
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            Configuration.Default.AccessToken
-                 = "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00";
-            // ------------------------------------------------------------
-
-
-            // ------------------------------------------------------------
-            // SIMPLE KEY AUTHENTICATION
-            // Configure API key authorization: ultraCartSimpleApiKey
-            // TODO - Replace the key below with your own key.  The key below is not a real key.
-            // Tutorial for creating a key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "508052342b482a015d85c69048030a0005a9da7cea5afe015d85c69048030a00");
-            // ------------------------------------------------------------
-              
-
-            var apiInstance = new WebhookApi();
             var webhook = new Webhook(); // Webhook | Webhook to update
             var webhookOid = 56;  // int? | The webhook oid to update.
             var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 

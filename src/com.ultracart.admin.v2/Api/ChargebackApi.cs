@@ -305,18 +305,7 @@ namespace com.ultracart.admin.v2.Api
     public partial class ChargebackApi : IChargebackApi
     {
         private com.ultracart.admin.v2.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ChargebackApi"/> class.
-        /// </summary>
-        /// <returns></returns>
-        public ChargebackApi(String basePath)
-        {
-            this.Configuration = new com.ultracart.admin.v2.Client.Configuration { BasePath = basePath };
-
-            ExceptionFactory = com.ultracart.admin.v2.Client.Configuration.DefaultExceptionFactory;
-        }
-
+    
         /// <summary>
         /// Initializes a new instance of the <see cref="ChargebackApi"/> class
         /// using Configuration object
@@ -332,6 +321,24 @@ namespace com.ultracart.admin.v2.Api
 
             ExceptionFactory = com.ultracart.admin.v2.Client.Configuration.DefaultExceptionFactory;
         }
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChargebackApi"/> class
+        /// using a simple key string and optional version, which you will
+        /// almost always want to use the default
+        /// </summary>
+        /// <param name="SimpleKey">A simple key.  See https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key</param>
+        /// <returns></returns>
+        public ChargebackApi(string SimpleKey)
+        {
+            Configuration configuration = new Configuration();
+            configuration.ApiKey.Add("x-ultracart-simple-key", SimpleKey);
+            configuration.DefaultHeader.Add("X-UltraCart-Api-Version", "2017-03-01");
+            this.Configuration = configuration;
+            ExceptionFactory = com.ultracart.admin.v2.Client.Configuration.DefaultExceptionFactory;
+        }
+
 
         /// <summary>
         /// Gets the base path of the API client.

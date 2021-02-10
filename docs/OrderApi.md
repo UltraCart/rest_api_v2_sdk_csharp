@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**GetOrderByToken**](OrderApi.md#getorderbytoken) | **POST** /order/orders/token | Retrieve an order using a token
 [**GetOrders**](OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 [**GetOrdersBatch**](OrderApi.md#getordersbatch) | **POST** /order/orders/batch | Retrieve order batch
-[**GetOrdersByQuery**](OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders
+[**GetOrdersByQuery**](OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders by query
 [**InsertOrder**](OrderApi.md#insertorder) | **POST** /order/orders | Insert an order
 [**ProcessPayment**](OrderApi.md#processpayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 [**RefundOrder**](OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
@@ -829,7 +829,7 @@ Name | Type | Description  | Notes
 # **GetOrdersByQuery**
 > OrdersResponse GetOrdersByQuery (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
 
-Retrieve orders
+Retrieve orders by query
 
 Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 ### Example
@@ -860,7 +860,7 @@ namespace Example
 
             try
             {
-                // Retrieve orders
+                // Retrieve orders by query
                 OrdersResponse result = apiInstance.GetOrdersByQuery(orderQuery, limit, offset, sort, expand);
                 Debug.WriteLine(result);
             }

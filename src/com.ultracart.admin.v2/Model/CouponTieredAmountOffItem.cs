@@ -34,7 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="CouponTieredAmountOffItem" /> class.
         /// </summary>
         /// <param name="item">The item being discounted by this coupon..</param>
-        /// <param name="limit">The maximum amount of total discount by this coupon..</param>
+        /// <param name="limit">The maximum number of discounted items..</param>
         /// <param name="tiers">A list of discount tiers..</param>
         public CouponTieredAmountOffItem(string item = default(string), decimal? limit = default(decimal?), List<CouponTierQuantityAmount> tiers = default(List<CouponTierQuantityAmount>))
         {
@@ -51,9 +51,9 @@ namespace com.ultracart.admin.v2.Model
         public string Item { get; set; }
 
         /// <summary>
-        /// The maximum amount of total discount by this coupon.
+        /// The maximum number of discounted items.
         /// </summary>
-        /// <value>The maximum amount of total discount by this coupon.</value>
+        /// <value>The maximum number of discounted items.</value>
         [DataMember(Name="limit", EmitDefaultValue=false)]
         public decimal? Limit { get; set; }
 

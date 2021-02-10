@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailPlanAdditional" /> class.
         /// </summary>
+        /// <param name="active">active.</param>
         /// <param name="canDowngrade">canDowngrade.</param>
         /// <param name="canUpgrade">canUpgrade.</param>
         /// <param name="cost">cost.</param>
@@ -41,8 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="costFormatted">costFormatted.</param>
         /// <param name="customers">customers.</param>
         /// <param name="emails">emails.</param>
-        public EmailPlanAdditional(bool? canDowngrade = default(bool?), bool? canUpgrade = default(bool?), decimal? cost = default(decimal?), decimal? costChange = default(decimal?), string costChangeFormatted = default(string), string costFormatted = default(string), int? customers = default(int?), int? emails = default(int?))
+        public EmailPlanAdditional(bool? active = default(bool?), bool? canDowngrade = default(bool?), bool? canUpgrade = default(bool?), decimal? cost = default(decimal?), decimal? costChange = default(decimal?), string costChangeFormatted = default(string), string costFormatted = default(string), int? customers = default(int?), int? emails = default(int?))
         {
+            this.Active = active;
             this.CanDowngrade = canDowngrade;
             this.CanUpgrade = canUpgrade;
             this.Cost = cost;
@@ -53,6 +55,12 @@ namespace com.ultracart.admin.v2.Model
             this.Emails = emails;
         }
         
+        /// <summary>
+        /// Gets or Sets Active
+        /// </summary>
+        [DataMember(Name="active", EmitDefaultValue=false)]
+        public bool? Active { get; set; }
+
         /// <summary>
         /// Gets or Sets CanDowngrade
         /// </summary>
@@ -109,6 +117,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailPlanAdditional {\n");
+            sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  CanDowngrade: ").Append(CanDowngrade).Append("\n");
             sb.Append("  CanUpgrade: ").Append(CanUpgrade).Append("\n");
             sb.Append("  Cost: ").Append(Cost).Append("\n");
@@ -151,6 +160,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Active == input.Active ||
+                    (this.Active != null &&
+                    this.Active.Equals(input.Active))
+                ) && 
                 (
                     this.CanDowngrade == input.CanDowngrade ||
                     (this.CanDowngrade != null &&
@@ -202,6 +216,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Active != null)
+                    hashCode = hashCode * 59 + this.Active.GetHashCode();
                 if (this.CanDowngrade != null)
                     hashCode = hashCode * 59 + this.CanDowngrade.GetHashCode();
                 if (this.CanUpgrade != null)

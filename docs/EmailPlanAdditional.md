@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Active** | **bool?** |  | [optional] 
 **CanDowngrade** | **bool?** |  | [optional] 
 **CanUpgrade** | **bool?** |  | [optional] 
 **Cost** | **decimal?** |  | [optional] 

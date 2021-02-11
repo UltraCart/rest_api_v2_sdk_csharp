@@ -41,7 +41,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="espCustomerUuid">espCustomerUuid.</param>
         /// <param name="eventsGzSize">eventsGzSize.</param>
         /// <param name="eventsJsonKey">eventsJsonKey.</param>
-        /// <param name="favorites">favorites.</param>
+        /// <param name="favorite">True if the user calling the API has favorited this particular screen recording..</param>
+        /// <param name="favorites">Array of user ids that favorited this particular screen recording..</param>
         /// <param name="geolocation">geolocation.</param>
         /// <param name="geolocationCountry">geolocationCountry.</param>
         /// <param name="geolocationState">geolocationState.</param>
@@ -65,7 +66,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="watched">watched.</param>
         /// <param name="windowHeight">windowHeight.</param>
         /// <param name="windowWidth">windowWidth.</param>
-        public ScreenRecording(long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string email = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string merchantId = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
+        public ScreenRecording(long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string email = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), bool? favorite = default(bool?), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string merchantId = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
         {
             this.AnalyticsClientOid = analyticsClientOid;
             this.AnalyticsSessionDts = analyticsSessionDts;
@@ -75,6 +76,7 @@ namespace com.ultracart.admin.v2.Model
             this.EspCustomerUuid = espCustomerUuid;
             this.EventsGzSize = eventsGzSize;
             this.EventsJsonKey = eventsJsonKey;
+            this.Favorite = favorite;
             this.Favorites = favorites;
             this.Geolocation = geolocation;
             this.GeolocationCountry = geolocationCountry;
@@ -151,8 +153,16 @@ namespace com.ultracart.admin.v2.Model
         public string EventsJsonKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets Favorites
+        /// True if the user calling the API has favorited this particular screen recording.
         /// </summary>
+        /// <value>True if the user calling the API has favorited this particular screen recording.</value>
+        [DataMember(Name="favorite", EmitDefaultValue=false)]
+        public bool? Favorite { get; set; }
+
+        /// <summary>
+        /// Array of user ids that favorited this particular screen recording.
+        /// </summary>
+        /// <value>Array of user ids that favorited this particular screen recording.</value>
         [DataMember(Name="favorites", EmitDefaultValue=false)]
         public List<int?> Favorites { get; set; }
 
@@ -311,6 +321,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EspCustomerUuid: ").Append(EspCustomerUuid).Append("\n");
             sb.Append("  EventsGzSize: ").Append(EventsGzSize).Append("\n");
             sb.Append("  EventsJsonKey: ").Append(EventsJsonKey).Append("\n");
+            sb.Append("  Favorite: ").Append(Favorite).Append("\n");
             sb.Append("  Favorites: ").Append(Favorites).Append("\n");
             sb.Append("  Geolocation: ").Append(Geolocation).Append("\n");
             sb.Append("  GeolocationCountry: ").Append(GeolocationCountry).Append("\n");
@@ -408,6 +419,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EventsJsonKey == input.EventsJsonKey ||
                     (this.EventsJsonKey != null &&
                     this.EventsJsonKey.Equals(input.EventsJsonKey))
+                ) && 
+                (
+                    this.Favorite == input.Favorite ||
+                    (this.Favorite != null &&
+                    this.Favorite.Equals(input.Favorite))
                 ) && 
                 (
                     this.Favorites == input.Favorites ||
@@ -556,6 +572,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EventsGzSize.GetHashCode();
                 if (this.EventsJsonKey != null)
                     hashCode = hashCode * 59 + this.EventsJsonKey.GetHashCode();
+                if (this.Favorite != null)
+                    hashCode = hashCode * 59 + this.Favorite.GetHashCode();
                 if (this.Favorites != null)
                     hashCode = hashCode * 59 + this.Favorites.GetHashCode();
                 if (this.Geolocation != null)

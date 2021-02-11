@@ -265,6 +265,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailListsResponse</returns>
         ApiResponse<EmailListsResponse> GetEmailListsWithHttpInfo ();
         /// <summary>
+        /// Create a token that can be used to verify a customer email address
+        /// </summary>
+        /// <remarks>
+        /// Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenRequest">Token request</param>
+        /// <returns>EmailVerifyTokenResponse</returns>
+        EmailVerifyTokenResponse GetEmailVerificationToken (EmailVerifyTokenRequest tokenRequest);
+
+        /// <summary>
+        /// Create a token that can be used to verify a customer email address
+        /// </summary>
+        /// <remarks>
+        /// Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenRequest">Token request</param>
+        /// <returns>ApiResponse of EmailVerifyTokenResponse</returns>
+        ApiResponse<EmailVerifyTokenResponse> GetEmailVerificationTokenWithHttpInfo (EmailVerifyTokenRequest tokenRequest);
+        /// <summary>
         /// Insert a customer
         /// </summary>
         /// <remarks>
@@ -335,6 +356,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="listChanges">List changes</param>
         /// <returns>ApiResponse of CustomerEmailListChanges</returns>
         ApiResponse<CustomerEmailListChanges> UpdateCustomerEmailListsWithHttpInfo (int? customerProfileOid, CustomerEmailListChanges listChanges);
+        /// <summary>
+        /// Validate a token that can be used to verify a customer email address
+        /// </summary>
+        /// <remarks>
+        /// Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Token validation request</param>
+        /// <returns>EmailVerifyTokenResponse</returns>
+        EmailVerifyTokenResponse ValidateEmailVerificationToken (EmailVerifyTokenValidateRequest validationRequest);
+
+        /// <summary>
+        /// Validate a token that can be used to verify a customer email address
+        /// </summary>
+        /// <remarks>
+        /// Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Token validation request</param>
+        /// <returns>ApiResponse of EmailVerifyTokenResponse</returns>
+        ApiResponse<EmailVerifyTokenResponse> ValidateEmailVerificationTokenWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -578,6 +620,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailListsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailListsResponse>> GetEmailListsAsyncWithHttpInfo ();
         /// <summary>
+        /// Create a token that can be used to verify a customer email address
+        /// </summary>
+        /// <remarks>
+        /// Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenRequest">Token request</param>
+        /// <returns>Task of EmailVerifyTokenResponse</returns>
+        System.Threading.Tasks.Task<EmailVerifyTokenResponse> GetEmailVerificationTokenAsync (EmailVerifyTokenRequest tokenRequest);
+
+        /// <summary>
+        /// Create a token that can be used to verify a customer email address
+        /// </summary>
+        /// <remarks>
+        /// Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenRequest">Token request</param>
+        /// <returns>Task of ApiResponse (EmailVerifyTokenResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailVerifyTokenResponse>> GetEmailVerificationTokenAsyncWithHttpInfo (EmailVerifyTokenRequest tokenRequest);
+        /// <summary>
         /// Insert a customer
         /// </summary>
         /// <remarks>
@@ -648,6 +711,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="listChanges">List changes</param>
         /// <returns>Task of ApiResponse (CustomerEmailListChanges)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerEmailListChanges>> UpdateCustomerEmailListsAsyncWithHttpInfo (int? customerProfileOid, CustomerEmailListChanges listChanges);
+        /// <summary>
+        /// Validate a token that can be used to verify a customer email address
+        /// </summary>
+        /// <remarks>
+        /// Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Token validation request</param>
+        /// <returns>Task of EmailVerifyTokenResponse</returns>
+        System.Threading.Tasks.Task<EmailVerifyTokenResponse> ValidateEmailVerificationTokenAsync (EmailVerifyTokenValidateRequest validationRequest);
+
+        /// <summary>
+        /// Validate a token that can be used to verify a customer email address
+        /// </summary>
+        /// <remarks>
+        /// Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Token validation request</param>
+        /// <returns>Task of ApiResponse (EmailVerifyTokenResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailVerifyTokenResponse>> ValidateEmailVerificationTokenAsyncWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest);
         #endregion Asynchronous Operations
     }
 
@@ -2218,6 +2302,177 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Create a token that can be used to verify a customer email address Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenRequest">Token request</param>
+        /// <returns>EmailVerifyTokenResponse</returns>
+        public EmailVerifyTokenResponse GetEmailVerificationToken (EmailVerifyTokenRequest tokenRequest)
+        {
+             ApiResponse<EmailVerifyTokenResponse> localVarResponse = GetEmailVerificationTokenWithHttpInfo(tokenRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a token that can be used to verify a customer email address Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenRequest">Token request</param>
+        /// <returns>ApiResponse of EmailVerifyTokenResponse</returns>
+        public ApiResponse< EmailVerifyTokenResponse > GetEmailVerificationTokenWithHttpInfo (EmailVerifyTokenRequest tokenRequest)
+        {
+            // verify the required parameter 'tokenRequest' is set
+            if (tokenRequest == null)
+                throw new ApiException(400, "Missing required parameter 'tokenRequest' when calling CustomerApi->GetEmailVerificationToken");
+
+            var localVarPath = "/customer/customers/email_verify/get_token";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (tokenRequest != null && tokenRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(tokenRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = tokenRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailVerificationToken", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailVerifyTokenResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailVerifyTokenResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailVerifyTokenResponse)));
+        }
+
+        /// <summary>
+        /// Create a token that can be used to verify a customer email address Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenRequest">Token request</param>
+        /// <returns>Task of EmailVerifyTokenResponse</returns>
+        public async System.Threading.Tasks.Task<EmailVerifyTokenResponse> GetEmailVerificationTokenAsync (EmailVerifyTokenRequest tokenRequest)
+        {
+             ApiResponse<EmailVerifyTokenResponse> localVarResponse = await GetEmailVerificationTokenAsyncWithHttpInfo(tokenRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a token that can be used to verify a customer email address Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenRequest">Token request</param>
+        /// <returns>Task of ApiResponse (EmailVerifyTokenResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailVerifyTokenResponse>> GetEmailVerificationTokenAsyncWithHttpInfo (EmailVerifyTokenRequest tokenRequest)
+        {
+            // verify the required parameter 'tokenRequest' is set
+            if (tokenRequest == null)
+                throw new ApiException(400, "Missing required parameter 'tokenRequest' when calling CustomerApi->GetEmailVerificationToken");
+
+            var localVarPath = "/customer/customers/email_verify/get_token";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (tokenRequest != null && tokenRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(tokenRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = tokenRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailVerificationToken", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailVerifyTokenResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailVerifyTokenResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailVerifyTokenResponse)));
+        }
+
+        /// <summary>
         /// Insert a customer Insert a customer on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2764,6 +3019,177 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomerEmailListChanges>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CustomerEmailListChanges) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerEmailListChanges)));
+        }
+
+        /// <summary>
+        /// Validate a token that can be used to verify a customer email address Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Token validation request</param>
+        /// <returns>EmailVerifyTokenResponse</returns>
+        public EmailVerifyTokenResponse ValidateEmailVerificationToken (EmailVerifyTokenValidateRequest validationRequest)
+        {
+             ApiResponse<EmailVerifyTokenResponse> localVarResponse = ValidateEmailVerificationTokenWithHttpInfo(validationRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Validate a token that can be used to verify a customer email address Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Token validation request</param>
+        /// <returns>ApiResponse of EmailVerifyTokenResponse</returns>
+        public ApiResponse< EmailVerifyTokenResponse > ValidateEmailVerificationTokenWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest)
+        {
+            // verify the required parameter 'validationRequest' is set
+            if (validationRequest == null)
+                throw new ApiException(400, "Missing required parameter 'validationRequest' when calling CustomerApi->ValidateEmailVerificationToken");
+
+            var localVarPath = "/customer/customers/email_verify/validate_token";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (validationRequest != null && validationRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(validationRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = validationRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ValidateEmailVerificationToken", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailVerifyTokenResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailVerifyTokenResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailVerifyTokenResponse)));
+        }
+
+        /// <summary>
+        /// Validate a token that can be used to verify a customer email address Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Token validation request</param>
+        /// <returns>Task of EmailVerifyTokenResponse</returns>
+        public async System.Threading.Tasks.Task<EmailVerifyTokenResponse> ValidateEmailVerificationTokenAsync (EmailVerifyTokenValidateRequest validationRequest)
+        {
+             ApiResponse<EmailVerifyTokenResponse> localVarResponse = await ValidateEmailVerificationTokenAsyncWithHttpInfo(validationRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Validate a token that can be used to verify a customer email address Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Token validation request</param>
+        /// <returns>Task of ApiResponse (EmailVerifyTokenResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailVerifyTokenResponse>> ValidateEmailVerificationTokenAsyncWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest)
+        {
+            // verify the required parameter 'validationRequest' is set
+            if (validationRequest == null)
+                throw new ApiException(400, "Missing required parameter 'validationRequest' when calling CustomerApi->ValidateEmailVerificationToken");
+
+            var localVarPath = "/customer/customers/email_verify/validate_token";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (validationRequest != null && validationRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(validationRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = validationRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ValidateEmailVerificationToken", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailVerifyTokenResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailVerifyTokenResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailVerifyTokenResponse)));
         }
 
     }

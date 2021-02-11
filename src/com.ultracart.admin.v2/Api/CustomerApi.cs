@@ -364,8 +364,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRequest">Token validation request</param>
-        /// <returns>EmailVerifyTokenResponse</returns>
-        EmailVerifyTokenResponse ValidateEmailVerificationToken (EmailVerifyTokenValidateRequest validationRequest);
+        /// <returns>EmailVerifyTokenValidateResponse</returns>
+        EmailVerifyTokenValidateResponse ValidateEmailVerificationToken (EmailVerifyTokenValidateRequest validationRequest);
 
         /// <summary>
         /// Validate a token that can be used to verify a customer email address
@@ -375,8 +375,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRequest">Token validation request</param>
-        /// <returns>ApiResponse of EmailVerifyTokenResponse</returns>
-        ApiResponse<EmailVerifyTokenResponse> ValidateEmailVerificationTokenWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest);
+        /// <returns>ApiResponse of EmailVerifyTokenValidateResponse</returns>
+        ApiResponse<EmailVerifyTokenValidateResponse> ValidateEmailVerificationTokenWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -719,8 +719,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRequest">Token validation request</param>
-        /// <returns>Task of EmailVerifyTokenResponse</returns>
-        System.Threading.Tasks.Task<EmailVerifyTokenResponse> ValidateEmailVerificationTokenAsync (EmailVerifyTokenValidateRequest validationRequest);
+        /// <returns>Task of EmailVerifyTokenValidateResponse</returns>
+        System.Threading.Tasks.Task<EmailVerifyTokenValidateResponse> ValidateEmailVerificationTokenAsync (EmailVerifyTokenValidateRequest validationRequest);
 
         /// <summary>
         /// Validate a token that can be used to verify a customer email address
@@ -730,8 +730,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRequest">Token validation request</param>
-        /// <returns>Task of ApiResponse (EmailVerifyTokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailVerifyTokenResponse>> ValidateEmailVerificationTokenAsyncWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest);
+        /// <returns>Task of ApiResponse (EmailVerifyTokenValidateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailVerifyTokenValidateResponse>> ValidateEmailVerificationTokenAsyncWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest);
         #endregion Asynchronous Operations
     }
 
@@ -3026,10 +3026,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRequest">Token validation request</param>
-        /// <returns>EmailVerifyTokenResponse</returns>
-        public EmailVerifyTokenResponse ValidateEmailVerificationToken (EmailVerifyTokenValidateRequest validationRequest)
+        /// <returns>EmailVerifyTokenValidateResponse</returns>
+        public EmailVerifyTokenValidateResponse ValidateEmailVerificationToken (EmailVerifyTokenValidateRequest validationRequest)
         {
-             ApiResponse<EmailVerifyTokenResponse> localVarResponse = ValidateEmailVerificationTokenWithHttpInfo(validationRequest);
+             ApiResponse<EmailVerifyTokenValidateResponse> localVarResponse = ValidateEmailVerificationTokenWithHttpInfo(validationRequest);
              return localVarResponse.Data;
         }
 
@@ -3038,8 +3038,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRequest">Token validation request</param>
-        /// <returns>ApiResponse of EmailVerifyTokenResponse</returns>
-        public ApiResponse< EmailVerifyTokenResponse > ValidateEmailVerificationTokenWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest)
+        /// <returns>ApiResponse of EmailVerifyTokenValidateResponse</returns>
+        public ApiResponse< EmailVerifyTokenValidateResponse > ValidateEmailVerificationTokenWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest)
         {
             // verify the required parameter 'validationRequest' is set
             if (validationRequest == null)
@@ -3101,9 +3101,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<EmailVerifyTokenResponse>(localVarStatusCode,
+            return new ApiResponse<EmailVerifyTokenValidateResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (EmailVerifyTokenResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailVerifyTokenResponse)));
+                (EmailVerifyTokenValidateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailVerifyTokenValidateResponse)));
         }
 
         /// <summary>
@@ -3111,10 +3111,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRequest">Token validation request</param>
-        /// <returns>Task of EmailVerifyTokenResponse</returns>
-        public async System.Threading.Tasks.Task<EmailVerifyTokenResponse> ValidateEmailVerificationTokenAsync (EmailVerifyTokenValidateRequest validationRequest)
+        /// <returns>Task of EmailVerifyTokenValidateResponse</returns>
+        public async System.Threading.Tasks.Task<EmailVerifyTokenValidateResponse> ValidateEmailVerificationTokenAsync (EmailVerifyTokenValidateRequest validationRequest)
         {
-             ApiResponse<EmailVerifyTokenResponse> localVarResponse = await ValidateEmailVerificationTokenAsyncWithHttpInfo(validationRequest);
+             ApiResponse<EmailVerifyTokenValidateResponse> localVarResponse = await ValidateEmailVerificationTokenAsyncWithHttpInfo(validationRequest);
              return localVarResponse.Data;
 
         }
@@ -3124,8 +3124,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRequest">Token validation request</param>
-        /// <returns>Task of ApiResponse (EmailVerifyTokenResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EmailVerifyTokenResponse>> ValidateEmailVerificationTokenAsyncWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest)
+        /// <returns>Task of ApiResponse (EmailVerifyTokenValidateResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailVerifyTokenValidateResponse>> ValidateEmailVerificationTokenAsyncWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest)
         {
             // verify the required parameter 'validationRequest' is set
             if (validationRequest == null)
@@ -3187,9 +3187,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<EmailVerifyTokenResponse>(localVarStatusCode,
+            return new ApiResponse<EmailVerifyTokenValidateResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (EmailVerifyTokenResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailVerifyTokenResponse)));
+                (EmailVerifyTokenValidateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailVerifyTokenValidateResponse)));
         }
 
     }

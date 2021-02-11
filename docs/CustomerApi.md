@@ -879,7 +879,7 @@ Name | Type | Description  | Notes
 
 <a name="validateemailverificationtoken"></a>
 # **ValidateEmailVerificationToken**
-> EmailVerifyTokenResponse ValidateEmailVerificationToken (EmailVerifyTokenValidateRequest validationRequest)
+> EmailVerifyTokenValidateResponse ValidateEmailVerificationToken (EmailVerifyTokenValidateRequest validationRequest)
 
 Validate a token that can be used to verify a customer email address
 
@@ -909,7 +909,7 @@ namespace Example
             try
             {
                 // Validate a token that can be used to verify a customer email address
-                EmailVerifyTokenResponse result = apiInstance.ValidateEmailVerificationToken(validationRequest);
+                EmailVerifyTokenValidateResponse result = apiInstance.ValidateEmailVerificationToken(validationRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -930,7 +930,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EmailVerifyTokenResponse**](EmailVerifyTokenResponse.md)
+[**EmailVerifyTokenValidateResponse**](EmailVerifyTokenValidateResponse.md)
 
 ### Authorization
 

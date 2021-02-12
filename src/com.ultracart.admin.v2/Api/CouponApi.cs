@@ -436,7 +436,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update multiple coupon on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 50 / asynchronous maximum 100)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
@@ -450,7 +450,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update multiple coupon on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 50 / asynchronous maximum 100)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
@@ -893,7 +893,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update multiple coupon on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 50 / asynchronous maximum 100)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
@@ -907,7 +907,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update multiple coupon on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 50 / asynchronous maximum 100)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
@@ -3972,7 +3972,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update multiple coupons Update multiple coupon on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 50 / asynchronous maximum 100)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
@@ -3987,7 +3987,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update multiple coupons Update multiple coupon on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 50 / asynchronous maximum 100)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
@@ -4066,7 +4066,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update multiple coupons Update multiple coupon on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 50 / asynchronous maximum 100)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>
@@ -4082,7 +4082,7 @@ namespace com.ultracart.admin.v2.Api
         /// Update multiple coupons Update multiple coupon on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to update (synchronous maximum 20 / asynchronous maximum 100)</param>
+        /// <param name="couponsRequest">Coupons to update (synchronous maximum 50 / asynchronous maximum 100)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <param name="async">True if the operation should be run async.  No result returned (optional)</param>

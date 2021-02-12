@@ -5614,7 +5614,7 @@ Name | Type | Description  | Notes
 
 <a name="getscreenrecordingpageviewdata"></a>
 # **GetScreenRecordingPageViewData**
-> ScreenRecordingResponse GetScreenRecordingPageViewData (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+> ScreenRecordingPageViewDataResponse GetScreenRecordingPageViewData (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
 
 Get screen recording page view data
 
@@ -5646,7 +5646,7 @@ namespace Example
             try
             {
                 // Get screen recording page view data
-                ScreenRecordingResponse result = apiInstance.GetScreenRecordingPageViewData(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
+                ScreenRecordingPageViewDataResponse result = apiInstance.GetScreenRecordingPageViewData(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -5669,7 +5669,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScreenRecordingResponse**](ScreenRecordingResponse.md)
+[**ScreenRecordingPageViewDataResponse**](ScreenRecordingPageViewDataResponse.md)
 
 ### Authorization
 

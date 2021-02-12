@@ -1925,8 +1925,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingUuid"></param>
         /// <param name="screenRecordingPageViewUuid"></param>
-        /// <returns>ScreenRecordingResponse</returns>
-        ScreenRecordingResponse GetScreenRecordingPageViewData (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
+        /// <returns>ScreenRecordingPageViewDataResponse</returns>
+        ScreenRecordingPageViewDataResponse GetScreenRecordingPageViewData (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
 
         /// <summary>
         /// Get screen recording page view data
@@ -1938,8 +1938,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingUuid"></param>
         /// <param name="screenRecordingPageViewUuid"></param>
-        /// <returns>ApiResponse of ScreenRecordingResponse</returns>
-        ApiResponse<ScreenRecordingResponse> GetScreenRecordingPageViewDataWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
+        /// <returns>ApiResponse of ScreenRecordingPageViewDataResponse</returns>
+        ApiResponse<ScreenRecordingPageViewDataResponse> GetScreenRecordingPageViewDataWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
         /// <summary>
         /// Get screen recording segment
         /// </summary>
@@ -5262,8 +5262,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingUuid"></param>
         /// <param name="screenRecordingPageViewUuid"></param>
-        /// <returns>Task of ScreenRecordingResponse</returns>
-        System.Threading.Tasks.Task<ScreenRecordingResponse> GetScreenRecordingPageViewDataAsync (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
+        /// <returns>Task of ScreenRecordingPageViewDataResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingPageViewDataResponse> GetScreenRecordingPageViewDataAsync (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
 
         /// <summary>
         /// Get screen recording page view data
@@ -5275,8 +5275,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingUuid"></param>
         /// <param name="screenRecordingPageViewUuid"></param>
-        /// <returns>Task of ApiResponse (ScreenRecordingResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingResponse>> GetScreenRecordingPageViewDataAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
+        /// <returns>Task of ApiResponse (ScreenRecordingPageViewDataResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingPageViewDataResponse>> GetScreenRecordingPageViewDataAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid);
         /// <summary>
         /// Get screen recording segment
         /// </summary>
@@ -21545,10 +21545,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingUuid"></param>
         /// <param name="screenRecordingPageViewUuid"></param>
-        /// <returns>ScreenRecordingResponse</returns>
-        public ScreenRecordingResponse GetScreenRecordingPageViewData (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+        /// <returns>ScreenRecordingPageViewDataResponse</returns>
+        public ScreenRecordingPageViewDataResponse GetScreenRecordingPageViewData (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
         {
-             ApiResponse<ScreenRecordingResponse> localVarResponse = GetScreenRecordingPageViewDataWithHttpInfo(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
+             ApiResponse<ScreenRecordingPageViewDataResponse> localVarResponse = GetScreenRecordingPageViewDataWithHttpInfo(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
              return localVarResponse.Data;
         }
 
@@ -21559,8 +21559,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingUuid"></param>
         /// <param name="screenRecordingPageViewUuid"></param>
-        /// <returns>ApiResponse of ScreenRecordingResponse</returns>
-        public ApiResponse< ScreenRecordingResponse > GetScreenRecordingPageViewDataWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+        /// <returns>ApiResponse of ScreenRecordingPageViewDataResponse</returns>
+        public ApiResponse< ScreenRecordingPageViewDataResponse > GetScreenRecordingPageViewDataWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -21623,9 +21623,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ScreenRecordingResponse>(localVarStatusCode,
+            return new ApiResponse<ScreenRecordingPageViewDataResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ScreenRecordingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingResponse)));
+                (ScreenRecordingPageViewDataResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingPageViewDataResponse)));
         }
 
         /// <summary>
@@ -21635,10 +21635,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingUuid"></param>
         /// <param name="screenRecordingPageViewUuid"></param>
-        /// <returns>Task of ScreenRecordingResponse</returns>
-        public async System.Threading.Tasks.Task<ScreenRecordingResponse> GetScreenRecordingPageViewDataAsync (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+        /// <returns>Task of ScreenRecordingPageViewDataResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingPageViewDataResponse> GetScreenRecordingPageViewDataAsync (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
         {
-             ApiResponse<ScreenRecordingResponse> localVarResponse = await GetScreenRecordingPageViewDataAsyncWithHttpInfo(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
+             ApiResponse<ScreenRecordingPageViewDataResponse> localVarResponse = await GetScreenRecordingPageViewDataAsyncWithHttpInfo(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
              return localVarResponse.Data;
 
         }
@@ -21650,8 +21650,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingUuid"></param>
         /// <param name="screenRecordingPageViewUuid"></param>
-        /// <returns>Task of ApiResponse (ScreenRecordingResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingResponse>> GetScreenRecordingPageViewDataAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
+        /// <returns>Task of ApiResponse (ScreenRecordingPageViewDataResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingPageViewDataResponse>> GetScreenRecordingPageViewDataAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid, string screenRecordingPageViewUuid)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -21714,9 +21714,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ScreenRecordingResponse>(localVarStatusCode,
+            return new ApiResponse<ScreenRecordingPageViewDataResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ScreenRecordingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingResponse)));
+                (ScreenRecordingPageViewDataResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingPageViewDataResponse)));
         }
 
         /// <summary>

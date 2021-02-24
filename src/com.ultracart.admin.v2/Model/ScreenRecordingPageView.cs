@@ -37,6 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="firstEventTimestamp">First event timestamp.</param>
         /// <param name="httpPost">httpPost.</param>
         /// <param name="lastEventTimestamp">Last event timestamp.</param>
+        /// <param name="missingEvents">missingEvents.</param>
         /// <param name="_params">_params.</param>
         /// <param name="rangeEnd">rangeEnd.</param>
         /// <param name="rangeStart">rangeStart.</param>
@@ -48,12 +49,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="truncatedEvents">truncatedEvents.</param>
         /// <param name="ucapv">ucapv.</param>
         /// <param name="url">url.</param>
-        public ScreenRecordingPageView(List<ScreenRecordingPageViewEvent> events = default(List<ScreenRecordingPageViewEvent>), string firstEventTimestamp = default(string), bool? httpPost = default(bool?), string lastEventTimestamp = default(string), List<ScreenRecordingPageViewParameter> _params = default(List<ScreenRecordingPageViewParameter>), int? rangeEnd = default(int?), int? rangeStart = default(int?), string referrer = default(string), List<ScreenRecordingPageViewParameter> referrerParams = default(List<ScreenRecordingPageViewParameter>), string referrerRaw = default(string), string screenRecordingPageViewUuid = default(string), int? timeOnPage = default(int?), bool? truncatedEvents = default(bool?), string ucapv = default(string), string url = default(string))
+        public ScreenRecordingPageView(List<ScreenRecordingPageViewEvent> events = default(List<ScreenRecordingPageViewEvent>), string firstEventTimestamp = default(string), bool? httpPost = default(bool?), string lastEventTimestamp = default(string), bool? missingEvents = default(bool?), List<ScreenRecordingPageViewParameter> _params = default(List<ScreenRecordingPageViewParameter>), int? rangeEnd = default(int?), int? rangeStart = default(int?), string referrer = default(string), List<ScreenRecordingPageViewParameter> referrerParams = default(List<ScreenRecordingPageViewParameter>), string referrerRaw = default(string), string screenRecordingPageViewUuid = default(string), int? timeOnPage = default(int?), bool? truncatedEvents = default(bool?), string ucapv = default(string), string url = default(string))
         {
             this.Events = events;
             this.FirstEventTimestamp = firstEventTimestamp;
             this.HttpPost = httpPost;
             this.LastEventTimestamp = lastEventTimestamp;
+            this.MissingEvents = missingEvents;
             this.Params = _params;
             this.RangeEnd = rangeEnd;
             this.RangeStart = rangeStart;
@@ -92,6 +94,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Last event timestamp</value>
         [DataMember(Name="last_event_timestamp", EmitDefaultValue=false)]
         public string LastEventTimestamp { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MissingEvents
+        /// </summary>
+        [DataMember(Name="missing_events", EmitDefaultValue=false)]
+        public bool? MissingEvents { get; set; }
 
         /// <summary>
         /// Gets or Sets Params
@@ -171,6 +179,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FirstEventTimestamp: ").Append(FirstEventTimestamp).Append("\n");
             sb.Append("  HttpPost: ").Append(HttpPost).Append("\n");
             sb.Append("  LastEventTimestamp: ").Append(LastEventTimestamp).Append("\n");
+            sb.Append("  MissingEvents: ").Append(MissingEvents).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  RangeEnd: ").Append(RangeEnd).Append("\n");
             sb.Append("  RangeStart: ").Append(RangeStart).Append("\n");
@@ -235,6 +244,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LastEventTimestamp == input.LastEventTimestamp ||
                     (this.LastEventTimestamp != null &&
                     this.LastEventTimestamp.Equals(input.LastEventTimestamp))
+                ) && 
+                (
+                    this.MissingEvents == input.MissingEvents ||
+                    (this.MissingEvents != null &&
+                    this.MissingEvents.Equals(input.MissingEvents))
                 ) && 
                 (
                     this.Params == input.Params ||
@@ -310,6 +324,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.HttpPost.GetHashCode();
                 if (this.LastEventTimestamp != null)
                     hashCode = hashCode * 59 + this.LastEventTimestamp.GetHashCode();
+                if (this.MissingEvents != null)
+                    hashCode = hashCode * 59 + this.MissingEvents.GetHashCode();
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 if (this.RangeEnd != null)

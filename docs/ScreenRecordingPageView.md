@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **FirstEventTimestamp** | **string** | First event timestamp | [optional] 
 **HttpPost** | **bool?** |  | [optional] 
 **LastEventTimestamp** | **string** | Last event timestamp | [optional] 
+**MissingEvents** | **bool?** |  | [optional] 
 **Params** | [**List&lt;ScreenRecordingPageViewParameter&gt;**](ScreenRecordingPageViewParameter.md) |  | [optional] 
 **RangeEnd** | **int?** |  | [optional] 
 **RangeStart** | **int?** |  | [optional] 

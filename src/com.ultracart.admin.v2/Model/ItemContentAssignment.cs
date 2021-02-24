@@ -33,13 +33,15 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemContentAssignment" /> class.
         /// </summary>
+        /// <param name="defaultAssignment">True if this group is the default assignment for this item.</param>
         /// <param name="groupOid">Page (group) object identifier.</param>
         /// <param name="groupPath">Page (group) path.</param>
         /// <param name="host">StoreFront host name.</param>
         /// <param name="sortOrder">Sort order (optional).</param>
         /// <param name="urlPart">URL part if the item id is not used.</param>
-        public ItemContentAssignment(int? groupOid = default(int?), string groupPath = default(string), string host = default(string), int? sortOrder = default(int?), string urlPart = default(string))
+        public ItemContentAssignment(bool? defaultAssignment = default(bool?), int? groupOid = default(int?), string groupPath = default(string), string host = default(string), int? sortOrder = default(int?), string urlPart = default(string))
         {
+            this.DefaultAssignment = defaultAssignment;
             this.GroupOid = groupOid;
             this.GroupPath = groupPath;
             this.Host = host;
@@ -47,6 +49,13 @@ namespace com.ultracart.admin.v2.Model
             this.UrlPart = urlPart;
         }
         
+        /// <summary>
+        /// True if this group is the default assignment for this item
+        /// </summary>
+        /// <value>True if this group is the default assignment for this item</value>
+        [DataMember(Name="default_assignment", EmitDefaultValue=false)]
+        public bool? DefaultAssignment { get; set; }
+
         /// <summary>
         /// Page (group) object identifier
         /// </summary>
@@ -90,6 +99,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ItemContentAssignment {\n");
+            sb.Append("  DefaultAssignment: ").Append(DefaultAssignment).Append("\n");
             sb.Append("  GroupOid: ").Append(GroupOid).Append("\n");
             sb.Append("  GroupPath: ").Append(GroupPath).Append("\n");
             sb.Append("  Host: ").Append(Host).Append("\n");
@@ -130,6 +140,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.DefaultAssignment == input.DefaultAssignment ||
+                    (this.DefaultAssignment != null &&
+                    this.DefaultAssignment.Equals(input.DefaultAssignment))
+                ) && 
+                (
                     this.GroupOid == input.GroupOid ||
                     (this.GroupOid != null &&
                     this.GroupOid.Equals(input.GroupOid))
@@ -165,6 +180,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.DefaultAssignment != null)
+                    hashCode = hashCode * 59 + this.DefaultAssignment.GetHashCode();
                 if (this.GroupOid != null)
                     hashCode = hashCode * 59 + this.GroupOid.GetHashCode();
                 if (this.GroupPath != null)

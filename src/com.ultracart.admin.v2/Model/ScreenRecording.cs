@@ -64,10 +64,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="userAgentRaw">userAgentRaw.</param>
         /// <param name="userIp">userIp.</param>
         /// <param name="userProperties">userProperties.</param>
+        /// <param name="visitorNumber">visitorNumber.</param>
         /// <param name="watched">watched.</param>
         /// <param name="windowHeight">windowHeight.</param>
         /// <param name="windowWidth">windowWidth.</param>
-        public ScreenRecording(long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string email = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), bool? favorite = default(bool?), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string merchantId = default(string), string merchantNotes = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
+        public ScreenRecording(long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string email = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), bool? favorite = default(bool?), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string merchantId = default(string), string merchantNotes = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), int? visitorNumber = default(int?), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
         {
             this.AnalyticsClientOid = analyticsClientOid;
             this.AnalyticsSessionDts = analyticsSessionDts;
@@ -100,6 +101,7 @@ namespace com.ultracart.admin.v2.Model
             this.UserAgentRaw = userAgentRaw;
             this.UserIp = userIp;
             this.UserProperties = userProperties;
+            this.VisitorNumber = visitorNumber;
             this.Watched = watched;
             this.WindowHeight = windowHeight;
             this.WindowWidth = windowWidth;
@@ -296,6 +298,12 @@ namespace com.ultracart.admin.v2.Model
         public List<ScreenRecordingUserProperty> UserProperties { get; set; }
 
         /// <summary>
+        /// Gets or Sets VisitorNumber
+        /// </summary>
+        [DataMember(Name="visitor_number", EmitDefaultValue=false)]
+        public int? VisitorNumber { get; set; }
+
+        /// <summary>
         /// Gets or Sets Watched
         /// </summary>
         [DataMember(Name="watched", EmitDefaultValue=false)]
@@ -352,6 +360,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  UserAgentRaw: ").Append(UserAgentRaw).Append("\n");
             sb.Append("  UserIp: ").Append(UserIp).Append("\n");
             sb.Append("  UserProperties: ").Append(UserProperties).Append("\n");
+            sb.Append("  VisitorNumber: ").Append(VisitorNumber).Append("\n");
             sb.Append("  Watched: ").Append(Watched).Append("\n");
             sb.Append("  WindowHeight: ").Append(WindowHeight).Append("\n");
             sb.Append("  WindowWidth: ").Append(WindowWidth).Append("\n");
@@ -545,6 +554,11 @@ namespace com.ultracart.admin.v2.Model
                     this.UserProperties.SequenceEqual(input.UserProperties)
                 ) && 
                 (
+                    this.VisitorNumber == input.VisitorNumber ||
+                    (this.VisitorNumber != null &&
+                    this.VisitorNumber.Equals(input.VisitorNumber))
+                ) && 
+                (
                     this.Watched == input.Watched ||
                     (this.Watched != null &&
                     this.Watched.Equals(input.Watched))
@@ -632,6 +646,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.UserIp.GetHashCode();
                 if (this.UserProperties != null)
                     hashCode = hashCode * 59 + this.UserProperties.GetHashCode();
+                if (this.VisitorNumber != null)
+                    hashCode = hashCode * 59 + this.VisitorNumber.GetHashCode();
                 if (this.Watched != null)
                     hashCode = hashCode * 59 + this.Watched.GetHashCode();
                 if (this.WindowHeight != null)

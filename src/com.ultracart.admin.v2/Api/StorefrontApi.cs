@@ -3262,6 +3262,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of LibraryItemResponse</returns>
         ApiResponse<LibraryItemResponse> UpdateLibraryItemWithHttpInfo (int? libraryItemOid, LibraryItem libraryItem);
         /// <summary>
+        /// Update merchant notes on a screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update merchant notes on a screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="merchantNotesRequest">Merchant Notes</param>
+        /// <returns></returns>
+        void UpdateScreenRecordingMerchantNotes (int? storefrontOid, string screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest);
+
+        /// <summary>
+        /// Update merchant notes on a screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update merchant notes on a screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="merchantNotesRequest">Merchant Notes</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateScreenRecordingMerchantNotesWithHttpInfo (int? storefrontOid, string screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest);
+        /// <summary>
         /// Update screen recording segment
         /// </summary>
         /// <remarks>
@@ -6598,6 +6623,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="libraryItem">Library item</param>
         /// <returns>Task of ApiResponse (LibraryItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LibraryItemResponse>> UpdateLibraryItemAsyncWithHttpInfo (int? libraryItemOid, LibraryItem libraryItem);
+        /// <summary>
+        /// Update merchant notes on a screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update merchant notes on a screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="merchantNotesRequest">Merchant Notes</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateScreenRecordingMerchantNotesAsync (int? storefrontOid, string screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest);
+
+        /// <summary>
+        /// Update merchant notes on a screen recording
+        /// </summary>
+        /// <remarks>
+        /// Update merchant notes on a screen recording 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="merchantNotesRequest">Merchant Notes</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateScreenRecordingMerchantNotesAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest);
         /// <summary>
         /// Update screen recording segment
         /// </summary>
@@ -32200,6 +32250,199 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<LibraryItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (LibraryItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LibraryItemResponse)));
+        }
+
+        /// <summary>
+        /// Update merchant notes on a screen recording Update merchant notes on a screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="merchantNotesRequest">Merchant Notes</param>
+        /// <returns></returns>
+        public void UpdateScreenRecordingMerchantNotes (int? storefrontOid, string screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest)
+        {
+             UpdateScreenRecordingMerchantNotesWithHttpInfo(storefrontOid, screenRecordingUuid, merchantNotesRequest);
+        }
+
+        /// <summary>
+        /// Update merchant notes on a screen recording Update merchant notes on a screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="merchantNotesRequest">Merchant Notes</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateScreenRecordingMerchantNotesWithHttpInfo (int? storefrontOid, string screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateScreenRecordingMerchantNotes");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->UpdateScreenRecordingMerchantNotes");
+            // verify the required parameter 'merchantNotesRequest' is set
+            if (merchantNotesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'merchantNotesRequest' when calling StorefrontApi->UpdateScreenRecordingMerchantNotes");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/merchant_notes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+            if (merchantNotesRequest != null && merchantNotesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(merchantNotesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = merchantNotesRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateScreenRecordingMerchantNotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update merchant notes on a screen recording Update merchant notes on a screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="merchantNotesRequest">Merchant Notes</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateScreenRecordingMerchantNotesAsync (int? storefrontOid, string screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest)
+        {
+             await UpdateScreenRecordingMerchantNotesAsyncWithHttpInfo(storefrontOid, screenRecordingUuid, merchantNotesRequest);
+
+        }
+
+        /// <summary>
+        /// Update merchant notes on a screen recording Update merchant notes on a screen recording 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="screenRecordingUuid"></param>
+        /// <param name="merchantNotesRequest">Merchant Notes</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateScreenRecordingMerchantNotesAsyncWithHttpInfo (int? storefrontOid, string screenRecordingUuid, ScreenRecordingMerchantNotesRequest merchantNotesRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateScreenRecordingMerchantNotes");
+            // verify the required parameter 'screenRecordingUuid' is set
+            if (screenRecordingUuid == null)
+                throw new ApiException(400, "Missing required parameter 'screenRecordingUuid' when calling StorefrontApi->UpdateScreenRecordingMerchantNotes");
+            // verify the required parameter 'merchantNotesRequest' is set
+            if (merchantNotesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'merchantNotesRequest' when calling StorefrontApi->UpdateScreenRecordingMerchantNotes");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/merchant_notes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (screenRecordingUuid != null) localVarPathParams.Add("screen_recording_uuid", this.Configuration.ApiClient.ParameterToString(screenRecordingUuid)); // path parameter
+            if (merchantNotesRequest != null && merchantNotesRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(merchantNotesRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = merchantNotesRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateScreenRecordingMerchantNotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>

@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **UserAgentOsName** | **string** |  | [optional] 
 **UserAgentOsVersion** | **string** |  | [optional] 
 **UserIp** | [**ScreenRecordingFilterIpSearch**](ScreenRecordingFilterIpSearch.md) |  | [optional] 
+**VisitorNumber** | **int?** |  | [optional] 
 **Watched** | **bool?** |  | [optional] 
 
 

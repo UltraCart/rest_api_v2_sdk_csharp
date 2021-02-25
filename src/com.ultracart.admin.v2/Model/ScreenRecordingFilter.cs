@@ -59,8 +59,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="userAgentOsName">userAgentOsName.</param>
         /// <param name="userAgentOsVersion">userAgentOsVersion.</param>
         /// <param name="userIp">userIp.</param>
+        /// <param name="visitorNumber">visitorNumber.</param>
         /// <param name="watched">watched.</param>
-        public ScreenRecordingFilter(ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), bool? watched = default(bool?))
+        public ScreenRecordingFilter(ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), int? visitorNumber = default(int?), bool? watched = default(bool?))
         {
             this.Email = email;
             this.EmailIdentified = emailIdentified;
@@ -88,6 +89,7 @@ namespace com.ultracart.admin.v2.Model
             this.UserAgentOsName = userAgentOsName;
             this.UserAgentOsVersion = userAgentOsVersion;
             this.UserIp = userIp;
+            this.VisitorNumber = visitorNumber;
             this.Watched = watched;
         }
         
@@ -248,6 +250,12 @@ namespace com.ultracart.admin.v2.Model
         public ScreenRecordingFilterIpSearch UserIp { get; set; }
 
         /// <summary>
+        /// Gets or Sets VisitorNumber
+        /// </summary>
+        [DataMember(Name="visitor_number", EmitDefaultValue=false)]
+        public int? VisitorNumber { get; set; }
+
+        /// <summary>
         /// Gets or Sets Watched
         /// </summary>
         [DataMember(Name="watched", EmitDefaultValue=false)]
@@ -287,6 +295,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  UserAgentOsName: ").Append(UserAgentOsName).Append("\n");
             sb.Append("  UserAgentOsVersion: ").Append(UserAgentOsVersion).Append("\n");
             sb.Append("  UserIp: ").Append(UserIp).Append("\n");
+            sb.Append("  VisitorNumber: ").Append(VisitorNumber).Append("\n");
             sb.Append("  Watched: ").Append(Watched).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -453,6 +462,11 @@ namespace com.ultracart.admin.v2.Model
                     this.UserIp.Equals(input.UserIp))
                 ) && 
                 (
+                    this.VisitorNumber == input.VisitorNumber ||
+                    (this.VisitorNumber != null &&
+                    this.VisitorNumber.Equals(input.VisitorNumber))
+                ) && 
+                (
                     this.Watched == input.Watched ||
                     (this.Watched != null &&
                     this.Watched.Equals(input.Watched))
@@ -520,6 +534,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.UserAgentOsVersion.GetHashCode();
                 if (this.UserIp != null)
                     hashCode = hashCode * 59 + this.UserIp.GetHashCode();
+                if (this.VisitorNumber != null)
+                    hashCode = hashCode * 59 + this.VisitorNumber.GetHashCode();
                 if (this.Watched != null)
                     hashCode = hashCode * 59 + this.Watched.GetHashCode();
                 return hashCode;

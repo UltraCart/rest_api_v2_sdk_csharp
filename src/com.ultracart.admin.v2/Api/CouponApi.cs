@@ -342,7 +342,7 @@ namespace com.ultracart.admin.v2.Api
         /// Insert multiple coupon on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="couponsRequest">Coupons to insert (maximum 50)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>CouponsResponse</returns>
@@ -355,7 +355,7 @@ namespace com.ultracart.admin.v2.Api
         /// Insert multiple coupon on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="couponsRequest">Coupons to insert (maximum 50)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of CouponsResponse</returns>
@@ -799,7 +799,7 @@ namespace com.ultracart.admin.v2.Api
         /// Insert multiple coupon on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="couponsRequest">Coupons to insert (maximum 50)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of CouponsResponse</returns>
@@ -812,7 +812,7 @@ namespace com.ultracart.admin.v2.Api
         /// Insert multiple coupon on the UltraCart account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="couponsRequest">Coupons to insert (maximum 50)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (CouponsResponse)</returns>
@@ -3274,7 +3274,7 @@ namespace com.ultracart.admin.v2.Api
         /// Insert multiple coupons Insert multiple coupon on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="couponsRequest">Coupons to insert (maximum 50)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>CouponsResponse</returns>
@@ -3288,7 +3288,7 @@ namespace com.ultracart.admin.v2.Api
         /// Insert multiple coupons Insert multiple coupon on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="couponsRequest">Coupons to insert (maximum 50)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of CouponsResponse</returns>
@@ -3365,7 +3365,7 @@ namespace com.ultracart.admin.v2.Api
         /// Insert multiple coupons Insert multiple coupon on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="couponsRequest">Coupons to insert (maximum 50)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of CouponsResponse</returns>
@@ -3380,7 +3380,7 @@ namespace com.ultracart.admin.v2.Api
         /// Insert multiple coupons Insert multiple coupon on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="couponsRequest">Coupons to insert (maximum 20)</param>
+        /// <param name="couponsRequest">Coupons to insert (maximum 50)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (CouponsResponse)</returns>

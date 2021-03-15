@@ -1400,7 +1400,7 @@ void (empty response body)
 
 <a name="deletescreenrecordingsegment"></a>
 # **DeleteScreenRecordingSegment**
-> ScreenRecordingSegmentResponse DeleteScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid)
+> void DeleteScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid)
 
 Delete screen recording segment
 ### Example
@@ -1429,8 +1429,7 @@ namespace Example
             try
             {
                 // Delete screen recording segment
-                ScreenRecordingSegmentResponse result = apiInstance.DeleteScreenRecordingSegment(storefrontOid, screenRecordingSegmentOid);
-                Debug.WriteLine(result);
+                apiInstance.DeleteScreenRecordingSegment(storefrontOid, screenRecordingSegmentOid);
             }
             catch (Exception e)
             {
@@ -1451,7 +1450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScreenRecordingSegmentResponse**](ScreenRecordingSegmentResponse.md)
+void (empty response body)
 
 ### Authorization
 

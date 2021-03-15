@@ -468,8 +468,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingSegmentOid"></param>
-        /// <returns>ScreenRecordingSegmentResponse</returns>
-        ScreenRecordingSegmentResponse DeleteScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid);
+        /// <returns></returns>
+        void DeleteScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid);
 
         /// <summary>
         /// Delete screen recording segment
@@ -480,8 +480,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingSegmentOid"></param>
-        /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
-        ApiResponse<ScreenRecordingSegmentResponse> DeleteScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid);
         /// <summary>
         /// Duplicate library item.
         /// </summary>
@@ -3830,8 +3830,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingSegmentOid"></param>
-        /// <returns>Task of ScreenRecordingSegmentResponse</returns>
-        System.Threading.Tasks.Task<ScreenRecordingSegmentResponse> DeleteScreenRecordingSegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid);
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteScreenRecordingSegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid);
 
         /// <summary>
         /// Delete screen recording segment
@@ -3842,8 +3842,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingSegmentOid"></param>
-        /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> DeleteScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid);
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid);
         /// <summary>
         /// Duplicate library item.
         /// </summary>
@@ -10270,11 +10270,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingSegmentOid"></param>
-        /// <returns>ScreenRecordingSegmentResponse</returns>
-        public ScreenRecordingSegmentResponse DeleteScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid)
+        /// <returns></returns>
+        public void DeleteScreenRecordingSegment (int? storefrontOid, int? screenRecordingSegmentOid)
         {
-             ApiResponse<ScreenRecordingSegmentResponse> localVarResponse = DeleteScreenRecordingSegmentWithHttpInfo(storefrontOid, screenRecordingSegmentOid);
-             return localVarResponse.Data;
+             DeleteScreenRecordingSegmentWithHttpInfo(storefrontOid, screenRecordingSegmentOid);
         }
 
         /// <summary>
@@ -10283,8 +10282,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingSegmentOid"></param>
-        /// <returns>ApiResponse of ScreenRecordingSegmentResponse</returns>
-        public ApiResponse< ScreenRecordingSegmentResponse > DeleteScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -10348,9 +10347,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+                null);
         }
 
         /// <summary>
@@ -10359,11 +10358,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingSegmentOid"></param>
-        /// <returns>Task of ScreenRecordingSegmentResponse</returns>
-        public async System.Threading.Tasks.Task<ScreenRecordingSegmentResponse> DeleteScreenRecordingSegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid)
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteScreenRecordingSegmentAsync (int? storefrontOid, int? screenRecordingSegmentOid)
         {
-             ApiResponse<ScreenRecordingSegmentResponse> localVarResponse = await DeleteScreenRecordingSegmentAsyncWithHttpInfo(storefrontOid, screenRecordingSegmentOid);
-             return localVarResponse.Data;
+             await DeleteScreenRecordingSegmentAsyncWithHttpInfo(storefrontOid, screenRecordingSegmentOid);
 
         }
 
@@ -10373,8 +10371,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="screenRecordingSegmentOid"></param>
-        /// <returns>Task of ApiResponse (ScreenRecordingSegmentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingSegmentResponse>> DeleteScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid)
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -10438,9 +10436,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ScreenRecordingSegmentResponse>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ScreenRecordingSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingSegmentResponse)));
+                null);
         }
 
         /// <summary>

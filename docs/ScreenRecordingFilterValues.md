@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **GeolocationCountries** | **List&lt;string&gt;** |  | [optional] 
 **GeolocationStates** | **List&lt;string&gt;** |  | [optional] 
 **MaxValues** | **int?** |  | [optional] 
+**PageParams** | [**List&lt;ScreenRecordingFilterValuesPageParam&gt;**](ScreenRecordingFilterValuesPageParam.md) |  | [optional] 
 **Urls** | **List&lt;string&gt;** |  | [optional] 
 **UserAgentDeviceNames** | **List&lt;string&gt;** |  | [optional] 
 **UserAgentDeviceOsNames** | **List&lt;string&gt;** |  | [optional] 

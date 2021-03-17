@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **PercentOffItems** | [**CouponPercentOffItems**](CouponPercentOffItems.md) |  | [optional] 
 **PercentOffItemsAndFreeShipping** | [**CouponPercentOffItemsAndFreeShipping**](CouponPercentOffItemsAndFreeShipping.md) |  | [optional] 
 **PercentOffItemsWithItemsPurchase** | [**CouponPercentOffItemsWithItemsPurchase**](CouponPercentOffItemsWithItemsPurchase.md) |  | [optional] 
+**PercentOffMsrpItems** | [**CouponPercentOffMsrpItems**](CouponPercentOffMsrpItems.md) |  | [optional] 
 **PercentOffRetailPriceItems** | [**CouponPercentOffRetailPriceItems**](CouponPercentOffRetailPriceItems.md) |  | [optional] 
 **PercentOffShipping** | [**CouponPercentOffShipping**](CouponPercentOffShipping.md) |  | [optional] 
 **PercentOffSubtotal** | [**CouponPercentOffSubtotal**](CouponPercentOffSubtotal.md) |  | [optional] 

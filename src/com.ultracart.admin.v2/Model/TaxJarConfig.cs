@@ -38,14 +38,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="estimateOnly">True if this TaxJar configuration is to estimate taxes only and not report placed orders to TaxJar.</param>
         /// <param name="sendOutsideNexus">Send orders outside your nexus TaxJar.  The default is to not transmit outside orders to TaxJar to reduce API calls.  However, this will prevent TaxJar from dynamically creating new Nexus when thresholds are exceeded for a state..</param>
         /// <param name="sendTestOrders">Send test orders through to TaxJar.  The default is to not transmit test orders to TaxJar..</param>
+        /// <param name="skipChannelOrders">Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own..</param>
         /// <param name="useDistributionCenterFrom">Use distribution center from address.</param>
-        public TaxJarConfig(bool? active = default(bool?), string apiKey = default(string), bool? estimateOnly = default(bool?), bool? sendOutsideNexus = default(bool?), bool? sendTestOrders = default(bool?), bool? useDistributionCenterFrom = default(bool?))
+        public TaxJarConfig(bool? active = default(bool?), string apiKey = default(string), bool? estimateOnly = default(bool?), bool? sendOutsideNexus = default(bool?), bool? sendTestOrders = default(bool?), bool? skipChannelOrders = default(bool?), bool? useDistributionCenterFrom = default(bool?))
         {
             this.Active = active;
             this.ApiKey = apiKey;
             this.EstimateOnly = estimateOnly;
             this.SendOutsideNexus = sendOutsideNexus;
             this.SendTestOrders = sendTestOrders;
+            this.SkipChannelOrders = skipChannelOrders;
             this.UseDistributionCenterFrom = useDistributionCenterFrom;
         }
         
@@ -85,6 +87,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? SendTestOrders { get; set; }
 
         /// <summary>
+        /// Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own.
+        /// </summary>
+        /// <value>Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own.</value>
+        [DataMember(Name="skip_channel_orders", EmitDefaultValue=false)]
+        public bool? SkipChannelOrders { get; set; }
+
+        /// <summary>
         /// Use distribution center from address
         /// </summary>
         /// <value>Use distribution center from address</value>
@@ -104,6 +113,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EstimateOnly: ").Append(EstimateOnly).Append("\n");
             sb.Append("  SendOutsideNexus: ").Append(SendOutsideNexus).Append("\n");
             sb.Append("  SendTestOrders: ").Append(SendTestOrders).Append("\n");
+            sb.Append("  SkipChannelOrders: ").Append(SkipChannelOrders).Append("\n");
             sb.Append("  UseDistributionCenterFrom: ").Append(UseDistributionCenterFrom).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -165,6 +175,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SendTestOrders.Equals(input.SendTestOrders))
                 ) && 
                 (
+                    this.SkipChannelOrders == input.SkipChannelOrders ||
+                    (this.SkipChannelOrders != null &&
+                    this.SkipChannelOrders.Equals(input.SkipChannelOrders))
+                ) && 
+                (
                     this.UseDistributionCenterFrom == input.UseDistributionCenterFrom ||
                     (this.UseDistributionCenterFrom != null &&
                     this.UseDistributionCenterFrom.Equals(input.UseDistributionCenterFrom))
@@ -190,6 +205,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SendOutsideNexus.GetHashCode();
                 if (this.SendTestOrders != null)
                     hashCode = hashCode * 59 + this.SendTestOrders.GetHashCode();
+                if (this.SkipChannelOrders != null)
+                    hashCode = hashCode * 59 + this.SkipChannelOrders.GetHashCode();
                 if (this.UseDistributionCenterFrom != null)
                     hashCode = hashCode * 59 + this.UseDistributionCenterFrom.GetHashCode();
                 return hashCode;

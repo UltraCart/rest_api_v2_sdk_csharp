@@ -3,11 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Events** | [**List&lt;ScreenRecordingFilterValuesEvent&gt;**](ScreenRecordingFilterValuesEvent.md) |  | [optional] 
 **GeolocationCountries** | **List&lt;string&gt;** |  | [optional] 
 **GeolocationStates** | **List&lt;string&gt;** |  | [optional] 
 **MaxValues** | **int?** |  | [optional] 
-**PageParams** | [**List&lt;ScreenRecordingFilterValuesPageParam&gt;**](ScreenRecordingFilterValuesPageParam.md) |  | [optional] 
+**PageViews** | [**List&lt;ScreenRecordingFilterValuesPageView&gt;**](ScreenRecordingFilterValuesPageView.md) |  | [optional] 
 **Urls** | **List&lt;string&gt;** |  | [optional] 
 **UserAgentDeviceNames** | **List&lt;string&gt;** |  | [optional] 
 **UserAgentDeviceOsNames** | **List&lt;string&gt;** |  | [optional] 

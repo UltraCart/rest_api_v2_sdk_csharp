@@ -35,7 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="discountPercent">The percentage of subtotal discount.</param>
         /// <param name="excludedItems">A list of items which cannot be discounted..</param>
-        /// <param name="items">An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items..</param>
+        /// <param name="items">An list of items which will receive a discount..</param>
         /// <param name="limit">The (optional) maximum quantity of discounted items..</param>
         public CouponPercentOffMsrpItems(decimal? discountPercent = default(decimal?), List<string> excludedItems = default(List<string>), List<string> items = default(List<string>), int? limit = default(int?))
         {
@@ -60,9 +60,9 @@ namespace com.ultracart.admin.v2.Model
         public List<string> ExcludedItems { get; set; }
 
         /// <summary>
-        /// An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.
+        /// An list of items which will receive a discount.
         /// </summary>
-        /// <value>An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.</value>
+        /// <value>An list of items which will receive a discount.</value>
         [DataMember(Name="items", EmitDefaultValue=false)]
         public List<string> Items { get; set; }
 

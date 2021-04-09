@@ -33,22 +33,14 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LibraryItemAttribute" /> class.
         /// </summary>
-        /// <param name="libraryItemOid">libraryItemOid.</param>
         /// <param name="name">name.</param>
         /// <param name="value">value.</param>
-        public LibraryItemAttribute(int? libraryItemOid = default(int?), string name = default(string), string value = default(string))
+        public LibraryItemAttribute(string name = default(string), string value = default(string))
         {
-            this.LibraryItemOid = libraryItemOid;
             this.Name = name;
             this.Value = value;
         }
         
-        /// <summary>
-        /// Gets or Sets LibraryItemOid
-        /// </summary>
-        [DataMember(Name="libraryItemOid", EmitDefaultValue=false)]
-        public int? LibraryItemOid { get; set; }
-
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -69,7 +61,6 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class LibraryItemAttribute {\n");
-            sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
@@ -107,11 +98,6 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.LibraryItemOid == input.LibraryItemOid ||
-                    (this.LibraryItemOid != null &&
-                    this.LibraryItemOid.Equals(input.LibraryItemOid))
-                ) && 
-                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -132,8 +118,6 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.LibraryItemOid != null)
-                    hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Value != null)

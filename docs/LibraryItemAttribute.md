@@ -3,7 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LibraryItemOid** | **int?** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Value** | **string** |  | [optional] 
 

@@ -33,24 +33,22 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecordingFilterValues" /> class.
         /// </summary>
-        /// <param name="events">events.</param>
         /// <param name="geolocationCountries">geolocationCountries.</param>
         /// <param name="geolocationStates">geolocationStates.</param>
         /// <param name="maxValues">maxValues.</param>
-        /// <param name="pageParams">pageParams.</param>
+        /// <param name="pageViews">pageViews.</param>
         /// <param name="urls">urls.</param>
         /// <param name="userAgentDeviceNames">userAgentDeviceNames.</param>
         /// <param name="userAgentDeviceOsNames">userAgentDeviceOsNames.</param>
         /// <param name="userAgentDeviceOsVersions">userAgentDeviceOsVersions.</param>
         /// <param name="userAgentNames">userAgentNames.</param>
         /// <param name="userAgentOriginals">userAgentOriginals.</param>
-        public ScreenRecordingFilterValues(List<ScreenRecordingFilterValuesEvent> events = default(List<ScreenRecordingFilterValuesEvent>), List<string> geolocationCountries = default(List<string>), List<string> geolocationStates = default(List<string>), int? maxValues = default(int?), List<ScreenRecordingFilterValuesPageParam> pageParams = default(List<ScreenRecordingFilterValuesPageParam>), List<string> urls = default(List<string>), List<string> userAgentDeviceNames = default(List<string>), List<string> userAgentDeviceOsNames = default(List<string>), List<string> userAgentDeviceOsVersions = default(List<string>), List<string> userAgentNames = default(List<string>), List<string> userAgentOriginals = default(List<string>))
+        public ScreenRecordingFilterValues(List<string> geolocationCountries = default(List<string>), List<string> geolocationStates = default(List<string>), int? maxValues = default(int?), List<ScreenRecordingFilterValuesPageView> pageViews = default(List<ScreenRecordingFilterValuesPageView>), List<string> urls = default(List<string>), List<string> userAgentDeviceNames = default(List<string>), List<string> userAgentDeviceOsNames = default(List<string>), List<string> userAgentDeviceOsVersions = default(List<string>), List<string> userAgentNames = default(List<string>), List<string> userAgentOriginals = default(List<string>))
         {
-            this.Events = events;
             this.GeolocationCountries = geolocationCountries;
             this.GeolocationStates = geolocationStates;
             this.MaxValues = maxValues;
-            this.PageParams = pageParams;
+            this.PageViews = pageViews;
             this.Urls = urls;
             this.UserAgentDeviceNames = userAgentDeviceNames;
             this.UserAgentDeviceOsNames = userAgentDeviceOsNames;
@@ -59,12 +57,6 @@ namespace com.ultracart.admin.v2.Model
             this.UserAgentOriginals = userAgentOriginals;
         }
         
-        /// <summary>
-        /// Gets or Sets Events
-        /// </summary>
-        [DataMember(Name="events", EmitDefaultValue=false)]
-        public List<ScreenRecordingFilterValuesEvent> Events { get; set; }
-
         /// <summary>
         /// Gets or Sets GeolocationCountries
         /// </summary>
@@ -84,10 +76,10 @@ namespace com.ultracart.admin.v2.Model
         public int? MaxValues { get; set; }
 
         /// <summary>
-        /// Gets or Sets PageParams
+        /// Gets or Sets PageViews
         /// </summary>
-        [DataMember(Name="page_params", EmitDefaultValue=false)]
-        public List<ScreenRecordingFilterValuesPageParam> PageParams { get; set; }
+        [DataMember(Name="page_views", EmitDefaultValue=false)]
+        public List<ScreenRecordingFilterValuesPageView> PageViews { get; set; }
 
         /// <summary>
         /// Gets or Sets Urls
@@ -133,11 +125,10 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingFilterValues {\n");
-            sb.Append("  Events: ").Append(Events).Append("\n");
             sb.Append("  GeolocationCountries: ").Append(GeolocationCountries).Append("\n");
             sb.Append("  GeolocationStates: ").Append(GeolocationStates).Append("\n");
             sb.Append("  MaxValues: ").Append(MaxValues).Append("\n");
-            sb.Append("  PageParams: ").Append(PageParams).Append("\n");
+            sb.Append("  PageViews: ").Append(PageViews).Append("\n");
             sb.Append("  Urls: ").Append(Urls).Append("\n");
             sb.Append("  UserAgentDeviceNames: ").Append(UserAgentDeviceNames).Append("\n");
             sb.Append("  UserAgentDeviceOsNames: ").Append(UserAgentDeviceOsNames).Append("\n");
@@ -179,11 +170,6 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.Events == input.Events ||
-                    this.Events != null &&
-                    this.Events.SequenceEqual(input.Events)
-                ) && 
-                (
                     this.GeolocationCountries == input.GeolocationCountries ||
                     this.GeolocationCountries != null &&
                     this.GeolocationCountries.SequenceEqual(input.GeolocationCountries)
@@ -199,9 +185,9 @@ namespace com.ultracart.admin.v2.Model
                     this.MaxValues.Equals(input.MaxValues))
                 ) && 
                 (
-                    this.PageParams == input.PageParams ||
-                    this.PageParams != null &&
-                    this.PageParams.SequenceEqual(input.PageParams)
+                    this.PageViews == input.PageViews ||
+                    this.PageViews != null &&
+                    this.PageViews.SequenceEqual(input.PageViews)
                 ) && 
                 (
                     this.Urls == input.Urls ||
@@ -244,16 +230,14 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Events != null)
-                    hashCode = hashCode * 59 + this.Events.GetHashCode();
                 if (this.GeolocationCountries != null)
                     hashCode = hashCode * 59 + this.GeolocationCountries.GetHashCode();
                 if (this.GeolocationStates != null)
                     hashCode = hashCode * 59 + this.GeolocationStates.GetHashCode();
                 if (this.MaxValues != null)
                     hashCode = hashCode * 59 + this.MaxValues.GetHashCode();
-                if (this.PageParams != null)
-                    hashCode = hashCode * 59 + this.PageParams.GetHashCode();
+                if (this.PageViews != null)
+                    hashCode = hashCode * 59 + this.PageViews.GetHashCode();
                 if (this.Urls != null)
                     hashCode = hashCode * 59 + this.Urls.GetHashCode();
                 if (this.UserAgentDeviceNames != null)

@@ -35,11 +35,15 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="events">events.</param>
         /// <param name="pageParams">pageParams.</param>
+        /// <param name="timeOnPageMax">timeOnPageMax.</param>
+        /// <param name="timeOnPageMin">timeOnPageMin.</param>
         /// <param name="urls">urls.</param>
-        public ScreenRecordingFilterValuesPageView(List<ScreenRecordingFilterValuesEvent> events = default(List<ScreenRecordingFilterValuesEvent>), List<ScreenRecordingFilterValuesPageParam> pageParams = default(List<ScreenRecordingFilterValuesPageParam>), List<string> urls = default(List<string>))
+        public ScreenRecordingFilterValuesPageView(List<ScreenRecordingFilterValuesEvent> events = default(List<ScreenRecordingFilterValuesEvent>), List<ScreenRecordingFilterValuesPageParam> pageParams = default(List<ScreenRecordingFilterValuesPageParam>), int? timeOnPageMax = default(int?), int? timeOnPageMin = default(int?), List<string> urls = default(List<string>))
         {
             this.Events = events;
             this.PageParams = pageParams;
+            this.TimeOnPageMax = timeOnPageMax;
+            this.TimeOnPageMin = timeOnPageMin;
             this.Urls = urls;
         }
         
@@ -54,6 +58,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="page_params", EmitDefaultValue=false)]
         public List<ScreenRecordingFilterValuesPageParam> PageParams { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TimeOnPageMax
+        /// </summary>
+        [DataMember(Name="time_on_page_max", EmitDefaultValue=false)]
+        public int? TimeOnPageMax { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TimeOnPageMin
+        /// </summary>
+        [DataMember(Name="time_on_page_min", EmitDefaultValue=false)]
+        public int? TimeOnPageMin { get; set; }
 
         /// <summary>
         /// Gets or Sets Urls
@@ -71,6 +87,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ScreenRecordingFilterValuesPageView {\n");
             sb.Append("  Events: ").Append(Events).Append("\n");
             sb.Append("  PageParams: ").Append(PageParams).Append("\n");
+            sb.Append("  TimeOnPageMax: ").Append(TimeOnPageMax).Append("\n");
+            sb.Append("  TimeOnPageMin: ").Append(TimeOnPageMin).Append("\n");
             sb.Append("  Urls: ").Append(Urls).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -117,6 +135,16 @@ namespace com.ultracart.admin.v2.Model
                     this.PageParams.SequenceEqual(input.PageParams)
                 ) && 
                 (
+                    this.TimeOnPageMax == input.TimeOnPageMax ||
+                    (this.TimeOnPageMax != null &&
+                    this.TimeOnPageMax.Equals(input.TimeOnPageMax))
+                ) && 
+                (
+                    this.TimeOnPageMin == input.TimeOnPageMin ||
+                    (this.TimeOnPageMin != null &&
+                    this.TimeOnPageMin.Equals(input.TimeOnPageMin))
+                ) && 
+                (
                     this.Urls == input.Urls ||
                     this.Urls != null &&
                     this.Urls.SequenceEqual(input.Urls)
@@ -136,6 +164,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Events.GetHashCode();
                 if (this.PageParams != null)
                     hashCode = hashCode * 59 + this.PageParams.GetHashCode();
+                if (this.TimeOnPageMax != null)
+                    hashCode = hashCode * 59 + this.TimeOnPageMax.GetHashCode();
+                if (this.TimeOnPageMin != null)
+                    hashCode = hashCode * 59 + this.TimeOnPageMin.GetHashCode();
                 if (this.Urls != null)
                     hashCode = hashCode * 59 + this.Urls.GetHashCode();
                 return hashCode;

@@ -36,6 +36,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="analyticsClientOid">analyticsClientOid.</param>
         /// <param name="analyticsSessionDts">analyticsSessionDts.</param>
         /// <param name="analyticsSessionOid">analyticsSessionOid.</param>
+        /// <param name="communicationsCampaignName">Campaign Name.</param>
+        /// <param name="communicationsCampaignUuid">Campaign UUID.</param>
+        /// <param name="communicationsEmailSubject">Email subject.</param>
+        /// <param name="communicationsEmailUuid">Email UUID.</param>
+        /// <param name="communicationsFlowName">Flow Name.</param>
+        /// <param name="communicationsFlowUuid">Flow UUID.</param>
         /// <param name="email">email.</param>
         /// <param name="endTimestamp">Ending timestamp.</param>
         /// <param name="espCustomerUuid">espCustomerUuid.</param>
@@ -69,11 +75,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="watched">watched.</param>
         /// <param name="windowHeight">windowHeight.</param>
         /// <param name="windowWidth">windowWidth.</param>
-        public ScreenRecording(long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string email = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), bool? favorite = default(bool?), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string merchantId = default(string), string merchantNotes = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), string visitorFirstSeen = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
+        public ScreenRecording(long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string communicationsCampaignName = default(string), string communicationsCampaignUuid = default(string), string communicationsEmailSubject = default(string), string communicationsEmailUuid = default(string), string communicationsFlowName = default(string), string communicationsFlowUuid = default(string), string email = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), bool? favorite = default(bool?), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string merchantId = default(string), string merchantNotes = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), string visitorFirstSeen = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
         {
             this.AnalyticsClientOid = analyticsClientOid;
             this.AnalyticsSessionDts = analyticsSessionDts;
             this.AnalyticsSessionOid = analyticsSessionOid;
+            this.CommunicationsCampaignName = communicationsCampaignName;
+            this.CommunicationsCampaignUuid = communicationsCampaignUuid;
+            this.CommunicationsEmailSubject = communicationsEmailSubject;
+            this.CommunicationsEmailUuid = communicationsEmailUuid;
+            this.CommunicationsFlowName = communicationsFlowName;
+            this.CommunicationsFlowUuid = communicationsFlowUuid;
             this.Email = email;
             this.EndTimestamp = endTimestamp;
             this.EspCustomerUuid = espCustomerUuid;
@@ -126,6 +138,48 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="analytics_session_oid", EmitDefaultValue=false)]
         public long? AnalyticsSessionOid { get; set; }
+
+        /// <summary>
+        /// Campaign Name
+        /// </summary>
+        /// <value>Campaign Name</value>
+        [DataMember(Name="communications_campaign_name", EmitDefaultValue=false)]
+        public string CommunicationsCampaignName { get; set; }
+
+        /// <summary>
+        /// Campaign UUID
+        /// </summary>
+        /// <value>Campaign UUID</value>
+        [DataMember(Name="communications_campaign_uuid", EmitDefaultValue=false)]
+        public string CommunicationsCampaignUuid { get; set; }
+
+        /// <summary>
+        /// Email subject
+        /// </summary>
+        /// <value>Email subject</value>
+        [DataMember(Name="communications_email_subject", EmitDefaultValue=false)]
+        public string CommunicationsEmailSubject { get; set; }
+
+        /// <summary>
+        /// Email UUID
+        /// </summary>
+        /// <value>Email UUID</value>
+        [DataMember(Name="communications_email_uuid", EmitDefaultValue=false)]
+        public string CommunicationsEmailUuid { get; set; }
+
+        /// <summary>
+        /// Flow Name
+        /// </summary>
+        /// <value>Flow Name</value>
+        [DataMember(Name="communications_flow_name", EmitDefaultValue=false)]
+        public string CommunicationsFlowName { get; set; }
+
+        /// <summary>
+        /// Flow UUID
+        /// </summary>
+        /// <value>Flow UUID</value>
+        [DataMember(Name="communications_flow_uuid", EmitDefaultValue=false)]
+        public string CommunicationsFlowUuid { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
@@ -341,6 +395,12 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AnalyticsClientOid: ").Append(AnalyticsClientOid).Append("\n");
             sb.Append("  AnalyticsSessionDts: ").Append(AnalyticsSessionDts).Append("\n");
             sb.Append("  AnalyticsSessionOid: ").Append(AnalyticsSessionOid).Append("\n");
+            sb.Append("  CommunicationsCampaignName: ").Append(CommunicationsCampaignName).Append("\n");
+            sb.Append("  CommunicationsCampaignUuid: ").Append(CommunicationsCampaignUuid).Append("\n");
+            sb.Append("  CommunicationsEmailSubject: ").Append(CommunicationsEmailSubject).Append("\n");
+            sb.Append("  CommunicationsEmailUuid: ").Append(CommunicationsEmailUuid).Append("\n");
+            sb.Append("  CommunicationsFlowName: ").Append(CommunicationsFlowName).Append("\n");
+            sb.Append("  CommunicationsFlowUuid: ").Append(CommunicationsFlowUuid).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  EndTimestamp: ").Append(EndTimestamp).Append("\n");
             sb.Append("  EspCustomerUuid: ").Append(EspCustomerUuid).Append("\n");
@@ -422,6 +482,36 @@ namespace com.ultracart.admin.v2.Model
                     this.AnalyticsSessionOid == input.AnalyticsSessionOid ||
                     (this.AnalyticsSessionOid != null &&
                     this.AnalyticsSessionOid.Equals(input.AnalyticsSessionOid))
+                ) && 
+                (
+                    this.CommunicationsCampaignName == input.CommunicationsCampaignName ||
+                    (this.CommunicationsCampaignName != null &&
+                    this.CommunicationsCampaignName.Equals(input.CommunicationsCampaignName))
+                ) && 
+                (
+                    this.CommunicationsCampaignUuid == input.CommunicationsCampaignUuid ||
+                    (this.CommunicationsCampaignUuid != null &&
+                    this.CommunicationsCampaignUuid.Equals(input.CommunicationsCampaignUuid))
+                ) && 
+                (
+                    this.CommunicationsEmailSubject == input.CommunicationsEmailSubject ||
+                    (this.CommunicationsEmailSubject != null &&
+                    this.CommunicationsEmailSubject.Equals(input.CommunicationsEmailSubject))
+                ) && 
+                (
+                    this.CommunicationsEmailUuid == input.CommunicationsEmailUuid ||
+                    (this.CommunicationsEmailUuid != null &&
+                    this.CommunicationsEmailUuid.Equals(input.CommunicationsEmailUuid))
+                ) && 
+                (
+                    this.CommunicationsFlowName == input.CommunicationsFlowName ||
+                    (this.CommunicationsFlowName != null &&
+                    this.CommunicationsFlowName.Equals(input.CommunicationsFlowName))
+                ) && 
+                (
+                    this.CommunicationsFlowUuid == input.CommunicationsFlowUuid ||
+                    (this.CommunicationsFlowUuid != null &&
+                    this.CommunicationsFlowUuid.Equals(input.CommunicationsFlowUuid))
                 ) && 
                 (
                     this.Email == input.Email ||
@@ -605,6 +695,18 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AnalyticsSessionDts.GetHashCode();
                 if (this.AnalyticsSessionOid != null)
                     hashCode = hashCode * 59 + this.AnalyticsSessionOid.GetHashCode();
+                if (this.CommunicationsCampaignName != null)
+                    hashCode = hashCode * 59 + this.CommunicationsCampaignName.GetHashCode();
+                if (this.CommunicationsCampaignUuid != null)
+                    hashCode = hashCode * 59 + this.CommunicationsCampaignUuid.GetHashCode();
+                if (this.CommunicationsEmailSubject != null)
+                    hashCode = hashCode * 59 + this.CommunicationsEmailSubject.GetHashCode();
+                if (this.CommunicationsEmailUuid != null)
+                    hashCode = hashCode * 59 + this.CommunicationsEmailUuid.GetHashCode();
+                if (this.CommunicationsFlowName != null)
+                    hashCode = hashCode * 59 + this.CommunicationsFlowName.GetHashCode();
+                if (this.CommunicationsFlowUuid != null)
+                    hashCode = hashCode * 59 + this.CommunicationsFlowUuid.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.EndTimestamp != null)

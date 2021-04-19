@@ -33,6 +33,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecordingFilter" /> class.
         /// </summary>
+        /// <param name="communicationsCampaignName">communicationsCampaignName.</param>
+        /// <param name="communicationsEmailSubject">communicationsEmailSubject.</param>
+        /// <param name="communicationsFlowName">communicationsFlowName.</param>
         /// <param name="email">email.</param>
         /// <param name="emailIdentified">emailIdentified.</param>
         /// <param name="endTimestamp">endTimestamp.</param>
@@ -61,8 +64,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="userIp">userIp.</param>
         /// <param name="visitorNumber">visitorNumber.</param>
         /// <param name="watched">watched.</param>
-        public ScreenRecordingFilter(ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), int? visitorNumber = default(int?), bool? watched = default(bool?))
+        public ScreenRecordingFilter(string communicationsCampaignName = default(string), string communicationsEmailSubject = default(string), string communicationsFlowName = default(string), ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), int? visitorNumber = default(int?), bool? watched = default(bool?))
         {
+            this.CommunicationsCampaignName = communicationsCampaignName;
+            this.CommunicationsEmailSubject = communicationsEmailSubject;
+            this.CommunicationsFlowName = communicationsFlowName;
             this.Email = email;
             this.EmailIdentified = emailIdentified;
             this.EndTimestamp = endTimestamp;
@@ -93,6 +99,24 @@ namespace com.ultracart.admin.v2.Model
             this.Watched = watched;
         }
         
+        /// <summary>
+        /// Gets or Sets CommunicationsCampaignName
+        /// </summary>
+        [DataMember(Name="communications_campaign_name", EmitDefaultValue=false)]
+        public string CommunicationsCampaignName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CommunicationsEmailSubject
+        /// </summary>
+        [DataMember(Name="communications_email_subject", EmitDefaultValue=false)]
+        public string CommunicationsEmailSubject { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CommunicationsFlowName
+        /// </summary>
+        [DataMember(Name="communications_flow_name", EmitDefaultValue=false)]
+        public string CommunicationsFlowName { get; set; }
+
         /// <summary>
         /// Gets or Sets Email
         /// </summary>
@@ -269,6 +293,9 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingFilter {\n");
+            sb.Append("  CommunicationsCampaignName: ").Append(CommunicationsCampaignName).Append("\n");
+            sb.Append("  CommunicationsEmailSubject: ").Append(CommunicationsEmailSubject).Append("\n");
+            sb.Append("  CommunicationsFlowName: ").Append(CommunicationsFlowName).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  EmailIdentified: ").Append(EmailIdentified).Append("\n");
             sb.Append("  EndTimestamp: ").Append(EndTimestamp).Append("\n");
@@ -331,6 +358,21 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.CommunicationsCampaignName == input.CommunicationsCampaignName ||
+                    (this.CommunicationsCampaignName != null &&
+                    this.CommunicationsCampaignName.Equals(input.CommunicationsCampaignName))
+                ) && 
+                (
+                    this.CommunicationsEmailSubject == input.CommunicationsEmailSubject ||
+                    (this.CommunicationsEmailSubject != null &&
+                    this.CommunicationsEmailSubject.Equals(input.CommunicationsEmailSubject))
+                ) && 
+                (
+                    this.CommunicationsFlowName == input.CommunicationsFlowName ||
+                    (this.CommunicationsFlowName != null &&
+                    this.CommunicationsFlowName.Equals(input.CommunicationsFlowName))
+                ) && 
                 (
                     this.Email == input.Email ||
                     (this.Email != null &&
@@ -482,6 +524,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CommunicationsCampaignName != null)
+                    hashCode = hashCode * 59 + this.CommunicationsCampaignName.GetHashCode();
+                if (this.CommunicationsEmailSubject != null)
+                    hashCode = hashCode * 59 + this.CommunicationsEmailSubject.GetHashCode();
+                if (this.CommunicationsFlowName != null)
+                    hashCode = hashCode * 59 + this.CommunicationsFlowName.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.EmailIdentified != null)

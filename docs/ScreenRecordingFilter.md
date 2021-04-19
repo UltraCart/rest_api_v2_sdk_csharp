@@ -3,6 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CommunicationsCampaignName** | **string** |  | [optional] 
+**CommunicationsEmailSubject** | **string** |  | [optional] 
+**CommunicationsFlowName** | **string** |  | [optional] 
 **Email** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **EmailIdentified** | **bool?** |  | [optional] 
 **EndTimestamp** | [**ScreenRecordingFilterRangeDate**](ScreenRecordingFilterRangeDate.md) |  | [optional] 

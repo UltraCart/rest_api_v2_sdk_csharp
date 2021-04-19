@@ -33,6 +33,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecordingFilterValues" /> class.
         /// </summary>
+        /// <param name="communicationsCampaignNames">communicationsCampaignNames.</param>
+        /// <param name="communicationsEmailSubjects">communicationsEmailSubjects.</param>
+        /// <param name="communicationsFlowNames">communicationsFlowNames.</param>
         /// <param name="geolocationCountries">geolocationCountries.</param>
         /// <param name="geolocationStates">geolocationStates.</param>
         /// <param name="maxValues">maxValues.</param>
@@ -45,8 +48,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="userAgentDeviceOsVersions">userAgentDeviceOsVersions.</param>
         /// <param name="userAgentNames">userAgentNames.</param>
         /// <param name="userAgentOriginals">userAgentOriginals.</param>
-        public ScreenRecordingFilterValues(List<string> geolocationCountries = default(List<string>), List<string> geolocationStates = default(List<string>), int? maxValues = default(int?), List<ScreenRecordingFilterValuesPageView> pageViews = default(List<ScreenRecordingFilterValuesPageView>), int? timeOnSiteMax = default(int?), int? timeOnSiteMin = default(int?), List<string> urls = default(List<string>), List<string> userAgentDeviceNames = default(List<string>), List<string> userAgentDeviceOsNames = default(List<string>), List<string> userAgentDeviceOsVersions = default(List<string>), List<string> userAgentNames = default(List<string>), List<string> userAgentOriginals = default(List<string>))
+        public ScreenRecordingFilterValues(List<string> communicationsCampaignNames = default(List<string>), List<string> communicationsEmailSubjects = default(List<string>), List<string> communicationsFlowNames = default(List<string>), List<string> geolocationCountries = default(List<string>), List<string> geolocationStates = default(List<string>), int? maxValues = default(int?), List<ScreenRecordingFilterValuesPageView> pageViews = default(List<ScreenRecordingFilterValuesPageView>), int? timeOnSiteMax = default(int?), int? timeOnSiteMin = default(int?), List<string> urls = default(List<string>), List<string> userAgentDeviceNames = default(List<string>), List<string> userAgentDeviceOsNames = default(List<string>), List<string> userAgentDeviceOsVersions = default(List<string>), List<string> userAgentNames = default(List<string>), List<string> userAgentOriginals = default(List<string>))
         {
+            this.CommunicationsCampaignNames = communicationsCampaignNames;
+            this.CommunicationsEmailSubjects = communicationsEmailSubjects;
+            this.CommunicationsFlowNames = communicationsFlowNames;
             this.GeolocationCountries = geolocationCountries;
             this.GeolocationStates = geolocationStates;
             this.MaxValues = maxValues;
@@ -61,6 +67,24 @@ namespace com.ultracart.admin.v2.Model
             this.UserAgentOriginals = userAgentOriginals;
         }
         
+        /// <summary>
+        /// Gets or Sets CommunicationsCampaignNames
+        /// </summary>
+        [DataMember(Name="communications_campaign_names", EmitDefaultValue=false)]
+        public List<string> CommunicationsCampaignNames { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CommunicationsEmailSubjects
+        /// </summary>
+        [DataMember(Name="communications_email_subjects", EmitDefaultValue=false)]
+        public List<string> CommunicationsEmailSubjects { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CommunicationsFlowNames
+        /// </summary>
+        [DataMember(Name="communications_flow_names", EmitDefaultValue=false)]
+        public List<string> CommunicationsFlowNames { get; set; }
+
         /// <summary>
         /// Gets or Sets GeolocationCountries
         /// </summary>
@@ -141,6 +165,9 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingFilterValues {\n");
+            sb.Append("  CommunicationsCampaignNames: ").Append(CommunicationsCampaignNames).Append("\n");
+            sb.Append("  CommunicationsEmailSubjects: ").Append(CommunicationsEmailSubjects).Append("\n");
+            sb.Append("  CommunicationsFlowNames: ").Append(CommunicationsFlowNames).Append("\n");
             sb.Append("  GeolocationCountries: ").Append(GeolocationCountries).Append("\n");
             sb.Append("  GeolocationStates: ").Append(GeolocationStates).Append("\n");
             sb.Append("  MaxValues: ").Append(MaxValues).Append("\n");
@@ -187,6 +214,21 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.CommunicationsCampaignNames == input.CommunicationsCampaignNames ||
+                    this.CommunicationsCampaignNames != null &&
+                    this.CommunicationsCampaignNames.SequenceEqual(input.CommunicationsCampaignNames)
+                ) && 
+                (
+                    this.CommunicationsEmailSubjects == input.CommunicationsEmailSubjects ||
+                    this.CommunicationsEmailSubjects != null &&
+                    this.CommunicationsEmailSubjects.SequenceEqual(input.CommunicationsEmailSubjects)
+                ) && 
+                (
+                    this.CommunicationsFlowNames == input.CommunicationsFlowNames ||
+                    this.CommunicationsFlowNames != null &&
+                    this.CommunicationsFlowNames.SequenceEqual(input.CommunicationsFlowNames)
+                ) && 
                 (
                     this.GeolocationCountries == input.GeolocationCountries ||
                     this.GeolocationCountries != null &&
@@ -258,6 +300,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CommunicationsCampaignNames != null)
+                    hashCode = hashCode * 59 + this.CommunicationsCampaignNames.GetHashCode();
+                if (this.CommunicationsEmailSubjects != null)
+                    hashCode = hashCode * 59 + this.CommunicationsEmailSubjects.GetHashCode();
+                if (this.CommunicationsFlowNames != null)
+                    hashCode = hashCode * 59 + this.CommunicationsFlowNames.GetHashCode();
                 if (this.GeolocationCountries != null)
                     hashCode = hashCode * 59 + this.GeolocationCountries.GetHashCode();
                 if (this.GeolocationStates != null)

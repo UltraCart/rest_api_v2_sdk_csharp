@@ -3,6 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CommunicationsCampaignNames** | **List&lt;string&gt;** |  | [optional] 
+**CommunicationsEmailSubjects** | **List&lt;string&gt;** |  | [optional] 
+**CommunicationsFlowNames** | **List&lt;string&gt;** |  | [optional] 
 **GeolocationCountries** | **List&lt;string&gt;** |  | [optional] 
 **GeolocationStates** | **List&lt;string&gt;** |  | [optional] 
 **MaxValues** | **int?** |  | [optional] 

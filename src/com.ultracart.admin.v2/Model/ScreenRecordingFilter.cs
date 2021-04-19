@@ -62,9 +62,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="userAgentOsName">userAgentOsName.</param>
         /// <param name="userAgentOsVersion">userAgentOsVersion.</param>
         /// <param name="userIp">userIp.</param>
+        /// <param name="utmCampaign">utmCampaign.</param>
+        /// <param name="utmSource">utmSource.</param>
         /// <param name="visitorNumber">visitorNumber.</param>
         /// <param name="watched">watched.</param>
-        public ScreenRecordingFilter(string communicationsCampaignName = default(string), string communicationsEmailSubject = default(string), string communicationsFlowName = default(string), ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), int? visitorNumber = default(int?), bool? watched = default(bool?))
+        public ScreenRecordingFilter(string communicationsCampaignName = default(string), string communicationsEmailSubject = default(string), string communicationsFlowName = default(string), ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), string utmCampaign = default(string), string utmSource = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?))
         {
             this.CommunicationsCampaignName = communicationsCampaignName;
             this.CommunicationsEmailSubject = communicationsEmailSubject;
@@ -95,6 +97,8 @@ namespace com.ultracart.admin.v2.Model
             this.UserAgentOsName = userAgentOsName;
             this.UserAgentOsVersion = userAgentOsVersion;
             this.UserIp = userIp;
+            this.UtmCampaign = utmCampaign;
+            this.UtmSource = utmSource;
             this.VisitorNumber = visitorNumber;
             this.Watched = watched;
         }
@@ -274,6 +278,18 @@ namespace com.ultracart.admin.v2.Model
         public ScreenRecordingFilterIpSearch UserIp { get; set; }
 
         /// <summary>
+        /// Gets or Sets UtmCampaign
+        /// </summary>
+        [DataMember(Name="utm_campaign", EmitDefaultValue=false)]
+        public string UtmCampaign { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UtmSource
+        /// </summary>
+        [DataMember(Name="utm_source", EmitDefaultValue=false)]
+        public string UtmSource { get; set; }
+
+        /// <summary>
         /// Gets or Sets VisitorNumber
         /// </summary>
         [DataMember(Name="visitor_number", EmitDefaultValue=false)]
@@ -322,6 +338,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  UserAgentOsName: ").Append(UserAgentOsName).Append("\n");
             sb.Append("  UserAgentOsVersion: ").Append(UserAgentOsVersion).Append("\n");
             sb.Append("  UserIp: ").Append(UserIp).Append("\n");
+            sb.Append("  UtmCampaign: ").Append(UtmCampaign).Append("\n");
+            sb.Append("  UtmSource: ").Append(UtmSource).Append("\n");
             sb.Append("  VisitorNumber: ").Append(VisitorNumber).Append("\n");
             sb.Append("  Watched: ").Append(Watched).Append("\n");
             sb.Append("}\n");
@@ -504,6 +522,16 @@ namespace com.ultracart.admin.v2.Model
                     this.UserIp.Equals(input.UserIp))
                 ) && 
                 (
+                    this.UtmCampaign == input.UtmCampaign ||
+                    (this.UtmCampaign != null &&
+                    this.UtmCampaign.Equals(input.UtmCampaign))
+                ) && 
+                (
+                    this.UtmSource == input.UtmSource ||
+                    (this.UtmSource != null &&
+                    this.UtmSource.Equals(input.UtmSource))
+                ) && 
+                (
                     this.VisitorNumber == input.VisitorNumber ||
                     (this.VisitorNumber != null &&
                     this.VisitorNumber.Equals(input.VisitorNumber))
@@ -582,6 +610,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.UserAgentOsVersion.GetHashCode();
                 if (this.UserIp != null)
                     hashCode = hashCode * 59 + this.UserIp.GetHashCode();
+                if (this.UtmCampaign != null)
+                    hashCode = hashCode * 59 + this.UtmCampaign.GetHashCode();
+                if (this.UtmSource != null)
+                    hashCode = hashCode * 59 + this.UtmSource.GetHashCode();
                 if (this.VisitorNumber != null)
                     hashCode = hashCode * 59 + this.VisitorNumber.GetHashCode();
                 if (this.Watched != null)

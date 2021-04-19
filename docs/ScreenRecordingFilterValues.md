@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **UserAgentDeviceOsVersions** | **List&lt;string&gt;** |  | [optional] 
 **UserAgentNames** | **List&lt;string&gt;** |  | [optional] 
 **UserAgentOriginals** | **List&lt;string&gt;** |  | [optional] 
+**UtmCampaigns** | **List&lt;string&gt;** |  | [optional] 
+**UtmSources** | **List&lt;string&gt;** |  | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

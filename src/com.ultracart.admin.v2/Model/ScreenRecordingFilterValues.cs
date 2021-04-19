@@ -48,7 +48,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="userAgentDeviceOsVersions">userAgentDeviceOsVersions.</param>
         /// <param name="userAgentNames">userAgentNames.</param>
         /// <param name="userAgentOriginals">userAgentOriginals.</param>
-        public ScreenRecordingFilterValues(List<string> communicationsCampaignNames = default(List<string>), List<string> communicationsEmailSubjects = default(List<string>), List<string> communicationsFlowNames = default(List<string>), List<string> geolocationCountries = default(List<string>), List<string> geolocationStates = default(List<string>), int? maxValues = default(int?), List<ScreenRecordingFilterValuesPageView> pageViews = default(List<ScreenRecordingFilterValuesPageView>), int? timeOnSiteMax = default(int?), int? timeOnSiteMin = default(int?), List<string> urls = default(List<string>), List<string> userAgentDeviceNames = default(List<string>), List<string> userAgentDeviceOsNames = default(List<string>), List<string> userAgentDeviceOsVersions = default(List<string>), List<string> userAgentNames = default(List<string>), List<string> userAgentOriginals = default(List<string>))
+        /// <param name="utmCampaigns">utmCampaigns.</param>
+        /// <param name="utmSources">utmSources.</param>
+        public ScreenRecordingFilterValues(List<string> communicationsCampaignNames = default(List<string>), List<string> communicationsEmailSubjects = default(List<string>), List<string> communicationsFlowNames = default(List<string>), List<string> geolocationCountries = default(List<string>), List<string> geolocationStates = default(List<string>), int? maxValues = default(int?), List<ScreenRecordingFilterValuesPageView> pageViews = default(List<ScreenRecordingFilterValuesPageView>), int? timeOnSiteMax = default(int?), int? timeOnSiteMin = default(int?), List<string> urls = default(List<string>), List<string> userAgentDeviceNames = default(List<string>), List<string> userAgentDeviceOsNames = default(List<string>), List<string> userAgentDeviceOsVersions = default(List<string>), List<string> userAgentNames = default(List<string>), List<string> userAgentOriginals = default(List<string>), List<string> utmCampaigns = default(List<string>), List<string> utmSources = default(List<string>))
         {
             this.CommunicationsCampaignNames = communicationsCampaignNames;
             this.CommunicationsEmailSubjects = communicationsEmailSubjects;
@@ -65,6 +67,8 @@ namespace com.ultracart.admin.v2.Model
             this.UserAgentDeviceOsVersions = userAgentDeviceOsVersions;
             this.UserAgentNames = userAgentNames;
             this.UserAgentOriginals = userAgentOriginals;
+            this.UtmCampaigns = utmCampaigns;
+            this.UtmSources = utmSources;
         }
         
         /// <summary>
@@ -158,6 +162,18 @@ namespace com.ultracart.admin.v2.Model
         public List<string> UserAgentOriginals { get; set; }
 
         /// <summary>
+        /// Gets or Sets UtmCampaigns
+        /// </summary>
+        [DataMember(Name="utm_campaigns", EmitDefaultValue=false)]
+        public List<string> UtmCampaigns { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UtmSources
+        /// </summary>
+        [DataMember(Name="utm_sources", EmitDefaultValue=false)]
+        public List<string> UtmSources { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,6 +196,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  UserAgentDeviceOsVersions: ").Append(UserAgentDeviceOsVersions).Append("\n");
             sb.Append("  UserAgentNames: ").Append(UserAgentNames).Append("\n");
             sb.Append("  UserAgentOriginals: ").Append(UserAgentOriginals).Append("\n");
+            sb.Append("  UtmCampaigns: ").Append(UtmCampaigns).Append("\n");
+            sb.Append("  UtmSources: ").Append(UtmSources).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -288,6 +306,16 @@ namespace com.ultracart.admin.v2.Model
                     this.UserAgentOriginals == input.UserAgentOriginals ||
                     this.UserAgentOriginals != null &&
                     this.UserAgentOriginals.SequenceEqual(input.UserAgentOriginals)
+                ) && 
+                (
+                    this.UtmCampaigns == input.UtmCampaigns ||
+                    this.UtmCampaigns != null &&
+                    this.UtmCampaigns.SequenceEqual(input.UtmCampaigns)
+                ) && 
+                (
+                    this.UtmSources == input.UtmSources ||
+                    this.UtmSources != null &&
+                    this.UtmSources.SequenceEqual(input.UtmSources)
                 );
         }
 
@@ -330,6 +358,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.UserAgentNames.GetHashCode();
                 if (this.UserAgentOriginals != null)
                     hashCode = hashCode * 59 + this.UserAgentOriginals.GetHashCode();
+                if (this.UtmCampaigns != null)
+                    hashCode = hashCode * 59 + this.UtmCampaigns.GetHashCode();
+                if (this.UtmSources != null)
+                    hashCode = hashCode * 59 + this.UtmSources.GetHashCode();
                 return hashCode;
             }
         }

@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **Geolocation** | [**GeoPoint**](GeoPoint.md) |  | [optional] 
 **GeolocationCountry** | **string** |  | [optional] 
 **GeolocationState** | **string** |  | [optional] 
+**LanguageIsoCode** | **string** | Language ISO code | [optional] 
 **MerchantId** | **string** |  | [optional] 
 **MerchantNotes** | **string** |  | [optional] 
 **OrderId** | **string** |  | [optional] 

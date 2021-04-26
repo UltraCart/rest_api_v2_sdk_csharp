@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CommunicationsFlowNames** | **List&lt;string&gt;** |  | [optional] 
 **GeolocationCountries** | **List&lt;string&gt;** |  | [optional] 
 **GeolocationStates** | **List&lt;string&gt;** |  | [optional] 
+**LanguageIsoCodes** | **List&lt;string&gt;** |  | [optional] 
 **MaxValues** | **int?** |  | [optional] 
 **PageViews** | [**List&lt;ScreenRecordingFilterValuesPageView&gt;**](ScreenRecordingFilterValuesPageView.md) |  | [optional] 
 **TimeOnSiteMax** | **int?** |  | [optional] 

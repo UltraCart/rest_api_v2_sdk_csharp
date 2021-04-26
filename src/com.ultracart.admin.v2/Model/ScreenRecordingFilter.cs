@@ -44,6 +44,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="geolocation">geolocation.</param>
         /// <param name="geolocationCountry">geolocationCountry.</param>
         /// <param name="geolocationState">geolocationState.</param>
+        /// <param name="languageIsoCode">languageIsoCode.</param>
         /// <param name="maxFilterValues">maxFilterValues.</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="pageViewCount">pageViewCount.</param>
@@ -66,7 +67,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="utmSource">utmSource.</param>
         /// <param name="visitorNumber">visitorNumber.</param>
         /// <param name="watched">watched.</param>
-        public ScreenRecordingFilter(string communicationsCampaignName = default(string), string communicationsEmailSubject = default(string), string communicationsFlowName = default(string), ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), string utmCampaign = default(string), string utmSource = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?))
+        public ScreenRecordingFilter(string communicationsCampaignName = default(string), string communicationsEmailSubject = default(string), string communicationsFlowName = default(string), ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch languageIsoCode = default(ScreenRecordingFilterStringSearch), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), string utmCampaign = default(string), string utmSource = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?))
         {
             this.CommunicationsCampaignName = communicationsCampaignName;
             this.CommunicationsEmailSubject = communicationsEmailSubject;
@@ -79,6 +80,7 @@ namespace com.ultracart.admin.v2.Model
             this.Geolocation = geolocation;
             this.GeolocationCountry = geolocationCountry;
             this.GeolocationState = geolocationState;
+            this.LanguageIsoCode = languageIsoCode;
             this.MaxFilterValues = maxFilterValues;
             this.OrderId = orderId;
             this.PageViewCount = pageViewCount;
@@ -168,6 +170,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="geolocation_state", EmitDefaultValue=false)]
         public ScreenRecordingFilterStringSearch GeolocationState { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LanguageIsoCode
+        /// </summary>
+        [DataMember(Name="language_iso_code", EmitDefaultValue=false)]
+        public ScreenRecordingFilterStringSearch LanguageIsoCode { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxFilterValues
@@ -320,6 +328,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Geolocation: ").Append(Geolocation).Append("\n");
             sb.Append("  GeolocationCountry: ").Append(GeolocationCountry).Append("\n");
             sb.Append("  GeolocationState: ").Append(GeolocationState).Append("\n");
+            sb.Append("  LanguageIsoCode: ").Append(LanguageIsoCode).Append("\n");
             sb.Append("  MaxFilterValues: ").Append(MaxFilterValues).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  PageViewCount: ").Append(PageViewCount).Append("\n");
@@ -430,6 +439,11 @@ namespace com.ultracart.admin.v2.Model
                     this.GeolocationState == input.GeolocationState ||
                     (this.GeolocationState != null &&
                     this.GeolocationState.Equals(input.GeolocationState))
+                ) && 
+                (
+                    this.LanguageIsoCode == input.LanguageIsoCode ||
+                    (this.LanguageIsoCode != null &&
+                    this.LanguageIsoCode.Equals(input.LanguageIsoCode))
                 ) && 
                 (
                     this.MaxFilterValues == input.MaxFilterValues ||
@@ -574,6 +588,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.GeolocationCountry.GetHashCode();
                 if (this.GeolocationState != null)
                     hashCode = hashCode * 59 + this.GeolocationState.GetHashCode();
+                if (this.LanguageIsoCode != null)
+                    hashCode = hashCode * 59 + this.LanguageIsoCode.GetHashCode();
                 if (this.MaxFilterValues != null)
                     hashCode = hashCode * 59 + this.MaxFilterValues.GetHashCode();
                 if (this.OrderId != null)

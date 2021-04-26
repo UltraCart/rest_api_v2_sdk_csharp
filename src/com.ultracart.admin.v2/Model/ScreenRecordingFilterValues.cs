@@ -38,6 +38,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="communicationsFlowNames">communicationsFlowNames.</param>
         /// <param name="geolocationCountries">geolocationCountries.</param>
         /// <param name="geolocationStates">geolocationStates.</param>
+        /// <param name="languageIsoCodes">languageIsoCodes.</param>
         /// <param name="maxValues">maxValues.</param>
         /// <param name="pageViews">pageViews.</param>
         /// <param name="timeOnSiteMax">timeOnSiteMax.</param>
@@ -50,13 +51,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="userAgentOriginals">userAgentOriginals.</param>
         /// <param name="utmCampaigns">utmCampaigns.</param>
         /// <param name="utmSources">utmSources.</param>
-        public ScreenRecordingFilterValues(List<string> communicationsCampaignNames = default(List<string>), List<string> communicationsEmailSubjects = default(List<string>), List<string> communicationsFlowNames = default(List<string>), List<string> geolocationCountries = default(List<string>), List<string> geolocationStates = default(List<string>), int? maxValues = default(int?), List<ScreenRecordingFilterValuesPageView> pageViews = default(List<ScreenRecordingFilterValuesPageView>), int? timeOnSiteMax = default(int?), int? timeOnSiteMin = default(int?), List<string> urls = default(List<string>), List<string> userAgentDeviceNames = default(List<string>), List<string> userAgentDeviceOsNames = default(List<string>), List<string> userAgentDeviceOsVersions = default(List<string>), List<string> userAgentNames = default(List<string>), List<string> userAgentOriginals = default(List<string>), List<string> utmCampaigns = default(List<string>), List<string> utmSources = default(List<string>))
+        public ScreenRecordingFilterValues(List<string> communicationsCampaignNames = default(List<string>), List<string> communicationsEmailSubjects = default(List<string>), List<string> communicationsFlowNames = default(List<string>), List<string> geolocationCountries = default(List<string>), List<string> geolocationStates = default(List<string>), List<string> languageIsoCodes = default(List<string>), int? maxValues = default(int?), List<ScreenRecordingFilterValuesPageView> pageViews = default(List<ScreenRecordingFilterValuesPageView>), int? timeOnSiteMax = default(int?), int? timeOnSiteMin = default(int?), List<string> urls = default(List<string>), List<string> userAgentDeviceNames = default(List<string>), List<string> userAgentDeviceOsNames = default(List<string>), List<string> userAgentDeviceOsVersions = default(List<string>), List<string> userAgentNames = default(List<string>), List<string> userAgentOriginals = default(List<string>), List<string> utmCampaigns = default(List<string>), List<string> utmSources = default(List<string>))
         {
             this.CommunicationsCampaignNames = communicationsCampaignNames;
             this.CommunicationsEmailSubjects = communicationsEmailSubjects;
             this.CommunicationsFlowNames = communicationsFlowNames;
             this.GeolocationCountries = geolocationCountries;
             this.GeolocationStates = geolocationStates;
+            this.LanguageIsoCodes = languageIsoCodes;
             this.MaxValues = maxValues;
             this.PageViews = pageViews;
             this.TimeOnSiteMax = timeOnSiteMax;
@@ -100,6 +102,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="geolocation_states", EmitDefaultValue=false)]
         public List<string> GeolocationStates { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LanguageIsoCodes
+        /// </summary>
+        [DataMember(Name="language_iso_codes", EmitDefaultValue=false)]
+        public List<string> LanguageIsoCodes { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxValues
@@ -186,6 +194,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CommunicationsFlowNames: ").Append(CommunicationsFlowNames).Append("\n");
             sb.Append("  GeolocationCountries: ").Append(GeolocationCountries).Append("\n");
             sb.Append("  GeolocationStates: ").Append(GeolocationStates).Append("\n");
+            sb.Append("  LanguageIsoCodes: ").Append(LanguageIsoCodes).Append("\n");
             sb.Append("  MaxValues: ").Append(MaxValues).Append("\n");
             sb.Append("  PageViews: ").Append(PageViews).Append("\n");
             sb.Append("  TimeOnSiteMax: ").Append(TimeOnSiteMax).Append("\n");
@@ -256,6 +265,11 @@ namespace com.ultracart.admin.v2.Model
                     this.GeolocationStates == input.GeolocationStates ||
                     this.GeolocationStates != null &&
                     this.GeolocationStates.SequenceEqual(input.GeolocationStates)
+                ) && 
+                (
+                    this.LanguageIsoCodes == input.LanguageIsoCodes ||
+                    this.LanguageIsoCodes != null &&
+                    this.LanguageIsoCodes.SequenceEqual(input.LanguageIsoCodes)
                 ) && 
                 (
                     this.MaxValues == input.MaxValues ||
@@ -338,6 +352,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.GeolocationCountries.GetHashCode();
                 if (this.GeolocationStates != null)
                     hashCode = hashCode * 59 + this.GeolocationStates.GetHashCode();
+                if (this.LanguageIsoCodes != null)
+                    hashCode = hashCode * 59 + this.LanguageIsoCodes.GetHashCode();
                 if (this.MaxValues != null)
                     hashCode = hashCode * 59 + this.MaxValues.GetHashCode();
                 if (this.PageViews != null)

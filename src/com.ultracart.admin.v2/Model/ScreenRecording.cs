@@ -52,6 +52,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="geolocation">geolocation.</param>
         /// <param name="geolocationCountry">geolocationCountry.</param>
         /// <param name="geolocationState">geolocationState.</param>
+        /// <param name="languageIsoCode">Language ISO code.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="merchantNotes">merchantNotes.</param>
         /// <param name="orderId">orderId.</param>
@@ -77,7 +78,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="watched">watched.</param>
         /// <param name="windowHeight">windowHeight.</param>
         /// <param name="windowWidth">windowWidth.</param>
-        public ScreenRecording(long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string communicationsCampaignName = default(string), string communicationsCampaignUuid = default(string), string communicationsEmailSubject = default(string), string communicationsEmailUuid = default(string), string communicationsFlowName = default(string), string communicationsFlowUuid = default(string), string email = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), bool? favorite = default(bool?), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string merchantId = default(string), string merchantNotes = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), string utmCampaign = default(string), string utmSource = default(string), string visitorFirstSeen = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
+        public ScreenRecording(long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string communicationsCampaignName = default(string), string communicationsCampaignUuid = default(string), string communicationsEmailSubject = default(string), string communicationsEmailUuid = default(string), string communicationsFlowName = default(string), string communicationsFlowUuid = default(string), string email = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), bool? favorite = default(bool?), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string languageIsoCode = default(string), string merchantId = default(string), string merchantNotes = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), string utmCampaign = default(string), string utmSource = default(string), string visitorFirstSeen = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
         {
             this.AnalyticsClientOid = analyticsClientOid;
             this.AnalyticsSessionDts = analyticsSessionDts;
@@ -98,6 +99,7 @@ namespace com.ultracart.admin.v2.Model
             this.Geolocation = geolocation;
             this.GeolocationCountry = geolocationCountry;
             this.GeolocationState = geolocationState;
+            this.LanguageIsoCode = languageIsoCode;
             this.MerchantId = merchantId;
             this.MerchantNotes = merchantNotes;
             this.OrderId = orderId;
@@ -247,6 +249,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="geolocation_state", EmitDefaultValue=false)]
         public string GeolocationState { get; set; }
+
+        /// <summary>
+        /// Language ISO code
+        /// </summary>
+        /// <value>Language ISO code</value>
+        [DataMember(Name="language_iso_code", EmitDefaultValue=false)]
+        public string LanguageIsoCode { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantId
@@ -429,6 +438,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Geolocation: ").Append(Geolocation).Append("\n");
             sb.Append("  GeolocationCountry: ").Append(GeolocationCountry).Append("\n");
             sb.Append("  GeolocationState: ").Append(GeolocationState).Append("\n");
+            sb.Append("  LanguageIsoCode: ").Append(LanguageIsoCode).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MerchantNotes: ").Append(MerchantNotes).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
@@ -582,6 +592,11 @@ namespace com.ultracart.admin.v2.Model
                     this.GeolocationState == input.GeolocationState ||
                     (this.GeolocationState != null &&
                     this.GeolocationState.Equals(input.GeolocationState))
+                ) && 
+                (
+                    this.LanguageIsoCode == input.LanguageIsoCode ||
+                    (this.LanguageIsoCode != null &&
+                    this.LanguageIsoCode.Equals(input.LanguageIsoCode))
                 ) && 
                 (
                     this.MerchantId == input.MerchantId ||
@@ -757,6 +772,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.GeolocationCountry.GetHashCode();
                 if (this.GeolocationState != null)
                     hashCode = hashCode * 59 + this.GeolocationState.GetHashCode();
+                if (this.LanguageIsoCode != null)
+                    hashCode = hashCode * 59 + this.LanguageIsoCode.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.MerchantNotes != null)

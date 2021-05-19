@@ -46,10 +46,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="referrerRaw">referrerRaw.</param>
         /// <param name="screenRecordingPageViewUuid">screenRecordingPageViewUuid.</param>
         /// <param name="timeOnPage">timeOnPage.</param>
+        /// <param name="timingDomContentLoaded">Amount of time for DOMContentLoaded event to fire (milliseconds).</param>
+        /// <param name="timingLoaded">Amount of time for loaded event to fire (milliseconds).</param>
         /// <param name="truncatedEvents">truncatedEvents.</param>
         /// <param name="ucapv">ucapv.</param>
         /// <param name="url">url.</param>
-        public ScreenRecordingPageView(List<ScreenRecordingPageViewEvent> events = default(List<ScreenRecordingPageViewEvent>), string firstEventTimestamp = default(string), bool? httpPost = default(bool?), string lastEventTimestamp = default(string), bool? missingEvents = default(bool?), List<ScreenRecordingPageViewParameter> _params = default(List<ScreenRecordingPageViewParameter>), int? rangeEnd = default(int?), int? rangeStart = default(int?), string referrer = default(string), List<ScreenRecordingPageViewParameter> referrerParams = default(List<ScreenRecordingPageViewParameter>), string referrerRaw = default(string), string screenRecordingPageViewUuid = default(string), int? timeOnPage = default(int?), bool? truncatedEvents = default(bool?), string ucapv = default(string), string url = default(string))
+        public ScreenRecordingPageView(List<ScreenRecordingPageViewEvent> events = default(List<ScreenRecordingPageViewEvent>), string firstEventTimestamp = default(string), bool? httpPost = default(bool?), string lastEventTimestamp = default(string), bool? missingEvents = default(bool?), List<ScreenRecordingPageViewParameter> _params = default(List<ScreenRecordingPageViewParameter>), int? rangeEnd = default(int?), int? rangeStart = default(int?), string referrer = default(string), List<ScreenRecordingPageViewParameter> referrerParams = default(List<ScreenRecordingPageViewParameter>), string referrerRaw = default(string), string screenRecordingPageViewUuid = default(string), int? timeOnPage = default(int?), int? timingDomContentLoaded = default(int?), int? timingLoaded = default(int?), bool? truncatedEvents = default(bool?), string ucapv = default(string), string url = default(string))
         {
             this.Events = events;
             this.FirstEventTimestamp = firstEventTimestamp;
@@ -64,6 +66,8 @@ namespace com.ultracart.admin.v2.Model
             this.ReferrerRaw = referrerRaw;
             this.ScreenRecordingPageViewUuid = screenRecordingPageViewUuid;
             this.TimeOnPage = timeOnPage;
+            this.TimingDomContentLoaded = timingDomContentLoaded;
+            this.TimingLoaded = timingLoaded;
             this.TruncatedEvents = truncatedEvents;
             this.Ucapv = ucapv;
             this.Url = url;
@@ -150,6 +154,20 @@ namespace com.ultracart.admin.v2.Model
         public int? TimeOnPage { get; set; }
 
         /// <summary>
+        /// Amount of time for DOMContentLoaded event to fire (milliseconds)
+        /// </summary>
+        /// <value>Amount of time for DOMContentLoaded event to fire (milliseconds)</value>
+        [DataMember(Name="timing_dom_content_loaded", EmitDefaultValue=false)]
+        public int? TimingDomContentLoaded { get; set; }
+
+        /// <summary>
+        /// Amount of time for loaded event to fire (milliseconds)
+        /// </summary>
+        /// <value>Amount of time for loaded event to fire (milliseconds)</value>
+        [DataMember(Name="timing_loaded", EmitDefaultValue=false)]
+        public int? TimingLoaded { get; set; }
+
+        /// <summary>
         /// Gets or Sets TruncatedEvents
         /// </summary>
         [DataMember(Name="truncated_events", EmitDefaultValue=false)]
@@ -188,6 +206,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ReferrerRaw: ").Append(ReferrerRaw).Append("\n");
             sb.Append("  ScreenRecordingPageViewUuid: ").Append(ScreenRecordingPageViewUuid).Append("\n");
             sb.Append("  TimeOnPage: ").Append(TimeOnPage).Append("\n");
+            sb.Append("  TimingDomContentLoaded: ").Append(TimingDomContentLoaded).Append("\n");
+            sb.Append("  TimingLoaded: ").Append(TimingLoaded).Append("\n");
             sb.Append("  TruncatedEvents: ").Append(TruncatedEvents).Append("\n");
             sb.Append("  Ucapv: ").Append(Ucapv).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
@@ -291,6 +311,16 @@ namespace com.ultracart.admin.v2.Model
                     this.TimeOnPage.Equals(input.TimeOnPage))
                 ) && 
                 (
+                    this.TimingDomContentLoaded == input.TimingDomContentLoaded ||
+                    (this.TimingDomContentLoaded != null &&
+                    this.TimingDomContentLoaded.Equals(input.TimingDomContentLoaded))
+                ) && 
+                (
+                    this.TimingLoaded == input.TimingLoaded ||
+                    (this.TimingLoaded != null &&
+                    this.TimingLoaded.Equals(input.TimingLoaded))
+                ) && 
+                (
                     this.TruncatedEvents == input.TruncatedEvents ||
                     (this.TruncatedEvents != null &&
                     this.TruncatedEvents.Equals(input.TruncatedEvents))
@@ -342,6 +372,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ScreenRecordingPageViewUuid.GetHashCode();
                 if (this.TimeOnPage != null)
                     hashCode = hashCode * 59 + this.TimeOnPage.GetHashCode();
+                if (this.TimingDomContentLoaded != null)
+                    hashCode = hashCode * 59 + this.TimingDomContentLoaded.GetHashCode();
+                if (this.TimingLoaded != null)
+                    hashCode = hashCode * 59 + this.TimingLoaded.GetHashCode();
                 if (this.TruncatedEvents != null)
                     hashCode = hashCode * 59 + this.TruncatedEvents.GetHashCode();
                 if (this.Ucapv != null)

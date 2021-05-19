@@ -33,10 +33,13 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecordingFilter" /> class.
         /// </summary>
+        /// <param name="affiliateEmail">affiliateEmail.</param>
+        /// <param name="affiliateId">affiliateId.</param>
         /// <param name="communicationsCampaignName">communicationsCampaignName.</param>
         /// <param name="communicationsEmailSubject">communicationsEmailSubject.</param>
         /// <param name="communicationsFlowName">communicationsFlowName.</param>
         /// <param name="email">email.</param>
+        /// <param name="emailDomain">emailDomain.</param>
         /// <param name="emailIdentified">emailIdentified.</param>
         /// <param name="endTimestamp">endTimestamp.</param>
         /// <param name="espCustomerUuid">espCustomerUuid.</param>
@@ -45,11 +48,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="geolocationCountry">geolocationCountry.</param>
         /// <param name="geolocationState">geolocationState.</param>
         /// <param name="languageIsoCode">languageIsoCode.</param>
+        /// <param name="lastXDays">lastXDays.</param>
         /// <param name="maxFilterValues">maxFilterValues.</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="pageViewCount">pageViewCount.</param>
         /// <param name="pageViews">pageViews.</param>
         /// <param name="placedOrder">placedOrder.</param>
+        /// <param name="preferredLanguage">preferredLanguage.</param>
+        /// <param name="referrerDomain">referrerDomain.</param>
         /// <param name="screenRecordingUuids">screenRecordingUuids.</param>
         /// <param name="screenSizes">screenSizes.</param>
         /// <param name="skipFilterValues">skipFilterValues.</param>
@@ -67,12 +73,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="utmSource">utmSource.</param>
         /// <param name="visitorNumber">visitorNumber.</param>
         /// <param name="watched">watched.</param>
-        public ScreenRecordingFilter(string communicationsCampaignName = default(string), string communicationsEmailSubject = default(string), string communicationsFlowName = default(string), ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch languageIsoCode = default(ScreenRecordingFilterStringSearch), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), string utmCampaign = default(string), string utmSource = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?))
+        public ScreenRecordingFilter(string affiliateEmail = default(string), int? affiliateId = default(int?), string communicationsCampaignName = default(string), string communicationsEmailSubject = default(string), string communicationsFlowName = default(string), ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), string emailDomain = default(string), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch languageIsoCode = default(ScreenRecordingFilterStringSearch), int? lastXDays = default(int?), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), ScreenRecordingFilterStringSearch preferredLanguage = default(ScreenRecordingFilterStringSearch), string referrerDomain = default(string), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), string utmCampaign = default(string), string utmSource = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?))
         {
+            this.AffiliateEmail = affiliateEmail;
+            this.AffiliateId = affiliateId;
             this.CommunicationsCampaignName = communicationsCampaignName;
             this.CommunicationsEmailSubject = communicationsEmailSubject;
             this.CommunicationsFlowName = communicationsFlowName;
             this.Email = email;
+            this.EmailDomain = emailDomain;
             this.EmailIdentified = emailIdentified;
             this.EndTimestamp = endTimestamp;
             this.EspCustomerUuid = espCustomerUuid;
@@ -81,11 +90,14 @@ namespace com.ultracart.admin.v2.Model
             this.GeolocationCountry = geolocationCountry;
             this.GeolocationState = geolocationState;
             this.LanguageIsoCode = languageIsoCode;
+            this.LastXDays = lastXDays;
             this.MaxFilterValues = maxFilterValues;
             this.OrderId = orderId;
             this.PageViewCount = pageViewCount;
             this.PageViews = pageViews;
             this.PlacedOrder = placedOrder;
+            this.PreferredLanguage = preferredLanguage;
+            this.ReferrerDomain = referrerDomain;
             this.ScreenRecordingUuids = screenRecordingUuids;
             this.ScreenSizes = screenSizes;
             this.SkipFilterValues = skipFilterValues;
@@ -105,6 +117,18 @@ namespace com.ultracart.admin.v2.Model
             this.Watched = watched;
         }
         
+        /// <summary>
+        /// Gets or Sets AffiliateEmail
+        /// </summary>
+        [DataMember(Name="affiliate_email", EmitDefaultValue=false)]
+        public string AffiliateEmail { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AffiliateId
+        /// </summary>
+        [DataMember(Name="affiliate_id", EmitDefaultValue=false)]
+        public int? AffiliateId { get; set; }
+
         /// <summary>
         /// Gets or Sets CommunicationsCampaignName
         /// </summary>
@@ -128,6 +152,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public ScreenRecordingFilterStringSearch Email { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EmailDomain
+        /// </summary>
+        [DataMember(Name="email_domain", EmitDefaultValue=false)]
+        public string EmailDomain { get; set; }
 
         /// <summary>
         /// Gets or Sets EmailIdentified
@@ -178,6 +208,12 @@ namespace com.ultracart.admin.v2.Model
         public ScreenRecordingFilterStringSearch LanguageIsoCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets LastXDays
+        /// </summary>
+        [DataMember(Name="last_x_days", EmitDefaultValue=false)]
+        public int? LastXDays { get; set; }
+
+        /// <summary>
         /// Gets or Sets MaxFilterValues
         /// </summary>
         [DataMember(Name="max_filter_values", EmitDefaultValue=false)]
@@ -206,6 +242,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="placed_order", EmitDefaultValue=false)]
         public bool? PlacedOrder { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PreferredLanguage
+        /// </summary>
+        [DataMember(Name="preferred_language", EmitDefaultValue=false)]
+        public ScreenRecordingFilterStringSearch PreferredLanguage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReferrerDomain
+        /// </summary>
+        [DataMember(Name="referrer_domain", EmitDefaultValue=false)]
+        public string ReferrerDomain { get; set; }
 
         /// <summary>
         /// Gets or Sets ScreenRecordingUuids
@@ -317,10 +365,13 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingFilter {\n");
+            sb.Append("  AffiliateEmail: ").Append(AffiliateEmail).Append("\n");
+            sb.Append("  AffiliateId: ").Append(AffiliateId).Append("\n");
             sb.Append("  CommunicationsCampaignName: ").Append(CommunicationsCampaignName).Append("\n");
             sb.Append("  CommunicationsEmailSubject: ").Append(CommunicationsEmailSubject).Append("\n");
             sb.Append("  CommunicationsFlowName: ").Append(CommunicationsFlowName).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  EmailDomain: ").Append(EmailDomain).Append("\n");
             sb.Append("  EmailIdentified: ").Append(EmailIdentified).Append("\n");
             sb.Append("  EndTimestamp: ").Append(EndTimestamp).Append("\n");
             sb.Append("  EspCustomerUuid: ").Append(EspCustomerUuid).Append("\n");
@@ -329,11 +380,14 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  GeolocationCountry: ").Append(GeolocationCountry).Append("\n");
             sb.Append("  GeolocationState: ").Append(GeolocationState).Append("\n");
             sb.Append("  LanguageIsoCode: ").Append(LanguageIsoCode).Append("\n");
+            sb.Append("  LastXDays: ").Append(LastXDays).Append("\n");
             sb.Append("  MaxFilterValues: ").Append(MaxFilterValues).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  PageViewCount: ").Append(PageViewCount).Append("\n");
             sb.Append("  PageViews: ").Append(PageViews).Append("\n");
             sb.Append("  PlacedOrder: ").Append(PlacedOrder).Append("\n");
+            sb.Append("  PreferredLanguage: ").Append(PreferredLanguage).Append("\n");
+            sb.Append("  ReferrerDomain: ").Append(ReferrerDomain).Append("\n");
             sb.Append("  ScreenRecordingUuids: ").Append(ScreenRecordingUuids).Append("\n");
             sb.Append("  ScreenSizes: ").Append(ScreenSizes).Append("\n");
             sb.Append("  SkipFilterValues: ").Append(SkipFilterValues).Append("\n");
@@ -386,6 +440,16 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AffiliateEmail == input.AffiliateEmail ||
+                    (this.AffiliateEmail != null &&
+                    this.AffiliateEmail.Equals(input.AffiliateEmail))
+                ) && 
+                (
+                    this.AffiliateId == input.AffiliateId ||
+                    (this.AffiliateId != null &&
+                    this.AffiliateId.Equals(input.AffiliateId))
+                ) && 
+                (
                     this.CommunicationsCampaignName == input.CommunicationsCampaignName ||
                     (this.CommunicationsCampaignName != null &&
                     this.CommunicationsCampaignName.Equals(input.CommunicationsCampaignName))
@@ -404,6 +468,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Email == input.Email ||
                     (this.Email != null &&
                     this.Email.Equals(input.Email))
+                ) && 
+                (
+                    this.EmailDomain == input.EmailDomain ||
+                    (this.EmailDomain != null &&
+                    this.EmailDomain.Equals(input.EmailDomain))
                 ) && 
                 (
                     this.EmailIdentified == input.EmailIdentified ||
@@ -446,6 +515,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LanguageIsoCode.Equals(input.LanguageIsoCode))
                 ) && 
                 (
+                    this.LastXDays == input.LastXDays ||
+                    (this.LastXDays != null &&
+                    this.LastXDays.Equals(input.LastXDays))
+                ) && 
+                (
                     this.MaxFilterValues == input.MaxFilterValues ||
                     (this.MaxFilterValues != null &&
                     this.MaxFilterValues.Equals(input.MaxFilterValues))
@@ -469,6 +543,16 @@ namespace com.ultracart.admin.v2.Model
                     this.PlacedOrder == input.PlacedOrder ||
                     (this.PlacedOrder != null &&
                     this.PlacedOrder.Equals(input.PlacedOrder))
+                ) && 
+                (
+                    this.PreferredLanguage == input.PreferredLanguage ||
+                    (this.PreferredLanguage != null &&
+                    this.PreferredLanguage.Equals(input.PreferredLanguage))
+                ) && 
+                (
+                    this.ReferrerDomain == input.ReferrerDomain ||
+                    (this.ReferrerDomain != null &&
+                    this.ReferrerDomain.Equals(input.ReferrerDomain))
                 ) && 
                 (
                     this.ScreenRecordingUuids == input.ScreenRecordingUuids ||
@@ -566,6 +650,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AffiliateEmail != null)
+                    hashCode = hashCode * 59 + this.AffiliateEmail.GetHashCode();
+                if (this.AffiliateId != null)
+                    hashCode = hashCode * 59 + this.AffiliateId.GetHashCode();
                 if (this.CommunicationsCampaignName != null)
                     hashCode = hashCode * 59 + this.CommunicationsCampaignName.GetHashCode();
                 if (this.CommunicationsEmailSubject != null)
@@ -574,6 +662,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CommunicationsFlowName.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
+                if (this.EmailDomain != null)
+                    hashCode = hashCode * 59 + this.EmailDomain.GetHashCode();
                 if (this.EmailIdentified != null)
                     hashCode = hashCode * 59 + this.EmailIdentified.GetHashCode();
                 if (this.EndTimestamp != null)
@@ -590,6 +680,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.GeolocationState.GetHashCode();
                 if (this.LanguageIsoCode != null)
                     hashCode = hashCode * 59 + this.LanguageIsoCode.GetHashCode();
+                if (this.LastXDays != null)
+                    hashCode = hashCode * 59 + this.LastXDays.GetHashCode();
                 if (this.MaxFilterValues != null)
                     hashCode = hashCode * 59 + this.MaxFilterValues.GetHashCode();
                 if (this.OrderId != null)
@@ -600,6 +692,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PageViews.GetHashCode();
                 if (this.PlacedOrder != null)
                     hashCode = hashCode * 59 + this.PlacedOrder.GetHashCode();
+                if (this.PreferredLanguage != null)
+                    hashCode = hashCode * 59 + this.PreferredLanguage.GetHashCode();
+                if (this.ReferrerDomain != null)
+                    hashCode = hashCode * 59 + this.ReferrerDomain.GetHashCode();
                 if (this.ScreenRecordingUuids != null)
                     hashCode = hashCode * 59 + this.ScreenRecordingUuids.GetHashCode();
                 if (this.ScreenSizes != null)

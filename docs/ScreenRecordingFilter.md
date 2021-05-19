@@ -3,10 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AffiliateEmail** | **string** |  | [optional] 
+**AffiliateId** | **int?** |  | [optional] 
 **CommunicationsCampaignName** | **string** |  | [optional] 
 **CommunicationsEmailSubject** | **string** |  | [optional] 
 **CommunicationsFlowName** | **string** |  | [optional] 
 **Email** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
+**EmailDomain** | **string** |  | [optional] 
 **EmailIdentified** | **bool?** |  | [optional] 
 **EndTimestamp** | [**ScreenRecordingFilterRangeDate**](ScreenRecordingFilterRangeDate.md) |  | [optional] 
 **EspCustomerUuid** | **string** |  | [optional] 
@@ -15,11 +18,14 @@ Name | Type | Description | Notes
 **GeolocationCountry** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **GeolocationState** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **LanguageIsoCode** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
+**LastXDays** | **int?** |  | [optional] 
 **MaxFilterValues** | **int?** |  | [optional] 
 **OrderId** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **PageViewCount** | [**ScreenRecordingFilterRangeInteger**](ScreenRecordingFilterRangeInteger.md) |  | [optional] 
 **PageViews** | [**List&lt;ScreenRecordingFilterPageView&gt;**](ScreenRecordingFilterPageView.md) |  | [optional] 
 **PlacedOrder** | **bool?** |  | [optional] 
+**PreferredLanguage** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
+**ReferrerDomain** | **string** |  | [optional] 
 **ScreenRecordingUuids** | **List&lt;string&gt;** |  | [optional] 
 **ScreenSizes** | **List&lt;string&gt;** |  | [optional] 
 **SkipFilterValues** | **bool?** |  | [optional] 

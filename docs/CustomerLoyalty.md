@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CurrentPoints** | **int?** | Current Points | [optional] 
 **LedgerEntries** | [**List&lt;CustomerLoyaltyLedger&gt;**](CustomerLoyaltyLedger.md) | Ledger entries | [optional] 
+**PendingPoints** | **int?** | Pending Points | [optional] 
 **Redemptions** | [**List&lt;CustomerLoyaltyRedemption&gt;**](CustomerLoyaltyRedemption.md) | Redemptions | [optional] 
 
 

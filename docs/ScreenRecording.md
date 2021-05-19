@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdPlatform** | [**ScreenRecordingAdPlatform**](ScreenRecordingAdPlatform.md) |  | [optional] 
 **AnalyticsClientOid** | **long?** |  | [optional] 
 **AnalyticsSessionDts** | **long?** |  | [optional] 
 **AnalyticsSessionOid** | **long?** |  | [optional] 
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **CommunicationsFlowName** | **string** | Flow Name | [optional] 
 **CommunicationsFlowUuid** | **string** | Flow UUID | [optional] 
 **Email** | **string** |  | [optional] 
+**EmailDomain** | **string** |  | [optional] 
 **EndTimestamp** | **string** | Ending timestamp | [optional] 
 **EspCustomerUuid** | **string** |  | [optional] 
 **EventsGzSize** | **int?** |  | [optional] 
@@ -28,6 +30,8 @@ Name | Type | Description | Notes
 **OrderId** | **string** |  | [optional] 
 **PageViewCount** | **int?** |  | [optional] 
 **PageViews** | [**List&lt;ScreenRecordingPageView&gt;**](ScreenRecordingPageView.md) |  | [optional] 
+**PreferredLanguage** | **string** | ISO 3 Letter language code that the customer would prefer | [optional] 
+**ReferrerDomain** | **string** |  | [optional] 
 **RrwebVersion** | **string** |  | [optional] 
 **ScreenRecordingUuid** | **string** |  | [optional] 
 **SignedDownloadUrl** | **string** |  | [optional] 

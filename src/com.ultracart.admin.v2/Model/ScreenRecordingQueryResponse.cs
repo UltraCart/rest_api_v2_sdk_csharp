@@ -36,15 +36,21 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="error">error.</param>
         /// <param name="filter">filter.</param>
         /// <param name="filterValues">filterValues.</param>
+        /// <param name="histogramData">histogramData.</param>
+        /// <param name="histogramInterval">histogramInterval.</param>
+        /// <param name="histogramStartDts">histogramStartDts.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="screenRecordings">screenRecordings.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ScreenRecordingQueryResponse(Error error = default(Error), ScreenRecordingFilter filter = default(ScreenRecordingFilter), ScreenRecordingFilterValues filterValues = default(ScreenRecordingFilterValues), ResponseMetadata metadata = default(ResponseMetadata), List<ScreenRecording> screenRecordings = default(List<ScreenRecording>), bool? success = default(bool?), Warning warning = default(Warning))
+        public ScreenRecordingQueryResponse(Error error = default(Error), ScreenRecordingFilter filter = default(ScreenRecordingFilter), ScreenRecordingFilterValues filterValues = default(ScreenRecordingFilterValues), List<int?> histogramData = default(List<int?>), string histogramInterval = default(string), string histogramStartDts = default(string), ResponseMetadata metadata = default(ResponseMetadata), List<ScreenRecording> screenRecordings = default(List<ScreenRecording>), bool? success = default(bool?), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Filter = filter;
             this.FilterValues = filterValues;
+            this.HistogramData = histogramData;
+            this.HistogramInterval = histogramInterval;
+            this.HistogramStartDts = histogramStartDts;
             this.Metadata = metadata;
             this.ScreenRecordings = screenRecordings;
             this.Success = success;
@@ -68,6 +74,24 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="filter_values", EmitDefaultValue=false)]
         public ScreenRecordingFilterValues FilterValues { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HistogramData
+        /// </summary>
+        [DataMember(Name="histogram_data", EmitDefaultValue=false)]
+        public List<int?> HistogramData { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HistogramInterval
+        /// </summary>
+        [DataMember(Name="histogram_interval", EmitDefaultValue=false)]
+        public string HistogramInterval { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HistogramStartDts
+        /// </summary>
+        [DataMember(Name="histogram_start_dts", EmitDefaultValue=false)]
+        public string HistogramStartDts { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
@@ -105,6 +129,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  FilterValues: ").Append(FilterValues).Append("\n");
+            sb.Append("  HistogramData: ").Append(HistogramData).Append("\n");
+            sb.Append("  HistogramInterval: ").Append(HistogramInterval).Append("\n");
+            sb.Append("  HistogramStartDts: ").Append(HistogramStartDts).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  ScreenRecordings: ").Append(ScreenRecordings).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
@@ -159,6 +186,21 @@ namespace com.ultracart.admin.v2.Model
                     this.FilterValues.Equals(input.FilterValues))
                 ) && 
                 (
+                    this.HistogramData == input.HistogramData ||
+                    this.HistogramData != null &&
+                    this.HistogramData.SequenceEqual(input.HistogramData)
+                ) && 
+                (
+                    this.HistogramInterval == input.HistogramInterval ||
+                    (this.HistogramInterval != null &&
+                    this.HistogramInterval.Equals(input.HistogramInterval))
+                ) && 
+                (
+                    this.HistogramStartDts == input.HistogramStartDts ||
+                    (this.HistogramStartDts != null &&
+                    this.HistogramStartDts.Equals(input.HistogramStartDts))
+                ) && 
+                (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
@@ -195,6 +237,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Filter.GetHashCode();
                 if (this.FilterValues != null)
                     hashCode = hashCode * 59 + this.FilterValues.GetHashCode();
+                if (this.HistogramData != null)
+                    hashCode = hashCode * 59 + this.HistogramData.GetHashCode();
+                if (this.HistogramInterval != null)
+                    hashCode = hashCode * 59 + this.HistogramInterval.GetHashCode();
+                if (this.HistogramStartDts != null)
+                    hashCode = hashCode * 59 + this.HistogramStartDts.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.ScreenRecordings != null)

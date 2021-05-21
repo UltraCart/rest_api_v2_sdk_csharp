@@ -418,6 +418,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteExperimentWithHttpInfo (int? storefrontOid, int? storefrontExperimentOid);
         /// <summary>
+        /// Delete screen recording heatmap
+        /// </summary>
+        /// <remarks>
+        /// Delete screen recording heatmap 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns></returns>
+        void DeleteHeatmap (int? storefrontOid, ScreenRecordingHeatmapReset query);
+
+        /// <summary>
+        /// Delete screen recording heatmap
+        /// </summary>
+        /// <remarks>
+        /// Delete screen recording heatmap 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteHeatmapWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapReset query);
+        /// <summary>
         /// Delete library item
         /// </summary>
         /// <remarks>
@@ -1760,6 +1783,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <returns>ApiResponse of ExperimentsResponse</returns>
         ApiResponse<ExperimentsResponse> GetExperimentsWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Get screen recording heatmap
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording heatmap 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>ScreenRecordingHeatmapResponse</returns>
+        ScreenRecordingHeatmapResponse GetHeatmap (int? storefrontOid, ScreenRecordingHeatmapRequest query);
+
+        /// <summary>
+        /// Get screen recording heatmap
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording heatmap 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>ApiResponse of ScreenRecordingHeatmapResponse</returns>
+        ApiResponse<ScreenRecordingHeatmapResponse> GetHeatmapWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapRequest query);
+        /// <summary>
+        /// Get screen recording heatmap index
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording heatmap index 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ScreenRecordingHeatmapIndexResponse</returns>
+        ScreenRecordingHeatmapIndexResponse GetHeatmapIndex (int? storefrontOid);
+
+        /// <summary>
+        /// Get screen recording heatmap index
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording heatmap index 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingHeatmapIndexResponse</returns>
+        ApiResponse<ScreenRecordingHeatmapIndexResponse> GetHeatmapIndexWithHttpInfo (int? storefrontOid);
         /// <summary>
         /// Get histogram property names
         /// </summary>
@@ -3780,6 +3847,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteExperimentAsyncWithHttpInfo (int? storefrontOid, int? storefrontExperimentOid);
         /// <summary>
+        /// Delete screen recording heatmap
+        /// </summary>
+        /// <remarks>
+        /// Delete screen recording heatmap 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteHeatmapAsync (int? storefrontOid, ScreenRecordingHeatmapReset query);
+
+        /// <summary>
+        /// Delete screen recording heatmap
+        /// </summary>
+        /// <remarks>
+        /// Delete screen recording heatmap 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteHeatmapAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapReset query);
+        /// <summary>
         /// Delete library item
         /// </summary>
         /// <remarks>
@@ -5122,6 +5212,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontOid"></param>
         /// <returns>Task of ApiResponse (ExperimentsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ExperimentsResponse>> GetExperimentsAsyncWithHttpInfo (int? storefrontOid);
+        /// <summary>
+        /// Get screen recording heatmap
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording heatmap 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>Task of ScreenRecordingHeatmapResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingHeatmapResponse> GetHeatmapAsync (int? storefrontOid, ScreenRecordingHeatmapRequest query);
+
+        /// <summary>
+        /// Get screen recording heatmap
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording heatmap 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingHeatmapResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingHeatmapResponse>> GetHeatmapAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapRequest query);
+        /// <summary>
+        /// Get screen recording heatmap index
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording heatmap index 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ScreenRecordingHeatmapIndexResponse</returns>
+        System.Threading.Tasks.Task<ScreenRecordingHeatmapIndexResponse> GetHeatmapIndexAsync (int? storefrontOid);
+
+        /// <summary>
+        /// Get screen recording heatmap index
+        /// </summary>
+        /// <remarks>
+        /// Get screen recording heatmap index 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingHeatmapIndexResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingHeatmapIndexResponse>> GetHeatmapIndexAsyncWithHttpInfo (int? storefrontOid);
         /// <summary>
         /// Get histogram property names
         /// </summary>
@@ -9926,6 +10060,187 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteExperiment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete screen recording heatmap Delete screen recording heatmap 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns></returns>
+        public void DeleteHeatmap (int? storefrontOid, ScreenRecordingHeatmapReset query)
+        {
+             DeleteHeatmapWithHttpInfo(storefrontOid, query);
+        }
+
+        /// <summary>
+        /// Delete screen recording heatmap Delete screen recording heatmap 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteHeatmapWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapReset query)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->DeleteHeatmap");
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ApiException(400, "Missing required parameter 'query' when calling StorefrontApi->DeleteHeatmap");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (query != null && query.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(query); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = query; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteHeatmap", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete screen recording heatmap Delete screen recording heatmap 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteHeatmapAsync (int? storefrontOid, ScreenRecordingHeatmapReset query)
+        {
+             await DeleteHeatmapAsyncWithHttpInfo(storefrontOid, query);
+
+        }
+
+        /// <summary>
+        /// Delete screen recording heatmap Delete screen recording heatmap 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteHeatmapAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapReset query)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->DeleteHeatmap");
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ApiException(400, "Missing required parameter 'query' when calling StorefrontApi->DeleteHeatmap");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (query != null && query.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(query); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = query; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteHeatmap", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -20417,6 +20732,346 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ExperimentsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ExperimentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExperimentsResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording heatmap Get screen recording heatmap 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>ScreenRecordingHeatmapResponse</returns>
+        public ScreenRecordingHeatmapResponse GetHeatmap (int? storefrontOid, ScreenRecordingHeatmapRequest query)
+        {
+             ApiResponse<ScreenRecordingHeatmapResponse> localVarResponse = GetHeatmapWithHttpInfo(storefrontOid, query);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get screen recording heatmap Get screen recording heatmap 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>ApiResponse of ScreenRecordingHeatmapResponse</returns>
+        public ApiResponse< ScreenRecordingHeatmapResponse > GetHeatmapWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapRequest query)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetHeatmap");
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ApiException(400, "Missing required parameter 'query' when calling StorefrontApi->GetHeatmap");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (query != null && query.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(query); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = query; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetHeatmap", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingHeatmapResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingHeatmapResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingHeatmapResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording heatmap Get screen recording heatmap 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>Task of ScreenRecordingHeatmapResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingHeatmapResponse> GetHeatmapAsync (int? storefrontOid, ScreenRecordingHeatmapRequest query)
+        {
+             ApiResponse<ScreenRecordingHeatmapResponse> localVarResponse = await GetHeatmapAsyncWithHttpInfo(storefrontOid, query);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get screen recording heatmap Get screen recording heatmap 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <returns>Task of ApiResponse (ScreenRecordingHeatmapResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingHeatmapResponse>> GetHeatmapAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapRequest query)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetHeatmap");
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ApiException(400, "Missing required parameter 'query' when calling StorefrontApi->GetHeatmap");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (query != null && query.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(query); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = query; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetHeatmap", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingHeatmapResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingHeatmapResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingHeatmapResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording heatmap index Get screen recording heatmap index 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ScreenRecordingHeatmapIndexResponse</returns>
+        public ScreenRecordingHeatmapIndexResponse GetHeatmapIndex (int? storefrontOid)
+        {
+             ApiResponse<ScreenRecordingHeatmapIndexResponse> localVarResponse = GetHeatmapIndexWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get screen recording heatmap index Get screen recording heatmap index 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of ScreenRecordingHeatmapIndexResponse</returns>
+        public ApiResponse< ScreenRecordingHeatmapIndexResponse > GetHeatmapIndexWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetHeatmapIndex");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap/index";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetHeatmapIndex", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingHeatmapIndexResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingHeatmapIndexResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingHeatmapIndexResponse)));
+        }
+
+        /// <summary>
+        /// Get screen recording heatmap index Get screen recording heatmap index 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ScreenRecordingHeatmapIndexResponse</returns>
+        public async System.Threading.Tasks.Task<ScreenRecordingHeatmapIndexResponse> GetHeatmapIndexAsync (int? storefrontOid)
+        {
+             ApiResponse<ScreenRecordingHeatmapIndexResponse> localVarResponse = await GetHeatmapIndexAsyncWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get screen recording heatmap index Get screen recording heatmap index 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (ScreenRecordingHeatmapIndexResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingHeatmapIndexResponse>> GetHeatmapIndexAsyncWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetHeatmapIndex");
+
+            var localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap/index";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetHeatmapIndex", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ScreenRecordingHeatmapIndexResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ScreenRecordingHeatmapIndexResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingHeatmapIndexResponse)));
         }
 
         /// <summary>

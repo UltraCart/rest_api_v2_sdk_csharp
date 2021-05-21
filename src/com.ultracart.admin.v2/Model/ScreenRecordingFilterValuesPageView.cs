@@ -33,13 +33,15 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecordingFilterValuesPageView" /> class.
         /// </summary>
+        /// <param name="domains">domains.</param>
         /// <param name="events">events.</param>
         /// <param name="pageParams">pageParams.</param>
         /// <param name="timeOnPageMax">timeOnPageMax.</param>
         /// <param name="timeOnPageMin">timeOnPageMin.</param>
         /// <param name="urls">urls.</param>
-        public ScreenRecordingFilterValuesPageView(List<ScreenRecordingFilterValuesEvent> events = default(List<ScreenRecordingFilterValuesEvent>), List<ScreenRecordingFilterValuesPageParam> pageParams = default(List<ScreenRecordingFilterValuesPageParam>), int? timeOnPageMax = default(int?), int? timeOnPageMin = default(int?), List<string> urls = default(List<string>))
+        public ScreenRecordingFilterValuesPageView(List<string> domains = default(List<string>), List<ScreenRecordingFilterValuesEvent> events = default(List<ScreenRecordingFilterValuesEvent>), List<ScreenRecordingFilterValuesPageParam> pageParams = default(List<ScreenRecordingFilterValuesPageParam>), int? timeOnPageMax = default(int?), int? timeOnPageMin = default(int?), List<string> urls = default(List<string>))
         {
+            this.Domains = domains;
             this.Events = events;
             this.PageParams = pageParams;
             this.TimeOnPageMax = timeOnPageMax;
@@ -47,6 +49,12 @@ namespace com.ultracart.admin.v2.Model
             this.Urls = urls;
         }
         
+        /// <summary>
+        /// Gets or Sets Domains
+        /// </summary>
+        [DataMember(Name="domains", EmitDefaultValue=false)]
+        public List<string> Domains { get; set; }
+
         /// <summary>
         /// Gets or Sets Events
         /// </summary>
@@ -85,6 +93,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingFilterValuesPageView {\n");
+            sb.Append("  Domains: ").Append(Domains).Append("\n");
             sb.Append("  Events: ").Append(Events).Append("\n");
             sb.Append("  PageParams: ").Append(PageParams).Append("\n");
             sb.Append("  TimeOnPageMax: ").Append(TimeOnPageMax).Append("\n");
@@ -125,6 +134,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Domains == input.Domains ||
+                    this.Domains != null &&
+                    this.Domains.SequenceEqual(input.Domains)
+                ) && 
+                (
                     this.Events == input.Events ||
                     this.Events != null &&
                     this.Events.SequenceEqual(input.Events)
@@ -160,6 +174,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Domains != null)
+                    hashCode = hashCode * 59 + this.Domains.GetHashCode();
                 if (this.Events != null)
                     hashCode = hashCode * 59 + this.Events.GetHashCode();
                 if (this.PageParams != null)

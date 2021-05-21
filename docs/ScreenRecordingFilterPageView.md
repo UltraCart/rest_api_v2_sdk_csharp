@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Domain** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **Events** | [**List&lt;ScreenRecordingFilterPageViewEvent&gt;**](ScreenRecordingFilterPageViewEvent.md) |  | [optional] 
 **Params** | [**List&lt;ScreenRecordingFilterPageViewParam&gt;**](ScreenRecordingFilterPageViewParam.md) |  | [optional] 
 **Referrer** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 

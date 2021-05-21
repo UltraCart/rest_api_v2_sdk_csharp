@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Domains** | **List&lt;string&gt;** |  | [optional] 
 **Events** | [**List&lt;ScreenRecordingFilterValuesEvent&gt;**](ScreenRecordingFilterValuesEvent.md) |  | [optional] 
 **PageParams** | [**List&lt;ScreenRecordingFilterValuesPageParam&gt;**](ScreenRecordingFilterValuesPageParam.md) |  | [optional] 
 **TimeOnPageMax** | **int?** |  | [optional] 

@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecordingFilterPageView" /> class.
         /// </summary>
+        /// <param name="domain">domain.</param>
         /// <param name="events">events.</param>
         /// <param name="_params">_params.</param>
         /// <param name="referrer">referrer.</param>
@@ -40,8 +41,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="referrerRaw">referrerRaw.</param>
         /// <param name="timeOnPage">timeOnPage.</param>
         /// <param name="url">url.</param>
-        public ScreenRecordingFilterPageView(List<ScreenRecordingFilterPageViewEvent> events = default(List<ScreenRecordingFilterPageViewEvent>), List<ScreenRecordingFilterPageViewParam> _params = default(List<ScreenRecordingFilterPageViewParam>), ScreenRecordingFilterStringSearch referrer = default(ScreenRecordingFilterStringSearch), List<ScreenRecordingFilterPageViewReferrerParam> referrerParams = default(List<ScreenRecordingFilterPageViewReferrerParam>), ScreenRecordingFilterStringSearch referrerRaw = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger timeOnPage = default(ScreenRecordingFilterRangeInteger), ScreenRecordingFilterStringSearch url = default(ScreenRecordingFilterStringSearch))
+        public ScreenRecordingFilterPageView(ScreenRecordingFilterStringSearch domain = default(ScreenRecordingFilterStringSearch), List<ScreenRecordingFilterPageViewEvent> events = default(List<ScreenRecordingFilterPageViewEvent>), List<ScreenRecordingFilterPageViewParam> _params = default(List<ScreenRecordingFilterPageViewParam>), ScreenRecordingFilterStringSearch referrer = default(ScreenRecordingFilterStringSearch), List<ScreenRecordingFilterPageViewReferrerParam> referrerParams = default(List<ScreenRecordingFilterPageViewReferrerParam>), ScreenRecordingFilterStringSearch referrerRaw = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger timeOnPage = default(ScreenRecordingFilterRangeInteger), ScreenRecordingFilterStringSearch url = default(ScreenRecordingFilterStringSearch))
         {
+            this.Domain = domain;
             this.Events = events;
             this.Params = _params;
             this.Referrer = referrer;
@@ -51,6 +53,12 @@ namespace com.ultracart.admin.v2.Model
             this.Url = url;
         }
         
+        /// <summary>
+        /// Gets or Sets Domain
+        /// </summary>
+        [DataMember(Name="domain", EmitDefaultValue=false)]
+        public ScreenRecordingFilterStringSearch Domain { get; set; }
+
         /// <summary>
         /// Gets or Sets Events
         /// </summary>
@@ -101,6 +109,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingFilterPageView {\n");
+            sb.Append("  Domain: ").Append(Domain).Append("\n");
             sb.Append("  Events: ").Append(Events).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  Referrer: ").Append(Referrer).Append("\n");
@@ -142,6 +151,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Domain == input.Domain ||
+                    (this.Domain != null &&
+                    this.Domain.Equals(input.Domain))
+                ) && 
                 (
                     this.Events == input.Events ||
                     this.Events != null &&
@@ -188,6 +202,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Domain != null)
+                    hashCode = hashCode * 59 + this.Domain.GetHashCode();
                 if (this.Events != null)
                     hashCode = hashCode * 59 + this.Events.GetHashCode();
                 if (this.Params != null)

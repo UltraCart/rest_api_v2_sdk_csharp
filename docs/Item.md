@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Amember** | [**ItemAmember**](ItemAmember.md) |  | [optional] 
 **AutoOrder** | [**ItemAutoOrder**](ItemAutoOrder.md) |  | [optional] 
 **Ccbill** | [**ItemCCBill**](ItemCCBill.md) |  | [optional] 
-**ChannelPartnerMappings** | [**List&lt;ItemChannelPartnerMapping&gt;**](ItemChannelPartnerMapping.md) | Channel Partner Item Mapping | [optional] 
+**ChannelPartnerItemMappings** | [**List&lt;ItemChannelPartnerMapping&gt;**](ItemChannelPartnerMapping.md) | Channel Partner Item Mapping | [optional] 
 **Chargeback** | [**ItemChargeback**](ItemChargeback.md) |  | [optional] 
 **Checkout** | [**ItemCheckout**](ItemCheckout.md) |  | [optional] 
 **Content** | [**ItemContent**](ItemContent.md) |  | [optional] 

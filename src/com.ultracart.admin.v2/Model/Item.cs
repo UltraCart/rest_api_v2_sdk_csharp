@@ -37,7 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="amember">amember.</param>
         /// <param name="autoOrder">autoOrder.</param>
         /// <param name="ccbill">ccbill.</param>
-        /// <param name="channelPartnerMappings">Channel Partner Item Mapping.</param>
+        /// <param name="channelPartnerItemMappings">Channel Partner Item Mapping.</param>
         /// <param name="chargeback">chargeback.</param>
         /// <param name="checkout">checkout.</param>
         /// <param name="content">content.</param>
@@ -83,13 +83,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="variantItems">Variant Items.</param>
         /// <param name="variations">Variations.</param>
         /// <param name="wishlistMember">wishlistMember.</param>
-        public Item(ItemAccounting accounting = default(ItemAccounting), ItemAmember amember = default(ItemAmember), ItemAutoOrder autoOrder = default(ItemAutoOrder), ItemCCBill ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> channelPartnerMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback chargeback = default(ItemChargeback), ItemCheckout checkout = default(ItemCheckout), ItemContent content = default(ItemContent), string creationDts = default(string), string description = default(string), int? descriptionTranslatedTextInstanceOid = default(int?), ItemDigitalDelivery digitalDelivery = default(ItemDigitalDelivery), ItemEbay ebay = default(ItemEbay), ItemEmailNotifications emailNotifications = default(ItemEmailNotifications), ItemEnrollment123 enrollment123 = default(ItemEnrollment123), ItemGiftCertificate giftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch googleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers identifiers = default(ItemIdentifiers), bool? inactive = default(bool?), ItemInstantPaymentNotifications instantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _internal = default(ItemInternal), bool? kit = default(bool?), bool? kitComponentOnly = default(bool?), ItemKitDefinition kitDefinition = default(ItemKitDefinition), string lastModifiedDts = default(string), string merchantId = default(string), string merchantItemId = default(string), int? merchantItemOid = default(int?), List<ItemOption> options = default(List<ItemOption>), int? parentCategoryId = default(int?), string parentCategoryPath = default(string), ItemPaymentProcessing paymentProcessing = default(ItemPaymentProcessing), ItemPhysical physical = default(ItemPhysical), ItemPricing pricing = default(ItemPricing), List<ItemProperty> properties = default(List<ItemProperty>), ItemRealtimePricing realtimePricing = default(ItemRealtimePricing), int? recommendReplenishmentDays = default(int?), ItemRelated related = default(ItemRelated), ItemReporting reporting = default(ItemReporting), ItemRestriction restriction = default(ItemRestriction), ItemRevguard revguard = default(ItemRevguard), ItemReviews reviews = default(ItemReviews), ItemSalesforce salesforce = default(ItemSalesforce), ItemShipping shipping = default(ItemShipping), ItemTags tags = default(ItemTags), ItemTax tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> thirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> variantItems = default(List<ItemVariantItem>), List<ItemVariation> variations = default(List<ItemVariation>), ItemWishlistMember wishlistMember = default(ItemWishlistMember))
+        public Item(ItemAccounting accounting = default(ItemAccounting), ItemAmember amember = default(ItemAmember), ItemAutoOrder autoOrder = default(ItemAutoOrder), ItemCCBill ccbill = default(ItemCCBill), List<ItemChannelPartnerMapping> channelPartnerItemMappings = default(List<ItemChannelPartnerMapping>), ItemChargeback chargeback = default(ItemChargeback), ItemCheckout checkout = default(ItemCheckout), ItemContent content = default(ItemContent), string creationDts = default(string), string description = default(string), int? descriptionTranslatedTextInstanceOid = default(int?), ItemDigitalDelivery digitalDelivery = default(ItemDigitalDelivery), ItemEbay ebay = default(ItemEbay), ItemEmailNotifications emailNotifications = default(ItemEmailNotifications), ItemEnrollment123 enrollment123 = default(ItemEnrollment123), ItemGiftCertificate giftCertificate = default(ItemGiftCertificate), ItemGoogleProductSearch googleProductSearch = default(ItemGoogleProductSearch), ItemIdentifiers identifiers = default(ItemIdentifiers), bool? inactive = default(bool?), ItemInstantPaymentNotifications instantPaymentNotifications = default(ItemInstantPaymentNotifications), ItemInternal _internal = default(ItemInternal), bool? kit = default(bool?), bool? kitComponentOnly = default(bool?), ItemKitDefinition kitDefinition = default(ItemKitDefinition), string lastModifiedDts = default(string), string merchantId = default(string), string merchantItemId = default(string), int? merchantItemOid = default(int?), List<ItemOption> options = default(List<ItemOption>), int? parentCategoryId = default(int?), string parentCategoryPath = default(string), ItemPaymentProcessing paymentProcessing = default(ItemPaymentProcessing), ItemPhysical physical = default(ItemPhysical), ItemPricing pricing = default(ItemPricing), List<ItemProperty> properties = default(List<ItemProperty>), ItemRealtimePricing realtimePricing = default(ItemRealtimePricing), int? recommendReplenishmentDays = default(int?), ItemRelated related = default(ItemRelated), ItemReporting reporting = default(ItemReporting), ItemRestriction restriction = default(ItemRestriction), ItemRevguard revguard = default(ItemRevguard), ItemReviews reviews = default(ItemReviews), ItemSalesforce salesforce = default(ItemSalesforce), ItemShipping shipping = default(ItemShipping), ItemTags tags = default(ItemTags), ItemTax tax = default(ItemTax), List<ItemThirdPartyEmailMarketing> thirdPartyEmailMarketing = default(List<ItemThirdPartyEmailMarketing>), List<ItemVariantItem> variantItems = default(List<ItemVariantItem>), List<ItemVariation> variations = default(List<ItemVariation>), ItemWishlistMember wishlistMember = default(ItemWishlistMember))
         {
             this.Accounting = accounting;
             this.Amember = amember;
             this.AutoOrder = autoOrder;
             this.Ccbill = ccbill;
-            this.ChannelPartnerMappings = channelPartnerMappings;
+            this.ChannelPartnerItemMappings = channelPartnerItemMappings;
             this.Chargeback = chargeback;
             this.Checkout = checkout;
             this.Content = content;
@@ -165,8 +165,8 @@ namespace com.ultracart.admin.v2.Model
         /// Channel Partner Item Mapping
         /// </summary>
         /// <value>Channel Partner Item Mapping</value>
-        [DataMember(Name="channelPartnerMappings", EmitDefaultValue=false)]
-        public List<ItemChannelPartnerMapping> ChannelPartnerMappings { get; set; }
+        [DataMember(Name="channel_partner_item_mappings", EmitDefaultValue=false)]
+        public List<ItemChannelPartnerMapping> ChannelPartnerItemMappings { get; set; }
 
         /// <summary>
         /// Gets or Sets Chargeback
@@ -468,7 +468,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Amember: ").Append(Amember).Append("\n");
             sb.Append("  AutoOrder: ").Append(AutoOrder).Append("\n");
             sb.Append("  Ccbill: ").Append(Ccbill).Append("\n");
-            sb.Append("  ChannelPartnerMappings: ").Append(ChannelPartnerMappings).Append("\n");
+            sb.Append("  ChannelPartnerItemMappings: ").Append(ChannelPartnerItemMappings).Append("\n");
             sb.Append("  Chargeback: ").Append(Chargeback).Append("\n");
             sb.Append("  Checkout: ").Append(Checkout).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
@@ -569,9 +569,9 @@ namespace com.ultracart.admin.v2.Model
                     this.Ccbill.Equals(input.Ccbill))
                 ) && 
                 (
-                    this.ChannelPartnerMappings == input.ChannelPartnerMappings ||
-                    this.ChannelPartnerMappings != null &&
-                    this.ChannelPartnerMappings.SequenceEqual(input.ChannelPartnerMappings)
+                    this.ChannelPartnerItemMappings == input.ChannelPartnerItemMappings ||
+                    this.ChannelPartnerItemMappings != null &&
+                    this.ChannelPartnerItemMappings.SequenceEqual(input.ChannelPartnerItemMappings)
                 ) && 
                 (
                     this.Chargeback == input.Chargeback ||
@@ -817,8 +817,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AutoOrder.GetHashCode();
                 if (this.Ccbill != null)
                     hashCode = hashCode * 59 + this.Ccbill.GetHashCode();
-                if (this.ChannelPartnerMappings != null)
-                    hashCode = hashCode * 59 + this.ChannelPartnerMappings.GetHashCode();
+                if (this.ChannelPartnerItemMappings != null)
+                    hashCode = hashCode * 59 + this.ChannelPartnerItemMappings.GetHashCode();
                 if (this.Chargeback != null)
                     hashCode = hashCode * 59 + this.Chargeback.GetHashCode();
                 if (this.Checkout != null)

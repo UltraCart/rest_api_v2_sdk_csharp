@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeliveryDts** | **string** | Date/time of delivery | [optional] 
 **Duration** | **int?** | Number of milliseconds to process the notification | [optional] 
+**QueueDelay** | **long?** | Number of milliseconds of delay caused by queuing | [optional] 
 **Request** | **string** | Request payload (first 100,000 characters) | [optional] 
 **RequestHeaders** | [**List&lt;HTTPHeader&gt;**](HTTPHeader.md) | Request headers sent to the server | [optional] 
 **RequestId** | **string** | Request id is a unique string that you can look up in the logs | [optional] 

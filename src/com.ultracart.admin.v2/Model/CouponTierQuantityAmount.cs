@@ -35,10 +35,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="discountAmount">The amount of discount per item..</param>
         /// <param name="itemQuantity">The quantity of item purchased (in units).</param>
-        public CouponTierQuantityAmount(decimal? discountAmount = default(decimal?), int? itemQuantity = default(int?))
+        /// <param name="quickbooksCode">Quickbooks accounting code..</param>
+        public CouponTierQuantityAmount(decimal? discountAmount = default(decimal?), int? itemQuantity = default(int?), string quickbooksCode = default(string))
         {
             this.DiscountAmount = discountAmount;
             this.ItemQuantity = itemQuantity;
+            this.QuickbooksCode = quickbooksCode;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace com.ultracart.admin.v2.Model
         public int? ItemQuantity { get; set; }
 
         /// <summary>
+        /// Quickbooks accounting code.
+        /// </summary>
+        /// <value>Quickbooks accounting code.</value>
+        [DataMember(Name="quickbooks_code", EmitDefaultValue=false)]
+        public string QuickbooksCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class CouponTierQuantityAmount {\n");
             sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
             sb.Append("  ItemQuantity: ").Append(ItemQuantity).Append("\n");
+            sb.Append("  QuickbooksCode: ").Append(QuickbooksCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ItemQuantity == input.ItemQuantity ||
                     (this.ItemQuantity != null &&
                     this.ItemQuantity.Equals(input.ItemQuantity))
+                ) && 
+                (
+                    this.QuickbooksCode == input.QuickbooksCode ||
+                    (this.QuickbooksCode != null &&
+                    this.QuickbooksCode.Equals(input.QuickbooksCode))
                 );
         }
 
@@ -124,6 +139,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DiscountAmount.GetHashCode();
                 if (this.ItemQuantity != null)
                     hashCode = hashCode * 59 + this.ItemQuantity.GetHashCode();
+                if (this.QuickbooksCode != null)
+                    hashCode = hashCode * 59 + this.QuickbooksCode.GetHashCode();
                 return hashCode;
             }
         }
@@ -135,6 +152,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // QuickbooksCode (string) maxLength
+            if(this.QuickbooksCode != null && this.QuickbooksCode.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for QuickbooksCode, length must be less than 20.", new [] { "QuickbooksCode" });
+            }
+
             yield break;
         }
     }

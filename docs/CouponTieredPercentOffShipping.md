@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**QuickbooksCode** | **string** | Quickbooks accounting code. | [optional] 
 **ShippingMethods** | **List&lt;string&gt;** | One or more shipping methods that may receive this discount | [optional] 
 **Tiers** | [**List&lt;CouponTierPercent&gt;**](CouponTierPercent.md) | A list of discount tiers. | [optional] 
 

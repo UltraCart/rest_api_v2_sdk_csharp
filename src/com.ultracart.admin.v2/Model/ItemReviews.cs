@@ -40,7 +40,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="reviewTemplateName">Review template name.</param>
         /// <param name="reviewTemplateOid">Review template object identifier.</param>
         /// <param name="reviewable">True if the item is reviewable.</param>
-        public ItemReviews(bool? hasApprovedReview = default(bool?), bool? hasReview = default(bool?), int? reviewCount = default(int?), decimal? reviewOverall = default(decimal?), string reviewTemplateName = default(string), int? reviewTemplateOid = default(int?), bool? reviewable = default(bool?))
+        /// <param name="shareReviewsWithMerchantItemId">Share reviews with item id.  To set, use the share_reviews_with_merchant_item_oid field..</param>
+        /// <param name="shareReviewsWithMerchantItemOid">Share reviews with item oid.  To null out this field, set teh value to zero..</param>
+        public ItemReviews(bool? hasApprovedReview = default(bool?), bool? hasReview = default(bool?), int? reviewCount = default(int?), decimal? reviewOverall = default(decimal?), string reviewTemplateName = default(string), int? reviewTemplateOid = default(int?), bool? reviewable = default(bool?), string shareReviewsWithMerchantItemId = default(string), int? shareReviewsWithMerchantItemOid = default(int?))
         {
             this.HasApprovedReview = hasApprovedReview;
             this.HasReview = hasReview;
@@ -49,6 +51,8 @@ namespace com.ultracart.admin.v2.Model
             this.ReviewTemplateName = reviewTemplateName;
             this.ReviewTemplateOid = reviewTemplateOid;
             this.Reviewable = reviewable;
+            this.ShareReviewsWithMerchantItemId = shareReviewsWithMerchantItemId;
+            this.ShareReviewsWithMerchantItemOid = shareReviewsWithMerchantItemOid;
         }
         
         /// <summary>
@@ -101,6 +105,20 @@ namespace com.ultracart.admin.v2.Model
         public bool? Reviewable { get; set; }
 
         /// <summary>
+        /// Share reviews with item id.  To set, use the share_reviews_with_merchant_item_oid field.
+        /// </summary>
+        /// <value>Share reviews with item id.  To set, use the share_reviews_with_merchant_item_oid field.</value>
+        [DataMember(Name="share_reviews_with_merchant_item_id", EmitDefaultValue=false)]
+        public string ShareReviewsWithMerchantItemId { get; set; }
+
+        /// <summary>
+        /// Share reviews with item oid.  To null out this field, set teh value to zero.
+        /// </summary>
+        /// <value>Share reviews with item oid.  To null out this field, set teh value to zero.</value>
+        [DataMember(Name="share_reviews_with_merchant_item_oid", EmitDefaultValue=false)]
+        public int? ShareReviewsWithMerchantItemOid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +133,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ReviewTemplateName: ").Append(ReviewTemplateName).Append("\n");
             sb.Append("  ReviewTemplateOid: ").Append(ReviewTemplateOid).Append("\n");
             sb.Append("  Reviewable: ").Append(Reviewable).Append("\n");
+            sb.Append("  ShareReviewsWithMerchantItemId: ").Append(ShareReviewsWithMerchantItemId).Append("\n");
+            sb.Append("  ShareReviewsWithMerchantItemOid: ").Append(ShareReviewsWithMerchantItemOid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,6 +203,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Reviewable == input.Reviewable ||
                     (this.Reviewable != null &&
                     this.Reviewable.Equals(input.Reviewable))
+                ) && 
+                (
+                    this.ShareReviewsWithMerchantItemId == input.ShareReviewsWithMerchantItemId ||
+                    (this.ShareReviewsWithMerchantItemId != null &&
+                    this.ShareReviewsWithMerchantItemId.Equals(input.ShareReviewsWithMerchantItemId))
+                ) && 
+                (
+                    this.ShareReviewsWithMerchantItemOid == input.ShareReviewsWithMerchantItemOid ||
+                    (this.ShareReviewsWithMerchantItemOid != null &&
+                    this.ShareReviewsWithMerchantItemOid.Equals(input.ShareReviewsWithMerchantItemOid))
                 );
         }
 
@@ -209,6 +239,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ReviewTemplateOid.GetHashCode();
                 if (this.Reviewable != null)
                     hashCode = hashCode * 59 + this.Reviewable.GetHashCode();
+                if (this.ShareReviewsWithMerchantItemId != null)
+                    hashCode = hashCode * 59 + this.ShareReviewsWithMerchantItemId.GetHashCode();
+                if (this.ShareReviewsWithMerchantItemOid != null)
+                    hashCode = hashCode * 59 + this.ShareReviewsWithMerchantItemOid.GetHashCode();
                 return hashCode;
             }
         }

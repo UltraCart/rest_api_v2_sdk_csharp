@@ -1814,8 +1814,12 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>ScreenRecordingHeatmapIndexResponse</returns>
-        ScreenRecordingHeatmapIndexResponse GetHeatmapIndex (int? storefrontOid);
+        ScreenRecordingHeatmapIndexResponse GetHeatmapIndex (int? storefrontOid, ScreenRecordingHeatmapIndexRequest query, int? limit = null, int? offset = null, string sort = null);
 
         /// <summary>
         /// Get screen recording heatmap index
@@ -1825,8 +1829,12 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>ApiResponse of ScreenRecordingHeatmapIndexResponse</returns>
-        ApiResponse<ScreenRecordingHeatmapIndexResponse> GetHeatmapIndexWithHttpInfo (int? storefrontOid);
+        ApiResponse<ScreenRecordingHeatmapIndexResponse> GetHeatmapIndexWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapIndexRequest query, int? limit = null, int? offset = null, string sort = null);
         /// <summary>
         /// Get histogram property names
         /// </summary>
@@ -5243,8 +5251,12 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>Task of ScreenRecordingHeatmapIndexResponse</returns>
-        System.Threading.Tasks.Task<ScreenRecordingHeatmapIndexResponse> GetHeatmapIndexAsync (int? storefrontOid);
+        System.Threading.Tasks.Task<ScreenRecordingHeatmapIndexResponse> GetHeatmapIndexAsync (int? storefrontOid, ScreenRecordingHeatmapIndexRequest query, int? limit = null, int? offset = null, string sort = null);
 
         /// <summary>
         /// Get screen recording heatmap index
@@ -5254,8 +5266,12 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>Task of ApiResponse (ScreenRecordingHeatmapIndexResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingHeatmapIndexResponse>> GetHeatmapIndexAsyncWithHttpInfo (int? storefrontOid);
+        System.Threading.Tasks.Task<ApiResponse<ScreenRecordingHeatmapIndexResponse>> GetHeatmapIndexAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapIndexRequest query, int? limit = null, int? offset = null, string sort = null);
         /// <summary>
         /// Get histogram property names
         /// </summary>
@@ -20922,10 +20938,14 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>ScreenRecordingHeatmapIndexResponse</returns>
-        public ScreenRecordingHeatmapIndexResponse GetHeatmapIndex (int? storefrontOid)
+        public ScreenRecordingHeatmapIndexResponse GetHeatmapIndex (int? storefrontOid, ScreenRecordingHeatmapIndexRequest query, int? limit = null, int? offset = null, string sort = null)
         {
-             ApiResponse<ScreenRecordingHeatmapIndexResponse> localVarResponse = GetHeatmapIndexWithHttpInfo(storefrontOid);
+             ApiResponse<ScreenRecordingHeatmapIndexResponse> localVarResponse = GetHeatmapIndexWithHttpInfo(storefrontOid, query, limit, offset, sort);
              return localVarResponse.Data;
         }
 
@@ -20934,12 +20954,19 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>ApiResponse of ScreenRecordingHeatmapIndexResponse</returns>
-        public ApiResponse< ScreenRecordingHeatmapIndexResponse > GetHeatmapIndexWithHttpInfo (int? storefrontOid)
+        public ApiResponse< ScreenRecordingHeatmapIndexResponse > GetHeatmapIndexWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapIndexRequest query, int? limit = null, int? offset = null, string sort = null)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
                 throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetHeatmapIndex");
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ApiException(400, "Missing required parameter 'query' when calling StorefrontApi->GetHeatmapIndex");
 
             var localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap/index";
             var localVarPathParams = new Dictionary<String, String>();
@@ -20964,6 +20991,17 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (query != null && query.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(query); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = query; // byte array
+            }
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -21000,10 +21038,14 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>Task of ScreenRecordingHeatmapIndexResponse</returns>
-        public async System.Threading.Tasks.Task<ScreenRecordingHeatmapIndexResponse> GetHeatmapIndexAsync (int? storefrontOid)
+        public async System.Threading.Tasks.Task<ScreenRecordingHeatmapIndexResponse> GetHeatmapIndexAsync (int? storefrontOid, ScreenRecordingHeatmapIndexRequest query, int? limit = null, int? offset = null, string sort = null)
         {
-             ApiResponse<ScreenRecordingHeatmapIndexResponse> localVarResponse = await GetHeatmapIndexAsyncWithHttpInfo(storefrontOid);
+             ApiResponse<ScreenRecordingHeatmapIndexResponse> localVarResponse = await GetHeatmapIndexAsyncWithHttpInfo(storefrontOid, query, limit, offset, sort);
              return localVarResponse.Data;
 
         }
@@ -21013,12 +21055,19 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
+        /// <param name="query">Query</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>Task of ApiResponse (ScreenRecordingHeatmapIndexResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingHeatmapIndexResponse>> GetHeatmapIndexAsyncWithHttpInfo (int? storefrontOid)
+        public async System.Threading.Tasks.Task<ApiResponse<ScreenRecordingHeatmapIndexResponse>> GetHeatmapIndexAsyncWithHttpInfo (int? storefrontOid, ScreenRecordingHeatmapIndexRequest query, int? limit = null, int? offset = null, string sort = null)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
                 throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetHeatmapIndex");
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ApiException(400, "Missing required parameter 'query' when calling StorefrontApi->GetHeatmapIndex");
 
             var localVarPath = "/storefront/{storefront_oid}/screen_recordings/heatmap/index";
             var localVarPathParams = new Dictionary<String, String>();
@@ -21043,6 +21092,17 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (query != null && query.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(query); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = query; // byte array
+            }
 
             // authentication (ultraCartOauth) required
             // oauth required

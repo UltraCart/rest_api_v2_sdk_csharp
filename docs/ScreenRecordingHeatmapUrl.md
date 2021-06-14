@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **HistogramData** | **List&lt;int?&gt;** |  | [optional] 
 **HistogramInterval** | **string** |  | [optional] 
 **HistogramStartDts** | **string** |  | [optional] 
+**PageRank** | **int?** |  | [optional] 
 **SessionCount** | **int?** |  | [optional] 
 **Url** | **string** |  | [optional] 
 

@@ -36,12 +36,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="developerMessage">A technical message meant to be read by a developer.</param>
         /// <param name="errorCode">HTTP status code.</param>
         /// <param name="moreInfo">Additional information often a link to additional documentation.</param>
+        /// <param name="objectId">Object id that the error is associated with.</param>
         /// <param name="userMessage">An end-user friendly message suitable for display to the customer.</param>
-        public Error(string developerMessage = default(string), string errorCode = default(string), string moreInfo = default(string), string userMessage = default(string))
+        public Error(string developerMessage = default(string), string errorCode = default(string), string moreInfo = default(string), string objectId = default(string), string userMessage = default(string))
         {
             this.DeveloperMessage = developerMessage;
             this.ErrorCode = errorCode;
             this.MoreInfo = moreInfo;
+            this.ObjectId = objectId;
             this.UserMessage = userMessage;
         }
         
@@ -67,6 +69,13 @@ namespace com.ultracart.admin.v2.Model
         public string MoreInfo { get; set; }
 
         /// <summary>
+        /// Object id that the error is associated with
+        /// </summary>
+        /// <value>Object id that the error is associated with</value>
+        [DataMember(Name="object_id", EmitDefaultValue=false)]
+        public string ObjectId { get; set; }
+
+        /// <summary>
         /// An end-user friendly message suitable for display to the customer
         /// </summary>
         /// <value>An end-user friendly message suitable for display to the customer</value>
@@ -84,6 +93,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DeveloperMessage: ").Append(DeveloperMessage).Append("\n");
             sb.Append("  ErrorCode: ").Append(ErrorCode).Append("\n");
             sb.Append("  MoreInfo: ").Append(MoreInfo).Append("\n");
+            sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
             sb.Append("  UserMessage: ").Append(UserMessage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -135,6 +145,11 @@ namespace com.ultracart.admin.v2.Model
                     this.MoreInfo.Equals(input.MoreInfo))
                 ) && 
                 (
+                    this.ObjectId == input.ObjectId ||
+                    (this.ObjectId != null &&
+                    this.ObjectId.Equals(input.ObjectId))
+                ) && 
+                (
                     this.UserMessage == input.UserMessage ||
                     (this.UserMessage != null &&
                     this.UserMessage.Equals(input.UserMessage))
@@ -156,6 +171,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ErrorCode.GetHashCode();
                 if (this.MoreInfo != null)
                     hashCode = hashCode * 59 + this.MoreInfo.GetHashCode();
+                if (this.ObjectId != null)
+                    hashCode = hashCode * 59 + this.ObjectId.GetHashCode();
                 if (this.UserMessage != null)
                     hashCode = hashCode * 59 + this.UserMessage.GetHashCode();
                 return hashCode;

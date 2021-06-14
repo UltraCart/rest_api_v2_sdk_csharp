@@ -36,13 +36,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="histogramData">histogramData.</param>
         /// <param name="histogramInterval">histogramInterval.</param>
         /// <param name="histogramStartDts">histogramStartDts.</param>
+        /// <param name="pageRank">pageRank.</param>
         /// <param name="sessionCount">sessionCount.</param>
         /// <param name="url">url.</param>
-        public ScreenRecordingHeatmapUrl(List<int?> histogramData = default(List<int?>), string histogramInterval = default(string), string histogramStartDts = default(string), int? sessionCount = default(int?), string url = default(string))
+        public ScreenRecordingHeatmapUrl(List<int?> histogramData = default(List<int?>), string histogramInterval = default(string), string histogramStartDts = default(string), int? pageRank = default(int?), int? sessionCount = default(int?), string url = default(string))
         {
             this.HistogramData = histogramData;
             this.HistogramInterval = histogramInterval;
             this.HistogramStartDts = histogramStartDts;
+            this.PageRank = pageRank;
             this.SessionCount = sessionCount;
             this.Url = url;
         }
@@ -64,6 +66,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="histogram_start_dts", EmitDefaultValue=false)]
         public string HistogramStartDts { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PageRank
+        /// </summary>
+        [DataMember(Name="page_rank", EmitDefaultValue=false)]
+        public int? PageRank { get; set; }
 
         /// <summary>
         /// Gets or Sets SessionCount
@@ -88,6 +96,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  HistogramData: ").Append(HistogramData).Append("\n");
             sb.Append("  HistogramInterval: ").Append(HistogramInterval).Append("\n");
             sb.Append("  HistogramStartDts: ").Append(HistogramStartDts).Append("\n");
+            sb.Append("  PageRank: ").Append(PageRank).Append("\n");
             sb.Append("  SessionCount: ").Append(SessionCount).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
@@ -140,6 +149,11 @@ namespace com.ultracart.admin.v2.Model
                     this.HistogramStartDts.Equals(input.HistogramStartDts))
                 ) && 
                 (
+                    this.PageRank == input.PageRank ||
+                    (this.PageRank != null &&
+                    this.PageRank.Equals(input.PageRank))
+                ) && 
+                (
                     this.SessionCount == input.SessionCount ||
                     (this.SessionCount != null &&
                     this.SessionCount.Equals(input.SessionCount))
@@ -166,6 +180,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.HistogramInterval.GetHashCode();
                 if (this.HistogramStartDts != null)
                     hashCode = hashCode * 59 + this.HistogramStartDts.GetHashCode();
+                if (this.PageRank != null)
+                    hashCode = hashCode * 59 + this.PageRank.GetHashCode();
                 if (this.SessionCount != null)
                     hashCode = hashCode * 59 + this.SessionCount.GetHashCode();
                 if (this.Url != null)

@@ -5290,7 +5290,7 @@ Name | Type | Description  | Notes
 
 <a name="getheatmapindex"></a>
 # **GetHeatmapIndex**
-> ScreenRecordingHeatmapIndexResponse GetHeatmapIndex (int? storefrontOid)
+> ScreenRecordingHeatmapIndexResponse GetHeatmapIndex (int? storefrontOid, ScreenRecordingHeatmapIndexRequest query, int? limit = null, int? offset = null, string sort = null)
 
 Get screen recording heatmap index
 
@@ -5316,11 +5316,15 @@ namespace Example
             var api = new StorefrontApi(simpleKey);
 
             var storefrontOid = 56;  // int? | 
+            var query = new ScreenRecordingHeatmapIndexRequest(); // ScreenRecordingHeatmapIndexRequest | Query
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Default 100, Max 500) (optional)  (default to 100)
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var sort = sort_example;  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
 
             try
             {
                 // Get screen recording heatmap index
-                ScreenRecordingHeatmapIndexResponse result = apiInstance.GetHeatmapIndex(storefrontOid);
+                ScreenRecordingHeatmapIndexResponse result = apiInstance.GetHeatmapIndex(storefrontOid, query, limit, offset, sort);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -5338,6 +5342,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefrontOid** | **int?**|  | 
+ **query** | [**ScreenRecordingHeatmapIndexRequest**](ScreenRecordingHeatmapIndexRequest.md)| Query | 
+ **limit** | **int?**| The maximum number of records to return on this one API call. (Default 100, Max 500) | [optional] [default to 100]
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
 
 ### Return type
 

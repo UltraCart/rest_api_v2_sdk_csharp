@@ -42,6 +42,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="buyerItemNumber">Buyer item number (EDI only).</param>
         /// <param name="channelPartnerCode">Channel partner code.</param>
         /// <param name="channelPartnerOid">Channel partner object identifier.</param>
+        /// <param name="cost">Cost given to this channel partner.</param>
         /// <param name="fromItemId">From Item ID.</param>
         /// <param name="fromSku">From SKU.</param>
         /// <param name="mutuallyDefinedNumber">Mutually defined number (EDI only).</param>
@@ -51,7 +52,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="unitOfMeasure">Unit of measure.</param>
         /// <param name="vendorNumber">Vendor number (EDI only).</param>
         /// <param name="vendorStyleNumber">Vendor style number (EDI only).</param>
-        public ItemChannelPartnerMapping(string barcodeUa = default(string), string barcodeUc = default(string), string barcodeUi = default(string), string barcodeUk = default(string), string buyerCatalogNumber = default(string), string buyerDpci = default(string), string buyerItemNumber = default(string), string channelPartnerCode = default(string), int? channelPartnerOid = default(int?), string fromItemId = default(string), string fromSku = default(string), string mutuallyDefinedNumber = default(string), int? quantityRatioCp = default(int?), int? quantityRatioUc = default(int?), string sku = default(string), string unitOfMeasure = default(string), string vendorNumber = default(string), string vendorStyleNumber = default(string))
+        public ItemChannelPartnerMapping(string barcodeUa = default(string), string barcodeUc = default(string), string barcodeUi = default(string), string barcodeUk = default(string), string buyerCatalogNumber = default(string), string buyerDpci = default(string), string buyerItemNumber = default(string), string channelPartnerCode = default(string), int? channelPartnerOid = default(int?), decimal? cost = default(decimal?), string fromItemId = default(string), string fromSku = default(string), string mutuallyDefinedNumber = default(string), int? quantityRatioCp = default(int?), int? quantityRatioUc = default(int?), string sku = default(string), string unitOfMeasure = default(string), string vendorNumber = default(string), string vendorStyleNumber = default(string))
         {
             this.BarcodeUa = barcodeUa;
             this.BarcodeUc = barcodeUc;
@@ -62,6 +63,7 @@ namespace com.ultracart.admin.v2.Model
             this.BuyerItemNumber = buyerItemNumber;
             this.ChannelPartnerCode = channelPartnerCode;
             this.ChannelPartnerOid = channelPartnerOid;
+            this.Cost = cost;
             this.FromItemId = fromItemId;
             this.FromSku = fromSku;
             this.MutuallyDefinedNumber = mutuallyDefinedNumber;
@@ -135,6 +137,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Channel partner object identifier</value>
         [DataMember(Name="channel_partner_oid", EmitDefaultValue=false)]
         public int? ChannelPartnerOid { get; set; }
+
+        /// <summary>
+        /// Cost given to this channel partner
+        /// </summary>
+        /// <value>Cost given to this channel partner</value>
+        [DataMember(Name="cost", EmitDefaultValue=false)]
+        public decimal? Cost { get; set; }
 
         /// <summary>
         /// From Item ID
@@ -216,6 +225,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  BuyerItemNumber: ").Append(BuyerItemNumber).Append("\n");
             sb.Append("  ChannelPartnerCode: ").Append(ChannelPartnerCode).Append("\n");
             sb.Append("  ChannelPartnerOid: ").Append(ChannelPartnerOid).Append("\n");
+            sb.Append("  Cost: ").Append(Cost).Append("\n");
             sb.Append("  FromItemId: ").Append(FromItemId).Append("\n");
             sb.Append("  FromSku: ").Append(FromSku).Append("\n");
             sb.Append("  MutuallyDefinedNumber: ").Append(MutuallyDefinedNumber).Append("\n");
@@ -305,6 +315,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ChannelPartnerOid.Equals(input.ChannelPartnerOid))
                 ) && 
                 (
+                    this.Cost == input.Cost ||
+                    (this.Cost != null &&
+                    this.Cost.Equals(input.Cost))
+                ) && 
+                (
                     this.FromItemId == input.FromItemId ||
                     (this.FromItemId != null &&
                     this.FromItemId.Equals(input.FromItemId))
@@ -378,6 +393,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ChannelPartnerCode.GetHashCode();
                 if (this.ChannelPartnerOid != null)
                     hashCode = hashCode * 59 + this.ChannelPartnerOid.GetHashCode();
+                if (this.Cost != null)
+                    hashCode = hashCode * 59 + this.Cost.GetHashCode();
                 if (this.FromItemId != null)
                     hashCode = hashCode * 59 + this.FromItemId.GetHashCode();
                 if (this.FromSku != null)

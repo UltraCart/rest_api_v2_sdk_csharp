@@ -1,11 +1,11 @@
-# com.ultracart.admin.v2.Model.LibraryItemAttribute
+# com.ultracart.admin.v2.Model.IntegrationLogFile
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LibraryItemOid** | **int?** |  | [optional] 
 **Name** | **string** |  | [optional] 
-**Value** | **string** |  | [optional] 
+**Size** | **int?** |  | [optional] 
+**Uuid** | **string** |  | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

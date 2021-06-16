@@ -25,29 +25,27 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// LibraryItemAttribute
+    /// IntegrationLogLog
     /// </summary>
     [DataContract]
-    public partial class LibraryItemAttribute :  IEquatable<LibraryItemAttribute>, IValidatableObject
+    public partial class IntegrationLogLog :  IEquatable<IntegrationLogLog>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LibraryItemAttribute" /> class.
+        /// Initializes a new instance of the <see cref="IntegrationLogLog" /> class.
         /// </summary>
-        /// <param name="libraryItemOid">libraryItemOid.</param>
+        /// <param name="contents">contents.</param>
         /// <param name="name">name.</param>
-        /// <param name="value">value.</param>
-        public LibraryItemAttribute(int? libraryItemOid = default(int?), string name = default(string), string value = default(string))
+        public IntegrationLogLog(string contents = default(string), string name = default(string))
         {
-            this.LibraryItemOid = libraryItemOid;
+            this.Contents = contents;
             this.Name = name;
-            this.Value = value;
         }
         
         /// <summary>
-        /// Gets or Sets LibraryItemOid
+        /// Gets or Sets Contents
         /// </summary>
-        [DataMember(Name="libraryItemOid", EmitDefaultValue=false)]
-        public int? LibraryItemOid { get; set; }
+        [DataMember(Name="contents", EmitDefaultValue=false)]
+        public string Contents { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -56,22 +54,15 @@ namespace com.ultracart.admin.v2.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
-        /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public string Value { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LibraryItemAttribute {\n");
-            sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
+            sb.Append("class IntegrationLogLog {\n");
+            sb.Append("  Contents: ").Append(Contents).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,34 +83,29 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LibraryItemAttribute);
+            return this.Equals(input as IntegrationLogLog);
         }
 
         /// <summary>
-        /// Returns true if LibraryItemAttribute instances are equal
+        /// Returns true if IntegrationLogLog instances are equal
         /// </summary>
-        /// <param name="input">Instance of LibraryItemAttribute to be compared</param>
+        /// <param name="input">Instance of IntegrationLogLog to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LibraryItemAttribute input)
+        public bool Equals(IntegrationLogLog input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.LibraryItemOid == input.LibraryItemOid ||
-                    (this.LibraryItemOid != null &&
-                    this.LibraryItemOid.Equals(input.LibraryItemOid))
+                    this.Contents == input.Contents ||
+                    (this.Contents != null &&
+                    this.Contents.Equals(input.Contents))
                 ) && 
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -132,12 +118,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.LibraryItemOid != null)
-                    hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
+                if (this.Contents != null)
+                    hashCode = hashCode * 59 + this.Contents.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 return hashCode;
             }
         }

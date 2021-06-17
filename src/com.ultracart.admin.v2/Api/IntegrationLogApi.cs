@@ -33,8 +33,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pk"></param>
         /// <param name="sk"></param>
-        /// <returns>IntegrationLog</returns>
-        IntegrationLog GetIntegrationLog (string pk, string sk);
+        /// <returns>IntegrationLogResponse</returns>
+        IntegrationLogResponse GetIntegrationLog (string pk, string sk);
 
         /// <summary>
         /// Retrieve an integration log
@@ -45,8 +45,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pk"></param>
         /// <param name="sk"></param>
-        /// <returns>ApiResponse of IntegrationLog</returns>
-        ApiResponse<IntegrationLog> GetIntegrationLogWithHttpInfo (string pk, string sk);
+        /// <returns>ApiResponse of IntegrationLogResponse</returns>
+        ApiResponse<IntegrationLogResponse> GetIntegrationLogWithHttpInfo (string pk, string sk);
         /// <summary>
         /// Retrieve integration logs
         /// </summary>
@@ -85,8 +85,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pk"></param>
         /// <param name="sk"></param>
-        /// <returns>Task of IntegrationLog</returns>
-        System.Threading.Tasks.Task<IntegrationLog> GetIntegrationLogAsync (string pk, string sk);
+        /// <returns>Task of IntegrationLogResponse</returns>
+        System.Threading.Tasks.Task<IntegrationLogResponse> GetIntegrationLogAsync (string pk, string sk);
 
         /// <summary>
         /// Retrieve an integration log
@@ -97,8 +97,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pk"></param>
         /// <param name="sk"></param>
-        /// <returns>Task of ApiResponse (IntegrationLog)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationLog>> GetIntegrationLogAsyncWithHttpInfo (string pk, string sk);
+        /// <returns>Task of ApiResponse (IntegrationLogResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IntegrationLogResponse>> GetIntegrationLogAsyncWithHttpInfo (string pk, string sk);
         /// <summary>
         /// Retrieve integration logs
         /// </summary>
@@ -239,10 +239,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pk"></param>
         /// <param name="sk"></param>
-        /// <returns>IntegrationLog</returns>
-        public IntegrationLog GetIntegrationLog (string pk, string sk)
+        /// <returns>IntegrationLogResponse</returns>
+        public IntegrationLogResponse GetIntegrationLog (string pk, string sk)
         {
-             ApiResponse<IntegrationLog> localVarResponse = GetIntegrationLogWithHttpInfo(pk, sk);
+             ApiResponse<IntegrationLogResponse> localVarResponse = GetIntegrationLogWithHttpInfo(pk, sk);
              return localVarResponse.Data;
         }
 
@@ -252,8 +252,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pk"></param>
         /// <param name="sk"></param>
-        /// <returns>ApiResponse of IntegrationLog</returns>
-        public ApiResponse< IntegrationLog > GetIntegrationLogWithHttpInfo (string pk, string sk)
+        /// <returns>ApiResponse of IntegrationLogResponse</returns>
+        public ApiResponse< IntegrationLogResponse > GetIntegrationLogWithHttpInfo (string pk, string sk)
         {
             // verify the required parameter 'pk' is set
             if (pk == null)
@@ -312,9 +312,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<IntegrationLog>(localVarStatusCode,
+            return new ApiResponse<IntegrationLogResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (IntegrationLog) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegrationLog)));
+                (IntegrationLogResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegrationLogResponse)));
         }
 
         /// <summary>
@@ -323,10 +323,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pk"></param>
         /// <param name="sk"></param>
-        /// <returns>Task of IntegrationLog</returns>
-        public async System.Threading.Tasks.Task<IntegrationLog> GetIntegrationLogAsync (string pk, string sk)
+        /// <returns>Task of IntegrationLogResponse</returns>
+        public async System.Threading.Tasks.Task<IntegrationLogResponse> GetIntegrationLogAsync (string pk, string sk)
         {
-             ApiResponse<IntegrationLog> localVarResponse = await GetIntegrationLogAsyncWithHttpInfo(pk, sk);
+             ApiResponse<IntegrationLogResponse> localVarResponse = await GetIntegrationLogAsyncWithHttpInfo(pk, sk);
              return localVarResponse.Data;
 
         }
@@ -337,8 +337,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pk"></param>
         /// <param name="sk"></param>
-        /// <returns>Task of ApiResponse (IntegrationLog)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegrationLog>> GetIntegrationLogAsyncWithHttpInfo (string pk, string sk)
+        /// <returns>Task of ApiResponse (IntegrationLogResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationLogResponse>> GetIntegrationLogAsyncWithHttpInfo (string pk, string sk)
         {
             // verify the required parameter 'pk' is set
             if (pk == null)
@@ -397,9 +397,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<IntegrationLog>(localVarStatusCode,
+            return new ApiResponse<IntegrationLogResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (IntegrationLog) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegrationLog)));
+                (IntegrationLogResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegrationLogResponse)));
         }
 
         /// <summary>

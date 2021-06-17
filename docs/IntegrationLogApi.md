@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getintegrationlog"></a>
 # **GetIntegrationLog**
-> IntegrationLog GetIntegrationLog (string pk, string sk)
+> IntegrationLogResponse GetIntegrationLog (string pk, string sk)
 
 Retrieve an integration log
 
@@ -41,7 +41,7 @@ namespace Example
             try
             {
                 // Retrieve an integration log
-                IntegrationLog result = apiInstance.GetIntegrationLog(pk, sk);
+                IntegrationLogResponse result = apiInstance.GetIntegrationLog(pk, sk);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IntegrationLog**](IntegrationLog.md)
+[**IntegrationLogResponse**](IntegrationLogResponse.md)
 
 ### Authorization
 

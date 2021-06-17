@@ -34,10 +34,12 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ScreenRecordingHeatmapRequest" /> class.
         /// </summary>
         /// <param name="range">range.</param>
+        /// <param name="screenSizes">screenSizes.</param>
         /// <param name="url">url.</param>
-        public ScreenRecordingHeatmapRequest(ScreenRecordingFilterRangeDate range = default(ScreenRecordingFilterRangeDate), string url = default(string))
+        public ScreenRecordingHeatmapRequest(ScreenRecordingFilterRangeDate range = default(ScreenRecordingFilterRangeDate), List<string> screenSizes = default(List<string>), string url = default(string))
         {
             this.Range = range;
+            this.ScreenSizes = screenSizes;
             this.Url = url;
         }
         
@@ -46,6 +48,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="range", EmitDefaultValue=false)]
         public ScreenRecordingFilterRangeDate Range { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ScreenSizes
+        /// </summary>
+        [DataMember(Name="screen_sizes", EmitDefaultValue=false)]
+        public List<string> ScreenSizes { get; set; }
 
         /// <summary>
         /// Gets or Sets Url
@@ -62,6 +70,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingHeatmapRequest {\n");
             sb.Append("  Range: ").Append(Range).Append("\n");
+            sb.Append("  ScreenSizes: ").Append(ScreenSizes).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -103,6 +112,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Range.Equals(input.Range))
                 ) && 
                 (
+                    this.ScreenSizes == input.ScreenSizes ||
+                    this.ScreenSizes != null &&
+                    this.ScreenSizes.SequenceEqual(input.ScreenSizes)
+                ) && 
+                (
                     this.Url == input.Url ||
                     (this.Url != null &&
                     this.Url.Equals(input.Url))
@@ -120,6 +134,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Range != null)
                     hashCode = hashCode * 59 + this.Range.GetHashCode();
+                if (this.ScreenSizes != null)
+                    hashCode = hashCode * 59 + this.ScreenSizes.GetHashCode();
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
                 return hashCode;

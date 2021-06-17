@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Range** | [**ScreenRecordingFilterRangeDate**](ScreenRecordingFilterRangeDate.md) |  | [optional] 
+**ScreenSizes** | **List&lt;string&gt;** |  | [optional] 
 **Url** | **string** |  | [optional] 
 
 

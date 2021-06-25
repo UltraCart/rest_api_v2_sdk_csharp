@@ -33,16 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IntegrationLogFile" /> class.
         /// </summary>
+        /// <param name="mimeType">mimeType.</param>
         /// <param name="name">name.</param>
         /// <param name="size">size.</param>
         /// <param name="uuid">uuid.</param>
-        public IntegrationLogFile(string name = default(string), int? size = default(int?), string uuid = default(string))
+        public IntegrationLogFile(string mimeType = default(string), string name = default(string), int? size = default(int?), string uuid = default(string))
         {
+            this.MimeType = mimeType;
             this.Name = name;
             this.Size = size;
             this.Uuid = uuid;
         }
         
+        /// <summary>
+        /// Gets or Sets MimeType
+        /// </summary>
+        [DataMember(Name="mime_type", EmitDefaultValue=false)]
+        public string MimeType { get; set; }
+
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -69,6 +77,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class IntegrationLogFile {\n");
+            sb.Append("  MimeType: ").Append(MimeType).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  Uuid: ").Append(Uuid).Append("\n");
@@ -107,6 +116,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.MimeType == input.MimeType ||
+                    (this.MimeType != null &&
+                    this.MimeType.Equals(input.MimeType))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -132,6 +146,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.MimeType != null)
+                    hashCode = hashCode * 59 + this.MimeType.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Size != null)

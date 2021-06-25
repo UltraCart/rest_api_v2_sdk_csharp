@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**MimeType** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Size** | **int?** |  | [optional] 
 **Uuid** | **string** |  | [optional] 

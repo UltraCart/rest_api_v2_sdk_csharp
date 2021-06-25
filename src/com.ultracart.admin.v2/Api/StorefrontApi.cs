@@ -1947,27 +1947,6 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of LibraryItemsResponse</returns>
         ApiResponse<LibraryItemsResponse> GetLibraryItemPublishedVersionsWithHttpInfo (int? libraryItemOid);
         /// <summary>
-        /// Retrieve pricing tiers
-        /// </summary>
-        /// <remarks>
-        /// Retrieves the pricing tiers 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>PricingTiersResponse</returns>
-        PricingTiersResponse GetPricingTiers (string expand = null);
-
-        /// <summary>
-        /// Retrieve pricing tiers
-        /// </summary>
-        /// <remarks>
-        /// Retrieves the pricing tiers 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of PricingTiersResponse</returns>
-        ApiResponse<PricingTiersResponse> GetPricingTiersWithHttpInfo (string expand = null);
-        /// <summary>
         /// Get screen recording
         /// </summary>
         /// <remarks>
@@ -2159,6 +2138,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>ApiResponse of ScreenRecordingQueryResponse</returns>
         ApiResponse<ScreenRecordingQueryResponse> GetScreenRecordingsBySegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
+        /// Retrieve pricing tiers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the pricing tiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>PricingTiersResponse</returns>
+        PricingTiersResponse GetStoreFrontPricingTiers (string expand = null);
+
+        /// <summary>
+        /// Retrieve pricing tiers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the pricing tiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of PricingTiersResponse</returns>
+        ApiResponse<PricingTiersResponse> GetStoreFrontPricingTiersWithHttpInfo (string expand = null);
         /// <summary>
         /// Get thumbnail parameters
         /// </summary>
@@ -5384,27 +5384,6 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (LibraryItemsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LibraryItemsResponse>> GetLibraryItemPublishedVersionsAsyncWithHttpInfo (int? libraryItemOid);
         /// <summary>
-        /// Retrieve pricing tiers
-        /// </summary>
-        /// <remarks>
-        /// Retrieves the pricing tiers 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of PricingTiersResponse</returns>
-        System.Threading.Tasks.Task<PricingTiersResponse> GetPricingTiersAsync (string expand = null);
-
-        /// <summary>
-        /// Retrieve pricing tiers
-        /// </summary>
-        /// <remarks>
-        /// Retrieves the pricing tiers 
-        /// </remarks>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (PricingTiersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PricingTiersResponse>> GetPricingTiersAsyncWithHttpInfo (string expand = null);
-        /// <summary>
         /// Get screen recording
         /// </summary>
         /// <remarks>
@@ -5596,6 +5575,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <returns>Task of ApiResponse (ScreenRecordingQueryResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ScreenRecordingQueryResponse>> GetScreenRecordingsBySegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid, int? limit = null, int? offset = null, string sort = null);
+        /// <summary>
+        /// Retrieve pricing tiers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the pricing tiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of PricingTiersResponse</returns>
+        System.Threading.Tasks.Task<PricingTiersResponse> GetStoreFrontPricingTiersAsync (string expand = null);
+
+        /// <summary>
+        /// Retrieve pricing tiers
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the pricing tiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (PricingTiersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PricingTiersResponse>> GetStoreFrontPricingTiersAsyncWithHttpInfo (string expand = null);
         /// <summary>
         /// Get thumbnail parameters
         /// </summary>
@@ -21982,157 +21982,6 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve pricing tiers Retrieves the pricing tiers 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>PricingTiersResponse</returns>
-        public PricingTiersResponse GetPricingTiers (string expand = null)
-        {
-             ApiResponse<PricingTiersResponse> localVarResponse = GetPricingTiersWithHttpInfo(expand);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve pricing tiers Retrieves the pricing tiers 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>ApiResponse of PricingTiersResponse</returns>
-        public ApiResponse< PricingTiersResponse > GetPricingTiersWithHttpInfo (string expand = null)
-        {
-
-            var localVarPath = "/storefront/pricing_tiers";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetPricingTiers", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<PricingTiersResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PricingTiersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PricingTiersResponse)));
-        }
-
-        /// <summary>
-        /// Retrieve pricing tiers Retrieves the pricing tiers 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of PricingTiersResponse</returns>
-        public async System.Threading.Tasks.Task<PricingTiersResponse> GetPricingTiersAsync (string expand = null)
-        {
-             ApiResponse<PricingTiersResponse> localVarResponse = await GetPricingTiersAsyncWithHttpInfo(expand);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Retrieve pricing tiers Retrieves the pricing tiers 
-        /// </summary>
-        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <returns>Task of ApiResponse (PricingTiersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PricingTiersResponse>> GetPricingTiersAsyncWithHttpInfo (string expand = null)
-        {
-
-            var localVarPath = "/storefront/pricing_tiers";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
-
-            // authentication (ultraCartOauth) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-            // authentication (ultraCartSimpleApiKey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
-            {
-                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetPricingTiers", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<PricingTiersResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PricingTiersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PricingTiersResponse)));
-        }
-
-        /// <summary>
         /// Get screen recording Get screen recording 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -23538,6 +23387,157 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ScreenRecordingQueryResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ScreenRecordingQueryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ScreenRecordingQueryResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve pricing tiers Retrieves the pricing tiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>PricingTiersResponse</returns>
+        public PricingTiersResponse GetStoreFrontPricingTiers (string expand = null)
+        {
+             ApiResponse<PricingTiersResponse> localVarResponse = GetStoreFrontPricingTiersWithHttpInfo(expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve pricing tiers Retrieves the pricing tiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of PricingTiersResponse</returns>
+        public ApiResponse< PricingTiersResponse > GetStoreFrontPricingTiersWithHttpInfo (string expand = null)
+        {
+
+            var localVarPath = "/storefront/pricing_tiers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetStoreFrontPricingTiers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PricingTiersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PricingTiersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PricingTiersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve pricing tiers Retrieves the pricing tiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of PricingTiersResponse</returns>
+        public async System.Threading.Tasks.Task<PricingTiersResponse> GetStoreFrontPricingTiersAsync (string expand = null)
+        {
+             ApiResponse<PricingTiersResponse> localVarResponse = await GetStoreFrontPricingTiersAsyncWithHttpInfo(expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve pricing tiers Retrieves the pricing tiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (PricingTiersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PricingTiersResponse>> GetStoreFrontPricingTiersAsyncWithHttpInfo (string expand = null)
+        {
+
+            var localVarPath = "/storefront/pricing_tiers";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetStoreFrontPricingTiers", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PricingTiersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PricingTiersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PricingTiersResponse)));
         }
 
         /// <summary>

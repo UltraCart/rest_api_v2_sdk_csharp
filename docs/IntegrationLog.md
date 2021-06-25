@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **LogDts** | **string** |  | [optional] 
 **LogType** | **string** |  | [optional] 
 **LoggerId** | **string** |  | [optional] 
+**LoggerName** | **string** |  | [optional] 
 **Logs** | [**List&lt;IntegrationLogLog&gt;**](IntegrationLogLog.md) |  | [optional] 
 **OrderIds** | **List&lt;string&gt;** |  | [optional] 
 **Pk** | **string** |  | [optional] 

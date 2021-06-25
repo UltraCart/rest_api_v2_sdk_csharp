@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **LogDtsEnd** | **string** | Log date/time end | [optional] 
 **LogType** | **string** |  | [optional] 
 **LoggerId** | **string** |  | [optional] 
+**LoggerName** | **string** |  | [optional] 
 **OrderIds** | **List&lt;string&gt;** |  | [optional] 
 **Status** | **string** |  | [optional] 
 

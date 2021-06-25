@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ItemIds** | **List&lt;string&gt;** |  | [optional] 
 **ItemIpnOids** | **List&lt;int?&gt;** |  | [optional] 
 **LogTypes** | **List&lt;string&gt;** |  | [optional] 
+**LoggerNames** | **List&lt;string&gt;** |  | [optional] 
 **OrderIds** | **List&lt;string&gt;** |  | [optional] 
 **Statuses** | **List&lt;string&gt;** |  | [optional] 
 

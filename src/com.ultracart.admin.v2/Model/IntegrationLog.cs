@@ -43,12 +43,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="logDts">logDts.</param>
         /// <param name="logType">logType.</param>
         /// <param name="loggerId">loggerId.</param>
+        /// <param name="loggerName">loggerName.</param>
         /// <param name="logs">logs.</param>
         /// <param name="orderIds">orderIds.</param>
         /// <param name="pk">pk.</param>
         /// <param name="sk">sk.</param>
         /// <param name="status">status.</param>
-        public IntegrationLog(string action = default(string), string direction = default(string), string email = default(string), List<IntegrationLogFile> files = default(List<IntegrationLogFile>), int? integrationLogOid = default(int?), string itemId = default(string), int? itemIpnOid = default(int?), string logDts = default(string), string logType = default(string), string loggerId = default(string), List<IntegrationLogLog> logs = default(List<IntegrationLogLog>), List<string> orderIds = default(List<string>), string pk = default(string), string sk = default(string), string status = default(string))
+        public IntegrationLog(string action = default(string), string direction = default(string), string email = default(string), List<IntegrationLogFile> files = default(List<IntegrationLogFile>), int? integrationLogOid = default(int?), string itemId = default(string), int? itemIpnOid = default(int?), string logDts = default(string), string logType = default(string), string loggerId = default(string), string loggerName = default(string), List<IntegrationLogLog> logs = default(List<IntegrationLogLog>), List<string> orderIds = default(List<string>), string pk = default(string), string sk = default(string), string status = default(string))
         {
             this.Action = action;
             this.Direction = direction;
@@ -60,6 +61,7 @@ namespace com.ultracart.admin.v2.Model
             this.LogDts = logDts;
             this.LogType = logType;
             this.LoggerId = loggerId;
+            this.LoggerName = loggerName;
             this.Logs = logs;
             this.OrderIds = orderIds;
             this.Pk = pk;
@@ -128,6 +130,12 @@ namespace com.ultracart.admin.v2.Model
         public string LoggerId { get; set; }
 
         /// <summary>
+        /// Gets or Sets LoggerName
+        /// </summary>
+        [DataMember(Name="logger_name", EmitDefaultValue=false)]
+        public string LoggerName { get; set; }
+
+        /// <summary>
         /// Gets or Sets Logs
         /// </summary>
         [DataMember(Name="logs", EmitDefaultValue=false)]
@@ -175,6 +183,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LogDts: ").Append(LogDts).Append("\n");
             sb.Append("  LogType: ").Append(LogType).Append("\n");
             sb.Append("  LoggerId: ").Append(LoggerId).Append("\n");
+            sb.Append("  LoggerName: ").Append(LoggerName).Append("\n");
             sb.Append("  Logs: ").Append(Logs).Append("\n");
             sb.Append("  OrderIds: ").Append(OrderIds).Append("\n");
             sb.Append("  Pk: ").Append(Pk).Append("\n");
@@ -265,6 +274,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LoggerId.Equals(input.LoggerId))
                 ) && 
                 (
+                    this.LoggerName == input.LoggerName ||
+                    (this.LoggerName != null &&
+                    this.LoggerName.Equals(input.LoggerName))
+                ) && 
+                (
                     this.Logs == input.Logs ||
                     this.Logs != null &&
                     this.Logs.SequenceEqual(input.Logs)
@@ -320,6 +334,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LogType.GetHashCode();
                 if (this.LoggerId != null)
                     hashCode = hashCode * 59 + this.LoggerId.GetHashCode();
+                if (this.LoggerName != null)
+                    hashCode = hashCode * 59 + this.LoggerName.GetHashCode();
                 if (this.Logs != null)
                     hashCode = hashCode * 59 + this.Logs.GetHashCode();
                 if (this.OrderIds != null)

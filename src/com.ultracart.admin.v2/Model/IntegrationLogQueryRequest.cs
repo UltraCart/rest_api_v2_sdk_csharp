@@ -43,9 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="logDtsEnd">Log date/time end.</param>
         /// <param name="logType">logType.</param>
         /// <param name="loggerId">loggerId.</param>
+        /// <param name="loggerName">loggerName.</param>
         /// <param name="orderIds">orderIds.</param>
         /// <param name="status">status.</param>
-        public IntegrationLogQueryRequest(string action = default(string), string direction = default(string), string email = default(string), List<string> fileNames = default(List<string>), string itemId = default(string), int? itemIpnOid = default(int?), string logDtsBegin = default(string), string logDtsEnd = default(string), string logType = default(string), string loggerId = default(string), List<string> orderIds = default(List<string>), string status = default(string))
+        public IntegrationLogQueryRequest(string action = default(string), string direction = default(string), string email = default(string), List<string> fileNames = default(List<string>), string itemId = default(string), int? itemIpnOid = default(int?), string logDtsBegin = default(string), string logDtsEnd = default(string), string logType = default(string), string loggerId = default(string), string loggerName = default(string), List<string> orderIds = default(List<string>), string status = default(string))
         {
             this.Action = action;
             this.Direction = direction;
@@ -57,6 +58,7 @@ namespace com.ultracart.admin.v2.Model
             this.LogDtsEnd = logDtsEnd;
             this.LogType = logType;
             this.LoggerId = loggerId;
+            this.LoggerName = loggerName;
             this.OrderIds = orderIds;
             this.Status = status;
         }
@@ -124,6 +126,12 @@ namespace com.ultracart.admin.v2.Model
         public string LoggerId { get; set; }
 
         /// <summary>
+        /// Gets or Sets LoggerName
+        /// </summary>
+        [DataMember(Name="logger_name", EmitDefaultValue=false)]
+        public string LoggerName { get; set; }
+
+        /// <summary>
         /// Gets or Sets OrderIds
         /// </summary>
         [DataMember(Name="order_ids", EmitDefaultValue=false)]
@@ -153,6 +161,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LogDtsEnd: ").Append(LogDtsEnd).Append("\n");
             sb.Append("  LogType: ").Append(LogType).Append("\n");
             sb.Append("  LoggerId: ").Append(LoggerId).Append("\n");
+            sb.Append("  LoggerName: ").Append(LoggerName).Append("\n");
             sb.Append("  OrderIds: ").Append(OrderIds).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
@@ -240,6 +249,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LoggerId.Equals(input.LoggerId))
                 ) && 
                 (
+                    this.LoggerName == input.LoggerName ||
+                    (this.LoggerName != null &&
+                    this.LoggerName.Equals(input.LoggerName))
+                ) && 
+                (
                     this.OrderIds == input.OrderIds ||
                     this.OrderIds != null &&
                     this.OrderIds.SequenceEqual(input.OrderIds)
@@ -280,6 +294,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LogType.GetHashCode();
                 if (this.LoggerId != null)
                     hashCode = hashCode * 59 + this.LoggerId.GetHashCode();
+                if (this.LoggerName != null)
+                    hashCode = hashCode * 59 + this.LoggerName.GetHashCode();
                 if (this.OrderIds != null)
                     hashCode = hashCode * 59 + this.OrderIds.GetHashCode();
                 if (this.Status != null)

@@ -222,6 +222,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="creationDateBegin">Date/time that the order was created.</param>
         /// <param name="creationDateEnd">Date/time that the order was created.</param>
         /// <param name="currentStage">Current stage that the order is in..</param>
+        /// <param name="customField1">Custom field 1.</param>
+        /// <param name="customField2">Custom field 2.</param>
+        /// <param name="customField3">Custom field 3.</param>
+        /// <param name="customField4">Custom field 4.</param>
+        /// <param name="customField5">Custom field 5.</param>
+        /// <param name="customField6">Custom field 6.</param>
+        /// <param name="customField7">Custom field 7.</param>
         /// <param name="customerProfileOid">The customer profile to find associated orders for.</param>
         /// <param name="email">Email.</param>
         /// <param name="firstName">First name.</param>
@@ -238,12 +245,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="refundDateEnd">Date/time that the order was refunded.</param>
         /// <param name="rma">RMA number.</param>
         /// <param name="screenBrandingThemeCode">Screen branding theme code associated with the order (legacy checkout).</param>
-        /// <param name="shipmentDateBegin">Date/time that the order was shipping.</param>
+        /// <param name="shipmentDateBegin">Date/time that the order was shipped.</param>
         /// <param name="shipmentDateEnd">Date/time that the order was shipped.</param>
+        /// <param name="shippedOnDateBegin">Date/time that the order should ship on.</param>
+        /// <param name="shippedOnDateEnd">Date/time that the order should ship on.</param>
         /// <param name="stateRegion">State for United States otherwise region or province for other countries.</param>
         /// <param name="storefrontHostName">StoreFront host name associated with the order.</param>
         /// <param name="total">Total.</param>
-        public OrderQuery(string ccEmail = default(string), string channelPartnerCode = default(string), string channelPartnerOrderId = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string creationDateBegin = default(string), string creationDateEnd = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), int? customerProfileOid = default(int?), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string orderId = default(string), string paymentDateBegin = default(string), string paymentDateEnd = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string phone = default(string), string postalCode = default(string), string purchaseOrderNumber = default(string), string refundDateBegin = default(string), string refundDateEnd = default(string), string rma = default(string), string screenBrandingThemeCode = default(string), string shipmentDateBegin = default(string), string shipmentDateEnd = default(string), string stateRegion = default(string), string storefrontHostName = default(string), decimal? total = default(decimal?))
+        public OrderQuery(string ccEmail = default(string), string channelPartnerCode = default(string), string channelPartnerOrderId = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string creationDateBegin = default(string), string creationDateEnd = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), int? customerProfileOid = default(int?), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string orderId = default(string), string paymentDateBegin = default(string), string paymentDateEnd = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string phone = default(string), string postalCode = default(string), string purchaseOrderNumber = default(string), string refundDateBegin = default(string), string refundDateEnd = default(string), string rma = default(string), string screenBrandingThemeCode = default(string), string shipmentDateBegin = default(string), string shipmentDateEnd = default(string), string shippedOnDateBegin = default(string), string shippedOnDateEnd = default(string), string stateRegion = default(string), string storefrontHostName = default(string), decimal? total = default(decimal?))
         {
             this.CcEmail = ccEmail;
             this.ChannelPartnerCode = channelPartnerCode;
@@ -254,6 +263,13 @@ namespace com.ultracart.admin.v2.Model
             this.CreationDateBegin = creationDateBegin;
             this.CreationDateEnd = creationDateEnd;
             this.CurrentStage = currentStage;
+            this.CustomField1 = customField1;
+            this.CustomField2 = customField2;
+            this.CustomField3 = customField3;
+            this.CustomField4 = customField4;
+            this.CustomField5 = customField5;
+            this.CustomField6 = customField6;
+            this.CustomField7 = customField7;
             this.CustomerProfileOid = customerProfileOid;
             this.Email = email;
             this.FirstName = firstName;
@@ -272,6 +288,8 @@ namespace com.ultracart.admin.v2.Model
             this.ScreenBrandingThemeCode = screenBrandingThemeCode;
             this.ShipmentDateBegin = shipmentDateBegin;
             this.ShipmentDateEnd = shipmentDateEnd;
+            this.ShippedOnDateBegin = shippedOnDateBegin;
+            this.ShippedOnDateEnd = shippedOnDateEnd;
             this.StateRegion = stateRegion;
             this.StorefrontHostName = storefrontHostName;
             this.Total = total;
@@ -333,6 +351,55 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="creation_date_end", EmitDefaultValue=false)]
         public string CreationDateEnd { get; set; }
 
+
+        /// <summary>
+        /// Custom field 1
+        /// </summary>
+        /// <value>Custom field 1</value>
+        [DataMember(Name="custom_field_1", EmitDefaultValue=false)]
+        public string CustomField1 { get; set; }
+
+        /// <summary>
+        /// Custom field 2
+        /// </summary>
+        /// <value>Custom field 2</value>
+        [DataMember(Name="custom_field_2", EmitDefaultValue=false)]
+        public string CustomField2 { get; set; }
+
+        /// <summary>
+        /// Custom field 3
+        /// </summary>
+        /// <value>Custom field 3</value>
+        [DataMember(Name="custom_field_3", EmitDefaultValue=false)]
+        public string CustomField3 { get; set; }
+
+        /// <summary>
+        /// Custom field 4
+        /// </summary>
+        /// <value>Custom field 4</value>
+        [DataMember(Name="custom_field_4", EmitDefaultValue=false)]
+        public string CustomField4 { get; set; }
+
+        /// <summary>
+        /// Custom field 5
+        /// </summary>
+        /// <value>Custom field 5</value>
+        [DataMember(Name="custom_field_5", EmitDefaultValue=false)]
+        public string CustomField5 { get; set; }
+
+        /// <summary>
+        /// Custom field 6
+        /// </summary>
+        /// <value>Custom field 6</value>
+        [DataMember(Name="custom_field_6", EmitDefaultValue=false)]
+        public string CustomField6 { get; set; }
+
+        /// <summary>
+        /// Custom field 7
+        /// </summary>
+        /// <value>Custom field 7</value>
+        [DataMember(Name="custom_field_7", EmitDefaultValue=false)]
+        public string CustomField7 { get; set; }
 
         /// <summary>
         /// The customer profile to find associated orders for
@@ -441,9 +508,9 @@ namespace com.ultracart.admin.v2.Model
         public string ScreenBrandingThemeCode { get; set; }
 
         /// <summary>
-        /// Date/time that the order was shipping
+        /// Date/time that the order was shipped
         /// </summary>
-        /// <value>Date/time that the order was shipping</value>
+        /// <value>Date/time that the order was shipped</value>
         [DataMember(Name="shipment_date_begin", EmitDefaultValue=false)]
         public string ShipmentDateBegin { get; set; }
 
@@ -453,6 +520,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Date/time that the order was shipped</value>
         [DataMember(Name="shipment_date_end", EmitDefaultValue=false)]
         public string ShipmentDateEnd { get; set; }
+
+        /// <summary>
+        /// Date/time that the order should ship on
+        /// </summary>
+        /// <value>Date/time that the order should ship on</value>
+        [DataMember(Name="shipped_on_date_begin", EmitDefaultValue=false)]
+        public string ShippedOnDateBegin { get; set; }
+
+        /// <summary>
+        /// Date/time that the order should ship on
+        /// </summary>
+        /// <value>Date/time that the order should ship on</value>
+        [DataMember(Name="shipped_on_date_end", EmitDefaultValue=false)]
+        public string ShippedOnDateEnd { get; set; }
 
         /// <summary>
         /// State for United States otherwise region or province for other countries
@@ -492,6 +573,13 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreationDateBegin: ").Append(CreationDateBegin).Append("\n");
             sb.Append("  CreationDateEnd: ").Append(CreationDateEnd).Append("\n");
             sb.Append("  CurrentStage: ").Append(CurrentStage).Append("\n");
+            sb.Append("  CustomField1: ").Append(CustomField1).Append("\n");
+            sb.Append("  CustomField2: ").Append(CustomField2).Append("\n");
+            sb.Append("  CustomField3: ").Append(CustomField3).Append("\n");
+            sb.Append("  CustomField4: ").Append(CustomField4).Append("\n");
+            sb.Append("  CustomField5: ").Append(CustomField5).Append("\n");
+            sb.Append("  CustomField6: ").Append(CustomField6).Append("\n");
+            sb.Append("  CustomField7: ").Append(CustomField7).Append("\n");
             sb.Append("  CustomerProfileOid: ").Append(CustomerProfileOid).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
@@ -510,6 +598,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ScreenBrandingThemeCode: ").Append(ScreenBrandingThemeCode).Append("\n");
             sb.Append("  ShipmentDateBegin: ").Append(ShipmentDateBegin).Append("\n");
             sb.Append("  ShipmentDateEnd: ").Append(ShipmentDateEnd).Append("\n");
+            sb.Append("  ShippedOnDateBegin: ").Append(ShippedOnDateBegin).Append("\n");
+            sb.Append("  ShippedOnDateEnd: ").Append(ShippedOnDateEnd).Append("\n");
             sb.Append("  StateRegion: ").Append(StateRegion).Append("\n");
             sb.Append("  StorefrontHostName: ").Append(StorefrontHostName).Append("\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
@@ -591,6 +681,41 @@ namespace com.ultracart.admin.v2.Model
                     this.CurrentStage == input.CurrentStage ||
                     (this.CurrentStage != null &&
                     this.CurrentStage.Equals(input.CurrentStage))
+                ) && 
+                (
+                    this.CustomField1 == input.CustomField1 ||
+                    (this.CustomField1 != null &&
+                    this.CustomField1.Equals(input.CustomField1))
+                ) && 
+                (
+                    this.CustomField2 == input.CustomField2 ||
+                    (this.CustomField2 != null &&
+                    this.CustomField2.Equals(input.CustomField2))
+                ) && 
+                (
+                    this.CustomField3 == input.CustomField3 ||
+                    (this.CustomField3 != null &&
+                    this.CustomField3.Equals(input.CustomField3))
+                ) && 
+                (
+                    this.CustomField4 == input.CustomField4 ||
+                    (this.CustomField4 != null &&
+                    this.CustomField4.Equals(input.CustomField4))
+                ) && 
+                (
+                    this.CustomField5 == input.CustomField5 ||
+                    (this.CustomField5 != null &&
+                    this.CustomField5.Equals(input.CustomField5))
+                ) && 
+                (
+                    this.CustomField6 == input.CustomField6 ||
+                    (this.CustomField6 != null &&
+                    this.CustomField6.Equals(input.CustomField6))
+                ) && 
+                (
+                    this.CustomField7 == input.CustomField7 ||
+                    (this.CustomField7 != null &&
+                    this.CustomField7.Equals(input.CustomField7))
                 ) && 
                 (
                     this.CustomerProfileOid == input.CustomerProfileOid ||
@@ -683,6 +808,16 @@ namespace com.ultracart.admin.v2.Model
                     this.ShipmentDateEnd.Equals(input.ShipmentDateEnd))
                 ) && 
                 (
+                    this.ShippedOnDateBegin == input.ShippedOnDateBegin ||
+                    (this.ShippedOnDateBegin != null &&
+                    this.ShippedOnDateBegin.Equals(input.ShippedOnDateBegin))
+                ) && 
+                (
+                    this.ShippedOnDateEnd == input.ShippedOnDateEnd ||
+                    (this.ShippedOnDateEnd != null &&
+                    this.ShippedOnDateEnd.Equals(input.ShippedOnDateEnd))
+                ) && 
+                (
                     this.StateRegion == input.StateRegion ||
                     (this.StateRegion != null &&
                     this.StateRegion.Equals(input.StateRegion))
@@ -726,6 +861,20 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CreationDateEnd.GetHashCode();
                 if (this.CurrentStage != null)
                     hashCode = hashCode * 59 + this.CurrentStage.GetHashCode();
+                if (this.CustomField1 != null)
+                    hashCode = hashCode * 59 + this.CustomField1.GetHashCode();
+                if (this.CustomField2 != null)
+                    hashCode = hashCode * 59 + this.CustomField2.GetHashCode();
+                if (this.CustomField3 != null)
+                    hashCode = hashCode * 59 + this.CustomField3.GetHashCode();
+                if (this.CustomField4 != null)
+                    hashCode = hashCode * 59 + this.CustomField4.GetHashCode();
+                if (this.CustomField5 != null)
+                    hashCode = hashCode * 59 + this.CustomField5.GetHashCode();
+                if (this.CustomField6 != null)
+                    hashCode = hashCode * 59 + this.CustomField6.GetHashCode();
+                if (this.CustomField7 != null)
+                    hashCode = hashCode * 59 + this.CustomField7.GetHashCode();
                 if (this.CustomerProfileOid != null)
                     hashCode = hashCode * 59 + this.CustomerProfileOid.GetHashCode();
                 if (this.Email != null)
@@ -762,6 +911,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ShipmentDateBegin.GetHashCode();
                 if (this.ShipmentDateEnd != null)
                     hashCode = hashCode * 59 + this.ShipmentDateEnd.GetHashCode();
+                if (this.ShippedOnDateBegin != null)
+                    hashCode = hashCode * 59 + this.ShippedOnDateBegin.GetHashCode();
+                if (this.ShippedOnDateEnd != null)
+                    hashCode = hashCode * 59 + this.ShippedOnDateEnd.GetHashCode();
                 if (this.StateRegion != null)
                     hashCode = hashCode * 59 + this.StateRegion.GetHashCode();
                 if (this.StorefrontHostName != null)

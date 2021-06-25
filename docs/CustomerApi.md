@@ -6,14 +6,17 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteCustomer**](CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**GetCustomer**](CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
+[**GetCustomerByEmail**](CustomerApi.md#getcustomerbyemail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
+[**GetCustomerEditorValues**](CustomerApi.md#getcustomereditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
+[**GetCustomerEmailLists**](CustomerApi.md#getcustomeremaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 [**GetCustomers**](CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
 [**GetCustomersByQuery**](CustomerApi.md#getcustomersbyquery) | **POST** /customer/customers/query | Retrieve customers by query
 [**GetCustomersForDataTables**](CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
-[**GetEditorValues**](CustomerApi.md#geteditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
-[**GetEmailLists**](CustomerApi.md#getemaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
+[**GetEmailVerificationToken**](CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**InsertCustomer**](CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 [**UpdateCustomer**](CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**UpdateCustomerEmailLists**](CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
+[**ValidateEmailVerificationToken**](CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 
 
 <a name="deletecustomer"></a>
@@ -138,6 +141,198 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcustomerbyemail"></a>
+# **GetCustomerByEmail**
+> CustomerResponse GetCustomerByEmail (string email, string expand = null)
+
+Retrieve a customer by Email
+
+Retrieves a single customer using the specified customer email address. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetCustomerByEmailExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new CustomerApi(simpleKey);
+
+            var email = email_example;  // string | The email address of the customer to retrieve.
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+
+            try
+            {
+                // Retrieve a customer by Email
+                CustomerResponse result = apiInstance.GetCustomerByEmail(email, expand);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CustomerApi.GetCustomerByEmail: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **string**| The email address of the customer to retrieve. | 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+
+### Return type
+
+[**CustomerResponse**](CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcustomereditorvalues"></a>
+# **GetCustomerEditorValues**
+> CustomerEditorValues GetCustomerEditorValues ()
+
+Retrieve values needed for a customer profile editor
+
+Retrieve values needed for a customer profile editor. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetCustomerEditorValuesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new CustomerApi(simpleKey);
+
+
+            try
+            {
+                // Retrieve values needed for a customer profile editor
+                CustomerEditorValues result = apiInstance.GetCustomerEditorValues();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CustomerApi.GetCustomerEditorValues: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CustomerEditorValues**](CustomerEditorValues.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcustomeremaillists"></a>
+# **GetCustomerEmailLists**
+> EmailListsResponse GetCustomerEmailLists ()
+
+Retrieve all email lists across all storefronts
+
+Retrieve all email lists across all storefronts 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetCustomerEmailListsExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new CustomerApi(simpleKey);
+
+
+            try
+            {
+                // Retrieve all email lists across all storefronts
+                EmailListsResponse result = apiInstance.GetCustomerEmailLists();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CustomerApi.GetCustomerEmailLists: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EmailListsResponse**](EmailListsResponse.md)
 
 ### Authorization
 
@@ -410,13 +605,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="geteditorvalues"></a>
-# **GetEditorValues**
-> CustomerEditorValues GetEditorValues ()
+<a name="getemailverificationtoken"></a>
+# **GetEmailVerificationToken**
+> EmailVerifyTokenResponse GetEmailVerificationToken (EmailVerifyTokenRequest tokenRequest)
 
-Retrieve values needed for a customer profile editor
+Create a token that can be used to verify a customer email address
 
-Retrieve values needed for a customer profile editor. 
+Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
 ### Example
 ```csharp
 
@@ -428,7 +623,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class GetEditorValuesExample
+    public class GetEmailVerificationTokenExample
     {
         public void main()
         {
@@ -437,16 +632,17 @@ namespace Example
             const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
             var api = new CustomerApi(simpleKey);
 
+            var tokenRequest = new EmailVerifyTokenRequest(); // EmailVerifyTokenRequest | Token request
 
             try
             {
-                // Retrieve values needed for a customer profile editor
-                CustomerEditorValues result = apiInstance.GetEditorValues();
+                // Create a token that can be used to verify a customer email address
+                EmailVerifyTokenResponse result = apiInstance.GetEmailVerificationToken(tokenRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CustomerApi.GetEditorValues: " + e.Message );
+                Debug.Print("Exception when calling CustomerApi.GetEmailVerificationToken: " + e.Message );
             }
         }
     }
@@ -455,73 +651,14 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tokenRequest** | [**EmailVerifyTokenRequest**](EmailVerifyTokenRequest.md)| Token request | 
 
 ### Return type
 
-[**CustomerEditorValues**](CustomerEditorValues.md)
-
-### Authorization
-
-[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getemaillists"></a>
-# **GetEmailLists**
-> EmailListsResponse GetEmailLists ()
-
-Retrieve all email lists across all storefronts
-
-Retrieve all email lists across all storefronts 
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetEmailListsExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new CustomerApi(simpleKey);
-
-
-            try
-            {
-                // Retrieve all email lists across all storefronts
-                EmailListsResponse result = apiInstance.GetEmailLists();
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CustomerApi.GetEmailLists: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**EmailListsResponse**](EmailListsResponse.md)
+[**EmailVerifyTokenResponse**](EmailVerifyTokenResponse.md)
 
 ### Authorization
 
@@ -736,6 +873,72 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="validateemailverificationtoken"></a>
+# **ValidateEmailVerificationToken**
+> EmailVerifyTokenValidateResponse ValidateEmailVerificationToken (EmailVerifyTokenValidateRequest validationRequest)
+
+Validate a token that can be used to verify a customer email address
+
+Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class ValidateEmailVerificationTokenExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new CustomerApi(simpleKey);
+
+            var validationRequest = new EmailVerifyTokenValidateRequest(); // EmailVerifyTokenValidateRequest | Token validation request
+
+            try
+            {
+                // Validate a token that can be used to verify a customer email address
+                EmailVerifyTokenValidateResponse result = apiInstance.ValidateEmailVerificationToken(validationRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CustomerApi.ValidateEmailVerificationToken: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **validationRequest** | [**EmailVerifyTokenValidateRequest**](EmailVerifyTokenValidateRequest.md)| Token validation request | 
+
+### Return type
+
+[**EmailVerifyTokenValidateResponse**](EmailVerifyTokenValidateResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

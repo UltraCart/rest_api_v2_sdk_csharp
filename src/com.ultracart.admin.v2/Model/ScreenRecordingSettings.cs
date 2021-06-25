@@ -34,9 +34,19 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ScreenRecordingSettings" /> class.
         /// </summary>
         /// <param name="enabled">enabled.</param>
-        public ScreenRecordingSettings(bool? enabled = default(bool?))
+        /// <param name="sessionsCurrentBillingPeriod">sessionsCurrentBillingPeriod.</param>
+        /// <param name="sessionsLastBillingPeriod">sessionsLastBillingPeriod.</param>
+        /// <param name="sessionsTrialBillingPeriod">sessionsTrialBillingPeriod.</param>
+        /// <param name="trialExpiration">trialExpiration.</param>
+        /// <param name="trialExpired">trialExpired.</param>
+        public ScreenRecordingSettings(bool? enabled = default(bool?), int? sessionsCurrentBillingPeriod = default(int?), int? sessionsLastBillingPeriod = default(int?), int? sessionsTrialBillingPeriod = default(int?), string trialExpiration = default(string), bool? trialExpired = default(bool?))
         {
             this.Enabled = enabled;
+            this.SessionsCurrentBillingPeriod = sessionsCurrentBillingPeriod;
+            this.SessionsLastBillingPeriod = sessionsLastBillingPeriod;
+            this.SessionsTrialBillingPeriod = sessionsTrialBillingPeriod;
+            this.TrialExpiration = trialExpiration;
+            this.TrialExpired = trialExpired;
         }
         
         /// <summary>
@@ -44,6 +54,36 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="enabled", EmitDefaultValue=false)]
         public bool? Enabled { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SessionsCurrentBillingPeriod
+        /// </summary>
+        [DataMember(Name="sessions_current_billing_period", EmitDefaultValue=false)]
+        public int? SessionsCurrentBillingPeriod { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SessionsLastBillingPeriod
+        /// </summary>
+        [DataMember(Name="sessions_last_billing_period", EmitDefaultValue=false)]
+        public int? SessionsLastBillingPeriod { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SessionsTrialBillingPeriod
+        /// </summary>
+        [DataMember(Name="sessions_trial_billing_period", EmitDefaultValue=false)]
+        public int? SessionsTrialBillingPeriod { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TrialExpiration
+        /// </summary>
+        [DataMember(Name="trial_expiration", EmitDefaultValue=false)]
+        public string TrialExpiration { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TrialExpired
+        /// </summary>
+        [DataMember(Name="trial_expired", EmitDefaultValue=false)]
+        public bool? TrialExpired { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +94,11 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingSettings {\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            sb.Append("  SessionsCurrentBillingPeriod: ").Append(SessionsCurrentBillingPeriod).Append("\n");
+            sb.Append("  SessionsLastBillingPeriod: ").Append(SessionsLastBillingPeriod).Append("\n");
+            sb.Append("  SessionsTrialBillingPeriod: ").Append(SessionsTrialBillingPeriod).Append("\n");
+            sb.Append("  TrialExpiration: ").Append(TrialExpiration).Append("\n");
+            sb.Append("  TrialExpired: ").Append(TrialExpired).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,6 +137,31 @@ namespace com.ultracart.admin.v2.Model
                     this.Enabled == input.Enabled ||
                     (this.Enabled != null &&
                     this.Enabled.Equals(input.Enabled))
+                ) && 
+                (
+                    this.SessionsCurrentBillingPeriod == input.SessionsCurrentBillingPeriod ||
+                    (this.SessionsCurrentBillingPeriod != null &&
+                    this.SessionsCurrentBillingPeriod.Equals(input.SessionsCurrentBillingPeriod))
+                ) && 
+                (
+                    this.SessionsLastBillingPeriod == input.SessionsLastBillingPeriod ||
+                    (this.SessionsLastBillingPeriod != null &&
+                    this.SessionsLastBillingPeriod.Equals(input.SessionsLastBillingPeriod))
+                ) && 
+                (
+                    this.SessionsTrialBillingPeriod == input.SessionsTrialBillingPeriod ||
+                    (this.SessionsTrialBillingPeriod != null &&
+                    this.SessionsTrialBillingPeriod.Equals(input.SessionsTrialBillingPeriod))
+                ) && 
+                (
+                    this.TrialExpiration == input.TrialExpiration ||
+                    (this.TrialExpiration != null &&
+                    this.TrialExpiration.Equals(input.TrialExpiration))
+                ) && 
+                (
+                    this.TrialExpired == input.TrialExpired ||
+                    (this.TrialExpired != null &&
+                    this.TrialExpired.Equals(input.TrialExpired))
                 );
         }
 
@@ -106,6 +176,16 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Enabled != null)
                     hashCode = hashCode * 59 + this.Enabled.GetHashCode();
+                if (this.SessionsCurrentBillingPeriod != null)
+                    hashCode = hashCode * 59 + this.SessionsCurrentBillingPeriod.GetHashCode();
+                if (this.SessionsLastBillingPeriod != null)
+                    hashCode = hashCode * 59 + this.SessionsLastBillingPeriod.GetHashCode();
+                if (this.SessionsTrialBillingPeriod != null)
+                    hashCode = hashCode * 59 + this.SessionsTrialBillingPeriod.GetHashCode();
+                if (this.TrialExpiration != null)
+                    hashCode = hashCode * 59 + this.TrialExpiration.GetHashCode();
+                if (this.TrialExpired != null)
+                    hashCode = hashCode * 59 + this.TrialExpired.GetHashCode();
                 return hashCode;
             }
         }

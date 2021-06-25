@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | **List&lt;string&gt;** | A list of items of which at least one must be purchased for coupon to be valid. | [optional] 
-**Limit** | **decimal?** | The maximum amount of total discount by this coupon. | [optional] 
+**Limit** | **decimal?** | The (optional) maximum quantity of discounted items. | [optional] 
 **Tiers** | [**List&lt;CouponTierQuantityPercent&gt;**](CouponTierQuantityPercent.md) | A list of discount tiers. | [optional] 
 
 

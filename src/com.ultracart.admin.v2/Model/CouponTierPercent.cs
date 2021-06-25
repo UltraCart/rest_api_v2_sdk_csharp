@@ -34,10 +34,12 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="CouponTierPercent" /> class.
         /// </summary>
         /// <param name="discountPercent">The percent of subtotal discount.</param>
+        /// <param name="quickbooksCode">Quickbooks accounting code..</param>
         /// <param name="subtotalAmount">The amount of subtotal required to receive the discount percent.</param>
-        public CouponTierPercent(decimal? discountPercent = default(decimal?), decimal? subtotalAmount = default(decimal?))
+        public CouponTierPercent(decimal? discountPercent = default(decimal?), string quickbooksCode = default(string), decimal? subtotalAmount = default(decimal?))
         {
             this.DiscountPercent = discountPercent;
+            this.QuickbooksCode = quickbooksCode;
             this.SubtotalAmount = subtotalAmount;
         }
         
@@ -47,6 +49,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The percent of subtotal discount</value>
         [DataMember(Name="discount_percent", EmitDefaultValue=false)]
         public decimal? DiscountPercent { get; set; }
+
+        /// <summary>
+        /// Quickbooks accounting code.
+        /// </summary>
+        /// <value>Quickbooks accounting code.</value>
+        [DataMember(Name="quickbooks_code", EmitDefaultValue=false)]
+        public string QuickbooksCode { get; set; }
 
         /// <summary>
         /// The amount of subtotal required to receive the discount percent
@@ -64,6 +73,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class CouponTierPercent {\n");
             sb.Append("  DiscountPercent: ").Append(DiscountPercent).Append("\n");
+            sb.Append("  QuickbooksCode: ").Append(QuickbooksCode).Append("\n");
             sb.Append("  SubtotalAmount: ").Append(SubtotalAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -105,6 +115,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DiscountPercent.Equals(input.DiscountPercent))
                 ) && 
                 (
+                    this.QuickbooksCode == input.QuickbooksCode ||
+                    (this.QuickbooksCode != null &&
+                    this.QuickbooksCode.Equals(input.QuickbooksCode))
+                ) && 
+                (
                     this.SubtotalAmount == input.SubtotalAmount ||
                     (this.SubtotalAmount != null &&
                     this.SubtotalAmount.Equals(input.SubtotalAmount))
@@ -122,6 +137,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.DiscountPercent != null)
                     hashCode = hashCode * 59 + this.DiscountPercent.GetHashCode();
+                if (this.QuickbooksCode != null)
+                    hashCode = hashCode * 59 + this.QuickbooksCode.GetHashCode();
                 if (this.SubtotalAmount != null)
                     hashCode = hashCode * 59 + this.SubtotalAmount.GetHashCode();
                 return hashCode;
@@ -135,6 +152,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // QuickbooksCode (string) maxLength
+            if(this.QuickbooksCode != null && this.QuickbooksCode.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for QuickbooksCode, length must be less than 20.", new [] { "QuickbooksCode" });
+            }
+
             yield break;
         }
     }

@@ -4,12 +4,12 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAutoOrder**](AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-[**GetAutoOrderByCode**](AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
-[**GetAutoOrderByReferenceOrderId**](AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
+[**GetAutoOrder**](AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
+[**GetAutoOrderByCode**](AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
+[**GetAutoOrderByReferenceOrderId**](AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
 [**GetAutoOrders**](AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 [**GetAutoOrdersBatch**](AutoOrderApi.md#getautoordersbatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
-[**GetAutoOrdersByQuery**](AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders
+[**GetAutoOrdersByQuery**](AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 [**UpdateAutoOrder**](AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 [**UpdateAutoOrdersBatch**](AutoOrderApi.md#updateautoordersbatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 # **GetAutoOrder**
 > AutoOrderResponse GetAutoOrder (int? autoOrderOid, string expand = null)
 
-Retrieve an auto order
+Retrieve an auto order by oid
 
 Retrieves a single auto order using the specified auto order oid. 
 ### Example
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Retrieve an auto order
+                // Retrieve an auto order by oid
                 AutoOrderResponse result = apiInstance.GetAutoOrder(autoOrderOid, expand);
                 Debug.WriteLine(result);
             }
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 # **GetAutoOrderByCode**
 > AutoOrderResponse GetAutoOrderByCode (string autoOrderCode, string expand = null)
 
-Retrieve an auto order
+Retrieve an auto order by code
 
 Retrieves a single auto order using the specified reference (original) order id. 
 ### Example
@@ -114,7 +114,7 @@ namespace Example
 
             try
             {
-                // Retrieve an auto order
+                // Retrieve an auto order by code
                 AutoOrderResponse result = apiInstance.GetAutoOrderByCode(autoOrderCode, expand);
                 Debug.WriteLine(result);
             }
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 # **GetAutoOrderByReferenceOrderId**
 > AutoOrderResponse GetAutoOrderByReferenceOrderId (string referenceOrderId, string expand = null)
 
-Retrieve an auto order
+Retrieve an auto order by order id
 
 Retrieves a single auto order using the specified reference (original) order id. 
 ### Example
@@ -182,7 +182,7 @@ namespace Example
 
             try
             {
-                // Retrieve an auto order
+                // Retrieve an auto order by order id
                 AutoOrderResponse result = apiInstance.GetAutoOrderByReferenceOrderId(referenceOrderId, expand);
                 Debug.WriteLine(result);
             }
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 # **GetAutoOrdersByQuery**
 > AutoOrdersResponse GetAutoOrdersByQuery (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
 
-Retrieve auto orders
+Retrieve auto orders by query
 
 Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
 ### Example
@@ -431,7 +431,7 @@ namespace Example
 
             try
             {
-                // Retrieve auto orders
+                // Retrieve auto orders by query
                 AutoOrdersResponse result = apiInstance.GetAutoOrdersByQuery(autoOrderQuery, limit, offset, sort, expand);
                 Debug.WriteLine(result);
             }

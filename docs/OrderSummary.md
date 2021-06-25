@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ActualFulfillment** | [**Currency**](Currency.md) |  | [optional] 
+**ActualPaymentProcessing** | [**Currency**](Currency.md) |  | [optional] 
 **ActualShipping** | [**Currency**](Currency.md) |  | [optional] 
 **ArbitraryShippingHandlingTotal** | [**Currency**](Currency.md) |  | [optional] 
 **OtherRefunded** | [**Currency**](Currency.md) |  | [optional] 

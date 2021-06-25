@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **DeveloperMessage** | **string** | A technical message meant to be read by a developer | [optional] 
 **ErrorCode** | **string** | HTTP status code | [optional] 
 **MoreInfo** | **string** | Additional information often a link to additional documentation | [optional] 
+**ObjectId** | **string** | Object id that the error is associated with | [optional] 
 **UserMessage** | **string** | An end-user friendly message suitable for display to the customer | [optional] 
 
 

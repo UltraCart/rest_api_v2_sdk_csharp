@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DiscountAmount** | **decimal?** | The amount of subtotal discount | [optional] 
+**QuickbooksCode** | **string** | Quickbooks accounting code. | [optional] 
 **SubtotalAmount** | **decimal?** | The amount of subtotal required to receive the discount amount | [optional] 
 
 

@@ -33,10 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecordingPageView" /> class.
         /// </summary>
+        /// <param name="domain">domain.</param>
         /// <param name="events">events.</param>
         /// <param name="firstEventTimestamp">First event timestamp.</param>
         /// <param name="httpPost">httpPost.</param>
         /// <param name="lastEventTimestamp">Last event timestamp.</param>
+        /// <param name="missingEvents">missingEvents.</param>
         /// <param name="_params">_params.</param>
         /// <param name="rangeEnd">rangeEnd.</param>
         /// <param name="rangeStart">rangeStart.</param>
@@ -45,15 +47,19 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="referrerRaw">referrerRaw.</param>
         /// <param name="screenRecordingPageViewUuid">screenRecordingPageViewUuid.</param>
         /// <param name="timeOnPage">timeOnPage.</param>
+        /// <param name="timingDomContentLoaded">Amount of time for DOMContentLoaded event to fire (milliseconds).</param>
+        /// <param name="timingLoaded">Amount of time for loaded event to fire (milliseconds).</param>
         /// <param name="truncatedEvents">truncatedEvents.</param>
         /// <param name="ucapv">ucapv.</param>
         /// <param name="url">url.</param>
-        public ScreenRecordingPageView(List<ScreenRecordingPageViewEvent> events = default(List<ScreenRecordingPageViewEvent>), string firstEventTimestamp = default(string), bool? httpPost = default(bool?), string lastEventTimestamp = default(string), List<ScreenRecordingPageViewParameter> _params = default(List<ScreenRecordingPageViewParameter>), int? rangeEnd = default(int?), int? rangeStart = default(int?), string referrer = default(string), List<ScreenRecordingPageViewParameter> referrerParams = default(List<ScreenRecordingPageViewParameter>), string referrerRaw = default(string), string screenRecordingPageViewUuid = default(string), int? timeOnPage = default(int?), bool? truncatedEvents = default(bool?), string ucapv = default(string), string url = default(string))
+        public ScreenRecordingPageView(string domain = default(string), List<ScreenRecordingPageViewEvent> events = default(List<ScreenRecordingPageViewEvent>), string firstEventTimestamp = default(string), bool? httpPost = default(bool?), string lastEventTimestamp = default(string), bool? missingEvents = default(bool?), List<ScreenRecordingPageViewParameter> _params = default(List<ScreenRecordingPageViewParameter>), int? rangeEnd = default(int?), int? rangeStart = default(int?), string referrer = default(string), List<ScreenRecordingPageViewParameter> referrerParams = default(List<ScreenRecordingPageViewParameter>), string referrerRaw = default(string), string screenRecordingPageViewUuid = default(string), int? timeOnPage = default(int?), int? timingDomContentLoaded = default(int?), int? timingLoaded = default(int?), bool? truncatedEvents = default(bool?), string ucapv = default(string), string url = default(string))
         {
+            this.Domain = domain;
             this.Events = events;
             this.FirstEventTimestamp = firstEventTimestamp;
             this.HttpPost = httpPost;
             this.LastEventTimestamp = lastEventTimestamp;
+            this.MissingEvents = missingEvents;
             this.Params = _params;
             this.RangeEnd = rangeEnd;
             this.RangeStart = rangeStart;
@@ -62,11 +68,19 @@ namespace com.ultracart.admin.v2.Model
             this.ReferrerRaw = referrerRaw;
             this.ScreenRecordingPageViewUuid = screenRecordingPageViewUuid;
             this.TimeOnPage = timeOnPage;
+            this.TimingDomContentLoaded = timingDomContentLoaded;
+            this.TimingLoaded = timingLoaded;
             this.TruncatedEvents = truncatedEvents;
             this.Ucapv = ucapv;
             this.Url = url;
         }
         
+        /// <summary>
+        /// Gets or Sets Domain
+        /// </summary>
+        [DataMember(Name="domain", EmitDefaultValue=false)]
+        public string Domain { get; set; }
+
         /// <summary>
         /// Gets or Sets Events
         /// </summary>
@@ -92,6 +106,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Last event timestamp</value>
         [DataMember(Name="last_event_timestamp", EmitDefaultValue=false)]
         public string LastEventTimestamp { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MissingEvents
+        /// </summary>
+        [DataMember(Name="missing_events", EmitDefaultValue=false)]
+        public bool? MissingEvents { get; set; }
 
         /// <summary>
         /// Gets or Sets Params
@@ -142,6 +162,20 @@ namespace com.ultracart.admin.v2.Model
         public int? TimeOnPage { get; set; }
 
         /// <summary>
+        /// Amount of time for DOMContentLoaded event to fire (milliseconds)
+        /// </summary>
+        /// <value>Amount of time for DOMContentLoaded event to fire (milliseconds)</value>
+        [DataMember(Name="timing_dom_content_loaded", EmitDefaultValue=false)]
+        public int? TimingDomContentLoaded { get; set; }
+
+        /// <summary>
+        /// Amount of time for loaded event to fire (milliseconds)
+        /// </summary>
+        /// <value>Amount of time for loaded event to fire (milliseconds)</value>
+        [DataMember(Name="timing_loaded", EmitDefaultValue=false)]
+        public int? TimingLoaded { get; set; }
+
+        /// <summary>
         /// Gets or Sets TruncatedEvents
         /// </summary>
         [DataMember(Name="truncated_events", EmitDefaultValue=false)]
@@ -167,10 +201,12 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingPageView {\n");
+            sb.Append("  Domain: ").Append(Domain).Append("\n");
             sb.Append("  Events: ").Append(Events).Append("\n");
             sb.Append("  FirstEventTimestamp: ").Append(FirstEventTimestamp).Append("\n");
             sb.Append("  HttpPost: ").Append(HttpPost).Append("\n");
             sb.Append("  LastEventTimestamp: ").Append(LastEventTimestamp).Append("\n");
+            sb.Append("  MissingEvents: ").Append(MissingEvents).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  RangeEnd: ").Append(RangeEnd).Append("\n");
             sb.Append("  RangeStart: ").Append(RangeStart).Append("\n");
@@ -179,6 +215,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ReferrerRaw: ").Append(ReferrerRaw).Append("\n");
             sb.Append("  ScreenRecordingPageViewUuid: ").Append(ScreenRecordingPageViewUuid).Append("\n");
             sb.Append("  TimeOnPage: ").Append(TimeOnPage).Append("\n");
+            sb.Append("  TimingDomContentLoaded: ").Append(TimingDomContentLoaded).Append("\n");
+            sb.Append("  TimingLoaded: ").Append(TimingLoaded).Append("\n");
             sb.Append("  TruncatedEvents: ").Append(TruncatedEvents).Append("\n");
             sb.Append("  Ucapv: ").Append(Ucapv).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
@@ -217,6 +255,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Domain == input.Domain ||
+                    (this.Domain != null &&
+                    this.Domain.Equals(input.Domain))
+                ) && 
+                (
                     this.Events == input.Events ||
                     this.Events != null &&
                     this.Events.SequenceEqual(input.Events)
@@ -235,6 +278,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LastEventTimestamp == input.LastEventTimestamp ||
                     (this.LastEventTimestamp != null &&
                     this.LastEventTimestamp.Equals(input.LastEventTimestamp))
+                ) && 
+                (
+                    this.MissingEvents == input.MissingEvents ||
+                    (this.MissingEvents != null &&
+                    this.MissingEvents.Equals(input.MissingEvents))
                 ) && 
                 (
                     this.Params == input.Params ||
@@ -277,6 +325,16 @@ namespace com.ultracart.admin.v2.Model
                     this.TimeOnPage.Equals(input.TimeOnPage))
                 ) && 
                 (
+                    this.TimingDomContentLoaded == input.TimingDomContentLoaded ||
+                    (this.TimingDomContentLoaded != null &&
+                    this.TimingDomContentLoaded.Equals(input.TimingDomContentLoaded))
+                ) && 
+                (
+                    this.TimingLoaded == input.TimingLoaded ||
+                    (this.TimingLoaded != null &&
+                    this.TimingLoaded.Equals(input.TimingLoaded))
+                ) && 
+                (
                     this.TruncatedEvents == input.TruncatedEvents ||
                     (this.TruncatedEvents != null &&
                     this.TruncatedEvents.Equals(input.TruncatedEvents))
@@ -302,6 +360,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Domain != null)
+                    hashCode = hashCode * 59 + this.Domain.GetHashCode();
                 if (this.Events != null)
                     hashCode = hashCode * 59 + this.Events.GetHashCode();
                 if (this.FirstEventTimestamp != null)
@@ -310,6 +370,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.HttpPost.GetHashCode();
                 if (this.LastEventTimestamp != null)
                     hashCode = hashCode * 59 + this.LastEventTimestamp.GetHashCode();
+                if (this.MissingEvents != null)
+                    hashCode = hashCode * 59 + this.MissingEvents.GetHashCode();
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 if (this.RangeEnd != null)
@@ -326,6 +388,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ScreenRecordingPageViewUuid.GetHashCode();
                 if (this.TimeOnPage != null)
                     hashCode = hashCode * 59 + this.TimeOnPage.GetHashCode();
+                if (this.TimingDomContentLoaded != null)
+                    hashCode = hashCode * 59 + this.TimingDomContentLoaded.GetHashCode();
+                if (this.TimingLoaded != null)
+                    hashCode = hashCode * 59 + this.TimingLoaded.GetHashCode();
                 if (this.TruncatedEvents != null)
                     hashCode = hashCode * 59 + this.TruncatedEvents.GetHashCode();
                 if (this.Ucapv != null)

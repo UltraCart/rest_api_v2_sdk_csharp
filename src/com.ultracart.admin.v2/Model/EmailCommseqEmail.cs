@@ -55,9 +55,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="smartSending">Smart sending.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
         /// <param name="subject">Subject.</param>
+        /// <param name="suspendedForSpam">True if the email was suspended for too high of a spam rate..</param>
         /// <param name="transactionalEmail">Transactional email.</param>
         /// <param name="version">Version.</param>
-        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), int? libraryItemOid = default(int?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? transactionalEmail = default(bool?), int? version = default(int?))
+        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), int? libraryItemOid = default(int?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? suspendedForSpam = default(bool?), bool? transactionalEmail = default(bool?), int? version = default(int?))
         {
             this.Deleted = deleted;
             this.EditedByUser = editedByUser;
@@ -81,6 +82,7 @@ namespace com.ultracart.admin.v2.Model
             this.SmartSending = smartSending;
             this.StorefrontOid = storefrontOid;
             this.Subject = subject;
+            this.SuspendedForSpam = suspendedForSpam;
             this.TransactionalEmail = transactionalEmail;
             this.Version = version;
         }
@@ -240,6 +242,13 @@ namespace com.ultracart.admin.v2.Model
         public string Subject { get; set; }
 
         /// <summary>
+        /// True if the email was suspended for too high of a spam rate.
+        /// </summary>
+        /// <value>True if the email was suspended for too high of a spam rate.</value>
+        [DataMember(Name="suspended_for_spam", EmitDefaultValue=false)]
+        public bool? SuspendedForSpam { get; set; }
+
+        /// <summary>
         /// Transactional email
         /// </summary>
         /// <value>Transactional email</value>
@@ -283,6 +292,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  SmartSending: ").Append(SmartSending).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
+            sb.Append("  SuspendedForSpam: ").Append(SuspendedForSpam).Append("\n");
             sb.Append("  TransactionalEmail: ").Append(TransactionalEmail).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("}\n");
@@ -430,6 +440,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Subject.Equals(input.Subject))
                 ) && 
                 (
+                    this.SuspendedForSpam == input.SuspendedForSpam ||
+                    (this.SuspendedForSpam != null &&
+                    this.SuspendedForSpam.Equals(input.SuspendedForSpam))
+                ) && 
+                (
                     this.TransactionalEmail == input.TransactionalEmail ||
                     (this.TransactionalEmail != null &&
                     this.TransactionalEmail.Equals(input.TransactionalEmail))
@@ -494,6 +509,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
                 if (this.Subject != null)
                     hashCode = hashCode * 59 + this.Subject.GetHashCode();
+                if (this.SuspendedForSpam != null)
+                    hashCode = hashCode * 59 + this.SuspendedForSpam.GetHashCode();
                 if (this.TransactionalEmail != null)
                     hashCode = hashCode * 59 + this.TransactionalEmail.GetHashCode();
                 if (this.Version != null)

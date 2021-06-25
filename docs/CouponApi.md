@@ -941,7 +941,7 @@ namespace Example
             const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
             var api = new CouponApi(simpleKey);
 
-            var couponsRequest = new CouponsRequest(); // CouponsRequest | Coupons to insert (maximum 20)
+            var couponsRequest = new CouponsRequest(); // CouponsRequest | Coupons to insert (maximum 50)
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
             var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
@@ -965,7 +965,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **couponsRequest** | [**CouponsRequest**](CouponsRequest.md)| Coupons to insert (maximum 20) | 
+ **couponsRequest** | [**CouponsRequest**](CouponsRequest.md)| Coupons to insert (maximum 50) | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
  **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
@@ -1214,7 +1214,7 @@ namespace Example
             const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
             var api = new CouponApi(simpleKey);
 
-            var couponsRequest = new CouponsRequest(); // CouponsRequest | Coupons to update (synchronous maximum 20 / asynchronous maximum 100)
+            var couponsRequest = new CouponsRequest(); // CouponsRequest | Coupons to update (synchronous maximum 50 / asynchronous maximum 100)
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
             var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
             var async = true;  // bool? | True if the operation should be run async.  No result returned (optional) 
@@ -1239,7 +1239,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **couponsRequest** | [**CouponsRequest**](CouponsRequest.md)| Coupons to update (synchronous maximum 20 / asynchronous maximum 100) | 
+ **couponsRequest** | [**CouponsRequest**](CouponsRequest.md)| Coupons to update (synchronous maximum 50 / asynchronous maximum 100) | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
  **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
  **async** | **bool?**| True if the operation should be run async.  No result returned | [optional] 

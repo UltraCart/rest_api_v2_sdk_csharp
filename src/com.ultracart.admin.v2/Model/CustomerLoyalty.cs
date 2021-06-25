@@ -35,11 +35,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="currentPoints">Current Points.</param>
         /// <param name="ledgerEntries">Ledger entries.</param>
+        /// <param name="pendingPoints">Pending Points.</param>
         /// <param name="redemptions">Redemptions.</param>
-        public CustomerLoyalty(int? currentPoints = default(int?), List<CustomerLoyaltyLedger> ledgerEntries = default(List<CustomerLoyaltyLedger>), List<CustomerLoyaltyRedemption> redemptions = default(List<CustomerLoyaltyRedemption>))
+        public CustomerLoyalty(int? currentPoints = default(int?), List<CustomerLoyaltyLedger> ledgerEntries = default(List<CustomerLoyaltyLedger>), int? pendingPoints = default(int?), List<CustomerLoyaltyRedemption> redemptions = default(List<CustomerLoyaltyRedemption>))
         {
             this.CurrentPoints = currentPoints;
             this.LedgerEntries = ledgerEntries;
+            this.PendingPoints = pendingPoints;
             this.Redemptions = redemptions;
         }
         
@@ -58,6 +60,13 @@ namespace com.ultracart.admin.v2.Model
         public List<CustomerLoyaltyLedger> LedgerEntries { get; set; }
 
         /// <summary>
+        /// Pending Points
+        /// </summary>
+        /// <value>Pending Points</value>
+        [DataMember(Name="pending_points", EmitDefaultValue=false)]
+        public int? PendingPoints { get; set; }
+
+        /// <summary>
         /// Redemptions
         /// </summary>
         /// <value>Redemptions</value>
@@ -74,6 +83,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class CustomerLoyalty {\n");
             sb.Append("  CurrentPoints: ").Append(CurrentPoints).Append("\n");
             sb.Append("  LedgerEntries: ").Append(LedgerEntries).Append("\n");
+            sb.Append("  PendingPoints: ").Append(PendingPoints).Append("\n");
             sb.Append("  Redemptions: ").Append(Redemptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -120,6 +130,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LedgerEntries.SequenceEqual(input.LedgerEntries)
                 ) && 
                 (
+                    this.PendingPoints == input.PendingPoints ||
+                    (this.PendingPoints != null &&
+                    this.PendingPoints.Equals(input.PendingPoints))
+                ) && 
+                (
                     this.Redemptions == input.Redemptions ||
                     this.Redemptions != null &&
                     this.Redemptions.SequenceEqual(input.Redemptions)
@@ -139,6 +154,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CurrentPoints.GetHashCode();
                 if (this.LedgerEntries != null)
                     hashCode = hashCode * 59 + this.LedgerEntries.GetHashCode();
+                if (this.PendingPoints != null)
+                    hashCode = hashCode * 59 + this.PendingPoints.GetHashCode();
                 if (this.Redemptions != null)
                     hashCode = hashCode * 59 + this.Redemptions.GetHashCode();
                 return hashCode;

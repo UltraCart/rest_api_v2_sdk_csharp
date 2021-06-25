@@ -33,22 +33,35 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecording" /> class.
         /// </summary>
+        /// <param name="adPlatform">adPlatform.</param>
         /// <param name="analyticsClientOid">analyticsClientOid.</param>
         /// <param name="analyticsSessionDts">analyticsSessionDts.</param>
         /// <param name="analyticsSessionOid">analyticsSessionOid.</param>
+        /// <param name="communicationsCampaignName">Campaign Name.</param>
+        /// <param name="communicationsCampaignUuid">Campaign UUID.</param>
+        /// <param name="communicationsEmailSubject">Email subject.</param>
+        /// <param name="communicationsEmailUuid">Email UUID.</param>
+        /// <param name="communicationsFlowName">Flow Name.</param>
+        /// <param name="communicationsFlowUuid">Flow UUID.</param>
         /// <param name="email">email.</param>
+        /// <param name="emailDomain">emailDomain.</param>
         /// <param name="endTimestamp">Ending timestamp.</param>
         /// <param name="espCustomerUuid">espCustomerUuid.</param>
         /// <param name="eventsGzSize">eventsGzSize.</param>
         /// <param name="eventsJsonKey">eventsJsonKey.</param>
-        /// <param name="favorites">favorites.</param>
+        /// <param name="favorite">True if the user calling the API has favorited this particular screen recording..</param>
+        /// <param name="favorites">Array of user ids that favorited this particular screen recording..</param>
         /// <param name="geolocation">geolocation.</param>
         /// <param name="geolocationCountry">geolocationCountry.</param>
         /// <param name="geolocationState">geolocationState.</param>
+        /// <param name="languageIsoCode">Language ISO code.</param>
         /// <param name="merchantId">merchantId.</param>
+        /// <param name="merchantNotes">merchantNotes.</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="pageViewCount">pageViewCount.</param>
         /// <param name="pageViews">pageViews.</param>
+        /// <param name="preferredLanguage">ISO 3 Letter language code that the customer would prefer.</param>
+        /// <param name="referrerDomain">referrerDomain.</param>
         /// <param name="rrwebVersion">rrwebVersion.</param>
         /// <param name="screenRecordingUuid">screenRecordingUuid.</param>
         /// <param name="signedDownloadUrl">signedDownloadUrl.</param>
@@ -62,27 +75,44 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="userAgentRaw">userAgentRaw.</param>
         /// <param name="userIp">userIp.</param>
         /// <param name="userProperties">userProperties.</param>
+        /// <param name="utmCampaign">UTM Campaign.</param>
+        /// <param name="utmSource">UTM Source.</param>
+        /// <param name="visitorFirstSeen">Timestamp this visitor was first seen.</param>
+        /// <param name="visitorNumber">visitorNumber.</param>
         /// <param name="watched">watched.</param>
         /// <param name="windowHeight">windowHeight.</param>
         /// <param name="windowWidth">windowWidth.</param>
-        public ScreenRecording(long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string email = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string merchantId = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
+        public ScreenRecording(ScreenRecordingAdPlatform adPlatform = default(ScreenRecordingAdPlatform), long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string communicationsCampaignName = default(string), string communicationsCampaignUuid = default(string), string communicationsEmailSubject = default(string), string communicationsEmailUuid = default(string), string communicationsFlowName = default(string), string communicationsFlowUuid = default(string), string email = default(string), string emailDomain = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), bool? favorite = default(bool?), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string languageIsoCode = default(string), string merchantId = default(string), string merchantNotes = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string preferredLanguage = default(string), string referrerDomain = default(string), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), string utmCampaign = default(string), string utmSource = default(string), string visitorFirstSeen = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
         {
+            this.AdPlatform = adPlatform;
             this.AnalyticsClientOid = analyticsClientOid;
             this.AnalyticsSessionDts = analyticsSessionDts;
             this.AnalyticsSessionOid = analyticsSessionOid;
+            this.CommunicationsCampaignName = communicationsCampaignName;
+            this.CommunicationsCampaignUuid = communicationsCampaignUuid;
+            this.CommunicationsEmailSubject = communicationsEmailSubject;
+            this.CommunicationsEmailUuid = communicationsEmailUuid;
+            this.CommunicationsFlowName = communicationsFlowName;
+            this.CommunicationsFlowUuid = communicationsFlowUuid;
             this.Email = email;
+            this.EmailDomain = emailDomain;
             this.EndTimestamp = endTimestamp;
             this.EspCustomerUuid = espCustomerUuid;
             this.EventsGzSize = eventsGzSize;
             this.EventsJsonKey = eventsJsonKey;
+            this.Favorite = favorite;
             this.Favorites = favorites;
             this.Geolocation = geolocation;
             this.GeolocationCountry = geolocationCountry;
             this.GeolocationState = geolocationState;
+            this.LanguageIsoCode = languageIsoCode;
             this.MerchantId = merchantId;
+            this.MerchantNotes = merchantNotes;
             this.OrderId = orderId;
             this.PageViewCount = pageViewCount;
             this.PageViews = pageViews;
+            this.PreferredLanguage = preferredLanguage;
+            this.ReferrerDomain = referrerDomain;
             this.RrwebVersion = rrwebVersion;
             this.ScreenRecordingUuid = screenRecordingUuid;
             this.SignedDownloadUrl = signedDownloadUrl;
@@ -96,11 +126,21 @@ namespace com.ultracart.admin.v2.Model
             this.UserAgentRaw = userAgentRaw;
             this.UserIp = userIp;
             this.UserProperties = userProperties;
+            this.UtmCampaign = utmCampaign;
+            this.UtmSource = utmSource;
+            this.VisitorFirstSeen = visitorFirstSeen;
+            this.VisitorNumber = visitorNumber;
             this.Watched = watched;
             this.WindowHeight = windowHeight;
             this.WindowWidth = windowWidth;
         }
         
+        /// <summary>
+        /// Gets or Sets AdPlatform
+        /// </summary>
+        [DataMember(Name="ad_platform", EmitDefaultValue=false)]
+        public ScreenRecordingAdPlatform AdPlatform { get; set; }
+
         /// <summary>
         /// Gets or Sets AnalyticsClientOid
         /// </summary>
@@ -120,10 +160,58 @@ namespace com.ultracart.admin.v2.Model
         public long? AnalyticsSessionOid { get; set; }
 
         /// <summary>
+        /// Campaign Name
+        /// </summary>
+        /// <value>Campaign Name</value>
+        [DataMember(Name="communications_campaign_name", EmitDefaultValue=false)]
+        public string CommunicationsCampaignName { get; set; }
+
+        /// <summary>
+        /// Campaign UUID
+        /// </summary>
+        /// <value>Campaign UUID</value>
+        [DataMember(Name="communications_campaign_uuid", EmitDefaultValue=false)]
+        public string CommunicationsCampaignUuid { get; set; }
+
+        /// <summary>
+        /// Email subject
+        /// </summary>
+        /// <value>Email subject</value>
+        [DataMember(Name="communications_email_subject", EmitDefaultValue=false)]
+        public string CommunicationsEmailSubject { get; set; }
+
+        /// <summary>
+        /// Email UUID
+        /// </summary>
+        /// <value>Email UUID</value>
+        [DataMember(Name="communications_email_uuid", EmitDefaultValue=false)]
+        public string CommunicationsEmailUuid { get; set; }
+
+        /// <summary>
+        /// Flow Name
+        /// </summary>
+        /// <value>Flow Name</value>
+        [DataMember(Name="communications_flow_name", EmitDefaultValue=false)]
+        public string CommunicationsFlowName { get; set; }
+
+        /// <summary>
+        /// Flow UUID
+        /// </summary>
+        /// <value>Flow UUID</value>
+        [DataMember(Name="communications_flow_uuid", EmitDefaultValue=false)]
+        public string CommunicationsFlowUuid { get; set; }
+
+        /// <summary>
         /// Gets or Sets Email
         /// </summary>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EmailDomain
+        /// </summary>
+        [DataMember(Name="email_domain", EmitDefaultValue=false)]
+        public string EmailDomain { get; set; }
 
         /// <summary>
         /// Ending timestamp
@@ -151,8 +239,16 @@ namespace com.ultracart.admin.v2.Model
         public string EventsJsonKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets Favorites
+        /// True if the user calling the API has favorited this particular screen recording.
         /// </summary>
+        /// <value>True if the user calling the API has favorited this particular screen recording.</value>
+        [DataMember(Name="favorite", EmitDefaultValue=false)]
+        public bool? Favorite { get; set; }
+
+        /// <summary>
+        /// Array of user ids that favorited this particular screen recording.
+        /// </summary>
+        /// <value>Array of user ids that favorited this particular screen recording.</value>
         [DataMember(Name="favorites", EmitDefaultValue=false)]
         public List<int?> Favorites { get; set; }
 
@@ -175,10 +271,23 @@ namespace com.ultracart.admin.v2.Model
         public string GeolocationState { get; set; }
 
         /// <summary>
+        /// Language ISO code
+        /// </summary>
+        /// <value>Language ISO code</value>
+        [DataMember(Name="language_iso_code", EmitDefaultValue=false)]
+        public string LanguageIsoCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets MerchantId
         /// </summary>
         [DataMember(Name="merchant_id", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantNotes
+        /// </summary>
+        [DataMember(Name="merchant_notes", EmitDefaultValue=false)]
+        public string MerchantNotes { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderId
@@ -197,6 +306,19 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="page_views", EmitDefaultValue=false)]
         public List<ScreenRecordingPageView> PageViews { get; set; }
+
+        /// <summary>
+        /// ISO 3 Letter language code that the customer would prefer
+        /// </summary>
+        /// <value>ISO 3 Letter language code that the customer would prefer</value>
+        [DataMember(Name="preferred_language", EmitDefaultValue=false)]
+        public string PreferredLanguage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReferrerDomain
+        /// </summary>
+        [DataMember(Name="referrer_domain", EmitDefaultValue=false)]
+        public string ReferrerDomain { get; set; }
 
         /// <summary>
         /// Gets or Sets RrwebVersion
@@ -278,6 +400,33 @@ namespace com.ultracart.admin.v2.Model
         public List<ScreenRecordingUserProperty> UserProperties { get; set; }
 
         /// <summary>
+        /// UTM Campaign
+        /// </summary>
+        /// <value>UTM Campaign</value>
+        [DataMember(Name="utm_campaign", EmitDefaultValue=false)]
+        public string UtmCampaign { get; set; }
+
+        /// <summary>
+        /// UTM Source
+        /// </summary>
+        /// <value>UTM Source</value>
+        [DataMember(Name="utm_source", EmitDefaultValue=false)]
+        public string UtmSource { get; set; }
+
+        /// <summary>
+        /// Timestamp this visitor was first seen
+        /// </summary>
+        /// <value>Timestamp this visitor was first seen</value>
+        [DataMember(Name="visitor_first_seen", EmitDefaultValue=false)]
+        public string VisitorFirstSeen { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VisitorNumber
+        /// </summary>
+        [DataMember(Name="visitor_number", EmitDefaultValue=false)]
+        public int? VisitorNumber { get; set; }
+
+        /// <summary>
         /// Gets or Sets Watched
         /// </summary>
         [DataMember(Name="watched", EmitDefaultValue=false)]
@@ -303,22 +452,35 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecording {\n");
+            sb.Append("  AdPlatform: ").Append(AdPlatform).Append("\n");
             sb.Append("  AnalyticsClientOid: ").Append(AnalyticsClientOid).Append("\n");
             sb.Append("  AnalyticsSessionDts: ").Append(AnalyticsSessionDts).Append("\n");
             sb.Append("  AnalyticsSessionOid: ").Append(AnalyticsSessionOid).Append("\n");
+            sb.Append("  CommunicationsCampaignName: ").Append(CommunicationsCampaignName).Append("\n");
+            sb.Append("  CommunicationsCampaignUuid: ").Append(CommunicationsCampaignUuid).Append("\n");
+            sb.Append("  CommunicationsEmailSubject: ").Append(CommunicationsEmailSubject).Append("\n");
+            sb.Append("  CommunicationsEmailUuid: ").Append(CommunicationsEmailUuid).Append("\n");
+            sb.Append("  CommunicationsFlowName: ").Append(CommunicationsFlowName).Append("\n");
+            sb.Append("  CommunicationsFlowUuid: ").Append(CommunicationsFlowUuid).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  EmailDomain: ").Append(EmailDomain).Append("\n");
             sb.Append("  EndTimestamp: ").Append(EndTimestamp).Append("\n");
             sb.Append("  EspCustomerUuid: ").Append(EspCustomerUuid).Append("\n");
             sb.Append("  EventsGzSize: ").Append(EventsGzSize).Append("\n");
             sb.Append("  EventsJsonKey: ").Append(EventsJsonKey).Append("\n");
+            sb.Append("  Favorite: ").Append(Favorite).Append("\n");
             sb.Append("  Favorites: ").Append(Favorites).Append("\n");
             sb.Append("  Geolocation: ").Append(Geolocation).Append("\n");
             sb.Append("  GeolocationCountry: ").Append(GeolocationCountry).Append("\n");
             sb.Append("  GeolocationState: ").Append(GeolocationState).Append("\n");
+            sb.Append("  LanguageIsoCode: ").Append(LanguageIsoCode).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  MerchantNotes: ").Append(MerchantNotes).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  PageViewCount: ").Append(PageViewCount).Append("\n");
             sb.Append("  PageViews: ").Append(PageViews).Append("\n");
+            sb.Append("  PreferredLanguage: ").Append(PreferredLanguage).Append("\n");
+            sb.Append("  ReferrerDomain: ").Append(ReferrerDomain).Append("\n");
             sb.Append("  RrwebVersion: ").Append(RrwebVersion).Append("\n");
             sb.Append("  ScreenRecordingUuid: ").Append(ScreenRecordingUuid).Append("\n");
             sb.Append("  SignedDownloadUrl: ").Append(SignedDownloadUrl).Append("\n");
@@ -332,6 +494,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  UserAgentRaw: ").Append(UserAgentRaw).Append("\n");
             sb.Append("  UserIp: ").Append(UserIp).Append("\n");
             sb.Append("  UserProperties: ").Append(UserProperties).Append("\n");
+            sb.Append("  UtmCampaign: ").Append(UtmCampaign).Append("\n");
+            sb.Append("  UtmSource: ").Append(UtmSource).Append("\n");
+            sb.Append("  VisitorFirstSeen: ").Append(VisitorFirstSeen).Append("\n");
+            sb.Append("  VisitorNumber: ").Append(VisitorNumber).Append("\n");
             sb.Append("  Watched: ").Append(Watched).Append("\n");
             sb.Append("  WindowHeight: ").Append(WindowHeight).Append("\n");
             sb.Append("  WindowWidth: ").Append(WindowWidth).Append("\n");
@@ -370,6 +536,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AdPlatform == input.AdPlatform ||
+                    (this.AdPlatform != null &&
+                    this.AdPlatform.Equals(input.AdPlatform))
+                ) && 
+                (
                     this.AnalyticsClientOid == input.AnalyticsClientOid ||
                     (this.AnalyticsClientOid != null &&
                     this.AnalyticsClientOid.Equals(input.AnalyticsClientOid))
@@ -385,9 +556,44 @@ namespace com.ultracart.admin.v2.Model
                     this.AnalyticsSessionOid.Equals(input.AnalyticsSessionOid))
                 ) && 
                 (
+                    this.CommunicationsCampaignName == input.CommunicationsCampaignName ||
+                    (this.CommunicationsCampaignName != null &&
+                    this.CommunicationsCampaignName.Equals(input.CommunicationsCampaignName))
+                ) && 
+                (
+                    this.CommunicationsCampaignUuid == input.CommunicationsCampaignUuid ||
+                    (this.CommunicationsCampaignUuid != null &&
+                    this.CommunicationsCampaignUuid.Equals(input.CommunicationsCampaignUuid))
+                ) && 
+                (
+                    this.CommunicationsEmailSubject == input.CommunicationsEmailSubject ||
+                    (this.CommunicationsEmailSubject != null &&
+                    this.CommunicationsEmailSubject.Equals(input.CommunicationsEmailSubject))
+                ) && 
+                (
+                    this.CommunicationsEmailUuid == input.CommunicationsEmailUuid ||
+                    (this.CommunicationsEmailUuid != null &&
+                    this.CommunicationsEmailUuid.Equals(input.CommunicationsEmailUuid))
+                ) && 
+                (
+                    this.CommunicationsFlowName == input.CommunicationsFlowName ||
+                    (this.CommunicationsFlowName != null &&
+                    this.CommunicationsFlowName.Equals(input.CommunicationsFlowName))
+                ) && 
+                (
+                    this.CommunicationsFlowUuid == input.CommunicationsFlowUuid ||
+                    (this.CommunicationsFlowUuid != null &&
+                    this.CommunicationsFlowUuid.Equals(input.CommunicationsFlowUuid))
+                ) && 
+                (
                     this.Email == input.Email ||
                     (this.Email != null &&
                     this.Email.Equals(input.Email))
+                ) && 
+                (
+                    this.EmailDomain == input.EmailDomain ||
+                    (this.EmailDomain != null &&
+                    this.EmailDomain.Equals(input.EmailDomain))
                 ) && 
                 (
                     this.EndTimestamp == input.EndTimestamp ||
@@ -410,6 +616,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EventsJsonKey.Equals(input.EventsJsonKey))
                 ) && 
                 (
+                    this.Favorite == input.Favorite ||
+                    (this.Favorite != null &&
+                    this.Favorite.Equals(input.Favorite))
+                ) && 
+                (
                     this.Favorites == input.Favorites ||
                     this.Favorites != null &&
                     this.Favorites.SequenceEqual(input.Favorites)
@@ -430,9 +641,19 @@ namespace com.ultracart.admin.v2.Model
                     this.GeolocationState.Equals(input.GeolocationState))
                 ) && 
                 (
+                    this.LanguageIsoCode == input.LanguageIsoCode ||
+                    (this.LanguageIsoCode != null &&
+                    this.LanguageIsoCode.Equals(input.LanguageIsoCode))
+                ) && 
+                (
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
+                ) && 
+                (
+                    this.MerchantNotes == input.MerchantNotes ||
+                    (this.MerchantNotes != null &&
+                    this.MerchantNotes.Equals(input.MerchantNotes))
                 ) && 
                 (
                     this.OrderId == input.OrderId ||
@@ -448,6 +669,16 @@ namespace com.ultracart.admin.v2.Model
                     this.PageViews == input.PageViews ||
                     this.PageViews != null &&
                     this.PageViews.SequenceEqual(input.PageViews)
+                ) && 
+                (
+                    this.PreferredLanguage == input.PreferredLanguage ||
+                    (this.PreferredLanguage != null &&
+                    this.PreferredLanguage.Equals(input.PreferredLanguage))
+                ) && 
+                (
+                    this.ReferrerDomain == input.ReferrerDomain ||
+                    (this.ReferrerDomain != null &&
+                    this.ReferrerDomain.Equals(input.ReferrerDomain))
                 ) && 
                 (
                     this.RrwebVersion == input.RrwebVersion ||
@@ -515,6 +746,26 @@ namespace com.ultracart.admin.v2.Model
                     this.UserProperties.SequenceEqual(input.UserProperties)
                 ) && 
                 (
+                    this.UtmCampaign == input.UtmCampaign ||
+                    (this.UtmCampaign != null &&
+                    this.UtmCampaign.Equals(input.UtmCampaign))
+                ) && 
+                (
+                    this.UtmSource == input.UtmSource ||
+                    (this.UtmSource != null &&
+                    this.UtmSource.Equals(input.UtmSource))
+                ) && 
+                (
+                    this.VisitorFirstSeen == input.VisitorFirstSeen ||
+                    (this.VisitorFirstSeen != null &&
+                    this.VisitorFirstSeen.Equals(input.VisitorFirstSeen))
+                ) && 
+                (
+                    this.VisitorNumber == input.VisitorNumber ||
+                    (this.VisitorNumber != null &&
+                    this.VisitorNumber.Equals(input.VisitorNumber))
+                ) && 
+                (
                     this.Watched == input.Watched ||
                     (this.Watched != null &&
                     this.Watched.Equals(input.Watched))
@@ -540,14 +791,30 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AdPlatform != null)
+                    hashCode = hashCode * 59 + this.AdPlatform.GetHashCode();
                 if (this.AnalyticsClientOid != null)
                     hashCode = hashCode * 59 + this.AnalyticsClientOid.GetHashCode();
                 if (this.AnalyticsSessionDts != null)
                     hashCode = hashCode * 59 + this.AnalyticsSessionDts.GetHashCode();
                 if (this.AnalyticsSessionOid != null)
                     hashCode = hashCode * 59 + this.AnalyticsSessionOid.GetHashCode();
+                if (this.CommunicationsCampaignName != null)
+                    hashCode = hashCode * 59 + this.CommunicationsCampaignName.GetHashCode();
+                if (this.CommunicationsCampaignUuid != null)
+                    hashCode = hashCode * 59 + this.CommunicationsCampaignUuid.GetHashCode();
+                if (this.CommunicationsEmailSubject != null)
+                    hashCode = hashCode * 59 + this.CommunicationsEmailSubject.GetHashCode();
+                if (this.CommunicationsEmailUuid != null)
+                    hashCode = hashCode * 59 + this.CommunicationsEmailUuid.GetHashCode();
+                if (this.CommunicationsFlowName != null)
+                    hashCode = hashCode * 59 + this.CommunicationsFlowName.GetHashCode();
+                if (this.CommunicationsFlowUuid != null)
+                    hashCode = hashCode * 59 + this.CommunicationsFlowUuid.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
+                if (this.EmailDomain != null)
+                    hashCode = hashCode * 59 + this.EmailDomain.GetHashCode();
                 if (this.EndTimestamp != null)
                     hashCode = hashCode * 59 + this.EndTimestamp.GetHashCode();
                 if (this.EspCustomerUuid != null)
@@ -556,6 +823,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EventsGzSize.GetHashCode();
                 if (this.EventsJsonKey != null)
                     hashCode = hashCode * 59 + this.EventsJsonKey.GetHashCode();
+                if (this.Favorite != null)
+                    hashCode = hashCode * 59 + this.Favorite.GetHashCode();
                 if (this.Favorites != null)
                     hashCode = hashCode * 59 + this.Favorites.GetHashCode();
                 if (this.Geolocation != null)
@@ -564,14 +833,22 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.GeolocationCountry.GetHashCode();
                 if (this.GeolocationState != null)
                     hashCode = hashCode * 59 + this.GeolocationState.GetHashCode();
+                if (this.LanguageIsoCode != null)
+                    hashCode = hashCode * 59 + this.LanguageIsoCode.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.MerchantNotes != null)
+                    hashCode = hashCode * 59 + this.MerchantNotes.GetHashCode();
                 if (this.OrderId != null)
                     hashCode = hashCode * 59 + this.OrderId.GetHashCode();
                 if (this.PageViewCount != null)
                     hashCode = hashCode * 59 + this.PageViewCount.GetHashCode();
                 if (this.PageViews != null)
                     hashCode = hashCode * 59 + this.PageViews.GetHashCode();
+                if (this.PreferredLanguage != null)
+                    hashCode = hashCode * 59 + this.PreferredLanguage.GetHashCode();
+                if (this.ReferrerDomain != null)
+                    hashCode = hashCode * 59 + this.ReferrerDomain.GetHashCode();
                 if (this.RrwebVersion != null)
                     hashCode = hashCode * 59 + this.RrwebVersion.GetHashCode();
                 if (this.ScreenRecordingUuid != null)
@@ -598,6 +875,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.UserIp.GetHashCode();
                 if (this.UserProperties != null)
                     hashCode = hashCode * 59 + this.UserProperties.GetHashCode();
+                if (this.UtmCampaign != null)
+                    hashCode = hashCode * 59 + this.UtmCampaign.GetHashCode();
+                if (this.UtmSource != null)
+                    hashCode = hashCode * 59 + this.UtmSource.GetHashCode();
+                if (this.VisitorFirstSeen != null)
+                    hashCode = hashCode * 59 + this.VisitorFirstSeen.GetHashCode();
+                if (this.VisitorNumber != null)
+                    hashCode = hashCode * 59 + this.VisitorNumber.GetHashCode();
                 if (this.Watched != null)
                     hashCode = hashCode * 59 + this.Watched.GetHashCode();
                 if (this.WindowHeight != null)

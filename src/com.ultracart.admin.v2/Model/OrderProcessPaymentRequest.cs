@@ -33,12 +33,21 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderProcessPaymentRequest" /> class.
         /// </summary>
+        /// <param name="amount">Specific amount to bill (optional).  If not specified the total of the order is billed..</param>
         /// <param name="cardVerificationNumberToken">Card verification number token from hosted fields used during credit card transaction processing (optional).</param>
-        public OrderProcessPaymentRequest(string cardVerificationNumberToken = default(string))
+        public OrderProcessPaymentRequest(decimal? amount = default(decimal?), string cardVerificationNumberToken = default(string))
         {
+            this.Amount = amount;
             this.CardVerificationNumberToken = cardVerificationNumberToken;
         }
         
+        /// <summary>
+        /// Specific amount to bill (optional).  If not specified the total of the order is billed.
+        /// </summary>
+        /// <value>Specific amount to bill (optional).  If not specified the total of the order is billed.</value>
+        [DataMember(Name="amount", EmitDefaultValue=false)]
+        public decimal? Amount { get; set; }
+
         /// <summary>
         /// Card verification number token from hosted fields used during credit card transaction processing (optional)
         /// </summary>
@@ -54,6 +63,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class OrderProcessPaymentRequest {\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  CardVerificationNumberToken: ").Append(CardVerificationNumberToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -90,6 +100,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
+                ) && 
+                (
                     this.CardVerificationNumberToken == input.CardVerificationNumberToken ||
                     (this.CardVerificationNumberToken != null &&
                     this.CardVerificationNumberToken.Equals(input.CardVerificationNumberToken))
@@ -105,6 +120,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Amount != null)
+                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.CardVerificationNumberToken != null)
                     hashCode = hashCode * 59 + this.CardVerificationNumberToken.GetHashCode();
                 return hashCode;

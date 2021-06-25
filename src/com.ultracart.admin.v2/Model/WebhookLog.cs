@@ -35,6 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="deliveryDts">Date/time of delivery.</param>
         /// <param name="duration">Number of milliseconds to process the notification.</param>
+        /// <param name="queueDelay">Number of milliseconds of delay caused by queuing.</param>
         /// <param name="request">Request payload (first 100,000 characters).</param>
         /// <param name="requestHeaders">Request headers sent to the server.</param>
         /// <param name="requestId">Request id is a unique string that you can look up in the logs.</param>
@@ -43,10 +44,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="statusCode">HTTP status code received from the server.</param>
         /// <param name="success">True if the delivery was successful.</param>
         /// <param name="uri">URI of the webhook delivered to.</param>
-        public WebhookLog(string deliveryDts = default(string), int? duration = default(int?), string request = default(string), List<HTTPHeader> requestHeaders = default(List<HTTPHeader>), string requestId = default(string), string response = default(string), List<HTTPHeader> responseHeaders = default(List<HTTPHeader>), int? statusCode = default(int?), bool? success = default(bool?), string uri = default(string))
+        public WebhookLog(string deliveryDts = default(string), int? duration = default(int?), long? queueDelay = default(long?), string request = default(string), List<HTTPHeader> requestHeaders = default(List<HTTPHeader>), string requestId = default(string), string response = default(string), List<HTTPHeader> responseHeaders = default(List<HTTPHeader>), int? statusCode = default(int?), bool? success = default(bool?), string uri = default(string))
         {
             this.DeliveryDts = deliveryDts;
             this.Duration = duration;
+            this.QueueDelay = queueDelay;
             this.Request = request;
             this.RequestHeaders = requestHeaders;
             this.RequestId = requestId;
@@ -70,6 +72,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Number of milliseconds to process the notification</value>
         [DataMember(Name="duration", EmitDefaultValue=false)]
         public int? Duration { get; set; }
+
+        /// <summary>
+        /// Number of milliseconds of delay caused by queuing
+        /// </summary>
+        /// <value>Number of milliseconds of delay caused by queuing</value>
+        [DataMember(Name="queue_delay", EmitDefaultValue=false)]
+        public long? QueueDelay { get; set; }
 
         /// <summary>
         /// Request payload (first 100,000 characters)
@@ -137,6 +146,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class WebhookLog {\n");
             sb.Append("  DeliveryDts: ").Append(DeliveryDts).Append("\n");
             sb.Append("  Duration: ").Append(Duration).Append("\n");
+            sb.Append("  QueueDelay: ").Append(QueueDelay).Append("\n");
             sb.Append("  Request: ").Append(Request).Append("\n");
             sb.Append("  RequestHeaders: ").Append(RequestHeaders).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
@@ -188,6 +198,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Duration == input.Duration ||
                     (this.Duration != null &&
                     this.Duration.Equals(input.Duration))
+                ) && 
+                (
+                    this.QueueDelay == input.QueueDelay ||
+                    (this.QueueDelay != null &&
+                    this.QueueDelay.Equals(input.QueueDelay))
                 ) && 
                 (
                     this.Request == input.Request ||
@@ -244,6 +259,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DeliveryDts.GetHashCode();
                 if (this.Duration != null)
                     hashCode = hashCode * 59 + this.Duration.GetHashCode();
+                if (this.QueueDelay != null)
+                    hashCode = hashCode * 59 + this.QueueDelay.GetHashCode();
                 if (this.Request != null)
                     hashCode = hashCode * 59 + this.Request.GetHashCode();
                 if (this.RequestHeaders != null)

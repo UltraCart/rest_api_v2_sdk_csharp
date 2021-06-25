@@ -33,14 +33,23 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponTieredPercentOffShipping" /> class.
         /// </summary>
+        /// <param name="quickbooksCode">Quickbooks accounting code..</param>
         /// <param name="shippingMethods">One or more shipping methods that may receive this discount.</param>
         /// <param name="tiers">A list of discount tiers..</param>
-        public CouponTieredPercentOffShipping(List<string> shippingMethods = default(List<string>), List<CouponTierPercent> tiers = default(List<CouponTierPercent>))
+        public CouponTieredPercentOffShipping(string quickbooksCode = default(string), List<string> shippingMethods = default(List<string>), List<CouponTierPercent> tiers = default(List<CouponTierPercent>))
         {
+            this.QuickbooksCode = quickbooksCode;
             this.ShippingMethods = shippingMethods;
             this.Tiers = tiers;
         }
         
+        /// <summary>
+        /// Quickbooks accounting code.
+        /// </summary>
+        /// <value>Quickbooks accounting code.</value>
+        [DataMember(Name="quickbooks_code", EmitDefaultValue=false)]
+        public string QuickbooksCode { get; set; }
+
         /// <summary>
         /// One or more shipping methods that may receive this discount
         /// </summary>
@@ -63,6 +72,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CouponTieredPercentOffShipping {\n");
+            sb.Append("  QuickbooksCode: ").Append(QuickbooksCode).Append("\n");
             sb.Append("  ShippingMethods: ").Append(ShippingMethods).Append("\n");
             sb.Append("  Tiers: ").Append(Tiers).Append("\n");
             sb.Append("}\n");
@@ -100,6 +110,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.QuickbooksCode == input.QuickbooksCode ||
+                    (this.QuickbooksCode != null &&
+                    this.QuickbooksCode.Equals(input.QuickbooksCode))
+                ) && 
+                (
                     this.ShippingMethods == input.ShippingMethods ||
                     this.ShippingMethods != null &&
                     this.ShippingMethods.SequenceEqual(input.ShippingMethods)
@@ -120,6 +135,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.QuickbooksCode != null)
+                    hashCode = hashCode * 59 + this.QuickbooksCode.GetHashCode();
                 if (this.ShippingMethods != null)
                     hashCode = hashCode * 59 + this.ShippingMethods.GetHashCode();
                 if (this.Tiers != null)
@@ -135,6 +152,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // QuickbooksCode (string) maxLength
+            if(this.QuickbooksCode != null && this.QuickbooksCode.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for QuickbooksCode, length must be less than 20.", new [] { "QuickbooksCode" });
+            }
+
             yield break;
         }
     }

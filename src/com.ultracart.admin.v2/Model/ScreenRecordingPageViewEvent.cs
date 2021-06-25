@@ -35,12 +35,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="name">name.</param>
         /// <param name="_params">_params.</param>
+        /// <param name="priorPageView">priorPageView.</param>
         /// <param name="timestamp">Timestamp of the event.</param>
         /// <param name="ts">ts.</param>
-        public ScreenRecordingPageViewEvent(string name = default(string), List<ScreenRecordingPageViewEventParameter> _params = default(List<ScreenRecordingPageViewEventParameter>), string timestamp = default(string), long? ts = default(long?))
+        public ScreenRecordingPageViewEvent(string name = default(string), List<ScreenRecordingPageViewEventParameter> _params = default(List<ScreenRecordingPageViewEventParameter>), bool? priorPageView = default(bool?), string timestamp = default(string), long? ts = default(long?))
         {
             this.Name = name;
             this.Params = _params;
+            this.PriorPageView = priorPageView;
             this.Timestamp = timestamp;
             this.Ts = ts;
         }
@@ -56,6 +58,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="params", EmitDefaultValue=false)]
         public List<ScreenRecordingPageViewEventParameter> Params { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PriorPageView
+        /// </summary>
+        [DataMember(Name="prior_page_view", EmitDefaultValue=false)]
+        public bool? PriorPageView { get; set; }
 
         /// <summary>
         /// Timestamp of the event
@@ -80,6 +88,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ScreenRecordingPageViewEvent {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
+            sb.Append("  PriorPageView: ").Append(PriorPageView).Append("\n");
             sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
             sb.Append("  Ts: ").Append(Ts).Append("\n");
             sb.Append("}\n");
@@ -127,6 +136,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Params.SequenceEqual(input.Params)
                 ) && 
                 (
+                    this.PriorPageView == input.PriorPageView ||
+                    (this.PriorPageView != null &&
+                    this.PriorPageView.Equals(input.PriorPageView))
+                ) && 
+                (
                     this.Timestamp == input.Timestamp ||
                     (this.Timestamp != null &&
                     this.Timestamp.Equals(input.Timestamp))
@@ -151,6 +165,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
+                if (this.PriorPageView != null)
+                    hashCode = hashCode * 59 + this.PriorPageView.GetHashCode();
                 if (this.Timestamp != null)
                     hashCode = hashCode * 59 + this.Timestamp.GetHashCode();
                 if (this.Ts != null)

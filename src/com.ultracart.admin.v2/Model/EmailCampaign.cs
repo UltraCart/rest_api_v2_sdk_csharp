@@ -38,7 +38,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="deleted">True if this campaign was deleted.</param>
         /// <param name="emailCampaignUuid">Email campaign UUID.</param>
         /// <param name="emailCommunicationSequenceUuid">Email communication sequence UUID.</param>
-        /// <param name="endOnceCustomerPurchases">True if the customer should end the flow once they purchase.</param>
+        /// <param name="endOnceCustomerPurchases">True if the customer should end the flow once they purchase from this campaign.</param>
+        /// <param name="endOnceCustomerPurchasesAnywhere">True if the customer should end the flow once they purchase from anywhere.</param>
         /// <param name="espCampaignFolderUuid">Campaign folder UUID.  Null for uncategorized.</param>
         /// <param name="espDomainUser">User of the sending address.</param>
         /// <param name="espDomainUuid">UUID of the sending domain.</param>
@@ -56,7 +57,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="status">Status of the campaign of draft, archived, and sent.</param>
         /// <param name="statusDts">Timestamp when the last status change happened.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
-        public EmailCampaign(string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCampaignUuid = default(string), string emailCommunicationSequenceUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), string espCampaignFolderUuid = default(string), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), int? libraryItemOid = default(int?), List<EmailListSegmentMembership> memberships = default(List<EmailListSegmentMembership>), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), bool? preventSendingDueToSpam = default(bool?), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string scheduledDts = default(string), string screenshotLargeFullUrl = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?))
+        public EmailCampaign(string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCampaignUuid = default(string), string emailCommunicationSequenceUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), bool? endOnceCustomerPurchasesAnywhere = default(bool?), string espCampaignFolderUuid = default(string), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), int? libraryItemOid = default(int?), List<EmailListSegmentMembership> memberships = default(List<EmailListSegmentMembership>), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), bool? preventSendingDueToSpam = default(bool?), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string scheduledDts = default(string), string screenshotLargeFullUrl = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?))
         {
             this.ClickRateFormatted = clickRateFormatted;
             this.CreatedDts = createdDts;
@@ -64,6 +65,7 @@ namespace com.ultracart.admin.v2.Model
             this.EmailCampaignUuid = emailCampaignUuid;
             this.EmailCommunicationSequenceUuid = emailCommunicationSequenceUuid;
             this.EndOnceCustomerPurchases = endOnceCustomerPurchases;
+            this.EndOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
             this.EspCampaignFolderUuid = espCampaignFolderUuid;
             this.EspDomainUser = espDomainUser;
             this.EspDomainUuid = espDomainUuid;
@@ -119,11 +121,18 @@ namespace com.ultracart.admin.v2.Model
         public string EmailCommunicationSequenceUuid { get; set; }
 
         /// <summary>
-        /// True if the customer should end the flow once they purchase
+        /// True if the customer should end the flow once they purchase from this campaign
         /// </summary>
-        /// <value>True if the customer should end the flow once they purchase</value>
+        /// <value>True if the customer should end the flow once they purchase from this campaign</value>
         [DataMember(Name="end_once_customer_purchases", EmitDefaultValue=false)]
         public bool? EndOnceCustomerPurchases { get; set; }
+
+        /// <summary>
+        /// True if the customer should end the flow once they purchase from anywhere
+        /// </summary>
+        /// <value>True if the customer should end the flow once they purchase from anywhere</value>
+        [DataMember(Name="end_once_customer_purchases_anywhere", EmitDefaultValue=false)]
+        public bool? EndOnceCustomerPurchasesAnywhere { get; set; }
 
         /// <summary>
         /// Campaign folder UUID.  Null for uncategorized
@@ -258,6 +267,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EmailCampaignUuid: ").Append(EmailCampaignUuid).Append("\n");
             sb.Append("  EmailCommunicationSequenceUuid: ").Append(EmailCommunicationSequenceUuid).Append("\n");
             sb.Append("  EndOnceCustomerPurchases: ").Append(EndOnceCustomerPurchases).Append("\n");
+            sb.Append("  EndOnceCustomerPurchasesAnywhere: ").Append(EndOnceCustomerPurchasesAnywhere).Append("\n");
             sb.Append("  EspCampaignFolderUuid: ").Append(EspCampaignFolderUuid).Append("\n");
             sb.Append("  EspDomainUser: ").Append(EspDomainUser).Append("\n");
             sb.Append("  EspDomainUuid: ").Append(EspDomainUuid).Append("\n");
@@ -338,6 +348,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EndOnceCustomerPurchases == input.EndOnceCustomerPurchases ||
                     (this.EndOnceCustomerPurchases != null &&
                     this.EndOnceCustomerPurchases.Equals(input.EndOnceCustomerPurchases))
+                ) && 
+                (
+                    this.EndOnceCustomerPurchasesAnywhere == input.EndOnceCustomerPurchasesAnywhere ||
+                    (this.EndOnceCustomerPurchasesAnywhere != null &&
+                    this.EndOnceCustomerPurchasesAnywhere.Equals(input.EndOnceCustomerPurchasesAnywhere))
                 ) && 
                 (
                     this.EspCampaignFolderUuid == input.EspCampaignFolderUuid ||
@@ -447,6 +462,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailCommunicationSequenceUuid.GetHashCode();
                 if (this.EndOnceCustomerPurchases != null)
                     hashCode = hashCode * 59 + this.EndOnceCustomerPurchases.GetHashCode();
+                if (this.EndOnceCustomerPurchasesAnywhere != null)
+                    hashCode = hashCode * 59 + this.EndOnceCustomerPurchasesAnywhere.GetHashCode();
                 if (this.EspCampaignFolderUuid != null)
                     hashCode = hashCode * 59 + this.EspCampaignFolderUuid.GetHashCode();
                 if (this.EspDomainUser != null)

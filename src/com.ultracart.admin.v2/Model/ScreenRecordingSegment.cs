@@ -36,15 +36,21 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="createDts">createDts.</param>
         /// <param name="description">description.</param>
         /// <param name="filter">filter.</param>
+        /// <param name="histogramData">histogramData.</param>
+        /// <param name="histogramInterval">histogramInterval.</param>
+        /// <param name="histogramStartDts">histogramStartDts.</param>
         /// <param name="name">name.</param>
         /// <param name="screenRecordingSegmentOid">screenRecordingSegmentOid.</param>
         /// <param name="sessionCount">sessionCount.</param>
         /// <param name="sessionCountLastUpdateDts">sessionCountLastUpdateDts.</param>
-        public ScreenRecordingSegment(string createDts = default(string), string description = default(string), ScreenRecordingFilter filter = default(ScreenRecordingFilter), string name = default(string), int? screenRecordingSegmentOid = default(int?), int? sessionCount = default(int?), string sessionCountLastUpdateDts = default(string))
+        public ScreenRecordingSegment(string createDts = default(string), string description = default(string), ScreenRecordingFilter filter = default(ScreenRecordingFilter), List<int?> histogramData = default(List<int?>), string histogramInterval = default(string), string histogramStartDts = default(string), string name = default(string), int? screenRecordingSegmentOid = default(int?), int? sessionCount = default(int?), string sessionCountLastUpdateDts = default(string))
         {
             this.CreateDts = createDts;
             this.Description = description;
             this.Filter = filter;
+            this.HistogramData = histogramData;
+            this.HistogramInterval = histogramInterval;
+            this.HistogramStartDts = histogramStartDts;
             this.Name = name;
             this.ScreenRecordingSegmentOid = screenRecordingSegmentOid;
             this.SessionCount = sessionCount;
@@ -68,6 +74,24 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="filter", EmitDefaultValue=false)]
         public ScreenRecordingFilter Filter { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HistogramData
+        /// </summary>
+        [DataMember(Name="histogram_data", EmitDefaultValue=false)]
+        public List<int?> HistogramData { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HistogramInterval
+        /// </summary>
+        [DataMember(Name="histogram_interval", EmitDefaultValue=false)]
+        public string HistogramInterval { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HistogramStartDts
+        /// </summary>
+        [DataMember(Name="histogram_start_dts", EmitDefaultValue=false)]
+        public string HistogramStartDts { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -104,6 +128,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreateDts: ").Append(CreateDts).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
+            sb.Append("  HistogramData: ").Append(HistogramData).Append("\n");
+            sb.Append("  HistogramInterval: ").Append(HistogramInterval).Append("\n");
+            sb.Append("  HistogramStartDts: ").Append(HistogramStartDts).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ScreenRecordingSegmentOid: ").Append(ScreenRecordingSegmentOid).Append("\n");
             sb.Append("  SessionCount: ").Append(SessionCount).Append("\n");
@@ -158,6 +185,21 @@ namespace com.ultracart.admin.v2.Model
                     this.Filter.Equals(input.Filter))
                 ) && 
                 (
+                    this.HistogramData == input.HistogramData ||
+                    this.HistogramData != null &&
+                    this.HistogramData.SequenceEqual(input.HistogramData)
+                ) && 
+                (
+                    this.HistogramInterval == input.HistogramInterval ||
+                    (this.HistogramInterval != null &&
+                    this.HistogramInterval.Equals(input.HistogramInterval))
+                ) && 
+                (
+                    this.HistogramStartDts == input.HistogramStartDts ||
+                    (this.HistogramStartDts != null &&
+                    this.HistogramStartDts.Equals(input.HistogramStartDts))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -194,6 +236,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Filter != null)
                     hashCode = hashCode * 59 + this.Filter.GetHashCode();
+                if (this.HistogramData != null)
+                    hashCode = hashCode * 59 + this.HistogramData.GetHashCode();
+                if (this.HistogramInterval != null)
+                    hashCode = hashCode * 59 + this.HistogramInterval.GetHashCode();
+                if (this.HistogramStartDts != null)
+                    hashCode = hashCode * 59 + this.HistogramStartDts.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.ScreenRecordingSegmentOid != null)

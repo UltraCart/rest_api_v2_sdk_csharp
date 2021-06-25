@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Item** | **string** | The item being discounted by this coupon. | [optional] 
-**Limit** | **decimal?** | The maximum amount of total discount by this coupon. | [optional] 
+**Limit** | **decimal?** | The maximum number of discounted items. | [optional] 
 **Tiers** | [**List&lt;CouponTierQuantityAmount&gt;**](CouponTierQuantityAmount.md) | A list of discount tiers. | [optional] 
 
 

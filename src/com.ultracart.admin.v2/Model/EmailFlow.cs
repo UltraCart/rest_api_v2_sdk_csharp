@@ -40,7 +40,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="deleted">True if this campaign was deleted.</param>
         /// <param name="emailCommunicationSequenceUuid">Email communication sequence UUID.</param>
         /// <param name="emailFlowUuid">Email flow UUID.</param>
-        /// <param name="endOnceCustomerPurchases">True if the customer should end the flow once they purchase.</param>
+        /// <param name="endOnceCustomerPurchases">True if the customer should end the flow once they purchase from an email on this flow.</param>
+        /// <param name="endOnceCustomerPurchasesAnywhere">True if the customer should end the flow once they purchase from any source.</param>
         /// <param name="enrolledCustomers">Number of enrolled customers..</param>
         /// <param name="espDomainUser">Username of sending email.</param>
         /// <param name="espDomainUuid">UUID of sending domain.</param>
@@ -60,7 +61,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="triggerParameter">Trigger parameter.</param>
         /// <param name="triggerParameterName">Trigger parameter name.</param>
         /// <param name="triggerType">Trigger type.</param>
-        public EmailFlow(bool? allowMultipleConcurrentEnrollments = default(bool?), bool? backPopulating = default(bool?), string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), int? enrolledCustomers = default(int?), string espDomainUser = default(string), string espDomainUuid = default(string), string espFlowFolderUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), int? libraryItemOid = default(int?), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string screenshotLargeFullUrl = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
+        public EmailFlow(bool? allowMultipleConcurrentEnrollments = default(bool?), bool? backPopulating = default(bool?), string clickRateFormatted = default(string), string createdDts = default(string), bool? deleted = default(bool?), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool? endOnceCustomerPurchases = default(bool?), bool? endOnceCustomerPurchasesAnywhere = default(bool?), int? enrolledCustomers = default(int?), string espDomainUser = default(string), string espDomainUuid = default(string), string espFlowFolderUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), int? libraryItemOid = default(int?), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string screenshotLargeFullUrl = default(string), string status = default(string), string statusDts = default(string), int? storefrontOid = default(int?), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
         {
             this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
             this.BackPopulating = backPopulating;
@@ -70,6 +71,7 @@ namespace com.ultracart.admin.v2.Model
             this.EmailCommunicationSequenceUuid = emailCommunicationSequenceUuid;
             this.EmailFlowUuid = emailFlowUuid;
             this.EndOnceCustomerPurchases = endOnceCustomerPurchases;
+            this.EndOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
             this.EnrolledCustomers = enrolledCustomers;
             this.EspDomainUser = espDomainUser;
             this.EspDomainUuid = espDomainUuid;
@@ -141,11 +143,18 @@ namespace com.ultracart.admin.v2.Model
         public string EmailFlowUuid { get; set; }
 
         /// <summary>
-        /// True if the customer should end the flow once they purchase
+        /// True if the customer should end the flow once they purchase from an email on this flow
         /// </summary>
-        /// <value>True if the customer should end the flow once they purchase</value>
+        /// <value>True if the customer should end the flow once they purchase from an email on this flow</value>
         [DataMember(Name="end_once_customer_purchases", EmitDefaultValue=false)]
         public bool? EndOnceCustomerPurchases { get; set; }
+
+        /// <summary>
+        /// True if the customer should end the flow once they purchase from any source
+        /// </summary>
+        /// <value>True if the customer should end the flow once they purchase from any source</value>
+        [DataMember(Name="end_once_customer_purchases_anywhere", EmitDefaultValue=false)]
+        public bool? EndOnceCustomerPurchasesAnywhere { get; set; }
 
         /// <summary>
         /// Number of enrolled customers.
@@ -296,6 +305,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EmailCommunicationSequenceUuid: ").Append(EmailCommunicationSequenceUuid).Append("\n");
             sb.Append("  EmailFlowUuid: ").Append(EmailFlowUuid).Append("\n");
             sb.Append("  EndOnceCustomerPurchases: ").Append(EndOnceCustomerPurchases).Append("\n");
+            sb.Append("  EndOnceCustomerPurchasesAnywhere: ").Append(EndOnceCustomerPurchasesAnywhere).Append("\n");
             sb.Append("  EnrolledCustomers: ").Append(EnrolledCustomers).Append("\n");
             sb.Append("  EspDomainUser: ").Append(EspDomainUser).Append("\n");
             sb.Append("  EspDomainUuid: ").Append(EspDomainUuid).Append("\n");
@@ -388,6 +398,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EndOnceCustomerPurchases == input.EndOnceCustomerPurchases ||
                     (this.EndOnceCustomerPurchases != null &&
                     this.EndOnceCustomerPurchases.Equals(input.EndOnceCustomerPurchases))
+                ) && 
+                (
+                    this.EndOnceCustomerPurchasesAnywhere == input.EndOnceCustomerPurchasesAnywhere ||
+                    (this.EndOnceCustomerPurchasesAnywhere != null &&
+                    this.EndOnceCustomerPurchasesAnywhere.Equals(input.EndOnceCustomerPurchasesAnywhere))
                 ) && 
                 (
                     this.EnrolledCustomers == input.EnrolledCustomers ||
@@ -511,6 +526,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailFlowUuid.GetHashCode();
                 if (this.EndOnceCustomerPurchases != null)
                     hashCode = hashCode * 59 + this.EndOnceCustomerPurchases.GetHashCode();
+                if (this.EndOnceCustomerPurchasesAnywhere != null)
+                    hashCode = hashCode * 59 + this.EndOnceCustomerPurchasesAnywhere.GetHashCode();
                 if (this.EnrolledCustomers != null)
                     hashCode = hashCode * 59 + this.EnrolledCustomers.GetHashCode();
                 if (this.EspDomainUser != null)

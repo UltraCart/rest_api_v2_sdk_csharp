@@ -25,7 +25,7 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by oid
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified auto order oid. 
@@ -37,7 +37,7 @@ namespace com.ultracart.admin.v2.Api
         AutoOrderResponse GetAutoOrder (int? autoOrderOid, string expand = null);
 
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by oid
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified auto order oid. 
@@ -48,7 +48,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of AutoOrderResponse</returns>
         ApiResponse<AutoOrderResponse> GetAutoOrderWithHttpInfo (int? autoOrderOid, string expand = null);
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by code
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified reference (original) order id. 
@@ -60,7 +60,7 @@ namespace com.ultracart.admin.v2.Api
         AutoOrderResponse GetAutoOrderByCode (string autoOrderCode, string expand = null);
 
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by code
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified reference (original) order id. 
@@ -71,7 +71,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of AutoOrderResponse</returns>
         ApiResponse<AutoOrderResponse> GetAutoOrderByCodeWithHttpInfo (string autoOrderCode, string expand = null);
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by order id
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified reference (original) order id. 
@@ -83,7 +83,7 @@ namespace com.ultracart.admin.v2.Api
         AutoOrderResponse GetAutoOrderByReferenceOrderId (string referenceOrderId, string expand = null);
 
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by order id
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified reference (original) order id. 
@@ -182,7 +182,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of AutoOrdersResponse</returns>
         ApiResponse<AutoOrdersResponse> GetAutoOrdersBatchWithHttpInfo (AutoOrderQueryBatch autoOrderBatch, string expand = null);
         /// <summary>
-        /// Retrieve auto orders
+        /// Retrieve auto orders by query
         /// </summary>
         /// <remarks>
         /// Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -197,7 +197,7 @@ namespace com.ultracart.admin.v2.Api
         AutoOrdersResponse GetAutoOrdersByQuery (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
 
         /// <summary>
-        /// Retrieve auto orders
+        /// Retrieve auto orders by query
         /// </summary>
         /// <remarks>
         /// Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -265,7 +265,7 @@ namespace com.ultracart.admin.v2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by oid
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified auto order oid. 
@@ -277,7 +277,7 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<AutoOrderResponse> GetAutoOrderAsync (int? autoOrderOid, string expand = null);
 
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by oid
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified auto order oid. 
@@ -288,7 +288,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> GetAutoOrderAsyncWithHttpInfo (int? autoOrderOid, string expand = null);
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by code
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified reference (original) order id. 
@@ -300,7 +300,7 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<AutoOrderResponse> GetAutoOrderByCodeAsync (string autoOrderCode, string expand = null);
 
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by code
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified reference (original) order id. 
@@ -311,7 +311,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> GetAutoOrderByCodeAsyncWithHttpInfo (string autoOrderCode, string expand = null);
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by order id
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified reference (original) order id. 
@@ -323,7 +323,7 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<AutoOrderResponse> GetAutoOrderByReferenceOrderIdAsync (string referenceOrderId, string expand = null);
 
         /// <summary>
-        /// Retrieve an auto order
+        /// Retrieve an auto order by order id
         /// </summary>
         /// <remarks>
         /// Retrieves a single auto order using the specified reference (original) order id. 
@@ -422,7 +422,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (AutoOrdersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AutoOrdersResponse>> GetAutoOrdersBatchAsyncWithHttpInfo (AutoOrderQueryBatch autoOrderBatch, string expand = null);
         /// <summary>
-        /// Retrieve auto orders
+        /// Retrieve auto orders by query
         /// </summary>
         /// <remarks>
         /// Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -437,7 +437,7 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<AutoOrdersResponse> GetAutoOrdersByQueryAsync (AutoOrderQuery autoOrderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null);
 
         /// <summary>
-        /// Retrieve auto orders
+        /// Retrieve auto orders by query
         /// </summary>
         /// <remarks>
         /// Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
@@ -610,7 +610,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified auto order oid. 
+        /// Retrieve an auto order by oid Retrieves a single auto order using the specified auto order oid. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderOid">The auto order oid to retrieve.</param>
@@ -623,7 +623,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified auto order oid. 
+        /// Retrieve an auto order by oid Retrieves a single auto order using the specified auto order oid. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderOid">The auto order oid to retrieve.</param>
@@ -691,7 +691,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified auto order oid. 
+        /// Retrieve an auto order by oid Retrieves a single auto order using the specified auto order oid. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderOid">The auto order oid to retrieve.</param>
@@ -705,7 +705,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified auto order oid. 
+        /// Retrieve an auto order by oid Retrieves a single auto order using the specified auto order oid. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderOid">The auto order oid to retrieve.</param>
@@ -773,7 +773,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified reference (original) order id. 
+        /// Retrieve an auto order by code Retrieves a single auto order using the specified reference (original) order id. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderCode">The auto order oid to retrieve.</param>
@@ -786,7 +786,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified reference (original) order id. 
+        /// Retrieve an auto order by code Retrieves a single auto order using the specified reference (original) order id. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderCode">The auto order oid to retrieve.</param>
@@ -854,7 +854,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified reference (original) order id. 
+        /// Retrieve an auto order by code Retrieves a single auto order using the specified reference (original) order id. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderCode">The auto order oid to retrieve.</param>
@@ -868,7 +868,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified reference (original) order id. 
+        /// Retrieve an auto order by code Retrieves a single auto order using the specified reference (original) order id. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderCode">The auto order oid to retrieve.</param>
@@ -936,7 +936,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified reference (original) order id. 
+        /// Retrieve an auto order by order id Retrieves a single auto order using the specified reference (original) order id. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceOrderId">The auto order oid to retrieve.</param>
@@ -949,7 +949,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified reference (original) order id. 
+        /// Retrieve an auto order by order id Retrieves a single auto order using the specified reference (original) order id. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceOrderId">The auto order oid to retrieve.</param>
@@ -1017,7 +1017,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified reference (original) order id. 
+        /// Retrieve an auto order by order id Retrieves a single auto order using the specified reference (original) order id. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceOrderId">The auto order oid to retrieve.</param>
@@ -1031,7 +1031,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve an auto order Retrieves a single auto order using the specified reference (original) order id. 
+        /// Retrieve an auto order by order id Retrieves a single auto order using the specified reference (original) order id. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceOrderId">The auto order oid to retrieve.</param>
@@ -1559,7 +1559,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve auto orders Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// Retrieve auto orders by query Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderQuery">Auto order query</param>
@@ -1575,7 +1575,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve auto orders Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// Retrieve auto orders by query Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderQuery">Auto order query</param>
@@ -1656,7 +1656,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve auto orders Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// Retrieve auto orders by query Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderQuery">Auto order query</param>
@@ -1673,7 +1673,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Retrieve auto orders Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// Retrieve auto orders by query Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrderQuery">Auto order query</param>

@@ -41,10 +41,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="customerProfileOid">Customer profile object identifier.</param>
         /// <param name="email">Email.</param>
         /// <param name="firstName">First name.</param>
-        /// <param name="itemId">Item ID.</param>
+        /// <param name="itemId">Item ID.  Deprecated query field.  This incorrectly meant the original order contained this item id..</param>
         /// <param name="lastName">Last name.</param>
+        /// <param name="nextItemId">Next Item ID that is supposed to ship.  This is calculated based upon the schedule associated with the original item id..</param>
         /// <param name="nextShipmentDateBegin">Next shipment date begin.</param>
         /// <param name="nextShipmentDateEnd">Next shipment date end.</param>
+        /// <param name="originalItemId">Original Item ID purchased on auto order..</param>
         /// <param name="originalOrderDateBegin">Original order date begin.</param>
         /// <param name="originalOrderDateEnd">Original order date end.</param>
         /// <param name="originalOrderId">Original order ID.</param>
@@ -52,7 +54,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="postalCode">Postal code.</param>
         /// <param name="state">State.</param>
         /// <param name="status">Status.</param>
-        public AutoOrderQuery(string autoOrderCode = default(string), string cardType = default(string), string city = default(string), string company = default(string), string countryCode = default(string), int? customerProfileOid = default(int?), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string nextShipmentDateBegin = default(string), string nextShipmentDateEnd = default(string), string originalOrderDateBegin = default(string), string originalOrderDateEnd = default(string), string originalOrderId = default(string), string phone = default(string), string postalCode = default(string), string state = default(string), string status = default(string))
+        public AutoOrderQuery(string autoOrderCode = default(string), string cardType = default(string), string city = default(string), string company = default(string), string countryCode = default(string), int? customerProfileOid = default(int?), string email = default(string), string firstName = default(string), string itemId = default(string), string lastName = default(string), string nextItemId = default(string), string nextShipmentDateBegin = default(string), string nextShipmentDateEnd = default(string), string originalItemId = default(string), string originalOrderDateBegin = default(string), string originalOrderDateEnd = default(string), string originalOrderId = default(string), string phone = default(string), string postalCode = default(string), string state = default(string), string status = default(string))
         {
             this.AutoOrderCode = autoOrderCode;
             this.CardType = cardType;
@@ -64,8 +66,10 @@ namespace com.ultracart.admin.v2.Model
             this.FirstName = firstName;
             this.ItemId = itemId;
             this.LastName = lastName;
+            this.NextItemId = nextItemId;
             this.NextShipmentDateBegin = nextShipmentDateBegin;
             this.NextShipmentDateEnd = nextShipmentDateEnd;
+            this.OriginalItemId = originalItemId;
             this.OriginalOrderDateBegin = originalOrderDateBegin;
             this.OriginalOrderDateEnd = originalOrderDateEnd;
             this.OriginalOrderId = originalOrderId;
@@ -132,9 +136,9 @@ namespace com.ultracart.admin.v2.Model
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Item ID
+        /// Item ID.  Deprecated query field.  This incorrectly meant the original order contained this item id.
         /// </summary>
-        /// <value>Item ID</value>
+        /// <value>Item ID.  Deprecated query field.  This incorrectly meant the original order contained this item id.</value>
         [DataMember(Name="item_id", EmitDefaultValue=false)]
         public string ItemId { get; set; }
 
@@ -144,6 +148,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Last name</value>
         [DataMember(Name="last_name", EmitDefaultValue=false)]
         public string LastName { get; set; }
+
+        /// <summary>
+        /// Next Item ID that is supposed to ship.  This is calculated based upon the schedule associated with the original item id.
+        /// </summary>
+        /// <value>Next Item ID that is supposed to ship.  This is calculated based upon the schedule associated with the original item id.</value>
+        [DataMember(Name="next_item_id", EmitDefaultValue=false)]
+        public string NextItemId { get; set; }
 
         /// <summary>
         /// Next shipment date begin
@@ -158,6 +169,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Next shipment date end</value>
         [DataMember(Name="next_shipment_date_end", EmitDefaultValue=false)]
         public string NextShipmentDateEnd { get; set; }
+
+        /// <summary>
+        /// Original Item ID purchased on auto order.
+        /// </summary>
+        /// <value>Original Item ID purchased on auto order.</value>
+        [DataMember(Name="original_item_id", EmitDefaultValue=false)]
+        public string OriginalItemId { get; set; }
 
         /// <summary>
         /// Original order date begin
@@ -226,8 +244,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  ItemId: ").Append(ItemId).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  NextItemId: ").Append(NextItemId).Append("\n");
             sb.Append("  NextShipmentDateBegin: ").Append(NextShipmentDateBegin).Append("\n");
             sb.Append("  NextShipmentDateEnd: ").Append(NextShipmentDateEnd).Append("\n");
+            sb.Append("  OriginalItemId: ").Append(OriginalItemId).Append("\n");
             sb.Append("  OriginalOrderDateBegin: ").Append(OriginalOrderDateBegin).Append("\n");
             sb.Append("  OriginalOrderDateEnd: ").Append(OriginalOrderDateEnd).Append("\n");
             sb.Append("  OriginalOrderId: ").Append(OriginalOrderId).Append("\n");
@@ -320,6 +340,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
+                    this.NextItemId == input.NextItemId ||
+                    (this.NextItemId != null &&
+                    this.NextItemId.Equals(input.NextItemId))
+                ) && 
+                (
                     this.NextShipmentDateBegin == input.NextShipmentDateBegin ||
                     (this.NextShipmentDateBegin != null &&
                     this.NextShipmentDateBegin.Equals(input.NextShipmentDateBegin))
@@ -328,6 +353,11 @@ namespace com.ultracart.admin.v2.Model
                     this.NextShipmentDateEnd == input.NextShipmentDateEnd ||
                     (this.NextShipmentDateEnd != null &&
                     this.NextShipmentDateEnd.Equals(input.NextShipmentDateEnd))
+                ) && 
+                (
+                    this.OriginalItemId == input.OriginalItemId ||
+                    (this.OriginalItemId != null &&
+                    this.OriginalItemId.Equals(input.OriginalItemId))
                 ) && 
                 (
                     this.OriginalOrderDateBegin == input.OriginalOrderDateBegin ||
@@ -395,10 +425,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ItemId.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
+                if (this.NextItemId != null)
+                    hashCode = hashCode * 59 + this.NextItemId.GetHashCode();
                 if (this.NextShipmentDateBegin != null)
                     hashCode = hashCode * 59 + this.NextShipmentDateBegin.GetHashCode();
                 if (this.NextShipmentDateEnd != null)
                     hashCode = hashCode * 59 + this.NextShipmentDateEnd.GetHashCode();
+                if (this.OriginalItemId != null)
+                    hashCode = hashCode * 59 + this.OriginalItemId.GetHashCode();
                 if (this.OriginalOrderDateBegin != null)
                     hashCode = hashCode * 59 + this.OriginalOrderDateBegin.GetHashCode();
                 if (this.OriginalOrderDateEnd != null)

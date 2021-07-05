@@ -45,11 +45,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="loggerId">loggerId.</param>
         /// <param name="loggerName">loggerName.</param>
         /// <param name="logs">logs.</param>
+        /// <param name="omitLogMap">omitLogMap.</param>
         /// <param name="orderIds">orderIds.</param>
         /// <param name="pk">pk.</param>
         /// <param name="sk">sk.</param>
         /// <param name="status">status.</param>
-        public IntegrationLog(string action = default(string), string direction = default(string), string email = default(string), List<IntegrationLogFile> files = default(List<IntegrationLogFile>), int? integrationLogOid = default(int?), string itemId = default(string), int? itemIpnOid = default(int?), string logDts = default(string), string logType = default(string), string loggerId = default(string), string loggerName = default(string), List<IntegrationLogLog> logs = default(List<IntegrationLogLog>), List<string> orderIds = default(List<string>), string pk = default(string), string sk = default(string), string status = default(string))
+        /// <param name="statusCode">statusCode.</param>
+        public IntegrationLog(string action = default(string), string direction = default(string), string email = default(string), List<IntegrationLogFile> files = default(List<IntegrationLogFile>), int? integrationLogOid = default(int?), string itemId = default(string), int? itemIpnOid = default(int?), string logDts = default(string), string logType = default(string), string loggerId = default(string), string loggerName = default(string), List<IntegrationLogLog> logs = default(List<IntegrationLogLog>), bool? omitLogMap = default(bool?), List<string> orderIds = default(List<string>), string pk = default(string), string sk = default(string), string status = default(string), int? statusCode = default(int?))
         {
             this.Action = action;
             this.Direction = direction;
@@ -63,10 +65,12 @@ namespace com.ultracart.admin.v2.Model
             this.LoggerId = loggerId;
             this.LoggerName = loggerName;
             this.Logs = logs;
+            this.OmitLogMap = omitLogMap;
             this.OrderIds = orderIds;
             this.Pk = pk;
             this.Sk = sk;
             this.Status = status;
+            this.StatusCode = statusCode;
         }
         
         /// <summary>
@@ -142,6 +146,12 @@ namespace com.ultracart.admin.v2.Model
         public List<IntegrationLogLog> Logs { get; set; }
 
         /// <summary>
+        /// Gets or Sets OmitLogMap
+        /// </summary>
+        [DataMember(Name="omit_log_map", EmitDefaultValue=false)]
+        public bool? OmitLogMap { get; set; }
+
+        /// <summary>
         /// Gets or Sets OrderIds
         /// </summary>
         [DataMember(Name="order_ids", EmitDefaultValue=false)]
@@ -166,6 +176,12 @@ namespace com.ultracart.admin.v2.Model
         public string Status { get; set; }
 
         /// <summary>
+        /// Gets or Sets StatusCode
+        /// </summary>
+        [DataMember(Name="status_code", EmitDefaultValue=false)]
+        public int? StatusCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -185,10 +201,12 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LoggerId: ").Append(LoggerId).Append("\n");
             sb.Append("  LoggerName: ").Append(LoggerName).Append("\n");
             sb.Append("  Logs: ").Append(Logs).Append("\n");
+            sb.Append("  OmitLogMap: ").Append(OmitLogMap).Append("\n");
             sb.Append("  OrderIds: ").Append(OrderIds).Append("\n");
             sb.Append("  Pk: ").Append(Pk).Append("\n");
             sb.Append("  Sk: ").Append(Sk).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -284,6 +302,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Logs.SequenceEqual(input.Logs)
                 ) && 
                 (
+                    this.OmitLogMap == input.OmitLogMap ||
+                    (this.OmitLogMap != null &&
+                    this.OmitLogMap.Equals(input.OmitLogMap))
+                ) && 
+                (
                     this.OrderIds == input.OrderIds ||
                     this.OrderIds != null &&
                     this.OrderIds.SequenceEqual(input.OrderIds)
@@ -302,6 +325,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.StatusCode == input.StatusCode ||
+                    (this.StatusCode != null &&
+                    this.StatusCode.Equals(input.StatusCode))
                 );
         }
 
@@ -338,6 +366,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LoggerName.GetHashCode();
                 if (this.Logs != null)
                     hashCode = hashCode * 59 + this.Logs.GetHashCode();
+                if (this.OmitLogMap != null)
+                    hashCode = hashCode * 59 + this.OmitLogMap.GetHashCode();
                 if (this.OrderIds != null)
                     hashCode = hashCode * 59 + this.OrderIds.GetHashCode();
                 if (this.Pk != null)
@@ -346,6 +376,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Sk.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.StatusCode != null)
+                    hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
                 return hashCode;
             }
         }

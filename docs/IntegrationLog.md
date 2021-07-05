@@ -15,10 +15,12 @@ Name | Type | Description | Notes
 **LoggerId** | **string** |  | [optional] 
 **LoggerName** | **string** |  | [optional] 
 **Logs** | [**List&lt;IntegrationLogLog&gt;**](IntegrationLogLog.md) |  | [optional] 
+**OmitLogMap** | **bool?** |  | [optional] 
 **OrderIds** | **List&lt;string&gt;** |  | [optional] 
 **Pk** | **string** |  | [optional] 
 **Sk** | **string** |  | [optional] 
 **Status** | **string** |  | [optional] 
+**StatusCode** | **int?** |  | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -40,7 +40,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="integrationLogOid">integrationLogOid.</param>
         /// <param name="itemId">itemId.</param>
         /// <param name="itemIpnOid">itemIpnOid.</param>
-        /// <param name="logDts">logDts.</param>
+        /// <param name="logDts">Date/time the integration log was created.</param>
         /// <param name="logType">logType.</param>
         /// <param name="loggerId">loggerId.</param>
         /// <param name="loggerName">loggerName.</param>
@@ -116,8 +116,9 @@ namespace com.ultracart.admin.v2.Model
         public int? ItemIpnOid { get; set; }
 
         /// <summary>
-        /// Gets or Sets LogDts
+        /// Date/time the integration log was created
         /// </summary>
+        /// <value>Date/time the integration log was created</value>
         [DataMember(Name="log_dts", EmitDefaultValue=false)]
         public string LogDts { get; set; }
 

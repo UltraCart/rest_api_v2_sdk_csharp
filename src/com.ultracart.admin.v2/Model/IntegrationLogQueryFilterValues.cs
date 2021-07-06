@@ -39,11 +39,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="fileNames">fileNames.</param>
         /// <param name="itemIds">itemIds.</param>
         /// <param name="itemIpnOids">itemIpnOids.</param>
+        /// <param name="logDtsMax">Maximum date/time log date/time.</param>
+        /// <param name="logDtsMin">Minimum date/time log date/time.</param>
         /// <param name="logTypes">logTypes.</param>
         /// <param name="loggerNames">loggerNames.</param>
         /// <param name="orderIds">orderIds.</param>
         /// <param name="statuses">statuses.</param>
-        public IntegrationLogQueryFilterValues(List<string> actions = default(List<string>), List<string> directions = default(List<string>), List<string> emails = default(List<string>), List<string> fileNames = default(List<string>), List<string> itemIds = default(List<string>), List<int?> itemIpnOids = default(List<int?>), List<string> logTypes = default(List<string>), List<string> loggerNames = default(List<string>), List<string> orderIds = default(List<string>), List<string> statuses = default(List<string>))
+        public IntegrationLogQueryFilterValues(List<string> actions = default(List<string>), List<string> directions = default(List<string>), List<string> emails = default(List<string>), List<string> fileNames = default(List<string>), List<string> itemIds = default(List<string>), List<int?> itemIpnOids = default(List<int?>), string logDtsMax = default(string), string logDtsMin = default(string), List<string> logTypes = default(List<string>), List<string> loggerNames = default(List<string>), List<string> orderIds = default(List<string>), List<string> statuses = default(List<string>))
         {
             this.Actions = actions;
             this.Directions = directions;
@@ -51,6 +53,8 @@ namespace com.ultracart.admin.v2.Model
             this.FileNames = fileNames;
             this.ItemIds = itemIds;
             this.ItemIpnOids = itemIpnOids;
+            this.LogDtsMax = logDtsMax;
+            this.LogDtsMin = logDtsMin;
             this.LogTypes = logTypes;
             this.LoggerNames = loggerNames;
             this.OrderIds = orderIds;
@@ -94,6 +98,20 @@ namespace com.ultracart.admin.v2.Model
         public List<int?> ItemIpnOids { get; set; }
 
         /// <summary>
+        /// Maximum date/time log date/time
+        /// </summary>
+        /// <value>Maximum date/time log date/time</value>
+        [DataMember(Name="log_dts_max", EmitDefaultValue=false)]
+        public string LogDtsMax { get; set; }
+
+        /// <summary>
+        /// Minimum date/time log date/time
+        /// </summary>
+        /// <value>Minimum date/time log date/time</value>
+        [DataMember(Name="log_dts_min", EmitDefaultValue=false)]
+        public string LogDtsMin { get; set; }
+
+        /// <summary>
         /// Gets or Sets LogTypes
         /// </summary>
         [DataMember(Name="log_types", EmitDefaultValue=false)]
@@ -131,6 +149,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FileNames: ").Append(FileNames).Append("\n");
             sb.Append("  ItemIds: ").Append(ItemIds).Append("\n");
             sb.Append("  ItemIpnOids: ").Append(ItemIpnOids).Append("\n");
+            sb.Append("  LogDtsMax: ").Append(LogDtsMax).Append("\n");
+            sb.Append("  LogDtsMin: ").Append(LogDtsMin).Append("\n");
             sb.Append("  LogTypes: ").Append(LogTypes).Append("\n");
             sb.Append("  LoggerNames: ").Append(LoggerNames).Append("\n");
             sb.Append("  OrderIds: ").Append(OrderIds).Append("\n");
@@ -200,6 +220,16 @@ namespace com.ultracart.admin.v2.Model
                     this.ItemIpnOids.SequenceEqual(input.ItemIpnOids)
                 ) && 
                 (
+                    this.LogDtsMax == input.LogDtsMax ||
+                    (this.LogDtsMax != null &&
+                    this.LogDtsMax.Equals(input.LogDtsMax))
+                ) && 
+                (
+                    this.LogDtsMin == input.LogDtsMin ||
+                    (this.LogDtsMin != null &&
+                    this.LogDtsMin.Equals(input.LogDtsMin))
+                ) && 
+                (
                     this.LogTypes == input.LogTypes ||
                     this.LogTypes != null &&
                     this.LogTypes.SequenceEqual(input.LogTypes)
@@ -242,6 +272,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ItemIds.GetHashCode();
                 if (this.ItemIpnOids != null)
                     hashCode = hashCode * 59 + this.ItemIpnOids.GetHashCode();
+                if (this.LogDtsMax != null)
+                    hashCode = hashCode * 59 + this.LogDtsMax.GetHashCode();
+                if (this.LogDtsMin != null)
+                    hashCode = hashCode * 59 + this.LogDtsMin.GetHashCode();
                 if (this.LogTypes != null)
                     hashCode = hashCode * 59 + this.LogTypes.GetHashCode();
                 if (this.LoggerNames != null)

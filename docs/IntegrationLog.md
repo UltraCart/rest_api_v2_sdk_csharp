@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **IntegrationLogOid** | **int?** |  | [optional] 
 **ItemId** | **string** |  | [optional] 
 **ItemIpnOid** | **int?** |  | [optional] 
-**LogDts** | **string** |  | [optional] 
+**LogDts** | **string** | Date/time the integration log was created | [optional] 
 **LogType** | **string** |  | [optional] 
 **LoggerId** | **string** |  | [optional] 
 **LoggerName** | **string** |  | [optional] 

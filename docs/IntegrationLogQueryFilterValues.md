@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **FileNames** | **List&lt;string&gt;** |  | [optional] 
 **ItemIds** | **List&lt;string&gt;** |  | [optional] 
 **ItemIpnOids** | **List&lt;int?&gt;** |  | [optional] 
+**LogDtsMax** | **string** | Maximum date/time log date/time | [optional] 
+**LogDtsMin** | **string** | Minimum date/time log date/time | [optional] 
 **LogTypes** | **List&lt;string&gt;** |  | [optional] 
 **LoggerNames** | **List&lt;string&gt;** |  | [optional] 
 **OrderIds** | **List&lt;string&gt;** |  | [optional] 

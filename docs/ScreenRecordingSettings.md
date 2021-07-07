@@ -3,7 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CostPerThousand** | **decimal?** | Cost per one thousand sessions | [optional] 
 **Enabled** | **bool?** |  | [optional] 
+**RetentionInterval** | **string** | How long screen recording data is retained | [optional] 
 **SessionsCurrentBillingPeriod** | **int?** |  | [optional] 
 **SessionsLastBillingPeriod** | **int?** |  | [optional] 
 **SessionsTrialBillingPeriod** | **int?** |  | [optional] 

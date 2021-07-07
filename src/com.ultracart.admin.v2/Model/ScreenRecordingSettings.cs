@@ -33,15 +33,19 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecordingSettings" /> class.
         /// </summary>
+        /// <param name="costPerThousand">Cost per one thousand sessions.</param>
         /// <param name="enabled">enabled.</param>
+        /// <param name="retentionInterval">How long screen recording data is retained.</param>
         /// <param name="sessionsCurrentBillingPeriod">sessionsCurrentBillingPeriod.</param>
         /// <param name="sessionsLastBillingPeriod">sessionsLastBillingPeriod.</param>
         /// <param name="sessionsTrialBillingPeriod">sessionsTrialBillingPeriod.</param>
         /// <param name="trialExpiration">trialExpiration.</param>
         /// <param name="trialExpired">trialExpired.</param>
-        public ScreenRecordingSettings(bool? enabled = default(bool?), int? sessionsCurrentBillingPeriod = default(int?), int? sessionsLastBillingPeriod = default(int?), int? sessionsTrialBillingPeriod = default(int?), string trialExpiration = default(string), bool? trialExpired = default(bool?))
+        public ScreenRecordingSettings(decimal? costPerThousand = default(decimal?), bool? enabled = default(bool?), string retentionInterval = default(string), int? sessionsCurrentBillingPeriod = default(int?), int? sessionsLastBillingPeriod = default(int?), int? sessionsTrialBillingPeriod = default(int?), string trialExpiration = default(string), bool? trialExpired = default(bool?))
         {
+            this.CostPerThousand = costPerThousand;
             this.Enabled = enabled;
+            this.RetentionInterval = retentionInterval;
             this.SessionsCurrentBillingPeriod = sessionsCurrentBillingPeriod;
             this.SessionsLastBillingPeriod = sessionsLastBillingPeriod;
             this.SessionsTrialBillingPeriod = sessionsTrialBillingPeriod;
@@ -50,10 +54,24 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
+        /// Cost per one thousand sessions
+        /// </summary>
+        /// <value>Cost per one thousand sessions</value>
+        [DataMember(Name="cost_per_thousand", EmitDefaultValue=false)]
+        public decimal? CostPerThousand { get; set; }
+
+        /// <summary>
         /// Gets or Sets Enabled
         /// </summary>
         [DataMember(Name="enabled", EmitDefaultValue=false)]
         public bool? Enabled { get; set; }
+
+        /// <summary>
+        /// How long screen recording data is retained
+        /// </summary>
+        /// <value>How long screen recording data is retained</value>
+        [DataMember(Name="retention_interval", EmitDefaultValue=false)]
+        public string RetentionInterval { get; set; }
 
         /// <summary>
         /// Gets or Sets SessionsCurrentBillingPeriod
@@ -93,7 +111,9 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingSettings {\n");
+            sb.Append("  CostPerThousand: ").Append(CostPerThousand).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            sb.Append("  RetentionInterval: ").Append(RetentionInterval).Append("\n");
             sb.Append("  SessionsCurrentBillingPeriod: ").Append(SessionsCurrentBillingPeriod).Append("\n");
             sb.Append("  SessionsLastBillingPeriod: ").Append(SessionsLastBillingPeriod).Append("\n");
             sb.Append("  SessionsTrialBillingPeriod: ").Append(SessionsTrialBillingPeriod).Append("\n");
@@ -134,9 +154,19 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.CostPerThousand == input.CostPerThousand ||
+                    (this.CostPerThousand != null &&
+                    this.CostPerThousand.Equals(input.CostPerThousand))
+                ) && 
+                (
                     this.Enabled == input.Enabled ||
                     (this.Enabled != null &&
                     this.Enabled.Equals(input.Enabled))
+                ) && 
+                (
+                    this.RetentionInterval == input.RetentionInterval ||
+                    (this.RetentionInterval != null &&
+                    this.RetentionInterval.Equals(input.RetentionInterval))
                 ) && 
                 (
                     this.SessionsCurrentBillingPeriod == input.SessionsCurrentBillingPeriod ||
@@ -174,8 +204,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CostPerThousand != null)
+                    hashCode = hashCode * 59 + this.CostPerThousand.GetHashCode();
                 if (this.Enabled != null)
                     hashCode = hashCode * 59 + this.Enabled.GetHashCode();
+                if (this.RetentionInterval != null)
+                    hashCode = hashCode * 59 + this.RetentionInterval.GetHashCode();
                 if (this.SessionsCurrentBillingPeriod != null)
                     hashCode = hashCode * 59 + this.SessionsCurrentBillingPeriod.GetHashCode();
                 if (this.SessionsLastBillingPeriod != null)

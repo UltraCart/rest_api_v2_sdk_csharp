@@ -37,6 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="affiliateOid">Affiliate oid.</param>
         /// <param name="allow3rdPartyBilling">Allow 3rd party billing.</param>
         /// <param name="allowCod">Allow COD.</param>
+        /// <param name="allowDropShipping">Allow Drop Shipping.</param>
         /// <param name="allowPurchaseOrder">Allow purchase orders by this customer.</param>
         /// <param name="allowQuoteRequest">Allow quote request.</param>
         /// <param name="allowSelectionOfAddressType">Allow selection of residential or business address type.</param>
@@ -91,12 +92,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="unapproved">Unapproved.</param>
         /// <param name="upsAccountNumber">UPS account number.</param>
         /// <param name="websiteUrl">Website url.</param>
-        public Customer(CustomerActivity activity = default(CustomerActivity), int? affiliateOid = default(int?), bool? allow3rdPartyBilling = default(bool?), bool? allowCod = default(bool?), bool? allowPurchaseOrder = default(bool?), bool? allowQuoteRequest = default(bool?), bool? allowSelectionOfAddressType = default(bool?), List<CustomerAttachment> attachments = default(List<CustomerAttachment>), bool? autoApproveCod = default(bool?), bool? autoApprovePurchaseOrder = default(bool?), string automaticMerchantNotes = default(string), List<CustomerBilling> billing = default(List<CustomerBilling>), string businessNotes = default(string), List<CustomerCard> cards = default(List<CustomerCard>), List<CustomerEmail> ccEmails = default(List<CustomerEmail>), int? customerProfileOid = default(int?), string dhlAccountNumber = default(string), string dhlDutyAccountNumber = default(string), string email = default(string), bool? exemptShippingHandlingCharge = default(bool?), string fedexAccountNumber = default(string), bool? freeShipping = default(bool?), decimal? freeShippingMinimum = default(decimal?), string lastModifiedBy = default(string), string lastModifiedDts = default(string), CustomerLoyalty loyalty = default(CustomerLoyalty), int? maximumItemCount = default(int?), int? minimumItemCount = default(int?), decimal? minimumSubtotal = default(decimal?), bool? noCoupons = default(bool?), bool? noFreeShipping = default(bool?), bool? noRealtimeCharge = default(bool?), List<Order> orders = default(List<Order>), CustomerOrdersSummary ordersSummary = default(CustomerOrdersSummary), string password = default(string), List<CustomerPricingTier> pricingTiers = default(List<CustomerPricingTier>), CustomerPrivacy privacy = default(CustomerPrivacy), string qbClass = default(string), string qbCode = default(string), List<Order> quotes = default(List<Order>), CustomerQuotesSummary quotesSummary = default(CustomerQuotesSummary), string referralSource = default(string), CustomerReviewer reviewer = default(CustomerReviewer), string salesRepCode = default(string), bool? sendSignupNotification = default(bool?), List<CustomerShipping> shipping = default(List<CustomerShipping>), string signupDts = default(string), List<CustomerSoftwareEntitlement> softwareEntitlements = default(List<CustomerSoftwareEntitlement>), bool? suppressBuysafe = default(bool?), List<CustomerTag> tags = default(List<CustomerTag>), CustomerTaxCodes taxCodes = default(CustomerTaxCodes), bool? taxExempt = default(bool?), string taxId = default(string), string terms = default(string), bool? trackSeparately = default(bool?), bool? unapproved = default(bool?), string upsAccountNumber = default(string), string websiteUrl = default(string))
+        public Customer(CustomerActivity activity = default(CustomerActivity), int? affiliateOid = default(int?), bool? allow3rdPartyBilling = default(bool?), bool? allowCod = default(bool?), bool? allowDropShipping = default(bool?), bool? allowPurchaseOrder = default(bool?), bool? allowQuoteRequest = default(bool?), bool? allowSelectionOfAddressType = default(bool?), List<CustomerAttachment> attachments = default(List<CustomerAttachment>), bool? autoApproveCod = default(bool?), bool? autoApprovePurchaseOrder = default(bool?), string automaticMerchantNotes = default(string), List<CustomerBilling> billing = default(List<CustomerBilling>), string businessNotes = default(string), List<CustomerCard> cards = default(List<CustomerCard>), List<CustomerEmail> ccEmails = default(List<CustomerEmail>), int? customerProfileOid = default(int?), string dhlAccountNumber = default(string), string dhlDutyAccountNumber = default(string), string email = default(string), bool? exemptShippingHandlingCharge = default(bool?), string fedexAccountNumber = default(string), bool? freeShipping = default(bool?), decimal? freeShippingMinimum = default(decimal?), string lastModifiedBy = default(string), string lastModifiedDts = default(string), CustomerLoyalty loyalty = default(CustomerLoyalty), int? maximumItemCount = default(int?), int? minimumItemCount = default(int?), decimal? minimumSubtotal = default(decimal?), bool? noCoupons = default(bool?), bool? noFreeShipping = default(bool?), bool? noRealtimeCharge = default(bool?), List<Order> orders = default(List<Order>), CustomerOrdersSummary ordersSummary = default(CustomerOrdersSummary), string password = default(string), List<CustomerPricingTier> pricingTiers = default(List<CustomerPricingTier>), CustomerPrivacy privacy = default(CustomerPrivacy), string qbClass = default(string), string qbCode = default(string), List<Order> quotes = default(List<Order>), CustomerQuotesSummary quotesSummary = default(CustomerQuotesSummary), string referralSource = default(string), CustomerReviewer reviewer = default(CustomerReviewer), string salesRepCode = default(string), bool? sendSignupNotification = default(bool?), List<CustomerShipping> shipping = default(List<CustomerShipping>), string signupDts = default(string), List<CustomerSoftwareEntitlement> softwareEntitlements = default(List<CustomerSoftwareEntitlement>), bool? suppressBuysafe = default(bool?), List<CustomerTag> tags = default(List<CustomerTag>), CustomerTaxCodes taxCodes = default(CustomerTaxCodes), bool? taxExempt = default(bool?), string taxId = default(string), string terms = default(string), bool? trackSeparately = default(bool?), bool? unapproved = default(bool?), string upsAccountNumber = default(string), string websiteUrl = default(string))
         {
             this.Activity = activity;
             this.AffiliateOid = affiliateOid;
             this.Allow3rdPartyBilling = allow3rdPartyBilling;
             this.AllowCod = allowCod;
+            this.AllowDropShipping = allowDropShipping;
             this.AllowPurchaseOrder = allowPurchaseOrder;
             this.AllowQuoteRequest = allowQuoteRequest;
             this.AllowSelectionOfAddressType = allowSelectionOfAddressType;
@@ -179,6 +181,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Allow COD</value>
         [DataMember(Name="allow_cod", EmitDefaultValue=false)]
         public bool? AllowCod { get; set; }
+
+        /// <summary>
+        /// Allow Drop Shipping
+        /// </summary>
+        /// <value>Allow Drop Shipping</value>
+        [DataMember(Name="allow_drop_shipping", EmitDefaultValue=false)]
+        public bool? AllowDropShipping { get; set; }
 
         /// <summary>
         /// Allow purchase orders by this customer
@@ -564,6 +573,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AffiliateOid: ").Append(AffiliateOid).Append("\n");
             sb.Append("  Allow3rdPartyBilling: ").Append(Allow3rdPartyBilling).Append("\n");
             sb.Append("  AllowCod: ").Append(AllowCod).Append("\n");
+            sb.Append("  AllowDropShipping: ").Append(AllowDropShipping).Append("\n");
             sb.Append("  AllowPurchaseOrder: ").Append(AllowPurchaseOrder).Append("\n");
             sb.Append("  AllowQuoteRequest: ").Append(AllowQuoteRequest).Append("\n");
             sb.Append("  AllowSelectionOfAddressType: ").Append(AllowSelectionOfAddressType).Append("\n");
@@ -671,6 +681,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AllowCod == input.AllowCod ||
                     (this.AllowCod != null &&
                     this.AllowCod.Equals(input.AllowCod))
+                ) && 
+                (
+                    this.AllowDropShipping == input.AllowDropShipping ||
+                    (this.AllowDropShipping != null &&
+                    this.AllowDropShipping.Equals(input.AllowDropShipping))
                 ) && 
                 (
                     this.AllowPurchaseOrder == input.AllowPurchaseOrder ||
@@ -961,6 +976,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Allow3rdPartyBilling.GetHashCode();
                 if (this.AllowCod != null)
                     hashCode = hashCode * 59 + this.AllowCod.GetHashCode();
+                if (this.AllowDropShipping != null)
+                    hashCode = hashCode * 59 + this.AllowDropShipping.GetHashCode();
                 if (this.AllowPurchaseOrder != null)
                     hashCode = hashCode * 59 + this.AllowPurchaseOrder.GetHashCode();
                 if (this.AllowQuoteRequest != null)

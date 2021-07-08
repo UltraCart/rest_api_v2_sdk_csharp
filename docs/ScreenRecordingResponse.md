@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CheckoutOnly** | **bool?** |  | [optional] 
 **Error** | [**Error**](Error.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **ScreenRecording** | [**ScreenRecording**](ScreenRecording.md) |  | [optional] 

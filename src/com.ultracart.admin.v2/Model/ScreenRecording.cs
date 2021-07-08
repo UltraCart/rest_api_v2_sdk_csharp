@@ -57,6 +57,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="languageIsoCode">Language ISO code.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="merchantNotes">merchantNotes.</param>
+        /// <param name="missingExternalTracking">True if external page view was not tracked.</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="pageViewCount">pageViewCount.</param>
         /// <param name="pageViews">pageViews.</param>
@@ -82,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="watched">watched.</param>
         /// <param name="windowHeight">windowHeight.</param>
         /// <param name="windowWidth">windowWidth.</param>
-        public ScreenRecording(ScreenRecordingAdPlatform adPlatform = default(ScreenRecordingAdPlatform), long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string communicationsCampaignName = default(string), string communicationsCampaignUuid = default(string), string communicationsEmailSubject = default(string), string communicationsEmailUuid = default(string), string communicationsFlowName = default(string), string communicationsFlowUuid = default(string), string email = default(string), string emailDomain = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), bool? favorite = default(bool?), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string languageIsoCode = default(string), string merchantId = default(string), string merchantNotes = default(string), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string preferredLanguage = default(string), string referrerDomain = default(string), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), string utmCampaign = default(string), string utmSource = default(string), string visitorFirstSeen = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
+        public ScreenRecording(ScreenRecordingAdPlatform adPlatform = default(ScreenRecordingAdPlatform), long? analyticsClientOid = default(long?), long? analyticsSessionDts = default(long?), long? analyticsSessionOid = default(long?), string communicationsCampaignName = default(string), string communicationsCampaignUuid = default(string), string communicationsEmailSubject = default(string), string communicationsEmailUuid = default(string), string communicationsFlowName = default(string), string communicationsFlowUuid = default(string), string email = default(string), string emailDomain = default(string), string endTimestamp = default(string), string espCustomerUuid = default(string), int? eventsGzSize = default(int?), string eventsJsonKey = default(string), bool? favorite = default(bool?), List<int?> favorites = default(List<int?>), GeoPoint geolocation = default(GeoPoint), string geolocationCountry = default(string), string geolocationState = default(string), string languageIsoCode = default(string), string merchantId = default(string), string merchantNotes = default(string), bool? missingExternalTracking = default(bool?), string orderId = default(string), int? pageViewCount = default(int?), List<ScreenRecordingPageView> pageViews = default(List<ScreenRecordingPageView>), string preferredLanguage = default(string), string referrerDomain = default(string), string rrwebVersion = default(string), string screenRecordingUuid = default(string), string signedDownloadUrl = default(string), string startTimestamp = default(string), List<int?> storefrontOids = default(List<int?>), List<ScreenRecordingStoreFront> storefronts = default(List<ScreenRecordingStoreFront>), List<string> tags = default(List<string>), int? timeOnSite = default(int?), string ucacid = default(string), ScreenRecordingUserAgent userAgent = default(ScreenRecordingUserAgent), string userAgentRaw = default(string), string userIp = default(string), List<ScreenRecordingUserProperty> userProperties = default(List<ScreenRecordingUserProperty>), string utmCampaign = default(string), string utmSource = default(string), string visitorFirstSeen = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?), int? windowHeight = default(int?), int? windowWidth = default(int?))
         {
             this.AdPlatform = adPlatform;
             this.AnalyticsClientOid = analyticsClientOid;
@@ -108,6 +109,7 @@ namespace com.ultracart.admin.v2.Model
             this.LanguageIsoCode = languageIsoCode;
             this.MerchantId = merchantId;
             this.MerchantNotes = merchantNotes;
+            this.MissingExternalTracking = missingExternalTracking;
             this.OrderId = orderId;
             this.PageViewCount = pageViewCount;
             this.PageViews = pageViews;
@@ -288,6 +290,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="merchant_notes", EmitDefaultValue=false)]
         public string MerchantNotes { get; set; }
+
+        /// <summary>
+        /// True if external page view was not tracked
+        /// </summary>
+        /// <value>True if external page view was not tracked</value>
+        [DataMember(Name="missing_external_tracking", EmitDefaultValue=false)]
+        public bool? MissingExternalTracking { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderId
@@ -476,6 +485,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LanguageIsoCode: ").Append(LanguageIsoCode).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MerchantNotes: ").Append(MerchantNotes).Append("\n");
+            sb.Append("  MissingExternalTracking: ").Append(MissingExternalTracking).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  PageViewCount: ").Append(PageViewCount).Append("\n");
             sb.Append("  PageViews: ").Append(PageViews).Append("\n");
@@ -654,6 +664,11 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantNotes == input.MerchantNotes ||
                     (this.MerchantNotes != null &&
                     this.MerchantNotes.Equals(input.MerchantNotes))
+                ) && 
+                (
+                    this.MissingExternalTracking == input.MissingExternalTracking ||
+                    (this.MissingExternalTracking != null &&
+                    this.MissingExternalTracking.Equals(input.MissingExternalTracking))
                 ) && 
                 (
                     this.OrderId == input.OrderId ||
@@ -839,6 +854,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.MerchantNotes != null)
                     hashCode = hashCode * 59 + this.MerchantNotes.GetHashCode();
+                if (this.MissingExternalTracking != null)
+                    hashCode = hashCode * 59 + this.MissingExternalTracking.GetHashCode();
                 if (this.OrderId != null)
                     hashCode = hashCode * 59 + this.OrderId.GetHashCode();
                 if (this.PageViewCount != null)

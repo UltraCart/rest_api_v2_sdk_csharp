@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecordingQueryResponse" /> class.
         /// </summary>
+        /// <param name="checkoutOnly">checkoutOnly.</param>
         /// <param name="error">error.</param>
         /// <param name="filter">filter.</param>
         /// <param name="filterValues">filterValues.</param>
@@ -43,8 +44,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="screenRecordings">screenRecordings.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ScreenRecordingQueryResponse(Error error = default(Error), ScreenRecordingFilter filter = default(ScreenRecordingFilter), ScreenRecordingFilterValues filterValues = default(ScreenRecordingFilterValues), List<int?> histogramData = default(List<int?>), string histogramInterval = default(string), string histogramStartDts = default(string), ResponseMetadata metadata = default(ResponseMetadata), List<ScreenRecording> screenRecordings = default(List<ScreenRecording>), bool? success = default(bool?), Warning warning = default(Warning))
+        public ScreenRecordingQueryResponse(bool? checkoutOnly = default(bool?), Error error = default(Error), ScreenRecordingFilter filter = default(ScreenRecordingFilter), ScreenRecordingFilterValues filterValues = default(ScreenRecordingFilterValues), List<int?> histogramData = default(List<int?>), string histogramInterval = default(string), string histogramStartDts = default(string), ResponseMetadata metadata = default(ResponseMetadata), List<ScreenRecording> screenRecordings = default(List<ScreenRecording>), bool? success = default(bool?), Warning warning = default(Warning))
         {
+            this.CheckoutOnly = checkoutOnly;
             this.Error = error;
             this.Filter = filter;
             this.FilterValues = filterValues;
@@ -57,6 +59,12 @@ namespace com.ultracart.admin.v2.Model
             this.Warning = warning;
         }
         
+        /// <summary>
+        /// Gets or Sets CheckoutOnly
+        /// </summary>
+        [DataMember(Name="checkout_only", EmitDefaultValue=false)]
+        public bool? CheckoutOnly { get; set; }
+
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
@@ -126,6 +134,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingQueryResponse {\n");
+            sb.Append("  CheckoutOnly: ").Append(CheckoutOnly).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  FilterValues: ").Append(FilterValues).Append("\n");
@@ -170,6 +179,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.CheckoutOnly == input.CheckoutOnly ||
+                    (this.CheckoutOnly != null &&
+                    this.CheckoutOnly.Equals(input.CheckoutOnly))
+                ) && 
                 (
                     this.Error == input.Error ||
                     (this.Error != null &&
@@ -231,6 +245,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CheckoutOnly != null)
+                    hashCode = hashCode * 59 + this.CheckoutOnly.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Filter != null)

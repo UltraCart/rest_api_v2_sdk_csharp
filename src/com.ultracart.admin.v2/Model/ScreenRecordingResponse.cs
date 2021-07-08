@@ -33,13 +33,15 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenRecordingResponse" /> class.
         /// </summary>
+        /// <param name="checkoutOnly">checkoutOnly.</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="screenRecording">screenRecording.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ScreenRecordingResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), ScreenRecording screenRecording = default(ScreenRecording), bool? success = default(bool?), Warning warning = default(Warning))
+        public ScreenRecordingResponse(bool? checkoutOnly = default(bool?), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), ScreenRecording screenRecording = default(ScreenRecording), bool? success = default(bool?), Warning warning = default(Warning))
         {
+            this.CheckoutOnly = checkoutOnly;
             this.Error = error;
             this.Metadata = metadata;
             this.ScreenRecording = screenRecording;
@@ -47,6 +49,12 @@ namespace com.ultracart.admin.v2.Model
             this.Warning = warning;
         }
         
+        /// <summary>
+        /// Gets or Sets CheckoutOnly
+        /// </summary>
+        [DataMember(Name="checkout_only", EmitDefaultValue=false)]
+        public bool? CheckoutOnly { get; set; }
+
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
@@ -86,6 +94,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingResponse {\n");
+            sb.Append("  CheckoutOnly: ").Append(CheckoutOnly).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  ScreenRecording: ").Append(ScreenRecording).Append("\n");
@@ -126,6 +135,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.CheckoutOnly == input.CheckoutOnly ||
+                    (this.CheckoutOnly != null &&
+                    this.CheckoutOnly.Equals(input.CheckoutOnly))
+                ) && 
+                (
                     this.Error == input.Error ||
                     (this.Error != null &&
                     this.Error.Equals(input.Error))
@@ -161,6 +175,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CheckoutOnly != null)
+                    hashCode = hashCode * 59 + this.CheckoutOnly.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)

@@ -134,6 +134,50 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrderTokenResponse</returns>
         ApiResponse<OrderTokenResponse> GenerateOrderTokenWithHttpInfo (string orderId);
         /// <summary>
+        /// Generate a packing slip for this order for the given distribution center.
+        /// </summary>
+        /// <remarks>
+        /// The packing slip PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>OrdersResponse</returns>
+        OrdersResponse GeneratePackingSlipAllDC (string orderId);
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center.
+        /// </summary>
+        /// <remarks>
+        /// The packing slip PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>ApiResponse of OrdersResponse</returns>
+        ApiResponse<OrdersResponse> GeneratePackingSlipAllDCWithHttpInfo (string orderId);
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center.
+        /// </summary>
+        /// <remarks>
+        /// The packing slip PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>OrdersResponse</returns>
+        OrdersResponse GeneratePackingSlipSpecificDC (string distributionCenterCode, string orderId);
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center.
+        /// </summary>
+        /// <remarks>
+        /// The packing slip PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>ApiResponse of OrdersResponse</returns>
+        ApiResponse<OrdersResponse> GeneratePackingSlipSpecificDCWithHttpInfo (string distributionCenterCode, string orderId);
+        /// <summary>
         /// Retrieve A/R Retry Configuration
         /// </summary>
         /// <remarks>
@@ -681,6 +725,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="orderId">The order id to generate a token for.</param>
         /// <returns>Task of ApiResponse (OrderTokenResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderTokenResponse>> GenerateOrderTokenAsyncWithHttpInfo (string orderId);
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center.
+        /// </summary>
+        /// <remarks>
+        /// The packing slip PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>Task of OrdersResponse</returns>
+        System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipAllDCAsync (string orderId);
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center.
+        /// </summary>
+        /// <remarks>
+        /// The packing slip PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GeneratePackingSlipAllDCAsyncWithHttpInfo (string orderId);
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center.
+        /// </summary>
+        /// <remarks>
+        /// The packing slip PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>Task of OrdersResponse</returns>
+        System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipSpecificDCAsync (string distributionCenterCode, string orderId);
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center.
+        /// </summary>
+        /// <remarks>
+        /// The packing slip PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GeneratePackingSlipSpecificDCAsyncWithHttpInfo (string distributionCenterCode, string orderId);
         /// <summary>
         /// Retrieve A/R Retry Configuration
         /// </summary>
@@ -2044,6 +2132,332 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrderTokenResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (OrderTokenResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderTokenResponse)));
+        }
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>OrdersResponse</returns>
+        public OrdersResponse GeneratePackingSlipAllDC (string orderId)
+        {
+             ApiResponse<OrdersResponse> localVarResponse = GeneratePackingSlipAllDCWithHttpInfo(orderId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>ApiResponse of OrdersResponse</returns>
+        public ApiResponse< OrdersResponse > GeneratePackingSlipAllDCWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GeneratePackingSlipAllDC");
+
+            var localVarPath = "/order/orders/{order_id}/packing_slip";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GeneratePackingSlipAllDC", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+        }
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>Task of OrdersResponse</returns>
+        public async System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipAllDCAsync (string orderId)
+        {
+             ApiResponse<OrdersResponse> localVarResponse = await GeneratePackingSlipAllDCAsyncWithHttpInfo(orderId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GeneratePackingSlipAllDCAsyncWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GeneratePackingSlipAllDC");
+
+            var localVarPath = "/order/orders/{order_id}/packing_slip";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GeneratePackingSlipAllDC", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+        }
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>OrdersResponse</returns>
+        public OrdersResponse GeneratePackingSlipSpecificDC (string distributionCenterCode, string orderId)
+        {
+             ApiResponse<OrdersResponse> localVarResponse = GeneratePackingSlipSpecificDCWithHttpInfo(distributionCenterCode, orderId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>ApiResponse of OrdersResponse</returns>
+        public ApiResponse< OrdersResponse > GeneratePackingSlipSpecificDCWithHttpInfo (string distributionCenterCode, string orderId)
+        {
+            // verify the required parameter 'distributionCenterCode' is set
+            if (distributionCenterCode == null)
+                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling OrderApi->GeneratePackingSlipSpecificDC");
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GeneratePackingSlipSpecificDC");
+
+            var localVarPath = "/order/orders/{order_id}/packing_slip/{distribution_center_code}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (distributionCenterCode != null) localVarPathParams.Add("distribution_center_code", this.Configuration.ApiClient.ParameterToString(distributionCenterCode)); // path parameter
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GeneratePackingSlipSpecificDC", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+        }
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>Task of OrdersResponse</returns>
+        public async System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipSpecificDCAsync (string distributionCenterCode, string orderId)
+        {
+             ApiResponse<OrdersResponse> localVarResponse = await GeneratePackingSlipSpecificDCAsyncWithHttpInfo(distributionCenterCode, orderId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="distributionCenterCode">Distribution center code</param>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GeneratePackingSlipSpecificDCAsyncWithHttpInfo (string distributionCenterCode, string orderId)
+        {
+            // verify the required parameter 'distributionCenterCode' is set
+            if (distributionCenterCode == null)
+                throw new ApiException(400, "Missing required parameter 'distributionCenterCode' when calling OrderApi->GeneratePackingSlipSpecificDC");
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GeneratePackingSlipSpecificDC");
+
+            var localVarPath = "/order/orders/{order_id}/packing_slip/{distribution_center_code}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (distributionCenterCode != null) localVarPathParams.Add("distribution_center_code", this.Configuration.ApiClient.ParameterToString(distributionCenterCode)); // path parameter
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GeneratePackingSlipSpecificDC", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
         }
 
         /// <summary>

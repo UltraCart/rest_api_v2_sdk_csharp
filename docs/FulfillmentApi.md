@@ -5,6 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AcknowledgeOrders**](FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
+[**GeneratePackingSlip**](FulfillmentApi.md#generatepackingslip) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders/{order_id} | Generate a packing slip for this order for the given distribution center.
 [**GetDistributionCenterOrders**](FulfillmentApi.md#getdistributioncenterorders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
 [**GetDistributionCenters**](FulfillmentApi.md#getdistributioncenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
 [**ShipOrders**](FulfillmentApi.md#shiporders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
@@ -66,6 +67,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="generatepackingslip"></a>
+# **GeneratePackingSlip**
+> OrdersResponse GeneratePackingSlip (string distributionCenterCode, string orderId)
+
+Generate a packing slip for this order for the given distribution center.
+
+The packing slip PDF that is returned is base 64 encoded 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GeneratePackingSlipExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new FulfillmentApi(simpleKey);
+
+            var distributionCenterCode = distributionCenterCode_example;  // string | Distribution center code
+            var orderId = orderId_example;  // string | Order ID
+
+            try
+            {
+                // Generate a packing slip for this order for the given distribution center.
+                OrdersResponse result = apiInstance.GeneratePackingSlip(distributionCenterCode, orderId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling FulfillmentApi.GeneratePackingSlip: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **distributionCenterCode** | **string**| Distribution center code | 
+ **orderId** | **string**| Order ID | 
+
+### Return type
+
+[**OrdersResponse**](OrdersResponse.md)
 
 ### Authorization
 

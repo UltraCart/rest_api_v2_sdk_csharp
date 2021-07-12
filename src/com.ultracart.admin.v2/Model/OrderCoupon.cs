@@ -37,12 +37,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="automaticallyApplied">Whether or not the coupon was automatically applied to the order.</param>
         /// <param name="baseCouponCode">Coupon code configured by the merchant.  Will differ if the customer used a one time coupon code generated off this base coupon.</param>
         /// <param name="couponCode">Coupon code entered by the customer.</param>
-        public OrderCoupon(string accountingCode = default(string), bool? automaticallyApplied = default(bool?), string baseCouponCode = default(string), string couponCode = default(string))
+        /// <param name="hdieFromCustomer">True if this coupon is hidde from the customer.</param>
+        public OrderCoupon(string accountingCode = default(string), bool? automaticallyApplied = default(bool?), string baseCouponCode = default(string), string couponCode = default(string), bool? hdieFromCustomer = default(bool?))
         {
             this.AccountingCode = accountingCode;
             this.AutomaticallyApplied = automaticallyApplied;
             this.BaseCouponCode = baseCouponCode;
             this.CouponCode = couponCode;
+            this.HdieFromCustomer = hdieFromCustomer;
         }
         
         /// <summary>
@@ -74,6 +76,13 @@ namespace com.ultracart.admin.v2.Model
         public string CouponCode { get; set; }
 
         /// <summary>
+        /// True if this coupon is hidde from the customer
+        /// </summary>
+        /// <value>True if this coupon is hidde from the customer</value>
+        [DataMember(Name="hdie_from_customer", EmitDefaultValue=false)]
+        public bool? HdieFromCustomer { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +94,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AutomaticallyApplied: ").Append(AutomaticallyApplied).Append("\n");
             sb.Append("  BaseCouponCode: ").Append(BaseCouponCode).Append("\n");
             sb.Append("  CouponCode: ").Append(CouponCode).Append("\n");
+            sb.Append("  HdieFromCustomer: ").Append(HdieFromCustomer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +148,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CouponCode == input.CouponCode ||
                     (this.CouponCode != null &&
                     this.CouponCode.Equals(input.CouponCode))
+                ) && 
+                (
+                    this.HdieFromCustomer == input.HdieFromCustomer ||
+                    (this.HdieFromCustomer != null &&
+                    this.HdieFromCustomer.Equals(input.HdieFromCustomer))
                 );
         }
 
@@ -158,6 +173,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.BaseCouponCode.GetHashCode();
                 if (this.CouponCode != null)
                     hashCode = hashCode * 59 + this.CouponCode.GetHashCode();
+                if (this.HdieFromCustomer != null)
+                    hashCode = hashCode * 59 + this.HdieFromCustomer.GetHashCode();
                 return hashCode;
             }
         }

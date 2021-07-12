@@ -134,7 +134,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrderTokenResponse</returns>
         ApiResponse<OrderTokenResponse> GenerateOrderTokenWithHttpInfo (string orderId);
         /// <summary>
-        /// Generate a packing slip for this order for the given distribution center.
+        /// Generate a packing slip for this order across all distribution centers.
         /// </summary>
         /// <remarks>
         /// The packing slip PDF that is returned is base 64 encoded 
@@ -145,7 +145,7 @@ namespace com.ultracart.admin.v2.Api
         OrdersResponse GeneratePackingSlipAllDC (string orderId);
 
         /// <summary>
-        /// Generate a packing slip for this order for the given distribution center.
+        /// Generate a packing slip for this order across all distribution centers.
         /// </summary>
         /// <remarks>
         /// The packing slip PDF that is returned is base 64 encoded 
@@ -726,7 +726,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (OrderTokenResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderTokenResponse>> GenerateOrderTokenAsyncWithHttpInfo (string orderId);
         /// <summary>
-        /// Generate a packing slip for this order for the given distribution center.
+        /// Generate a packing slip for this order across all distribution centers.
         /// </summary>
         /// <remarks>
         /// The packing slip PDF that is returned is base 64 encoded 
@@ -737,7 +737,7 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipAllDCAsync (string orderId);
 
         /// <summary>
-        /// Generate a packing slip for this order for the given distribution center.
+        /// Generate a packing slip for this order across all distribution centers.
         /// </summary>
         /// <remarks>
         /// The packing slip PDF that is returned is base 64 encoded 
@@ -2135,7 +2135,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// Generate a packing slip for this order across all distribution centers. The packing slip PDF that is returned is base 64 encoded 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
@@ -2147,7 +2147,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// Generate a packing slip for this order across all distribution centers. The packing slip PDF that is returned is base 64 encoded 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
@@ -2213,7 +2213,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// Generate a packing slip for this order across all distribution centers. The packing slip PDF that is returned is base 64 encoded 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
@@ -2226,7 +2226,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Generate a packing slip for this order for the given distribution center. The packing slip PDF that is returned is base 64 encoded 
+        /// Generate a packing slip for this order across all distribution centers. The packing slip PDF that is returned is base 64 encoded 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>

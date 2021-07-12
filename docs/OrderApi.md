@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**DeleteOrder**](OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
 [**Format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 [**GenerateOrderToken**](OrderApi.md#generateordertoken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
-[**GeneratePackingSlipAllDC**](OrderApi.md#generatepackingslipalldc) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order for the given distribution center.
+[**GeneratePackingSlipAllDC**](OrderApi.md#generatepackingslipalldc) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers.
 [**GeneratePackingSlipSpecificDC**](OrderApi.md#generatepackingslipspecificdc) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center.
 [**GetAccountsReceivableRetryConfig**](OrderApi.md#getaccountsreceivableretryconfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
 [**GetAccountsReceivableRetryStats**](OrderApi.md#getaccountsreceivableretrystats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 # **GeneratePackingSlipAllDC**
 > OrdersResponse GeneratePackingSlipAllDC (string orderId)
 
-Generate a packing slip for this order for the given distribution center.
+Generate a packing slip for this order across all distribution centers.
 
 The packing slip PDF that is returned is base 64 encoded 
 ### Example
@@ -392,7 +392,7 @@ namespace Example
 
             try
             {
-                // Generate a packing slip for this order for the given distribution center.
+                // Generate a packing slip for this order across all distribution centers.
                 OrdersResponse result = apiInstance.GeneratePackingSlipAllDC(orderId);
                 Debug.WriteLine(result);
             }

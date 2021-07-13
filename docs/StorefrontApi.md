@@ -48,6 +48,7 @@ Method | HTTP request | Description
 [**GetEmailCustomers**](StorefrontApi.md#getemailcustomers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
 [**GetEmailDashboardActivity**](StorefrontApi.md#getemaildashboardactivity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
 [**GetEmailDashboardStats**](StorefrontApi.md#getemaildashboardstats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
+[**GetEmailDispatchLogs**](StorefrontApi.md#getemaildispatchlogs) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/logs | Get email dispatch logs
 [**GetEmailEmail**](StorefrontApi.md#getemailemail) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
 [**GetEmailEmailClicks**](StorefrontApi.md#getemailemailclicks) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks | Get email email clicks
 [**GetEmailEmailCustomerEditorUrl**](StorefrontApi.md#getemailemailcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/orders/{order_id}/editor_url | Get email order customer editor url
@@ -3042,6 +3043,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailDashboardStatsResponse**](EmailDashboardStatsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemaildispatchlogs"></a>
+# **GetEmailDispatchLogs**
+> EmailCommseqStepLogsResponse GetEmailDispatchLogs (int? storefrontOid, string commseqUuid, string commseqStepUuid)
+
+Get email dispatch logs
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailDispatchLogsExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
+            var commseqStepUuid = commseqStepUuid_example;  // string | 
+
+            try
+            {
+                // Get email dispatch logs
+                EmailCommseqStepLogsResponse result = apiInstance.GetEmailDispatchLogs(storefrontOid, commseqUuid, commseqStepUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailDispatchLogs: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
+ **commseqStepUuid** | **string**|  | 
+
+### Return type
+
+[**EmailCommseqStepLogsResponse**](EmailCommseqStepLogsResponse.md)
 
 ### Authorization
 

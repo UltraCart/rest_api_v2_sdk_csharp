@@ -51,8 +51,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationRequest">Authorization request</param>
-        /// <returns>ItemsResponse</returns>
-        ItemsResponse SsoAuthorize (SingleSignOnAuthorizeRequest authorizationRequest);
+        /// <returns>SingleSignOnAuthorizeResponse</returns>
+        SingleSignOnAuthorizeResponse SsoAuthorize (SingleSignOnAuthorizeRequest authorizationRequest);
 
         /// <summary>
         /// Authorize a single sign on session
@@ -62,8 +62,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationRequest">Authorization request</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        ApiResponse<ItemsResponse> SsoAuthorizeWithHttpInfo (SingleSignOnAuthorizeRequest authorizationRequest);
+        /// <returns>ApiResponse of SingleSignOnAuthorizeResponse</returns>
+        ApiResponse<SingleSignOnAuthorizeResponse> SsoAuthorizeWithHttpInfo (SingleSignOnAuthorizeRequest authorizationRequest);
         /// <summary>
         /// Revoke single sign on session
         /// </summary>
@@ -91,8 +91,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest">Token request</param>
-        /// <returns>ItemsResponse</returns>
-        ItemsResponse SsoToken (SingleSignOnTokenRequest tokenRequest);
+        /// <returns>SingleSignOnTokenResponse</returns>
+        SingleSignOnTokenResponse SsoToken (SingleSignOnTokenRequest tokenRequest);
 
         /// <summary>
         /// Exchange a single sign on code for a simple key token
@@ -102,8 +102,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest">Token request</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        ApiResponse<ItemsResponse> SsoTokenWithHttpInfo (SingleSignOnTokenRequest tokenRequest);
+        /// <returns>ApiResponse of SingleSignOnTokenResponse</returns>
+        ApiResponse<SingleSignOnTokenResponse> SsoTokenWithHttpInfo (SingleSignOnTokenRequest tokenRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -133,8 +133,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationRequest">Authorization request</param>
-        /// <returns>Task of ItemsResponse</returns>
-        System.Threading.Tasks.Task<ItemsResponse> SsoAuthorizeAsync (SingleSignOnAuthorizeRequest authorizationRequest);
+        /// <returns>Task of SingleSignOnAuthorizeResponse</returns>
+        System.Threading.Tasks.Task<SingleSignOnAuthorizeResponse> SsoAuthorizeAsync (SingleSignOnAuthorizeRequest authorizationRequest);
 
         /// <summary>
         /// Authorize a single sign on session
@@ -144,8 +144,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationRequest">Authorization request</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> SsoAuthorizeAsyncWithHttpInfo (SingleSignOnAuthorizeRequest authorizationRequest);
+        /// <returns>Task of ApiResponse (SingleSignOnAuthorizeResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SingleSignOnAuthorizeResponse>> SsoAuthorizeAsyncWithHttpInfo (SingleSignOnAuthorizeRequest authorizationRequest);
         /// <summary>
         /// Revoke single sign on session
         /// </summary>
@@ -173,8 +173,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest">Token request</param>
-        /// <returns>Task of ItemsResponse</returns>
-        System.Threading.Tasks.Task<ItemsResponse> SsoTokenAsync (SingleSignOnTokenRequest tokenRequest);
+        /// <returns>Task of SingleSignOnTokenResponse</returns>
+        System.Threading.Tasks.Task<SingleSignOnTokenResponse> SsoTokenAsync (SingleSignOnTokenRequest tokenRequest);
 
         /// <summary>
         /// Exchange a single sign on code for a simple key token
@@ -184,8 +184,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest">Token request</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> SsoTokenAsyncWithHttpInfo (SingleSignOnTokenRequest tokenRequest);
+        /// <returns>Task of ApiResponse (SingleSignOnTokenResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SingleSignOnTokenResponse>> SsoTokenAsyncWithHttpInfo (SingleSignOnTokenRequest tokenRequest);
         #endregion Asynchronous Operations
     }
 
@@ -443,10 +443,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationRequest">Authorization request</param>
-        /// <returns>ItemsResponse</returns>
-        public ItemsResponse SsoAuthorize (SingleSignOnAuthorizeRequest authorizationRequest)
+        /// <returns>SingleSignOnAuthorizeResponse</returns>
+        public SingleSignOnAuthorizeResponse SsoAuthorize (SingleSignOnAuthorizeRequest authorizationRequest)
         {
-             ApiResponse<ItemsResponse> localVarResponse = SsoAuthorizeWithHttpInfo(authorizationRequest);
+             ApiResponse<SingleSignOnAuthorizeResponse> localVarResponse = SsoAuthorizeWithHttpInfo(authorizationRequest);
              return localVarResponse.Data;
         }
 
@@ -455,8 +455,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationRequest">Authorization request</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        public ApiResponse< ItemsResponse > SsoAuthorizeWithHttpInfo (SingleSignOnAuthorizeRequest authorizationRequest)
+        /// <returns>ApiResponse of SingleSignOnAuthorizeResponse</returns>
+        public ApiResponse< SingleSignOnAuthorizeResponse > SsoAuthorizeWithHttpInfo (SingleSignOnAuthorizeRequest authorizationRequest)
         {
             // verify the required parameter 'authorizationRequest' is set
             if (authorizationRequest == null)
@@ -518,9 +518,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+            return new ApiResponse<SingleSignOnAuthorizeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+                (SingleSignOnAuthorizeResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleSignOnAuthorizeResponse)));
         }
 
         /// <summary>
@@ -528,10 +528,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationRequest">Authorization request</param>
-        /// <returns>Task of ItemsResponse</returns>
-        public async System.Threading.Tasks.Task<ItemsResponse> SsoAuthorizeAsync (SingleSignOnAuthorizeRequest authorizationRequest)
+        /// <returns>Task of SingleSignOnAuthorizeResponse</returns>
+        public async System.Threading.Tasks.Task<SingleSignOnAuthorizeResponse> SsoAuthorizeAsync (SingleSignOnAuthorizeRequest authorizationRequest)
         {
-             ApiResponse<ItemsResponse> localVarResponse = await SsoAuthorizeAsyncWithHttpInfo(authorizationRequest);
+             ApiResponse<SingleSignOnAuthorizeResponse> localVarResponse = await SsoAuthorizeAsyncWithHttpInfo(authorizationRequest);
              return localVarResponse.Data;
 
         }
@@ -541,8 +541,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationRequest">Authorization request</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> SsoAuthorizeAsyncWithHttpInfo (SingleSignOnAuthorizeRequest authorizationRequest)
+        /// <returns>Task of ApiResponse (SingleSignOnAuthorizeResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SingleSignOnAuthorizeResponse>> SsoAuthorizeAsyncWithHttpInfo (SingleSignOnAuthorizeRequest authorizationRequest)
         {
             // verify the required parameter 'authorizationRequest' is set
             if (authorizationRequest == null)
@@ -604,9 +604,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+            return new ApiResponse<SingleSignOnAuthorizeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+                (SingleSignOnAuthorizeResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleSignOnAuthorizeResponse)));
         }
 
         /// <summary>
@@ -757,10 +757,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest">Token request</param>
-        /// <returns>ItemsResponse</returns>
-        public ItemsResponse SsoToken (SingleSignOnTokenRequest tokenRequest)
+        /// <returns>SingleSignOnTokenResponse</returns>
+        public SingleSignOnTokenResponse SsoToken (SingleSignOnTokenRequest tokenRequest)
         {
-             ApiResponse<ItemsResponse> localVarResponse = SsoTokenWithHttpInfo(tokenRequest);
+             ApiResponse<SingleSignOnTokenResponse> localVarResponse = SsoTokenWithHttpInfo(tokenRequest);
              return localVarResponse.Data;
         }
 
@@ -769,8 +769,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest">Token request</param>
-        /// <returns>ApiResponse of ItemsResponse</returns>
-        public ApiResponse< ItemsResponse > SsoTokenWithHttpInfo (SingleSignOnTokenRequest tokenRequest)
+        /// <returns>ApiResponse of SingleSignOnTokenResponse</returns>
+        public ApiResponse< SingleSignOnTokenResponse > SsoTokenWithHttpInfo (SingleSignOnTokenRequest tokenRequest)
         {
             // verify the required parameter 'tokenRequest' is set
             if (tokenRequest == null)
@@ -832,9 +832,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+            return new ApiResponse<SingleSignOnTokenResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+                (SingleSignOnTokenResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleSignOnTokenResponse)));
         }
 
         /// <summary>
@@ -842,10 +842,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest">Token request</param>
-        /// <returns>Task of ItemsResponse</returns>
-        public async System.Threading.Tasks.Task<ItemsResponse> SsoTokenAsync (SingleSignOnTokenRequest tokenRequest)
+        /// <returns>Task of SingleSignOnTokenResponse</returns>
+        public async System.Threading.Tasks.Task<SingleSignOnTokenResponse> SsoTokenAsync (SingleSignOnTokenRequest tokenRequest)
         {
-             ApiResponse<ItemsResponse> localVarResponse = await SsoTokenAsyncWithHttpInfo(tokenRequest);
+             ApiResponse<SingleSignOnTokenResponse> localVarResponse = await SsoTokenAsyncWithHttpInfo(tokenRequest);
              return localVarResponse.Data;
 
         }
@@ -855,8 +855,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenRequest">Token request</param>
-        /// <returns>Task of ApiResponse (ItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> SsoTokenAsyncWithHttpInfo (SingleSignOnTokenRequest tokenRequest)
+        /// <returns>Task of ApiResponse (SingleSignOnTokenResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SingleSignOnTokenResponse>> SsoTokenAsyncWithHttpInfo (SingleSignOnTokenRequest tokenRequest)
         {
             // verify the required parameter 'tokenRequest' is set
             if (tokenRequest == null)
@@ -918,9 +918,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ItemsResponse>(localVarStatusCode,
+            return new ApiResponse<SingleSignOnTokenResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+                (SingleSignOnTokenResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleSignOnTokenResponse)));
         }
 
     }

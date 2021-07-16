@@ -74,7 +74,7 @@ This endpoint does not need any parameter.
 
 <a name="ssoauthorize"></a>
 # **SsoAuthorize**
-> ItemsResponse SsoAuthorize (SingleSignOnAuthorizeRequest authorizationRequest)
+> SingleSignOnAuthorizeResponse SsoAuthorize (SingleSignOnAuthorizeRequest authorizationRequest)
 
 Authorize a single sign on session
 
@@ -104,7 +104,7 @@ namespace Example
             try
             {
                 // Authorize a single sign on session
-                ItemsResponse result = apiInstance.SsoAuthorize(authorizationRequest);
+                SingleSignOnAuthorizeResponse result = apiInstance.SsoAuthorize(authorizationRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ItemsResponse**](ItemsResponse.md)
+[**SingleSignOnAuthorizeResponse**](SingleSignOnAuthorizeResponse.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ void (empty response body)
 
 <a name="ssotoken"></a>
 # **SsoToken**
-> ItemsResponse SsoToken (SingleSignOnTokenRequest tokenRequest)
+> SingleSignOnTokenResponse SsoToken (SingleSignOnTokenRequest tokenRequest)
 
 Exchange a single sign on code for a simple key token
 
@@ -231,7 +231,7 @@ namespace Example
             try
             {
                 // Exchange a single sign on code for a simple key token
-                ItemsResponse result = apiInstance.SsoToken(tokenRequest);
+                SingleSignOnTokenResponse result = apiInstance.SsoToken(tokenRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ItemsResponse**](ItemsResponse.md)
+[**SingleSignOnTokenResponse**](SingleSignOnTokenResponse.md)
 
 ### Authorization
 

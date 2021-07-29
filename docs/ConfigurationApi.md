@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 <a name="getpaymentsconfiguration"></a>
 # **GetPaymentsConfiguration**
-> PaymentsConfiguration GetPaymentsConfiguration ()
+> PaymentsConfigurationResponse GetPaymentsConfiguration ()
 
 Retrieve payments configuration
 
@@ -184,7 +184,7 @@ namespace Example
             try
             {
                 // Retrieve payments configuration
-                PaymentsConfiguration result = apiInstance.GetPaymentsConfiguration();
+                PaymentsConfigurationResponse result = apiInstance.GetPaymentsConfiguration();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -202,7 +202,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**PaymentsConfiguration**](PaymentsConfiguration.md)
+[**PaymentsConfigurationResponse**](PaymentsConfigurationResponse.md)
 
 ### Authorization
 
@@ -217,7 +217,7 @@ This endpoint does not need any parameter.
 
 <a name="getpaymentsrotatinggateway"></a>
 # **GetPaymentsRotatingGateway**
-> RotatingTransactionGateway GetPaymentsRotatingGateway (int? rtgOid)
+> RotatingTransactionGatewayResponse GetPaymentsRotatingGateway (int? rtgOid)
 
 Retrieve a rotating transaction gateway
 
@@ -247,7 +247,7 @@ namespace Example
             try
             {
                 // Retrieve a rotating transaction gateway
-                RotatingTransactionGateway result = apiInstance.GetPaymentsRotatingGateway(rtgOid);
+                RotatingTransactionGatewayResponse result = apiInstance.GetPaymentsRotatingGateway(rtgOid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 <a name="getpaymentsrotatinggatewaybycode"></a>
 # **GetPaymentsRotatingGatewayByCode**
-> RotatingTransactionGateway GetPaymentsRotatingGatewayByCode (string code)
+> RotatingTransactionGatewayResponse GetPaymentsRotatingGatewayByCode (string code)
 
 Retrieve a rotating transaction gateway by code
 
@@ -313,7 +313,7 @@ namespace Example
             try
             {
                 // Retrieve a rotating transaction gateway by code
-                RotatingTransactionGateway result = apiInstance.GetPaymentsRotatingGatewayByCode(code);
+                RotatingTransactionGatewayResponse result = apiInstance.GetPaymentsRotatingGatewayByCode(code);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
@@ -411,7 +411,7 @@ This endpoint does not need any parameter.
 
 <a name="getpaymentsrtgsummaries"></a>
 # **GetPaymentsRtgSummaries**
-> RtgSummary GetPaymentsRtgSummaries ()
+> RtgSummaryResponse GetPaymentsRtgSummaries ()
 
 Retrieve a summary of rotating transaction gateways
 
@@ -440,7 +440,7 @@ namespace Example
             try
             {
                 // Retrieve a summary of rotating transaction gateways
-                RtgSummary result = apiInstance.GetPaymentsRtgSummaries();
+                RtgSummaryResponse result = apiInstance.GetPaymentsRtgSummaries();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -458,7 +458,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RtgSummary**](RtgSummary.md)
+[**RtgSummaryResponse**](RtgSummaryResponse.md)
 
 ### Authorization
 
@@ -535,7 +535,7 @@ This endpoint does not need any parameter.
 
 <a name="insertrotatingtransactiongateway"></a>
 # **InsertRotatingTransactionGateway**
-> RotatingTransactionGateway InsertRotatingTransactionGateway (RotatingTransactionGateway rotatingTransactionGateway)
+> RotatingTransactionGatewayResponse InsertRotatingTransactionGateway (RotatingTransactionGateway rotatingTransactionGateway)
 
 Insert a rotating transaction gateway
 
@@ -565,7 +565,7 @@ namespace Example
             try
             {
                 // Insert a rotating transaction gateway
-                RotatingTransactionGateway result = apiInstance.InsertRotatingTransactionGateway(rotatingTransactionGateway);
+                RotatingTransactionGatewayResponse result = apiInstance.InsertRotatingTransactionGateway(rotatingTransactionGateway);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 
 <a name="migratetorotatingtransactiongateway"></a>
 # **MigrateToRotatingTransactionGateway**
-> RotatingTransactionGateway MigrateToRotatingTransactionGateway (string code)
+> RotatingTransactionGatewayResponse MigrateToRotatingTransactionGateway (string code)
 
 Migrate a normal transaction gateway to a rotating transaction gateway
 
@@ -631,7 +631,7 @@ namespace Example
             try
             {
                 // Migrate a normal transaction gateway to a rotating transaction gateway
-                RotatingTransactionGateway result = apiInstance.MigrateToRotatingTransactionGateway(code);
+                RotatingTransactionGatewayResponse result = apiInstance.MigrateToRotatingTransactionGateway(code);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -652,7 +652,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 

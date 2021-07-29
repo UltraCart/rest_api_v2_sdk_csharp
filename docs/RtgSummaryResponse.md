@@ -1,4 +1,4 @@
-# com.ultracart.admin.v2.Model.RtgSummary
+# com.ultracart.admin.v2.Model.RtgSummaryResponse
 ## Properties
 
 Name | Type | Description | Notes

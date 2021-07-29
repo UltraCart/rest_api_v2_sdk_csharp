@@ -25,13 +25,13 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// RtgSummary
+    /// RtgSummaryResponse
     /// </summary>
     [DataContract]
-    public partial class RtgSummary :  IEquatable<RtgSummary>, IValidatableObject
+    public partial class RtgSummaryResponse :  IEquatable<RtgSummaryResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RtgSummary" /> class.
+        /// Initializes a new instance of the <see cref="RtgSummaryResponse" /> class.
         /// </summary>
         /// <param name="gateways">gateways.</param>
         /// <param name="infoMessage">infoMessage.</param>
@@ -40,7 +40,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="showDelayAutoOrders">showDelayAutoOrders.</param>
         /// <param name="showMigration">showMigration.</param>
         /// <param name="warning">warning.</param>
-        public RtgSummary(List<RtgSummaryGateway> gateways = default(List<RtgSummaryGateway>), string infoMessage = default(string), string migrationRtgCode = default(string), string migrationSingleGatewayName = default(string), bool? showDelayAutoOrders = default(bool?), bool? showMigration = default(bool?), string warning = default(string))
+        public RtgSummaryResponse(List<RtgSummaryGateway> gateways = default(List<RtgSummaryGateway>), string infoMessage = default(string), string migrationRtgCode = default(string), string migrationSingleGatewayName = default(string), bool? showDelayAutoOrders = default(bool?), bool? showMigration = default(bool?), string warning = default(string))
         {
             this.Gateways = gateways;
             this.InfoMessage = infoMessage;
@@ -100,7 +100,7 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RtgSummary {\n");
+            sb.Append("class RtgSummaryResponse {\n");
             sb.Append("  Gateways: ").Append(Gateways).Append("\n");
             sb.Append("  InfoMessage: ").Append(InfoMessage).Append("\n");
             sb.Append("  MigrationRtgCode: ").Append(MigrationRtgCode).Append("\n");
@@ -128,15 +128,15 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RtgSummary);
+            return this.Equals(input as RtgSummaryResponse);
         }
 
         /// <summary>
-        /// Returns true if RtgSummary instances are equal
+        /// Returns true if RtgSummaryResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of RtgSummary to be compared</param>
+        /// <param name="input">Instance of RtgSummaryResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RtgSummary input)
+        public bool Equals(RtgSummaryResponse input)
         {
             if (input == null)
                 return false;

@@ -73,8 +73,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieves payments configuration for this account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>PaymentsConfiguration</returns>
-        PaymentsConfiguration GetPaymentsConfiguration ();
+        /// <returns>PaymentsConfigurationResponse</returns>
+        PaymentsConfigurationResponse GetPaymentsConfiguration ();
 
         /// <summary>
         /// Retrieve payments configuration
@@ -83,8 +83,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieves payments configuration for this account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of PaymentsConfiguration</returns>
-        ApiResponse<PaymentsConfiguration> GetPaymentsConfigurationWithHttpInfo ();
+        /// <returns>ApiResponse of PaymentsConfigurationResponse</returns>
+        ApiResponse<PaymentsConfigurationResponse> GetPaymentsConfigurationWithHttpInfo ();
         /// <summary>
         /// Retrieve a rotating transaction gateway
         /// </summary>
@@ -93,8 +93,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rtgOid">The rtg_oid for the desired record.</param>
-        /// <returns>RotatingTransactionGateway</returns>
-        RotatingTransactionGateway GetPaymentsRotatingGateway (int? rtgOid);
+        /// <returns>RotatingTransactionGatewayResponse</returns>
+        RotatingTransactionGatewayResponse GetPaymentsRotatingGateway (int? rtgOid);
 
         /// <summary>
         /// Retrieve a rotating transaction gateway
@@ -104,8 +104,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rtgOid">The rtg_oid for the desired record.</param>
-        /// <returns>ApiResponse of RotatingTransactionGateway</returns>
-        ApiResponse<RotatingTransactionGateway> GetPaymentsRotatingGatewayWithHttpInfo (int? rtgOid);
+        /// <returns>ApiResponse of RotatingTransactionGatewayResponse</returns>
+        ApiResponse<RotatingTransactionGatewayResponse> GetPaymentsRotatingGatewayWithHttpInfo (int? rtgOid);
         /// <summary>
         /// Retrieve a rotating transaction gateway by code
         /// </summary>
@@ -114,8 +114,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code for the desired rotating transaction gateway.</param>
-        /// <returns>RotatingTransactionGateway</returns>
-        RotatingTransactionGateway GetPaymentsRotatingGatewayByCode (string code);
+        /// <returns>RotatingTransactionGatewayResponse</returns>
+        RotatingTransactionGatewayResponse GetPaymentsRotatingGatewayByCode (string code);
 
         /// <summary>
         /// Retrieve a rotating transaction gateway by code
@@ -125,8 +125,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code for the desired rotating transaction gateway.</param>
-        /// <returns>ApiResponse of RotatingTransactionGateway</returns>
-        ApiResponse<RotatingTransactionGateway> GetPaymentsRotatingGatewayByCodeWithHttpInfo (string code);
+        /// <returns>ApiResponse of RotatingTransactionGatewayResponse</returns>
+        ApiResponse<RotatingTransactionGatewayResponse> GetPaymentsRotatingGatewayByCodeWithHttpInfo (string code);
         /// <summary>
         /// Retrieve a list of rotating transaction gateways
         /// </summary>
@@ -153,8 +153,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve a summary of rotating transaction gateways 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>RtgSummary</returns>
-        RtgSummary GetPaymentsRtgSummaries ();
+        /// <returns>RtgSummaryResponse</returns>
+        RtgSummaryResponse GetPaymentsRtgSummaries ();
 
         /// <summary>
         /// Retrieve a summary of rotating transaction gateways
@@ -163,8 +163,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve a summary of rotating transaction gateways 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of RtgSummary</returns>
-        ApiResponse<RtgSummary> GetPaymentsRtgSummariesWithHttpInfo ();
+        /// <returns>ApiResponse of RtgSummaryResponse</returns>
+        ApiResponse<RtgSummaryResponse> GetPaymentsRtgSummariesWithHttpInfo ();
         /// <summary>
         /// Retrieve a list of transaction gateways
         /// </summary>
@@ -192,8 +192,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rotatingTransactionGateway">Rotating transaction gateway</param>
-        /// <returns>RotatingTransactionGateway</returns>
-        RotatingTransactionGateway InsertRotatingTransactionGateway (RotatingTransactionGateway rotatingTransactionGateway);
+        /// <returns>RotatingTransactionGatewayResponse</returns>
+        RotatingTransactionGatewayResponse InsertRotatingTransactionGateway (RotatingTransactionGateway rotatingTransactionGateway);
 
         /// <summary>
         /// Insert a rotating transaction gateway
@@ -203,8 +203,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rotatingTransactionGateway">Rotating transaction gateway</param>
-        /// <returns>ApiResponse of RotatingTransactionGateway</returns>
-        ApiResponse<RotatingTransactionGateway> InsertRotatingTransactionGatewayWithHttpInfo (RotatingTransactionGateway rotatingTransactionGateway);
+        /// <returns>ApiResponse of RotatingTransactionGatewayResponse</returns>
+        ApiResponse<RotatingTransactionGatewayResponse> InsertRotatingTransactionGatewayWithHttpInfo (RotatingTransactionGateway rotatingTransactionGateway);
         /// <summary>
         /// Migrate a normal transaction gateway to a rotating transaction gateway
         /// </summary>
@@ -213,8 +213,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The short code for the new rotating transaction gateway</param>
-        /// <returns>RotatingTransactionGateway</returns>
-        RotatingTransactionGateway MigrateToRotatingTransactionGateway (string code);
+        /// <returns>RotatingTransactionGatewayResponse</returns>
+        RotatingTransactionGatewayResponse MigrateToRotatingTransactionGateway (string code);
 
         /// <summary>
         /// Migrate a normal transaction gateway to a rotating transaction gateway
@@ -224,8 +224,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The short code for the new rotating transaction gateway</param>
-        /// <returns>ApiResponse of RotatingTransactionGateway</returns>
-        ApiResponse<RotatingTransactionGateway> MigrateToRotatingTransactionGatewayWithHttpInfo (string code);
+        /// <returns>ApiResponse of RotatingTransactionGatewayResponse</returns>
+        ApiResponse<RotatingTransactionGatewayResponse> MigrateToRotatingTransactionGatewayWithHttpInfo (string code);
         /// <summary>
         /// Begin the processing of connecting with Stripe
         /// </summary>
@@ -384,8 +384,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieves payments configuration for this account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of PaymentsConfiguration</returns>
-        System.Threading.Tasks.Task<PaymentsConfiguration> GetPaymentsConfigurationAsync ();
+        /// <returns>Task of PaymentsConfigurationResponse</returns>
+        System.Threading.Tasks.Task<PaymentsConfigurationResponse> GetPaymentsConfigurationAsync ();
 
         /// <summary>
         /// Retrieve payments configuration
@@ -394,8 +394,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieves payments configuration for this account. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (PaymentsConfiguration)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaymentsConfiguration>> GetPaymentsConfigurationAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (PaymentsConfigurationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PaymentsConfigurationResponse>> GetPaymentsConfigurationAsyncWithHttpInfo ();
         /// <summary>
         /// Retrieve a rotating transaction gateway
         /// </summary>
@@ -404,8 +404,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rtgOid">The rtg_oid for the desired record.</param>
-        /// <returns>Task of RotatingTransactionGateway</returns>
-        System.Threading.Tasks.Task<RotatingTransactionGateway> GetPaymentsRotatingGatewayAsync (int? rtgOid);
+        /// <returns>Task of RotatingTransactionGatewayResponse</returns>
+        System.Threading.Tasks.Task<RotatingTransactionGatewayResponse> GetPaymentsRotatingGatewayAsync (int? rtgOid);
 
         /// <summary>
         /// Retrieve a rotating transaction gateway
@@ -415,8 +415,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rtgOid">The rtg_oid for the desired record.</param>
-        /// <returns>Task of ApiResponse (RotatingTransactionGateway)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGateway>> GetPaymentsRotatingGatewayAsyncWithHttpInfo (int? rtgOid);
+        /// <returns>Task of ApiResponse (RotatingTransactionGatewayResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGatewayResponse>> GetPaymentsRotatingGatewayAsyncWithHttpInfo (int? rtgOid);
         /// <summary>
         /// Retrieve a rotating transaction gateway by code
         /// </summary>
@@ -425,8 +425,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code for the desired rotating transaction gateway.</param>
-        /// <returns>Task of RotatingTransactionGateway</returns>
-        System.Threading.Tasks.Task<RotatingTransactionGateway> GetPaymentsRotatingGatewayByCodeAsync (string code);
+        /// <returns>Task of RotatingTransactionGatewayResponse</returns>
+        System.Threading.Tasks.Task<RotatingTransactionGatewayResponse> GetPaymentsRotatingGatewayByCodeAsync (string code);
 
         /// <summary>
         /// Retrieve a rotating transaction gateway by code
@@ -436,8 +436,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code for the desired rotating transaction gateway.</param>
-        /// <returns>Task of ApiResponse (RotatingTransactionGateway)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGateway>> GetPaymentsRotatingGatewayByCodeAsyncWithHttpInfo (string code);
+        /// <returns>Task of ApiResponse (RotatingTransactionGatewayResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGatewayResponse>> GetPaymentsRotatingGatewayByCodeAsyncWithHttpInfo (string code);
         /// <summary>
         /// Retrieve a list of rotating transaction gateways
         /// </summary>
@@ -464,8 +464,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve a summary of rotating transaction gateways 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of RtgSummary</returns>
-        System.Threading.Tasks.Task<RtgSummary> GetPaymentsRtgSummariesAsync ();
+        /// <returns>Task of RtgSummaryResponse</returns>
+        System.Threading.Tasks.Task<RtgSummaryResponse> GetPaymentsRtgSummariesAsync ();
 
         /// <summary>
         /// Retrieve a summary of rotating transaction gateways
@@ -474,8 +474,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve a summary of rotating transaction gateways 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (RtgSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RtgSummary>> GetPaymentsRtgSummariesAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (RtgSummaryResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RtgSummaryResponse>> GetPaymentsRtgSummariesAsyncWithHttpInfo ();
         /// <summary>
         /// Retrieve a list of transaction gateways
         /// </summary>
@@ -503,8 +503,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rotatingTransactionGateway">Rotating transaction gateway</param>
-        /// <returns>Task of RotatingTransactionGateway</returns>
-        System.Threading.Tasks.Task<RotatingTransactionGateway> InsertRotatingTransactionGatewayAsync (RotatingTransactionGateway rotatingTransactionGateway);
+        /// <returns>Task of RotatingTransactionGatewayResponse</returns>
+        System.Threading.Tasks.Task<RotatingTransactionGatewayResponse> InsertRotatingTransactionGatewayAsync (RotatingTransactionGateway rotatingTransactionGateway);
 
         /// <summary>
         /// Insert a rotating transaction gateway
@@ -514,8 +514,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rotatingTransactionGateway">Rotating transaction gateway</param>
-        /// <returns>Task of ApiResponse (RotatingTransactionGateway)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGateway>> InsertRotatingTransactionGatewayAsyncWithHttpInfo (RotatingTransactionGateway rotatingTransactionGateway);
+        /// <returns>Task of ApiResponse (RotatingTransactionGatewayResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGatewayResponse>> InsertRotatingTransactionGatewayAsyncWithHttpInfo (RotatingTransactionGateway rotatingTransactionGateway);
         /// <summary>
         /// Migrate a normal transaction gateway to a rotating transaction gateway
         /// </summary>
@@ -524,8 +524,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The short code for the new rotating transaction gateway</param>
-        /// <returns>Task of RotatingTransactionGateway</returns>
-        System.Threading.Tasks.Task<RotatingTransactionGateway> MigrateToRotatingTransactionGatewayAsync (string code);
+        /// <returns>Task of RotatingTransactionGatewayResponse</returns>
+        System.Threading.Tasks.Task<RotatingTransactionGatewayResponse> MigrateToRotatingTransactionGatewayAsync (string code);
 
         /// <summary>
         /// Migrate a normal transaction gateway to a rotating transaction gateway
@@ -535,8 +535,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The short code for the new rotating transaction gateway</param>
-        /// <returns>Task of ApiResponse (RotatingTransactionGateway)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGateway>> MigrateToRotatingTransactionGatewayAsyncWithHttpInfo (string code);
+        /// <returns>Task of ApiResponse (RotatingTransactionGatewayResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGatewayResponse>> MigrateToRotatingTransactionGatewayAsyncWithHttpInfo (string code);
         /// <summary>
         /// Begin the processing of connecting with Stripe
         /// </summary>
@@ -1069,10 +1069,10 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve payments configuration Retrieves payments configuration for this account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>PaymentsConfiguration</returns>
-        public PaymentsConfiguration GetPaymentsConfiguration ()
+        /// <returns>PaymentsConfigurationResponse</returns>
+        public PaymentsConfigurationResponse GetPaymentsConfiguration ()
         {
-             ApiResponse<PaymentsConfiguration> localVarResponse = GetPaymentsConfigurationWithHttpInfo();
+             ApiResponse<PaymentsConfigurationResponse> localVarResponse = GetPaymentsConfigurationWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -1080,8 +1080,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve payments configuration Retrieves payments configuration for this account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of PaymentsConfiguration</returns>
-        public ApiResponse< PaymentsConfiguration > GetPaymentsConfigurationWithHttpInfo ()
+        /// <returns>ApiResponse of PaymentsConfigurationResponse</returns>
+        public ApiResponse< PaymentsConfigurationResponse > GetPaymentsConfigurationWithHttpInfo ()
         {
 
             var localVarPath = "/configuration/checkout/payments";
@@ -1132,19 +1132,19 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<PaymentsConfiguration>(localVarStatusCode,
+            return new ApiResponse<PaymentsConfigurationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PaymentsConfiguration) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentsConfiguration)));
+                (PaymentsConfigurationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentsConfigurationResponse)));
         }
 
         /// <summary>
         /// Retrieve payments configuration Retrieves payments configuration for this account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of PaymentsConfiguration</returns>
-        public async System.Threading.Tasks.Task<PaymentsConfiguration> GetPaymentsConfigurationAsync ()
+        /// <returns>Task of PaymentsConfigurationResponse</returns>
+        public async System.Threading.Tasks.Task<PaymentsConfigurationResponse> GetPaymentsConfigurationAsync ()
         {
-             ApiResponse<PaymentsConfiguration> localVarResponse = await GetPaymentsConfigurationAsyncWithHttpInfo();
+             ApiResponse<PaymentsConfigurationResponse> localVarResponse = await GetPaymentsConfigurationAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -1153,8 +1153,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve payments configuration Retrieves payments configuration for this account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (PaymentsConfiguration)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PaymentsConfiguration>> GetPaymentsConfigurationAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (PaymentsConfigurationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PaymentsConfigurationResponse>> GetPaymentsConfigurationAsyncWithHttpInfo ()
         {
 
             var localVarPath = "/configuration/checkout/payments";
@@ -1205,9 +1205,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<PaymentsConfiguration>(localVarStatusCode,
+            return new ApiResponse<PaymentsConfigurationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PaymentsConfiguration) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentsConfiguration)));
+                (PaymentsConfigurationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentsConfigurationResponse)));
         }
 
         /// <summary>
@@ -1215,10 +1215,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rtgOid">The rtg_oid for the desired record.</param>
-        /// <returns>RotatingTransactionGateway</returns>
-        public RotatingTransactionGateway GetPaymentsRotatingGateway (int? rtgOid)
+        /// <returns>RotatingTransactionGatewayResponse</returns>
+        public RotatingTransactionGatewayResponse GetPaymentsRotatingGateway (int? rtgOid)
         {
-             ApiResponse<RotatingTransactionGateway> localVarResponse = GetPaymentsRotatingGatewayWithHttpInfo(rtgOid);
+             ApiResponse<RotatingTransactionGatewayResponse> localVarResponse = GetPaymentsRotatingGatewayWithHttpInfo(rtgOid);
              return localVarResponse.Data;
         }
 
@@ -1227,8 +1227,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rtgOid">The rtg_oid for the desired record.</param>
-        /// <returns>ApiResponse of RotatingTransactionGateway</returns>
-        public ApiResponse< RotatingTransactionGateway > GetPaymentsRotatingGatewayWithHttpInfo (int? rtgOid)
+        /// <returns>ApiResponse of RotatingTransactionGatewayResponse</returns>
+        public ApiResponse< RotatingTransactionGatewayResponse > GetPaymentsRotatingGatewayWithHttpInfo (int? rtgOid)
         {
             // verify the required parameter 'rtgOid' is set
             if (rtgOid == null)
@@ -1283,9 +1283,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<RotatingTransactionGateway>(localVarStatusCode,
+            return new ApiResponse<RotatingTransactionGatewayResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RotatingTransactionGateway) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGateway)));
+                (RotatingTransactionGatewayResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGatewayResponse)));
         }
 
         /// <summary>
@@ -1293,10 +1293,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rtgOid">The rtg_oid for the desired record.</param>
-        /// <returns>Task of RotatingTransactionGateway</returns>
-        public async System.Threading.Tasks.Task<RotatingTransactionGateway> GetPaymentsRotatingGatewayAsync (int? rtgOid)
+        /// <returns>Task of RotatingTransactionGatewayResponse</returns>
+        public async System.Threading.Tasks.Task<RotatingTransactionGatewayResponse> GetPaymentsRotatingGatewayAsync (int? rtgOid)
         {
-             ApiResponse<RotatingTransactionGateway> localVarResponse = await GetPaymentsRotatingGatewayAsyncWithHttpInfo(rtgOid);
+             ApiResponse<RotatingTransactionGatewayResponse> localVarResponse = await GetPaymentsRotatingGatewayAsyncWithHttpInfo(rtgOid);
              return localVarResponse.Data;
 
         }
@@ -1306,8 +1306,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rtgOid">The rtg_oid for the desired record.</param>
-        /// <returns>Task of ApiResponse (RotatingTransactionGateway)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGateway>> GetPaymentsRotatingGatewayAsyncWithHttpInfo (int? rtgOid)
+        /// <returns>Task of ApiResponse (RotatingTransactionGatewayResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGatewayResponse>> GetPaymentsRotatingGatewayAsyncWithHttpInfo (int? rtgOid)
         {
             // verify the required parameter 'rtgOid' is set
             if (rtgOid == null)
@@ -1362,9 +1362,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<RotatingTransactionGateway>(localVarStatusCode,
+            return new ApiResponse<RotatingTransactionGatewayResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RotatingTransactionGateway) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGateway)));
+                (RotatingTransactionGatewayResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGatewayResponse)));
         }
 
         /// <summary>
@@ -1372,10 +1372,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code for the desired rotating transaction gateway.</param>
-        /// <returns>RotatingTransactionGateway</returns>
-        public RotatingTransactionGateway GetPaymentsRotatingGatewayByCode (string code)
+        /// <returns>RotatingTransactionGatewayResponse</returns>
+        public RotatingTransactionGatewayResponse GetPaymentsRotatingGatewayByCode (string code)
         {
-             ApiResponse<RotatingTransactionGateway> localVarResponse = GetPaymentsRotatingGatewayByCodeWithHttpInfo(code);
+             ApiResponse<RotatingTransactionGatewayResponse> localVarResponse = GetPaymentsRotatingGatewayByCodeWithHttpInfo(code);
              return localVarResponse.Data;
         }
 
@@ -1384,8 +1384,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code for the desired rotating transaction gateway.</param>
-        /// <returns>ApiResponse of RotatingTransactionGateway</returns>
-        public ApiResponse< RotatingTransactionGateway > GetPaymentsRotatingGatewayByCodeWithHttpInfo (string code)
+        /// <returns>ApiResponse of RotatingTransactionGatewayResponse</returns>
+        public ApiResponse< RotatingTransactionGatewayResponse > GetPaymentsRotatingGatewayByCodeWithHttpInfo (string code)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -1440,9 +1440,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<RotatingTransactionGateway>(localVarStatusCode,
+            return new ApiResponse<RotatingTransactionGatewayResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RotatingTransactionGateway) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGateway)));
+                (RotatingTransactionGatewayResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGatewayResponse)));
         }
 
         /// <summary>
@@ -1450,10 +1450,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code for the desired rotating transaction gateway.</param>
-        /// <returns>Task of RotatingTransactionGateway</returns>
-        public async System.Threading.Tasks.Task<RotatingTransactionGateway> GetPaymentsRotatingGatewayByCodeAsync (string code)
+        /// <returns>Task of RotatingTransactionGatewayResponse</returns>
+        public async System.Threading.Tasks.Task<RotatingTransactionGatewayResponse> GetPaymentsRotatingGatewayByCodeAsync (string code)
         {
-             ApiResponse<RotatingTransactionGateway> localVarResponse = await GetPaymentsRotatingGatewayByCodeAsyncWithHttpInfo(code);
+             ApiResponse<RotatingTransactionGatewayResponse> localVarResponse = await GetPaymentsRotatingGatewayByCodeAsyncWithHttpInfo(code);
              return localVarResponse.Data;
 
         }
@@ -1463,8 +1463,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The code for the desired rotating transaction gateway.</param>
-        /// <returns>Task of ApiResponse (RotatingTransactionGateway)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGateway>> GetPaymentsRotatingGatewayByCodeAsyncWithHttpInfo (string code)
+        /// <returns>Task of ApiResponse (RotatingTransactionGatewayResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGatewayResponse>> GetPaymentsRotatingGatewayByCodeAsyncWithHttpInfo (string code)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -1519,9 +1519,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<RotatingTransactionGateway>(localVarStatusCode,
+            return new ApiResponse<RotatingTransactionGatewayResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RotatingTransactionGateway) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGateway)));
+                (RotatingTransactionGatewayResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGatewayResponse)));
         }
 
         /// <summary>
@@ -1673,10 +1673,10 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve a summary of rotating transaction gateways Retrieve a summary of rotating transaction gateways 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>RtgSummary</returns>
-        public RtgSummary GetPaymentsRtgSummaries ()
+        /// <returns>RtgSummaryResponse</returns>
+        public RtgSummaryResponse GetPaymentsRtgSummaries ()
         {
-             ApiResponse<RtgSummary> localVarResponse = GetPaymentsRtgSummariesWithHttpInfo();
+             ApiResponse<RtgSummaryResponse> localVarResponse = GetPaymentsRtgSummariesWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -1684,8 +1684,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve a summary of rotating transaction gateways Retrieve a summary of rotating transaction gateways 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of RtgSummary</returns>
-        public ApiResponse< RtgSummary > GetPaymentsRtgSummariesWithHttpInfo ()
+        /// <returns>ApiResponse of RtgSummaryResponse</returns>
+        public ApiResponse< RtgSummaryResponse > GetPaymentsRtgSummariesWithHttpInfo ()
         {
 
             var localVarPath = "/configuration/checkout/payments/rtg/summaries";
@@ -1736,19 +1736,19 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<RtgSummary>(localVarStatusCode,
+            return new ApiResponse<RtgSummaryResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RtgSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RtgSummary)));
+                (RtgSummaryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RtgSummaryResponse)));
         }
 
         /// <summary>
         /// Retrieve a summary of rotating transaction gateways Retrieve a summary of rotating transaction gateways 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of RtgSummary</returns>
-        public async System.Threading.Tasks.Task<RtgSummary> GetPaymentsRtgSummariesAsync ()
+        /// <returns>Task of RtgSummaryResponse</returns>
+        public async System.Threading.Tasks.Task<RtgSummaryResponse> GetPaymentsRtgSummariesAsync ()
         {
-             ApiResponse<RtgSummary> localVarResponse = await GetPaymentsRtgSummariesAsyncWithHttpInfo();
+             ApiResponse<RtgSummaryResponse> localVarResponse = await GetPaymentsRtgSummariesAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -1757,8 +1757,8 @@ namespace com.ultracart.admin.v2.Api
         /// Retrieve a summary of rotating transaction gateways Retrieve a summary of rotating transaction gateways 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (RtgSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RtgSummary>> GetPaymentsRtgSummariesAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (RtgSummaryResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RtgSummaryResponse>> GetPaymentsRtgSummariesAsyncWithHttpInfo ()
         {
 
             var localVarPath = "/configuration/checkout/payments/rtg/summaries";
@@ -1809,9 +1809,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<RtgSummary>(localVarStatusCode,
+            return new ApiResponse<RtgSummaryResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RtgSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RtgSummary)));
+                (RtgSummaryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RtgSummaryResponse)));
         }
 
         /// <summary>
@@ -1964,10 +1964,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rotatingTransactionGateway">Rotating transaction gateway</param>
-        /// <returns>RotatingTransactionGateway</returns>
-        public RotatingTransactionGateway InsertRotatingTransactionGateway (RotatingTransactionGateway rotatingTransactionGateway)
+        /// <returns>RotatingTransactionGatewayResponse</returns>
+        public RotatingTransactionGatewayResponse InsertRotatingTransactionGateway (RotatingTransactionGateway rotatingTransactionGateway)
         {
-             ApiResponse<RotatingTransactionGateway> localVarResponse = InsertRotatingTransactionGatewayWithHttpInfo(rotatingTransactionGateway);
+             ApiResponse<RotatingTransactionGatewayResponse> localVarResponse = InsertRotatingTransactionGatewayWithHttpInfo(rotatingTransactionGateway);
              return localVarResponse.Data;
         }
 
@@ -1976,8 +1976,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rotatingTransactionGateway">Rotating transaction gateway</param>
-        /// <returns>ApiResponse of RotatingTransactionGateway</returns>
-        public ApiResponse< RotatingTransactionGateway > InsertRotatingTransactionGatewayWithHttpInfo (RotatingTransactionGateway rotatingTransactionGateway)
+        /// <returns>ApiResponse of RotatingTransactionGatewayResponse</returns>
+        public ApiResponse< RotatingTransactionGatewayResponse > InsertRotatingTransactionGatewayWithHttpInfo (RotatingTransactionGateway rotatingTransactionGateway)
         {
             // verify the required parameter 'rotatingTransactionGateway' is set
             if (rotatingTransactionGateway == null)
@@ -2039,9 +2039,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<RotatingTransactionGateway>(localVarStatusCode,
+            return new ApiResponse<RotatingTransactionGatewayResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RotatingTransactionGateway) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGateway)));
+                (RotatingTransactionGatewayResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGatewayResponse)));
         }
 
         /// <summary>
@@ -2049,10 +2049,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rotatingTransactionGateway">Rotating transaction gateway</param>
-        /// <returns>Task of RotatingTransactionGateway</returns>
-        public async System.Threading.Tasks.Task<RotatingTransactionGateway> InsertRotatingTransactionGatewayAsync (RotatingTransactionGateway rotatingTransactionGateway)
+        /// <returns>Task of RotatingTransactionGatewayResponse</returns>
+        public async System.Threading.Tasks.Task<RotatingTransactionGatewayResponse> InsertRotatingTransactionGatewayAsync (RotatingTransactionGateway rotatingTransactionGateway)
         {
-             ApiResponse<RotatingTransactionGateway> localVarResponse = await InsertRotatingTransactionGatewayAsyncWithHttpInfo(rotatingTransactionGateway);
+             ApiResponse<RotatingTransactionGatewayResponse> localVarResponse = await InsertRotatingTransactionGatewayAsyncWithHttpInfo(rotatingTransactionGateway);
              return localVarResponse.Data;
 
         }
@@ -2062,8 +2062,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rotatingTransactionGateway">Rotating transaction gateway</param>
-        /// <returns>Task of ApiResponse (RotatingTransactionGateway)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGateway>> InsertRotatingTransactionGatewayAsyncWithHttpInfo (RotatingTransactionGateway rotatingTransactionGateway)
+        /// <returns>Task of ApiResponse (RotatingTransactionGatewayResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGatewayResponse>> InsertRotatingTransactionGatewayAsyncWithHttpInfo (RotatingTransactionGateway rotatingTransactionGateway)
         {
             // verify the required parameter 'rotatingTransactionGateway' is set
             if (rotatingTransactionGateway == null)
@@ -2125,9 +2125,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<RotatingTransactionGateway>(localVarStatusCode,
+            return new ApiResponse<RotatingTransactionGatewayResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RotatingTransactionGateway) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGateway)));
+                (RotatingTransactionGatewayResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGatewayResponse)));
         }
 
         /// <summary>
@@ -2135,10 +2135,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The short code for the new rotating transaction gateway</param>
-        /// <returns>RotatingTransactionGateway</returns>
-        public RotatingTransactionGateway MigrateToRotatingTransactionGateway (string code)
+        /// <returns>RotatingTransactionGatewayResponse</returns>
+        public RotatingTransactionGatewayResponse MigrateToRotatingTransactionGateway (string code)
         {
-             ApiResponse<RotatingTransactionGateway> localVarResponse = MigrateToRotatingTransactionGatewayWithHttpInfo(code);
+             ApiResponse<RotatingTransactionGatewayResponse> localVarResponse = MigrateToRotatingTransactionGatewayWithHttpInfo(code);
              return localVarResponse.Data;
         }
 
@@ -2147,8 +2147,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The short code for the new rotating transaction gateway</param>
-        /// <returns>ApiResponse of RotatingTransactionGateway</returns>
-        public ApiResponse< RotatingTransactionGateway > MigrateToRotatingTransactionGatewayWithHttpInfo (string code)
+        /// <returns>ApiResponse of RotatingTransactionGatewayResponse</returns>
+        public ApiResponse< RotatingTransactionGatewayResponse > MigrateToRotatingTransactionGatewayWithHttpInfo (string code)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -2203,9 +2203,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<RotatingTransactionGateway>(localVarStatusCode,
+            return new ApiResponse<RotatingTransactionGatewayResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RotatingTransactionGateway) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGateway)));
+                (RotatingTransactionGatewayResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGatewayResponse)));
         }
 
         /// <summary>
@@ -2213,10 +2213,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The short code for the new rotating transaction gateway</param>
-        /// <returns>Task of RotatingTransactionGateway</returns>
-        public async System.Threading.Tasks.Task<RotatingTransactionGateway> MigrateToRotatingTransactionGatewayAsync (string code)
+        /// <returns>Task of RotatingTransactionGatewayResponse</returns>
+        public async System.Threading.Tasks.Task<RotatingTransactionGatewayResponse> MigrateToRotatingTransactionGatewayAsync (string code)
         {
-             ApiResponse<RotatingTransactionGateway> localVarResponse = await MigrateToRotatingTransactionGatewayAsyncWithHttpInfo(code);
+             ApiResponse<RotatingTransactionGatewayResponse> localVarResponse = await MigrateToRotatingTransactionGatewayAsyncWithHttpInfo(code);
              return localVarResponse.Data;
 
         }
@@ -2226,8 +2226,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">The short code for the new rotating transaction gateway</param>
-        /// <returns>Task of ApiResponse (RotatingTransactionGateway)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGateway>> MigrateToRotatingTransactionGatewayAsyncWithHttpInfo (string code)
+        /// <returns>Task of ApiResponse (RotatingTransactionGatewayResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RotatingTransactionGatewayResponse>> MigrateToRotatingTransactionGatewayAsyncWithHttpInfo (string code)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -2282,9 +2282,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<RotatingTransactionGateway>(localVarStatusCode,
+            return new ApiResponse<RotatingTransactionGatewayResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (RotatingTransactionGateway) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGateway)));
+                (RotatingTransactionGatewayResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RotatingTransactionGatewayResponse)));
         }
 
         /// <summary>

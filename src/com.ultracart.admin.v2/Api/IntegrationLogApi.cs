@@ -73,6 +73,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> GetIntegrationLogFileWithHttpInfo (string pk, string sk, string uuid);
         /// <summary>
+        /// Retrieve integration log summaries
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a set of integration log summaries from the account based on a query object. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationLogSummariesQuery">Integration log summaries query</param>
+        /// <returns>IntegrationLogSummaryQueryResponse</returns>
+        IntegrationLogSummaryQueryResponse GetIntegrationLogSummariesQuery (IntegrationLogSummaryQueryRequest integrationLogSummariesQuery);
+
+        /// <summary>
+        /// Retrieve integration log summaries
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a set of integration log summaries from the account based on a query object. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationLogSummariesQuery">Integration log summaries query</param>
+        /// <returns>ApiResponse of IntegrationLogSummaryQueryResponse</returns>
+        ApiResponse<IntegrationLogSummaryQueryResponse> GetIntegrationLogSummariesQueryWithHttpInfo (IntegrationLogSummaryQueryRequest integrationLogSummariesQuery);
+        /// <summary>
         /// Retrieve integration logs
         /// </summary>
         /// <remarks>
@@ -149,6 +170,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="uuid"></param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetIntegrationLogFileAsyncWithHttpInfo (string pk, string sk, string uuid);
+        /// <summary>
+        /// Retrieve integration log summaries
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a set of integration log summaries from the account based on a query object. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationLogSummariesQuery">Integration log summaries query</param>
+        /// <returns>Task of IntegrationLogSummaryQueryResponse</returns>
+        System.Threading.Tasks.Task<IntegrationLogSummaryQueryResponse> GetIntegrationLogSummariesQueryAsync (IntegrationLogSummaryQueryRequest integrationLogSummariesQuery);
+
+        /// <summary>
+        /// Retrieve integration log summaries
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a set of integration log summaries from the account based on a query object. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationLogSummariesQuery">Integration log summaries query</param>
+        /// <returns>Task of ApiResponse (IntegrationLogSummaryQueryResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IntegrationLogSummaryQueryResponse>> GetIntegrationLogSummariesQueryAsyncWithHttpInfo (IntegrationLogSummaryQueryRequest integrationLogSummariesQuery);
         /// <summary>
         /// Retrieve integration logs
         /// </summary>
@@ -631,6 +673,177 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
+        }
+
+        /// <summary>
+        /// Retrieve integration log summaries Retrieves a set of integration log summaries from the account based on a query object. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationLogSummariesQuery">Integration log summaries query</param>
+        /// <returns>IntegrationLogSummaryQueryResponse</returns>
+        public IntegrationLogSummaryQueryResponse GetIntegrationLogSummariesQuery (IntegrationLogSummaryQueryRequest integrationLogSummariesQuery)
+        {
+             ApiResponse<IntegrationLogSummaryQueryResponse> localVarResponse = GetIntegrationLogSummariesQueryWithHttpInfo(integrationLogSummariesQuery);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve integration log summaries Retrieves a set of integration log summaries from the account based on a query object. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationLogSummariesQuery">Integration log summaries query</param>
+        /// <returns>ApiResponse of IntegrationLogSummaryQueryResponse</returns>
+        public ApiResponse< IntegrationLogSummaryQueryResponse > GetIntegrationLogSummariesQueryWithHttpInfo (IntegrationLogSummaryQueryRequest integrationLogSummariesQuery)
+        {
+            // verify the required parameter 'integrationLogSummariesQuery' is set
+            if (integrationLogSummariesQuery == null)
+                throw new ApiException(400, "Missing required parameter 'integrationLogSummariesQuery' when calling IntegrationLogApi->GetIntegrationLogSummariesQuery");
+
+            var localVarPath = "/integration_log/summary/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (integrationLogSummariesQuery != null && integrationLogSummariesQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(integrationLogSummariesQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = integrationLogSummariesQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetIntegrationLogSummariesQuery", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<IntegrationLogSummaryQueryResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (IntegrationLogSummaryQueryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegrationLogSummaryQueryResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve integration log summaries Retrieves a set of integration log summaries from the account based on a query object. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationLogSummariesQuery">Integration log summaries query</param>
+        /// <returns>Task of IntegrationLogSummaryQueryResponse</returns>
+        public async System.Threading.Tasks.Task<IntegrationLogSummaryQueryResponse> GetIntegrationLogSummariesQueryAsync (IntegrationLogSummaryQueryRequest integrationLogSummariesQuery)
+        {
+             ApiResponse<IntegrationLogSummaryQueryResponse> localVarResponse = await GetIntegrationLogSummariesQueryAsyncWithHttpInfo(integrationLogSummariesQuery);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve integration log summaries Retrieves a set of integration log summaries from the account based on a query object. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationLogSummariesQuery">Integration log summaries query</param>
+        /// <returns>Task of ApiResponse (IntegrationLogSummaryQueryResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationLogSummaryQueryResponse>> GetIntegrationLogSummariesQueryAsyncWithHttpInfo (IntegrationLogSummaryQueryRequest integrationLogSummariesQuery)
+        {
+            // verify the required parameter 'integrationLogSummariesQuery' is set
+            if (integrationLogSummariesQuery == null)
+                throw new ApiException(400, "Missing required parameter 'integrationLogSummariesQuery' when calling IntegrationLogApi->GetIntegrationLogSummariesQuery");
+
+            var localVarPath = "/integration_log/summary/query";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (integrationLogSummariesQuery != null && integrationLogSummariesQuery.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(integrationLogSummariesQuery); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = integrationLogSummariesQuery; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetIntegrationLogSummariesQuery", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<IntegrationLogSummaryQueryResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (IntegrationLogSummaryQueryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegrationLogSummaryQueryResponse)));
         }
 
         /// <summary>

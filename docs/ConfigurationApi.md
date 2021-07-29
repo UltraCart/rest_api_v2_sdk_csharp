@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 <a name="getpaymentsrotatingtransactiongateways"></a>
 # **GetPaymentsRotatingTransactionGateways**
-> RotatingTransactionGateway GetPaymentsRotatingTransactionGateways ()
+> RotatingTransactionGatewaysResponse GetPaymentsRotatingTransactionGateways ()
 
 Retrieve a list of rotating transaction gateways
 
@@ -378,7 +378,7 @@ namespace Example
             try
             {
                 // Retrieve a list of rotating transaction gateways
-                RotatingTransactionGateway result = apiInstance.GetPaymentsRotatingTransactionGateways();
+                RotatingTransactionGatewaysResponse result = apiInstance.GetPaymentsRotatingTransactionGateways();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -396,7 +396,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewaysResponse**](RotatingTransactionGatewaysResponse.md)
 
 ### Authorization
 
@@ -411,7 +411,7 @@ This endpoint does not need any parameter.
 
 <a name="getpaymentsrtgsummaries"></a>
 # **GetPaymentsRtgSummaries**
-> RotatingTransactionGateway GetPaymentsRtgSummaries ()
+> RtgSummary GetPaymentsRtgSummaries ()
 
 Retrieve a summary of rotating transaction gateways
 
@@ -440,7 +440,7 @@ namespace Example
             try
             {
                 // Retrieve a summary of rotating transaction gateways
-                RotatingTransactionGateway result = apiInstance.GetPaymentsRtgSummaries();
+                RtgSummary result = apiInstance.GetPaymentsRtgSummaries();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -458,7 +458,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RtgSummary**](RtgSummary.md)
 
 ### Authorization
 

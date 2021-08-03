@@ -865,7 +865,7 @@ Name | Type | Description  | Notes
 
 <a name="updaterotatingtransactiongateway"></a>
 # **UpdateRotatingTransactionGateway**
-> RotatingTransactionGateway UpdateRotatingTransactionGateway (int? rtgOid, RotatingTransactionGateway rotatingTransactionGateway)
+> RotatingTransactionGatewayResponse UpdateRotatingTransactionGateway (int? rtgOid, RotatingTransactionGateway rotatingTransactionGateway)
 
 Update a rotating transaction gateway
 
@@ -896,7 +896,7 @@ namespace Example
             try
             {
                 // Update a rotating transaction gateway
-                RotatingTransactionGateway result = apiInstance.UpdateRotatingTransactionGateway(rtgOid, rotatingTransactionGateway);
+                RotatingTransactionGatewayResponse result = apiInstance.UpdateRotatingTransactionGateway(rtgOid, rotatingTransactionGateway);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -918,7 +918,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RotatingTransactionGateway**](RotatingTransactionGateway.md)
+[**RotatingTransactionGatewayResponse**](RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 

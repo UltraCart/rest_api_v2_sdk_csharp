@@ -34,8 +34,10 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="OrderTrackingNumberDetail" /> class.
         /// </summary>
         /// <param name="city">city.</param>
+        /// <param name="eventDts">ISO 8601 timestamp that the event occurred.</param>
         /// <param name="eventLocalDate">eventLocalDate.</param>
         /// <param name="eventLocalTime">eventLocalTime.</param>
+        /// <param name="eventTimezoneId">Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time..</param>
         /// <param name="state">state.</param>
         /// <param name="subtag">subtag.</param>
         /// <param name="subtagMessage">subtagMessage.</param>
@@ -43,11 +45,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="tagDescription">tagDescription.</param>
         /// <param name="tagIcon">tagIcon.</param>
         /// <param name="zip">zip.</param>
-        public OrderTrackingNumberDetail(string city = default(string), string eventLocalDate = default(string), string eventLocalTime = default(string), string state = default(string), string subtag = default(string), string subtagMessage = default(string), string tag = default(string), string tagDescription = default(string), string tagIcon = default(string), string zip = default(string))
+        public OrderTrackingNumberDetail(string city = default(string), string eventDts = default(string), string eventLocalDate = default(string), string eventLocalTime = default(string), string eventTimezoneId = default(string), string state = default(string), string subtag = default(string), string subtagMessage = default(string), string tag = default(string), string tagDescription = default(string), string tagIcon = default(string), string zip = default(string))
         {
             this.City = city;
+            this.EventDts = eventDts;
             this.EventLocalDate = eventLocalDate;
             this.EventLocalTime = eventLocalTime;
+            this.EventTimezoneId = eventTimezoneId;
             this.State = state;
             this.Subtag = subtag;
             this.SubtagMessage = subtagMessage;
@@ -64,6 +68,13 @@ namespace com.ultracart.admin.v2.Model
         public string City { get; set; }
 
         /// <summary>
+        /// ISO 8601 timestamp that the event occurred
+        /// </summary>
+        /// <value>ISO 8601 timestamp that the event occurred</value>
+        [DataMember(Name="event_dts", EmitDefaultValue=false)]
+        public string EventDts { get; set; }
+
+        /// <summary>
         /// Gets or Sets EventLocalDate
         /// </summary>
         [DataMember(Name="event_local_date", EmitDefaultValue=false)]
@@ -74,6 +85,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="event_local_time", EmitDefaultValue=false)]
         public string EventLocalTime { get; set; }
+
+        /// <summary>
+        /// Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time.
+        /// </summary>
+        /// <value>Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time.</value>
+        [DataMember(Name="event_timezone_id", EmitDefaultValue=false)]
+        public string EventTimezoneId { get; set; }
 
         /// <summary>
         /// Gets or Sets State
@@ -126,8 +144,10 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class OrderTrackingNumberDetail {\n");
             sb.Append("  City: ").Append(City).Append("\n");
+            sb.Append("  EventDts: ").Append(EventDts).Append("\n");
             sb.Append("  EventLocalDate: ").Append(EventLocalDate).Append("\n");
             sb.Append("  EventLocalTime: ").Append(EventLocalTime).Append("\n");
+            sb.Append("  EventTimezoneId: ").Append(EventTimezoneId).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Subtag: ").Append(Subtag).Append("\n");
             sb.Append("  SubtagMessage: ").Append(SubtagMessage).Append("\n");
@@ -175,6 +195,11 @@ namespace com.ultracart.admin.v2.Model
                     this.City.Equals(input.City))
                 ) && 
                 (
+                    this.EventDts == input.EventDts ||
+                    (this.EventDts != null &&
+                    this.EventDts.Equals(input.EventDts))
+                ) && 
+                (
                     this.EventLocalDate == input.EventLocalDate ||
                     (this.EventLocalDate != null &&
                     this.EventLocalDate.Equals(input.EventLocalDate))
@@ -183,6 +208,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EventLocalTime == input.EventLocalTime ||
                     (this.EventLocalTime != null &&
                     this.EventLocalTime.Equals(input.EventLocalTime))
+                ) && 
+                (
+                    this.EventTimezoneId == input.EventTimezoneId ||
+                    (this.EventTimezoneId != null &&
+                    this.EventTimezoneId.Equals(input.EventTimezoneId))
                 ) && 
                 (
                     this.State == input.State ||
@@ -232,10 +262,14 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.City != null)
                     hashCode = hashCode * 59 + this.City.GetHashCode();
+                if (this.EventDts != null)
+                    hashCode = hashCode * 59 + this.EventDts.GetHashCode();
                 if (this.EventLocalDate != null)
                     hashCode = hashCode * 59 + this.EventLocalDate.GetHashCode();
                 if (this.EventLocalTime != null)
                     hashCode = hashCode * 59 + this.EventLocalTime.GetHashCode();
+                if (this.EventTimezoneId != null)
+                    hashCode = hashCode * 59 + this.EventTimezoneId.GetHashCode();
                 if (this.State != null)
                     hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.Subtag != null)

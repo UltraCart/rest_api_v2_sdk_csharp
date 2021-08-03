@@ -43,9 +43,10 @@ Name | Type | Description | Notes
 **Status** | **string** | A field used to take a gateway offline without removing/deleting the configuration. Inactive marks the gateway as completely unusable.  Standby takes the gateway offline and will not be used unless all other active gateways fail. | [optional] 
 **ThemeRestrictions** | [**List&lt;RtgThemeRestriction&gt;**](RtgThemeRestriction.md) | Optional restrictions by theme/storefront | [optional] 
 **TrafficPercentage** | **decimal?** | Required field between 0 and 1 that dictates the percentage of traffic that should flow through this gateway | [optional] 
-**TrialDailyAmount** | **int?** | If specified, limits the total daily dollar amount of trial orders | [optional] 
-**TrialDailyLimit** | **int?** | If specified, limits the total month count of trial orders | [optional] 
-**TrialMonthlyLimit** | **int?** | If specified, limits the total month dollar amount of trial orders | [optional] 
+**TrialDailyAmount** | **int?** | If specified, limits the total daily count of trial orders | [optional] 
+**TrialDailyLimit** | **int?** | If specified, limits the total daily dollar amount of trial orders | [optional] 
+**TrialMonthlyAmount** | **int?** | If specified, limits the total month dollar amount of trial orders | [optional] 
+**TrialMonthlyLimit** | **int?** | If specified, limits the total month count of trial orders | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

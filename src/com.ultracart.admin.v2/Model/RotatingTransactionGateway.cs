@@ -151,10 +151,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="status">A field used to take a gateway offline without removing/deleting the configuration. Inactive marks the gateway as completely unusable.  Standby takes the gateway offline and will not be used unless all other active gateways fail..</param>
         /// <param name="themeRestrictions">Optional restrictions by theme/storefront.</param>
         /// <param name="trafficPercentage">Required field between 0 and 1 that dictates the percentage of traffic that should flow through this gateway.</param>
-        /// <param name="trialDailyAmount">If specified, limits the total daily dollar amount of trial orders.</param>
-        /// <param name="trialDailyLimit">If specified, limits the total month count of trial orders.</param>
-        /// <param name="trialMonthlyLimit">If specified, limits the total month dollar amount of trial orders.</param>
-        public RotatingTransactionGateway(List<RtgCurrency> additionalNativeCurrencyCodes = default(List<RtgCurrency>), string autoOrderCancelUnlessResponseName = default(string), List<string> autoOrderCancelUnlessResponseValues = default(List<string>), string baseCurrencyCode = default(string), string cascadeCode = default(string), List<string> cascadeCodes = default(List<string>), string cascadeDailyAutoOrderCode = default(string), string chargeAppearsOnStatementAs = default(string), string code = default(string), decimal? currentDaily = default(decimal?), decimal? currentDailyAutoOrder = default(decimal?), decimal? currentMonthly = default(decimal?), string customerServiceEmail = default(string), string customerServicePhone = default(string), List<RtgDayOfMonthRestriction> dayOfMonthRestrictions = default(List<RtgDayOfMonthRestriction>), List<RtgDayOfWeekRestriction> dayOfWeekRestrictions = default(List<RtgDayOfWeekRestriction>), int? deactivateAfterFailures = default(int?), string endDate = default(string), List<TransactionGateway> gateways = default(List<TransactionGateway>), decimal? maximumDaily = default(decimal?), decimal? maximumDailyAutoOrder = default(decimal?), decimal? maximumMonthly = default(decimal?), string nextDailyAutoOrderReset = default(string), string nextDailyReset = default(string), string nextMonthlyReset = default(string), decimal? orderTotal = default(decimal?), OrderTotalComparisonEnum? orderTotalComparison = default(OrderTotalComparisonEnum?), string rebillAutoOrdersAgainstThisRtgCode = default(string), int? reserveDays = default(int?), decimal? reservePercentage = default(decimal?), bool? reserveRefunded = default(bool?), string reservesReleasedThrough = default(string), int? rotatingTransactionGatewayOid = default(int?), string selectedGatewayName = default(string), bool? showCascadeCodes = default(bool?), bool? showMerchantAccountProfiles = default(bool?), string startDate = default(string), StatusEnum? status = default(StatusEnum?), List<RtgThemeRestriction> themeRestrictions = default(List<RtgThemeRestriction>), decimal? trafficPercentage = default(decimal?), int? trialDailyAmount = default(int?), int? trialDailyLimit = default(int?), int? trialMonthlyLimit = default(int?))
+        /// <param name="trialDailyAmount">If specified, limits the total daily count of trial orders.</param>
+        /// <param name="trialDailyLimit">If specified, limits the total daily dollar amount of trial orders.</param>
+        /// <param name="trialMonthlyAmount">If specified, limits the total month dollar amount of trial orders.</param>
+        /// <param name="trialMonthlyLimit">If specified, limits the total month count of trial orders.</param>
+        public RotatingTransactionGateway(List<RtgCurrency> additionalNativeCurrencyCodes = default(List<RtgCurrency>), string autoOrderCancelUnlessResponseName = default(string), List<string> autoOrderCancelUnlessResponseValues = default(List<string>), string baseCurrencyCode = default(string), string cascadeCode = default(string), List<string> cascadeCodes = default(List<string>), string cascadeDailyAutoOrderCode = default(string), string chargeAppearsOnStatementAs = default(string), string code = default(string), decimal? currentDaily = default(decimal?), decimal? currentDailyAutoOrder = default(decimal?), decimal? currentMonthly = default(decimal?), string customerServiceEmail = default(string), string customerServicePhone = default(string), List<RtgDayOfMonthRestriction> dayOfMonthRestrictions = default(List<RtgDayOfMonthRestriction>), List<RtgDayOfWeekRestriction> dayOfWeekRestrictions = default(List<RtgDayOfWeekRestriction>), int? deactivateAfterFailures = default(int?), string endDate = default(string), List<TransactionGateway> gateways = default(List<TransactionGateway>), decimal? maximumDaily = default(decimal?), decimal? maximumDailyAutoOrder = default(decimal?), decimal? maximumMonthly = default(decimal?), string nextDailyAutoOrderReset = default(string), string nextDailyReset = default(string), string nextMonthlyReset = default(string), decimal? orderTotal = default(decimal?), OrderTotalComparisonEnum? orderTotalComparison = default(OrderTotalComparisonEnum?), string rebillAutoOrdersAgainstThisRtgCode = default(string), int? reserveDays = default(int?), decimal? reservePercentage = default(decimal?), bool? reserveRefunded = default(bool?), string reservesReleasedThrough = default(string), int? rotatingTransactionGatewayOid = default(int?), string selectedGatewayName = default(string), bool? showCascadeCodes = default(bool?), bool? showMerchantAccountProfiles = default(bool?), string startDate = default(string), StatusEnum? status = default(StatusEnum?), List<RtgThemeRestriction> themeRestrictions = default(List<RtgThemeRestriction>), decimal? trafficPercentage = default(decimal?), int? trialDailyAmount = default(int?), int? trialDailyLimit = default(int?), int? trialMonthlyAmount = default(int?), int? trialMonthlyLimit = default(int?))
         {
             this.AdditionalNativeCurrencyCodes = additionalNativeCurrencyCodes;
             this.AutoOrderCancelUnlessResponseName = autoOrderCancelUnlessResponseName;
@@ -198,6 +199,7 @@ namespace com.ultracart.admin.v2.Model
             this.TrafficPercentage = trafficPercentage;
             this.TrialDailyAmount = trialDailyAmount;
             this.TrialDailyLimit = trialDailyLimit;
+            this.TrialMonthlyAmount = trialMonthlyAmount;
             this.TrialMonthlyLimit = trialMonthlyLimit;
         }
         
@@ -470,16 +472,16 @@ namespace com.ultracart.admin.v2.Model
         public decimal? TrafficPercentage { get; set; }
 
         /// <summary>
-        /// If specified, limits the total daily dollar amount of trial orders
+        /// If specified, limits the total daily count of trial orders
         /// </summary>
-        /// <value>If specified, limits the total daily dollar amount of trial orders</value>
+        /// <value>If specified, limits the total daily count of trial orders</value>
         [DataMember(Name="trial_daily_amount", EmitDefaultValue=false)]
         public int? TrialDailyAmount { get; set; }
 
         /// <summary>
-        /// If specified, limits the total month count of trial orders
+        /// If specified, limits the total daily dollar amount of trial orders
         /// </summary>
-        /// <value>If specified, limits the total month count of trial orders</value>
+        /// <value>If specified, limits the total daily dollar amount of trial orders</value>
         [DataMember(Name="trial_daily_limit", EmitDefaultValue=false)]
         public int? TrialDailyLimit { get; set; }
 
@@ -487,6 +489,13 @@ namespace com.ultracart.admin.v2.Model
         /// If specified, limits the total month dollar amount of trial orders
         /// </summary>
         /// <value>If specified, limits the total month dollar amount of trial orders</value>
+        [DataMember(Name="trial_monthly_amount", EmitDefaultValue=false)]
+        public int? TrialMonthlyAmount { get; set; }
+
+        /// <summary>
+        /// If specified, limits the total month count of trial orders
+        /// </summary>
+        /// <value>If specified, limits the total month count of trial orders</value>
         [DataMember(Name="trial_monthly_limit", EmitDefaultValue=false)]
         public int? TrialMonthlyLimit { get; set; }
 
@@ -540,6 +549,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  TrafficPercentage: ").Append(TrafficPercentage).Append("\n");
             sb.Append("  TrialDailyAmount: ").Append(TrialDailyAmount).Append("\n");
             sb.Append("  TrialDailyLimit: ").Append(TrialDailyLimit).Append("\n");
+            sb.Append("  TrialMonthlyAmount: ").Append(TrialMonthlyAmount).Append("\n");
             sb.Append("  TrialMonthlyLimit: ").Append(TrialMonthlyLimit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -786,6 +796,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TrialDailyLimit.Equals(input.TrialDailyLimit))
                 ) && 
                 (
+                    this.TrialMonthlyAmount == input.TrialMonthlyAmount ||
+                    (this.TrialMonthlyAmount != null &&
+                    this.TrialMonthlyAmount.Equals(input.TrialMonthlyAmount))
+                ) && 
+                (
                     this.TrialMonthlyLimit == input.TrialMonthlyLimit ||
                     (this.TrialMonthlyLimit != null &&
                     this.TrialMonthlyLimit.Equals(input.TrialMonthlyLimit))
@@ -885,6 +900,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.TrialDailyAmount.GetHashCode();
                 if (this.TrialDailyLimit != null)
                     hashCode = hashCode * 59 + this.TrialDailyLimit.GetHashCode();
+                if (this.TrialMonthlyAmount != null)
+                    hashCode = hashCode * 59 + this.TrialMonthlyAmount.GetHashCode();
                 if (this.TrialMonthlyLimit != null)
                     hashCode = hashCode * 59 + this.TrialMonthlyLimit.GetHashCode();
                 return hashCode;

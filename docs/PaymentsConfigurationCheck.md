@@ -4,13 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AcceptCheckOrders** | **bool?** |  | [optional] 
-**AcceptECheck** | **bool?** |  | [optional] 
-**AcceptMoneyOrders** | **bool?** |  | [optional] 
 **CheckAccountingCode** | **string** |  | [optional] 
 **CheckDepositToAccount** | **string** |  | [optional] 
 **ChecksPayableTo** | **string** |  | [optional] 
-**ECheckAccountingCode** | **string** |  | [optional] 
-**ECheckDepositToAccount** | **string** |  | [optional] 
 **MailToAddress1** | **string** |  | [optional] 
 **MailToAddress2** | **string** |  | [optional] 
 **MailToCity** | **string** |  | [optional] 

@@ -34,13 +34,9 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="PaymentsConfigurationCheck" /> class.
         /// </summary>
         /// <param name="acceptCheckOrders">acceptCheckOrders.</param>
-        /// <param name="acceptECheck">acceptECheck.</param>
-        /// <param name="acceptMoneyOrders">acceptMoneyOrders.</param>
         /// <param name="checkAccountingCode">checkAccountingCode.</param>
         /// <param name="checkDepositToAccount">checkDepositToAccount.</param>
         /// <param name="checksPayableTo">checksPayableTo.</param>
-        /// <param name="eCheckAccountingCode">eCheckAccountingCode.</param>
-        /// <param name="eCheckDepositToAccount">eCheckDepositToAccount.</param>
         /// <param name="mailToAddress1">mailToAddress1.</param>
         /// <param name="mailToAddress2">mailToAddress2.</param>
         /// <param name="mailToCity">mailToCity.</param>
@@ -51,16 +47,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="moneyOrderAccountingCode">moneyOrderAccountingCode.</param>
         /// <param name="moneyOrderDepositToAccount">moneyOrderDepositToAccount.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationCheck(bool? acceptCheckOrders = default(bool?), bool? acceptECheck = default(bool?), bool? acceptMoneyOrders = default(bool?), string checkAccountingCode = default(string), string checkDepositToAccount = default(string), string checksPayableTo = default(string), string eCheckAccountingCode = default(string), string eCheckDepositToAccount = default(string), string mailToAddress1 = default(string), string mailToAddress2 = default(string), string mailToCity = default(string), string mailToCountry = default(string), string mailToName = default(string), string mailToState = default(string), string mailToZip = default(string), string moneyOrderAccountingCode = default(string), string moneyOrderDepositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        public PaymentsConfigurationCheck(bool? acceptCheckOrders = default(bool?), string checkAccountingCode = default(string), string checkDepositToAccount = default(string), string checksPayableTo = default(string), string mailToAddress1 = default(string), string mailToAddress2 = default(string), string mailToCity = default(string), string mailToCountry = default(string), string mailToName = default(string), string mailToState = default(string), string mailToZip = default(string), string moneyOrderAccountingCode = default(string), string moneyOrderDepositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
             this.AcceptCheckOrders = acceptCheckOrders;
-            this.AcceptECheck = acceptECheck;
-            this.AcceptMoneyOrders = acceptMoneyOrders;
             this.CheckAccountingCode = checkAccountingCode;
             this.CheckDepositToAccount = checkDepositToAccount;
             this.ChecksPayableTo = checksPayableTo;
-            this.ECheckAccountingCode = eCheckAccountingCode;
-            this.ECheckDepositToAccount = eCheckDepositToAccount;
             this.MailToAddress1 = mailToAddress1;
             this.MailToAddress2 = mailToAddress2;
             this.MailToCity = mailToCity;
@@ -80,18 +72,6 @@ namespace com.ultracart.admin.v2.Model
         public bool? AcceptCheckOrders { get; set; }
 
         /// <summary>
-        /// Gets or Sets AcceptECheck
-        /// </summary>
-        [DataMember(Name="acceptECheck", EmitDefaultValue=false)]
-        public bool? AcceptECheck { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AcceptMoneyOrders
-        /// </summary>
-        [DataMember(Name="acceptMoneyOrders", EmitDefaultValue=false)]
-        public bool? AcceptMoneyOrders { get; set; }
-
-        /// <summary>
         /// Gets or Sets CheckAccountingCode
         /// </summary>
         [DataMember(Name="checkAccountingCode", EmitDefaultValue=false)]
@@ -108,18 +88,6 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="checksPayableTo", EmitDefaultValue=false)]
         public string ChecksPayableTo { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ECheckAccountingCode
-        /// </summary>
-        [DataMember(Name="eCheckAccountingCode", EmitDefaultValue=false)]
-        public string ECheckAccountingCode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ECheckDepositToAccount
-        /// </summary>
-        [DataMember(Name="eCheckDepositToAccount", EmitDefaultValue=false)]
-        public string ECheckDepositToAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets MailToAddress1
@@ -190,13 +158,9 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationCheck {\n");
             sb.Append("  AcceptCheckOrders: ").Append(AcceptCheckOrders).Append("\n");
-            sb.Append("  AcceptECheck: ").Append(AcceptECheck).Append("\n");
-            sb.Append("  AcceptMoneyOrders: ").Append(AcceptMoneyOrders).Append("\n");
             sb.Append("  CheckAccountingCode: ").Append(CheckAccountingCode).Append("\n");
             sb.Append("  CheckDepositToAccount: ").Append(CheckDepositToAccount).Append("\n");
             sb.Append("  ChecksPayableTo: ").Append(ChecksPayableTo).Append("\n");
-            sb.Append("  ECheckAccountingCode: ").Append(ECheckAccountingCode).Append("\n");
-            sb.Append("  ECheckDepositToAccount: ").Append(ECheckDepositToAccount).Append("\n");
             sb.Append("  MailToAddress1: ").Append(MailToAddress1).Append("\n");
             sb.Append("  MailToAddress2: ").Append(MailToAddress2).Append("\n");
             sb.Append("  MailToCity: ").Append(MailToCity).Append("\n");
@@ -247,16 +211,6 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptCheckOrders.Equals(input.AcceptCheckOrders))
                 ) && 
                 (
-                    this.AcceptECheck == input.AcceptECheck ||
-                    (this.AcceptECheck != null &&
-                    this.AcceptECheck.Equals(input.AcceptECheck))
-                ) && 
-                (
-                    this.AcceptMoneyOrders == input.AcceptMoneyOrders ||
-                    (this.AcceptMoneyOrders != null &&
-                    this.AcceptMoneyOrders.Equals(input.AcceptMoneyOrders))
-                ) && 
-                (
                     this.CheckAccountingCode == input.CheckAccountingCode ||
                     (this.CheckAccountingCode != null &&
                     this.CheckAccountingCode.Equals(input.CheckAccountingCode))
@@ -270,16 +224,6 @@ namespace com.ultracart.admin.v2.Model
                     this.ChecksPayableTo == input.ChecksPayableTo ||
                     (this.ChecksPayableTo != null &&
                     this.ChecksPayableTo.Equals(input.ChecksPayableTo))
-                ) && 
-                (
-                    this.ECheckAccountingCode == input.ECheckAccountingCode ||
-                    (this.ECheckAccountingCode != null &&
-                    this.ECheckAccountingCode.Equals(input.ECheckAccountingCode))
-                ) && 
-                (
-                    this.ECheckDepositToAccount == input.ECheckDepositToAccount ||
-                    (this.ECheckDepositToAccount != null &&
-                    this.ECheckDepositToAccount.Equals(input.ECheckDepositToAccount))
                 ) && 
                 (
                     this.MailToAddress1 == input.MailToAddress1 ||
@@ -344,20 +288,12 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptCheckOrders != null)
                     hashCode = hashCode * 59 + this.AcceptCheckOrders.GetHashCode();
-                if (this.AcceptECheck != null)
-                    hashCode = hashCode * 59 + this.AcceptECheck.GetHashCode();
-                if (this.AcceptMoneyOrders != null)
-                    hashCode = hashCode * 59 + this.AcceptMoneyOrders.GetHashCode();
                 if (this.CheckAccountingCode != null)
                     hashCode = hashCode * 59 + this.CheckAccountingCode.GetHashCode();
                 if (this.CheckDepositToAccount != null)
                     hashCode = hashCode * 59 + this.CheckDepositToAccount.GetHashCode();
                 if (this.ChecksPayableTo != null)
                     hashCode = hashCode * 59 + this.ChecksPayableTo.GetHashCode();
-                if (this.ECheckAccountingCode != null)
-                    hashCode = hashCode * 59 + this.ECheckAccountingCode.GetHashCode();
-                if (this.ECheckDepositToAccount != null)
-                    hashCode = hashCode * 59 + this.ECheckDepositToAccount.GetHashCode();
                 if (this.MailToAddress1 != null)
                     hashCode = hashCode * 59 + this.MailToAddress1.GetHashCode();
                 if (this.MailToAddress2 != null)

@@ -38,6 +38,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="createdDts">Created date.</param>
         /// <param name="deleted">True if this campaign was deleted.</param>
         /// <param name="emailSegmentUuid">Email segment UUID.</param>
+        /// <param name="espListSegmentFolderUuid">List/Segment folder UUID.</param>
         /// <param name="facebookCustomAudience">True if you want to sync to a facebook custom audience.</param>
         /// <param name="filterProfileEquationJson">File profile equation json.</param>
         /// <param name="memberCount">Count of members in this segment.</param>
@@ -47,13 +48,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rebuildRequired">True if a rebuild is required because some part of the segment has changed.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
         /// <param name="usedBy">Details on the flows or campaigns that use this list..</param>
-        public EmailSegment(bool? allowCsvDownload = default(bool?), bool? allowFacebookAudiences = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailSegmentUuid = default(string), bool? facebookCustomAudience = default(bool?), string filterProfileEquationJson = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string rankJson = default(string), bool? rebuildRequired = default(bool?), int? storefrontOid = default(int?), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
+        public EmailSegment(bool? allowCsvDownload = default(bool?), bool? allowFacebookAudiences = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailSegmentUuid = default(string), string espListSegmentFolderUuid = default(string), bool? facebookCustomAudience = default(bool?), string filterProfileEquationJson = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string rankJson = default(string), bool? rebuildRequired = default(bool?), int? storefrontOid = default(int?), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
         {
             this.AllowCsvDownload = allowCsvDownload;
             this.AllowFacebookAudiences = allowFacebookAudiences;
             this.CreatedDts = createdDts;
             this.Deleted = deleted;
             this.EmailSegmentUuid = emailSegmentUuid;
+            this.EspListSegmentFolderUuid = espListSegmentFolderUuid;
             this.FacebookCustomAudience = facebookCustomAudience;
             this.FilterProfileEquationJson = filterProfileEquationJson;
             this.MemberCount = memberCount;
@@ -99,6 +101,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Email segment UUID</value>
         [DataMember(Name="email_segment_uuid", EmitDefaultValue=false)]
         public string EmailSegmentUuid { get; set; }
+
+        /// <summary>
+        /// List/Segment folder UUID
+        /// </summary>
+        /// <value>List/Segment folder UUID</value>
+        [DataMember(Name="esp_list_segment_folder_uuid", EmitDefaultValue=false)]
+        public string EspListSegmentFolderUuid { get; set; }
 
         /// <summary>
         /// True if you want to sync to a facebook custom audience
@@ -176,6 +185,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EmailSegmentUuid: ").Append(EmailSegmentUuid).Append("\n");
+            sb.Append("  EspListSegmentFolderUuid: ").Append(EspListSegmentFolderUuid).Append("\n");
             sb.Append("  FacebookCustomAudience: ").Append(FacebookCustomAudience).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
             sb.Append("  MemberCount: ").Append(MemberCount).Append("\n");
@@ -245,6 +255,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailSegmentUuid.Equals(input.EmailSegmentUuid))
                 ) && 
                 (
+                    this.EspListSegmentFolderUuid == input.EspListSegmentFolderUuid ||
+                    (this.EspListSegmentFolderUuid != null &&
+                    this.EspListSegmentFolderUuid.Equals(input.EspListSegmentFolderUuid))
+                ) && 
+                (
                     this.FacebookCustomAudience == input.FacebookCustomAudience ||
                     (this.FacebookCustomAudience != null &&
                     this.FacebookCustomAudience.Equals(input.FacebookCustomAudience))
@@ -310,6 +325,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Deleted.GetHashCode();
                 if (this.EmailSegmentUuid != null)
                     hashCode = hashCode * 59 + this.EmailSegmentUuid.GetHashCode();
+                if (this.EspListSegmentFolderUuid != null)
+                    hashCode = hashCode * 59 + this.EspListSegmentFolderUuid.GetHashCode();
                 if (this.FacebookCustomAudience != null)
                     hashCode = hashCode * 59 + this.FacebookCustomAudience.GetHashCode();
                 if (this.FilterProfileEquationJson != null)

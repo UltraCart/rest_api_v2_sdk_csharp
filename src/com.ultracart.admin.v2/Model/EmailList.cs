@@ -37,6 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="createdDts">Created date.</param>
         /// <param name="deleted">True if this campaign was deleted.</param>
         /// <param name="emailListUuid">Email list UUID.</param>
+        /// <param name="espListSegmentFolderUuid">List/Segment folder UUID.</param>
         /// <param name="memberCount">Count of members in this list.</param>
         /// <param name="merchantId">Merchant ID.</param>
         /// <param name="name">Name of email list.</param>
@@ -44,12 +45,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="publicList">True if this list is public.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
         /// <param name="usedBy">Details on the flows or campaigns that use this list..</param>
-        public EmailList(bool? allowCsvDownload = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailListUuid = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string publicDescription = default(string), bool? publicList = default(bool?), int? storefrontOid = default(int?), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
+        public EmailList(bool? allowCsvDownload = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailListUuid = default(string), string espListSegmentFolderUuid = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string publicDescription = default(string), bool? publicList = default(bool?), int? storefrontOid = default(int?), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
         {
             this.AllowCsvDownload = allowCsvDownload;
             this.CreatedDts = createdDts;
             this.Deleted = deleted;
             this.EmailListUuid = emailListUuid;
+            this.EspListSegmentFolderUuid = espListSegmentFolderUuid;
             this.MemberCount = memberCount;
             this.MerchantId = merchantId;
             this.Name = name;
@@ -86,6 +88,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Email list UUID</value>
         [DataMember(Name="email_list_uuid", EmitDefaultValue=false)]
         public string EmailListUuid { get; set; }
+
+        /// <summary>
+        /// List/Segment folder UUID
+        /// </summary>
+        /// <value>List/Segment folder UUID</value>
+        [DataMember(Name="esp_list_segment_folder_uuid", EmitDefaultValue=false)]
+        public string EspListSegmentFolderUuid { get; set; }
 
         /// <summary>
         /// Count of members in this list
@@ -148,6 +157,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  EmailListUuid: ").Append(EmailListUuid).Append("\n");
+            sb.Append("  EspListSegmentFolderUuid: ").Append(EspListSegmentFolderUuid).Append("\n");
             sb.Append("  MemberCount: ").Append(MemberCount).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -210,6 +220,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EmailListUuid.Equals(input.EmailListUuid))
                 ) && 
                 (
+                    this.EspListSegmentFolderUuid == input.EspListSegmentFolderUuid ||
+                    (this.EspListSegmentFolderUuid != null &&
+                    this.EspListSegmentFolderUuid.Equals(input.EspListSegmentFolderUuid))
+                ) && 
+                (
                     this.MemberCount == input.MemberCount ||
                     (this.MemberCount != null &&
                     this.MemberCount.Equals(input.MemberCount))
@@ -263,6 +278,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Deleted.GetHashCode();
                 if (this.EmailListUuid != null)
                     hashCode = hashCode * 59 + this.EmailListUuid.GetHashCode();
+                if (this.EspListSegmentFolderUuid != null)
+                    hashCode = hashCode * 59 + this.EspListSegmentFolderUuid.GetHashCode();
                 if (this.MemberCount != null)
                     hashCode = hashCode * 59 + this.MemberCount.GetHashCode();
                 if (this.MerchantId != null)

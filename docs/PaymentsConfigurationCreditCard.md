@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **ConfiguredGatewaysDetails** | **string** |  | [optional] 
 **FailedAttempts** | **string** |  | [optional] 
 **HideConnectSingleGateway** | **bool?** |  | [optional] 
-**ImmediateFinalizeDomains** | **string** |  | [optional] 
 **SendCustomerBillingUpdateOnDecline** | **bool?** |  | [optional] 
 
 

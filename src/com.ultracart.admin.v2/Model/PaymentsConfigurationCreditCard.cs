@@ -40,9 +40,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="configuredGatewaysDetails">configuredGatewaysDetails.</param>
         /// <param name="failedAttempts">failedAttempts.</param>
         /// <param name="hideConnectSingleGateway">hideConnectSingleGateway.</param>
-        /// <param name="immediateFinalizeDomains">immediateFinalizeDomains.</param>
         /// <param name="sendCustomerBillingUpdateOnDecline">sendCustomerBillingUpdateOnDecline.</param>
-        public PaymentsConfigurationCreditCard(bool? acceptCreditCards = default(bool?), string billedBy = default(string), bool? chargeDuringCheckout = default(bool?), bool? collectCvv2 = default(bool?), string configuredGatewaysDetails = default(string), string failedAttempts = default(string), bool? hideConnectSingleGateway = default(bool?), string immediateFinalizeDomains = default(string), bool? sendCustomerBillingUpdateOnDecline = default(bool?))
+        public PaymentsConfigurationCreditCard(bool? acceptCreditCards = default(bool?), string billedBy = default(string), bool? chargeDuringCheckout = default(bool?), bool? collectCvv2 = default(bool?), string configuredGatewaysDetails = default(string), string failedAttempts = default(string), bool? hideConnectSingleGateway = default(bool?), bool? sendCustomerBillingUpdateOnDecline = default(bool?))
         {
             this.AcceptCreditCards = acceptCreditCards;
             this.BilledBy = billedBy;
@@ -51,7 +50,6 @@ namespace com.ultracart.admin.v2.Model
             this.ConfiguredGatewaysDetails = configuredGatewaysDetails;
             this.FailedAttempts = failedAttempts;
             this.HideConnectSingleGateway = hideConnectSingleGateway;
-            this.ImmediateFinalizeDomains = immediateFinalizeDomains;
             this.SendCustomerBillingUpdateOnDecline = sendCustomerBillingUpdateOnDecline;
         }
         
@@ -98,12 +96,6 @@ namespace com.ultracart.admin.v2.Model
         public bool? HideConnectSingleGateway { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImmediateFinalizeDomains
-        /// </summary>
-        [DataMember(Name="immediateFinalizeDomains", EmitDefaultValue=false)]
-        public string ImmediateFinalizeDomains { get; set; }
-
-        /// <summary>
         /// Gets or Sets SendCustomerBillingUpdateOnDecline
         /// </summary>
         [DataMember(Name="sendCustomerBillingUpdateOnDecline", EmitDefaultValue=false)]
@@ -124,7 +116,6 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConfiguredGatewaysDetails: ").Append(ConfiguredGatewaysDetails).Append("\n");
             sb.Append("  FailedAttempts: ").Append(FailedAttempts).Append("\n");
             sb.Append("  HideConnectSingleGateway: ").Append(HideConnectSingleGateway).Append("\n");
-            sb.Append("  ImmediateFinalizeDomains: ").Append(ImmediateFinalizeDomains).Append("\n");
             sb.Append("  SendCustomerBillingUpdateOnDecline: ").Append(SendCustomerBillingUpdateOnDecline).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -196,11 +187,6 @@ namespace com.ultracart.admin.v2.Model
                     this.HideConnectSingleGateway.Equals(input.HideConnectSingleGateway))
                 ) && 
                 (
-                    this.ImmediateFinalizeDomains == input.ImmediateFinalizeDomains ||
-                    (this.ImmediateFinalizeDomains != null &&
-                    this.ImmediateFinalizeDomains.Equals(input.ImmediateFinalizeDomains))
-                ) && 
-                (
                     this.SendCustomerBillingUpdateOnDecline == input.SendCustomerBillingUpdateOnDecline ||
                     (this.SendCustomerBillingUpdateOnDecline != null &&
                     this.SendCustomerBillingUpdateOnDecline.Equals(input.SendCustomerBillingUpdateOnDecline))
@@ -230,8 +216,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FailedAttempts.GetHashCode();
                 if (this.HideConnectSingleGateway != null)
                     hashCode = hashCode * 59 + this.HideConnectSingleGateway.GetHashCode();
-                if (this.ImmediateFinalizeDomains != null)
-                    hashCode = hashCode * 59 + this.ImmediateFinalizeDomains.GetHashCode();
                 if (this.SendCustomerBillingUpdateOnDecline != null)
                     hashCode = hashCode * 59 + this.SendCustomerBillingUpdateOnDecline.GetHashCode();
                 return hashCode;

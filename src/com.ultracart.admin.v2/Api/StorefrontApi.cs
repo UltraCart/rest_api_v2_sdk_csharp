@@ -351,6 +351,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of BaseResponse</returns>
         ApiResponse<BaseResponse> DeleteEmailListCustomerWithHttpInfo (int? storefrontOid, string emailListUuid, string emailCustomerUuid);
         /// <summary>
+        /// Delete email ListSegmentFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse DeleteEmailListSegmentFolder (int? storefrontOid, string emailListSegmentFolderUuid);
+
+        /// <summary>
+        /// Delete email ListSegmentFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> DeleteEmailListSegmentFolderWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid);
+        /// <summary>
         /// Delete email postcard
         /// </summary>
         /// <remarks>
@@ -1412,6 +1435,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageSize"> (optional)</param>
         /// <returns>ApiResponse of EmailListCustomersResponse</returns>
         ApiResponse<EmailListCustomersResponse> GetEmailListCustomersWithHttpInfo (int? storefrontOid, string emailListUuid, int? pageNumber = null, int? pageSize = null);
+        /// <summary>
+        /// Get email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>EmailListSegmentFolderResponse</returns>
+        EmailListSegmentFolderResponse GetEmailListSegmentFolder (int? storefrontOid, string emailListSegmentFolderUuid);
+
+        /// <summary>
+        /// Get email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>ApiResponse of EmailListSegmentFolderResponse</returns>
+        ApiResponse<EmailListSegmentFolderResponse> GetEmailListSegmentFolderWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid);
+        /// <summary>
+        /// Get email campaign folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>EmailListSegmentFoldersResponse</returns>
+        EmailListSegmentFoldersResponse GetEmailListSegmentFolders (int? storefrontOid);
+
+        /// <summary>
+        /// Get email campaign folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of EmailListSegmentFoldersResponse</returns>
+        ApiResponse<EmailListSegmentFoldersResponse> GetEmailListSegmentFoldersWithHttpInfo (int? storefrontOid);
         /// <summary>
         /// Get email lists
         /// </summary>
@@ -2480,6 +2547,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailListResponse</returns>
         ApiResponse<EmailListResponse> InsertEmailListWithHttpInfo (int? storefrontOid, EmailList emailList);
         /// <summary>
+        /// Insert email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>EmailListSegmentFolderResponse</returns>
+        EmailListSegmentFolderResponse InsertEmailListSegmentFolder (int? storefrontOid, EmailListSegmentFolder emailListSegmentFolder);
+
+        /// <summary>
+        /// Insert email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>ApiResponse of EmailListSegmentFolderResponse</returns>
+        ApiResponse<EmailListSegmentFolderResponse> InsertEmailListSegmentFolderWithHttpInfo (int? storefrontOid, EmailListSegmentFolder emailListSegmentFolder);
+        /// <summary>
         /// Insert email postcard
         /// </summary>
         /// <remarks>
@@ -3218,6 +3308,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailListResponse</returns>
         ApiResponse<EmailListResponse> UpdateEmailListWithHttpInfo (int? storefrontOid, string emailListUuid, EmailList emailList);
         /// <summary>
+        /// Update email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>EmailListSegmentFolderResponse</returns>
+        EmailListSegmentFolderResponse UpdateEmailListSegmentFolder (int? storefrontOid, string emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder);
+
+        /// <summary>
+        /// Update email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>ApiResponse of EmailListSegmentFolderResponse</returns>
+        ApiResponse<EmailListSegmentFolderResponse> UpdateEmailListSegmentFolderWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder);
+        /// <summary>
         /// Update email plan
         /// </summary>
         /// <remarks>
@@ -3812,6 +3927,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailCustomerUuid"></param>
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteEmailListCustomerAsyncWithHttpInfo (int? storefrontOid, string emailListUuid, string emailCustomerUuid);
+        /// <summary>
+        /// Delete email ListSegmentFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> DeleteEmailListSegmentFolderAsync (int? storefrontOid, string emailListSegmentFolderUuid);
+
+        /// <summary>
+        /// Delete email ListSegmentFolder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteEmailListSegmentFolderAsyncWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid);
         /// <summary>
         /// Delete email postcard
         /// </summary>
@@ -4874,6 +5012,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="pageSize"> (optional)</param>
         /// <returns>Task of ApiResponse (EmailListCustomersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailListCustomersResponse>> GetEmailListCustomersAsyncWithHttpInfo (int? storefrontOid, string emailListUuid, int? pageNumber = null, int? pageSize = null);
+        /// <summary>
+        /// Get email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>Task of EmailListSegmentFolderResponse</returns>
+        System.Threading.Tasks.Task<EmailListSegmentFolderResponse> GetEmailListSegmentFolderAsync (int? storefrontOid, string emailListSegmentFolderUuid);
+
+        /// <summary>
+        /// Get email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>Task of ApiResponse (EmailListSegmentFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailListSegmentFolderResponse>> GetEmailListSegmentFolderAsyncWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid);
+        /// <summary>
+        /// Get email campaign folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of EmailListSegmentFoldersResponse</returns>
+        System.Threading.Tasks.Task<EmailListSegmentFoldersResponse> GetEmailListSegmentFoldersAsync (int? storefrontOid);
+
+        /// <summary>
+        /// Get email campaign folders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (EmailListSegmentFoldersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailListSegmentFoldersResponse>> GetEmailListSegmentFoldersAsyncWithHttpInfo (int? storefrontOid);
         /// <summary>
         /// Get email lists
         /// </summary>
@@ -5942,6 +6124,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailListResponse>> InsertEmailListAsyncWithHttpInfo (int? storefrontOid, EmailList emailList);
         /// <summary>
+        /// Insert email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>Task of EmailListSegmentFolderResponse</returns>
+        System.Threading.Tasks.Task<EmailListSegmentFolderResponse> InsertEmailListSegmentFolderAsync (int? storefrontOid, EmailListSegmentFolder emailListSegmentFolder);
+
+        /// <summary>
+        /// Insert email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>Task of ApiResponse (EmailListSegmentFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailListSegmentFolderResponse>> InsertEmailListSegmentFolderAsyncWithHttpInfo (int? storefrontOid, EmailListSegmentFolder emailListSegmentFolder);
+        /// <summary>
         /// Insert email postcard
         /// </summary>
         /// <remarks>
@@ -6679,6 +6884,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailList">Email list</param>
         /// <returns>Task of ApiResponse (EmailListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailListResponse>> UpdateEmailListAsyncWithHttpInfo (int? storefrontOid, string emailListUuid, EmailList emailList);
+        /// <summary>
+        /// Update email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>Task of EmailListSegmentFolderResponse</returns>
+        System.Threading.Tasks.Task<EmailListSegmentFolderResponse> UpdateEmailListSegmentFolderAsync (int? storefrontOid, string emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder);
+
+        /// <summary>
+        /// Update email campaign folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>Task of ApiResponse (EmailListSegmentFolderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailListSegmentFolderResponse>> UpdateEmailListSegmentFolderAsyncWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder);
         /// <summary>
         /// Update email plan
         /// </summary>
@@ -9603,6 +9833,185 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteEmailListCustomer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Delete email ListSegmentFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse DeleteEmailListSegmentFolder (int? storefrontOid, string emailListSegmentFolderUuid)
+        {
+             ApiResponse<BaseResponse> localVarResponse = DeleteEmailListSegmentFolderWithHttpInfo(storefrontOid, emailListSegmentFolderUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete email ListSegmentFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse< BaseResponse > DeleteEmailListSegmentFolderWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->DeleteEmailListSegmentFolder");
+            // verify the required parameter 'emailListSegmentFolderUuid' is set
+            if (emailListSegmentFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailListSegmentFolderUuid' when calling StorefrontApi->DeleteEmailListSegmentFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailListSegmentFolderUuid != null) localVarPathParams.Add("email_list_segment_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailListSegmentFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteEmailListSegmentFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Delete email ListSegmentFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> DeleteEmailListSegmentFolderAsync (int? storefrontOid, string emailListSegmentFolderUuid)
+        {
+             ApiResponse<BaseResponse> localVarResponse = await DeleteEmailListSegmentFolderAsyncWithHttpInfo(storefrontOid, emailListSegmentFolderUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete email ListSegmentFolder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteEmailListSegmentFolderAsyncWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->DeleteEmailListSegmentFolder");
+            // verify the required parameter 'emailListSegmentFolderUuid' is set
+            if (emailListSegmentFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailListSegmentFolderUuid' when calling StorefrontApi->DeleteEmailListSegmentFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailListSegmentFolderUuid != null) localVarPathParams.Add("email_list_segment_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailListSegmentFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteEmailListSegmentFolder", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -17879,6 +18288,352 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailListCustomersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailListCustomersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListCustomersResponse)));
+        }
+
+        /// <summary>
+        /// Get email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>EmailListSegmentFolderResponse</returns>
+        public EmailListSegmentFolderResponse GetEmailListSegmentFolder (int? storefrontOid, string emailListSegmentFolderUuid)
+        {
+             ApiResponse<EmailListSegmentFolderResponse> localVarResponse = GetEmailListSegmentFolderWithHttpInfo(storefrontOid, emailListSegmentFolderUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>ApiResponse of EmailListSegmentFolderResponse</returns>
+        public ApiResponse< EmailListSegmentFolderResponse > GetEmailListSegmentFolderWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailListSegmentFolder");
+            // verify the required parameter 'emailListSegmentFolderUuid' is set
+            if (emailListSegmentFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailListSegmentFolderUuid' when calling StorefrontApi->GetEmailListSegmentFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailListSegmentFolderUuid != null) localVarPathParams.Add("email_list_segment_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailListSegmentFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailListSegmentFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailListSegmentFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailListSegmentFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListSegmentFolderResponse)));
+        }
+
+        /// <summary>
+        /// Get email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>Task of EmailListSegmentFolderResponse</returns>
+        public async System.Threading.Tasks.Task<EmailListSegmentFolderResponse> GetEmailListSegmentFolderAsync (int? storefrontOid, string emailListSegmentFolderUuid)
+        {
+             ApiResponse<EmailListSegmentFolderResponse> localVarResponse = await GetEmailListSegmentFolderAsyncWithHttpInfo(storefrontOid, emailListSegmentFolderUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <returns>Task of ApiResponse (EmailListSegmentFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailListSegmentFolderResponse>> GetEmailListSegmentFolderAsyncWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailListSegmentFolder");
+            // verify the required parameter 'emailListSegmentFolderUuid' is set
+            if (emailListSegmentFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailListSegmentFolderUuid' when calling StorefrontApi->GetEmailListSegmentFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailListSegmentFolderUuid != null) localVarPathParams.Add("email_list_segment_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailListSegmentFolderUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailListSegmentFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailListSegmentFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailListSegmentFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListSegmentFolderResponse)));
+        }
+
+        /// <summary>
+        /// Get email campaign folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>EmailListSegmentFoldersResponse</returns>
+        public EmailListSegmentFoldersResponse GetEmailListSegmentFolders (int? storefrontOid)
+        {
+             ApiResponse<EmailListSegmentFoldersResponse> localVarResponse = GetEmailListSegmentFoldersWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email campaign folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>ApiResponse of EmailListSegmentFoldersResponse</returns>
+        public ApiResponse< EmailListSegmentFoldersResponse > GetEmailListSegmentFoldersWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailListSegmentFolders");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailListSegmentFolders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailListSegmentFoldersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailListSegmentFoldersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListSegmentFoldersResponse)));
+        }
+
+        /// <summary>
+        /// Get email campaign folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of EmailListSegmentFoldersResponse</returns>
+        public async System.Threading.Tasks.Task<EmailListSegmentFoldersResponse> GetEmailListSegmentFoldersAsync (int? storefrontOid)
+        {
+             ApiResponse<EmailListSegmentFoldersResponse> localVarResponse = await GetEmailListSegmentFoldersAsyncWithHttpInfo(storefrontOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email campaign folders 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <returns>Task of ApiResponse (EmailListSegmentFoldersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailListSegmentFoldersResponse>> GetEmailListSegmentFoldersAsyncWithHttpInfo (int? storefrontOid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailListSegmentFolders");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailListSegmentFolders", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailListSegmentFoldersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailListSegmentFoldersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListSegmentFoldersResponse)));
         }
 
         /// <summary>
@@ -26223,6 +26978,199 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Insert email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>EmailListSegmentFolderResponse</returns>
+        public EmailListSegmentFolderResponse InsertEmailListSegmentFolder (int? storefrontOid, EmailListSegmentFolder emailListSegmentFolder)
+        {
+             ApiResponse<EmailListSegmentFolderResponse> localVarResponse = InsertEmailListSegmentFolderWithHttpInfo(storefrontOid, emailListSegmentFolder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>ApiResponse of EmailListSegmentFolderResponse</returns>
+        public ApiResponse< EmailListSegmentFolderResponse > InsertEmailListSegmentFolderWithHttpInfo (int? storefrontOid, EmailListSegmentFolder emailListSegmentFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->InsertEmailListSegmentFolder");
+            // verify the required parameter 'emailListSegmentFolder' is set
+            if (emailListSegmentFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailListSegmentFolder' when calling StorefrontApi->InsertEmailListSegmentFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailListSegmentFolder != null && emailListSegmentFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailListSegmentFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailListSegmentFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertEmailListSegmentFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailListSegmentFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailListSegmentFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListSegmentFolderResponse)));
+        }
+
+        /// <summary>
+        /// Insert email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>Task of EmailListSegmentFolderResponse</returns>
+        public async System.Threading.Tasks.Task<EmailListSegmentFolderResponse> InsertEmailListSegmentFolderAsync (int? storefrontOid, EmailListSegmentFolder emailListSegmentFolder)
+        {
+             ApiResponse<EmailListSegmentFolderResponse> localVarResponse = await InsertEmailListSegmentFolderAsyncWithHttpInfo(storefrontOid, emailListSegmentFolder);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>Task of ApiResponse (EmailListSegmentFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailListSegmentFolderResponse>> InsertEmailListSegmentFolderAsyncWithHttpInfo (int? storefrontOid, EmailListSegmentFolder emailListSegmentFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->InsertEmailListSegmentFolder");
+            // verify the required parameter 'emailListSegmentFolder' is set
+            if (emailListSegmentFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailListSegmentFolder' when calling StorefrontApi->InsertEmailListSegmentFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailListSegmentFolder != null && emailListSegmentFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailListSegmentFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailListSegmentFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertEmailListSegmentFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailListSegmentFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailListSegmentFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListSegmentFolderResponse)));
+        }
+
+        /// <summary>
         /// Insert email postcard 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -32010,6 +32958,211 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailListResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListResponse)));
+        }
+
+        /// <summary>
+        /// Update email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>EmailListSegmentFolderResponse</returns>
+        public EmailListSegmentFolderResponse UpdateEmailListSegmentFolder (int? storefrontOid, string emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder)
+        {
+             ApiResponse<EmailListSegmentFolderResponse> localVarResponse = UpdateEmailListSegmentFolderWithHttpInfo(storefrontOid, emailListSegmentFolderUuid, emailListSegmentFolder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>ApiResponse of EmailListSegmentFolderResponse</returns>
+        public ApiResponse< EmailListSegmentFolderResponse > UpdateEmailListSegmentFolderWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateEmailListSegmentFolder");
+            // verify the required parameter 'emailListSegmentFolderUuid' is set
+            if (emailListSegmentFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailListSegmentFolderUuid' when calling StorefrontApi->UpdateEmailListSegmentFolder");
+            // verify the required parameter 'emailListSegmentFolder' is set
+            if (emailListSegmentFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailListSegmentFolder' when calling StorefrontApi->UpdateEmailListSegmentFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailListSegmentFolderUuid != null) localVarPathParams.Add("email_list_segment_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailListSegmentFolderUuid)); // path parameter
+            if (emailListSegmentFolder != null && emailListSegmentFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailListSegmentFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailListSegmentFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateEmailListSegmentFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailListSegmentFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailListSegmentFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListSegmentFolderResponse)));
+        }
+
+        /// <summary>
+        /// Update email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>Task of EmailListSegmentFolderResponse</returns>
+        public async System.Threading.Tasks.Task<EmailListSegmentFolderResponse> UpdateEmailListSegmentFolderAsync (int? storefrontOid, string emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder)
+        {
+             ApiResponse<EmailListSegmentFolderResponse> localVarResponse = await UpdateEmailListSegmentFolderAsyncWithHttpInfo(storefrontOid, emailListSegmentFolderUuid, emailListSegmentFolder);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update email campaign folder 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailListSegmentFolderUuid"></param>
+        /// <param name="emailListSegmentFolder">Email campaign folder</param>
+        /// <returns>Task of ApiResponse (EmailListSegmentFolderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailListSegmentFolderResponse>> UpdateEmailListSegmentFolderAsyncWithHttpInfo (int? storefrontOid, string emailListSegmentFolderUuid, EmailListSegmentFolder emailListSegmentFolder)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->UpdateEmailListSegmentFolder");
+            // verify the required parameter 'emailListSegmentFolderUuid' is set
+            if (emailListSegmentFolderUuid == null)
+                throw new ApiException(400, "Missing required parameter 'emailListSegmentFolderUuid' when calling StorefrontApi->UpdateEmailListSegmentFolder");
+            // verify the required parameter 'emailListSegmentFolder' is set
+            if (emailListSegmentFolder == null)
+                throw new ApiException(400, "Missing required parameter 'emailListSegmentFolder' when calling StorefrontApi->UpdateEmailListSegmentFolder");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailListSegmentFolderUuid != null) localVarPathParams.Add("email_list_segment_folder_uuid", this.Configuration.ApiClient.ParameterToString(emailListSegmentFolderUuid)); // path parameter
+            if (emailListSegmentFolder != null && emailListSegmentFolder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailListSegmentFolder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailListSegmentFolder; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateEmailListSegmentFolder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailListSegmentFolderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailListSegmentFolderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListSegmentFolderResponse)));
         }
 
         /// <summary>

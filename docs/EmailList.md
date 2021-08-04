@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CreatedDts** | **string** | Created date | [optional] 
 **Deleted** | **bool?** | True if this campaign was deleted | [optional] 
 **EmailListUuid** | **string** | Email list UUID | [optional] 
+**EspListSegmentFolderUuid** | **string** | List/Segment folder UUID | [optional] 
 **MemberCount** | **int?** | Count of members in this list | [optional] 
 **MerchantId** | **string** | Merchant ID | [optional] 
 **Name** | **string** | Name of email list | [optional] 

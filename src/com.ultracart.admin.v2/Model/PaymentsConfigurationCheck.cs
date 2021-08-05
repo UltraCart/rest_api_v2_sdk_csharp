@@ -46,7 +46,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="mailToStore">MailTo store.</param>
         /// <param name="restrictions">restrictions.</param>
         /// <param name="testMethods">Test methods for this payment method.</param>
-        public PaymentsConfigurationCheck(bool? acceptCheckOrders = default(bool?), string accountingCode = default(string), string checksPayableTo = default(string), string depositToAccount = default(string), string mailToAddress1 = default(string), string mailToAddress2 = default(string), string mailToCity = default(string), string mailToCountry = default(string), string mailToName = default(string), string mailToPostalCode = default(string), string mailToStore = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), Object testMethods = default(Object))
+        public PaymentsConfigurationCheck(bool? acceptCheckOrders = default(bool?), string accountingCode = default(string), string checksPayableTo = default(string), string depositToAccount = default(string), string mailToAddress1 = default(string), string mailToAddress2 = default(string), string mailToCity = default(string), string mailToCountry = default(string), string mailToName = default(string), string mailToPostalCode = default(string), string mailToStore = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), List<PaymentsConfigurationTestMethod> testMethods = default(List<PaymentsConfigurationTestMethod>))
         {
             this.AcceptCheckOrders = acceptCheckOrders;
             this.AccountingCode = accountingCode;
@@ -151,7 +151,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Test methods for this payment method</value>
         [DataMember(Name="test_methods", EmitDefaultValue=false)]
-        public Object TestMethods { get; set; }
+        public List<PaymentsConfigurationTestMethod> TestMethods { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -270,8 +270,8 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.TestMethods == input.TestMethods ||
-                    (this.TestMethods != null &&
-                    this.TestMethods.Equals(input.TestMethods))
+                    this.TestMethods != null &&
+                    this.TestMethods.SequenceEqual(input.TestMethods)
                 );
         }
 

@@ -69,7 +69,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="privateApiKey">Private API key.</param>
         /// <param name="publicApiKey">Public API key.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationSezzle(bool? acceptSezzle = default(bool?), string accountingCode = default(string), string businessId = default(string), string depositToAccount = default(string), EnvironmentEnum? environment = default(EnvironmentEnum?), Object environments = default(Object), string privateApiKey = default(string), string publicApiKey = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        public PaymentsConfigurationSezzle(bool? acceptSezzle = default(bool?), string accountingCode = default(string), string businessId = default(string), string depositToAccount = default(string), EnvironmentEnum? environment = default(EnvironmentEnum?), List<string> environments = default(List<string>), string privateApiKey = default(string), string publicApiKey = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
             this.AcceptSezzle = acceptSezzle;
             this.AccountingCode = accountingCode;
@@ -116,7 +116,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>List of environments possible</value>
         [DataMember(Name="environments", EmitDefaultValue=false)]
-        public Object Environments { get; set; }
+        public List<string> Environments { get; set; }
 
         /// <summary>
         /// Private API key
@@ -216,8 +216,8 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.Environments == input.Environments ||
-                    (this.Environments != null &&
-                    this.Environments.Equals(input.Environments))
+                    this.Environments != null &&
+                    this.Environments.SequenceEqual(input.Environments)
                 ) && 
                 (
                     this.PrivateApiKey == input.PrivateApiKey ||

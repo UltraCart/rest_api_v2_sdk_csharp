@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Descriptions** | **List&lt;string&gt;** |  | [optional] 
 **MaximumSubtotal** | **string** | Maximum subtotal | [optional] 
 **MinimumSubtotal** | **string** | Minimum subtotal | [optional] 
 **PaymentMethod** | **string** | Payment method | [optional] 
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 **RestrictionPoBox** | **string** | PO Box restriction | [optional] 
 **RestrictionPuertoRico** | **string** | Puerto Rico restriction | [optional] 
 **RestrictionUsTerritories** | **string** | US Territories restriction | [optional] 
+**Themes** | [**List&lt;PaymentsConfigurationRestrictionsTheme&gt;**](PaymentsConfigurationRestrictionsTheme.md) |  | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

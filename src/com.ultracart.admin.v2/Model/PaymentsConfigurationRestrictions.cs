@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationRestrictions" /> class.
         /// </summary>
+        /// <param name="descriptions">descriptions.</param>
         /// <param name="maximumSubtotal">Maximum subtotal.</param>
         /// <param name="minimumSubtotal">Minimum subtotal.</param>
         /// <param name="paymentMethod">Payment method.</param>
@@ -45,8 +46,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="restrictionPoBox">PO Box restriction.</param>
         /// <param name="restrictionPuertoRico">Puerto Rico restriction.</param>
         /// <param name="restrictionUsTerritories">US Territories restriction.</param>
-        public PaymentsConfigurationRestrictions(string maximumSubtotal = default(string), string minimumSubtotal = default(string), string paymentMethod = default(string), string restrictionAlaskaHawaii = default(string), string restrictionApoFpo = default(string), string restrictionCanada = default(string), string restrictionContinentalUs = default(string), string restrictionDomesticOnly = default(string), string restrictionInternationalOnly = default(string), string restrictionPoBox = default(string), string restrictionPuertoRico = default(string), string restrictionUsTerritories = default(string))
+        /// <param name="themes">themes.</param>
+        public PaymentsConfigurationRestrictions(List<string> descriptions = default(List<string>), string maximumSubtotal = default(string), string minimumSubtotal = default(string), string paymentMethod = default(string), string restrictionAlaskaHawaii = default(string), string restrictionApoFpo = default(string), string restrictionCanada = default(string), string restrictionContinentalUs = default(string), string restrictionDomesticOnly = default(string), string restrictionInternationalOnly = default(string), string restrictionPoBox = default(string), string restrictionPuertoRico = default(string), string restrictionUsTerritories = default(string), List<PaymentsConfigurationRestrictionsTheme> themes = default(List<PaymentsConfigurationRestrictionsTheme>))
         {
+            this.Descriptions = descriptions;
             this.MaximumSubtotal = maximumSubtotal;
             this.MinimumSubtotal = minimumSubtotal;
             this.PaymentMethod = paymentMethod;
@@ -59,8 +62,15 @@ namespace com.ultracart.admin.v2.Model
             this.RestrictionPoBox = restrictionPoBox;
             this.RestrictionPuertoRico = restrictionPuertoRico;
             this.RestrictionUsTerritories = restrictionUsTerritories;
+            this.Themes = themes;
         }
         
+        /// <summary>
+        /// Gets or Sets Descriptions
+        /// </summary>
+        [DataMember(Name="descriptions", EmitDefaultValue=false)]
+        public List<string> Descriptions { get; set; }
+
         /// <summary>
         /// Maximum subtotal
         /// </summary>
@@ -146,6 +156,12 @@ namespace com.ultracart.admin.v2.Model
         public string RestrictionUsTerritories { get; set; }
 
         /// <summary>
+        /// Gets or Sets Themes
+        /// </summary>
+        [DataMember(Name="themes", EmitDefaultValue=false)]
+        public List<PaymentsConfigurationRestrictionsTheme> Themes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -153,6 +169,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationRestrictions {\n");
+            sb.Append("  Descriptions: ").Append(Descriptions).Append("\n");
             sb.Append("  MaximumSubtotal: ").Append(MaximumSubtotal).Append("\n");
             sb.Append("  MinimumSubtotal: ").Append(MinimumSubtotal).Append("\n");
             sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
@@ -165,6 +182,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  RestrictionPoBox: ").Append(RestrictionPoBox).Append("\n");
             sb.Append("  RestrictionPuertoRico: ").Append(RestrictionPuertoRico).Append("\n");
             sb.Append("  RestrictionUsTerritories: ").Append(RestrictionUsTerritories).Append("\n");
+            sb.Append("  Themes: ").Append(Themes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,6 +217,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Descriptions == input.Descriptions ||
+                    this.Descriptions != null &&
+                    this.Descriptions.SequenceEqual(input.Descriptions)
+                ) && 
                 (
                     this.MaximumSubtotal == input.MaximumSubtotal ||
                     (this.MaximumSubtotal != null &&
@@ -258,6 +281,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RestrictionUsTerritories == input.RestrictionUsTerritories ||
                     (this.RestrictionUsTerritories != null &&
                     this.RestrictionUsTerritories.Equals(input.RestrictionUsTerritories))
+                ) && 
+                (
+                    this.Themes == input.Themes ||
+                    this.Themes != null &&
+                    this.Themes.SequenceEqual(input.Themes)
                 );
         }
 
@@ -270,6 +298,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Descriptions != null)
+                    hashCode = hashCode * 59 + this.Descriptions.GetHashCode();
                 if (this.MaximumSubtotal != null)
                     hashCode = hashCode * 59 + this.MaximumSubtotal.GetHashCode();
                 if (this.MinimumSubtotal != null)
@@ -294,6 +324,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RestrictionPuertoRico.GetHashCode();
                 if (this.RestrictionUsTerritories != null)
                     hashCode = hashCode * 59 + this.RestrictionUsTerritories.GetHashCode();
+                if (this.Themes != null)
+                    hashCode = hashCode * 59 + this.Themes.GetHashCode();
                 return hashCode;
             }
         }

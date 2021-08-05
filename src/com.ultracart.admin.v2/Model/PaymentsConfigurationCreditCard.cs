@@ -44,7 +44,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="sendCustomerBillingUpdateOnDecline">UltraCart will send customers emails to update their credit card if the card is declined.</param>
         /// <param name="supportedCards">A list of credit cards the merchant wishes to accept..</param>
         /// <param name="testMethods">An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders.</param>
-        public PaymentsConfigurationCreditCard(bool? acceptCreditCard = default(bool?), string billedBy = default(string), bool? chargeDuringCheckout = default(bool?), bool? collectCvv2 = default(bool?), string configuredGatewayDetails = default(string), string failedAttempts = default(string), bool? hideConnectSingleGateway = default(bool?), Object restrictions = default(Object), bool? sendCustomerBillingUpdateOnDecline = default(bool?), Object supportedCards = default(Object), Object testMethods = default(Object))
+        public PaymentsConfigurationCreditCard(bool? acceptCreditCard = default(bool?), string billedBy = default(string), bool? chargeDuringCheckout = default(bool?), bool? collectCvv2 = default(bool?), string configuredGatewayDetails = default(string), string failedAttempts = default(string), bool? hideConnectSingleGateway = default(bool?), List<PaymentsConfigurationRestrictions> restrictions = default(List<PaymentsConfigurationRestrictions>), bool? sendCustomerBillingUpdateOnDecline = default(bool?), List<PaymentsConfigurationCreditCardType> supportedCards = default(List<PaymentsConfigurationCreditCardType>), List<PaymentsConfigurationTestMethod> testMethods = default(List<PaymentsConfigurationTestMethod>))
         {
             this.AcceptCreditCard = acceptCreditCard;
             this.BilledBy = billedBy;
@@ -113,7 +113,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Restrictions for this payment method</value>
         [DataMember(Name="restrictions", EmitDefaultValue=false)]
-        public Object Restrictions { get; set; }
+        public List<PaymentsConfigurationRestrictions> Restrictions { get; set; }
 
         /// <summary>
         /// UltraCart will send customers emails to update their credit card if the card is declined
@@ -127,14 +127,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>A list of credit cards the merchant wishes to accept.</value>
         [DataMember(Name="supported_cards", EmitDefaultValue=false)]
-        public Object SupportedCards { get; set; }
+        public List<PaymentsConfigurationCreditCardType> SupportedCards { get; set; }
 
         /// <summary>
         /// An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders
         /// </summary>
         /// <value>An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders</value>
         [DataMember(Name="test_methods", EmitDefaultValue=false)]
-        public Object TestMethods { get; set; }
+        public List<PaymentsConfigurationTestMethod> TestMethods { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -226,8 +226,8 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.Restrictions == input.Restrictions ||
-                    (this.Restrictions != null &&
-                    this.Restrictions.Equals(input.Restrictions))
+                    this.Restrictions != null &&
+                    this.Restrictions.SequenceEqual(input.Restrictions)
                 ) && 
                 (
                     this.SendCustomerBillingUpdateOnDecline == input.SendCustomerBillingUpdateOnDecline ||
@@ -236,13 +236,13 @@ namespace com.ultracart.admin.v2.Model
                 ) && 
                 (
                     this.SupportedCards == input.SupportedCards ||
-                    (this.SupportedCards != null &&
-                    this.SupportedCards.Equals(input.SupportedCards))
+                    this.SupportedCards != null &&
+                    this.SupportedCards.SequenceEqual(input.SupportedCards)
                 ) && 
                 (
                     this.TestMethods == input.TestMethods ||
-                    (this.TestMethods != null &&
-                    this.TestMethods.Equals(input.TestMethods))
+                    this.TestMethods != null &&
+                    this.TestMethods.SequenceEqual(input.TestMethods)
                 );
         }
 

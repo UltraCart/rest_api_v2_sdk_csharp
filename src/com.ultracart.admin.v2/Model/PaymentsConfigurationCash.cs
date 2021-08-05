@@ -33,7 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationCash" /> class.
         /// </summary>
-        /// <param name="acceptCash">acceptCash.</param>
+        /// <param name="acceptCash">Master flag indicating this merchant accepts cash.</param>
         /// <param name="restrictions">restrictions.</param>
         public PaymentsConfigurationCash(bool? acceptCash = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
@@ -42,9 +42,10 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AcceptCash
+        /// Master flag indicating this merchant accepts cash
         /// </summary>
-        [DataMember(Name="acceptCash", EmitDefaultValue=false)]
+        /// <value>Master flag indicating this merchant accepts cash</value>
+        [DataMember(Name="accept_cash", EmitDefaultValue=false)]
         public bool? AcceptCash { get; set; }
 
         /// <summary>

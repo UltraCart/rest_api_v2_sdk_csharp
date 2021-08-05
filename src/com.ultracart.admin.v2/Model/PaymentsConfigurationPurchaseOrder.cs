@@ -33,35 +33,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationPurchaseOrder" /> class.
         /// </summary>
-        /// <param name="acceptPurchaseOrders">acceptPurchaseOrders.</param>
-        /// <param name="purchaseOrderApprovedCustomersOnly">purchaseOrderApprovedCustomersOnly.</param>
-        /// <param name="purchaseOrderPreventDuplicateNumber">purchaseOrderPreventDuplicateNumber.</param>
+        /// <param name="acceptPurchaseOrders">Master flag indicating this merchant accepts purchase orders.</param>
+        /// <param name="approvedCustomersOnly">If true, only approved customers may pay with a purchase order.</param>
+        /// <param name="preventDuplicateNumber">If true, customers may not use duplicate PO numbers for any order.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationPurchaseOrder(bool? acceptPurchaseOrders = default(bool?), bool? purchaseOrderApprovedCustomersOnly = default(bool?), bool? purchaseOrderPreventDuplicateNumber = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        public PaymentsConfigurationPurchaseOrder(bool? acceptPurchaseOrders = default(bool?), bool? approvedCustomersOnly = default(bool?), bool? preventDuplicateNumber = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
             this.AcceptPurchaseOrders = acceptPurchaseOrders;
-            this.PurchaseOrderApprovedCustomersOnly = purchaseOrderApprovedCustomersOnly;
-            this.PurchaseOrderPreventDuplicateNumber = purchaseOrderPreventDuplicateNumber;
+            this.ApprovedCustomersOnly = approvedCustomersOnly;
+            this.PreventDuplicateNumber = preventDuplicateNumber;
             this.Restrictions = restrictions;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptPurchaseOrders
+        /// Master flag indicating this merchant accepts purchase orders
         /// </summary>
-        [DataMember(Name="acceptPurchaseOrders", EmitDefaultValue=false)]
+        /// <value>Master flag indicating this merchant accepts purchase orders</value>
+        [DataMember(Name="accept_purchase_orders", EmitDefaultValue=false)]
         public bool? AcceptPurchaseOrders { get; set; }
 
         /// <summary>
-        /// Gets or Sets PurchaseOrderApprovedCustomersOnly
+        /// If true, only approved customers may pay with a purchase order
         /// </summary>
-        [DataMember(Name="purchaseOrderApprovedCustomersOnly", EmitDefaultValue=false)]
-        public bool? PurchaseOrderApprovedCustomersOnly { get; set; }
+        /// <value>If true, only approved customers may pay with a purchase order</value>
+        [DataMember(Name="approved_customers_only", EmitDefaultValue=false)]
+        public bool? ApprovedCustomersOnly { get; set; }
 
         /// <summary>
-        /// Gets or Sets PurchaseOrderPreventDuplicateNumber
+        /// If true, customers may not use duplicate PO numbers for any order
         /// </summary>
-        [DataMember(Name="purchaseOrderPreventDuplicateNumber", EmitDefaultValue=false)]
-        public bool? PurchaseOrderPreventDuplicateNumber { get; set; }
+        /// <value>If true, customers may not use duplicate PO numbers for any order</value>
+        [DataMember(Name="prevent_duplicate_number", EmitDefaultValue=false)]
+        public bool? PreventDuplicateNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
@@ -78,8 +81,8 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationPurchaseOrder {\n");
             sb.Append("  AcceptPurchaseOrders: ").Append(AcceptPurchaseOrders).Append("\n");
-            sb.Append("  PurchaseOrderApprovedCustomersOnly: ").Append(PurchaseOrderApprovedCustomersOnly).Append("\n");
-            sb.Append("  PurchaseOrderPreventDuplicateNumber: ").Append(PurchaseOrderPreventDuplicateNumber).Append("\n");
+            sb.Append("  ApprovedCustomersOnly: ").Append(ApprovedCustomersOnly).Append("\n");
+            sb.Append("  PreventDuplicateNumber: ").Append(PreventDuplicateNumber).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -121,14 +124,14 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptPurchaseOrders.Equals(input.AcceptPurchaseOrders))
                 ) && 
                 (
-                    this.PurchaseOrderApprovedCustomersOnly == input.PurchaseOrderApprovedCustomersOnly ||
-                    (this.PurchaseOrderApprovedCustomersOnly != null &&
-                    this.PurchaseOrderApprovedCustomersOnly.Equals(input.PurchaseOrderApprovedCustomersOnly))
+                    this.ApprovedCustomersOnly == input.ApprovedCustomersOnly ||
+                    (this.ApprovedCustomersOnly != null &&
+                    this.ApprovedCustomersOnly.Equals(input.ApprovedCustomersOnly))
                 ) && 
                 (
-                    this.PurchaseOrderPreventDuplicateNumber == input.PurchaseOrderPreventDuplicateNumber ||
-                    (this.PurchaseOrderPreventDuplicateNumber != null &&
-                    this.PurchaseOrderPreventDuplicateNumber.Equals(input.PurchaseOrderPreventDuplicateNumber))
+                    this.PreventDuplicateNumber == input.PreventDuplicateNumber ||
+                    (this.PreventDuplicateNumber != null &&
+                    this.PreventDuplicateNumber.Equals(input.PreventDuplicateNumber))
                 ) && 
                 (
                     this.Restrictions == input.Restrictions ||
@@ -148,10 +151,10 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptPurchaseOrders != null)
                     hashCode = hashCode * 59 + this.AcceptPurchaseOrders.GetHashCode();
-                if (this.PurchaseOrderApprovedCustomersOnly != null)
-                    hashCode = hashCode * 59 + this.PurchaseOrderApprovedCustomersOnly.GetHashCode();
-                if (this.PurchaseOrderPreventDuplicateNumber != null)
-                    hashCode = hashCode * 59 + this.PurchaseOrderPreventDuplicateNumber.GetHashCode();
+                if (this.ApprovedCustomersOnly != null)
+                    hashCode = hashCode * 59 + this.ApprovedCustomersOnly.GetHashCode();
+                if (this.PreventDuplicateNumber != null)
+                    hashCode = hashCode * 59 + this.PreventDuplicateNumber.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
                 return hashCode;

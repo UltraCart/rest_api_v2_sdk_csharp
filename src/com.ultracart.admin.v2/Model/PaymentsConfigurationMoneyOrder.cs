@@ -33,19 +33,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationMoneyOrder" /> class.
         /// </summary>
-        /// <param name="acceptMoneyOrders">acceptMoneyOrders.</param>
+        /// <param name="acceptMoneyOrders">Master flag for this merchant accepting money orders.</param>
+        /// <param name="accountingCode">Optional Quickbooks accounting code.</param>
+        /// <param name="depositToAccount">Optional Quickbooks deposit to account.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationMoneyOrder(bool? acceptMoneyOrders = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        public PaymentsConfigurationMoneyOrder(bool? acceptMoneyOrders = default(bool?), string accountingCode = default(string), string depositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
             this.AcceptMoneyOrders = acceptMoneyOrders;
+            this.AccountingCode = accountingCode;
+            this.DepositToAccount = depositToAccount;
             this.Restrictions = restrictions;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptMoneyOrders
+        /// Master flag for this merchant accepting money orders
         /// </summary>
-        [DataMember(Name="acceptMoneyOrders", EmitDefaultValue=false)]
+        /// <value>Master flag for this merchant accepting money orders</value>
+        [DataMember(Name="accept_money_orders", EmitDefaultValue=false)]
         public bool? AcceptMoneyOrders { get; set; }
+
+        /// <summary>
+        /// Optional Quickbooks accounting code
+        /// </summary>
+        /// <value>Optional Quickbooks accounting code</value>
+        [DataMember(Name="accounting_code", EmitDefaultValue=false)]
+        public string AccountingCode { get; set; }
+
+        /// <summary>
+        /// Optional Quickbooks deposit to account
+        /// </summary>
+        /// <value>Optional Quickbooks deposit to account</value>
+        [DataMember(Name="deposit_to_account", EmitDefaultValue=false)]
+        public string DepositToAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
@@ -62,6 +81,8 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationMoneyOrder {\n");
             sb.Append("  AcceptMoneyOrders: ").Append(AcceptMoneyOrders).Append("\n");
+            sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
+            sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -103,6 +124,16 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptMoneyOrders.Equals(input.AcceptMoneyOrders))
                 ) && 
                 (
+                    this.AccountingCode == input.AccountingCode ||
+                    (this.AccountingCode != null &&
+                    this.AccountingCode.Equals(input.AccountingCode))
+                ) && 
+                (
+                    this.DepositToAccount == input.DepositToAccount ||
+                    (this.DepositToAccount != null &&
+                    this.DepositToAccount.Equals(input.DepositToAccount))
+                ) && 
+                (
                     this.Restrictions == input.Restrictions ||
                     (this.Restrictions != null &&
                     this.Restrictions.Equals(input.Restrictions))
@@ -120,6 +151,10 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptMoneyOrders != null)
                     hashCode = hashCode * 59 + this.AcceptMoneyOrders.GetHashCode();
+                if (this.AccountingCode != null)
+                    hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
+                if (this.DepositToAccount != null)
+                    hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
                 return hashCode;

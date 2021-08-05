@@ -33,27 +33,29 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationQuoteRequest" /> class.
         /// </summary>
-        /// <param name="acceptQuoteRequests">acceptQuoteRequests.</param>
-        /// <param name="quoteRequestApprovedCustomersOnly">quoteRequestApprovedCustomersOnly.</param>
+        /// <param name="acceptQuoteRequests">Master flag indicating this merchant accepts quote requests.</param>
+        /// <param name="approvedCustomersOnly">If true, only approved customers may use quote requests.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationQuoteRequest(bool? acceptQuoteRequests = default(bool?), bool? quoteRequestApprovedCustomersOnly = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        public PaymentsConfigurationQuoteRequest(bool? acceptQuoteRequests = default(bool?), bool? approvedCustomersOnly = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
             this.AcceptQuoteRequests = acceptQuoteRequests;
-            this.QuoteRequestApprovedCustomersOnly = quoteRequestApprovedCustomersOnly;
+            this.ApprovedCustomersOnly = approvedCustomersOnly;
             this.Restrictions = restrictions;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptQuoteRequests
+        /// Master flag indicating this merchant accepts quote requests
         /// </summary>
-        [DataMember(Name="acceptQuoteRequests", EmitDefaultValue=false)]
+        /// <value>Master flag indicating this merchant accepts quote requests</value>
+        [DataMember(Name="accept_quote_requests", EmitDefaultValue=false)]
         public bool? AcceptQuoteRequests { get; set; }
 
         /// <summary>
-        /// Gets or Sets QuoteRequestApprovedCustomersOnly
+        /// If true, only approved customers may use quote requests
         /// </summary>
-        [DataMember(Name="quoteRequestApprovedCustomersOnly", EmitDefaultValue=false)]
-        public bool? QuoteRequestApprovedCustomersOnly { get; set; }
+        /// <value>If true, only approved customers may use quote requests</value>
+        [DataMember(Name="approved_customers_only", EmitDefaultValue=false)]
+        public bool? ApprovedCustomersOnly { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
@@ -70,7 +72,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationQuoteRequest {\n");
             sb.Append("  AcceptQuoteRequests: ").Append(AcceptQuoteRequests).Append("\n");
-            sb.Append("  QuoteRequestApprovedCustomersOnly: ").Append(QuoteRequestApprovedCustomersOnly).Append("\n");
+            sb.Append("  ApprovedCustomersOnly: ").Append(ApprovedCustomersOnly).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -112,9 +114,9 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptQuoteRequests.Equals(input.AcceptQuoteRequests))
                 ) && 
                 (
-                    this.QuoteRequestApprovedCustomersOnly == input.QuoteRequestApprovedCustomersOnly ||
-                    (this.QuoteRequestApprovedCustomersOnly != null &&
-                    this.QuoteRequestApprovedCustomersOnly.Equals(input.QuoteRequestApprovedCustomersOnly))
+                    this.ApprovedCustomersOnly == input.ApprovedCustomersOnly ||
+                    (this.ApprovedCustomersOnly != null &&
+                    this.ApprovedCustomersOnly.Equals(input.ApprovedCustomersOnly))
                 ) && 
                 (
                     this.Restrictions == input.Restrictions ||
@@ -134,8 +136,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptQuoteRequests != null)
                     hashCode = hashCode * 59 + this.AcceptQuoteRequests.GetHashCode();
-                if (this.QuoteRequestApprovedCustomersOnly != null)
-                    hashCode = hashCode * 59 + this.QuoteRequestApprovedCustomersOnly.GetHashCode();
+                if (this.ApprovedCustomersOnly != null)
+                    hashCode = hashCode * 59 + this.ApprovedCustomersOnly.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
                 return hashCode;

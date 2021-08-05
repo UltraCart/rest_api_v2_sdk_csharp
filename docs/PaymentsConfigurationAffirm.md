@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AcceptAffirm** | **bool?** |  | [optional] 
-**AffirmAccountingCode** | **string** |  | [optional] 
-**AffirmDepositToAccount** | **string** |  | [optional] 
-**AffirmEnvironment** | **string** |  | [optional] 
-**AffirmFinancialProductKey** | **string** |  | [optional] 
-**AffirmPrivateApiKey** | **string** |  | [optional] 
-**AffirmPublicApiKey** | **string** |  | [optional] 
+**AcceptAffirm** | **bool?** | Master flag indicating this merchant accepts Affirm payments | [optional] 
+**AccountingCode** | **string** | Optional Quickbooks code for this payment method | [optional] 
+**DepositToAccount** | **string** | Optional Quickbooks Deposit to Account value | [optional] 
+**Environment** | **string** | Environment | [optional] 
+**FinancialProductKey** | **string** | Financial product key | [optional] 
+**PrivateApiKey** | **string** | Private API key | [optional] 
+**PublicApiKey** | **string** | Public API key | [optional] 
 **Restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
 
 

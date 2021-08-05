@@ -31,75 +31,112 @@ namespace com.ultracart.admin.v2.Model
     public partial class PaymentsConfigurationSezzle :  IEquatable<PaymentsConfigurationSezzle>, IValidatableObject
     {
         /// <summary>
+        /// Sezzle environment
+        /// </summary>
+        /// <value>Sezzle environment</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EnvironmentEnum
+        {
+            
+            /// <summary>
+            /// Enum Live for value: Live
+            /// </summary>
+            [EnumMember(Value = "Live")]
+            Live = 1,
+            
+            /// <summary>
+            /// Enum Sandbox for value: Sandbox
+            /// </summary>
+            [EnumMember(Value = "Sandbox")]
+            Sandbox = 2
+        }
+
+        /// <summary>
+        /// Sezzle environment
+        /// </summary>
+        /// <value>Sezzle environment</value>
+        [DataMember(Name="environment", EmitDefaultValue=false)]
+        public EnvironmentEnum? Environment { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationSezzle" /> class.
         /// </summary>
-        /// <param name="acceptSezzle">acceptSezzle.</param>
+        /// <param name="acceptSezzle">Master flag for this merchant accepting Sezzle payments.</param>
+        /// <param name="accountingCode">Optional Quickbooks code for this payment method.</param>
+        /// <param name="businessId">Business ID.</param>
+        /// <param name="depositToAccount">Optional Quickbooks Deposit to Account value.</param>
+        /// <param name="environment">Sezzle environment.</param>
+        /// <param name="environments">List of environments possible.</param>
+        /// <param name="privateApiKey">Private API key.</param>
+        /// <param name="publicApiKey">Public API key.</param>
         /// <param name="restrictions">restrictions.</param>
-        /// <param name="sezzleAccountingCode">sezzleAccountingCode.</param>
-        /// <param name="sezzleBusinessId">sezzleBusinessId.</param>
-        /// <param name="sezzleDepositToAccount">sezzleDepositToAccount.</param>
-        /// <param name="sezzleEnvironment">sezzleEnvironment.</param>
-        /// <param name="sezzlePrivateApiKey">sezzlePrivateApiKey.</param>
-        /// <param name="sezzlePublicApiKey">sezzlePublicApiKey.</param>
-        public PaymentsConfigurationSezzle(bool? acceptSezzle = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), string sezzleAccountingCode = default(string), string sezzleBusinessId = default(string), string sezzleDepositToAccount = default(string), string sezzleEnvironment = default(string), string sezzlePrivateApiKey = default(string), string sezzlePublicApiKey = default(string))
+        public PaymentsConfigurationSezzle(bool? acceptSezzle = default(bool?), string accountingCode = default(string), string businessId = default(string), string depositToAccount = default(string), EnvironmentEnum? environment = default(EnvironmentEnum?), Object environments = default(Object), string privateApiKey = default(string), string publicApiKey = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
             this.AcceptSezzle = acceptSezzle;
+            this.AccountingCode = accountingCode;
+            this.BusinessId = businessId;
+            this.DepositToAccount = depositToAccount;
+            this.Environment = environment;
+            this.Environments = environments;
+            this.PrivateApiKey = privateApiKey;
+            this.PublicApiKey = publicApiKey;
             this.Restrictions = restrictions;
-            this.SezzleAccountingCode = sezzleAccountingCode;
-            this.SezzleBusinessId = sezzleBusinessId;
-            this.SezzleDepositToAccount = sezzleDepositToAccount;
-            this.SezzleEnvironment = sezzleEnvironment;
-            this.SezzlePrivateApiKey = sezzlePrivateApiKey;
-            this.SezzlePublicApiKey = sezzlePublicApiKey;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptSezzle
+        /// Master flag for this merchant accepting Sezzle payments
         /// </summary>
-        [DataMember(Name="acceptSezzle", EmitDefaultValue=false)]
+        /// <value>Master flag for this merchant accepting Sezzle payments</value>
+        [DataMember(Name="accept_sezzle", EmitDefaultValue=false)]
         public bool? AcceptSezzle { get; set; }
+
+        /// <summary>
+        /// Optional Quickbooks code for this payment method
+        /// </summary>
+        /// <value>Optional Quickbooks code for this payment method</value>
+        [DataMember(Name="accounting_code", EmitDefaultValue=false)]
+        public string AccountingCode { get; set; }
+
+        /// <summary>
+        /// Business ID
+        /// </summary>
+        /// <value>Business ID</value>
+        [DataMember(Name="business_id", EmitDefaultValue=false)]
+        public string BusinessId { get; set; }
+
+        /// <summary>
+        /// Optional Quickbooks Deposit to Account value
+        /// </summary>
+        /// <value>Optional Quickbooks Deposit to Account value</value>
+        [DataMember(Name="deposit_to_account", EmitDefaultValue=false)]
+        public string DepositToAccount { get; set; }
+
+
+        /// <summary>
+        /// List of environments possible
+        /// </summary>
+        /// <value>List of environments possible</value>
+        [DataMember(Name="environments", EmitDefaultValue=false)]
+        public Object Environments { get; set; }
+
+        /// <summary>
+        /// Private API key
+        /// </summary>
+        /// <value>Private API key</value>
+        [DataMember(Name="private_api_key", EmitDefaultValue=false)]
+        public string PrivateApiKey { get; set; }
+
+        /// <summary>
+        /// Public API key
+        /// </summary>
+        /// <value>Public API key</value>
+        [DataMember(Name="public_api_key", EmitDefaultValue=false)]
+        public string PublicApiKey { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
         /// </summary>
         [DataMember(Name="restrictions", EmitDefaultValue=false)]
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SezzleAccountingCode
-        /// </summary>
-        [DataMember(Name="sezzleAccountingCode", EmitDefaultValue=false)]
-        public string SezzleAccountingCode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SezzleBusinessId
-        /// </summary>
-        [DataMember(Name="sezzleBusinessId", EmitDefaultValue=false)]
-        public string SezzleBusinessId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SezzleDepositToAccount
-        /// </summary>
-        [DataMember(Name="sezzleDepositToAccount", EmitDefaultValue=false)]
-        public string SezzleDepositToAccount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SezzleEnvironment
-        /// </summary>
-        [DataMember(Name="sezzleEnvironment", EmitDefaultValue=false)]
-        public string SezzleEnvironment { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SezzlePrivateApiKey
-        /// </summary>
-        [DataMember(Name="sezzlePrivateApiKey", EmitDefaultValue=false)]
-        public string SezzlePrivateApiKey { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SezzlePublicApiKey
-        /// </summary>
-        [DataMember(Name="sezzlePublicApiKey", EmitDefaultValue=false)]
-        public string SezzlePublicApiKey { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,13 +147,14 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationSezzle {\n");
             sb.Append("  AcceptSezzle: ").Append(AcceptSezzle).Append("\n");
+            sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
+            sb.Append("  BusinessId: ").Append(BusinessId).Append("\n");
+            sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
+            sb.Append("  Environment: ").Append(Environment).Append("\n");
+            sb.Append("  Environments: ").Append(Environments).Append("\n");
+            sb.Append("  PrivateApiKey: ").Append(PrivateApiKey).Append("\n");
+            sb.Append("  PublicApiKey: ").Append(PublicApiKey).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
-            sb.Append("  SezzleAccountingCode: ").Append(SezzleAccountingCode).Append("\n");
-            sb.Append("  SezzleBusinessId: ").Append(SezzleBusinessId).Append("\n");
-            sb.Append("  SezzleDepositToAccount: ").Append(SezzleDepositToAccount).Append("\n");
-            sb.Append("  SezzleEnvironment: ").Append(SezzleEnvironment).Append("\n");
-            sb.Append("  SezzlePrivateApiKey: ").Append(SezzlePrivateApiKey).Append("\n");
-            sb.Append("  SezzlePublicApiKey: ").Append(SezzlePublicApiKey).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,39 +195,44 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptSezzle.Equals(input.AcceptSezzle))
                 ) && 
                 (
+                    this.AccountingCode == input.AccountingCode ||
+                    (this.AccountingCode != null &&
+                    this.AccountingCode.Equals(input.AccountingCode))
+                ) && 
+                (
+                    this.BusinessId == input.BusinessId ||
+                    (this.BusinessId != null &&
+                    this.BusinessId.Equals(input.BusinessId))
+                ) && 
+                (
+                    this.DepositToAccount == input.DepositToAccount ||
+                    (this.DepositToAccount != null &&
+                    this.DepositToAccount.Equals(input.DepositToAccount))
+                ) && 
+                (
+                    this.Environment == input.Environment ||
+                    (this.Environment != null &&
+                    this.Environment.Equals(input.Environment))
+                ) && 
+                (
+                    this.Environments == input.Environments ||
+                    (this.Environments != null &&
+                    this.Environments.Equals(input.Environments))
+                ) && 
+                (
+                    this.PrivateApiKey == input.PrivateApiKey ||
+                    (this.PrivateApiKey != null &&
+                    this.PrivateApiKey.Equals(input.PrivateApiKey))
+                ) && 
+                (
+                    this.PublicApiKey == input.PublicApiKey ||
+                    (this.PublicApiKey != null &&
+                    this.PublicApiKey.Equals(input.PublicApiKey))
+                ) && 
+                (
                     this.Restrictions == input.Restrictions ||
                     (this.Restrictions != null &&
                     this.Restrictions.Equals(input.Restrictions))
-                ) && 
-                (
-                    this.SezzleAccountingCode == input.SezzleAccountingCode ||
-                    (this.SezzleAccountingCode != null &&
-                    this.SezzleAccountingCode.Equals(input.SezzleAccountingCode))
-                ) && 
-                (
-                    this.SezzleBusinessId == input.SezzleBusinessId ||
-                    (this.SezzleBusinessId != null &&
-                    this.SezzleBusinessId.Equals(input.SezzleBusinessId))
-                ) && 
-                (
-                    this.SezzleDepositToAccount == input.SezzleDepositToAccount ||
-                    (this.SezzleDepositToAccount != null &&
-                    this.SezzleDepositToAccount.Equals(input.SezzleDepositToAccount))
-                ) && 
-                (
-                    this.SezzleEnvironment == input.SezzleEnvironment ||
-                    (this.SezzleEnvironment != null &&
-                    this.SezzleEnvironment.Equals(input.SezzleEnvironment))
-                ) && 
-                (
-                    this.SezzlePrivateApiKey == input.SezzlePrivateApiKey ||
-                    (this.SezzlePrivateApiKey != null &&
-                    this.SezzlePrivateApiKey.Equals(input.SezzlePrivateApiKey))
-                ) && 
-                (
-                    this.SezzlePublicApiKey == input.SezzlePublicApiKey ||
-                    (this.SezzlePublicApiKey != null &&
-                    this.SezzlePublicApiKey.Equals(input.SezzlePublicApiKey))
                 );
         }
 
@@ -204,20 +247,22 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptSezzle != null)
                     hashCode = hashCode * 59 + this.AcceptSezzle.GetHashCode();
+                if (this.AccountingCode != null)
+                    hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
+                if (this.BusinessId != null)
+                    hashCode = hashCode * 59 + this.BusinessId.GetHashCode();
+                if (this.DepositToAccount != null)
+                    hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
+                if (this.Environment != null)
+                    hashCode = hashCode * 59 + this.Environment.GetHashCode();
+                if (this.Environments != null)
+                    hashCode = hashCode * 59 + this.Environments.GetHashCode();
+                if (this.PrivateApiKey != null)
+                    hashCode = hashCode * 59 + this.PrivateApiKey.GetHashCode();
+                if (this.PublicApiKey != null)
+                    hashCode = hashCode * 59 + this.PublicApiKey.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
-                if (this.SezzleAccountingCode != null)
-                    hashCode = hashCode * 59 + this.SezzleAccountingCode.GetHashCode();
-                if (this.SezzleBusinessId != null)
-                    hashCode = hashCode * 59 + this.SezzleBusinessId.GetHashCode();
-                if (this.SezzleDepositToAccount != null)
-                    hashCode = hashCode * 59 + this.SezzleDepositToAccount.GetHashCode();
-                if (this.SezzleEnvironment != null)
-                    hashCode = hashCode * 59 + this.SezzleEnvironment.GetHashCode();
-                if (this.SezzlePrivateApiKey != null)
-                    hashCode = hashCode * 59 + this.SezzlePrivateApiKey.GetHashCode();
-                if (this.SezzlePublicApiKey != null)
-                    hashCode = hashCode * 59 + this.SezzlePublicApiKey.GetHashCode();
                 return hashCode;
             }
         }

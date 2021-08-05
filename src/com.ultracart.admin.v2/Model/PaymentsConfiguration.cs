@@ -39,19 +39,19 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="check">check.</param>
         /// <param name="cod">cod.</param>
         /// <param name="creditCard">creditCard.</param>
-        /// <param name="eCheck">eCheck.</param>
+        /// <param name="echeck">echeck.</param>
         /// <param name="loanHero">loanHero.</param>
         /// <param name="moneyOrder">moneyOrder.</param>
-        /// <param name="payPal">payPal.</param>
+        /// <param name="paypal">paypal.</param>
         /// <param name="purchaseOrder">purchaseOrder.</param>
         /// <param name="quoteRequest">quoteRequest.</param>
         /// <param name="sezzle">sezzle.</param>
-        /// <param name="showAccountingCode">showAccountingCode.</param>
+        /// <param name="showAccountingCode">Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured..</param>
         /// <param name="switchToSubTab">switchToSubTab.</param>
         /// <param name="switchToTab">switchToTab.</param>
-        /// <param name="wePay">wePay.</param>
+        /// <param name="ultracartPaymentsWepay">ultracartPaymentsWepay.</param>
         /// <param name="wireTransfer">wireTransfer.</param>
-        public PaymentsConfiguration(PaymentsConfigurationAffirm affirm = default(PaymentsConfigurationAffirm), PaymentsConfigurationAmazon amazon = default(PaymentsConfigurationAmazon), PaymentsConfigurationCash cash = default(PaymentsConfigurationCash), PaymentsConfigurationCheck check = default(PaymentsConfigurationCheck), PaymentsConfigurationCOD cod = default(PaymentsConfigurationCOD), PaymentsConfigurationCreditCard creditCard = default(PaymentsConfigurationCreditCard), PaymentsConfigurationEcheck eCheck = default(PaymentsConfigurationEcheck), PaymentsConfigurationLoanHero loanHero = default(PaymentsConfigurationLoanHero), PaymentsConfigurationMoneyOrder moneyOrder = default(PaymentsConfigurationMoneyOrder), PaymentsConfigurationPayPal payPal = default(PaymentsConfigurationPayPal), PaymentsConfigurationPurchaseOrder purchaseOrder = default(PaymentsConfigurationPurchaseOrder), PaymentsConfigurationQuoteRequest quoteRequest = default(PaymentsConfigurationQuoteRequest), PaymentsConfigurationSezzle sezzle = default(PaymentsConfigurationSezzle), bool? showAccountingCode = default(bool?), string switchToSubTab = default(string), string switchToTab = default(string), PaymentsConfigurationWePay wePay = default(PaymentsConfigurationWePay), PaymentsConfigurationWireTransfer wireTransfer = default(PaymentsConfigurationWireTransfer))
+        public PaymentsConfiguration(PaymentsConfigurationAffirm affirm = default(PaymentsConfigurationAffirm), PaymentsConfigurationAmazon amazon = default(PaymentsConfigurationAmazon), PaymentsConfigurationCash cash = default(PaymentsConfigurationCash), PaymentsConfigurationCheck check = default(PaymentsConfigurationCheck), PaymentsConfigurationCOD cod = default(PaymentsConfigurationCOD), PaymentsConfigurationCreditCard creditCard = default(PaymentsConfigurationCreditCard), PaymentsConfigurationEcheck echeck = default(PaymentsConfigurationEcheck), PaymentsConfigurationLoanHero loanHero = default(PaymentsConfigurationLoanHero), PaymentsConfigurationMoneyOrder moneyOrder = default(PaymentsConfigurationMoneyOrder), PaymentsConfigurationPayPal paypal = default(PaymentsConfigurationPayPal), PaymentsConfigurationPurchaseOrder purchaseOrder = default(PaymentsConfigurationPurchaseOrder), PaymentsConfigurationQuoteRequest quoteRequest = default(PaymentsConfigurationQuoteRequest), PaymentsConfigurationSezzle sezzle = default(PaymentsConfigurationSezzle), bool? showAccountingCode = default(bool?), string switchToSubTab = default(string), string switchToTab = default(string), PaymentsConfigurationWePay ultracartPaymentsWepay = default(PaymentsConfigurationWePay), PaymentsConfigurationWireTransfer wireTransfer = default(PaymentsConfigurationWireTransfer))
         {
             this.Affirm = affirm;
             this.Amazon = amazon;
@@ -59,17 +59,17 @@ namespace com.ultracart.admin.v2.Model
             this.Check = check;
             this.Cod = cod;
             this.CreditCard = creditCard;
-            this.ECheck = eCheck;
+            this.Echeck = echeck;
             this.LoanHero = loanHero;
             this.MoneyOrder = moneyOrder;
-            this.PayPal = payPal;
+            this.Paypal = paypal;
             this.PurchaseOrder = purchaseOrder;
             this.QuoteRequest = quoteRequest;
             this.Sezzle = sezzle;
             this.ShowAccountingCode = showAccountingCode;
             this.SwitchToSubTab = switchToSubTab;
             this.SwitchToTab = switchToTab;
-            this.WePay = wePay;
+            this.UltracartPaymentsWepay = ultracartPaymentsWepay;
             this.WireTransfer = wireTransfer;
         }
         
@@ -106,43 +106,43 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Gets or Sets CreditCard
         /// </summary>
-        [DataMember(Name="creditCard", EmitDefaultValue=false)]
+        [DataMember(Name="credit_card", EmitDefaultValue=false)]
         public PaymentsConfigurationCreditCard CreditCard { get; set; }
 
         /// <summary>
-        /// Gets or Sets ECheck
+        /// Gets or Sets Echeck
         /// </summary>
-        [DataMember(Name="eCheck", EmitDefaultValue=false)]
-        public PaymentsConfigurationEcheck ECheck { get; set; }
+        [DataMember(Name="echeck", EmitDefaultValue=false)]
+        public PaymentsConfigurationEcheck Echeck { get; set; }
 
         /// <summary>
         /// Gets or Sets LoanHero
         /// </summary>
-        [DataMember(Name="loanHero", EmitDefaultValue=false)]
+        [DataMember(Name="loan_hero", EmitDefaultValue=false)]
         public PaymentsConfigurationLoanHero LoanHero { get; set; }
 
         /// <summary>
         /// Gets or Sets MoneyOrder
         /// </summary>
-        [DataMember(Name="moneyOrder", EmitDefaultValue=false)]
+        [DataMember(Name="money_order", EmitDefaultValue=false)]
         public PaymentsConfigurationMoneyOrder MoneyOrder { get; set; }
 
         /// <summary>
-        /// Gets or Sets PayPal
+        /// Gets or Sets Paypal
         /// </summary>
-        [DataMember(Name="payPal", EmitDefaultValue=false)]
-        public PaymentsConfigurationPayPal PayPal { get; set; }
+        [DataMember(Name="paypal", EmitDefaultValue=false)]
+        public PaymentsConfigurationPayPal Paypal { get; set; }
 
         /// <summary>
         /// Gets or Sets PurchaseOrder
         /// </summary>
-        [DataMember(Name="purchaseOrder", EmitDefaultValue=false)]
+        [DataMember(Name="purchase_order", EmitDefaultValue=false)]
         public PaymentsConfigurationPurchaseOrder PurchaseOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets QuoteRequest
         /// </summary>
-        [DataMember(Name="quoteRequest", EmitDefaultValue=false)]
+        [DataMember(Name="quote_request", EmitDefaultValue=false)]
         public PaymentsConfigurationQuoteRequest QuoteRequest { get; set; }
 
         /// <summary>
@@ -152,9 +152,10 @@ namespace com.ultracart.admin.v2.Model
         public PaymentsConfigurationSezzle Sezzle { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowAccountingCode
+        /// Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured.
         /// </summary>
-        [DataMember(Name="showAccountingCode", EmitDefaultValue=false)]
+        /// <value>Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured.</value>
+        [DataMember(Name="show_accounting_code", EmitDefaultValue=false)]
         public bool? ShowAccountingCode { get; set; }
 
         /// <summary>
@@ -170,15 +171,15 @@ namespace com.ultracart.admin.v2.Model
         public string SwitchToTab { get; set; }
 
         /// <summary>
-        /// Gets or Sets WePay
+        /// Gets or Sets UltracartPaymentsWepay
         /// </summary>
-        [DataMember(Name="wePay", EmitDefaultValue=false)]
-        public PaymentsConfigurationWePay WePay { get; set; }
+        [DataMember(Name="ultracart_payments_wepay", EmitDefaultValue=false)]
+        public PaymentsConfigurationWePay UltracartPaymentsWepay { get; set; }
 
         /// <summary>
         /// Gets or Sets WireTransfer
         /// </summary>
-        [DataMember(Name="wireTransfer", EmitDefaultValue=false)]
+        [DataMember(Name="wire_transfer", EmitDefaultValue=false)]
         public PaymentsConfigurationWireTransfer WireTransfer { get; set; }
 
         /// <summary>
@@ -195,17 +196,17 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Check: ").Append(Check).Append("\n");
             sb.Append("  Cod: ").Append(Cod).Append("\n");
             sb.Append("  CreditCard: ").Append(CreditCard).Append("\n");
-            sb.Append("  ECheck: ").Append(ECheck).Append("\n");
+            sb.Append("  Echeck: ").Append(Echeck).Append("\n");
             sb.Append("  LoanHero: ").Append(LoanHero).Append("\n");
             sb.Append("  MoneyOrder: ").Append(MoneyOrder).Append("\n");
-            sb.Append("  PayPal: ").Append(PayPal).Append("\n");
+            sb.Append("  Paypal: ").Append(Paypal).Append("\n");
             sb.Append("  PurchaseOrder: ").Append(PurchaseOrder).Append("\n");
             sb.Append("  QuoteRequest: ").Append(QuoteRequest).Append("\n");
             sb.Append("  Sezzle: ").Append(Sezzle).Append("\n");
             sb.Append("  ShowAccountingCode: ").Append(ShowAccountingCode).Append("\n");
             sb.Append("  SwitchToSubTab: ").Append(SwitchToSubTab).Append("\n");
             sb.Append("  SwitchToTab: ").Append(SwitchToTab).Append("\n");
-            sb.Append("  WePay: ").Append(WePay).Append("\n");
+            sb.Append("  UltracartPaymentsWepay: ").Append(UltracartPaymentsWepay).Append("\n");
             sb.Append("  WireTransfer: ").Append(WireTransfer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -272,9 +273,9 @@ namespace com.ultracart.admin.v2.Model
                     this.CreditCard.Equals(input.CreditCard))
                 ) && 
                 (
-                    this.ECheck == input.ECheck ||
-                    (this.ECheck != null &&
-                    this.ECheck.Equals(input.ECheck))
+                    this.Echeck == input.Echeck ||
+                    (this.Echeck != null &&
+                    this.Echeck.Equals(input.Echeck))
                 ) && 
                 (
                     this.LoanHero == input.LoanHero ||
@@ -287,9 +288,9 @@ namespace com.ultracart.admin.v2.Model
                     this.MoneyOrder.Equals(input.MoneyOrder))
                 ) && 
                 (
-                    this.PayPal == input.PayPal ||
-                    (this.PayPal != null &&
-                    this.PayPal.Equals(input.PayPal))
+                    this.Paypal == input.Paypal ||
+                    (this.Paypal != null &&
+                    this.Paypal.Equals(input.Paypal))
                 ) && 
                 (
                     this.PurchaseOrder == input.PurchaseOrder ||
@@ -322,9 +323,9 @@ namespace com.ultracart.admin.v2.Model
                     this.SwitchToTab.Equals(input.SwitchToTab))
                 ) && 
                 (
-                    this.WePay == input.WePay ||
-                    (this.WePay != null &&
-                    this.WePay.Equals(input.WePay))
+                    this.UltracartPaymentsWepay == input.UltracartPaymentsWepay ||
+                    (this.UltracartPaymentsWepay != null &&
+                    this.UltracartPaymentsWepay.Equals(input.UltracartPaymentsWepay))
                 ) && 
                 (
                     this.WireTransfer == input.WireTransfer ||
@@ -354,14 +355,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Cod.GetHashCode();
                 if (this.CreditCard != null)
                     hashCode = hashCode * 59 + this.CreditCard.GetHashCode();
-                if (this.ECheck != null)
-                    hashCode = hashCode * 59 + this.ECheck.GetHashCode();
+                if (this.Echeck != null)
+                    hashCode = hashCode * 59 + this.Echeck.GetHashCode();
                 if (this.LoanHero != null)
                     hashCode = hashCode * 59 + this.LoanHero.GetHashCode();
                 if (this.MoneyOrder != null)
                     hashCode = hashCode * 59 + this.MoneyOrder.GetHashCode();
-                if (this.PayPal != null)
-                    hashCode = hashCode * 59 + this.PayPal.GetHashCode();
+                if (this.Paypal != null)
+                    hashCode = hashCode * 59 + this.Paypal.GetHashCode();
                 if (this.PurchaseOrder != null)
                     hashCode = hashCode * 59 + this.PurchaseOrder.GetHashCode();
                 if (this.QuoteRequest != null)
@@ -374,8 +375,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SwitchToSubTab.GetHashCode();
                 if (this.SwitchToTab != null)
                     hashCode = hashCode * 59 + this.SwitchToTab.GetHashCode();
-                if (this.WePay != null)
-                    hashCode = hashCode * 59 + this.WePay.GetHashCode();
+                if (this.UltracartPaymentsWepay != null)
+                    hashCode = hashCode * 59 + this.UltracartPaymentsWepay.GetHashCode();
                 if (this.WireTransfer != null)
                     hashCode = hashCode * 59 + this.WireTransfer.GetHashCode();
                 return hashCode;

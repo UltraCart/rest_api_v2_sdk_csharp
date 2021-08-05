@@ -31,69 +31,97 @@ namespace com.ultracart.admin.v2.Model
     public partial class PaymentsConfigurationAffirm :  IEquatable<PaymentsConfigurationAffirm>, IValidatableObject
     {
         /// <summary>
+        /// Environment
+        /// </summary>
+        /// <value>Environment</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EnvironmentEnum
+        {
+            
+            /// <summary>
+            /// Enum Live for value: Live
+            /// </summary>
+            [EnumMember(Value = "Live")]
+            Live = 1,
+            
+            /// <summary>
+            /// Enum Sandbox for value: Sandbox
+            /// </summary>
+            [EnumMember(Value = "Sandbox")]
+            Sandbox = 2
+        }
+
+        /// <summary>
+        /// Environment
+        /// </summary>
+        /// <value>Environment</value>
+        [DataMember(Name="environment", EmitDefaultValue=false)]
+        public EnvironmentEnum? Environment { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationAffirm" /> class.
         /// </summary>
-        /// <param name="acceptAffirm">acceptAffirm.</param>
-        /// <param name="affirmAccountingCode">affirmAccountingCode.</param>
-        /// <param name="affirmDepositToAccount">affirmDepositToAccount.</param>
-        /// <param name="affirmEnvironment">affirmEnvironment.</param>
-        /// <param name="affirmFinancialProductKey">affirmFinancialProductKey.</param>
-        /// <param name="affirmPrivateApiKey">affirmPrivateApiKey.</param>
-        /// <param name="affirmPublicApiKey">affirmPublicApiKey.</param>
+        /// <param name="acceptAffirm">Master flag indicating this merchant accepts Affirm payments.</param>
+        /// <param name="accountingCode">Optional Quickbooks code for this payment method.</param>
+        /// <param name="depositToAccount">Optional Quickbooks Deposit to Account value.</param>
+        /// <param name="environment">Environment.</param>
+        /// <param name="financialProductKey">Financial product key.</param>
+        /// <param name="privateApiKey">Private API key.</param>
+        /// <param name="publicApiKey">Public API key.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationAffirm(bool? acceptAffirm = default(bool?), string affirmAccountingCode = default(string), string affirmDepositToAccount = default(string), string affirmEnvironment = default(string), string affirmFinancialProductKey = default(string), string affirmPrivateApiKey = default(string), string affirmPublicApiKey = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        public PaymentsConfigurationAffirm(bool? acceptAffirm = default(bool?), string accountingCode = default(string), string depositToAccount = default(string), EnvironmentEnum? environment = default(EnvironmentEnum?), string financialProductKey = default(string), string privateApiKey = default(string), string publicApiKey = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
             this.AcceptAffirm = acceptAffirm;
-            this.AffirmAccountingCode = affirmAccountingCode;
-            this.AffirmDepositToAccount = affirmDepositToAccount;
-            this.AffirmEnvironment = affirmEnvironment;
-            this.AffirmFinancialProductKey = affirmFinancialProductKey;
-            this.AffirmPrivateApiKey = affirmPrivateApiKey;
-            this.AffirmPublicApiKey = affirmPublicApiKey;
+            this.AccountingCode = accountingCode;
+            this.DepositToAccount = depositToAccount;
+            this.Environment = environment;
+            this.FinancialProductKey = financialProductKey;
+            this.PrivateApiKey = privateApiKey;
+            this.PublicApiKey = publicApiKey;
             this.Restrictions = restrictions;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptAffirm
+        /// Master flag indicating this merchant accepts Affirm payments
         /// </summary>
-        [DataMember(Name="acceptAffirm", EmitDefaultValue=false)]
+        /// <value>Master flag indicating this merchant accepts Affirm payments</value>
+        [DataMember(Name="accept_affirm", EmitDefaultValue=false)]
         public bool? AcceptAffirm { get; set; }
 
         /// <summary>
-        /// Gets or Sets AffirmAccountingCode
+        /// Optional Quickbooks code for this payment method
         /// </summary>
-        [DataMember(Name="affirmAccountingCode", EmitDefaultValue=false)]
-        public string AffirmAccountingCode { get; set; }
+        /// <value>Optional Quickbooks code for this payment method</value>
+        [DataMember(Name="accounting_code", EmitDefaultValue=false)]
+        public string AccountingCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets AffirmDepositToAccount
+        /// Optional Quickbooks Deposit to Account value
         /// </summary>
-        [DataMember(Name="affirmDepositToAccount", EmitDefaultValue=false)]
-        public string AffirmDepositToAccount { get; set; }
+        /// <value>Optional Quickbooks Deposit to Account value</value>
+        [DataMember(Name="deposit_to_account", EmitDefaultValue=false)]
+        public string DepositToAccount { get; set; }
+
 
         /// <summary>
-        /// Gets or Sets AffirmEnvironment
+        /// Financial product key
         /// </summary>
-        [DataMember(Name="affirmEnvironment", EmitDefaultValue=false)]
-        public string AffirmEnvironment { get; set; }
+        /// <value>Financial product key</value>
+        [DataMember(Name="financial_product_key", EmitDefaultValue=false)]
+        public string FinancialProductKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets AffirmFinancialProductKey
+        /// Private API key
         /// </summary>
-        [DataMember(Name="affirmFinancialProductKey", EmitDefaultValue=false)]
-        public string AffirmFinancialProductKey { get; set; }
+        /// <value>Private API key</value>
+        [DataMember(Name="private_api_key", EmitDefaultValue=false)]
+        public string PrivateApiKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets AffirmPrivateApiKey
+        /// Public API key
         /// </summary>
-        [DataMember(Name="affirmPrivateApiKey", EmitDefaultValue=false)]
-        public string AffirmPrivateApiKey { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AffirmPublicApiKey
-        /// </summary>
-        [DataMember(Name="affirmPublicApiKey", EmitDefaultValue=false)]
-        public string AffirmPublicApiKey { get; set; }
+        /// <value>Public API key</value>
+        [DataMember(Name="public_api_key", EmitDefaultValue=false)]
+        public string PublicApiKey { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
@@ -110,12 +138,12 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationAffirm {\n");
             sb.Append("  AcceptAffirm: ").Append(AcceptAffirm).Append("\n");
-            sb.Append("  AffirmAccountingCode: ").Append(AffirmAccountingCode).Append("\n");
-            sb.Append("  AffirmDepositToAccount: ").Append(AffirmDepositToAccount).Append("\n");
-            sb.Append("  AffirmEnvironment: ").Append(AffirmEnvironment).Append("\n");
-            sb.Append("  AffirmFinancialProductKey: ").Append(AffirmFinancialProductKey).Append("\n");
-            sb.Append("  AffirmPrivateApiKey: ").Append(AffirmPrivateApiKey).Append("\n");
-            sb.Append("  AffirmPublicApiKey: ").Append(AffirmPublicApiKey).Append("\n");
+            sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
+            sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
+            sb.Append("  Environment: ").Append(Environment).Append("\n");
+            sb.Append("  FinancialProductKey: ").Append(FinancialProductKey).Append("\n");
+            sb.Append("  PrivateApiKey: ").Append(PrivateApiKey).Append("\n");
+            sb.Append("  PublicApiKey: ").Append(PublicApiKey).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -157,34 +185,34 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptAffirm.Equals(input.AcceptAffirm))
                 ) && 
                 (
-                    this.AffirmAccountingCode == input.AffirmAccountingCode ||
-                    (this.AffirmAccountingCode != null &&
-                    this.AffirmAccountingCode.Equals(input.AffirmAccountingCode))
+                    this.AccountingCode == input.AccountingCode ||
+                    (this.AccountingCode != null &&
+                    this.AccountingCode.Equals(input.AccountingCode))
                 ) && 
                 (
-                    this.AffirmDepositToAccount == input.AffirmDepositToAccount ||
-                    (this.AffirmDepositToAccount != null &&
-                    this.AffirmDepositToAccount.Equals(input.AffirmDepositToAccount))
+                    this.DepositToAccount == input.DepositToAccount ||
+                    (this.DepositToAccount != null &&
+                    this.DepositToAccount.Equals(input.DepositToAccount))
                 ) && 
                 (
-                    this.AffirmEnvironment == input.AffirmEnvironment ||
-                    (this.AffirmEnvironment != null &&
-                    this.AffirmEnvironment.Equals(input.AffirmEnvironment))
+                    this.Environment == input.Environment ||
+                    (this.Environment != null &&
+                    this.Environment.Equals(input.Environment))
                 ) && 
                 (
-                    this.AffirmFinancialProductKey == input.AffirmFinancialProductKey ||
-                    (this.AffirmFinancialProductKey != null &&
-                    this.AffirmFinancialProductKey.Equals(input.AffirmFinancialProductKey))
+                    this.FinancialProductKey == input.FinancialProductKey ||
+                    (this.FinancialProductKey != null &&
+                    this.FinancialProductKey.Equals(input.FinancialProductKey))
                 ) && 
                 (
-                    this.AffirmPrivateApiKey == input.AffirmPrivateApiKey ||
-                    (this.AffirmPrivateApiKey != null &&
-                    this.AffirmPrivateApiKey.Equals(input.AffirmPrivateApiKey))
+                    this.PrivateApiKey == input.PrivateApiKey ||
+                    (this.PrivateApiKey != null &&
+                    this.PrivateApiKey.Equals(input.PrivateApiKey))
                 ) && 
                 (
-                    this.AffirmPublicApiKey == input.AffirmPublicApiKey ||
-                    (this.AffirmPublicApiKey != null &&
-                    this.AffirmPublicApiKey.Equals(input.AffirmPublicApiKey))
+                    this.PublicApiKey == input.PublicApiKey ||
+                    (this.PublicApiKey != null &&
+                    this.PublicApiKey.Equals(input.PublicApiKey))
                 ) && 
                 (
                     this.Restrictions == input.Restrictions ||
@@ -204,18 +232,18 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptAffirm != null)
                     hashCode = hashCode * 59 + this.AcceptAffirm.GetHashCode();
-                if (this.AffirmAccountingCode != null)
-                    hashCode = hashCode * 59 + this.AffirmAccountingCode.GetHashCode();
-                if (this.AffirmDepositToAccount != null)
-                    hashCode = hashCode * 59 + this.AffirmDepositToAccount.GetHashCode();
-                if (this.AffirmEnvironment != null)
-                    hashCode = hashCode * 59 + this.AffirmEnvironment.GetHashCode();
-                if (this.AffirmFinancialProductKey != null)
-                    hashCode = hashCode * 59 + this.AffirmFinancialProductKey.GetHashCode();
-                if (this.AffirmPrivateApiKey != null)
-                    hashCode = hashCode * 59 + this.AffirmPrivateApiKey.GetHashCode();
-                if (this.AffirmPublicApiKey != null)
-                    hashCode = hashCode * 59 + this.AffirmPublicApiKey.GetHashCode();
+                if (this.AccountingCode != null)
+                    hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
+                if (this.DepositToAccount != null)
+                    hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
+                if (this.Environment != null)
+                    hashCode = hashCode * 59 + this.Environment.GetHashCode();
+                if (this.FinancialProductKey != null)
+                    hashCode = hashCode * 59 + this.FinancialProductKey.GetHashCode();
+                if (this.PrivateApiKey != null)
+                    hashCode = hashCode * 59 + this.PrivateApiKey.GetHashCode();
+                if (this.PublicApiKey != null)
+                    hashCode = hashCode * 59 + this.PublicApiKey.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
                 return hashCode;

@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AcceptQuoteRequests** | **bool?** |  | [optional] 
-**QuoteRequestApprovedCustomersOnly** | **bool?** |  | [optional] 
+**AcceptQuoteRequests** | **bool?** | Master flag indicating this merchant accepts quote requests | [optional] 
+**ApprovedCustomersOnly** | **bool?** | If true, only approved customers may use quote requests | [optional] 
 **Restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
 
 

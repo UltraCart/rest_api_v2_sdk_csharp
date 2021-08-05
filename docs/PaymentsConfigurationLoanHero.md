@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AcceptLoanHero** | **bool?** |  | [optional] 
-**LoanHeroAccountingCode** | **string** |  | [optional] 
-**LoanHeroDepositToAccount** | **string** |  | [optional] 
+**AcceptLoanHero** | **bool?** | Master flag indicating this merchant accepts Loan Hero | [optional] 
+**AccountingCode** | **string** | Optional Quickbooks accounting code | [optional] 
+**DepositToAccount** | **string** | Optional Quickbooks deposit to account | [optional] 
 **Restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
-**ShowLoanHero** | **bool?** |  | [optional] 
+**ShowLoanHero** | **bool?** | Internal field to aid UI | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

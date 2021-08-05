@@ -31,231 +31,292 @@ namespace com.ultracart.admin.v2.Model
     public partial class PaymentsConfigurationPayPal :  IEquatable<PaymentsConfigurationPayPal>, IValidatableObject
     {
         /// <summary>
+        /// PayPal configuration, live or sandbox
+        /// </summary>
+        /// <value>PayPal configuration, live or sandbox</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EnvironmentEnum
+        {
+            
+            /// <summary>
+            /// Enum Live for value: Live
+            /// </summary>
+            [EnumMember(Value = "Live")]
+            Live = 1,
+            
+            /// <summary>
+            /// Enum Sandbox for value: Sandbox
+            /// </summary>
+            [EnumMember(Value = "Sandbox")]
+            Sandbox = 2
+        }
+
+        /// <summary>
+        /// PayPal configuration, live or sandbox
+        /// </summary>
+        /// <value>PayPal configuration, live or sandbox</value>
+        [DataMember(Name="environment", EmitDefaultValue=false)]
+        public EnvironmentEnum? Environment { get; set; }
+        /// <summary>
+        /// PayPal landing page
+        /// </summary>
+        /// <value>PayPal landing page</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum LandingPageEnum
+        {
+            
+            /// <summary>
+            /// Enum Billing for value: Billing
+            /// </summary>
+            [EnumMember(Value = "Billing")]
+            Billing = 1,
+            
+            /// <summary>
+            /// Enum Login for value: Login
+            /// </summary>
+            [EnumMember(Value = "Login")]
+            Login = 2
+        }
+
+        /// <summary>
+        /// PayPal landing page
+        /// </summary>
+        /// <value>PayPal landing page</value>
+        [DataMember(Name="landing_page", EmitDefaultValue=false)]
+        public LandingPageEnum? LandingPage { get; set; }
+        /// <summary>
+        /// The PayPal mode
+        /// </summary>
+        /// <value>The PayPal mode</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ModeEnum
+        {
+            
+            /// <summary>
+            /// Enum WPPECO for value: WPPECO
+            /// </summary>
+            [EnumMember(Value = "WPPECO")]
+            WPPECO = 1,
+            
+            /// <summary>
+            /// Enum WPPECDP for value: WPPECDP
+            /// </summary>
+            [EnumMember(Value = "WPPECDP")]
+            WPPECDP = 2
+        }
+
+        /// <summary>
+        /// The PayPal mode
+        /// </summary>
+        /// <value>The PayPal mode</value>
+        [DataMember(Name="mode", EmitDefaultValue=false)]
+        public ModeEnum? Mode { get; set; }
+        /// <summary>
+        /// PayPal solution type
+        /// </summary>
+        /// <value>PayPal solution type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SolutionTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Sole for value: Sole
+            /// </summary>
+            [EnumMember(Value = "Sole")]
+            Sole = 1,
+            
+            /// <summary>
+            /// Enum Mark for value: Mark
+            /// </summary>
+            [EnumMember(Value = "Mark")]
+            Mark = 2
+        }
+
+        /// <summary>
+        /// PayPal solution type
+        /// </summary>
+        /// <value>PayPal solution type</value>
+        [DataMember(Name="solution_type", EmitDefaultValue=false)]
+        public SolutionTypeEnum? SolutionType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationPayPal" /> class.
         /// </summary>
-        /// <param name="acceptPayPal">acceptPayPal.</param>
-        /// <param name="paypalAccountingCode">paypalAccountingCode.</param>
-        /// <param name="paypalApiPassword">paypalApiPassword.</param>
-        /// <param name="paypalApiUserName">paypalApiUserName.</param>
-        /// <param name="paypalCertificateOnFile">paypalCertificateOnFile.</param>
-        /// <param name="paypalDepositToAccount">paypalDepositToAccount.</param>
-        /// <param name="paypalEmail">paypalEmail.</param>
-        /// <param name="paypalEnvironment">paypalEnvironment.</param>
-        /// <param name="paypalHeaderImageUrl">paypalHeaderImageUrl.</param>
-        /// <param name="paypalHideBillMeLater">paypalHideBillMeLater.</param>
-        /// <param name="paypalHideExpressCheckoutOnViewCart">paypalHideExpressCheckoutOnViewCart.</param>
-        /// <param name="paypalHideForUnshippedOrders">paypalHideForUnshippedOrders.</param>
-        /// <param name="paypalHoldInAR">paypalHoldInAR.</param>
-        /// <param name="paypalLandingPage">paypalLandingPage.</param>
-        /// <param name="paypalMode">paypalMode.</param>
-        /// <param name="paypalPrivateKeyPassword">paypalPrivateKeyPassword.</param>
-        /// <param name="paypalProcessingFee">paypalProcessingFee.</param>
-        /// <param name="paypalProcessingPerc">paypalProcessingPerc.</param>
-        /// <param name="paypalSendRecurring">paypalSendRecurring.</param>
-        /// <param name="paypalShowCardLogosNotDirectlySupported">paypalShowCardLogosNotDirectlySupported.</param>
-        /// <param name="paypalShowSignature">paypalShowSignature.</param>
-        /// <param name="paypalSignature">paypalSignature.</param>
-        /// <param name="paypalSolutionType">paypalSolutionType.</param>
-        /// <param name="paypalSummaryEmail">paypalSummaryEmail.</param>
-        /// <param name="paypalSummaryMode">paypalSummaryMode.</param>
-        /// <param name="paypalZeroDollarPenny">paypalZeroDollarPenny.</param>
-        /// <param name="pushPayPal">pushPayPal.</param>
+        /// <param name="acceptPaypal">Master flag that determine if PayPal is an active payment for this account.</param>
+        /// <param name="accountingCode">Optional accounting code that is set to Quickbooks when an order uses this payment method..</param>
+        /// <param name="apiPassword">PayPal API password.</param>
+        /// <param name="apiUsername">PayPal API username.</param>
+        /// <param name="certificateOnFile">(Legacy) true if there is a PayPal certificate already on file. Used to manage the internal UI.</param>
+        /// <param name="depositToAccount">The account to deposit funds.</param>
+        /// <param name="email">The main PayPal email address.</param>
+        /// <param name="environment">PayPal configuration, live or sandbox.</param>
+        /// <param name="headerImageUrl">The URL for the PayPal header.</param>
+        /// <param name="hideBillMeLater">True if the Bill Me Later button should be hidden during checkout.</param>
+        /// <param name="hideExpressCheckoutOnViewCart">True if the PayPal express checkout button should be hidden on the view cart page.  This will force the customer to enter address information before being able to checkout with PayPal.</param>
+        /// <param name="hideForUnshippedOrders">True if PayPal should be hidden for orders with no shippable product, such as digital orders.</param>
+        /// <param name="holdInAr">If true, PayPal orders are held in Accounts Receivable for review.</param>
+        /// <param name="landingPage">PayPal landing page.</param>
+        /// <param name="mode">The PayPal mode.</param>
+        /// <param name="privateKeyPassword">PayPal API private key password.</param>
+        /// <param name="processingFee">Optional additional fee to charge if PayPal is used.  It is rare for this to be used..</param>
+        /// <param name="processingPercentage">The processing percentage charged by PayPal.</param>
+        /// <param name="pushPaypal">True if the internal UI should recommend opening a PayPal account.</param>
         /// <param name="restrictions">restrictions.</param>
-        /// <param name="shortPayPalMarketingText">shortPayPalMarketingText.</param>
-        public PaymentsConfigurationPayPal(bool? acceptPayPal = default(bool?), string paypalAccountingCode = default(string), string paypalApiPassword = default(string), string paypalApiUserName = default(string), bool? paypalCertificateOnFile = default(bool?), string paypalDepositToAccount = default(string), string paypalEmail = default(string), string paypalEnvironment = default(string), string paypalHeaderImageUrl = default(string), bool? paypalHideBillMeLater = default(bool?), bool? paypalHideExpressCheckoutOnViewCart = default(bool?), bool? paypalHideForUnshippedOrders = default(bool?), bool? paypalHoldInAR = default(bool?), string paypalLandingPage = default(string), string paypalMode = default(string), string paypalPrivateKeyPassword = default(string), string paypalProcessingFee = default(string), string paypalProcessingPerc = default(string), string paypalSendRecurring = default(string), bool? paypalShowCardLogosNotDirectlySupported = default(bool?), bool? paypalShowSignature = default(bool?), string paypalSignature = default(string), string paypalSolutionType = default(string), string paypalSummaryEmail = default(string), string paypalSummaryMode = default(string), bool? paypalZeroDollarPenny = default(bool?), bool? pushPayPal = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? shortPayPalMarketingText = default(bool?))
+        /// <param name="sendRecurring">True if UltraCart should send recurring orders to PayPal.  There are restrictions to what PayPal will accept for recurring orders.  Be careful..</param>
+        /// <param name="shortPaypalMarketingText">Short marketing text.</param>
+        /// <param name="showCardLogosNotDirectlySupported">internal ui flag.</param>
+        /// <param name="showSignature">Internal flag used to manage UI.</param>
+        /// <param name="signature">PayPal signature.</param>
+        /// <param name="solutionType">PayPal solution type.</param>
+        /// <param name="summaryEmail">The email where PayPal summaries should be sent.</param>
+        /// <param name="summaryMode">Description of what mode PayPal is operating.</param>
+        /// <param name="zeroDollarPenny">Send free items to PayPal as one cent items and subtract this penny from shipping.  PayPal does not allow the sale of free items..</param>
+        public PaymentsConfigurationPayPal(bool? acceptPaypal = default(bool?), string accountingCode = default(string), string apiPassword = default(string), string apiUsername = default(string), bool? certificateOnFile = default(bool?), string depositToAccount = default(string), string email = default(string), EnvironmentEnum? environment = default(EnvironmentEnum?), string headerImageUrl = default(string), bool? hideBillMeLater = default(bool?), bool? hideExpressCheckoutOnViewCart = default(bool?), bool? hideForUnshippedOrders = default(bool?), bool? holdInAr = default(bool?), LandingPageEnum? landingPage = default(LandingPageEnum?), ModeEnum? mode = default(ModeEnum?), string privateKeyPassword = default(string), string processingFee = default(string), string processingPercentage = default(string), bool? pushPaypal = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? sendRecurring = default(bool?), bool? shortPaypalMarketingText = default(bool?), bool? showCardLogosNotDirectlySupported = default(bool?), bool? showSignature = default(bool?), string signature = default(string), SolutionTypeEnum? solutionType = default(SolutionTypeEnum?), string summaryEmail = default(string), string summaryMode = default(string), bool? zeroDollarPenny = default(bool?))
         {
-            this.AcceptPayPal = acceptPayPal;
-            this.PaypalAccountingCode = paypalAccountingCode;
-            this.PaypalApiPassword = paypalApiPassword;
-            this.PaypalApiUserName = paypalApiUserName;
-            this.PaypalCertificateOnFile = paypalCertificateOnFile;
-            this.PaypalDepositToAccount = paypalDepositToAccount;
-            this.PaypalEmail = paypalEmail;
-            this.PaypalEnvironment = paypalEnvironment;
-            this.PaypalHeaderImageUrl = paypalHeaderImageUrl;
-            this.PaypalHideBillMeLater = paypalHideBillMeLater;
-            this.PaypalHideExpressCheckoutOnViewCart = paypalHideExpressCheckoutOnViewCart;
-            this.PaypalHideForUnshippedOrders = paypalHideForUnshippedOrders;
-            this.PaypalHoldInAR = paypalHoldInAR;
-            this.PaypalLandingPage = paypalLandingPage;
-            this.PaypalMode = paypalMode;
-            this.PaypalPrivateKeyPassword = paypalPrivateKeyPassword;
-            this.PaypalProcessingFee = paypalProcessingFee;
-            this.PaypalProcessingPerc = paypalProcessingPerc;
-            this.PaypalSendRecurring = paypalSendRecurring;
-            this.PaypalShowCardLogosNotDirectlySupported = paypalShowCardLogosNotDirectlySupported;
-            this.PaypalShowSignature = paypalShowSignature;
-            this.PaypalSignature = paypalSignature;
-            this.PaypalSolutionType = paypalSolutionType;
-            this.PaypalSummaryEmail = paypalSummaryEmail;
-            this.PaypalSummaryMode = paypalSummaryMode;
-            this.PaypalZeroDollarPenny = paypalZeroDollarPenny;
-            this.PushPayPal = pushPayPal;
+            this.AcceptPaypal = acceptPaypal;
+            this.AccountingCode = accountingCode;
+            this.ApiPassword = apiPassword;
+            this.ApiUsername = apiUsername;
+            this.CertificateOnFile = certificateOnFile;
+            this.DepositToAccount = depositToAccount;
+            this.Email = email;
+            this.Environment = environment;
+            this.HeaderImageUrl = headerImageUrl;
+            this.HideBillMeLater = hideBillMeLater;
+            this.HideExpressCheckoutOnViewCart = hideExpressCheckoutOnViewCart;
+            this.HideForUnshippedOrders = hideForUnshippedOrders;
+            this.HoldInAr = holdInAr;
+            this.LandingPage = landingPage;
+            this.Mode = mode;
+            this.PrivateKeyPassword = privateKeyPassword;
+            this.ProcessingFee = processingFee;
+            this.ProcessingPercentage = processingPercentage;
+            this.PushPaypal = pushPaypal;
             this.Restrictions = restrictions;
-            this.ShortPayPalMarketingText = shortPayPalMarketingText;
+            this.SendRecurring = sendRecurring;
+            this.ShortPaypalMarketingText = shortPaypalMarketingText;
+            this.ShowCardLogosNotDirectlySupported = showCardLogosNotDirectlySupported;
+            this.ShowSignature = showSignature;
+            this.Signature = signature;
+            this.SolutionType = solutionType;
+            this.SummaryEmail = summaryEmail;
+            this.SummaryMode = summaryMode;
+            this.ZeroDollarPenny = zeroDollarPenny;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptPayPal
+        /// Master flag that determine if PayPal is an active payment for this account
         /// </summary>
-        [DataMember(Name="acceptPayPal", EmitDefaultValue=false)]
-        public bool? AcceptPayPal { get; set; }
+        /// <value>Master flag that determine if PayPal is an active payment for this account</value>
+        [DataMember(Name="accept_paypal", EmitDefaultValue=false)]
+        public bool? AcceptPaypal { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalAccountingCode
+        /// Optional accounting code that is set to Quickbooks when an order uses this payment method.
         /// </summary>
-        [DataMember(Name="paypalAccountingCode", EmitDefaultValue=false)]
-        public string PaypalAccountingCode { get; set; }
+        /// <value>Optional accounting code that is set to Quickbooks when an order uses this payment method.</value>
+        [DataMember(Name="accounting_code", EmitDefaultValue=false)]
+        public string AccountingCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalApiPassword
+        /// PayPal API password
         /// </summary>
-        [DataMember(Name="paypalApiPassword", EmitDefaultValue=false)]
-        public string PaypalApiPassword { get; set; }
+        /// <value>PayPal API password</value>
+        [DataMember(Name="api_password", EmitDefaultValue=false)]
+        public string ApiPassword { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalApiUserName
+        /// PayPal API username
         /// </summary>
-        [DataMember(Name="paypalApiUserName", EmitDefaultValue=false)]
-        public string PaypalApiUserName { get; set; }
+        /// <value>PayPal API username</value>
+        [DataMember(Name="api_username", EmitDefaultValue=false)]
+        public string ApiUsername { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalCertificateOnFile
+        /// (Legacy) true if there is a PayPal certificate already on file. Used to manage the internal UI
         /// </summary>
-        [DataMember(Name="paypalCertificateOnFile", EmitDefaultValue=false)]
-        public bool? PaypalCertificateOnFile { get; set; }
+        /// <value>(Legacy) true if there is a PayPal certificate already on file. Used to manage the internal UI</value>
+        [DataMember(Name="certificate_on_file", EmitDefaultValue=false)]
+        public bool? CertificateOnFile { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalDepositToAccount
+        /// The account to deposit funds
         /// </summary>
-        [DataMember(Name="paypalDepositToAccount", EmitDefaultValue=false)]
-        public string PaypalDepositToAccount { get; set; }
+        /// <value>The account to deposit funds</value>
+        [DataMember(Name="deposit_to_account", EmitDefaultValue=false)]
+        public string DepositToAccount { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalEmail
+        /// The main PayPal email address
         /// </summary>
-        [DataMember(Name="paypalEmail", EmitDefaultValue=false)]
-        public string PaypalEmail { get; set; }
+        /// <value>The main PayPal email address</value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
+
 
         /// <summary>
-        /// Gets or Sets PaypalEnvironment
+        /// The URL for the PayPal header
         /// </summary>
-        [DataMember(Name="paypalEnvironment", EmitDefaultValue=false)]
-        public string PaypalEnvironment { get; set; }
+        /// <value>The URL for the PayPal header</value>
+        [DataMember(Name="header_image_url", EmitDefaultValue=false)]
+        public string HeaderImageUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalHeaderImageUrl
+        /// True if the Bill Me Later button should be hidden during checkout
         /// </summary>
-        [DataMember(Name="paypalHeaderImageUrl", EmitDefaultValue=false)]
-        public string PaypalHeaderImageUrl { get; set; }
+        /// <value>True if the Bill Me Later button should be hidden during checkout</value>
+        [DataMember(Name="hide_bill_me_later", EmitDefaultValue=false)]
+        public bool? HideBillMeLater { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalHideBillMeLater
+        /// True if the PayPal express checkout button should be hidden on the view cart page.  This will force the customer to enter address information before being able to checkout with PayPal
         /// </summary>
-        [DataMember(Name="paypalHideBillMeLater", EmitDefaultValue=false)]
-        public bool? PaypalHideBillMeLater { get; set; }
+        /// <value>True if the PayPal express checkout button should be hidden on the view cart page.  This will force the customer to enter address information before being able to checkout with PayPal</value>
+        [DataMember(Name="hide_express_checkout_on_view_cart", EmitDefaultValue=false)]
+        public bool? HideExpressCheckoutOnViewCart { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalHideExpressCheckoutOnViewCart
+        /// True if PayPal should be hidden for orders with no shippable product, such as digital orders
         /// </summary>
-        [DataMember(Name="paypalHideExpressCheckoutOnViewCart", EmitDefaultValue=false)]
-        public bool? PaypalHideExpressCheckoutOnViewCart { get; set; }
+        /// <value>True if PayPal should be hidden for orders with no shippable product, such as digital orders</value>
+        [DataMember(Name="hide_for_unshipped_orders", EmitDefaultValue=false)]
+        public bool? HideForUnshippedOrders { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalHideForUnshippedOrders
+        /// If true, PayPal orders are held in Accounts Receivable for review
         /// </summary>
-        [DataMember(Name="paypalHideForUnshippedOrders", EmitDefaultValue=false)]
-        public bool? PaypalHideForUnshippedOrders { get; set; }
+        /// <value>If true, PayPal orders are held in Accounts Receivable for review</value>
+        [DataMember(Name="hold_in_ar", EmitDefaultValue=false)]
+        public bool? HoldInAr { get; set; }
+
+
 
         /// <summary>
-        /// Gets or Sets PaypalHoldInAR
+        /// PayPal API private key password
         /// </summary>
-        [DataMember(Name="paypalHoldInAR", EmitDefaultValue=false)]
-        public bool? PaypalHoldInAR { get; set; }
+        /// <value>PayPal API private key password</value>
+        [DataMember(Name="private_key_password", EmitDefaultValue=false)]
+        public string PrivateKeyPassword { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalLandingPage
+        /// Optional additional fee to charge if PayPal is used.  It is rare for this to be used.
         /// </summary>
-        [DataMember(Name="paypalLandingPage", EmitDefaultValue=false)]
-        public string PaypalLandingPage { get; set; }
+        /// <value>Optional additional fee to charge if PayPal is used.  It is rare for this to be used.</value>
+        [DataMember(Name="processing_fee", EmitDefaultValue=false)]
+        public string ProcessingFee { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalMode
+        /// The processing percentage charged by PayPal
         /// </summary>
-        [DataMember(Name="paypalMode", EmitDefaultValue=false)]
-        public string PaypalMode { get; set; }
+        /// <value>The processing percentage charged by PayPal</value>
+        [DataMember(Name="processing_percentage", EmitDefaultValue=false)]
+        public string ProcessingPercentage { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaypalPrivateKeyPassword
+        /// True if the internal UI should recommend opening a PayPal account
         /// </summary>
-        [DataMember(Name="paypalPrivateKeyPassword", EmitDefaultValue=false)]
-        public string PaypalPrivateKeyPassword { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaypalProcessingFee
-        /// </summary>
-        [DataMember(Name="paypalProcessingFee", EmitDefaultValue=false)]
-        public string PaypalProcessingFee { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaypalProcessingPerc
-        /// </summary>
-        [DataMember(Name="paypalProcessingPerc", EmitDefaultValue=false)]
-        public string PaypalProcessingPerc { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaypalSendRecurring
-        /// </summary>
-        [DataMember(Name="paypalSendRecurring", EmitDefaultValue=false)]
-        public string PaypalSendRecurring { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaypalShowCardLogosNotDirectlySupported
-        /// </summary>
-        [DataMember(Name="paypalShowCardLogosNotDirectlySupported", EmitDefaultValue=false)]
-        public bool? PaypalShowCardLogosNotDirectlySupported { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaypalShowSignature
-        /// </summary>
-        [DataMember(Name="paypalShowSignature", EmitDefaultValue=false)]
-        public bool? PaypalShowSignature { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaypalSignature
-        /// </summary>
-        [DataMember(Name="paypalSignature", EmitDefaultValue=false)]
-        public string PaypalSignature { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaypalSolutionType
-        /// </summary>
-        [DataMember(Name="paypalSolutionType", EmitDefaultValue=false)]
-        public string PaypalSolutionType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaypalSummaryEmail
-        /// </summary>
-        [DataMember(Name="paypalSummaryEmail", EmitDefaultValue=false)]
-        public string PaypalSummaryEmail { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaypalSummaryMode
-        /// </summary>
-        [DataMember(Name="paypalSummaryMode", EmitDefaultValue=false)]
-        public string PaypalSummaryMode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaypalZeroDollarPenny
-        /// </summary>
-        [DataMember(Name="paypalZeroDollarPenny", EmitDefaultValue=false)]
-        public bool? PaypalZeroDollarPenny { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PushPayPal
-        /// </summary>
-        [DataMember(Name="pushPayPal", EmitDefaultValue=false)]
-        public bool? PushPayPal { get; set; }
+        /// <value>True if the internal UI should recommend opening a PayPal account</value>
+        [DataMember(Name="push_paypal", EmitDefaultValue=false)]
+        public bool? PushPaypal { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
@@ -264,10 +325,61 @@ namespace com.ultracart.admin.v2.Model
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShortPayPalMarketingText
+        /// True if UltraCart should send recurring orders to PayPal.  There are restrictions to what PayPal will accept for recurring orders.  Be careful.
         /// </summary>
-        [DataMember(Name="shortPayPalMarketingText", EmitDefaultValue=false)]
-        public bool? ShortPayPalMarketingText { get; set; }
+        /// <value>True if UltraCart should send recurring orders to PayPal.  There are restrictions to what PayPal will accept for recurring orders.  Be careful.</value>
+        [DataMember(Name="send_recurring", EmitDefaultValue=false)]
+        public bool? SendRecurring { get; set; }
+
+        /// <summary>
+        /// Short marketing text
+        /// </summary>
+        /// <value>Short marketing text</value>
+        [DataMember(Name="short_paypal_marketing_text", EmitDefaultValue=false)]
+        public bool? ShortPaypalMarketingText { get; set; }
+
+        /// <summary>
+        /// internal ui flag
+        /// </summary>
+        /// <value>internal ui flag</value>
+        [DataMember(Name="show_card_logos_not_directly_supported", EmitDefaultValue=false)]
+        public bool? ShowCardLogosNotDirectlySupported { get; set; }
+
+        /// <summary>
+        /// Internal flag used to manage UI
+        /// </summary>
+        /// <value>Internal flag used to manage UI</value>
+        [DataMember(Name="show_signature", EmitDefaultValue=false)]
+        public bool? ShowSignature { get; set; }
+
+        /// <summary>
+        /// PayPal signature
+        /// </summary>
+        /// <value>PayPal signature</value>
+        [DataMember(Name="signature", EmitDefaultValue=false)]
+        public string Signature { get; set; }
+
+
+        /// <summary>
+        /// The email where PayPal summaries should be sent
+        /// </summary>
+        /// <value>The email where PayPal summaries should be sent</value>
+        [DataMember(Name="summary_email", EmitDefaultValue=false)]
+        public string SummaryEmail { get; set; }
+
+        /// <summary>
+        /// Description of what mode PayPal is operating
+        /// </summary>
+        /// <value>Description of what mode PayPal is operating</value>
+        [DataMember(Name="summary_mode", EmitDefaultValue=false)]
+        public string SummaryMode { get; set; }
+
+        /// <summary>
+        /// Send free items to PayPal as one cent items and subtract this penny from shipping.  PayPal does not allow the sale of free items.
+        /// </summary>
+        /// <value>Send free items to PayPal as one cent items and subtract this penny from shipping.  PayPal does not allow the sale of free items.</value>
+        [DataMember(Name="zero_dollar_penny", EmitDefaultValue=false)]
+        public bool? ZeroDollarPenny { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -277,35 +389,35 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationPayPal {\n");
-            sb.Append("  AcceptPayPal: ").Append(AcceptPayPal).Append("\n");
-            sb.Append("  PaypalAccountingCode: ").Append(PaypalAccountingCode).Append("\n");
-            sb.Append("  PaypalApiPassword: ").Append(PaypalApiPassword).Append("\n");
-            sb.Append("  PaypalApiUserName: ").Append(PaypalApiUserName).Append("\n");
-            sb.Append("  PaypalCertificateOnFile: ").Append(PaypalCertificateOnFile).Append("\n");
-            sb.Append("  PaypalDepositToAccount: ").Append(PaypalDepositToAccount).Append("\n");
-            sb.Append("  PaypalEmail: ").Append(PaypalEmail).Append("\n");
-            sb.Append("  PaypalEnvironment: ").Append(PaypalEnvironment).Append("\n");
-            sb.Append("  PaypalHeaderImageUrl: ").Append(PaypalHeaderImageUrl).Append("\n");
-            sb.Append("  PaypalHideBillMeLater: ").Append(PaypalHideBillMeLater).Append("\n");
-            sb.Append("  PaypalHideExpressCheckoutOnViewCart: ").Append(PaypalHideExpressCheckoutOnViewCart).Append("\n");
-            sb.Append("  PaypalHideForUnshippedOrders: ").Append(PaypalHideForUnshippedOrders).Append("\n");
-            sb.Append("  PaypalHoldInAR: ").Append(PaypalHoldInAR).Append("\n");
-            sb.Append("  PaypalLandingPage: ").Append(PaypalLandingPage).Append("\n");
-            sb.Append("  PaypalMode: ").Append(PaypalMode).Append("\n");
-            sb.Append("  PaypalPrivateKeyPassword: ").Append(PaypalPrivateKeyPassword).Append("\n");
-            sb.Append("  PaypalProcessingFee: ").Append(PaypalProcessingFee).Append("\n");
-            sb.Append("  PaypalProcessingPerc: ").Append(PaypalProcessingPerc).Append("\n");
-            sb.Append("  PaypalSendRecurring: ").Append(PaypalSendRecurring).Append("\n");
-            sb.Append("  PaypalShowCardLogosNotDirectlySupported: ").Append(PaypalShowCardLogosNotDirectlySupported).Append("\n");
-            sb.Append("  PaypalShowSignature: ").Append(PaypalShowSignature).Append("\n");
-            sb.Append("  PaypalSignature: ").Append(PaypalSignature).Append("\n");
-            sb.Append("  PaypalSolutionType: ").Append(PaypalSolutionType).Append("\n");
-            sb.Append("  PaypalSummaryEmail: ").Append(PaypalSummaryEmail).Append("\n");
-            sb.Append("  PaypalSummaryMode: ").Append(PaypalSummaryMode).Append("\n");
-            sb.Append("  PaypalZeroDollarPenny: ").Append(PaypalZeroDollarPenny).Append("\n");
-            sb.Append("  PushPayPal: ").Append(PushPayPal).Append("\n");
+            sb.Append("  AcceptPaypal: ").Append(AcceptPaypal).Append("\n");
+            sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
+            sb.Append("  ApiPassword: ").Append(ApiPassword).Append("\n");
+            sb.Append("  ApiUsername: ").Append(ApiUsername).Append("\n");
+            sb.Append("  CertificateOnFile: ").Append(CertificateOnFile).Append("\n");
+            sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  Environment: ").Append(Environment).Append("\n");
+            sb.Append("  HeaderImageUrl: ").Append(HeaderImageUrl).Append("\n");
+            sb.Append("  HideBillMeLater: ").Append(HideBillMeLater).Append("\n");
+            sb.Append("  HideExpressCheckoutOnViewCart: ").Append(HideExpressCheckoutOnViewCart).Append("\n");
+            sb.Append("  HideForUnshippedOrders: ").Append(HideForUnshippedOrders).Append("\n");
+            sb.Append("  HoldInAr: ").Append(HoldInAr).Append("\n");
+            sb.Append("  LandingPage: ").Append(LandingPage).Append("\n");
+            sb.Append("  Mode: ").Append(Mode).Append("\n");
+            sb.Append("  PrivateKeyPassword: ").Append(PrivateKeyPassword).Append("\n");
+            sb.Append("  ProcessingFee: ").Append(ProcessingFee).Append("\n");
+            sb.Append("  ProcessingPercentage: ").Append(ProcessingPercentage).Append("\n");
+            sb.Append("  PushPaypal: ").Append(PushPaypal).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
-            sb.Append("  ShortPayPalMarketingText: ").Append(ShortPayPalMarketingText).Append("\n");
+            sb.Append("  SendRecurring: ").Append(SendRecurring).Append("\n");
+            sb.Append("  ShortPaypalMarketingText: ").Append(ShortPaypalMarketingText).Append("\n");
+            sb.Append("  ShowCardLogosNotDirectlySupported: ").Append(ShowCardLogosNotDirectlySupported).Append("\n");
+            sb.Append("  ShowSignature: ").Append(ShowSignature).Append("\n");
+            sb.Append("  Signature: ").Append(Signature).Append("\n");
+            sb.Append("  SolutionType: ").Append(SolutionType).Append("\n");
+            sb.Append("  SummaryEmail: ").Append(SummaryEmail).Append("\n");
+            sb.Append("  SummaryMode: ").Append(SummaryMode).Append("\n");
+            sb.Append("  ZeroDollarPenny: ").Append(ZeroDollarPenny).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -341,139 +453,99 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.AcceptPayPal == input.AcceptPayPal ||
-                    (this.AcceptPayPal != null &&
-                    this.AcceptPayPal.Equals(input.AcceptPayPal))
+                    this.AcceptPaypal == input.AcceptPaypal ||
+                    (this.AcceptPaypal != null &&
+                    this.AcceptPaypal.Equals(input.AcceptPaypal))
                 ) && 
                 (
-                    this.PaypalAccountingCode == input.PaypalAccountingCode ||
-                    (this.PaypalAccountingCode != null &&
-                    this.PaypalAccountingCode.Equals(input.PaypalAccountingCode))
+                    this.AccountingCode == input.AccountingCode ||
+                    (this.AccountingCode != null &&
+                    this.AccountingCode.Equals(input.AccountingCode))
                 ) && 
                 (
-                    this.PaypalApiPassword == input.PaypalApiPassword ||
-                    (this.PaypalApiPassword != null &&
-                    this.PaypalApiPassword.Equals(input.PaypalApiPassword))
+                    this.ApiPassword == input.ApiPassword ||
+                    (this.ApiPassword != null &&
+                    this.ApiPassword.Equals(input.ApiPassword))
                 ) && 
                 (
-                    this.PaypalApiUserName == input.PaypalApiUserName ||
-                    (this.PaypalApiUserName != null &&
-                    this.PaypalApiUserName.Equals(input.PaypalApiUserName))
+                    this.ApiUsername == input.ApiUsername ||
+                    (this.ApiUsername != null &&
+                    this.ApiUsername.Equals(input.ApiUsername))
                 ) && 
                 (
-                    this.PaypalCertificateOnFile == input.PaypalCertificateOnFile ||
-                    (this.PaypalCertificateOnFile != null &&
-                    this.PaypalCertificateOnFile.Equals(input.PaypalCertificateOnFile))
+                    this.CertificateOnFile == input.CertificateOnFile ||
+                    (this.CertificateOnFile != null &&
+                    this.CertificateOnFile.Equals(input.CertificateOnFile))
                 ) && 
                 (
-                    this.PaypalDepositToAccount == input.PaypalDepositToAccount ||
-                    (this.PaypalDepositToAccount != null &&
-                    this.PaypalDepositToAccount.Equals(input.PaypalDepositToAccount))
+                    this.DepositToAccount == input.DepositToAccount ||
+                    (this.DepositToAccount != null &&
+                    this.DepositToAccount.Equals(input.DepositToAccount))
                 ) && 
                 (
-                    this.PaypalEmail == input.PaypalEmail ||
-                    (this.PaypalEmail != null &&
-                    this.PaypalEmail.Equals(input.PaypalEmail))
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 ) && 
                 (
-                    this.PaypalEnvironment == input.PaypalEnvironment ||
-                    (this.PaypalEnvironment != null &&
-                    this.PaypalEnvironment.Equals(input.PaypalEnvironment))
+                    this.Environment == input.Environment ||
+                    (this.Environment != null &&
+                    this.Environment.Equals(input.Environment))
                 ) && 
                 (
-                    this.PaypalHeaderImageUrl == input.PaypalHeaderImageUrl ||
-                    (this.PaypalHeaderImageUrl != null &&
-                    this.PaypalHeaderImageUrl.Equals(input.PaypalHeaderImageUrl))
+                    this.HeaderImageUrl == input.HeaderImageUrl ||
+                    (this.HeaderImageUrl != null &&
+                    this.HeaderImageUrl.Equals(input.HeaderImageUrl))
                 ) && 
                 (
-                    this.PaypalHideBillMeLater == input.PaypalHideBillMeLater ||
-                    (this.PaypalHideBillMeLater != null &&
-                    this.PaypalHideBillMeLater.Equals(input.PaypalHideBillMeLater))
+                    this.HideBillMeLater == input.HideBillMeLater ||
+                    (this.HideBillMeLater != null &&
+                    this.HideBillMeLater.Equals(input.HideBillMeLater))
                 ) && 
                 (
-                    this.PaypalHideExpressCheckoutOnViewCart == input.PaypalHideExpressCheckoutOnViewCart ||
-                    (this.PaypalHideExpressCheckoutOnViewCart != null &&
-                    this.PaypalHideExpressCheckoutOnViewCart.Equals(input.PaypalHideExpressCheckoutOnViewCart))
+                    this.HideExpressCheckoutOnViewCart == input.HideExpressCheckoutOnViewCart ||
+                    (this.HideExpressCheckoutOnViewCart != null &&
+                    this.HideExpressCheckoutOnViewCart.Equals(input.HideExpressCheckoutOnViewCart))
                 ) && 
                 (
-                    this.PaypalHideForUnshippedOrders == input.PaypalHideForUnshippedOrders ||
-                    (this.PaypalHideForUnshippedOrders != null &&
-                    this.PaypalHideForUnshippedOrders.Equals(input.PaypalHideForUnshippedOrders))
+                    this.HideForUnshippedOrders == input.HideForUnshippedOrders ||
+                    (this.HideForUnshippedOrders != null &&
+                    this.HideForUnshippedOrders.Equals(input.HideForUnshippedOrders))
                 ) && 
                 (
-                    this.PaypalHoldInAR == input.PaypalHoldInAR ||
-                    (this.PaypalHoldInAR != null &&
-                    this.PaypalHoldInAR.Equals(input.PaypalHoldInAR))
+                    this.HoldInAr == input.HoldInAr ||
+                    (this.HoldInAr != null &&
+                    this.HoldInAr.Equals(input.HoldInAr))
                 ) && 
                 (
-                    this.PaypalLandingPage == input.PaypalLandingPage ||
-                    (this.PaypalLandingPage != null &&
-                    this.PaypalLandingPage.Equals(input.PaypalLandingPage))
+                    this.LandingPage == input.LandingPage ||
+                    (this.LandingPage != null &&
+                    this.LandingPage.Equals(input.LandingPage))
                 ) && 
                 (
-                    this.PaypalMode == input.PaypalMode ||
-                    (this.PaypalMode != null &&
-                    this.PaypalMode.Equals(input.PaypalMode))
+                    this.Mode == input.Mode ||
+                    (this.Mode != null &&
+                    this.Mode.Equals(input.Mode))
                 ) && 
                 (
-                    this.PaypalPrivateKeyPassword == input.PaypalPrivateKeyPassword ||
-                    (this.PaypalPrivateKeyPassword != null &&
-                    this.PaypalPrivateKeyPassword.Equals(input.PaypalPrivateKeyPassword))
+                    this.PrivateKeyPassword == input.PrivateKeyPassword ||
+                    (this.PrivateKeyPassword != null &&
+                    this.PrivateKeyPassword.Equals(input.PrivateKeyPassword))
                 ) && 
                 (
-                    this.PaypalProcessingFee == input.PaypalProcessingFee ||
-                    (this.PaypalProcessingFee != null &&
-                    this.PaypalProcessingFee.Equals(input.PaypalProcessingFee))
+                    this.ProcessingFee == input.ProcessingFee ||
+                    (this.ProcessingFee != null &&
+                    this.ProcessingFee.Equals(input.ProcessingFee))
                 ) && 
                 (
-                    this.PaypalProcessingPerc == input.PaypalProcessingPerc ||
-                    (this.PaypalProcessingPerc != null &&
-                    this.PaypalProcessingPerc.Equals(input.PaypalProcessingPerc))
+                    this.ProcessingPercentage == input.ProcessingPercentage ||
+                    (this.ProcessingPercentage != null &&
+                    this.ProcessingPercentage.Equals(input.ProcessingPercentage))
                 ) && 
                 (
-                    this.PaypalSendRecurring == input.PaypalSendRecurring ||
-                    (this.PaypalSendRecurring != null &&
-                    this.PaypalSendRecurring.Equals(input.PaypalSendRecurring))
-                ) && 
-                (
-                    this.PaypalShowCardLogosNotDirectlySupported == input.PaypalShowCardLogosNotDirectlySupported ||
-                    (this.PaypalShowCardLogosNotDirectlySupported != null &&
-                    this.PaypalShowCardLogosNotDirectlySupported.Equals(input.PaypalShowCardLogosNotDirectlySupported))
-                ) && 
-                (
-                    this.PaypalShowSignature == input.PaypalShowSignature ||
-                    (this.PaypalShowSignature != null &&
-                    this.PaypalShowSignature.Equals(input.PaypalShowSignature))
-                ) && 
-                (
-                    this.PaypalSignature == input.PaypalSignature ||
-                    (this.PaypalSignature != null &&
-                    this.PaypalSignature.Equals(input.PaypalSignature))
-                ) && 
-                (
-                    this.PaypalSolutionType == input.PaypalSolutionType ||
-                    (this.PaypalSolutionType != null &&
-                    this.PaypalSolutionType.Equals(input.PaypalSolutionType))
-                ) && 
-                (
-                    this.PaypalSummaryEmail == input.PaypalSummaryEmail ||
-                    (this.PaypalSummaryEmail != null &&
-                    this.PaypalSummaryEmail.Equals(input.PaypalSummaryEmail))
-                ) && 
-                (
-                    this.PaypalSummaryMode == input.PaypalSummaryMode ||
-                    (this.PaypalSummaryMode != null &&
-                    this.PaypalSummaryMode.Equals(input.PaypalSummaryMode))
-                ) && 
-                (
-                    this.PaypalZeroDollarPenny == input.PaypalZeroDollarPenny ||
-                    (this.PaypalZeroDollarPenny != null &&
-                    this.PaypalZeroDollarPenny.Equals(input.PaypalZeroDollarPenny))
-                ) && 
-                (
-                    this.PushPayPal == input.PushPayPal ||
-                    (this.PushPayPal != null &&
-                    this.PushPayPal.Equals(input.PushPayPal))
+                    this.PushPaypal == input.PushPaypal ||
+                    (this.PushPaypal != null &&
+                    this.PushPaypal.Equals(input.PushPaypal))
                 ) && 
                 (
                     this.Restrictions == input.Restrictions ||
@@ -481,9 +553,49 @@ namespace com.ultracart.admin.v2.Model
                     this.Restrictions.Equals(input.Restrictions))
                 ) && 
                 (
-                    this.ShortPayPalMarketingText == input.ShortPayPalMarketingText ||
-                    (this.ShortPayPalMarketingText != null &&
-                    this.ShortPayPalMarketingText.Equals(input.ShortPayPalMarketingText))
+                    this.SendRecurring == input.SendRecurring ||
+                    (this.SendRecurring != null &&
+                    this.SendRecurring.Equals(input.SendRecurring))
+                ) && 
+                (
+                    this.ShortPaypalMarketingText == input.ShortPaypalMarketingText ||
+                    (this.ShortPaypalMarketingText != null &&
+                    this.ShortPaypalMarketingText.Equals(input.ShortPaypalMarketingText))
+                ) && 
+                (
+                    this.ShowCardLogosNotDirectlySupported == input.ShowCardLogosNotDirectlySupported ||
+                    (this.ShowCardLogosNotDirectlySupported != null &&
+                    this.ShowCardLogosNotDirectlySupported.Equals(input.ShowCardLogosNotDirectlySupported))
+                ) && 
+                (
+                    this.ShowSignature == input.ShowSignature ||
+                    (this.ShowSignature != null &&
+                    this.ShowSignature.Equals(input.ShowSignature))
+                ) && 
+                (
+                    this.Signature == input.Signature ||
+                    (this.Signature != null &&
+                    this.Signature.Equals(input.Signature))
+                ) && 
+                (
+                    this.SolutionType == input.SolutionType ||
+                    (this.SolutionType != null &&
+                    this.SolutionType.Equals(input.SolutionType))
+                ) && 
+                (
+                    this.SummaryEmail == input.SummaryEmail ||
+                    (this.SummaryEmail != null &&
+                    this.SummaryEmail.Equals(input.SummaryEmail))
+                ) && 
+                (
+                    this.SummaryMode == input.SummaryMode ||
+                    (this.SummaryMode != null &&
+                    this.SummaryMode.Equals(input.SummaryMode))
+                ) && 
+                (
+                    this.ZeroDollarPenny == input.ZeroDollarPenny ||
+                    (this.ZeroDollarPenny != null &&
+                    this.ZeroDollarPenny.Equals(input.ZeroDollarPenny))
                 );
         }
 
@@ -496,64 +608,64 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AcceptPayPal != null)
-                    hashCode = hashCode * 59 + this.AcceptPayPal.GetHashCode();
-                if (this.PaypalAccountingCode != null)
-                    hashCode = hashCode * 59 + this.PaypalAccountingCode.GetHashCode();
-                if (this.PaypalApiPassword != null)
-                    hashCode = hashCode * 59 + this.PaypalApiPassword.GetHashCode();
-                if (this.PaypalApiUserName != null)
-                    hashCode = hashCode * 59 + this.PaypalApiUserName.GetHashCode();
-                if (this.PaypalCertificateOnFile != null)
-                    hashCode = hashCode * 59 + this.PaypalCertificateOnFile.GetHashCode();
-                if (this.PaypalDepositToAccount != null)
-                    hashCode = hashCode * 59 + this.PaypalDepositToAccount.GetHashCode();
-                if (this.PaypalEmail != null)
-                    hashCode = hashCode * 59 + this.PaypalEmail.GetHashCode();
-                if (this.PaypalEnvironment != null)
-                    hashCode = hashCode * 59 + this.PaypalEnvironment.GetHashCode();
-                if (this.PaypalHeaderImageUrl != null)
-                    hashCode = hashCode * 59 + this.PaypalHeaderImageUrl.GetHashCode();
-                if (this.PaypalHideBillMeLater != null)
-                    hashCode = hashCode * 59 + this.PaypalHideBillMeLater.GetHashCode();
-                if (this.PaypalHideExpressCheckoutOnViewCart != null)
-                    hashCode = hashCode * 59 + this.PaypalHideExpressCheckoutOnViewCart.GetHashCode();
-                if (this.PaypalHideForUnshippedOrders != null)
-                    hashCode = hashCode * 59 + this.PaypalHideForUnshippedOrders.GetHashCode();
-                if (this.PaypalHoldInAR != null)
-                    hashCode = hashCode * 59 + this.PaypalHoldInAR.GetHashCode();
-                if (this.PaypalLandingPage != null)
-                    hashCode = hashCode * 59 + this.PaypalLandingPage.GetHashCode();
-                if (this.PaypalMode != null)
-                    hashCode = hashCode * 59 + this.PaypalMode.GetHashCode();
-                if (this.PaypalPrivateKeyPassword != null)
-                    hashCode = hashCode * 59 + this.PaypalPrivateKeyPassword.GetHashCode();
-                if (this.PaypalProcessingFee != null)
-                    hashCode = hashCode * 59 + this.PaypalProcessingFee.GetHashCode();
-                if (this.PaypalProcessingPerc != null)
-                    hashCode = hashCode * 59 + this.PaypalProcessingPerc.GetHashCode();
-                if (this.PaypalSendRecurring != null)
-                    hashCode = hashCode * 59 + this.PaypalSendRecurring.GetHashCode();
-                if (this.PaypalShowCardLogosNotDirectlySupported != null)
-                    hashCode = hashCode * 59 + this.PaypalShowCardLogosNotDirectlySupported.GetHashCode();
-                if (this.PaypalShowSignature != null)
-                    hashCode = hashCode * 59 + this.PaypalShowSignature.GetHashCode();
-                if (this.PaypalSignature != null)
-                    hashCode = hashCode * 59 + this.PaypalSignature.GetHashCode();
-                if (this.PaypalSolutionType != null)
-                    hashCode = hashCode * 59 + this.PaypalSolutionType.GetHashCode();
-                if (this.PaypalSummaryEmail != null)
-                    hashCode = hashCode * 59 + this.PaypalSummaryEmail.GetHashCode();
-                if (this.PaypalSummaryMode != null)
-                    hashCode = hashCode * 59 + this.PaypalSummaryMode.GetHashCode();
-                if (this.PaypalZeroDollarPenny != null)
-                    hashCode = hashCode * 59 + this.PaypalZeroDollarPenny.GetHashCode();
-                if (this.PushPayPal != null)
-                    hashCode = hashCode * 59 + this.PushPayPal.GetHashCode();
+                if (this.AcceptPaypal != null)
+                    hashCode = hashCode * 59 + this.AcceptPaypal.GetHashCode();
+                if (this.AccountingCode != null)
+                    hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
+                if (this.ApiPassword != null)
+                    hashCode = hashCode * 59 + this.ApiPassword.GetHashCode();
+                if (this.ApiUsername != null)
+                    hashCode = hashCode * 59 + this.ApiUsername.GetHashCode();
+                if (this.CertificateOnFile != null)
+                    hashCode = hashCode * 59 + this.CertificateOnFile.GetHashCode();
+                if (this.DepositToAccount != null)
+                    hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
+                if (this.Email != null)
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
+                if (this.Environment != null)
+                    hashCode = hashCode * 59 + this.Environment.GetHashCode();
+                if (this.HeaderImageUrl != null)
+                    hashCode = hashCode * 59 + this.HeaderImageUrl.GetHashCode();
+                if (this.HideBillMeLater != null)
+                    hashCode = hashCode * 59 + this.HideBillMeLater.GetHashCode();
+                if (this.HideExpressCheckoutOnViewCart != null)
+                    hashCode = hashCode * 59 + this.HideExpressCheckoutOnViewCart.GetHashCode();
+                if (this.HideForUnshippedOrders != null)
+                    hashCode = hashCode * 59 + this.HideForUnshippedOrders.GetHashCode();
+                if (this.HoldInAr != null)
+                    hashCode = hashCode * 59 + this.HoldInAr.GetHashCode();
+                if (this.LandingPage != null)
+                    hashCode = hashCode * 59 + this.LandingPage.GetHashCode();
+                if (this.Mode != null)
+                    hashCode = hashCode * 59 + this.Mode.GetHashCode();
+                if (this.PrivateKeyPassword != null)
+                    hashCode = hashCode * 59 + this.PrivateKeyPassword.GetHashCode();
+                if (this.ProcessingFee != null)
+                    hashCode = hashCode * 59 + this.ProcessingFee.GetHashCode();
+                if (this.ProcessingPercentage != null)
+                    hashCode = hashCode * 59 + this.ProcessingPercentage.GetHashCode();
+                if (this.PushPaypal != null)
+                    hashCode = hashCode * 59 + this.PushPaypal.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
-                if (this.ShortPayPalMarketingText != null)
-                    hashCode = hashCode * 59 + this.ShortPayPalMarketingText.GetHashCode();
+                if (this.SendRecurring != null)
+                    hashCode = hashCode * 59 + this.SendRecurring.GetHashCode();
+                if (this.ShortPaypalMarketingText != null)
+                    hashCode = hashCode * 59 + this.ShortPaypalMarketingText.GetHashCode();
+                if (this.ShowCardLogosNotDirectlySupported != null)
+                    hashCode = hashCode * 59 + this.ShowCardLogosNotDirectlySupported.GetHashCode();
+                if (this.ShowSignature != null)
+                    hashCode = hashCode * 59 + this.ShowSignature.GetHashCode();
+                if (this.Signature != null)
+                    hashCode = hashCode * 59 + this.Signature.GetHashCode();
+                if (this.SolutionType != null)
+                    hashCode = hashCode * 59 + this.SolutionType.GetHashCode();
+                if (this.SummaryEmail != null)
+                    hashCode = hashCode * 59 + this.SummaryEmail.GetHashCode();
+                if (this.SummaryMode != null)
+                    hashCode = hashCode * 59 + this.SummaryMode.GetHashCode();
+                if (this.ZeroDollarPenny != null)
+                    hashCode = hashCode * 59 + this.ZeroDollarPenny.GetHashCode();
                 return hashCode;
             }
         }

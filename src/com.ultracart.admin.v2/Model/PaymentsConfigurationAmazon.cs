@@ -33,73 +33,80 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationAmazon" /> class.
         /// </summary>
-        /// <param name="acceptAmazon">acceptAmazon.</param>
-        /// <param name="amazonAccessKeyId">amazonAccessKeyId.</param>
-        /// <param name="amazonAccountingCode">amazonAccountingCode.</param>
-        /// <param name="amazonDepositToAccount">amazonDepositToAccount.</param>
-        /// <param name="amazonMerchantId">amazonMerchantId.</param>
-        /// <param name="amazonSandbox">amazonSandbox.</param>
-        /// <param name="amazonSecretAccessKey">amazonSecretAccessKey.</param>
+        /// <param name="acceptAmazon">Master flag to determine if this merchant accepts Pay by Amazon.</param>
+        /// <param name="accessKeyId">Amazon access key ID.</param>
+        /// <param name="accountingCode">Optional accounting code for use with Quickbooks integrations.</param>
+        /// <param name="amazonMerchantId">Amazon merchant ID.</param>
+        /// <param name="depositToAccount">Optional deposit to account field for use with Quickbooks integrations.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationAmazon(bool? acceptAmazon = default(bool?), string amazonAccessKeyId = default(string), string amazonAccountingCode = default(string), string amazonDepositToAccount = default(string), string amazonMerchantId = default(string), bool? amazonSandbox = default(bool?), string amazonSecretAccessKey = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        /// <param name="sandbox">True if transactions should run against the Amazon sandbox.  Useful for testing not configurations.</param>
+        /// <param name="secretAccessKey">Amazon secret access key.</param>
+        public PaymentsConfigurationAmazon(bool? acceptAmazon = default(bool?), string accessKeyId = default(string), string accountingCode = default(string), string amazonMerchantId = default(string), string depositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? sandbox = default(bool?), string secretAccessKey = default(string))
         {
             this.AcceptAmazon = acceptAmazon;
-            this.AmazonAccessKeyId = amazonAccessKeyId;
-            this.AmazonAccountingCode = amazonAccountingCode;
-            this.AmazonDepositToAccount = amazonDepositToAccount;
+            this.AccessKeyId = accessKeyId;
+            this.AccountingCode = accountingCode;
             this.AmazonMerchantId = amazonMerchantId;
-            this.AmazonSandbox = amazonSandbox;
-            this.AmazonSecretAccessKey = amazonSecretAccessKey;
+            this.DepositToAccount = depositToAccount;
             this.Restrictions = restrictions;
+            this.Sandbox = sandbox;
+            this.SecretAccessKey = secretAccessKey;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptAmazon
+        /// Master flag to determine if this merchant accepts Pay by Amazon
         /// </summary>
-        [DataMember(Name="acceptAmazon", EmitDefaultValue=false)]
+        /// <value>Master flag to determine if this merchant accepts Pay by Amazon</value>
+        [DataMember(Name="accept_amazon", EmitDefaultValue=false)]
         public bool? AcceptAmazon { get; set; }
 
         /// <summary>
-        /// Gets or Sets AmazonAccessKeyId
+        /// Amazon access key ID
         /// </summary>
-        [DataMember(Name="amazonAccessKeyId", EmitDefaultValue=false)]
-        public string AmazonAccessKeyId { get; set; }
+        /// <value>Amazon access key ID</value>
+        [DataMember(Name="access_key_id", EmitDefaultValue=false)]
+        public string AccessKeyId { get; set; }
 
         /// <summary>
-        /// Gets or Sets AmazonAccountingCode
+        /// Optional accounting code for use with Quickbooks integrations
         /// </summary>
-        [DataMember(Name="amazonAccountingCode", EmitDefaultValue=false)]
-        public string AmazonAccountingCode { get; set; }
+        /// <value>Optional accounting code for use with Quickbooks integrations</value>
+        [DataMember(Name="accounting_code", EmitDefaultValue=false)]
+        public string AccountingCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets AmazonDepositToAccount
+        /// Amazon merchant ID
         /// </summary>
-        [DataMember(Name="amazonDepositToAccount", EmitDefaultValue=false)]
-        public string AmazonDepositToAccount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AmazonMerchantId
-        /// </summary>
-        [DataMember(Name="amazonMerchantId", EmitDefaultValue=false)]
+        /// <value>Amazon merchant ID</value>
+        [DataMember(Name="amazon_merchant_id", EmitDefaultValue=false)]
         public string AmazonMerchantId { get; set; }
 
         /// <summary>
-        /// Gets or Sets AmazonSandbox
+        /// Optional deposit to account field for use with Quickbooks integrations
         /// </summary>
-        [DataMember(Name="amazonSandbox", EmitDefaultValue=false)]
-        public bool? AmazonSandbox { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AmazonSecretAccessKey
-        /// </summary>
-        [DataMember(Name="amazonSecretAccessKey", EmitDefaultValue=false)]
-        public string AmazonSecretAccessKey { get; set; }
+        /// <value>Optional deposit to account field for use with Quickbooks integrations</value>
+        [DataMember(Name="deposit_to_account", EmitDefaultValue=false)]
+        public string DepositToAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
         /// </summary>
         [DataMember(Name="restrictions", EmitDefaultValue=false)]
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
+
+        /// <summary>
+        /// True if transactions should run against the Amazon sandbox.  Useful for testing not configurations
+        /// </summary>
+        /// <value>True if transactions should run against the Amazon sandbox.  Useful for testing not configurations</value>
+        [DataMember(Name="sandbox", EmitDefaultValue=false)]
+        public bool? Sandbox { get; set; }
+
+        /// <summary>
+        /// Amazon secret access key
+        /// </summary>
+        /// <value>Amazon secret access key</value>
+        [DataMember(Name="secret_access_key", EmitDefaultValue=false)]
+        public string SecretAccessKey { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,13 +117,13 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationAmazon {\n");
             sb.Append("  AcceptAmazon: ").Append(AcceptAmazon).Append("\n");
-            sb.Append("  AmazonAccessKeyId: ").Append(AmazonAccessKeyId).Append("\n");
-            sb.Append("  AmazonAccountingCode: ").Append(AmazonAccountingCode).Append("\n");
-            sb.Append("  AmazonDepositToAccount: ").Append(AmazonDepositToAccount).Append("\n");
+            sb.Append("  AccessKeyId: ").Append(AccessKeyId).Append("\n");
+            sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
             sb.Append("  AmazonMerchantId: ").Append(AmazonMerchantId).Append("\n");
-            sb.Append("  AmazonSandbox: ").Append(AmazonSandbox).Append("\n");
-            sb.Append("  AmazonSecretAccessKey: ").Append(AmazonSecretAccessKey).Append("\n");
+            sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
+            sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
+            sb.Append("  SecretAccessKey: ").Append(SecretAccessKey).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,19 +164,14 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptAmazon.Equals(input.AcceptAmazon))
                 ) && 
                 (
-                    this.AmazonAccessKeyId == input.AmazonAccessKeyId ||
-                    (this.AmazonAccessKeyId != null &&
-                    this.AmazonAccessKeyId.Equals(input.AmazonAccessKeyId))
+                    this.AccessKeyId == input.AccessKeyId ||
+                    (this.AccessKeyId != null &&
+                    this.AccessKeyId.Equals(input.AccessKeyId))
                 ) && 
                 (
-                    this.AmazonAccountingCode == input.AmazonAccountingCode ||
-                    (this.AmazonAccountingCode != null &&
-                    this.AmazonAccountingCode.Equals(input.AmazonAccountingCode))
-                ) && 
-                (
-                    this.AmazonDepositToAccount == input.AmazonDepositToAccount ||
-                    (this.AmazonDepositToAccount != null &&
-                    this.AmazonDepositToAccount.Equals(input.AmazonDepositToAccount))
+                    this.AccountingCode == input.AccountingCode ||
+                    (this.AccountingCode != null &&
+                    this.AccountingCode.Equals(input.AccountingCode))
                 ) && 
                 (
                     this.AmazonMerchantId == input.AmazonMerchantId ||
@@ -177,19 +179,24 @@ namespace com.ultracart.admin.v2.Model
                     this.AmazonMerchantId.Equals(input.AmazonMerchantId))
                 ) && 
                 (
-                    this.AmazonSandbox == input.AmazonSandbox ||
-                    (this.AmazonSandbox != null &&
-                    this.AmazonSandbox.Equals(input.AmazonSandbox))
-                ) && 
-                (
-                    this.AmazonSecretAccessKey == input.AmazonSecretAccessKey ||
-                    (this.AmazonSecretAccessKey != null &&
-                    this.AmazonSecretAccessKey.Equals(input.AmazonSecretAccessKey))
+                    this.DepositToAccount == input.DepositToAccount ||
+                    (this.DepositToAccount != null &&
+                    this.DepositToAccount.Equals(input.DepositToAccount))
                 ) && 
                 (
                     this.Restrictions == input.Restrictions ||
                     (this.Restrictions != null &&
                     this.Restrictions.Equals(input.Restrictions))
+                ) && 
+                (
+                    this.Sandbox == input.Sandbox ||
+                    (this.Sandbox != null &&
+                    this.Sandbox.Equals(input.Sandbox))
+                ) && 
+                (
+                    this.SecretAccessKey == input.SecretAccessKey ||
+                    (this.SecretAccessKey != null &&
+                    this.SecretAccessKey.Equals(input.SecretAccessKey))
                 );
         }
 
@@ -204,20 +211,20 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptAmazon != null)
                     hashCode = hashCode * 59 + this.AcceptAmazon.GetHashCode();
-                if (this.AmazonAccessKeyId != null)
-                    hashCode = hashCode * 59 + this.AmazonAccessKeyId.GetHashCode();
-                if (this.AmazonAccountingCode != null)
-                    hashCode = hashCode * 59 + this.AmazonAccountingCode.GetHashCode();
-                if (this.AmazonDepositToAccount != null)
-                    hashCode = hashCode * 59 + this.AmazonDepositToAccount.GetHashCode();
+                if (this.AccessKeyId != null)
+                    hashCode = hashCode * 59 + this.AccessKeyId.GetHashCode();
+                if (this.AccountingCode != null)
+                    hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
                 if (this.AmazonMerchantId != null)
                     hashCode = hashCode * 59 + this.AmazonMerchantId.GetHashCode();
-                if (this.AmazonSandbox != null)
-                    hashCode = hashCode * 59 + this.AmazonSandbox.GetHashCode();
-                if (this.AmazonSecretAccessKey != null)
-                    hashCode = hashCode * 59 + this.AmazonSecretAccessKey.GetHashCode();
+                if (this.DepositToAccount != null)
+                    hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
+                if (this.Sandbox != null)
+                    hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
+                if (this.SecretAccessKey != null)
+                    hashCode = hashCode * 59 + this.SecretAccessKey.GetHashCode();
                 return hashCode;
             }
         }

@@ -33,121 +33,125 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationCheck" /> class.
         /// </summary>
-        /// <param name="acceptCheckOrders">acceptCheckOrders.</param>
-        /// <param name="checkAccountingCode">checkAccountingCode.</param>
-        /// <param name="checkDepositToAccount">checkDepositToAccount.</param>
-        /// <param name="checksPayableTo">checksPayableTo.</param>
-        /// <param name="mailToAddress1">mailToAddress1.</param>
-        /// <param name="mailToAddress2">mailToAddress2.</param>
-        /// <param name="mailToCity">mailToCity.</param>
-        /// <param name="mailToCountry">mailToCountry.</param>
-        /// <param name="mailToName">mailToName.</param>
-        /// <param name="mailToState">mailToState.</param>
-        /// <param name="mailToZip">mailToZip.</param>
-        /// <param name="moneyOrderAccountingCode">moneyOrderAccountingCode.</param>
-        /// <param name="moneyOrderDepositToAccount">moneyOrderDepositToAccount.</param>
+        /// <param name="acceptCheckOrders">Master flag indicating this merchant accepts paper checks.</param>
+        /// <param name="accountingCode">Optional Quickbooks accounting code.</param>
+        /// <param name="checksPayableTo">This is who the customer makes the check out to.</param>
+        /// <param name="depositToAccount">Optional Quickbooks deposit to account.</param>
+        /// <param name="mailToAddress1">MailTo address line 1.</param>
+        /// <param name="mailToAddress2">MailTo address line 2.</param>
+        /// <param name="mailToCity">MailTo city.</param>
+        /// <param name="mailToCountry">MailTo country.</param>
+        /// <param name="mailToName">MailTo name.</param>
+        /// <param name="mailToPostalCode">MailTo postal code.</param>
+        /// <param name="mailToStore">MailTo store.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationCheck(bool? acceptCheckOrders = default(bool?), string checkAccountingCode = default(string), string checkDepositToAccount = default(string), string checksPayableTo = default(string), string mailToAddress1 = default(string), string mailToAddress2 = default(string), string mailToCity = default(string), string mailToCountry = default(string), string mailToName = default(string), string mailToState = default(string), string mailToZip = default(string), string moneyOrderAccountingCode = default(string), string moneyOrderDepositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        /// <param name="testMethods">Test methods for this payment method.</param>
+        public PaymentsConfigurationCheck(bool? acceptCheckOrders = default(bool?), string accountingCode = default(string), string checksPayableTo = default(string), string depositToAccount = default(string), string mailToAddress1 = default(string), string mailToAddress2 = default(string), string mailToCity = default(string), string mailToCountry = default(string), string mailToName = default(string), string mailToPostalCode = default(string), string mailToStore = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), Object testMethods = default(Object))
         {
             this.AcceptCheckOrders = acceptCheckOrders;
-            this.CheckAccountingCode = checkAccountingCode;
-            this.CheckDepositToAccount = checkDepositToAccount;
+            this.AccountingCode = accountingCode;
             this.ChecksPayableTo = checksPayableTo;
+            this.DepositToAccount = depositToAccount;
             this.MailToAddress1 = mailToAddress1;
             this.MailToAddress2 = mailToAddress2;
             this.MailToCity = mailToCity;
             this.MailToCountry = mailToCountry;
             this.MailToName = mailToName;
-            this.MailToState = mailToState;
-            this.MailToZip = mailToZip;
-            this.MoneyOrderAccountingCode = moneyOrderAccountingCode;
-            this.MoneyOrderDepositToAccount = moneyOrderDepositToAccount;
+            this.MailToPostalCode = mailToPostalCode;
+            this.MailToStore = mailToStore;
             this.Restrictions = restrictions;
+            this.TestMethods = testMethods;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptCheckOrders
+        /// Master flag indicating this merchant accepts paper checks
         /// </summary>
-        [DataMember(Name="acceptCheckOrders", EmitDefaultValue=false)]
+        /// <value>Master flag indicating this merchant accepts paper checks</value>
+        [DataMember(Name="accept_check_orders", EmitDefaultValue=false)]
         public bool? AcceptCheckOrders { get; set; }
 
         /// <summary>
-        /// Gets or Sets CheckAccountingCode
+        /// Optional Quickbooks accounting code
         /// </summary>
-        [DataMember(Name="checkAccountingCode", EmitDefaultValue=false)]
-        public string CheckAccountingCode { get; set; }
+        /// <value>Optional Quickbooks accounting code</value>
+        [DataMember(Name="accounting_code", EmitDefaultValue=false)]
+        public string AccountingCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets CheckDepositToAccount
+        /// This is who the customer makes the check out to
         /// </summary>
-        [DataMember(Name="checkDepositToAccount", EmitDefaultValue=false)]
-        public string CheckDepositToAccount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ChecksPayableTo
-        /// </summary>
-        [DataMember(Name="checksPayableTo", EmitDefaultValue=false)]
+        /// <value>This is who the customer makes the check out to</value>
+        [DataMember(Name="checks_payable_to", EmitDefaultValue=false)]
         public string ChecksPayableTo { get; set; }
 
         /// <summary>
-        /// Gets or Sets MailToAddress1
+        /// Optional Quickbooks deposit to account
         /// </summary>
-        [DataMember(Name="mailToAddress1", EmitDefaultValue=false)]
+        /// <value>Optional Quickbooks deposit to account</value>
+        [DataMember(Name="deposit_to_account", EmitDefaultValue=false)]
+        public string DepositToAccount { get; set; }
+
+        /// <summary>
+        /// MailTo address line 1
+        /// </summary>
+        /// <value>MailTo address line 1</value>
+        [DataMember(Name="mail_to_address1", EmitDefaultValue=false)]
         public string MailToAddress1 { get; set; }
 
         /// <summary>
-        /// Gets or Sets MailToAddress2
+        /// MailTo address line 2
         /// </summary>
-        [DataMember(Name="mailToAddress2", EmitDefaultValue=false)]
+        /// <value>MailTo address line 2</value>
+        [DataMember(Name="mail_to_address2", EmitDefaultValue=false)]
         public string MailToAddress2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets MailToCity
+        /// MailTo city
         /// </summary>
-        [DataMember(Name="mailToCity", EmitDefaultValue=false)]
+        /// <value>MailTo city</value>
+        [DataMember(Name="mail_to_city", EmitDefaultValue=false)]
         public string MailToCity { get; set; }
 
         /// <summary>
-        /// Gets or Sets MailToCountry
+        /// MailTo country
         /// </summary>
-        [DataMember(Name="mailToCountry", EmitDefaultValue=false)]
+        /// <value>MailTo country</value>
+        [DataMember(Name="mail_to_country", EmitDefaultValue=false)]
         public string MailToCountry { get; set; }
 
         /// <summary>
-        /// Gets or Sets MailToName
+        /// MailTo name
         /// </summary>
-        [DataMember(Name="mailToName", EmitDefaultValue=false)]
+        /// <value>MailTo name</value>
+        [DataMember(Name="mail_to_name", EmitDefaultValue=false)]
         public string MailToName { get; set; }
 
         /// <summary>
-        /// Gets or Sets MailToState
+        /// MailTo postal code
         /// </summary>
-        [DataMember(Name="mailToState", EmitDefaultValue=false)]
-        public string MailToState { get; set; }
+        /// <value>MailTo postal code</value>
+        [DataMember(Name="mail_to_postal_code", EmitDefaultValue=false)]
+        public string MailToPostalCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets MailToZip
+        /// MailTo store
         /// </summary>
-        [DataMember(Name="mailToZip", EmitDefaultValue=false)]
-        public string MailToZip { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MoneyOrderAccountingCode
-        /// </summary>
-        [DataMember(Name="moneyOrderAccountingCode", EmitDefaultValue=false)]
-        public string MoneyOrderAccountingCode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MoneyOrderDepositToAccount
-        /// </summary>
-        [DataMember(Name="moneyOrderDepositToAccount", EmitDefaultValue=false)]
-        public string MoneyOrderDepositToAccount { get; set; }
+        /// <value>MailTo store</value>
+        [DataMember(Name="mail_to_store", EmitDefaultValue=false)]
+        public string MailToStore { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
         /// </summary>
         [DataMember(Name="restrictions", EmitDefaultValue=false)]
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
+
+        /// <summary>
+        /// Test methods for this payment method
+        /// </summary>
+        /// <value>Test methods for this payment method</value>
+        [DataMember(Name="test_methods", EmitDefaultValue=false)]
+        public Object TestMethods { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -158,19 +162,18 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationCheck {\n");
             sb.Append("  AcceptCheckOrders: ").Append(AcceptCheckOrders).Append("\n");
-            sb.Append("  CheckAccountingCode: ").Append(CheckAccountingCode).Append("\n");
-            sb.Append("  CheckDepositToAccount: ").Append(CheckDepositToAccount).Append("\n");
+            sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
             sb.Append("  ChecksPayableTo: ").Append(ChecksPayableTo).Append("\n");
+            sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
             sb.Append("  MailToAddress1: ").Append(MailToAddress1).Append("\n");
             sb.Append("  MailToAddress2: ").Append(MailToAddress2).Append("\n");
             sb.Append("  MailToCity: ").Append(MailToCity).Append("\n");
             sb.Append("  MailToCountry: ").Append(MailToCountry).Append("\n");
             sb.Append("  MailToName: ").Append(MailToName).Append("\n");
-            sb.Append("  MailToState: ").Append(MailToState).Append("\n");
-            sb.Append("  MailToZip: ").Append(MailToZip).Append("\n");
-            sb.Append("  MoneyOrderAccountingCode: ").Append(MoneyOrderAccountingCode).Append("\n");
-            sb.Append("  MoneyOrderDepositToAccount: ").Append(MoneyOrderDepositToAccount).Append("\n");
+            sb.Append("  MailToPostalCode: ").Append(MailToPostalCode).Append("\n");
+            sb.Append("  MailToStore: ").Append(MailToStore).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
+            sb.Append("  TestMethods: ").Append(TestMethods).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -211,19 +214,19 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptCheckOrders.Equals(input.AcceptCheckOrders))
                 ) && 
                 (
-                    this.CheckAccountingCode == input.CheckAccountingCode ||
-                    (this.CheckAccountingCode != null &&
-                    this.CheckAccountingCode.Equals(input.CheckAccountingCode))
-                ) && 
-                (
-                    this.CheckDepositToAccount == input.CheckDepositToAccount ||
-                    (this.CheckDepositToAccount != null &&
-                    this.CheckDepositToAccount.Equals(input.CheckDepositToAccount))
+                    this.AccountingCode == input.AccountingCode ||
+                    (this.AccountingCode != null &&
+                    this.AccountingCode.Equals(input.AccountingCode))
                 ) && 
                 (
                     this.ChecksPayableTo == input.ChecksPayableTo ||
                     (this.ChecksPayableTo != null &&
                     this.ChecksPayableTo.Equals(input.ChecksPayableTo))
+                ) && 
+                (
+                    this.DepositToAccount == input.DepositToAccount ||
+                    (this.DepositToAccount != null &&
+                    this.DepositToAccount.Equals(input.DepositToAccount))
                 ) && 
                 (
                     this.MailToAddress1 == input.MailToAddress1 ||
@@ -251,29 +254,24 @@ namespace com.ultracart.admin.v2.Model
                     this.MailToName.Equals(input.MailToName))
                 ) && 
                 (
-                    this.MailToState == input.MailToState ||
-                    (this.MailToState != null &&
-                    this.MailToState.Equals(input.MailToState))
+                    this.MailToPostalCode == input.MailToPostalCode ||
+                    (this.MailToPostalCode != null &&
+                    this.MailToPostalCode.Equals(input.MailToPostalCode))
                 ) && 
                 (
-                    this.MailToZip == input.MailToZip ||
-                    (this.MailToZip != null &&
-                    this.MailToZip.Equals(input.MailToZip))
-                ) && 
-                (
-                    this.MoneyOrderAccountingCode == input.MoneyOrderAccountingCode ||
-                    (this.MoneyOrderAccountingCode != null &&
-                    this.MoneyOrderAccountingCode.Equals(input.MoneyOrderAccountingCode))
-                ) && 
-                (
-                    this.MoneyOrderDepositToAccount == input.MoneyOrderDepositToAccount ||
-                    (this.MoneyOrderDepositToAccount != null &&
-                    this.MoneyOrderDepositToAccount.Equals(input.MoneyOrderDepositToAccount))
+                    this.MailToStore == input.MailToStore ||
+                    (this.MailToStore != null &&
+                    this.MailToStore.Equals(input.MailToStore))
                 ) && 
                 (
                     this.Restrictions == input.Restrictions ||
                     (this.Restrictions != null &&
                     this.Restrictions.Equals(input.Restrictions))
+                ) && 
+                (
+                    this.TestMethods == input.TestMethods ||
+                    (this.TestMethods != null &&
+                    this.TestMethods.Equals(input.TestMethods))
                 );
         }
 
@@ -288,12 +286,12 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptCheckOrders != null)
                     hashCode = hashCode * 59 + this.AcceptCheckOrders.GetHashCode();
-                if (this.CheckAccountingCode != null)
-                    hashCode = hashCode * 59 + this.CheckAccountingCode.GetHashCode();
-                if (this.CheckDepositToAccount != null)
-                    hashCode = hashCode * 59 + this.CheckDepositToAccount.GetHashCode();
+                if (this.AccountingCode != null)
+                    hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
                 if (this.ChecksPayableTo != null)
                     hashCode = hashCode * 59 + this.ChecksPayableTo.GetHashCode();
+                if (this.DepositToAccount != null)
+                    hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
                 if (this.MailToAddress1 != null)
                     hashCode = hashCode * 59 + this.MailToAddress1.GetHashCode();
                 if (this.MailToAddress2 != null)
@@ -304,16 +302,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MailToCountry.GetHashCode();
                 if (this.MailToName != null)
                     hashCode = hashCode * 59 + this.MailToName.GetHashCode();
-                if (this.MailToState != null)
-                    hashCode = hashCode * 59 + this.MailToState.GetHashCode();
-                if (this.MailToZip != null)
-                    hashCode = hashCode * 59 + this.MailToZip.GetHashCode();
-                if (this.MoneyOrderAccountingCode != null)
-                    hashCode = hashCode * 59 + this.MoneyOrderAccountingCode.GetHashCode();
-                if (this.MoneyOrderDepositToAccount != null)
-                    hashCode = hashCode * 59 + this.MoneyOrderDepositToAccount.GetHashCode();
+                if (this.MailToPostalCode != null)
+                    hashCode = hashCode * 59 + this.MailToPostalCode.GetHashCode();
+                if (this.MailToStore != null)
+                    hashCode = hashCode * 59 + this.MailToStore.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
+                if (this.TestMethods != null)
+                    hashCode = hashCode * 59 + this.TestMethods.GetHashCode();
                 return hashCode;
             }
         }

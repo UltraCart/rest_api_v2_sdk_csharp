@@ -33,37 +33,40 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationLoanHero" /> class.
         /// </summary>
-        /// <param name="acceptLoanHero">acceptLoanHero.</param>
-        /// <param name="loanHeroAccountingCode">loanHeroAccountingCode.</param>
-        /// <param name="loanHeroDepositToAccount">loanHeroDepositToAccount.</param>
+        /// <param name="acceptLoanHero">Master flag indicating this merchant accepts Loan Hero.</param>
+        /// <param name="accountingCode">Optional Quickbooks accounting code.</param>
+        /// <param name="depositToAccount">Optional Quickbooks deposit to account.</param>
         /// <param name="restrictions">restrictions.</param>
-        /// <param name="showLoanHero">showLoanHero.</param>
-        public PaymentsConfigurationLoanHero(bool? acceptLoanHero = default(bool?), string loanHeroAccountingCode = default(string), string loanHeroDepositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? showLoanHero = default(bool?))
+        /// <param name="showLoanHero">Internal field to aid UI.</param>
+        public PaymentsConfigurationLoanHero(bool? acceptLoanHero = default(bool?), string accountingCode = default(string), string depositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? showLoanHero = default(bool?))
         {
             this.AcceptLoanHero = acceptLoanHero;
-            this.LoanHeroAccountingCode = loanHeroAccountingCode;
-            this.LoanHeroDepositToAccount = loanHeroDepositToAccount;
+            this.AccountingCode = accountingCode;
+            this.DepositToAccount = depositToAccount;
             this.Restrictions = restrictions;
             this.ShowLoanHero = showLoanHero;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptLoanHero
+        /// Master flag indicating this merchant accepts Loan Hero
         /// </summary>
-        [DataMember(Name="acceptLoanHero", EmitDefaultValue=false)]
+        /// <value>Master flag indicating this merchant accepts Loan Hero</value>
+        [DataMember(Name="accept_loan_hero", EmitDefaultValue=false)]
         public bool? AcceptLoanHero { get; set; }
 
         /// <summary>
-        /// Gets or Sets LoanHeroAccountingCode
+        /// Optional Quickbooks accounting code
         /// </summary>
-        [DataMember(Name="loanHeroAccountingCode", EmitDefaultValue=false)]
-        public string LoanHeroAccountingCode { get; set; }
+        /// <value>Optional Quickbooks accounting code</value>
+        [DataMember(Name="accounting_code", EmitDefaultValue=false)]
+        public string AccountingCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets LoanHeroDepositToAccount
+        /// Optional Quickbooks deposit to account
         /// </summary>
-        [DataMember(Name="loanHeroDepositToAccount", EmitDefaultValue=false)]
-        public string LoanHeroDepositToAccount { get; set; }
+        /// <value>Optional Quickbooks deposit to account</value>
+        [DataMember(Name="deposit_to_account", EmitDefaultValue=false)]
+        public string DepositToAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
@@ -72,9 +75,10 @@ namespace com.ultracart.admin.v2.Model
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowLoanHero
+        /// Internal field to aid UI
         /// </summary>
-        [DataMember(Name="showLoanHero", EmitDefaultValue=false)]
+        /// <value>Internal field to aid UI</value>
+        [DataMember(Name="show_loan_hero", EmitDefaultValue=false)]
         public bool? ShowLoanHero { get; set; }
 
         /// <summary>
@@ -86,8 +90,8 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationLoanHero {\n");
             sb.Append("  AcceptLoanHero: ").Append(AcceptLoanHero).Append("\n");
-            sb.Append("  LoanHeroAccountingCode: ").Append(LoanHeroAccountingCode).Append("\n");
-            sb.Append("  LoanHeroDepositToAccount: ").Append(LoanHeroDepositToAccount).Append("\n");
+            sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
+            sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
             sb.Append("  ShowLoanHero: ").Append(ShowLoanHero).Append("\n");
             sb.Append("}\n");
@@ -130,14 +134,14 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptLoanHero.Equals(input.AcceptLoanHero))
                 ) && 
                 (
-                    this.LoanHeroAccountingCode == input.LoanHeroAccountingCode ||
-                    (this.LoanHeroAccountingCode != null &&
-                    this.LoanHeroAccountingCode.Equals(input.LoanHeroAccountingCode))
+                    this.AccountingCode == input.AccountingCode ||
+                    (this.AccountingCode != null &&
+                    this.AccountingCode.Equals(input.AccountingCode))
                 ) && 
                 (
-                    this.LoanHeroDepositToAccount == input.LoanHeroDepositToAccount ||
-                    (this.LoanHeroDepositToAccount != null &&
-                    this.LoanHeroDepositToAccount.Equals(input.LoanHeroDepositToAccount))
+                    this.DepositToAccount == input.DepositToAccount ||
+                    (this.DepositToAccount != null &&
+                    this.DepositToAccount.Equals(input.DepositToAccount))
                 ) && 
                 (
                     this.Restrictions == input.Restrictions ||
@@ -162,10 +166,10 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptLoanHero != null)
                     hashCode = hashCode * 59 + this.AcceptLoanHero.GetHashCode();
-                if (this.LoanHeroAccountingCode != null)
-                    hashCode = hashCode * 59 + this.LoanHeroAccountingCode.GetHashCode();
-                if (this.LoanHeroDepositToAccount != null)
-                    hashCode = hashCode * 59 + this.LoanHeroDepositToAccount.GetHashCode();
+                if (this.AccountingCode != null)
+                    hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
+                if (this.DepositToAccount != null)
+                    hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
                 if (this.ShowLoanHero != null)

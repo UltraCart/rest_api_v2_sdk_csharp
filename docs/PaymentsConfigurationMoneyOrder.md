@@ -3,7 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AcceptMoneyOrders** | **bool?** |  | [optional] 
+**AcceptMoneyOrders** | **bool?** | Master flag for this merchant accepting money orders | [optional] 
+**AccountingCode** | **string** | Optional Quickbooks accounting code | [optional] 
+**DepositToAccount** | **string** | Optional Quickbooks deposit to account | [optional] 
 **Restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
 
 

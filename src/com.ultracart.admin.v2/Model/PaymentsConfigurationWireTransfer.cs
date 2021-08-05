@@ -33,37 +33,73 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationWireTransfer" /> class.
         /// </summary>
-        /// <param name="acceptWireTransfer">acceptWireTransfer.</param>
+        /// <param name="acceptWireTransfer">Master flag indicating this merchant accepts wire transfers.</param>
+        /// <param name="accountNumber">account_number.</param>
+        /// <param name="accountingCode">Optional Quickbooks accounting code.</param>
+        /// <param name="bankAddress">Bank address.</param>
+        /// <param name="depositToAccount">Optional Quickbooks deposit to account.</param>
+        /// <param name="intermediateRoutingNumber">Intermediate routing number.</param>
         /// <param name="restrictions">restrictions.</param>
-        /// <param name="wireTransferAccountingCode">wireTransferAccountingCode.</param>
-        /// <param name="wireTransferAccountNumber">wireTransferAccountNumber.</param>
-        /// <param name="wireTransferBankAddress">wireTransferBankAddress.</param>
-        /// <param name="wireTransferDepositToAccount">wireTransferDepositToAccount.</param>
-        /// <param name="wireTransferIntermediateRoutingNumber">wireTransferIntermediateRoutingNumber.</param>
-        /// <param name="wireTransferRoutingNumber">wireTransferRoutingNumber.</param>
-        /// <param name="wireTransferSurchargeAccountingCode">wireTransferSurchargeAccountingCode.</param>
-        /// <param name="wireTransferSurchargeFee">wireTransferSurchargeFee.</param>
-        /// <param name="wireTransferSurchargePerc">wireTransferSurchargePerc.</param>
-        public PaymentsConfigurationWireTransfer(bool? acceptWireTransfer = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), string wireTransferAccountingCode = default(string), string wireTransferAccountNumber = default(string), string wireTransferBankAddress = default(string), string wireTransferDepositToAccount = default(string), string wireTransferIntermediateRoutingNumber = default(string), string wireTransferRoutingNumber = default(string), string wireTransferSurchargeAccountingCode = default(string), string wireTransferSurchargeFee = default(string), string wireTransferSurchargePerc = default(string))
+        /// <param name="routingNumber">Routing number.</param>
+        /// <param name="surchargeAccountingCode">If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount.</param>
+        /// <param name="surchargeFee">surcharge_fee.</param>
+        /// <param name="surchargePercentage">surcharge_percentage.</param>
+        public PaymentsConfigurationWireTransfer(bool? acceptWireTransfer = default(bool?), string accountNumber = default(string), string accountingCode = default(string), string bankAddress = default(string), string depositToAccount = default(string), string intermediateRoutingNumber = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), string routingNumber = default(string), string surchargeAccountingCode = default(string), string surchargeFee = default(string), string surchargePercentage = default(string))
         {
             this.AcceptWireTransfer = acceptWireTransfer;
+            this.AccountNumber = accountNumber;
+            this.AccountingCode = accountingCode;
+            this.BankAddress = bankAddress;
+            this.DepositToAccount = depositToAccount;
+            this.IntermediateRoutingNumber = intermediateRoutingNumber;
             this.Restrictions = restrictions;
-            this.WireTransferAccountingCode = wireTransferAccountingCode;
-            this.WireTransferAccountNumber = wireTransferAccountNumber;
-            this.WireTransferBankAddress = wireTransferBankAddress;
-            this.WireTransferDepositToAccount = wireTransferDepositToAccount;
-            this.WireTransferIntermediateRoutingNumber = wireTransferIntermediateRoutingNumber;
-            this.WireTransferRoutingNumber = wireTransferRoutingNumber;
-            this.WireTransferSurchargeAccountingCode = wireTransferSurchargeAccountingCode;
-            this.WireTransferSurchargeFee = wireTransferSurchargeFee;
-            this.WireTransferSurchargePerc = wireTransferSurchargePerc;
+            this.RoutingNumber = routingNumber;
+            this.SurchargeAccountingCode = surchargeAccountingCode;
+            this.SurchargeFee = surchargeFee;
+            this.SurchargePercentage = surchargePercentage;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptWireTransfer
+        /// Master flag indicating this merchant accepts wire transfers
         /// </summary>
-        [DataMember(Name="acceptWireTransfer", EmitDefaultValue=false)]
+        /// <value>Master flag indicating this merchant accepts wire transfers</value>
+        [DataMember(Name="accept_wire_transfer", EmitDefaultValue=false)]
         public bool? AcceptWireTransfer { get; set; }
+
+        /// <summary>
+        /// account_number
+        /// </summary>
+        /// <value>account_number</value>
+        [DataMember(Name="account_number", EmitDefaultValue=false)]
+        public string AccountNumber { get; set; }
+
+        /// <summary>
+        /// Optional Quickbooks accounting code
+        /// </summary>
+        /// <value>Optional Quickbooks accounting code</value>
+        [DataMember(Name="accounting_code", EmitDefaultValue=false)]
+        public string AccountingCode { get; set; }
+
+        /// <summary>
+        /// Bank address
+        /// </summary>
+        /// <value>Bank address</value>
+        [DataMember(Name="bank_address", EmitDefaultValue=false)]
+        public string BankAddress { get; set; }
+
+        /// <summary>
+        /// Optional Quickbooks deposit to account
+        /// </summary>
+        /// <value>Optional Quickbooks deposit to account</value>
+        [DataMember(Name="deposit_to_account", EmitDefaultValue=false)]
+        public string DepositToAccount { get; set; }
+
+        /// <summary>
+        /// Intermediate routing number
+        /// </summary>
+        /// <value>Intermediate routing number</value>
+        [DataMember(Name="intermediate_routing_number", EmitDefaultValue=false)]
+        public string IntermediateRoutingNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
@@ -72,58 +108,32 @@ namespace com.ultracart.admin.v2.Model
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
 
         /// <summary>
-        /// Gets or Sets WireTransferAccountingCode
+        /// Routing number
         /// </summary>
-        [DataMember(Name="wireTransferAccountingCode", EmitDefaultValue=false)]
-        public string WireTransferAccountingCode { get; set; }
+        /// <value>Routing number</value>
+        [DataMember(Name="routing_number", EmitDefaultValue=false)]
+        public string RoutingNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets WireTransferAccountNumber
+        /// If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount
         /// </summary>
-        [DataMember(Name="wireTransferAccountNumber", EmitDefaultValue=false)]
-        public string WireTransferAccountNumber { get; set; }
+        /// <value>If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount</value>
+        [DataMember(Name="surcharge_accounting_code", EmitDefaultValue=false)]
+        public string SurchargeAccountingCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets WireTransferBankAddress
+        /// surcharge_fee
         /// </summary>
-        [DataMember(Name="wireTransferBankAddress", EmitDefaultValue=false)]
-        public string WireTransferBankAddress { get; set; }
+        /// <value>surcharge_fee</value>
+        [DataMember(Name="surcharge_fee", EmitDefaultValue=false)]
+        public string SurchargeFee { get; set; }
 
         /// <summary>
-        /// Gets or Sets WireTransferDepositToAccount
+        /// surcharge_percentage
         /// </summary>
-        [DataMember(Name="wireTransferDepositToAccount", EmitDefaultValue=false)]
-        public string WireTransferDepositToAccount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WireTransferIntermediateRoutingNumber
-        /// </summary>
-        [DataMember(Name="wireTransferIntermediateRoutingNumber", EmitDefaultValue=false)]
-        public string WireTransferIntermediateRoutingNumber { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WireTransferRoutingNumber
-        /// </summary>
-        [DataMember(Name="wireTransferRoutingNumber", EmitDefaultValue=false)]
-        public string WireTransferRoutingNumber { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WireTransferSurchargeAccountingCode
-        /// </summary>
-        [DataMember(Name="wireTransferSurchargeAccountingCode", EmitDefaultValue=false)]
-        public string WireTransferSurchargeAccountingCode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WireTransferSurchargeFee
-        /// </summary>
-        [DataMember(Name="wireTransferSurchargeFee", EmitDefaultValue=false)]
-        public string WireTransferSurchargeFee { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WireTransferSurchargePerc
-        /// </summary>
-        [DataMember(Name="wireTransferSurchargePerc", EmitDefaultValue=false)]
-        public string WireTransferSurchargePerc { get; set; }
+        /// <value>surcharge_percentage</value>
+        [DataMember(Name="surcharge_percentage", EmitDefaultValue=false)]
+        public string SurchargePercentage { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -134,16 +144,16 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationWireTransfer {\n");
             sb.Append("  AcceptWireTransfer: ").Append(AcceptWireTransfer).Append("\n");
+            sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
+            sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
+            sb.Append("  BankAddress: ").Append(BankAddress).Append("\n");
+            sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
+            sb.Append("  IntermediateRoutingNumber: ").Append(IntermediateRoutingNumber).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
-            sb.Append("  WireTransferAccountingCode: ").Append(WireTransferAccountingCode).Append("\n");
-            sb.Append("  WireTransferAccountNumber: ").Append(WireTransferAccountNumber).Append("\n");
-            sb.Append("  WireTransferBankAddress: ").Append(WireTransferBankAddress).Append("\n");
-            sb.Append("  WireTransferDepositToAccount: ").Append(WireTransferDepositToAccount).Append("\n");
-            sb.Append("  WireTransferIntermediateRoutingNumber: ").Append(WireTransferIntermediateRoutingNumber).Append("\n");
-            sb.Append("  WireTransferRoutingNumber: ").Append(WireTransferRoutingNumber).Append("\n");
-            sb.Append("  WireTransferSurchargeAccountingCode: ").Append(WireTransferSurchargeAccountingCode).Append("\n");
-            sb.Append("  WireTransferSurchargeFee: ").Append(WireTransferSurchargeFee).Append("\n");
-            sb.Append("  WireTransferSurchargePerc: ").Append(WireTransferSurchargePerc).Append("\n");
+            sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
+            sb.Append("  SurchargeAccountingCode: ").Append(SurchargeAccountingCode).Append("\n");
+            sb.Append("  SurchargeFee: ").Append(SurchargeFee).Append("\n");
+            sb.Append("  SurchargePercentage: ").Append(SurchargePercentage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -184,54 +194,54 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptWireTransfer.Equals(input.AcceptWireTransfer))
                 ) && 
                 (
+                    this.AccountNumber == input.AccountNumber ||
+                    (this.AccountNumber != null &&
+                    this.AccountNumber.Equals(input.AccountNumber))
+                ) && 
+                (
+                    this.AccountingCode == input.AccountingCode ||
+                    (this.AccountingCode != null &&
+                    this.AccountingCode.Equals(input.AccountingCode))
+                ) && 
+                (
+                    this.BankAddress == input.BankAddress ||
+                    (this.BankAddress != null &&
+                    this.BankAddress.Equals(input.BankAddress))
+                ) && 
+                (
+                    this.DepositToAccount == input.DepositToAccount ||
+                    (this.DepositToAccount != null &&
+                    this.DepositToAccount.Equals(input.DepositToAccount))
+                ) && 
+                (
+                    this.IntermediateRoutingNumber == input.IntermediateRoutingNumber ||
+                    (this.IntermediateRoutingNumber != null &&
+                    this.IntermediateRoutingNumber.Equals(input.IntermediateRoutingNumber))
+                ) && 
+                (
                     this.Restrictions == input.Restrictions ||
                     (this.Restrictions != null &&
                     this.Restrictions.Equals(input.Restrictions))
                 ) && 
                 (
-                    this.WireTransferAccountingCode == input.WireTransferAccountingCode ||
-                    (this.WireTransferAccountingCode != null &&
-                    this.WireTransferAccountingCode.Equals(input.WireTransferAccountingCode))
+                    this.RoutingNumber == input.RoutingNumber ||
+                    (this.RoutingNumber != null &&
+                    this.RoutingNumber.Equals(input.RoutingNumber))
                 ) && 
                 (
-                    this.WireTransferAccountNumber == input.WireTransferAccountNumber ||
-                    (this.WireTransferAccountNumber != null &&
-                    this.WireTransferAccountNumber.Equals(input.WireTransferAccountNumber))
+                    this.SurchargeAccountingCode == input.SurchargeAccountingCode ||
+                    (this.SurchargeAccountingCode != null &&
+                    this.SurchargeAccountingCode.Equals(input.SurchargeAccountingCode))
                 ) && 
                 (
-                    this.WireTransferBankAddress == input.WireTransferBankAddress ||
-                    (this.WireTransferBankAddress != null &&
-                    this.WireTransferBankAddress.Equals(input.WireTransferBankAddress))
+                    this.SurchargeFee == input.SurchargeFee ||
+                    (this.SurchargeFee != null &&
+                    this.SurchargeFee.Equals(input.SurchargeFee))
                 ) && 
                 (
-                    this.WireTransferDepositToAccount == input.WireTransferDepositToAccount ||
-                    (this.WireTransferDepositToAccount != null &&
-                    this.WireTransferDepositToAccount.Equals(input.WireTransferDepositToAccount))
-                ) && 
-                (
-                    this.WireTransferIntermediateRoutingNumber == input.WireTransferIntermediateRoutingNumber ||
-                    (this.WireTransferIntermediateRoutingNumber != null &&
-                    this.WireTransferIntermediateRoutingNumber.Equals(input.WireTransferIntermediateRoutingNumber))
-                ) && 
-                (
-                    this.WireTransferRoutingNumber == input.WireTransferRoutingNumber ||
-                    (this.WireTransferRoutingNumber != null &&
-                    this.WireTransferRoutingNumber.Equals(input.WireTransferRoutingNumber))
-                ) && 
-                (
-                    this.WireTransferSurchargeAccountingCode == input.WireTransferSurchargeAccountingCode ||
-                    (this.WireTransferSurchargeAccountingCode != null &&
-                    this.WireTransferSurchargeAccountingCode.Equals(input.WireTransferSurchargeAccountingCode))
-                ) && 
-                (
-                    this.WireTransferSurchargeFee == input.WireTransferSurchargeFee ||
-                    (this.WireTransferSurchargeFee != null &&
-                    this.WireTransferSurchargeFee.Equals(input.WireTransferSurchargeFee))
-                ) && 
-                (
-                    this.WireTransferSurchargePerc == input.WireTransferSurchargePerc ||
-                    (this.WireTransferSurchargePerc != null &&
-                    this.WireTransferSurchargePerc.Equals(input.WireTransferSurchargePerc))
+                    this.SurchargePercentage == input.SurchargePercentage ||
+                    (this.SurchargePercentage != null &&
+                    this.SurchargePercentage.Equals(input.SurchargePercentage))
                 );
         }
 
@@ -246,26 +256,26 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptWireTransfer != null)
                     hashCode = hashCode * 59 + this.AcceptWireTransfer.GetHashCode();
+                if (this.AccountNumber != null)
+                    hashCode = hashCode * 59 + this.AccountNumber.GetHashCode();
+                if (this.AccountingCode != null)
+                    hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
+                if (this.BankAddress != null)
+                    hashCode = hashCode * 59 + this.BankAddress.GetHashCode();
+                if (this.DepositToAccount != null)
+                    hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
+                if (this.IntermediateRoutingNumber != null)
+                    hashCode = hashCode * 59 + this.IntermediateRoutingNumber.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
-                if (this.WireTransferAccountingCode != null)
-                    hashCode = hashCode * 59 + this.WireTransferAccountingCode.GetHashCode();
-                if (this.WireTransferAccountNumber != null)
-                    hashCode = hashCode * 59 + this.WireTransferAccountNumber.GetHashCode();
-                if (this.WireTransferBankAddress != null)
-                    hashCode = hashCode * 59 + this.WireTransferBankAddress.GetHashCode();
-                if (this.WireTransferDepositToAccount != null)
-                    hashCode = hashCode * 59 + this.WireTransferDepositToAccount.GetHashCode();
-                if (this.WireTransferIntermediateRoutingNumber != null)
-                    hashCode = hashCode * 59 + this.WireTransferIntermediateRoutingNumber.GetHashCode();
-                if (this.WireTransferRoutingNumber != null)
-                    hashCode = hashCode * 59 + this.WireTransferRoutingNumber.GetHashCode();
-                if (this.WireTransferSurchargeAccountingCode != null)
-                    hashCode = hashCode * 59 + this.WireTransferSurchargeAccountingCode.GetHashCode();
-                if (this.WireTransferSurchargeFee != null)
-                    hashCode = hashCode * 59 + this.WireTransferSurchargeFee.GetHashCode();
-                if (this.WireTransferSurchargePerc != null)
-                    hashCode = hashCode * 59 + this.WireTransferSurchargePerc.GetHashCode();
+                if (this.RoutingNumber != null)
+                    hashCode = hashCode * 59 + this.RoutingNumber.GetHashCode();
+                if (this.SurchargeAccountingCode != null)
+                    hashCode = hashCode * 59 + this.SurchargeAccountingCode.GetHashCode();
+                if (this.SurchargeFee != null)
+                    hashCode = hashCode * 59 + this.SurchargeFee.GetHashCode();
+                if (this.SurchargePercentage != null)
+                    hashCode = hashCode * 59 + this.SurchargePercentage.GetHashCode();
                 return hashCode;
             }
         }

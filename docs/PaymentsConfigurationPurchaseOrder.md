@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AcceptPurchaseOrders** | **bool?** |  | [optional] 
-**PurchaseOrderApprovedCustomersOnly** | **bool?** |  | [optional] 
-**PurchaseOrderPreventDuplicateNumber** | **bool?** |  | [optional] 
+**AcceptPurchaseOrders** | **bool?** | Master flag indicating this merchant accepts purchase orders | [optional] 
+**ApprovedCustomersOnly** | **bool?** | If true, only approved customers may pay with a purchase order | [optional] 
+**PreventDuplicateNumber** | **bool?** | If true, customers may not use duplicate PO numbers for any order | [optional] 
 **Restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
 
 

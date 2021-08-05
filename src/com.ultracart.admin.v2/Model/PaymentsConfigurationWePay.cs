@@ -33,83 +33,198 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationWePay" /> class.
         /// </summary>
-        /// <param name="acceptWepay">acceptWepay.</param>
-        /// <param name="hideCreditCardsNonUltraCartPayments">hideCreditCardsNonUltraCartPayments.</param>
-        /// <param name="hideSurchargeContent">hideSurchargeContent.</param>
+        /// <param name="acceptWepay">Master flag indicating this merchant accepts UltraCart Payments WePay.</param>
+        /// <param name="accountUpdateUri">URI for updating the WePay account.</param>
+        /// <param name="address1">Address line 1.</param>
+        /// <param name="address2">Address line 2.</param>
+        /// <param name="canadaAcceptDebitCards">For Canadian merchants, true if they wish to accept debit cards.</param>
+        /// <param name="city">City.</param>
+        /// <param name="company">Company.</param>
+        /// <param name="companyDescription">Company description.</param>
+        /// <param name="consoleHostname">Console hostname.</param>
+        /// <param name="country">Country.</param>
+        /// <param name="currency">Base currency for transactions.</param>
+        /// <param name="expectedRevenue">Expected Revenue.</param>
+        /// <param name="hideCreditCardNonUltracartPayments">Internal flag to aid UI.</param>
+        /// <param name="hideSurchargeAmount">Internal flag to aid UI.</param>
+        /// <param name="industry">Industry.</param>
+        /// <param name="ownerEmail">Owner email.</param>
+        /// <param name="ownerName">Owner name.</param>
+        /// <param name="ownerPhone">Owner phone.</param>
+        /// <param name="postalCode">Postal code.</param>
         /// <param name="removePayPalPro">removePayPalPro.</param>
         /// <param name="restrictions">restrictions.</param>
-        /// <param name="shortPayPalMarketingText">shortPayPalMarketingText.</param>
-        /// <param name="showUltraCartPaymentsDisabled">showUltraCartPaymentsDisabled.</param>
-        /// <param name="showUltraCartPaymentsIntro">showUltraCartPaymentsIntro.</param>
-        /// <param name="showUltraCartPaymentsVerification">showUltraCartPaymentsVerification.</param>
-        /// <param name="showUltraCartPaymentsVerified">showUltraCartPaymentsVerified.</param>
-        /// <param name="wepayAccountUpdateUri">wepayAccountUpdateUri.</param>
-        /// <param name="wepayAddress1">wepayAddress1.</param>
-        /// <param name="wepayAddress2">wepayAddress2.</param>
-        /// <param name="wepayCanadaAcceptDebitCards">wepayCanadaAcceptDebitCards.</param>
-        /// <param name="wepayCity">wepayCity.</param>
-        /// <param name="wepayCompany">wepayCompany.</param>
-        /// <param name="wepayCompanyDescription">wepayCompanyDescription.</param>
-        /// <param name="wepayConsoleHostname">wepayConsoleHostname.</param>
-        /// <param name="wepayCountry">wepayCountry.</param>
-        /// <param name="wepayCurrency">wepayCurrency.</param>
-        /// <param name="wepayExpectedRevenue">wepayExpectedRevenue.</param>
-        /// <param name="wepayIndustry">wepayIndustry.</param>
-        /// <param name="wepayOwnerEmail">wepayOwnerEmail.</param>
-        /// <param name="wepayOwnerName">wepayOwnerName.</param>
-        /// <param name="wepayOwnerPhone">wepayOwnerPhone.</param>
-        /// <param name="wepayState">wepayState.</param>
-        /// <param name="wepayWebsiteUrl">wepayWebsiteUrl.</param>
-        /// <param name="wepayZip">wepayZip.</param>
-        public PaymentsConfigurationWePay(bool? acceptWepay = default(bool?), bool? hideCreditCardsNonUltraCartPayments = default(bool?), bool? hideSurchargeContent = default(bool?), bool? removePayPalPro = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? shortPayPalMarketingText = default(bool?), bool? showUltraCartPaymentsDisabled = default(bool?), bool? showUltraCartPaymentsIntro = default(bool?), bool? showUltraCartPaymentsVerification = default(bool?), bool? showUltraCartPaymentsVerified = default(bool?), string wepayAccountUpdateUri = default(string), string wepayAddress1 = default(string), string wepayAddress2 = default(string), bool? wepayCanadaAcceptDebitCards = default(bool?), string wepayCity = default(string), string wepayCompany = default(string), string wepayCompanyDescription = default(string), string wepayConsoleHostname = default(string), string wepayCountry = default(string), string wepayCurrency = default(string), string wepayExpectedRevenue = default(string), string wepayIndustry = default(string), string wepayOwnerEmail = default(string), string wepayOwnerName = default(string), string wepayOwnerPhone = default(string), string wepayState = default(string), string wepayWebsiteUrl = default(string), string wepayZip = default(string))
+        /// <param name="shortPaypalMarketingText">Internal UI aid.</param>
+        /// <param name="showUltracartPaymentsDisabled">Internal flag to aid UI.</param>
+        /// <param name="showUltracartPaymentsIntro">Internal flag to aid UI.</param>
+        /// <param name="showUltracartPaymentsVerification">Internal flag to aid UI.</param>
+        /// <param name="showUltracartPaymentsVerified">Internal flag to aid UI.</param>
+        /// <param name="state">State.</param>
+        /// <param name="websiteUrl">Website URL.</param>
+        public PaymentsConfigurationWePay(bool? acceptWepay = default(bool?), string accountUpdateUri = default(string), string address1 = default(string), string address2 = default(string), bool? canadaAcceptDebitCards = default(bool?), string city = default(string), string company = default(string), string companyDescription = default(string), string consoleHostname = default(string), string country = default(string), string currency = default(string), string expectedRevenue = default(string), bool? hideCreditCardNonUltracartPayments = default(bool?), bool? hideSurchargeAmount = default(bool?), string industry = default(string), string ownerEmail = default(string), string ownerName = default(string), string ownerPhone = default(string), string postalCode = default(string), bool? removePayPalPro = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? shortPaypalMarketingText = default(bool?), bool? showUltracartPaymentsDisabled = default(bool?), bool? showUltracartPaymentsIntro = default(bool?), bool? showUltracartPaymentsVerification = default(bool?), bool? showUltracartPaymentsVerified = default(bool?), string state = default(string), string websiteUrl = default(string))
         {
             this.AcceptWepay = acceptWepay;
-            this.HideCreditCardsNonUltraCartPayments = hideCreditCardsNonUltraCartPayments;
-            this.HideSurchargeContent = hideSurchargeContent;
+            this.AccountUpdateUri = accountUpdateUri;
+            this.Address1 = address1;
+            this.Address2 = address2;
+            this.CanadaAcceptDebitCards = canadaAcceptDebitCards;
+            this.City = city;
+            this.Company = company;
+            this.CompanyDescription = companyDescription;
+            this.ConsoleHostname = consoleHostname;
+            this.Country = country;
+            this.Currency = currency;
+            this.ExpectedRevenue = expectedRevenue;
+            this.HideCreditCardNonUltracartPayments = hideCreditCardNonUltracartPayments;
+            this.HideSurchargeAmount = hideSurchargeAmount;
+            this.Industry = industry;
+            this.OwnerEmail = ownerEmail;
+            this.OwnerName = ownerName;
+            this.OwnerPhone = ownerPhone;
+            this.PostalCode = postalCode;
             this.RemovePayPalPro = removePayPalPro;
             this.Restrictions = restrictions;
-            this.ShortPayPalMarketingText = shortPayPalMarketingText;
-            this.ShowUltraCartPaymentsDisabled = showUltraCartPaymentsDisabled;
-            this.ShowUltraCartPaymentsIntro = showUltraCartPaymentsIntro;
-            this.ShowUltraCartPaymentsVerification = showUltraCartPaymentsVerification;
-            this.ShowUltraCartPaymentsVerified = showUltraCartPaymentsVerified;
-            this.WepayAccountUpdateUri = wepayAccountUpdateUri;
-            this.WepayAddress1 = wepayAddress1;
-            this.WepayAddress2 = wepayAddress2;
-            this.WepayCanadaAcceptDebitCards = wepayCanadaAcceptDebitCards;
-            this.WepayCity = wepayCity;
-            this.WepayCompany = wepayCompany;
-            this.WepayCompanyDescription = wepayCompanyDescription;
-            this.WepayConsoleHostname = wepayConsoleHostname;
-            this.WepayCountry = wepayCountry;
-            this.WepayCurrency = wepayCurrency;
-            this.WepayExpectedRevenue = wepayExpectedRevenue;
-            this.WepayIndustry = wepayIndustry;
-            this.WepayOwnerEmail = wepayOwnerEmail;
-            this.WepayOwnerName = wepayOwnerName;
-            this.WepayOwnerPhone = wepayOwnerPhone;
-            this.WepayState = wepayState;
-            this.WepayWebsiteUrl = wepayWebsiteUrl;
-            this.WepayZip = wepayZip;
+            this.ShortPaypalMarketingText = shortPaypalMarketingText;
+            this.ShowUltracartPaymentsDisabled = showUltracartPaymentsDisabled;
+            this.ShowUltracartPaymentsIntro = showUltracartPaymentsIntro;
+            this.ShowUltracartPaymentsVerification = showUltracartPaymentsVerification;
+            this.ShowUltracartPaymentsVerified = showUltracartPaymentsVerified;
+            this.State = state;
+            this.WebsiteUrl = websiteUrl;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptWepay
+        /// Master flag indicating this merchant accepts UltraCart Payments WePay
         /// </summary>
-        [DataMember(Name="acceptWepay", EmitDefaultValue=false)]
+        /// <value>Master flag indicating this merchant accepts UltraCart Payments WePay</value>
+        [DataMember(Name="accept_wepay", EmitDefaultValue=false)]
         public bool? AcceptWepay { get; set; }
 
         /// <summary>
-        /// Gets or Sets HideCreditCardsNonUltraCartPayments
+        /// URI for updating the WePay account
         /// </summary>
-        [DataMember(Name="hideCreditCardsNonUltraCartPayments", EmitDefaultValue=false)]
-        public bool? HideCreditCardsNonUltraCartPayments { get; set; }
+        /// <value>URI for updating the WePay account</value>
+        [DataMember(Name="account_update_uri", EmitDefaultValue=false)]
+        public string AccountUpdateUri { get; set; }
 
         /// <summary>
-        /// Gets or Sets HideSurchargeContent
+        /// Address line 1
         /// </summary>
-        [DataMember(Name="hideSurchargeContent", EmitDefaultValue=false)]
-        public bool? HideSurchargeContent { get; set; }
+        /// <value>Address line 1</value>
+        [DataMember(Name="address1", EmitDefaultValue=false)]
+        public string Address1 { get; set; }
+
+        /// <summary>
+        /// Address line 2
+        /// </summary>
+        /// <value>Address line 2</value>
+        [DataMember(Name="address2", EmitDefaultValue=false)]
+        public string Address2 { get; set; }
+
+        /// <summary>
+        /// For Canadian merchants, true if they wish to accept debit cards
+        /// </summary>
+        /// <value>For Canadian merchants, true if they wish to accept debit cards</value>
+        [DataMember(Name="canada_accept_debit_cards", EmitDefaultValue=false)]
+        public bool? CanadaAcceptDebitCards { get; set; }
+
+        /// <summary>
+        /// City
+        /// </summary>
+        /// <value>City</value>
+        [DataMember(Name="city", EmitDefaultValue=false)]
+        public string City { get; set; }
+
+        /// <summary>
+        /// Company
+        /// </summary>
+        /// <value>Company</value>
+        [DataMember(Name="company", EmitDefaultValue=false)]
+        public string Company { get; set; }
+
+        /// <summary>
+        /// Company description
+        /// </summary>
+        /// <value>Company description</value>
+        [DataMember(Name="company_description", EmitDefaultValue=false)]
+        public string CompanyDescription { get; set; }
+
+        /// <summary>
+        /// Console hostname
+        /// </summary>
+        /// <value>Console hostname</value>
+        [DataMember(Name="console_hostname", EmitDefaultValue=false)]
+        public string ConsoleHostname { get; set; }
+
+        /// <summary>
+        /// Country
+        /// </summary>
+        /// <value>Country</value>
+        [DataMember(Name="country", EmitDefaultValue=false)]
+        public string Country { get; set; }
+
+        /// <summary>
+        /// Base currency for transactions
+        /// </summary>
+        /// <value>Base currency for transactions</value>
+        [DataMember(Name="currency", EmitDefaultValue=false)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// Expected Revenue
+        /// </summary>
+        /// <value>Expected Revenue</value>
+        [DataMember(Name="expected_revenue", EmitDefaultValue=false)]
+        public string ExpectedRevenue { get; set; }
+
+        /// <summary>
+        /// Internal flag to aid UI
+        /// </summary>
+        /// <value>Internal flag to aid UI</value>
+        [DataMember(Name="hide_credit_card_non_ultracart_payments", EmitDefaultValue=false)]
+        public bool? HideCreditCardNonUltracartPayments { get; set; }
+
+        /// <summary>
+        /// Internal flag to aid UI
+        /// </summary>
+        /// <value>Internal flag to aid UI</value>
+        [DataMember(Name="hide_surcharge_amount", EmitDefaultValue=false)]
+        public bool? HideSurchargeAmount { get; set; }
+
+        /// <summary>
+        /// Industry
+        /// </summary>
+        /// <value>Industry</value>
+        [DataMember(Name="industry", EmitDefaultValue=false)]
+        public string Industry { get; set; }
+
+        /// <summary>
+        /// Owner email
+        /// </summary>
+        /// <value>Owner email</value>
+        [DataMember(Name="owner_email", EmitDefaultValue=false)]
+        public string OwnerEmail { get; set; }
+
+        /// <summary>
+        /// Owner name
+        /// </summary>
+        /// <value>Owner name</value>
+        [DataMember(Name="owner_name", EmitDefaultValue=false)]
+        public string OwnerName { get; set; }
+
+        /// <summary>
+        /// Owner phone
+        /// </summary>
+        /// <value>Owner phone</value>
+        [DataMember(Name="owner_phone", EmitDefaultValue=false)]
+        public string OwnerPhone { get; set; }
+
+        /// <summary>
+        /// Postal code
+        /// </summary>
+        /// <value>Postal code</value>
+        [DataMember(Name="postal_code", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
 
         /// <summary>
         /// Gets or Sets RemovePayPalPro
@@ -124,142 +239,53 @@ namespace com.ultracart.admin.v2.Model
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShortPayPalMarketingText
+        /// Internal UI aid
         /// </summary>
-        [DataMember(Name="shortPayPalMarketingText", EmitDefaultValue=false)]
-        public bool? ShortPayPalMarketingText { get; set; }
+        /// <value>Internal UI aid</value>
+        [DataMember(Name="short_paypal_marketing_text", EmitDefaultValue=false)]
+        public bool? ShortPaypalMarketingText { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowUltraCartPaymentsDisabled
+        /// Internal flag to aid UI
         /// </summary>
-        [DataMember(Name="showUltraCartPaymentsDisabled", EmitDefaultValue=false)]
-        public bool? ShowUltraCartPaymentsDisabled { get; set; }
+        /// <value>Internal flag to aid UI</value>
+        [DataMember(Name="show_ultracart_payments_disabled", EmitDefaultValue=false)]
+        public bool? ShowUltracartPaymentsDisabled { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowUltraCartPaymentsIntro
+        /// Internal flag to aid UI
         /// </summary>
-        [DataMember(Name="showUltraCartPaymentsIntro", EmitDefaultValue=false)]
-        public bool? ShowUltraCartPaymentsIntro { get; set; }
+        /// <value>Internal flag to aid UI</value>
+        [DataMember(Name="show_ultracart_payments_intro", EmitDefaultValue=false)]
+        public bool? ShowUltracartPaymentsIntro { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowUltraCartPaymentsVerification
+        /// Internal flag to aid UI
         /// </summary>
-        [DataMember(Name="showUltraCartPaymentsVerification", EmitDefaultValue=false)]
-        public bool? ShowUltraCartPaymentsVerification { get; set; }
+        /// <value>Internal flag to aid UI</value>
+        [DataMember(Name="show_ultracart_payments_verification", EmitDefaultValue=false)]
+        public bool? ShowUltracartPaymentsVerification { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowUltraCartPaymentsVerified
+        /// Internal flag to aid UI
         /// </summary>
-        [DataMember(Name="showUltraCartPaymentsVerified", EmitDefaultValue=false)]
-        public bool? ShowUltraCartPaymentsVerified { get; set; }
+        /// <value>Internal flag to aid UI</value>
+        [DataMember(Name="show_ultracart_payments_verified", EmitDefaultValue=false)]
+        public bool? ShowUltracartPaymentsVerified { get; set; }
 
         /// <summary>
-        /// Gets or Sets WepayAccountUpdateUri
+        /// State
         /// </summary>
-        [DataMember(Name="wepayAccountUpdateUri", EmitDefaultValue=false)]
-        public string WepayAccountUpdateUri { get; set; }
+        /// <value>State</value>
+        [DataMember(Name="state", EmitDefaultValue=false)]
+        public string State { get; set; }
 
         /// <summary>
-        /// Gets or Sets WepayAddress1
+        /// Website URL
         /// </summary>
-        [DataMember(Name="wepayAddress1", EmitDefaultValue=false)]
-        public string WepayAddress1 { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayAddress2
-        /// </summary>
-        [DataMember(Name="wepayAddress2", EmitDefaultValue=false)]
-        public string WepayAddress2 { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayCanadaAcceptDebitCards
-        /// </summary>
-        [DataMember(Name="wepayCanadaAcceptDebitCards", EmitDefaultValue=false)]
-        public bool? WepayCanadaAcceptDebitCards { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayCity
-        /// </summary>
-        [DataMember(Name="wepayCity", EmitDefaultValue=false)]
-        public string WepayCity { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayCompany
-        /// </summary>
-        [DataMember(Name="wepayCompany", EmitDefaultValue=false)]
-        public string WepayCompany { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayCompanyDescription
-        /// </summary>
-        [DataMember(Name="wepayCompanyDescription", EmitDefaultValue=false)]
-        public string WepayCompanyDescription { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayConsoleHostname
-        /// </summary>
-        [DataMember(Name="wepayConsoleHostname", EmitDefaultValue=false)]
-        public string WepayConsoleHostname { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayCountry
-        /// </summary>
-        [DataMember(Name="wepayCountry", EmitDefaultValue=false)]
-        public string WepayCountry { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayCurrency
-        /// </summary>
-        [DataMember(Name="wepayCurrency", EmitDefaultValue=false)]
-        public string WepayCurrency { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayExpectedRevenue
-        /// </summary>
-        [DataMember(Name="wepayExpectedRevenue", EmitDefaultValue=false)]
-        public string WepayExpectedRevenue { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayIndustry
-        /// </summary>
-        [DataMember(Name="wepayIndustry", EmitDefaultValue=false)]
-        public string WepayIndustry { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayOwnerEmail
-        /// </summary>
-        [DataMember(Name="wepayOwnerEmail", EmitDefaultValue=false)]
-        public string WepayOwnerEmail { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayOwnerName
-        /// </summary>
-        [DataMember(Name="wepayOwnerName", EmitDefaultValue=false)]
-        public string WepayOwnerName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayOwnerPhone
-        /// </summary>
-        [DataMember(Name="wepayOwnerPhone", EmitDefaultValue=false)]
-        public string WepayOwnerPhone { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayState
-        /// </summary>
-        [DataMember(Name="wepayState", EmitDefaultValue=false)]
-        public string WepayState { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayWebsiteUrl
-        /// </summary>
-        [DataMember(Name="wepayWebsiteUrl", EmitDefaultValue=false)]
-        public string WepayWebsiteUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WepayZip
-        /// </summary>
-        [DataMember(Name="wepayZip", EmitDefaultValue=false)]
-        public string WepayZip { get; set; }
+        /// <value>Website URL</value>
+        [DataMember(Name="website_url", EmitDefaultValue=false)]
+        public string WebsiteUrl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -270,33 +296,33 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationWePay {\n");
             sb.Append("  AcceptWepay: ").Append(AcceptWepay).Append("\n");
-            sb.Append("  HideCreditCardsNonUltraCartPayments: ").Append(HideCreditCardsNonUltraCartPayments).Append("\n");
-            sb.Append("  HideSurchargeContent: ").Append(HideSurchargeContent).Append("\n");
+            sb.Append("  AccountUpdateUri: ").Append(AccountUpdateUri).Append("\n");
+            sb.Append("  Address1: ").Append(Address1).Append("\n");
+            sb.Append("  Address2: ").Append(Address2).Append("\n");
+            sb.Append("  CanadaAcceptDebitCards: ").Append(CanadaAcceptDebitCards).Append("\n");
+            sb.Append("  City: ").Append(City).Append("\n");
+            sb.Append("  Company: ").Append(Company).Append("\n");
+            sb.Append("  CompanyDescription: ").Append(CompanyDescription).Append("\n");
+            sb.Append("  ConsoleHostname: ").Append(ConsoleHostname).Append("\n");
+            sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  ExpectedRevenue: ").Append(ExpectedRevenue).Append("\n");
+            sb.Append("  HideCreditCardNonUltracartPayments: ").Append(HideCreditCardNonUltracartPayments).Append("\n");
+            sb.Append("  HideSurchargeAmount: ").Append(HideSurchargeAmount).Append("\n");
+            sb.Append("  Industry: ").Append(Industry).Append("\n");
+            sb.Append("  OwnerEmail: ").Append(OwnerEmail).Append("\n");
+            sb.Append("  OwnerName: ").Append(OwnerName).Append("\n");
+            sb.Append("  OwnerPhone: ").Append(OwnerPhone).Append("\n");
+            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  RemovePayPalPro: ").Append(RemovePayPalPro).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
-            sb.Append("  ShortPayPalMarketingText: ").Append(ShortPayPalMarketingText).Append("\n");
-            sb.Append("  ShowUltraCartPaymentsDisabled: ").Append(ShowUltraCartPaymentsDisabled).Append("\n");
-            sb.Append("  ShowUltraCartPaymentsIntro: ").Append(ShowUltraCartPaymentsIntro).Append("\n");
-            sb.Append("  ShowUltraCartPaymentsVerification: ").Append(ShowUltraCartPaymentsVerification).Append("\n");
-            sb.Append("  ShowUltraCartPaymentsVerified: ").Append(ShowUltraCartPaymentsVerified).Append("\n");
-            sb.Append("  WepayAccountUpdateUri: ").Append(WepayAccountUpdateUri).Append("\n");
-            sb.Append("  WepayAddress1: ").Append(WepayAddress1).Append("\n");
-            sb.Append("  WepayAddress2: ").Append(WepayAddress2).Append("\n");
-            sb.Append("  WepayCanadaAcceptDebitCards: ").Append(WepayCanadaAcceptDebitCards).Append("\n");
-            sb.Append("  WepayCity: ").Append(WepayCity).Append("\n");
-            sb.Append("  WepayCompany: ").Append(WepayCompany).Append("\n");
-            sb.Append("  WepayCompanyDescription: ").Append(WepayCompanyDescription).Append("\n");
-            sb.Append("  WepayConsoleHostname: ").Append(WepayConsoleHostname).Append("\n");
-            sb.Append("  WepayCountry: ").Append(WepayCountry).Append("\n");
-            sb.Append("  WepayCurrency: ").Append(WepayCurrency).Append("\n");
-            sb.Append("  WepayExpectedRevenue: ").Append(WepayExpectedRevenue).Append("\n");
-            sb.Append("  WepayIndustry: ").Append(WepayIndustry).Append("\n");
-            sb.Append("  WepayOwnerEmail: ").Append(WepayOwnerEmail).Append("\n");
-            sb.Append("  WepayOwnerName: ").Append(WepayOwnerName).Append("\n");
-            sb.Append("  WepayOwnerPhone: ").Append(WepayOwnerPhone).Append("\n");
-            sb.Append("  WepayState: ").Append(WepayState).Append("\n");
-            sb.Append("  WepayWebsiteUrl: ").Append(WepayWebsiteUrl).Append("\n");
-            sb.Append("  WepayZip: ").Append(WepayZip).Append("\n");
+            sb.Append("  ShortPaypalMarketingText: ").Append(ShortPaypalMarketingText).Append("\n");
+            sb.Append("  ShowUltracartPaymentsDisabled: ").Append(ShowUltracartPaymentsDisabled).Append("\n");
+            sb.Append("  ShowUltracartPaymentsIntro: ").Append(ShowUltracartPaymentsIntro).Append("\n");
+            sb.Append("  ShowUltracartPaymentsVerification: ").Append(ShowUltracartPaymentsVerification).Append("\n");
+            sb.Append("  ShowUltracartPaymentsVerified: ").Append(ShowUltracartPaymentsVerified).Append("\n");
+            sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  WebsiteUrl: ").Append(WebsiteUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -337,14 +363,94 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptWepay.Equals(input.AcceptWepay))
                 ) && 
                 (
-                    this.HideCreditCardsNonUltraCartPayments == input.HideCreditCardsNonUltraCartPayments ||
-                    (this.HideCreditCardsNonUltraCartPayments != null &&
-                    this.HideCreditCardsNonUltraCartPayments.Equals(input.HideCreditCardsNonUltraCartPayments))
+                    this.AccountUpdateUri == input.AccountUpdateUri ||
+                    (this.AccountUpdateUri != null &&
+                    this.AccountUpdateUri.Equals(input.AccountUpdateUri))
                 ) && 
                 (
-                    this.HideSurchargeContent == input.HideSurchargeContent ||
-                    (this.HideSurchargeContent != null &&
-                    this.HideSurchargeContent.Equals(input.HideSurchargeContent))
+                    this.Address1 == input.Address1 ||
+                    (this.Address1 != null &&
+                    this.Address1.Equals(input.Address1))
+                ) && 
+                (
+                    this.Address2 == input.Address2 ||
+                    (this.Address2 != null &&
+                    this.Address2.Equals(input.Address2))
+                ) && 
+                (
+                    this.CanadaAcceptDebitCards == input.CanadaAcceptDebitCards ||
+                    (this.CanadaAcceptDebitCards != null &&
+                    this.CanadaAcceptDebitCards.Equals(input.CanadaAcceptDebitCards))
+                ) && 
+                (
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
+                ) && 
+                (
+                    this.Company == input.Company ||
+                    (this.Company != null &&
+                    this.Company.Equals(input.Company))
+                ) && 
+                (
+                    this.CompanyDescription == input.CompanyDescription ||
+                    (this.CompanyDescription != null &&
+                    this.CompanyDescription.Equals(input.CompanyDescription))
+                ) && 
+                (
+                    this.ConsoleHostname == input.ConsoleHostname ||
+                    (this.ConsoleHostname != null &&
+                    this.ConsoleHostname.Equals(input.ConsoleHostname))
+                ) && 
+                (
+                    this.Country == input.Country ||
+                    (this.Country != null &&
+                    this.Country.Equals(input.Country))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.ExpectedRevenue == input.ExpectedRevenue ||
+                    (this.ExpectedRevenue != null &&
+                    this.ExpectedRevenue.Equals(input.ExpectedRevenue))
+                ) && 
+                (
+                    this.HideCreditCardNonUltracartPayments == input.HideCreditCardNonUltracartPayments ||
+                    (this.HideCreditCardNonUltracartPayments != null &&
+                    this.HideCreditCardNonUltracartPayments.Equals(input.HideCreditCardNonUltracartPayments))
+                ) && 
+                (
+                    this.HideSurchargeAmount == input.HideSurchargeAmount ||
+                    (this.HideSurchargeAmount != null &&
+                    this.HideSurchargeAmount.Equals(input.HideSurchargeAmount))
+                ) && 
+                (
+                    this.Industry == input.Industry ||
+                    (this.Industry != null &&
+                    this.Industry.Equals(input.Industry))
+                ) && 
+                (
+                    this.OwnerEmail == input.OwnerEmail ||
+                    (this.OwnerEmail != null &&
+                    this.OwnerEmail.Equals(input.OwnerEmail))
+                ) && 
+                (
+                    this.OwnerName == input.OwnerName ||
+                    (this.OwnerName != null &&
+                    this.OwnerName.Equals(input.OwnerName))
+                ) && 
+                (
+                    this.OwnerPhone == input.OwnerPhone ||
+                    (this.OwnerPhone != null &&
+                    this.OwnerPhone.Equals(input.OwnerPhone))
+                ) && 
+                (
+                    this.PostalCode == input.PostalCode ||
+                    (this.PostalCode != null &&
+                    this.PostalCode.Equals(input.PostalCode))
                 ) && 
                 (
                     this.RemovePayPalPro == input.RemovePayPalPro ||
@@ -357,119 +463,39 @@ namespace com.ultracart.admin.v2.Model
                     this.Restrictions.Equals(input.Restrictions))
                 ) && 
                 (
-                    this.ShortPayPalMarketingText == input.ShortPayPalMarketingText ||
-                    (this.ShortPayPalMarketingText != null &&
-                    this.ShortPayPalMarketingText.Equals(input.ShortPayPalMarketingText))
+                    this.ShortPaypalMarketingText == input.ShortPaypalMarketingText ||
+                    (this.ShortPaypalMarketingText != null &&
+                    this.ShortPaypalMarketingText.Equals(input.ShortPaypalMarketingText))
                 ) && 
                 (
-                    this.ShowUltraCartPaymentsDisabled == input.ShowUltraCartPaymentsDisabled ||
-                    (this.ShowUltraCartPaymentsDisabled != null &&
-                    this.ShowUltraCartPaymentsDisabled.Equals(input.ShowUltraCartPaymentsDisabled))
+                    this.ShowUltracartPaymentsDisabled == input.ShowUltracartPaymentsDisabled ||
+                    (this.ShowUltracartPaymentsDisabled != null &&
+                    this.ShowUltracartPaymentsDisabled.Equals(input.ShowUltracartPaymentsDisabled))
                 ) && 
                 (
-                    this.ShowUltraCartPaymentsIntro == input.ShowUltraCartPaymentsIntro ||
-                    (this.ShowUltraCartPaymentsIntro != null &&
-                    this.ShowUltraCartPaymentsIntro.Equals(input.ShowUltraCartPaymentsIntro))
+                    this.ShowUltracartPaymentsIntro == input.ShowUltracartPaymentsIntro ||
+                    (this.ShowUltracartPaymentsIntro != null &&
+                    this.ShowUltracartPaymentsIntro.Equals(input.ShowUltracartPaymentsIntro))
                 ) && 
                 (
-                    this.ShowUltraCartPaymentsVerification == input.ShowUltraCartPaymentsVerification ||
-                    (this.ShowUltraCartPaymentsVerification != null &&
-                    this.ShowUltraCartPaymentsVerification.Equals(input.ShowUltraCartPaymentsVerification))
+                    this.ShowUltracartPaymentsVerification == input.ShowUltracartPaymentsVerification ||
+                    (this.ShowUltracartPaymentsVerification != null &&
+                    this.ShowUltracartPaymentsVerification.Equals(input.ShowUltracartPaymentsVerification))
                 ) && 
                 (
-                    this.ShowUltraCartPaymentsVerified == input.ShowUltraCartPaymentsVerified ||
-                    (this.ShowUltraCartPaymentsVerified != null &&
-                    this.ShowUltraCartPaymentsVerified.Equals(input.ShowUltraCartPaymentsVerified))
+                    this.ShowUltracartPaymentsVerified == input.ShowUltracartPaymentsVerified ||
+                    (this.ShowUltracartPaymentsVerified != null &&
+                    this.ShowUltracartPaymentsVerified.Equals(input.ShowUltracartPaymentsVerified))
                 ) && 
                 (
-                    this.WepayAccountUpdateUri == input.WepayAccountUpdateUri ||
-                    (this.WepayAccountUpdateUri != null &&
-                    this.WepayAccountUpdateUri.Equals(input.WepayAccountUpdateUri))
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
                 ) && 
                 (
-                    this.WepayAddress1 == input.WepayAddress1 ||
-                    (this.WepayAddress1 != null &&
-                    this.WepayAddress1.Equals(input.WepayAddress1))
-                ) && 
-                (
-                    this.WepayAddress2 == input.WepayAddress2 ||
-                    (this.WepayAddress2 != null &&
-                    this.WepayAddress2.Equals(input.WepayAddress2))
-                ) && 
-                (
-                    this.WepayCanadaAcceptDebitCards == input.WepayCanadaAcceptDebitCards ||
-                    (this.WepayCanadaAcceptDebitCards != null &&
-                    this.WepayCanadaAcceptDebitCards.Equals(input.WepayCanadaAcceptDebitCards))
-                ) && 
-                (
-                    this.WepayCity == input.WepayCity ||
-                    (this.WepayCity != null &&
-                    this.WepayCity.Equals(input.WepayCity))
-                ) && 
-                (
-                    this.WepayCompany == input.WepayCompany ||
-                    (this.WepayCompany != null &&
-                    this.WepayCompany.Equals(input.WepayCompany))
-                ) && 
-                (
-                    this.WepayCompanyDescription == input.WepayCompanyDescription ||
-                    (this.WepayCompanyDescription != null &&
-                    this.WepayCompanyDescription.Equals(input.WepayCompanyDescription))
-                ) && 
-                (
-                    this.WepayConsoleHostname == input.WepayConsoleHostname ||
-                    (this.WepayConsoleHostname != null &&
-                    this.WepayConsoleHostname.Equals(input.WepayConsoleHostname))
-                ) && 
-                (
-                    this.WepayCountry == input.WepayCountry ||
-                    (this.WepayCountry != null &&
-                    this.WepayCountry.Equals(input.WepayCountry))
-                ) && 
-                (
-                    this.WepayCurrency == input.WepayCurrency ||
-                    (this.WepayCurrency != null &&
-                    this.WepayCurrency.Equals(input.WepayCurrency))
-                ) && 
-                (
-                    this.WepayExpectedRevenue == input.WepayExpectedRevenue ||
-                    (this.WepayExpectedRevenue != null &&
-                    this.WepayExpectedRevenue.Equals(input.WepayExpectedRevenue))
-                ) && 
-                (
-                    this.WepayIndustry == input.WepayIndustry ||
-                    (this.WepayIndustry != null &&
-                    this.WepayIndustry.Equals(input.WepayIndustry))
-                ) && 
-                (
-                    this.WepayOwnerEmail == input.WepayOwnerEmail ||
-                    (this.WepayOwnerEmail != null &&
-                    this.WepayOwnerEmail.Equals(input.WepayOwnerEmail))
-                ) && 
-                (
-                    this.WepayOwnerName == input.WepayOwnerName ||
-                    (this.WepayOwnerName != null &&
-                    this.WepayOwnerName.Equals(input.WepayOwnerName))
-                ) && 
-                (
-                    this.WepayOwnerPhone == input.WepayOwnerPhone ||
-                    (this.WepayOwnerPhone != null &&
-                    this.WepayOwnerPhone.Equals(input.WepayOwnerPhone))
-                ) && 
-                (
-                    this.WepayState == input.WepayState ||
-                    (this.WepayState != null &&
-                    this.WepayState.Equals(input.WepayState))
-                ) && 
-                (
-                    this.WepayWebsiteUrl == input.WepayWebsiteUrl ||
-                    (this.WepayWebsiteUrl != null &&
-                    this.WepayWebsiteUrl.Equals(input.WepayWebsiteUrl))
-                ) && 
-                (
-                    this.WepayZip == input.WepayZip ||
-                    (this.WepayZip != null &&
-                    this.WepayZip.Equals(input.WepayZip))
+                    this.WebsiteUrl == input.WebsiteUrl ||
+                    (this.WebsiteUrl != null &&
+                    this.WebsiteUrl.Equals(input.WebsiteUrl))
                 );
         }
 
@@ -484,60 +510,60 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptWepay != null)
                     hashCode = hashCode * 59 + this.AcceptWepay.GetHashCode();
-                if (this.HideCreditCardsNonUltraCartPayments != null)
-                    hashCode = hashCode * 59 + this.HideCreditCardsNonUltraCartPayments.GetHashCode();
-                if (this.HideSurchargeContent != null)
-                    hashCode = hashCode * 59 + this.HideSurchargeContent.GetHashCode();
+                if (this.AccountUpdateUri != null)
+                    hashCode = hashCode * 59 + this.AccountUpdateUri.GetHashCode();
+                if (this.Address1 != null)
+                    hashCode = hashCode * 59 + this.Address1.GetHashCode();
+                if (this.Address2 != null)
+                    hashCode = hashCode * 59 + this.Address2.GetHashCode();
+                if (this.CanadaAcceptDebitCards != null)
+                    hashCode = hashCode * 59 + this.CanadaAcceptDebitCards.GetHashCode();
+                if (this.City != null)
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
+                if (this.Company != null)
+                    hashCode = hashCode * 59 + this.Company.GetHashCode();
+                if (this.CompanyDescription != null)
+                    hashCode = hashCode * 59 + this.CompanyDescription.GetHashCode();
+                if (this.ConsoleHostname != null)
+                    hashCode = hashCode * 59 + this.ConsoleHostname.GetHashCode();
+                if (this.Country != null)
+                    hashCode = hashCode * 59 + this.Country.GetHashCode();
+                if (this.Currency != null)
+                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                if (this.ExpectedRevenue != null)
+                    hashCode = hashCode * 59 + this.ExpectedRevenue.GetHashCode();
+                if (this.HideCreditCardNonUltracartPayments != null)
+                    hashCode = hashCode * 59 + this.HideCreditCardNonUltracartPayments.GetHashCode();
+                if (this.HideSurchargeAmount != null)
+                    hashCode = hashCode * 59 + this.HideSurchargeAmount.GetHashCode();
+                if (this.Industry != null)
+                    hashCode = hashCode * 59 + this.Industry.GetHashCode();
+                if (this.OwnerEmail != null)
+                    hashCode = hashCode * 59 + this.OwnerEmail.GetHashCode();
+                if (this.OwnerName != null)
+                    hashCode = hashCode * 59 + this.OwnerName.GetHashCode();
+                if (this.OwnerPhone != null)
+                    hashCode = hashCode * 59 + this.OwnerPhone.GetHashCode();
+                if (this.PostalCode != null)
+                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.RemovePayPalPro != null)
                     hashCode = hashCode * 59 + this.RemovePayPalPro.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
-                if (this.ShortPayPalMarketingText != null)
-                    hashCode = hashCode * 59 + this.ShortPayPalMarketingText.GetHashCode();
-                if (this.ShowUltraCartPaymentsDisabled != null)
-                    hashCode = hashCode * 59 + this.ShowUltraCartPaymentsDisabled.GetHashCode();
-                if (this.ShowUltraCartPaymentsIntro != null)
-                    hashCode = hashCode * 59 + this.ShowUltraCartPaymentsIntro.GetHashCode();
-                if (this.ShowUltraCartPaymentsVerification != null)
-                    hashCode = hashCode * 59 + this.ShowUltraCartPaymentsVerification.GetHashCode();
-                if (this.ShowUltraCartPaymentsVerified != null)
-                    hashCode = hashCode * 59 + this.ShowUltraCartPaymentsVerified.GetHashCode();
-                if (this.WepayAccountUpdateUri != null)
-                    hashCode = hashCode * 59 + this.WepayAccountUpdateUri.GetHashCode();
-                if (this.WepayAddress1 != null)
-                    hashCode = hashCode * 59 + this.WepayAddress1.GetHashCode();
-                if (this.WepayAddress2 != null)
-                    hashCode = hashCode * 59 + this.WepayAddress2.GetHashCode();
-                if (this.WepayCanadaAcceptDebitCards != null)
-                    hashCode = hashCode * 59 + this.WepayCanadaAcceptDebitCards.GetHashCode();
-                if (this.WepayCity != null)
-                    hashCode = hashCode * 59 + this.WepayCity.GetHashCode();
-                if (this.WepayCompany != null)
-                    hashCode = hashCode * 59 + this.WepayCompany.GetHashCode();
-                if (this.WepayCompanyDescription != null)
-                    hashCode = hashCode * 59 + this.WepayCompanyDescription.GetHashCode();
-                if (this.WepayConsoleHostname != null)
-                    hashCode = hashCode * 59 + this.WepayConsoleHostname.GetHashCode();
-                if (this.WepayCountry != null)
-                    hashCode = hashCode * 59 + this.WepayCountry.GetHashCode();
-                if (this.WepayCurrency != null)
-                    hashCode = hashCode * 59 + this.WepayCurrency.GetHashCode();
-                if (this.WepayExpectedRevenue != null)
-                    hashCode = hashCode * 59 + this.WepayExpectedRevenue.GetHashCode();
-                if (this.WepayIndustry != null)
-                    hashCode = hashCode * 59 + this.WepayIndustry.GetHashCode();
-                if (this.WepayOwnerEmail != null)
-                    hashCode = hashCode * 59 + this.WepayOwnerEmail.GetHashCode();
-                if (this.WepayOwnerName != null)
-                    hashCode = hashCode * 59 + this.WepayOwnerName.GetHashCode();
-                if (this.WepayOwnerPhone != null)
-                    hashCode = hashCode * 59 + this.WepayOwnerPhone.GetHashCode();
-                if (this.WepayState != null)
-                    hashCode = hashCode * 59 + this.WepayState.GetHashCode();
-                if (this.WepayWebsiteUrl != null)
-                    hashCode = hashCode * 59 + this.WepayWebsiteUrl.GetHashCode();
-                if (this.WepayZip != null)
-                    hashCode = hashCode * 59 + this.WepayZip.GetHashCode();
+                if (this.ShortPaypalMarketingText != null)
+                    hashCode = hashCode * 59 + this.ShortPaypalMarketingText.GetHashCode();
+                if (this.ShowUltracartPaymentsDisabled != null)
+                    hashCode = hashCode * 59 + this.ShowUltracartPaymentsDisabled.GetHashCode();
+                if (this.ShowUltracartPaymentsIntro != null)
+                    hashCode = hashCode * 59 + this.ShowUltracartPaymentsIntro.GetHashCode();
+                if (this.ShowUltracartPaymentsVerification != null)
+                    hashCode = hashCode * 59 + this.ShowUltracartPaymentsVerification.GetHashCode();
+                if (this.ShowUltracartPaymentsVerified != null)
+                    hashCode = hashCode * 59 + this.ShowUltracartPaymentsVerified.GetHashCode();
+                if (this.State != null)
+                    hashCode = hashCode * 59 + this.State.GetHashCode();
+                if (this.WebsiteUrl != null)
+                    hashCode = hashCode * 59 + this.WebsiteUrl.GetHashCode();
                 return hashCode;
             }
         }

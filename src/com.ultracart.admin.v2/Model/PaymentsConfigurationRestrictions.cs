@@ -33,19 +33,19 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationRestrictions" /> class.
         /// </summary>
-        /// <param name="maximumSubtotal">maximumSubtotal.</param>
-        /// <param name="minimumSubtotal">minimumSubtotal.</param>
-        /// <param name="paymentMethod">paymentMethod.</param>
-        /// <param name="restrictionAlaskaHawaii">restrictionAlaskaHawaii.</param>
-        /// <param name="restrictionApoFpo">restrictionApoFpo.</param>
-        /// <param name="restrictionCanada">restrictionCanada.</param>
-        /// <param name="restrictionContinentalUS">restrictionContinentalUS.</param>
-        /// <param name="restrictionDomesticOnly">restrictionDomesticOnly.</param>
-        /// <param name="restrictionInternationalOnly">restrictionInternationalOnly.</param>
-        /// <param name="restrictionPoBox">restrictionPoBox.</param>
-        /// <param name="restrictionPuertoRico">restrictionPuertoRico.</param>
-        /// <param name="restrictionUSTerritories">restrictionUSTerritories.</param>
-        public PaymentsConfigurationRestrictions(string maximumSubtotal = default(string), string minimumSubtotal = default(string), string paymentMethod = default(string), string restrictionAlaskaHawaii = default(string), string restrictionApoFpo = default(string), string restrictionCanada = default(string), string restrictionContinentalUS = default(string), string restrictionDomesticOnly = default(string), string restrictionInternationalOnly = default(string), string restrictionPoBox = default(string), string restrictionPuertoRico = default(string), string restrictionUSTerritories = default(string))
+        /// <param name="maximumSubtotal">Maximum subtotal.</param>
+        /// <param name="minimumSubtotal">Minimum subtotal.</param>
+        /// <param name="paymentMethod">Payment method.</param>
+        /// <param name="restrictionAlaskaHawaii">Alaska and Hawaii restriction.</param>
+        /// <param name="restrictionApoFpo">APO/FPO restriction.</param>
+        /// <param name="restrictionCanada">Canada restriction.</param>
+        /// <param name="restrictionContinentalUs">Continental US restriction.</param>
+        /// <param name="restrictionDomesticOnly">Domestic only restriction.</param>
+        /// <param name="restrictionInternationalOnly">International only restriction.</param>
+        /// <param name="restrictionPoBox">PO Box restriction.</param>
+        /// <param name="restrictionPuertoRico">Puerto Rico restriction.</param>
+        /// <param name="restrictionUsTerritories">US Territories restriction.</param>
+        public PaymentsConfigurationRestrictions(string maximumSubtotal = default(string), string minimumSubtotal = default(string), string paymentMethod = default(string), string restrictionAlaskaHawaii = default(string), string restrictionApoFpo = default(string), string restrictionCanada = default(string), string restrictionContinentalUs = default(string), string restrictionDomesticOnly = default(string), string restrictionInternationalOnly = default(string), string restrictionPoBox = default(string), string restrictionPuertoRico = default(string), string restrictionUsTerritories = default(string))
         {
             this.MaximumSubtotal = maximumSubtotal;
             this.MinimumSubtotal = minimumSubtotal;
@@ -53,85 +53,97 @@ namespace com.ultracart.admin.v2.Model
             this.RestrictionAlaskaHawaii = restrictionAlaskaHawaii;
             this.RestrictionApoFpo = restrictionApoFpo;
             this.RestrictionCanada = restrictionCanada;
-            this.RestrictionContinentalUS = restrictionContinentalUS;
+            this.RestrictionContinentalUs = restrictionContinentalUs;
             this.RestrictionDomesticOnly = restrictionDomesticOnly;
             this.RestrictionInternationalOnly = restrictionInternationalOnly;
             this.RestrictionPoBox = restrictionPoBox;
             this.RestrictionPuertoRico = restrictionPuertoRico;
-            this.RestrictionUSTerritories = restrictionUSTerritories;
+            this.RestrictionUsTerritories = restrictionUsTerritories;
         }
         
         /// <summary>
-        /// Gets or Sets MaximumSubtotal
+        /// Maximum subtotal
         /// </summary>
-        [DataMember(Name="maximumSubtotal", EmitDefaultValue=false)]
+        /// <value>Maximum subtotal</value>
+        [DataMember(Name="maximum_subtotal", EmitDefaultValue=false)]
         public string MaximumSubtotal { get; set; }
 
         /// <summary>
-        /// Gets or Sets MinimumSubtotal
+        /// Minimum subtotal
         /// </summary>
-        [DataMember(Name="minimumSubtotal", EmitDefaultValue=false)]
+        /// <value>Minimum subtotal</value>
+        [DataMember(Name="minimum_subtotal", EmitDefaultValue=false)]
         public string MinimumSubtotal { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaymentMethod
+        /// Payment method
         /// </summary>
-        [DataMember(Name="paymentMethod", EmitDefaultValue=false)]
+        /// <value>Payment method</value>
+        [DataMember(Name="payment_method", EmitDefaultValue=false)]
         public string PaymentMethod { get; set; }
 
         /// <summary>
-        /// Gets or Sets RestrictionAlaskaHawaii
+        /// Alaska and Hawaii restriction
         /// </summary>
-        [DataMember(Name="restrictionAlaskaHawaii", EmitDefaultValue=false)]
+        /// <value>Alaska and Hawaii restriction</value>
+        [DataMember(Name="restriction_alaska_hawaii", EmitDefaultValue=false)]
         public string RestrictionAlaskaHawaii { get; set; }
 
         /// <summary>
-        /// Gets or Sets RestrictionApoFpo
+        /// APO/FPO restriction
         /// </summary>
-        [DataMember(Name="restrictionApoFpo", EmitDefaultValue=false)]
+        /// <value>APO/FPO restriction</value>
+        [DataMember(Name="restriction_apo_fpo", EmitDefaultValue=false)]
         public string RestrictionApoFpo { get; set; }
 
         /// <summary>
-        /// Gets or Sets RestrictionCanada
+        /// Canada restriction
         /// </summary>
-        [DataMember(Name="restrictionCanada", EmitDefaultValue=false)]
+        /// <value>Canada restriction</value>
+        [DataMember(Name="restriction_canada", EmitDefaultValue=false)]
         public string RestrictionCanada { get; set; }
 
         /// <summary>
-        /// Gets or Sets RestrictionContinentalUS
+        /// Continental US restriction
         /// </summary>
-        [DataMember(Name="restrictionContinentalUS", EmitDefaultValue=false)]
-        public string RestrictionContinentalUS { get; set; }
+        /// <value>Continental US restriction</value>
+        [DataMember(Name="restriction_continental_us", EmitDefaultValue=false)]
+        public string RestrictionContinentalUs { get; set; }
 
         /// <summary>
-        /// Gets or Sets RestrictionDomesticOnly
+        /// Domestic only restriction
         /// </summary>
-        [DataMember(Name="restrictionDomesticOnly", EmitDefaultValue=false)]
+        /// <value>Domestic only restriction</value>
+        [DataMember(Name="restriction_domestic_only", EmitDefaultValue=false)]
         public string RestrictionDomesticOnly { get; set; }
 
         /// <summary>
-        /// Gets or Sets RestrictionInternationalOnly
+        /// International only restriction
         /// </summary>
-        [DataMember(Name="restrictionInternationalOnly", EmitDefaultValue=false)]
+        /// <value>International only restriction</value>
+        [DataMember(Name="restriction_international_only", EmitDefaultValue=false)]
         public string RestrictionInternationalOnly { get; set; }
 
         /// <summary>
-        /// Gets or Sets RestrictionPoBox
+        /// PO Box restriction
         /// </summary>
-        [DataMember(Name="restrictionPoBox", EmitDefaultValue=false)]
+        /// <value>PO Box restriction</value>
+        [DataMember(Name="restriction_po_box", EmitDefaultValue=false)]
         public string RestrictionPoBox { get; set; }
 
         /// <summary>
-        /// Gets or Sets RestrictionPuertoRico
+        /// Puerto Rico restriction
         /// </summary>
-        [DataMember(Name="restrictionPuertoRico", EmitDefaultValue=false)]
+        /// <value>Puerto Rico restriction</value>
+        [DataMember(Name="restriction_puerto_rico", EmitDefaultValue=false)]
         public string RestrictionPuertoRico { get; set; }
 
         /// <summary>
-        /// Gets or Sets RestrictionUSTerritories
+        /// US Territories restriction
         /// </summary>
-        [DataMember(Name="restrictionUSTerritories", EmitDefaultValue=false)]
-        public string RestrictionUSTerritories { get; set; }
+        /// <value>US Territories restriction</value>
+        [DataMember(Name="restriction_us_territories", EmitDefaultValue=false)]
+        public string RestrictionUsTerritories { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -147,12 +159,12 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  RestrictionAlaskaHawaii: ").Append(RestrictionAlaskaHawaii).Append("\n");
             sb.Append("  RestrictionApoFpo: ").Append(RestrictionApoFpo).Append("\n");
             sb.Append("  RestrictionCanada: ").Append(RestrictionCanada).Append("\n");
-            sb.Append("  RestrictionContinentalUS: ").Append(RestrictionContinentalUS).Append("\n");
+            sb.Append("  RestrictionContinentalUs: ").Append(RestrictionContinentalUs).Append("\n");
             sb.Append("  RestrictionDomesticOnly: ").Append(RestrictionDomesticOnly).Append("\n");
             sb.Append("  RestrictionInternationalOnly: ").Append(RestrictionInternationalOnly).Append("\n");
             sb.Append("  RestrictionPoBox: ").Append(RestrictionPoBox).Append("\n");
             sb.Append("  RestrictionPuertoRico: ").Append(RestrictionPuertoRico).Append("\n");
-            sb.Append("  RestrictionUSTerritories: ").Append(RestrictionUSTerritories).Append("\n");
+            sb.Append("  RestrictionUsTerritories: ").Append(RestrictionUsTerritories).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -218,9 +230,9 @@ namespace com.ultracart.admin.v2.Model
                     this.RestrictionCanada.Equals(input.RestrictionCanada))
                 ) && 
                 (
-                    this.RestrictionContinentalUS == input.RestrictionContinentalUS ||
-                    (this.RestrictionContinentalUS != null &&
-                    this.RestrictionContinentalUS.Equals(input.RestrictionContinentalUS))
+                    this.RestrictionContinentalUs == input.RestrictionContinentalUs ||
+                    (this.RestrictionContinentalUs != null &&
+                    this.RestrictionContinentalUs.Equals(input.RestrictionContinentalUs))
                 ) && 
                 (
                     this.RestrictionDomesticOnly == input.RestrictionDomesticOnly ||
@@ -243,9 +255,9 @@ namespace com.ultracart.admin.v2.Model
                     this.RestrictionPuertoRico.Equals(input.RestrictionPuertoRico))
                 ) && 
                 (
-                    this.RestrictionUSTerritories == input.RestrictionUSTerritories ||
-                    (this.RestrictionUSTerritories != null &&
-                    this.RestrictionUSTerritories.Equals(input.RestrictionUSTerritories))
+                    this.RestrictionUsTerritories == input.RestrictionUsTerritories ||
+                    (this.RestrictionUsTerritories != null &&
+                    this.RestrictionUsTerritories.Equals(input.RestrictionUsTerritories))
                 );
         }
 
@@ -270,8 +282,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RestrictionApoFpo.GetHashCode();
                 if (this.RestrictionCanada != null)
                     hashCode = hashCode * 59 + this.RestrictionCanada.GetHashCode();
-                if (this.RestrictionContinentalUS != null)
-                    hashCode = hashCode * 59 + this.RestrictionContinentalUS.GetHashCode();
+                if (this.RestrictionContinentalUs != null)
+                    hashCode = hashCode * 59 + this.RestrictionContinentalUs.GetHashCode();
                 if (this.RestrictionDomesticOnly != null)
                     hashCode = hashCode * 59 + this.RestrictionDomesticOnly.GetHashCode();
                 if (this.RestrictionInternationalOnly != null)
@@ -280,8 +292,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RestrictionPoBox.GetHashCode();
                 if (this.RestrictionPuertoRico != null)
                     hashCode = hashCode * 59 + this.RestrictionPuertoRico.GetHashCode();
-                if (this.RestrictionUSTerritories != null)
-                    hashCode = hashCode * 59 + this.RestrictionUSTerritories.GetHashCode();
+                if (this.RestrictionUsTerritories != null)
+                    hashCode = hashCode * 59 + this.RestrictionUsTerritories.GetHashCode();
                 return hashCode;
             }
         }

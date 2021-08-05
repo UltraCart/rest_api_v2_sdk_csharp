@@ -33,57 +33,62 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationCOD" /> class.
         /// </summary>
-        /// <param name="acceptCod">acceptCod.</param>
-        /// <param name="codApprovedCustomersOnly">codApprovedCustomersOnly.</param>
-        /// <param name="codSurchargeAccountingCode">codSurchargeAccountingCode.</param>
-        /// <param name="codSurchargeFee">codSurchargeFee.</param>
-        /// <param name="codSurchargePerc">codSurchargePerc.</param>
+        /// <param name="acceptCod">Master flag indicating this merchant accepts COD.</param>
+        /// <param name="approvedCustomersOnly">If true, only approved customers may pay with COD.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationCOD(bool? acceptCod = default(bool?), bool? codApprovedCustomersOnly = default(bool?), string codSurchargeAccountingCode = default(string), string codSurchargeFee = default(string), string codSurchargePerc = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        /// <param name="surchargeAccountingCode">Optional field, if surcharge is set, this is the accounting code the surcharge is tagged with when sent to Quickbooks.</param>
+        /// <param name="surchargeFee">Additional cost for using COD.</param>
+        /// <param name="surchargePercentage">Additional percentage cost for using COD.</param>
+        public PaymentsConfigurationCOD(bool? acceptCod = default(bool?), bool? approvedCustomersOnly = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), string surchargeAccountingCode = default(string), string surchargeFee = default(string), string surchargePercentage = default(string))
         {
             this.AcceptCod = acceptCod;
-            this.CodApprovedCustomersOnly = codApprovedCustomersOnly;
-            this.CodSurchargeAccountingCode = codSurchargeAccountingCode;
-            this.CodSurchargeFee = codSurchargeFee;
-            this.CodSurchargePerc = codSurchargePerc;
+            this.ApprovedCustomersOnly = approvedCustomersOnly;
             this.Restrictions = restrictions;
+            this.SurchargeAccountingCode = surchargeAccountingCode;
+            this.SurchargeFee = surchargeFee;
+            this.SurchargePercentage = surchargePercentage;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptCod
+        /// Master flag indicating this merchant accepts COD
         /// </summary>
-        [DataMember(Name="acceptCod", EmitDefaultValue=false)]
+        /// <value>Master flag indicating this merchant accepts COD</value>
+        [DataMember(Name="accept_cod", EmitDefaultValue=false)]
         public bool? AcceptCod { get; set; }
 
         /// <summary>
-        /// Gets or Sets CodApprovedCustomersOnly
+        /// If true, only approved customers may pay with COD
         /// </summary>
-        [DataMember(Name="codApprovedCustomersOnly", EmitDefaultValue=false)]
-        public bool? CodApprovedCustomersOnly { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CodSurchargeAccountingCode
-        /// </summary>
-        [DataMember(Name="codSurchargeAccountingCode", EmitDefaultValue=false)]
-        public string CodSurchargeAccountingCode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CodSurchargeFee
-        /// </summary>
-        [DataMember(Name="codSurchargeFee", EmitDefaultValue=false)]
-        public string CodSurchargeFee { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CodSurchargePerc
-        /// </summary>
-        [DataMember(Name="codSurchargePerc", EmitDefaultValue=false)]
-        public string CodSurchargePerc { get; set; }
+        /// <value>If true, only approved customers may pay with COD</value>
+        [DataMember(Name="approved_customers_only", EmitDefaultValue=false)]
+        public bool? ApprovedCustomersOnly { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
         /// </summary>
         [DataMember(Name="restrictions", EmitDefaultValue=false)]
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
+
+        /// <summary>
+        /// Optional field, if surcharge is set, this is the accounting code the surcharge is tagged with when sent to Quickbooks
+        /// </summary>
+        /// <value>Optional field, if surcharge is set, this is the accounting code the surcharge is tagged with when sent to Quickbooks</value>
+        [DataMember(Name="surcharge_accounting_code", EmitDefaultValue=false)]
+        public string SurchargeAccountingCode { get; set; }
+
+        /// <summary>
+        /// Additional cost for using COD
+        /// </summary>
+        /// <value>Additional cost for using COD</value>
+        [DataMember(Name="surcharge_fee", EmitDefaultValue=false)]
+        public string SurchargeFee { get; set; }
+
+        /// <summary>
+        /// Additional percentage cost for using COD
+        /// </summary>
+        /// <value>Additional percentage cost for using COD</value>
+        [DataMember(Name="surcharge_percentage", EmitDefaultValue=false)]
+        public string SurchargePercentage { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -94,11 +99,11 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationCOD {\n");
             sb.Append("  AcceptCod: ").Append(AcceptCod).Append("\n");
-            sb.Append("  CodApprovedCustomersOnly: ").Append(CodApprovedCustomersOnly).Append("\n");
-            sb.Append("  CodSurchargeAccountingCode: ").Append(CodSurchargeAccountingCode).Append("\n");
-            sb.Append("  CodSurchargeFee: ").Append(CodSurchargeFee).Append("\n");
-            sb.Append("  CodSurchargePerc: ").Append(CodSurchargePerc).Append("\n");
+            sb.Append("  ApprovedCustomersOnly: ").Append(ApprovedCustomersOnly).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
+            sb.Append("  SurchargeAccountingCode: ").Append(SurchargeAccountingCode).Append("\n");
+            sb.Append("  SurchargeFee: ").Append(SurchargeFee).Append("\n");
+            sb.Append("  SurchargePercentage: ").Append(SurchargePercentage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,29 +144,29 @@ namespace com.ultracart.admin.v2.Model
                     this.AcceptCod.Equals(input.AcceptCod))
                 ) && 
                 (
-                    this.CodApprovedCustomersOnly == input.CodApprovedCustomersOnly ||
-                    (this.CodApprovedCustomersOnly != null &&
-                    this.CodApprovedCustomersOnly.Equals(input.CodApprovedCustomersOnly))
-                ) && 
-                (
-                    this.CodSurchargeAccountingCode == input.CodSurchargeAccountingCode ||
-                    (this.CodSurchargeAccountingCode != null &&
-                    this.CodSurchargeAccountingCode.Equals(input.CodSurchargeAccountingCode))
-                ) && 
-                (
-                    this.CodSurchargeFee == input.CodSurchargeFee ||
-                    (this.CodSurchargeFee != null &&
-                    this.CodSurchargeFee.Equals(input.CodSurchargeFee))
-                ) && 
-                (
-                    this.CodSurchargePerc == input.CodSurchargePerc ||
-                    (this.CodSurchargePerc != null &&
-                    this.CodSurchargePerc.Equals(input.CodSurchargePerc))
+                    this.ApprovedCustomersOnly == input.ApprovedCustomersOnly ||
+                    (this.ApprovedCustomersOnly != null &&
+                    this.ApprovedCustomersOnly.Equals(input.ApprovedCustomersOnly))
                 ) && 
                 (
                     this.Restrictions == input.Restrictions ||
                     (this.Restrictions != null &&
                     this.Restrictions.Equals(input.Restrictions))
+                ) && 
+                (
+                    this.SurchargeAccountingCode == input.SurchargeAccountingCode ||
+                    (this.SurchargeAccountingCode != null &&
+                    this.SurchargeAccountingCode.Equals(input.SurchargeAccountingCode))
+                ) && 
+                (
+                    this.SurchargeFee == input.SurchargeFee ||
+                    (this.SurchargeFee != null &&
+                    this.SurchargeFee.Equals(input.SurchargeFee))
+                ) && 
+                (
+                    this.SurchargePercentage == input.SurchargePercentage ||
+                    (this.SurchargePercentage != null &&
+                    this.SurchargePercentage.Equals(input.SurchargePercentage))
                 );
         }
 
@@ -176,16 +181,16 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AcceptCod != null)
                     hashCode = hashCode * 59 + this.AcceptCod.GetHashCode();
-                if (this.CodApprovedCustomersOnly != null)
-                    hashCode = hashCode * 59 + this.CodApprovedCustomersOnly.GetHashCode();
-                if (this.CodSurchargeAccountingCode != null)
-                    hashCode = hashCode * 59 + this.CodSurchargeAccountingCode.GetHashCode();
-                if (this.CodSurchargeFee != null)
-                    hashCode = hashCode * 59 + this.CodSurchargeFee.GetHashCode();
-                if (this.CodSurchargePerc != null)
-                    hashCode = hashCode * 59 + this.CodSurchargePerc.GetHashCode();
+                if (this.ApprovedCustomersOnly != null)
+                    hashCode = hashCode * 59 + this.ApprovedCustomersOnly.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
+                if (this.SurchargeAccountingCode != null)
+                    hashCode = hashCode * 59 + this.SurchargeAccountingCode.GetHashCode();
+                if (this.SurchargeFee != null)
+                    hashCode = hashCode * 59 + this.SurchargeFee.GetHashCode();
+                if (this.SurchargePercentage != null)
+                    hashCode = hashCode * 59 + this.SurchargePercentage.GetHashCode();
                 return hashCode;
             }
         }

@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AcceptAmazon** | **bool?** |  | [optional] 
-**AmazonAccessKeyId** | **string** |  | [optional] 
-**AmazonAccountingCode** | **string** |  | [optional] 
-**AmazonDepositToAccount** | **string** |  | [optional] 
-**AmazonMerchantId** | **string** |  | [optional] 
-**AmazonSandbox** | **bool?** |  | [optional] 
-**AmazonSecretAccessKey** | **string** |  | [optional] 
+**AcceptAmazon** | **bool?** | Master flag to determine if this merchant accepts Pay by Amazon | [optional] 
+**AccessKeyId** | **string** | Amazon access key ID | [optional] 
+**AccountingCode** | **string** | Optional accounting code for use with Quickbooks integrations | [optional] 
+**AmazonMerchantId** | **string** | Amazon merchant ID | [optional] 
+**DepositToAccount** | **string** | Optional deposit to account field for use with Quickbooks integrations | [optional] 
 **Restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
+**Sandbox** | **bool?** | True if transactions should run against the Amazon sandbox.  Useful for testing not configurations | [optional] 
+**SecretAccessKey** | **string** | Amazon secret access key | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -33,35 +33,38 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationEcheck" /> class.
         /// </summary>
-        /// <param name="acceptECheck">acceptECheck.</param>
-        /// <param name="eCheckAccountingCode">eCheckAccountingCode.</param>
-        /// <param name="eCheckDepositToAccount">eCheckDepositToAccount.</param>
+        /// <param name="acceptEcheck">Master flag indicating this merchant accepts eChecks.</param>
+        /// <param name="accountingCode">Optional Quickbooks accounting code.</param>
+        /// <param name="depositToAccount">Optional Quickbooks deposit to account.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationEcheck(bool? acceptECheck = default(bool?), string eCheckAccountingCode = default(string), string eCheckDepositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        public PaymentsConfigurationEcheck(bool? acceptEcheck = default(bool?), string accountingCode = default(string), string depositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
-            this.AcceptECheck = acceptECheck;
-            this.ECheckAccountingCode = eCheckAccountingCode;
-            this.ECheckDepositToAccount = eCheckDepositToAccount;
+            this.AcceptEcheck = acceptEcheck;
+            this.AccountingCode = accountingCode;
+            this.DepositToAccount = depositToAccount;
             this.Restrictions = restrictions;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptECheck
+        /// Master flag indicating this merchant accepts eChecks
         /// </summary>
-        [DataMember(Name="acceptECheck", EmitDefaultValue=false)]
-        public bool? AcceptECheck { get; set; }
+        /// <value>Master flag indicating this merchant accepts eChecks</value>
+        [DataMember(Name="accept_echeck", EmitDefaultValue=false)]
+        public bool? AcceptEcheck { get; set; }
 
         /// <summary>
-        /// Gets or Sets ECheckAccountingCode
+        /// Optional Quickbooks accounting code
         /// </summary>
-        [DataMember(Name="eCheckAccountingCode", EmitDefaultValue=false)]
-        public string ECheckAccountingCode { get; set; }
+        /// <value>Optional Quickbooks accounting code</value>
+        [DataMember(Name="accounting_code", EmitDefaultValue=false)]
+        public string AccountingCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets ECheckDepositToAccount
+        /// Optional Quickbooks deposit to account
         /// </summary>
-        [DataMember(Name="eCheckDepositToAccount", EmitDefaultValue=false)]
-        public string ECheckDepositToAccount { get; set; }
+        /// <value>Optional Quickbooks deposit to account</value>
+        [DataMember(Name="deposit_to_account", EmitDefaultValue=false)]
+        public string DepositToAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets Restrictions
@@ -77,9 +80,9 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationEcheck {\n");
-            sb.Append("  AcceptECheck: ").Append(AcceptECheck).Append("\n");
-            sb.Append("  ECheckAccountingCode: ").Append(ECheckAccountingCode).Append("\n");
-            sb.Append("  ECheckDepositToAccount: ").Append(ECheckDepositToAccount).Append("\n");
+            sb.Append("  AcceptEcheck: ").Append(AcceptEcheck).Append("\n");
+            sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
+            sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -116,19 +119,19 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.AcceptECheck == input.AcceptECheck ||
-                    (this.AcceptECheck != null &&
-                    this.AcceptECheck.Equals(input.AcceptECheck))
+                    this.AcceptEcheck == input.AcceptEcheck ||
+                    (this.AcceptEcheck != null &&
+                    this.AcceptEcheck.Equals(input.AcceptEcheck))
                 ) && 
                 (
-                    this.ECheckAccountingCode == input.ECheckAccountingCode ||
-                    (this.ECheckAccountingCode != null &&
-                    this.ECheckAccountingCode.Equals(input.ECheckAccountingCode))
+                    this.AccountingCode == input.AccountingCode ||
+                    (this.AccountingCode != null &&
+                    this.AccountingCode.Equals(input.AccountingCode))
                 ) && 
                 (
-                    this.ECheckDepositToAccount == input.ECheckDepositToAccount ||
-                    (this.ECheckDepositToAccount != null &&
-                    this.ECheckDepositToAccount.Equals(input.ECheckDepositToAccount))
+                    this.DepositToAccount == input.DepositToAccount ||
+                    (this.DepositToAccount != null &&
+                    this.DepositToAccount.Equals(input.DepositToAccount))
                 ) && 
                 (
                     this.Restrictions == input.Restrictions ||
@@ -146,12 +149,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AcceptECheck != null)
-                    hashCode = hashCode * 59 + this.AcceptECheck.GetHashCode();
-                if (this.ECheckAccountingCode != null)
-                    hashCode = hashCode * 59 + this.ECheckAccountingCode.GetHashCode();
-                if (this.ECheckDepositToAccount != null)
-                    hashCode = hashCode * 59 + this.ECheckDepositToAccount.GetHashCode();
+                if (this.AcceptEcheck != null)
+                    hashCode = hashCode * 59 + this.AcceptEcheck.GetHashCode();
+                if (this.AccountingCode != null)
+                    hashCode = hashCode * 59 + this.AccountingCode.GetHashCode();
+                if (this.DepositToAccount != null)
+                    hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
                 return hashCode;

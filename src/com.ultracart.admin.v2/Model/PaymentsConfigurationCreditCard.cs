@@ -33,73 +33,108 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationCreditCard" /> class.
         /// </summary>
-        /// <param name="acceptCreditCards">acceptCreditCards.</param>
-        /// <param name="billedBy">billedBy.</param>
-        /// <param name="chargeDuringCheckout">chargeDuringCheckout.</param>
-        /// <param name="collectCvv2">collectCvv2.</param>
-        /// <param name="configuredGatewaysDetails">configuredGatewaysDetails.</param>
-        /// <param name="failedAttempts">failedAttempts.</param>
-        /// <param name="hideConnectSingleGateway">hideConnectSingleGateway.</param>
-        /// <param name="sendCustomerBillingUpdateOnDecline">sendCustomerBillingUpdateOnDecline.</param>
-        public PaymentsConfigurationCreditCard(bool? acceptCreditCards = default(bool?), string billedBy = default(string), bool? chargeDuringCheckout = default(bool?), bool? collectCvv2 = default(bool?), string configuredGatewaysDetails = default(string), string failedAttempts = default(string), bool? hideConnectSingleGateway = default(bool?), bool? sendCustomerBillingUpdateOnDecline = default(bool?))
+        /// <param name="acceptCreditCard">Master flag indicating whether this merchant accepts credit card payments.</param>
+        /// <param name="billedBy">Description that appears on customer statements.</param>
+        /// <param name="chargeDuringCheckout">If false, order will be accepted and placed into Accounts Receivable without charging card first.</param>
+        /// <param name="collectCvv2">UltraCart will require customer to enter cvv if this is true.</param>
+        /// <param name="configuredGatewayDetails">Human readable description of the credit card gateway currently configured.</param>
+        /// <param name="failedAttempts">The number of failed attempts before the order is placed into Accounts Receivable for manual intervention.</param>
+        /// <param name="hideConnectSingleGateway">This internal flag aids the UI in determining which buttons to show..</param>
+        /// <param name="restrictions">Restrictions for this payment method.</param>
+        /// <param name="sendCustomerBillingUpdateOnDecline">UltraCart will send customers emails to update their credit card if the card is declined.</param>
+        /// <param name="supportedCards">A list of credit cards the merchant wishes to accept..</param>
+        /// <param name="testMethods">An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders.</param>
+        public PaymentsConfigurationCreditCard(bool? acceptCreditCard = default(bool?), string billedBy = default(string), bool? chargeDuringCheckout = default(bool?), bool? collectCvv2 = default(bool?), string configuredGatewayDetails = default(string), string failedAttempts = default(string), bool? hideConnectSingleGateway = default(bool?), Object restrictions = default(Object), bool? sendCustomerBillingUpdateOnDecline = default(bool?), Object supportedCards = default(Object), Object testMethods = default(Object))
         {
-            this.AcceptCreditCards = acceptCreditCards;
+            this.AcceptCreditCard = acceptCreditCard;
             this.BilledBy = billedBy;
             this.ChargeDuringCheckout = chargeDuringCheckout;
             this.CollectCvv2 = collectCvv2;
-            this.ConfiguredGatewaysDetails = configuredGatewaysDetails;
+            this.ConfiguredGatewayDetails = configuredGatewayDetails;
             this.FailedAttempts = failedAttempts;
             this.HideConnectSingleGateway = hideConnectSingleGateway;
+            this.Restrictions = restrictions;
             this.SendCustomerBillingUpdateOnDecline = sendCustomerBillingUpdateOnDecline;
+            this.SupportedCards = supportedCards;
+            this.TestMethods = testMethods;
         }
         
         /// <summary>
-        /// Gets or Sets AcceptCreditCards
+        /// Master flag indicating whether this merchant accepts credit card payments
         /// </summary>
-        [DataMember(Name="acceptCreditCards", EmitDefaultValue=false)]
-        public bool? AcceptCreditCards { get; set; }
+        /// <value>Master flag indicating whether this merchant accepts credit card payments</value>
+        [DataMember(Name="accept_credit_card", EmitDefaultValue=false)]
+        public bool? AcceptCreditCard { get; set; }
 
         /// <summary>
-        /// Gets or Sets BilledBy
+        /// Description that appears on customer statements
         /// </summary>
-        [DataMember(Name="billedBy", EmitDefaultValue=false)]
+        /// <value>Description that appears on customer statements</value>
+        [DataMember(Name="billed_by", EmitDefaultValue=false)]
         public string BilledBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChargeDuringCheckout
+        /// If false, order will be accepted and placed into Accounts Receivable without charging card first
         /// </summary>
-        [DataMember(Name="chargeDuringCheckout", EmitDefaultValue=false)]
+        /// <value>If false, order will be accepted and placed into Accounts Receivable without charging card first</value>
+        [DataMember(Name="charge_during_checkout", EmitDefaultValue=false)]
         public bool? ChargeDuringCheckout { get; set; }
 
         /// <summary>
-        /// Gets or Sets CollectCvv2
+        /// UltraCart will require customer to enter cvv if this is true
         /// </summary>
-        [DataMember(Name="collectCvv2", EmitDefaultValue=false)]
+        /// <value>UltraCart will require customer to enter cvv if this is true</value>
+        [DataMember(Name="collect_cvv2", EmitDefaultValue=false)]
         public bool? CollectCvv2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets ConfiguredGatewaysDetails
+        /// Human readable description of the credit card gateway currently configured
         /// </summary>
-        [DataMember(Name="configuredGatewaysDetails", EmitDefaultValue=false)]
-        public string ConfiguredGatewaysDetails { get; set; }
+        /// <value>Human readable description of the credit card gateway currently configured</value>
+        [DataMember(Name="configured_gateway_details", EmitDefaultValue=false)]
+        public string ConfiguredGatewayDetails { get; set; }
 
         /// <summary>
-        /// Gets or Sets FailedAttempts
+        /// The number of failed attempts before the order is placed into Accounts Receivable for manual intervention
         /// </summary>
-        [DataMember(Name="failedAttempts", EmitDefaultValue=false)]
+        /// <value>The number of failed attempts before the order is placed into Accounts Receivable for manual intervention</value>
+        [DataMember(Name="failed_attempts", EmitDefaultValue=false)]
         public string FailedAttempts { get; set; }
 
         /// <summary>
-        /// Gets or Sets HideConnectSingleGateway
+        /// This internal flag aids the UI in determining which buttons to show.
         /// </summary>
-        [DataMember(Name="hideConnectSingleGateway", EmitDefaultValue=false)]
+        /// <value>This internal flag aids the UI in determining which buttons to show.</value>
+        [DataMember(Name="hide_connect_single_gateway", EmitDefaultValue=false)]
         public bool? HideConnectSingleGateway { get; set; }
 
         /// <summary>
-        /// Gets or Sets SendCustomerBillingUpdateOnDecline
+        /// Restrictions for this payment method
         /// </summary>
-        [DataMember(Name="sendCustomerBillingUpdateOnDecline", EmitDefaultValue=false)]
+        /// <value>Restrictions for this payment method</value>
+        [DataMember(Name="restrictions", EmitDefaultValue=false)]
+        public Object Restrictions { get; set; }
+
+        /// <summary>
+        /// UltraCart will send customers emails to update their credit card if the card is declined
+        /// </summary>
+        /// <value>UltraCart will send customers emails to update their credit card if the card is declined</value>
+        [DataMember(Name="send_customer_billing_update_on_decline", EmitDefaultValue=false)]
         public bool? SendCustomerBillingUpdateOnDecline { get; set; }
+
+        /// <summary>
+        /// A list of credit cards the merchant wishes to accept.
+        /// </summary>
+        /// <value>A list of credit cards the merchant wishes to accept.</value>
+        [DataMember(Name="supported_cards", EmitDefaultValue=false)]
+        public Object SupportedCards { get; set; }
+
+        /// <summary>
+        /// An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders
+        /// </summary>
+        /// <value>An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders</value>
+        [DataMember(Name="test_methods", EmitDefaultValue=false)]
+        public Object TestMethods { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -109,14 +144,17 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsConfigurationCreditCard {\n");
-            sb.Append("  AcceptCreditCards: ").Append(AcceptCreditCards).Append("\n");
+            sb.Append("  AcceptCreditCard: ").Append(AcceptCreditCard).Append("\n");
             sb.Append("  BilledBy: ").Append(BilledBy).Append("\n");
             sb.Append("  ChargeDuringCheckout: ").Append(ChargeDuringCheckout).Append("\n");
             sb.Append("  CollectCvv2: ").Append(CollectCvv2).Append("\n");
-            sb.Append("  ConfiguredGatewaysDetails: ").Append(ConfiguredGatewaysDetails).Append("\n");
+            sb.Append("  ConfiguredGatewayDetails: ").Append(ConfiguredGatewayDetails).Append("\n");
             sb.Append("  FailedAttempts: ").Append(FailedAttempts).Append("\n");
             sb.Append("  HideConnectSingleGateway: ").Append(HideConnectSingleGateway).Append("\n");
+            sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
             sb.Append("  SendCustomerBillingUpdateOnDecline: ").Append(SendCustomerBillingUpdateOnDecline).Append("\n");
+            sb.Append("  SupportedCards: ").Append(SupportedCards).Append("\n");
+            sb.Append("  TestMethods: ").Append(TestMethods).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,9 +190,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.AcceptCreditCards == input.AcceptCreditCards ||
-                    (this.AcceptCreditCards != null &&
-                    this.AcceptCreditCards.Equals(input.AcceptCreditCards))
+                    this.AcceptCreditCard == input.AcceptCreditCard ||
+                    (this.AcceptCreditCard != null &&
+                    this.AcceptCreditCard.Equals(input.AcceptCreditCard))
                 ) && 
                 (
                     this.BilledBy == input.BilledBy ||
@@ -172,9 +210,9 @@ namespace com.ultracart.admin.v2.Model
                     this.CollectCvv2.Equals(input.CollectCvv2))
                 ) && 
                 (
-                    this.ConfiguredGatewaysDetails == input.ConfiguredGatewaysDetails ||
-                    (this.ConfiguredGatewaysDetails != null &&
-                    this.ConfiguredGatewaysDetails.Equals(input.ConfiguredGatewaysDetails))
+                    this.ConfiguredGatewayDetails == input.ConfiguredGatewayDetails ||
+                    (this.ConfiguredGatewayDetails != null &&
+                    this.ConfiguredGatewayDetails.Equals(input.ConfiguredGatewayDetails))
                 ) && 
                 (
                     this.FailedAttempts == input.FailedAttempts ||
@@ -187,9 +225,24 @@ namespace com.ultracart.admin.v2.Model
                     this.HideConnectSingleGateway.Equals(input.HideConnectSingleGateway))
                 ) && 
                 (
+                    this.Restrictions == input.Restrictions ||
+                    (this.Restrictions != null &&
+                    this.Restrictions.Equals(input.Restrictions))
+                ) && 
+                (
                     this.SendCustomerBillingUpdateOnDecline == input.SendCustomerBillingUpdateOnDecline ||
                     (this.SendCustomerBillingUpdateOnDecline != null &&
                     this.SendCustomerBillingUpdateOnDecline.Equals(input.SendCustomerBillingUpdateOnDecline))
+                ) && 
+                (
+                    this.SupportedCards == input.SupportedCards ||
+                    (this.SupportedCards != null &&
+                    this.SupportedCards.Equals(input.SupportedCards))
+                ) && 
+                (
+                    this.TestMethods == input.TestMethods ||
+                    (this.TestMethods != null &&
+                    this.TestMethods.Equals(input.TestMethods))
                 );
         }
 
@@ -202,22 +255,28 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AcceptCreditCards != null)
-                    hashCode = hashCode * 59 + this.AcceptCreditCards.GetHashCode();
+                if (this.AcceptCreditCard != null)
+                    hashCode = hashCode * 59 + this.AcceptCreditCard.GetHashCode();
                 if (this.BilledBy != null)
                     hashCode = hashCode * 59 + this.BilledBy.GetHashCode();
                 if (this.ChargeDuringCheckout != null)
                     hashCode = hashCode * 59 + this.ChargeDuringCheckout.GetHashCode();
                 if (this.CollectCvv2 != null)
                     hashCode = hashCode * 59 + this.CollectCvv2.GetHashCode();
-                if (this.ConfiguredGatewaysDetails != null)
-                    hashCode = hashCode * 59 + this.ConfiguredGatewaysDetails.GetHashCode();
+                if (this.ConfiguredGatewayDetails != null)
+                    hashCode = hashCode * 59 + this.ConfiguredGatewayDetails.GetHashCode();
                 if (this.FailedAttempts != null)
                     hashCode = hashCode * 59 + this.FailedAttempts.GetHashCode();
                 if (this.HideConnectSingleGateway != null)
                     hashCode = hashCode * 59 + this.HideConnectSingleGateway.GetHashCode();
+                if (this.Restrictions != null)
+                    hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
                 if (this.SendCustomerBillingUpdateOnDecline != null)
                     hashCode = hashCode * 59 + this.SendCustomerBillingUpdateOnDecline.GetHashCode();
+                if (this.SupportedCards != null)
+                    hashCode = hashCode * 59 + this.SupportedCards.GetHashCode();
+                if (this.TestMethods != null)
+                    hashCode = hashCode * 59 + this.TestMethods.GetHashCode();
                 return hashCode;
             }
         }

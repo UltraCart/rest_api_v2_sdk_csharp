@@ -47,7 +47,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="restrictionPuertoRico">Puerto Rico restriction.</param>
         /// <param name="restrictionUsTerritories">US Territories restriction.</param>
         /// <param name="themes">themes.</param>
-        public PaymentsConfigurationRestrictions(List<string> descriptions = default(List<string>), string maximumSubtotal = default(string), string minimumSubtotal = default(string), string paymentMethod = default(string), string restrictionAlaskaHawaii = default(string), string restrictionApoFpo = default(string), string restrictionCanada = default(string), string restrictionContinentalUs = default(string), string restrictionDomesticOnly = default(string), string restrictionInternationalOnly = default(string), string restrictionPoBox = default(string), string restrictionPuertoRico = default(string), string restrictionUsTerritories = default(string), List<PaymentsConfigurationRestrictionsTheme> themes = default(List<PaymentsConfigurationRestrictionsTheme>))
+        public PaymentsConfigurationRestrictions(List<string> descriptions = default(List<string>), decimal? maximumSubtotal = default(decimal?), decimal? minimumSubtotal = default(decimal?), string paymentMethod = default(string), string restrictionAlaskaHawaii = default(string), string restrictionApoFpo = default(string), string restrictionCanada = default(string), string restrictionContinentalUs = default(string), string restrictionDomesticOnly = default(string), string restrictionInternationalOnly = default(string), string restrictionPoBox = default(string), string restrictionPuertoRico = default(string), string restrictionUsTerritories = default(string), List<PaymentsConfigurationRestrictionsTheme> themes = default(List<PaymentsConfigurationRestrictionsTheme>))
         {
             this.Descriptions = descriptions;
             this.MaximumSubtotal = maximumSubtotal;
@@ -76,14 +76,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Maximum subtotal</value>
         [DataMember(Name="maximum_subtotal", EmitDefaultValue=false)]
-        public string MaximumSubtotal { get; set; }
+        public decimal? MaximumSubtotal { get; set; }
 
         /// <summary>
         /// Minimum subtotal
         /// </summary>
         /// <value>Minimum subtotal</value>
         [DataMember(Name="minimum_subtotal", EmitDefaultValue=false)]
-        public string MinimumSubtotal { get; set; }
+        public decimal? MinimumSubtotal { get; set; }
 
         /// <summary>
         /// Payment method

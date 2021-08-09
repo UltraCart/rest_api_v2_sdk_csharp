@@ -44,7 +44,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="sendCustomerBillingUpdateOnDecline">UltraCart will send customers emails to update their credit card if the card is declined.</param>
         /// <param name="supportedCards">A list of credit cards the merchant wishes to accept..</param>
         /// <param name="testMethods">An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders.</param>
-        public PaymentsConfigurationCreditCard(bool? acceptCreditCard = default(bool?), string billedBy = default(string), bool? chargeDuringCheckout = default(bool?), bool? collectCvv2 = default(bool?), string configuredGatewayDetails = default(string), string failedAttempts = default(string), bool? hideConnectSingleGateway = default(bool?), List<PaymentsConfigurationRestrictions> restrictions = default(List<PaymentsConfigurationRestrictions>), bool? sendCustomerBillingUpdateOnDecline = default(bool?), List<PaymentsConfigurationCreditCardType> supportedCards = default(List<PaymentsConfigurationCreditCardType>), List<PaymentsConfigurationTestMethod> testMethods = default(List<PaymentsConfigurationTestMethod>))
+        public PaymentsConfigurationCreditCard(bool? acceptCreditCard = default(bool?), string billedBy = default(string), bool? chargeDuringCheckout = default(bool?), bool? collectCvv2 = default(bool?), string configuredGatewayDetails = default(string), int? failedAttempts = default(int?), bool? hideConnectSingleGateway = default(bool?), List<PaymentsConfigurationRestrictions> restrictions = default(List<PaymentsConfigurationRestrictions>), bool? sendCustomerBillingUpdateOnDecline = default(bool?), List<PaymentsConfigurationCreditCardType> supportedCards = default(List<PaymentsConfigurationCreditCardType>), List<PaymentsConfigurationTestMethod> testMethods = default(List<PaymentsConfigurationTestMethod>))
         {
             this.AcceptCreditCard = acceptCreditCard;
             this.BilledBy = billedBy;
@@ -99,7 +99,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>The number of failed attempts before the order is placed into Accounts Receivable for manual intervention</value>
         [DataMember(Name="failed_attempts", EmitDefaultValue=false)]
-        public string FailedAttempts { get; set; }
+        public int? FailedAttempts { get; set; }
 
         /// <summary>
         /// This internal flag aids the UI in determining which buttons to show.

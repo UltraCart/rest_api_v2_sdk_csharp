@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ChargeDuringCheckout** | **bool?** | If false, order will be accepted and placed into Accounts Receivable without charging card first | [optional] 
 **CollectCvv2** | **bool?** | UltraCart will require customer to enter cvv if this is true | [optional] 
 **ConfiguredGatewayDetails** | **string** | Human readable description of the credit card gateway currently configured | [optional] 
-**FailedAttempts** | **string** | The number of failed attempts before the order is placed into Accounts Receivable for manual intervention | [optional] 
+**FailedAttempts** | **int?** | The number of failed attempts before the order is placed into Accounts Receivable for manual intervention | [optional] 
 **HideConnectSingleGateway** | **bool?** | This internal flag aids the UI in determining which buttons to show. | [optional] 
 **Restrictions** | [**List&lt;PaymentsConfigurationRestrictions&gt;**](PaymentsConfigurationRestrictions.md) | Restrictions for this payment method | [optional] 
 **SendCustomerBillingUpdateOnDecline** | **bool?** | UltraCart will send customers emails to update their credit card if the card is declined | [optional] 

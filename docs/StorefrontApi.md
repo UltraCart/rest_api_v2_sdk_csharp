@@ -44,6 +44,7 @@ Method | HTTP request | Description
 [**GetEmailCommseqStatOverall**](StorefrontApi.md#getemailcommseqstatoverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
 [**GetEmailCommseqStepStats**](StorefrontApi.md#getemailcommseqstepstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 [**GetEmailCommseqStepWaiting**](StorefrontApi.md#getemailcommseqstepwaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
+[**GetEmailCommseqWebhookEditorValues**](StorefrontApi.md#getemailcommseqwebhookeditorvalues) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/webhookEditorValues | Get email webhook editor values
 [**GetEmailCommseqs**](StorefrontApi.md#getemailcommseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
 [**GetEmailCustomerEditorUrl**](StorefrontApi.md#getemailcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url | Get customers editor URL
 [**GetEmailCustomers**](StorefrontApi.md#getemailcustomers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
@@ -2782,6 +2783,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailStepWaitingResponse**](EmailStepWaitingResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailcommseqwebhookeditorvalues"></a>
+# **GetEmailCommseqWebhookEditorValues**
+> EmailWebhookEditorValuesResponse GetEmailCommseqWebhookEditorValues (int? storefrontOid, string commseqUuid)
+
+Get email webhook editor values
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetEmailCommseqWebhookEditorValuesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+
+            var storefrontOid = 56;  // int? | 
+            var commseqUuid = commseqUuid_example;  // string | 
+
+            try
+            {
+                // Get email webhook editor values
+                EmailWebhookEditorValuesResponse result = apiInstance.GetEmailCommseqWebhookEditorValues(storefrontOid, commseqUuid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetEmailCommseqWebhookEditorValues: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int?**|  | 
+ **commseqUuid** | **string**|  | 
+
+### Return type
+
+[**EmailWebhookEditorValuesResponse**](EmailWebhookEditorValuesResponse.md)
 
 ### Authorization
 

@@ -94,7 +94,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="surchargeAccountingCode">Optional field. If integrated with Quickbooks, this code will be used when informing Quickbooks about any surcharges applied to orders.</param>
         /// <param name="transactionFee">An optional additional fee to charge the customer for using this card..</param>
         /// <param name="transactionPercentage">An optional transaction percentage to charge the customer for using this card.</param>
-        public PaymentsConfigurationCreditCardType(string accountingCode = default(string), string cardTypeIcon = default(string), CreditCardEnum? creditCard = default(CreditCardEnum?), string depositToAccount = default(string), bool? enabled = default(bool?), string processingFee = default(string), string processingPercentage = default(string), string surchargeAccountingCode = default(string), string transactionFee = default(string), string transactionPercentage = default(string))
+        public PaymentsConfigurationCreditCardType(string accountingCode = default(string), string cardTypeIcon = default(string), CreditCardEnum? creditCard = default(CreditCardEnum?), string depositToAccount = default(string), bool? enabled = default(bool?), decimal? processingFee = default(decimal?), decimal? processingPercentage = default(decimal?), string surchargeAccountingCode = default(string), decimal? transactionFee = default(decimal?), decimal? transactionPercentage = default(decimal?))
         {
             this.AccountingCode = accountingCode;
             this.CardTypeIcon = cardTypeIcon;
@@ -142,14 +142,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Optional additional fee applied to order for this card</value>
         [DataMember(Name="processing_fee", EmitDefaultValue=false)]
-        public string ProcessingFee { get; set; }
+        public decimal? ProcessingFee { get; set; }
 
         /// <summary>
         /// Optional additional fee applied to order for this card
         /// </summary>
         /// <value>Optional additional fee applied to order for this card</value>
         [DataMember(Name="processing_percentage", EmitDefaultValue=false)]
-        public string ProcessingPercentage { get; set; }
+        public decimal? ProcessingPercentage { get; set; }
 
         /// <summary>
         /// Optional field. If integrated with Quickbooks, this code will be used when informing Quickbooks about any surcharges applied to orders
@@ -163,14 +163,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>An optional additional fee to charge the customer for using this card.</value>
         [DataMember(Name="transaction_fee", EmitDefaultValue=false)]
-        public string TransactionFee { get; set; }
+        public decimal? TransactionFee { get; set; }
 
         /// <summary>
         /// An optional transaction percentage to charge the customer for using this card
         /// </summary>
         /// <value>An optional transaction percentage to charge the customer for using this card</value>
         [DataMember(Name="transaction_percentage", EmitDefaultValue=false)]
-        public string TransactionPercentage { get; set; }
+        public decimal? TransactionPercentage { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

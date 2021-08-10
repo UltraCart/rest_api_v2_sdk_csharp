@@ -939,6 +939,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailStepWaitingResponse</returns>
         ApiResponse<EmailStepWaitingResponse> GetEmailCommseqStepWaitingWithHttpInfo (int? storefrontOid, string commseqUuid, EmailStepWaitingRequest waitingRequest);
         /// <summary>
+        /// Get email webhook editor values
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>EmailWebhookEditorValuesResponse</returns>
+        EmailWebhookEditorValuesResponse GetEmailCommseqWebhookEditorValues (int? storefrontOid, string commseqUuid);
+
+        /// <summary>
+        /// Get email webhook editor values
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>ApiResponse of EmailWebhookEditorValuesResponse</returns>
+        ApiResponse<EmailWebhookEditorValuesResponse> GetEmailCommseqWebhookEditorValuesWithHttpInfo (int? storefrontOid, string commseqUuid);
+        /// <summary>
         /// Get email commseqs
         /// </summary>
         /// <remarks>
@@ -4515,6 +4538,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="waitingRequest">WaitingRequest</param>
         /// <returns>Task of ApiResponse (EmailStepWaitingResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailStepWaitingResponse>> GetEmailCommseqStepWaitingAsyncWithHttpInfo (int? storefrontOid, string commseqUuid, EmailStepWaitingRequest waitingRequest);
+        /// <summary>
+        /// Get email webhook editor values
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of EmailWebhookEditorValuesResponse</returns>
+        System.Threading.Tasks.Task<EmailWebhookEditorValuesResponse> GetEmailCommseqWebhookEditorValuesAsync (int? storefrontOid, string commseqUuid);
+
+        /// <summary>
+        /// Get email webhook editor values
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of ApiResponse (EmailWebhookEditorValuesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailWebhookEditorValuesResponse>> GetEmailCommseqWebhookEditorValuesAsyncWithHttpInfo (int? storefrontOid, string commseqUuid);
         /// <summary>
         /// Get email commseqs
         /// </summary>
@@ -14485,6 +14531,185 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailStepWaitingResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailStepWaitingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailStepWaitingResponse)));
+        }
+
+        /// <summary>
+        /// Get email webhook editor values 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>EmailWebhookEditorValuesResponse</returns>
+        public EmailWebhookEditorValuesResponse GetEmailCommseqWebhookEditorValues (int? storefrontOid, string commseqUuid)
+        {
+             ApiResponse<EmailWebhookEditorValuesResponse> localVarResponse = GetEmailCommseqWebhookEditorValuesWithHttpInfo(storefrontOid, commseqUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email webhook editor values 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>ApiResponse of EmailWebhookEditorValuesResponse</returns>
+        public ApiResponse< EmailWebhookEditorValuesResponse > GetEmailCommseqWebhookEditorValuesWithHttpInfo (int? storefrontOid, string commseqUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCommseqWebhookEditorValues");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailCommseqWebhookEditorValues");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/webhookEditorValues";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCommseqWebhookEditorValues", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailWebhookEditorValuesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailWebhookEditorValuesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailWebhookEditorValuesResponse)));
+        }
+
+        /// <summary>
+        /// Get email webhook editor values 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of EmailWebhookEditorValuesResponse</returns>
+        public async System.Threading.Tasks.Task<EmailWebhookEditorValuesResponse> GetEmailCommseqWebhookEditorValuesAsync (int? storefrontOid, string commseqUuid)
+        {
+             ApiResponse<EmailWebhookEditorValuesResponse> localVarResponse = await GetEmailCommseqWebhookEditorValuesAsyncWithHttpInfo(storefrontOid, commseqUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email webhook editor values 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqUuid"></param>
+        /// <returns>Task of ApiResponse (EmailWebhookEditorValuesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailWebhookEditorValuesResponse>> GetEmailCommseqWebhookEditorValuesAsyncWithHttpInfo (int? storefrontOid, string commseqUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCommseqWebhookEditorValues");
+            // verify the required parameter 'commseqUuid' is set
+            if (commseqUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqUuid' when calling StorefrontApi->GetEmailCommseqWebhookEditorValues");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/webhookEditorValues";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqUuid != null) localVarPathParams.Add("commseq_uuid", this.Configuration.ApiClient.ParameterToString(commseqUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCommseqWebhookEditorValues", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailWebhookEditorValuesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailWebhookEditorValuesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailWebhookEditorValuesResponse)));
         }
 
         /// <summary>

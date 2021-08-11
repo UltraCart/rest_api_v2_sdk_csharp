@@ -44,7 +44,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="surchargeAccountingCode">If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount.</param>
         /// <param name="surchargeFee">surcharge_fee.</param>
         /// <param name="surchargePercentage">surcharge_percentage.</param>
-        public PaymentsConfigurationWireTransfer(bool? acceptWireTransfer = default(bool?), string accountNumber = default(string), string accountingCode = default(string), string bankAddress = default(string), string depositToAccount = default(string), string intermediateRoutingNumber = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), string routingNumber = default(string), string surchargeAccountingCode = default(string), string surchargeFee = default(string), string surchargePercentage = default(string))
+        public PaymentsConfigurationWireTransfer(bool? acceptWireTransfer = default(bool?), string accountNumber = default(string), string accountingCode = default(string), string bankAddress = default(string), string depositToAccount = default(string), string intermediateRoutingNumber = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), string routingNumber = default(string), string surchargeAccountingCode = default(string), decimal? surchargeFee = default(decimal?), decimal? surchargePercentage = default(decimal?))
         {
             this.AcceptWireTransfer = acceptWireTransfer;
             this.AccountNumber = accountNumber;
@@ -126,14 +126,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>surcharge_fee</value>
         [DataMember(Name="surcharge_fee", EmitDefaultValue=false)]
-        public string SurchargeFee { get; set; }
+        public decimal? SurchargeFee { get; set; }
 
         /// <summary>
         /// surcharge_percentage
         /// </summary>
         /// <value>surcharge_percentage</value>
         [DataMember(Name="surcharge_percentage", EmitDefaultValue=false)]
-        public string SurchargePercentage { get; set; }
+        public decimal? SurchargePercentage { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

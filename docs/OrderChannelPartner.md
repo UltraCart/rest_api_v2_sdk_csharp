@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **IgnoreInvalidShippingMethod** | **bool?** | Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders. | [optional] 
 **NoRealtimePaymentProcessing** | **bool?** | Indicates this order should be placed in Account Receivable for later payment processing | [optional] 
 **SkipPaymentProcessing** | **bool?** | Indicates this order was already paid for via a channel purchase and no payment collection should be attempted | [optional] 
-**StoreCompleted** | **bool?** | Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order. | [optional] 
+**StoreCompleted** | **bool?** | Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order. | [optional] 
 **StoreIfPaymentDeclines** | **bool?** | If true, any failed payment will place the order in Accounts Receivable rather than rejecting it. | [optional] 
 **TreatWarningsAsErrors** | **bool?** | Any warnings are raised as errors and halt the import of the order | [optional] 
 

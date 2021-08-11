@@ -39,7 +39,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="surchargeAccountingCode">Optional field, if surcharge is set, this is the accounting code the surcharge is tagged with when sent to Quickbooks.</param>
         /// <param name="surchargeFee">Additional cost for using COD.</param>
         /// <param name="surchargePercentage">Additional percentage cost for using COD.</param>
-        public PaymentsConfigurationCOD(bool? acceptCod = default(bool?), bool? approvedCustomersOnly = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), string surchargeAccountingCode = default(string), string surchargeFee = default(string), string surchargePercentage = default(string))
+        public PaymentsConfigurationCOD(bool? acceptCod = default(bool?), bool? approvedCustomersOnly = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), string surchargeAccountingCode = default(string), decimal? surchargeFee = default(decimal?), decimal? surchargePercentage = default(decimal?))
         {
             this.AcceptCod = acceptCod;
             this.ApprovedCustomersOnly = approvedCustomersOnly;
@@ -81,14 +81,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Additional cost for using COD</value>
         [DataMember(Name="surcharge_fee", EmitDefaultValue=false)]
-        public string SurchargeFee { get; set; }
+        public decimal? SurchargeFee { get; set; }
 
         /// <summary>
         /// Additional percentage cost for using COD
         /// </summary>
         /// <value>Additional percentage cost for using COD</value>
         [DataMember(Name="surcharge_percentage", EmitDefaultValue=false)]
-        public string SurchargePercentage { get; set; }
+        public decimal? SurchargePercentage { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

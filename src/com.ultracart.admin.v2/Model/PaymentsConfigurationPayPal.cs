@@ -170,7 +170,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="summaryEmail">The email where PayPal summaries should be sent.</param>
         /// <param name="summaryMode">Description of what mode PayPal is operating.</param>
         /// <param name="zeroDollarPenny">Send free items to PayPal as one cent items and subtract this penny from shipping.  PayPal does not allow the sale of free items..</param>
-        public PaymentsConfigurationPayPal(bool? acceptPaypal = default(bool?), string accountingCode = default(string), string apiPassword = default(string), string apiUsername = default(string), bool? certificateOnFile = default(bool?), string depositToAccount = default(string), string email = default(string), EnvironmentEnum? environment = default(EnvironmentEnum?), string headerImageUrl = default(string), bool? hideBillMeLater = default(bool?), bool? hideExpressCheckoutOnViewCart = default(bool?), bool? hideForUnshippedOrders = default(bool?), bool? holdInAr = default(bool?), LandingPageEnum? landingPage = default(LandingPageEnum?), ModeEnum? mode = default(ModeEnum?), string privateKeyPassword = default(string), string processingFee = default(string), string processingPercentage = default(string), bool? pushPaypal = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? sendRecurring = default(bool?), bool? shortPaypalMarketingText = default(bool?), bool? showCardLogosNotDirectlySupported = default(bool?), bool? showSignature = default(bool?), string signature = default(string), SolutionTypeEnum? solutionType = default(SolutionTypeEnum?), string summaryEmail = default(string), string summaryMode = default(string), bool? zeroDollarPenny = default(bool?))
+        public PaymentsConfigurationPayPal(bool? acceptPaypal = default(bool?), string accountingCode = default(string), string apiPassword = default(string), string apiUsername = default(string), bool? certificateOnFile = default(bool?), string depositToAccount = default(string), string email = default(string), EnvironmentEnum? environment = default(EnvironmentEnum?), string headerImageUrl = default(string), bool? hideBillMeLater = default(bool?), bool? hideExpressCheckoutOnViewCart = default(bool?), bool? hideForUnshippedOrders = default(bool?), bool? holdInAr = default(bool?), LandingPageEnum? landingPage = default(LandingPageEnum?), ModeEnum? mode = default(ModeEnum?), string privateKeyPassword = default(string), decimal? processingFee = default(decimal?), decimal? processingPercentage = default(decimal?), bool? pushPaypal = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? sendRecurring = default(bool?), bool? shortPaypalMarketingText = default(bool?), bool? showCardLogosNotDirectlySupported = default(bool?), bool? showSignature = default(bool?), string signature = default(string), SolutionTypeEnum? solutionType = default(SolutionTypeEnum?), string summaryEmail = default(string), string summaryMode = default(string), bool? zeroDollarPenny = default(bool?))
         {
             this.AcceptPaypal = acceptPaypal;
             this.AccountingCode = accountingCode;
@@ -302,14 +302,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Optional additional fee to charge if PayPal is used.  It is rare for this to be used.</value>
         [DataMember(Name="processing_fee", EmitDefaultValue=false)]
-        public string ProcessingFee { get; set; }
+        public decimal? ProcessingFee { get; set; }
 
         /// <summary>
         /// The processing percentage charged by PayPal
         /// </summary>
         /// <value>The processing percentage charged by PayPal</value>
         [DataMember(Name="processing_percentage", EmitDefaultValue=false)]
-        public string ProcessingPercentage { get; set; }
+        public decimal? ProcessingPercentage { get; set; }
 
         /// <summary>
         /// True if the internal UI should recommend opening a PayPal account

@@ -41,7 +41,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ignoreInvalidShippingMethod">Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders..</param>
         /// <param name="noRealtimePaymentProcessing">Indicates this order should be placed in Account Receivable for later payment processing.</param>
         /// <param name="skipPaymentProcessing">Indicates this order was already paid for via a channel purchase and no payment collection should be attempted.</param>
-        /// <param name="storeCompleted">Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order..</param>
+        /// <param name="storeCompleted">Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order..</param>
         /// <param name="storeIfPaymentDeclines">If true, any failed payment will place the order in Accounts Receivable rather than rejecting it..</param>
         /// <param name="treatWarningsAsErrors">Any warnings are raised as errors and halt the import of the order.</param>
         public OrderChannelPartner(bool? autoApprovePurchaseOrder = default(bool?), string channelPartnerCode = default(string), string channelPartnerData = default(string), int? channelPartnerOid = default(int?), string channelPartnerOrderId = default(string), bool? ignoreInvalidShippingMethod = default(bool?), bool? noRealtimePaymentProcessing = default(bool?), bool? skipPaymentProcessing = default(bool?), bool? storeCompleted = default(bool?), bool? storeIfPaymentDeclines = default(bool?), bool? treatWarningsAsErrors = default(bool?))
@@ -116,9 +116,9 @@ namespace com.ultracart.admin.v2.Model
         public bool? SkipPaymentProcessing { get; set; }
 
         /// <summary>
-        /// Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order.
+        /// Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order.
         /// </summary>
-        /// <value>Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order.</value>
+        /// <value>Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order.</value>
         [DataMember(Name="store_completed", EmitDefaultValue=false)]
         public bool? StoreCompleted { get; set; }
 

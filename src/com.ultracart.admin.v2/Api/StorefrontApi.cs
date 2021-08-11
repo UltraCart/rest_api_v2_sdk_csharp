@@ -3039,6 +3039,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailCommseqPostcardSendTestResponse</returns>
         ApiResponse<EmailCommseqPostcardSendTestResponse> SendPostcardTestWithHttpInfo (int? storefrontOid, string commseqPostcardUuid, EmailCommseqPostcardSendTestRequest emailCommseqPostcardTestRequest);
         /// <summary>
+        /// Send webhook test
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
+        /// <returns>EmailCommseqEmailSendTestResponse</returns>
+        EmailCommseqEmailSendTestResponse SendWebhookTest (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
+
+        /// <summary>
+        /// Send webhook test
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
+        /// <returns>ApiResponse of EmailCommseqEmailSendTestResponse</returns>
+        ApiResponse<EmailCommseqEmailSendTestResponse> SendWebhookTestWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
+        /// <summary>
         /// Start email campaign
         /// </summary>
         /// <remarks>
@@ -6638,6 +6661,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="emailCommseqPostcardTestRequest">Email commseq email test request</param>
         /// <returns>Task of ApiResponse (EmailCommseqPostcardSendTestResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailCommseqPostcardSendTestResponse>> SendPostcardTestAsyncWithHttpInfo (int? storefrontOid, string commseqPostcardUuid, EmailCommseqPostcardSendTestRequest emailCommseqPostcardTestRequest);
+        /// <summary>
+        /// Send webhook test
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
+        /// <returns>Task of EmailCommseqEmailSendTestResponse</returns>
+        System.Threading.Tasks.Task<EmailCommseqEmailSendTestResponse> SendWebhookTestAsync (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
+
+        /// <summary>
+        /// Send webhook test
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
+        /// <returns>Task of ApiResponse (EmailCommseqEmailSendTestResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailCommseqEmailSendTestResponse>> SendWebhookTestAsyncWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
         /// <summary>
         /// Start email campaign
         /// </summary>
@@ -30813,6 +30859,199 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailCommseqPostcardSendTestResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailCommseqPostcardSendTestResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqPostcardSendTestResponse)));
+        }
+
+        /// <summary>
+        /// Send webhook test 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
+        /// <returns>EmailCommseqEmailSendTestResponse</returns>
+        public EmailCommseqEmailSendTestResponse SendWebhookTest (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
+        {
+             ApiResponse<EmailCommseqEmailSendTestResponse> localVarResponse = SendWebhookTestWithHttpInfo(storefrontOid, emailCommseqWebhookTestRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Send webhook test 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
+        /// <returns>ApiResponse of EmailCommseqEmailSendTestResponse</returns>
+        public ApiResponse< EmailCommseqEmailSendTestResponse > SendWebhookTestWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->SendWebhookTest");
+            // verify the required parameter 'emailCommseqWebhookTestRequest' is set
+            if (emailCommseqWebhookTestRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailCommseqWebhookTestRequest' when calling StorefrontApi->SendWebhookTest");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/webhooks/test";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCommseqWebhookTestRequest != null && emailCommseqWebhookTestRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailCommseqWebhookTestRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailCommseqWebhookTestRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendWebhookTest", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCommseqEmailSendTestResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailCommseqEmailSendTestResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqEmailSendTestResponse)));
+        }
+
+        /// <summary>
+        /// Send webhook test 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
+        /// <returns>Task of EmailCommseqEmailSendTestResponse</returns>
+        public async System.Threading.Tasks.Task<EmailCommseqEmailSendTestResponse> SendWebhookTestAsync (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
+        {
+             ApiResponse<EmailCommseqEmailSendTestResponse> localVarResponse = await SendWebhookTestAsyncWithHttpInfo(storefrontOid, emailCommseqWebhookTestRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Send webhook test 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
+        /// <returns>Task of ApiResponse (EmailCommseqEmailSendTestResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailCommseqEmailSendTestResponse>> SendWebhookTestAsyncWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->SendWebhookTest");
+            // verify the required parameter 'emailCommseqWebhookTestRequest' is set
+            if (emailCommseqWebhookTestRequest == null)
+                throw new ApiException(400, "Missing required parameter 'emailCommseqWebhookTestRequest' when calling StorefrontApi->SendWebhookTest");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/webhooks/test";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (emailCommseqWebhookTestRequest != null && emailCommseqWebhookTestRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailCommseqWebhookTestRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailCommseqWebhookTestRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendWebhookTest", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailCommseqEmailSendTestResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailCommseqEmailSendTestResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqEmailSendTestResponse)));
         }
 
         /// <summary>

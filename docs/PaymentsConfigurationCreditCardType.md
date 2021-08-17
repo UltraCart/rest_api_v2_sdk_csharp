@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Enabled** | **bool?** | If true, this card type will be accepted during checkout | [optional] 
 **ProcessingFee** | **decimal?** | Optional additional fee applied to order for this card | [optional] 
 **ProcessingPercentage** | **decimal?** | Optional additional fee applied to order for this card | [optional] 
+**Restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
 **SurchargeAccountingCode** | **string** | Optional field. If integrated with Quickbooks, this code will be used when informing Quickbooks about any surcharges applied to orders | [optional] 
 **TransactionFee** | **decimal?** | An optional additional fee to charge the customer for using this card. | [optional] 
 **TransactionPercentage** | **decimal?** | An optional transaction percentage to charge the customer for using this card | [optional] 

@@ -31,6 +31,303 @@ namespace com.ultracart.admin.v2.Model
     public partial class PaymentsConfigurationRestrictions :  IEquatable<PaymentsConfigurationRestrictions>, IValidatableObject
     {
         /// <summary>
+        /// Alaska and Hawaii restriction
+        /// </summary>
+        /// <value>Alaska and Hawaii restriction</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RestrictionAlaskaHawaiiEnum
+        {
+            
+            /// <summary>
+            /// Enum Invalid for value: invalid
+            /// </summary>
+            [EnumMember(Value = "invalid")]
+            Invalid = 1,
+            
+            /// <summary>
+            /// Enum InvalidOnly for value: invalidOnly
+            /// </summary>
+            [EnumMember(Value = "invalidOnly")]
+            InvalidOnly = 2,
+            
+            /// <summary>
+            /// Enum Valid for value: valid
+            /// </summary>
+            [EnumMember(Value = "valid")]
+            Valid = 3
+        }
+
+        /// <summary>
+        /// Alaska and Hawaii restriction
+        /// </summary>
+        /// <value>Alaska and Hawaii restriction</value>
+        [DataMember(Name="restriction_alaska_hawaii", EmitDefaultValue=false)]
+        public RestrictionAlaskaHawaiiEnum? RestrictionAlaskaHawaii { get; set; }
+        /// <summary>
+        /// APO/FPO restriction
+        /// </summary>
+        /// <value>APO/FPO restriction</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RestrictionApoFpoEnum
+        {
+            
+            /// <summary>
+            /// Enum Invalid for value: invalid
+            /// </summary>
+            [EnumMember(Value = "invalid")]
+            Invalid = 1,
+            
+            /// <summary>
+            /// Enum InvalidOnly for value: invalidOnly
+            /// </summary>
+            [EnumMember(Value = "invalidOnly")]
+            InvalidOnly = 2,
+            
+            /// <summary>
+            /// Enum Valid for value: valid
+            /// </summary>
+            [EnumMember(Value = "valid")]
+            Valid = 3
+        }
+
+        /// <summary>
+        /// APO/FPO restriction
+        /// </summary>
+        /// <value>APO/FPO restriction</value>
+        [DataMember(Name="restriction_apo_fpo", EmitDefaultValue=false)]
+        public RestrictionApoFpoEnum? RestrictionApoFpo { get; set; }
+        /// <summary>
+        /// Canada restriction
+        /// </summary>
+        /// <value>Canada restriction</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RestrictionCanadaEnum
+        {
+            
+            /// <summary>
+            /// Enum Invalid for value: invalid
+            /// </summary>
+            [EnumMember(Value = "invalid")]
+            Invalid = 1,
+            
+            /// <summary>
+            /// Enum InvalidOnly for value: invalidOnly
+            /// </summary>
+            [EnumMember(Value = "invalidOnly")]
+            InvalidOnly = 2,
+            
+            /// <summary>
+            /// Enum Valid for value: valid
+            /// </summary>
+            [EnumMember(Value = "valid")]
+            Valid = 3
+        }
+
+        /// <summary>
+        /// Canada restriction
+        /// </summary>
+        /// <value>Canada restriction</value>
+        [DataMember(Name="restriction_canada", EmitDefaultValue=false)]
+        public RestrictionCanadaEnum? RestrictionCanada { get; set; }
+        /// <summary>
+        /// Continental US restriction
+        /// </summary>
+        /// <value>Continental US restriction</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RestrictionContinentalUsEnum
+        {
+            
+            /// <summary>
+            /// Enum Invalid for value: invalid
+            /// </summary>
+            [EnumMember(Value = "invalid")]
+            Invalid = 1,
+            
+            /// <summary>
+            /// Enum InvalidOnly for value: invalidOnly
+            /// </summary>
+            [EnumMember(Value = "invalidOnly")]
+            InvalidOnly = 2,
+            
+            /// <summary>
+            /// Enum Valid for value: valid
+            /// </summary>
+            [EnumMember(Value = "valid")]
+            Valid = 3
+        }
+
+        /// <summary>
+        /// Continental US restriction
+        /// </summary>
+        /// <value>Continental US restriction</value>
+        [DataMember(Name="restriction_continental_us", EmitDefaultValue=false)]
+        public RestrictionContinentalUsEnum? RestrictionContinentalUs { get; set; }
+        /// <summary>
+        /// Domestic only restriction
+        /// </summary>
+        /// <value>Domestic only restriction</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RestrictionDomesticOnlyEnum
+        {
+            
+            /// <summary>
+            /// Enum Invalid for value: invalid
+            /// </summary>
+            [EnumMember(Value = "invalid")]
+            Invalid = 1,
+            
+            /// <summary>
+            /// Enum InvalidOnly for value: invalidOnly
+            /// </summary>
+            [EnumMember(Value = "invalidOnly")]
+            InvalidOnly = 2,
+            
+            /// <summary>
+            /// Enum Valid for value: valid
+            /// </summary>
+            [EnumMember(Value = "valid")]
+            Valid = 3
+        }
+
+        /// <summary>
+        /// Domestic only restriction
+        /// </summary>
+        /// <value>Domestic only restriction</value>
+        [DataMember(Name="restriction_domestic_only", EmitDefaultValue=false)]
+        public RestrictionDomesticOnlyEnum? RestrictionDomesticOnly { get; set; }
+        /// <summary>
+        /// International only restriction
+        /// </summary>
+        /// <value>International only restriction</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RestrictionInternationalOnlyEnum
+        {
+            
+            /// <summary>
+            /// Enum Invalid for value: invalid
+            /// </summary>
+            [EnumMember(Value = "invalid")]
+            Invalid = 1,
+            
+            /// <summary>
+            /// Enum InvalidOnly for value: invalidOnly
+            /// </summary>
+            [EnumMember(Value = "invalidOnly")]
+            InvalidOnly = 2,
+            
+            /// <summary>
+            /// Enum Valid for value: valid
+            /// </summary>
+            [EnumMember(Value = "valid")]
+            Valid = 3
+        }
+
+        /// <summary>
+        /// International only restriction
+        /// </summary>
+        /// <value>International only restriction</value>
+        [DataMember(Name="restriction_international_only", EmitDefaultValue=false)]
+        public RestrictionInternationalOnlyEnum? RestrictionInternationalOnly { get; set; }
+        /// <summary>
+        /// PO Box restriction
+        /// </summary>
+        /// <value>PO Box restriction</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RestrictionPoBoxEnum
+        {
+            
+            /// <summary>
+            /// Enum Invalid for value: invalid
+            /// </summary>
+            [EnumMember(Value = "invalid")]
+            Invalid = 1,
+            
+            /// <summary>
+            /// Enum InvalidOnly for value: invalidOnly
+            /// </summary>
+            [EnumMember(Value = "invalidOnly")]
+            InvalidOnly = 2,
+            
+            /// <summary>
+            /// Enum Valid for value: valid
+            /// </summary>
+            [EnumMember(Value = "valid")]
+            Valid = 3
+        }
+
+        /// <summary>
+        /// PO Box restriction
+        /// </summary>
+        /// <value>PO Box restriction</value>
+        [DataMember(Name="restriction_po_box", EmitDefaultValue=false)]
+        public RestrictionPoBoxEnum? RestrictionPoBox { get; set; }
+        /// <summary>
+        /// Puerto Rico restriction
+        /// </summary>
+        /// <value>Puerto Rico restriction</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RestrictionPuertoRicoEnum
+        {
+            
+            /// <summary>
+            /// Enum Invalid for value: invalid
+            /// </summary>
+            [EnumMember(Value = "invalid")]
+            Invalid = 1,
+            
+            /// <summary>
+            /// Enum InvalidOnly for value: invalidOnly
+            /// </summary>
+            [EnumMember(Value = "invalidOnly")]
+            InvalidOnly = 2,
+            
+            /// <summary>
+            /// Enum Valid for value: valid
+            /// </summary>
+            [EnumMember(Value = "valid")]
+            Valid = 3
+        }
+
+        /// <summary>
+        /// Puerto Rico restriction
+        /// </summary>
+        /// <value>Puerto Rico restriction</value>
+        [DataMember(Name="restriction_puerto_rico", EmitDefaultValue=false)]
+        public RestrictionPuertoRicoEnum? RestrictionPuertoRico { get; set; }
+        /// <summary>
+        /// US Territories restriction
+        /// </summary>
+        /// <value>US Territories restriction</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RestrictionUsTerritoriesEnum
+        {
+            
+            /// <summary>
+            /// Enum Invalid for value: invalid
+            /// </summary>
+            [EnumMember(Value = "invalid")]
+            Invalid = 1,
+            
+            /// <summary>
+            /// Enum InvalidOnly for value: invalidOnly
+            /// </summary>
+            [EnumMember(Value = "invalidOnly")]
+            InvalidOnly = 2,
+            
+            /// <summary>
+            /// Enum Valid for value: valid
+            /// </summary>
+            [EnumMember(Value = "valid")]
+            Valid = 3
+        }
+
+        /// <summary>
+        /// US Territories restriction
+        /// </summary>
+        /// <value>US Territories restriction</value>
+        [DataMember(Name="restriction_us_territories", EmitDefaultValue=false)]
+        public RestrictionUsTerritoriesEnum? RestrictionUsTerritories { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationRestrictions" /> class.
         /// </summary>
         /// <param name="descriptions">descriptions.</param>
@@ -47,7 +344,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="restrictionPuertoRico">Puerto Rico restriction.</param>
         /// <param name="restrictionUsTerritories">US Territories restriction.</param>
         /// <param name="themes">themes.</param>
-        public PaymentsConfigurationRestrictions(List<string> descriptions = default(List<string>), decimal? maximumSubtotal = default(decimal?), decimal? minimumSubtotal = default(decimal?), string paymentMethod = default(string), string restrictionAlaskaHawaii = default(string), string restrictionApoFpo = default(string), string restrictionCanada = default(string), string restrictionContinentalUs = default(string), string restrictionDomesticOnly = default(string), string restrictionInternationalOnly = default(string), string restrictionPoBox = default(string), string restrictionPuertoRico = default(string), string restrictionUsTerritories = default(string), List<PaymentsConfigurationRestrictionsTheme> themes = default(List<PaymentsConfigurationRestrictionsTheme>))
+        public PaymentsConfigurationRestrictions(List<string> descriptions = default(List<string>), decimal? maximumSubtotal = default(decimal?), decimal? minimumSubtotal = default(decimal?), string paymentMethod = default(string), RestrictionAlaskaHawaiiEnum? restrictionAlaskaHawaii = default(RestrictionAlaskaHawaiiEnum?), RestrictionApoFpoEnum? restrictionApoFpo = default(RestrictionApoFpoEnum?), RestrictionCanadaEnum? restrictionCanada = default(RestrictionCanadaEnum?), RestrictionContinentalUsEnum? restrictionContinentalUs = default(RestrictionContinentalUsEnum?), RestrictionDomesticOnlyEnum? restrictionDomesticOnly = default(RestrictionDomesticOnlyEnum?), RestrictionInternationalOnlyEnum? restrictionInternationalOnly = default(RestrictionInternationalOnlyEnum?), RestrictionPoBoxEnum? restrictionPoBox = default(RestrictionPoBoxEnum?), RestrictionPuertoRicoEnum? restrictionPuertoRico = default(RestrictionPuertoRicoEnum?), RestrictionUsTerritoriesEnum? restrictionUsTerritories = default(RestrictionUsTerritoriesEnum?), List<PaymentsConfigurationRestrictionsTheme> themes = default(List<PaymentsConfigurationRestrictionsTheme>))
         {
             this.Descriptions = descriptions;
             this.MaximumSubtotal = maximumSubtotal;
@@ -92,68 +389,14 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="payment_method", EmitDefaultValue=false)]
         public string PaymentMethod { get; set; }
 
-        /// <summary>
-        /// Alaska and Hawaii restriction
-        /// </summary>
-        /// <value>Alaska and Hawaii restriction</value>
-        [DataMember(Name="restriction_alaska_hawaii", EmitDefaultValue=false)]
-        public string RestrictionAlaskaHawaii { get; set; }
 
-        /// <summary>
-        /// APO/FPO restriction
-        /// </summary>
-        /// <value>APO/FPO restriction</value>
-        [DataMember(Name="restriction_apo_fpo", EmitDefaultValue=false)]
-        public string RestrictionApoFpo { get; set; }
 
-        /// <summary>
-        /// Canada restriction
-        /// </summary>
-        /// <value>Canada restriction</value>
-        [DataMember(Name="restriction_canada", EmitDefaultValue=false)]
-        public string RestrictionCanada { get; set; }
 
-        /// <summary>
-        /// Continental US restriction
-        /// </summary>
-        /// <value>Continental US restriction</value>
-        [DataMember(Name="restriction_continental_us", EmitDefaultValue=false)]
-        public string RestrictionContinentalUs { get; set; }
 
-        /// <summary>
-        /// Domestic only restriction
-        /// </summary>
-        /// <value>Domestic only restriction</value>
-        [DataMember(Name="restriction_domestic_only", EmitDefaultValue=false)]
-        public string RestrictionDomesticOnly { get; set; }
 
-        /// <summary>
-        /// International only restriction
-        /// </summary>
-        /// <value>International only restriction</value>
-        [DataMember(Name="restriction_international_only", EmitDefaultValue=false)]
-        public string RestrictionInternationalOnly { get; set; }
 
-        /// <summary>
-        /// PO Box restriction
-        /// </summary>
-        /// <value>PO Box restriction</value>
-        [DataMember(Name="restriction_po_box", EmitDefaultValue=false)]
-        public string RestrictionPoBox { get; set; }
 
-        /// <summary>
-        /// Puerto Rico restriction
-        /// </summary>
-        /// <value>Puerto Rico restriction</value>
-        [DataMember(Name="restriction_puerto_rico", EmitDefaultValue=false)]
-        public string RestrictionPuertoRico { get; set; }
 
-        /// <summary>
-        /// US Territories restriction
-        /// </summary>
-        /// <value>US Territories restriction</value>
-        [DataMember(Name="restriction_us_territories", EmitDefaultValue=false)]
-        public string RestrictionUsTerritories { get; set; }
 
         /// <summary>
         /// Gets or Sets Themes

@@ -40,11 +40,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="configuredGatewayDetails">Human readable description of the credit card gateway currently configured.</param>
         /// <param name="failedAttempts">The number of failed attempts before the order is placed into Accounts Receivable for manual intervention.</param>
         /// <param name="hideConnectSingleGateway">This internal flag aids the UI in determining which buttons to show..</param>
-        /// <param name="restrictions">Restrictions for this payment method.</param>
         /// <param name="sendCustomerBillingUpdateOnDecline">UltraCart will send customers emails to update their credit card if the card is declined.</param>
         /// <param name="supportedCards">A list of credit cards the merchant wishes to accept..</param>
         /// <param name="testMethods">An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders.</param>
-        public PaymentsConfigurationCreditCard(bool? acceptCreditCard = default(bool?), string billedBy = default(string), bool? chargeDuringCheckout = default(bool?), bool? collectCvv2 = default(bool?), string configuredGatewayDetails = default(string), int? failedAttempts = default(int?), bool? hideConnectSingleGateway = default(bool?), List<PaymentsConfigurationRestrictions> restrictions = default(List<PaymentsConfigurationRestrictions>), bool? sendCustomerBillingUpdateOnDecline = default(bool?), List<PaymentsConfigurationCreditCardType> supportedCards = default(List<PaymentsConfigurationCreditCardType>), List<PaymentsConfigurationTestMethod> testMethods = default(List<PaymentsConfigurationTestMethod>))
+        public PaymentsConfigurationCreditCard(bool? acceptCreditCard = default(bool?), string billedBy = default(string), bool? chargeDuringCheckout = default(bool?), bool? collectCvv2 = default(bool?), string configuredGatewayDetails = default(string), int? failedAttempts = default(int?), bool? hideConnectSingleGateway = default(bool?), bool? sendCustomerBillingUpdateOnDecline = default(bool?), List<PaymentsConfigurationCreditCardType> supportedCards = default(List<PaymentsConfigurationCreditCardType>), List<PaymentsConfigurationTestMethod> testMethods = default(List<PaymentsConfigurationTestMethod>))
         {
             this.AcceptCreditCard = acceptCreditCard;
             this.BilledBy = billedBy;
@@ -53,7 +52,6 @@ namespace com.ultracart.admin.v2.Model
             this.ConfiguredGatewayDetails = configuredGatewayDetails;
             this.FailedAttempts = failedAttempts;
             this.HideConnectSingleGateway = hideConnectSingleGateway;
-            this.Restrictions = restrictions;
             this.SendCustomerBillingUpdateOnDecline = sendCustomerBillingUpdateOnDecline;
             this.SupportedCards = supportedCards;
             this.TestMethods = testMethods;
@@ -109,13 +107,6 @@ namespace com.ultracart.admin.v2.Model
         public bool? HideConnectSingleGateway { get; set; }
 
         /// <summary>
-        /// Restrictions for this payment method
-        /// </summary>
-        /// <value>Restrictions for this payment method</value>
-        [DataMember(Name="restrictions", EmitDefaultValue=false)]
-        public List<PaymentsConfigurationRestrictions> Restrictions { get; set; }
-
-        /// <summary>
         /// UltraCart will send customers emails to update their credit card if the card is declined
         /// </summary>
         /// <value>UltraCart will send customers emails to update their credit card if the card is declined</value>
@@ -151,7 +142,6 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConfiguredGatewayDetails: ").Append(ConfiguredGatewayDetails).Append("\n");
             sb.Append("  FailedAttempts: ").Append(FailedAttempts).Append("\n");
             sb.Append("  HideConnectSingleGateway: ").Append(HideConnectSingleGateway).Append("\n");
-            sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
             sb.Append("  SendCustomerBillingUpdateOnDecline: ").Append(SendCustomerBillingUpdateOnDecline).Append("\n");
             sb.Append("  SupportedCards: ").Append(SupportedCards).Append("\n");
             sb.Append("  TestMethods: ").Append(TestMethods).Append("\n");
@@ -225,11 +215,6 @@ namespace com.ultracart.admin.v2.Model
                     this.HideConnectSingleGateway.Equals(input.HideConnectSingleGateway))
                 ) && 
                 (
-                    this.Restrictions == input.Restrictions ||
-                    this.Restrictions != null &&
-                    this.Restrictions.SequenceEqual(input.Restrictions)
-                ) && 
-                (
                     this.SendCustomerBillingUpdateOnDecline == input.SendCustomerBillingUpdateOnDecline ||
                     (this.SendCustomerBillingUpdateOnDecline != null &&
                     this.SendCustomerBillingUpdateOnDecline.Equals(input.SendCustomerBillingUpdateOnDecline))
@@ -269,8 +254,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FailedAttempts.GetHashCode();
                 if (this.HideConnectSingleGateway != null)
                     hashCode = hashCode * 59 + this.HideConnectSingleGateway.GetHashCode();
-                if (this.Restrictions != null)
-                    hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
                 if (this.SendCustomerBillingUpdateOnDecline != null)
                     hashCode = hashCode * 59 + this.SendCustomerBillingUpdateOnDecline.GetHashCode();
                 if (this.SupportedCards != null)

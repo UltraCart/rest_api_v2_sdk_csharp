@@ -37,7 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="channelPartnerCode">The code of the channel partner.</param>
         /// <param name="channelPartnerData">Additional data provided by the channel partner, read-only.</param>
         /// <param name="channelPartnerOid">Channel partner object identifier, read-only and available on existing channel orders only..</param>
-        /// <param name="channelPartnerOrderId">The order ID assigned by the channel partner for this order.</param>
+        /// <param name="channelPartnerOrderId">The order ID assigned by the channel partner for this order..</param>
         /// <param name="ignoreInvalidShippingMethod">Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders..</param>
         /// <param name="noRealtimePaymentProcessing">Indicates this order should be placed in Account Receivable for later payment processing.</param>
         /// <param name="skipPaymentProcessing">Indicates this order was already paid for via a channel purchase and no payment collection should be attempted.</param>
@@ -88,9 +88,9 @@ namespace com.ultracart.admin.v2.Model
         public int? ChannelPartnerOid { get; set; }
 
         /// <summary>
-        /// The order ID assigned by the channel partner for this order
+        /// The order ID assigned by the channel partner for this order.
         /// </summary>
-        /// <value>The order ID assigned by the channel partner for this order</value>
+        /// <value>The order ID assigned by the channel partner for this order.</value>
         [DataMember(Name="channel_partner_order_id", EmitDefaultValue=false)]
         public string ChannelPartnerOrderId { get; set; }
 
@@ -288,6 +288,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ChannelPartnerOrderId (string) maxLength
+            if(this.ChannelPartnerOrderId != null && this.ChannelPartnerOrderId.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ChannelPartnerOrderId, length must be less than 50.", new [] { "ChannelPartnerOrderId" });
+            }
+
             yield break;
         }
     }

@@ -91,10 +91,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="enabled">If true, this card type will be accepted during checkout.</param>
         /// <param name="processingFee">Optional additional fee applied to order for this card.</param>
         /// <param name="processingPercentage">Optional additional fee applied to order for this card.</param>
+        /// <param name="restrictions">restrictions.</param>
         /// <param name="surchargeAccountingCode">Optional field. If integrated with Quickbooks, this code will be used when informing Quickbooks about any surcharges applied to orders.</param>
         /// <param name="transactionFee">An optional additional fee to charge the customer for using this card..</param>
         /// <param name="transactionPercentage">An optional transaction percentage to charge the customer for using this card.</param>
-        public PaymentsConfigurationCreditCardType(string accountingCode = default(string), string cardTypeIcon = default(string), CreditCardEnum? creditCard = default(CreditCardEnum?), string depositToAccount = default(string), bool? enabled = default(bool?), decimal? processingFee = default(decimal?), decimal? processingPercentage = default(decimal?), string surchargeAccountingCode = default(string), decimal? transactionFee = default(decimal?), decimal? transactionPercentage = default(decimal?))
+        public PaymentsConfigurationCreditCardType(string accountingCode = default(string), string cardTypeIcon = default(string), CreditCardEnum? creditCard = default(CreditCardEnum?), string depositToAccount = default(string), bool? enabled = default(bool?), decimal? processingFee = default(decimal?), decimal? processingPercentage = default(decimal?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), string surchargeAccountingCode = default(string), decimal? transactionFee = default(decimal?), decimal? transactionPercentage = default(decimal?))
         {
             this.AccountingCode = accountingCode;
             this.CardTypeIcon = cardTypeIcon;
@@ -103,6 +104,7 @@ namespace com.ultracart.admin.v2.Model
             this.Enabled = enabled;
             this.ProcessingFee = processingFee;
             this.ProcessingPercentage = processingPercentage;
+            this.Restrictions = restrictions;
             this.SurchargeAccountingCode = surchargeAccountingCode;
             this.TransactionFee = transactionFee;
             this.TransactionPercentage = transactionPercentage;
@@ -152,6 +154,12 @@ namespace com.ultracart.admin.v2.Model
         public decimal? ProcessingPercentage { get; set; }
 
         /// <summary>
+        /// Gets or Sets Restrictions
+        /// </summary>
+        [DataMember(Name="restrictions", EmitDefaultValue=false)]
+        public PaymentsConfigurationRestrictions Restrictions { get; set; }
+
+        /// <summary>
         /// Optional field. If integrated with Quickbooks, this code will be used when informing Quickbooks about any surcharges applied to orders
         /// </summary>
         /// <value>Optional field. If integrated with Quickbooks, this code will be used when informing Quickbooks about any surcharges applied to orders</value>
@@ -187,6 +195,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  ProcessingFee: ").Append(ProcessingFee).Append("\n");
             sb.Append("  ProcessingPercentage: ").Append(ProcessingPercentage).Append("\n");
+            sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
             sb.Append("  SurchargeAccountingCode: ").Append(SurchargeAccountingCode).Append("\n");
             sb.Append("  TransactionFee: ").Append(TransactionFee).Append("\n");
             sb.Append("  TransactionPercentage: ").Append(TransactionPercentage).Append("\n");
@@ -260,6 +269,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ProcessingPercentage.Equals(input.ProcessingPercentage))
                 ) && 
                 (
+                    this.Restrictions == input.Restrictions ||
+                    (this.Restrictions != null &&
+                    this.Restrictions.Equals(input.Restrictions))
+                ) && 
+                (
                     this.SurchargeAccountingCode == input.SurchargeAccountingCode ||
                     (this.SurchargeAccountingCode != null &&
                     this.SurchargeAccountingCode.Equals(input.SurchargeAccountingCode))
@@ -299,6 +313,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ProcessingFee.GetHashCode();
                 if (this.ProcessingPercentage != null)
                     hashCode = hashCode * 59 + this.ProcessingPercentage.GetHashCode();
+                if (this.Restrictions != null)
+                    hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
                 if (this.SurchargeAccountingCode != null)
                     hashCode = hashCode * 59 + this.SurchargeAccountingCode.GetHashCode();
                 if (this.TransactionFee != null)

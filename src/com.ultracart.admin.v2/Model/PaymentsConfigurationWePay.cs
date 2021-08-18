@@ -43,6 +43,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="companyDescription">Company description.</param>
         /// <param name="consoleHostname">Console hostname.</param>
         /// <param name="country">Country.</param>
+        /// <param name="creditCardRate">WePay credit card rate.</param>
         /// <param name="currency">Base currency for transactions.</param>
         /// <param name="expectedRevenue">Expected Revenue.</param>
         /// <param name="hideCreditCardNonUltracartPayments">Internal flag to aid UI.</param>
@@ -61,7 +62,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="showUltracartPaymentsVerified">Internal flag to aid UI.</param>
         /// <param name="state">State.</param>
         /// <param name="websiteUrl">Website URL.</param>
-        public PaymentsConfigurationWePay(bool? acceptWepay = default(bool?), string accountUpdateUri = default(string), string address1 = default(string), string address2 = default(string), bool? canadaAcceptDebitCards = default(bool?), string city = default(string), string company = default(string), string companyDescription = default(string), string consoleHostname = default(string), string country = default(string), string currency = default(string), string expectedRevenue = default(string), bool? hideCreditCardNonUltracartPayments = default(bool?), bool? hideSurchargeAmount = default(bool?), string industry = default(string), string ownerEmail = default(string), string ownerName = default(string), string ownerPhone = default(string), string postalCode = default(string), bool? removePayPalPro = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? shortPaypalMarketingText = default(bool?), bool? showUltracartPaymentsDisabled = default(bool?), bool? showUltracartPaymentsIntro = default(bool?), bool? showUltracartPaymentsVerification = default(bool?), bool? showUltracartPaymentsVerified = default(bool?), string state = default(string), string websiteUrl = default(string))
+        public PaymentsConfigurationWePay(bool? acceptWepay = default(bool?), string accountUpdateUri = default(string), string address1 = default(string), string address2 = default(string), bool? canadaAcceptDebitCards = default(bool?), string city = default(string), string company = default(string), string companyDescription = default(string), string consoleHostname = default(string), string country = default(string), string creditCardRate = default(string), string currency = default(string), string expectedRevenue = default(string), bool? hideCreditCardNonUltracartPayments = default(bool?), bool? hideSurchargeAmount = default(bool?), string industry = default(string), string ownerEmail = default(string), string ownerName = default(string), string ownerPhone = default(string), string postalCode = default(string), bool? removePayPalPro = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? shortPaypalMarketingText = default(bool?), bool? showUltracartPaymentsDisabled = default(bool?), bool? showUltracartPaymentsIntro = default(bool?), bool? showUltracartPaymentsVerification = default(bool?), bool? showUltracartPaymentsVerified = default(bool?), string state = default(string), string websiteUrl = default(string))
         {
             this.AcceptWepay = acceptWepay;
             this.AccountUpdateUri = accountUpdateUri;
@@ -73,6 +74,7 @@ namespace com.ultracart.admin.v2.Model
             this.CompanyDescription = companyDescription;
             this.ConsoleHostname = consoleHostname;
             this.Country = country;
+            this.CreditCardRate = creditCardRate;
             this.Currency = currency;
             this.ExpectedRevenue = expectedRevenue;
             this.HideCreditCardNonUltracartPayments = hideCreditCardNonUltracartPayments;
@@ -162,6 +164,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Country</value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
+
+        /// <summary>
+        /// WePay credit card rate
+        /// </summary>
+        /// <value>WePay credit card rate</value>
+        [DataMember(Name="credit_card_rate", EmitDefaultValue=false)]
+        public string CreditCardRate { get; set; }
 
         /// <summary>
         /// Base currency for transactions
@@ -305,6 +314,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CompanyDescription: ").Append(CompanyDescription).Append("\n");
             sb.Append("  ConsoleHostname: ").Append(ConsoleHostname).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  CreditCardRate: ").Append(CreditCardRate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  ExpectedRevenue: ").Append(ExpectedRevenue).Append("\n");
             sb.Append("  HideCreditCardNonUltracartPayments: ").Append(HideCreditCardNonUltracartPayments).Append("\n");
@@ -406,6 +416,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Country == input.Country ||
                     (this.Country != null &&
                     this.Country.Equals(input.Country))
+                ) && 
+                (
+                    this.CreditCardRate == input.CreditCardRate ||
+                    (this.CreditCardRate != null &&
+                    this.CreditCardRate.Equals(input.CreditCardRate))
                 ) && 
                 (
                     this.Currency == input.Currency ||
@@ -528,6 +543,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConsoleHostname.GetHashCode();
                 if (this.Country != null)
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
+                if (this.CreditCardRate != null)
+                    hashCode = hashCode * 59 + this.CreditCardRate.GetHashCode();
                 if (this.Currency != null)
                     hashCode = hashCode * 59 + this.Currency.GetHashCode();
                 if (this.ExpectedRevenue != null)

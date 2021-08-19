@@ -25,30 +25,30 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// CouponTieredAmountOffItem
+    /// CouponTieredAmountOffItems
     /// </summary>
     [DataContract]
-    public partial class CouponTieredAmountOffItem :  IEquatable<CouponTieredAmountOffItem>, IValidatableObject
+    public partial class CouponTieredAmountOffItems :  IEquatable<CouponTieredAmountOffItems>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CouponTieredAmountOffItem" /> class.
+        /// Initializes a new instance of the <see cref="CouponTieredAmountOffItems" /> class.
         /// </summary>
-        /// <param name="item">The item being discounted by this coupon..</param>
+        /// <param name="items">The items being discounted by this coupon..</param>
         /// <param name="limit">The maximum number of discounted items..</param>
         /// <param name="tiers">A list of discount tiers..</param>
-        public CouponTieredAmountOffItem(string item = default(string), decimal? limit = default(decimal?), List<CouponTierQuantityAmount> tiers = default(List<CouponTierQuantityAmount>))
+        public CouponTieredAmountOffItems(List<string> items = default(List<string>), decimal? limit = default(decimal?), List<CouponTierQuantityAmount> tiers = default(List<CouponTierQuantityAmount>))
         {
-            this.Item = item;
+            this.Items = items;
             this.Limit = limit;
             this.Tiers = tiers;
         }
         
         /// <summary>
-        /// The item being discounted by this coupon.
+        /// The items being discounted by this coupon.
         /// </summary>
-        /// <value>The item being discounted by this coupon.</value>
-        [DataMember(Name="item", EmitDefaultValue=false)]
-        public string Item { get; set; }
+        /// <value>The items being discounted by this coupon.</value>
+        [DataMember(Name="items", EmitDefaultValue=false)]
+        public List<string> Items { get; set; }
 
         /// <summary>
         /// The maximum number of discounted items.
@@ -71,8 +71,8 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CouponTieredAmountOffItem {\n");
-            sb.Append("  Item: ").Append(Item).Append("\n");
+            sb.Append("class CouponTieredAmountOffItems {\n");
+            sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  Tiers: ").Append(Tiers).Append("\n");
             sb.Append("}\n");
@@ -95,24 +95,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CouponTieredAmountOffItem);
+            return this.Equals(input as CouponTieredAmountOffItems);
         }
 
         /// <summary>
-        /// Returns true if CouponTieredAmountOffItem instances are equal
+        /// Returns true if CouponTieredAmountOffItems instances are equal
         /// </summary>
-        /// <param name="input">Instance of CouponTieredAmountOffItem to be compared</param>
+        /// <param name="input">Instance of CouponTieredAmountOffItems to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CouponTieredAmountOffItem input)
+        public bool Equals(CouponTieredAmountOffItems input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Item == input.Item ||
-                    (this.Item != null &&
-                    this.Item.Equals(input.Item))
+                    this.Items == input.Items ||
+                    this.Items != null &&
+                    this.Items.SequenceEqual(input.Items)
                 ) && 
                 (
                     this.Limit == input.Limit ||
@@ -135,8 +135,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Item != null)
-                    hashCode = hashCode * 59 + this.Item.GetHashCode();
+                if (this.Items != null)
+                    hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.Limit != null)
                     hashCode = hashCode * 59 + this.Limit.GetHashCode();
                 if (this.Tiers != null)

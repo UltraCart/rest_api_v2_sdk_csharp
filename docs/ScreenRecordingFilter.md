@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **PlacedOrder** | **bool?** |  | [optional] 
 **PreferredLanguage** | [**ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **ReferrerDomain** | **string** |  | [optional] 
+**ReturnFilterValues** | **List&lt;string&gt;** |  | [optional] 
 **ScreenRecordingUuids** | **List&lt;string&gt;** |  | [optional] 
 **ScreenSizes** | **List&lt;string&gt;** |  | [optional] 
 **SkipFilterValues** | **bool?** |  | [optional] 

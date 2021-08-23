@@ -45,22 +45,22 @@ namespace com.ultracart.admin.v2.Model
             AMEX = 1,
             
             /// <summary>
-            /// Enum Visa for value: Visa
-            /// </summary>
-            [EnumMember(Value = "Visa")]
-            Visa = 2,
-            
-            /// <summary>
             /// Enum DinersClub for value: Diners Club
             /// </summary>
             [EnumMember(Value = "Diners Club")]
-            DinersClub = 3,
+            DinersClub = 2,
             
             /// <summary>
             /// Enum Discover for value: Discover
             /// </summary>
             [EnumMember(Value = "Discover")]
-            Discover = 4,
+            Discover = 3,
+            
+            /// <summary>
+            /// Enum MasterCard for value: MasterCard
+            /// </summary>
+            [EnumMember(Value = "MasterCard")]
+            MasterCard = 4,
             
             /// <summary>
             /// Enum JCB for value: JCB
@@ -69,10 +69,10 @@ namespace com.ultracart.admin.v2.Model
             JCB = 5,
             
             /// <summary>
-            /// Enum MasterCard for value: MasterCard
+            /// Enum VISA for value: VISA
             /// </summary>
-            [EnumMember(Value = "MasterCard")]
-            MasterCard = 6
+            [EnumMember(Value = "VISA")]
+            VISA = 6
         }
 
         /// <summary>

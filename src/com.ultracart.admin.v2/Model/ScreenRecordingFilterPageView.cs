@@ -39,9 +39,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="referrer">referrer.</param>
         /// <param name="referrerParams">referrerParams.</param>
         /// <param name="referrerRaw">referrerRaw.</param>
+        /// <param name="returnFilterValues">returnFilterValues.</param>
         /// <param name="timeOnPage">timeOnPage.</param>
         /// <param name="url">url.</param>
-        public ScreenRecordingFilterPageView(ScreenRecordingFilterStringSearch domain = default(ScreenRecordingFilterStringSearch), List<ScreenRecordingFilterPageViewEvent> events = default(List<ScreenRecordingFilterPageViewEvent>), List<ScreenRecordingFilterPageViewParam> _params = default(List<ScreenRecordingFilterPageViewParam>), ScreenRecordingFilterStringSearch referrer = default(ScreenRecordingFilterStringSearch), List<ScreenRecordingFilterPageViewReferrerParam> referrerParams = default(List<ScreenRecordingFilterPageViewReferrerParam>), ScreenRecordingFilterStringSearch referrerRaw = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger timeOnPage = default(ScreenRecordingFilterRangeInteger), ScreenRecordingFilterStringSearch url = default(ScreenRecordingFilterStringSearch))
+        public ScreenRecordingFilterPageView(ScreenRecordingFilterStringSearch domain = default(ScreenRecordingFilterStringSearch), List<ScreenRecordingFilterPageViewEvent> events = default(List<ScreenRecordingFilterPageViewEvent>), List<ScreenRecordingFilterPageViewParam> _params = default(List<ScreenRecordingFilterPageViewParam>), ScreenRecordingFilterStringSearch referrer = default(ScreenRecordingFilterStringSearch), List<ScreenRecordingFilterPageViewReferrerParam> referrerParams = default(List<ScreenRecordingFilterPageViewReferrerParam>), ScreenRecordingFilterStringSearch referrerRaw = default(ScreenRecordingFilterStringSearch), List<string> returnFilterValues = default(List<string>), ScreenRecordingFilterRangeInteger timeOnPage = default(ScreenRecordingFilterRangeInteger), ScreenRecordingFilterStringSearch url = default(ScreenRecordingFilterStringSearch))
         {
             this.Domain = domain;
             this.Events = events;
@@ -49,6 +50,7 @@ namespace com.ultracart.admin.v2.Model
             this.Referrer = referrer;
             this.ReferrerParams = referrerParams;
             this.ReferrerRaw = referrerRaw;
+            this.ReturnFilterValues = returnFilterValues;
             this.TimeOnPage = timeOnPage;
             this.Url = url;
         }
@@ -90,6 +92,12 @@ namespace com.ultracart.admin.v2.Model
         public ScreenRecordingFilterStringSearch ReferrerRaw { get; set; }
 
         /// <summary>
+        /// Gets or Sets ReturnFilterValues
+        /// </summary>
+        [DataMember(Name="return_filter_values", EmitDefaultValue=false)]
+        public List<string> ReturnFilterValues { get; set; }
+
+        /// <summary>
         /// Gets or Sets TimeOnPage
         /// </summary>
         [DataMember(Name="time_on_page", EmitDefaultValue=false)]
@@ -115,6 +123,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Referrer: ").Append(Referrer).Append("\n");
             sb.Append("  ReferrerParams: ").Append(ReferrerParams).Append("\n");
             sb.Append("  ReferrerRaw: ").Append(ReferrerRaw).Append("\n");
+            sb.Append("  ReturnFilterValues: ").Append(ReturnFilterValues).Append("\n");
             sb.Append("  TimeOnPage: ").Append(TimeOnPage).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
@@ -182,6 +191,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ReferrerRaw.Equals(input.ReferrerRaw))
                 ) && 
                 (
+                    this.ReturnFilterValues == input.ReturnFilterValues ||
+                    this.ReturnFilterValues != null &&
+                    this.ReturnFilterValues.SequenceEqual(input.ReturnFilterValues)
+                ) && 
+                (
                     this.TimeOnPage == input.TimeOnPage ||
                     (this.TimeOnPage != null &&
                     this.TimeOnPage.Equals(input.TimeOnPage))
@@ -214,6 +228,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ReferrerParams.GetHashCode();
                 if (this.ReferrerRaw != null)
                     hashCode = hashCode * 59 + this.ReferrerRaw.GetHashCode();
+                if (this.ReturnFilterValues != null)
+                    hashCode = hashCode * 59 + this.ReturnFilterValues.GetHashCode();
                 if (this.TimeOnPage != null)
                     hashCode = hashCode * 59 + this.TimeOnPage.GetHashCode();
                 if (this.Url != null)

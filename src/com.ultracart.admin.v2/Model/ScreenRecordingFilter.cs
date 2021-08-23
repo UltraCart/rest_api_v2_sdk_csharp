@@ -56,6 +56,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="placedOrder">placedOrder.</param>
         /// <param name="preferredLanguage">preferredLanguage.</param>
         /// <param name="referrerDomain">referrerDomain.</param>
+        /// <param name="returnFilterValues">returnFilterValues.</param>
         /// <param name="screenRecordingUuids">screenRecordingUuids.</param>
         /// <param name="screenSizes">screenSizes.</param>
         /// <param name="skipFilterValues">skipFilterValues.</param>
@@ -73,7 +74,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="utmSource">utmSource.</param>
         /// <param name="visitorNumber">visitorNumber.</param>
         /// <param name="watched">watched.</param>
-        public ScreenRecordingFilter(string affiliateEmail = default(string), int? affiliateId = default(int?), string communicationsCampaignName = default(string), string communicationsEmailSubject = default(string), string communicationsFlowName = default(string), ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), string emailDomain = default(string), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch languageIsoCode = default(ScreenRecordingFilterStringSearch), int? lastXDays = default(int?), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), ScreenRecordingFilterStringSearch preferredLanguage = default(ScreenRecordingFilterStringSearch), string referrerDomain = default(string), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), string utmCampaign = default(string), string utmSource = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?))
+        public ScreenRecordingFilter(string affiliateEmail = default(string), int? affiliateId = default(int?), string communicationsCampaignName = default(string), string communicationsEmailSubject = default(string), string communicationsFlowName = default(string), ScreenRecordingFilterStringSearch email = default(ScreenRecordingFilterStringSearch), string emailDomain = default(string), bool? emailIdentified = default(bool?), ScreenRecordingFilterRangeDate endTimestamp = default(ScreenRecordingFilterRangeDate), string espCustomerUuid = default(string), bool? favorite = default(bool?), ScreenRecordingFilterGeoDistance geolocation = default(ScreenRecordingFilterGeoDistance), ScreenRecordingFilterStringSearch geolocationCountry = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch geolocationState = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterStringSearch languageIsoCode = default(ScreenRecordingFilterStringSearch), int? lastXDays = default(int?), int? maxFilterValues = default(int?), ScreenRecordingFilterStringSearch orderId = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger pageViewCount = default(ScreenRecordingFilterRangeInteger), List<ScreenRecordingFilterPageView> pageViews = default(List<ScreenRecordingFilterPageView>), bool? placedOrder = default(bool?), ScreenRecordingFilterStringSearch preferredLanguage = default(ScreenRecordingFilterStringSearch), string referrerDomain = default(string), List<string> returnFilterValues = default(List<string>), List<string> screenRecordingUuids = default(List<string>), List<string> screenSizes = default(List<string>), bool? skipFilterValues = default(bool?), bool? skipHits = default(bool?), ScreenRecordingFilterRangeDate startTimestamp = default(ScreenRecordingFilterRangeDate), List<string> tags = default(List<string>), ScreenRecordingFilterRangeInteger timeOnSite = default(ScreenRecordingFilterRangeInteger), string userAgentDeviceName = default(string), string userAgentName = default(string), ScreenRecordingFilterStringSearch userAgentOriginal = default(ScreenRecordingFilterStringSearch), string userAgentOsName = default(string), string userAgentOsVersion = default(string), ScreenRecordingFilterIpSearch userIp = default(ScreenRecordingFilterIpSearch), string utmCampaign = default(string), string utmSource = default(string), int? visitorNumber = default(int?), bool? watched = default(bool?))
         {
             this.AffiliateEmail = affiliateEmail;
             this.AffiliateId = affiliateId;
@@ -98,6 +99,7 @@ namespace com.ultracart.admin.v2.Model
             this.PlacedOrder = placedOrder;
             this.PreferredLanguage = preferredLanguage;
             this.ReferrerDomain = referrerDomain;
+            this.ReturnFilterValues = returnFilterValues;
             this.ScreenRecordingUuids = screenRecordingUuids;
             this.ScreenSizes = screenSizes;
             this.SkipFilterValues = skipFilterValues;
@@ -256,6 +258,12 @@ namespace com.ultracart.admin.v2.Model
         public string ReferrerDomain { get; set; }
 
         /// <summary>
+        /// Gets or Sets ReturnFilterValues
+        /// </summary>
+        [DataMember(Name="return_filter_values", EmitDefaultValue=false)]
+        public List<string> ReturnFilterValues { get; set; }
+
+        /// <summary>
         /// Gets or Sets ScreenRecordingUuids
         /// </summary>
         [DataMember(Name="screen_recording_uuids", EmitDefaultValue=false)]
@@ -388,6 +396,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PlacedOrder: ").Append(PlacedOrder).Append("\n");
             sb.Append("  PreferredLanguage: ").Append(PreferredLanguage).Append("\n");
             sb.Append("  ReferrerDomain: ").Append(ReferrerDomain).Append("\n");
+            sb.Append("  ReturnFilterValues: ").Append(ReturnFilterValues).Append("\n");
             sb.Append("  ScreenRecordingUuids: ").Append(ScreenRecordingUuids).Append("\n");
             sb.Append("  ScreenSizes: ").Append(ScreenSizes).Append("\n");
             sb.Append("  SkipFilterValues: ").Append(SkipFilterValues).Append("\n");
@@ -555,6 +564,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ReferrerDomain.Equals(input.ReferrerDomain))
                 ) && 
                 (
+                    this.ReturnFilterValues == input.ReturnFilterValues ||
+                    this.ReturnFilterValues != null &&
+                    this.ReturnFilterValues.SequenceEqual(input.ReturnFilterValues)
+                ) && 
+                (
                     this.ScreenRecordingUuids == input.ScreenRecordingUuids ||
                     this.ScreenRecordingUuids != null &&
                     this.ScreenRecordingUuids.SequenceEqual(input.ScreenRecordingUuids)
@@ -696,6 +710,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PreferredLanguage.GetHashCode();
                 if (this.ReferrerDomain != null)
                     hashCode = hashCode * 59 + this.ReferrerDomain.GetHashCode();
+                if (this.ReturnFilterValues != null)
+                    hashCode = hashCode * 59 + this.ReturnFilterValues.GetHashCode();
                 if (this.ScreenRecordingUuids != null)
                     hashCode = hashCode * 59 + this.ScreenRecordingUuids.GetHashCode();
                 if (this.ScreenSizes != null)

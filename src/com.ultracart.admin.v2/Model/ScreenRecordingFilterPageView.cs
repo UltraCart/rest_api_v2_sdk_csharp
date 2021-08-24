@@ -34,25 +34,41 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ScreenRecordingFilterPageView" /> class.
         /// </summary>
         /// <param name="domain">domain.</param>
+        /// <param name="domainFilter">domainFilter.</param>
+        /// <param name="eventNameFilter">eventNameFilter.</param>
+        /// <param name="eventParamNameFilter">eventParamNameFilter.</param>
+        /// <param name="eventParamValueFilter">eventParamValueFilter.</param>
         /// <param name="events">events.</param>
+        /// <param name="paramNameFilter">paramNameFilter.</param>
+        /// <param name="paramValueFilter">paramValueFilter.</param>
         /// <param name="_params">_params.</param>
         /// <param name="referrer">referrer.</param>
         /// <param name="referrerParams">referrerParams.</param>
         /// <param name="referrerRaw">referrerRaw.</param>
-        /// <param name="returnFilterValues">returnFilterValues.</param>
         /// <param name="timeOnPage">timeOnPage.</param>
+        /// <param name="timeOnPageMaxFilter">timeOnPageMaxFilter.</param>
+        /// <param name="timeOnPageMinFilter">timeOnPageMinFilter.</param>
         /// <param name="url">url.</param>
-        public ScreenRecordingFilterPageView(ScreenRecordingFilterStringSearch domain = default(ScreenRecordingFilterStringSearch), List<ScreenRecordingFilterPageViewEvent> events = default(List<ScreenRecordingFilterPageViewEvent>), List<ScreenRecordingFilterPageViewParam> _params = default(List<ScreenRecordingFilterPageViewParam>), ScreenRecordingFilterStringSearch referrer = default(ScreenRecordingFilterStringSearch), List<ScreenRecordingFilterPageViewReferrerParam> referrerParams = default(List<ScreenRecordingFilterPageViewReferrerParam>), ScreenRecordingFilterStringSearch referrerRaw = default(ScreenRecordingFilterStringSearch), List<string> returnFilterValues = default(List<string>), ScreenRecordingFilterRangeInteger timeOnPage = default(ScreenRecordingFilterRangeInteger), ScreenRecordingFilterStringSearch url = default(ScreenRecordingFilterStringSearch))
+        /// <param name="urlFilter">urlFilter.</param>
+        public ScreenRecordingFilterPageView(ScreenRecordingFilterStringSearch domain = default(ScreenRecordingFilterStringSearch), bool? domainFilter = default(bool?), bool? eventNameFilter = default(bool?), bool? eventParamNameFilter = default(bool?), bool? eventParamValueFilter = default(bool?), List<ScreenRecordingFilterPageViewEvent> events = default(List<ScreenRecordingFilterPageViewEvent>), bool? paramNameFilter = default(bool?), bool? paramValueFilter = default(bool?), List<ScreenRecordingFilterPageViewParam> _params = default(List<ScreenRecordingFilterPageViewParam>), ScreenRecordingFilterStringSearch referrer = default(ScreenRecordingFilterStringSearch), List<ScreenRecordingFilterPageViewReferrerParam> referrerParams = default(List<ScreenRecordingFilterPageViewReferrerParam>), ScreenRecordingFilterStringSearch referrerRaw = default(ScreenRecordingFilterStringSearch), ScreenRecordingFilterRangeInteger timeOnPage = default(ScreenRecordingFilterRangeInteger), bool? timeOnPageMaxFilter = default(bool?), bool? timeOnPageMinFilter = default(bool?), ScreenRecordingFilterStringSearch url = default(ScreenRecordingFilterStringSearch), bool? urlFilter = default(bool?))
         {
             this.Domain = domain;
+            this.DomainFilter = domainFilter;
+            this.EventNameFilter = eventNameFilter;
+            this.EventParamNameFilter = eventParamNameFilter;
+            this.EventParamValueFilter = eventParamValueFilter;
             this.Events = events;
+            this.ParamNameFilter = paramNameFilter;
+            this.ParamValueFilter = paramValueFilter;
             this.Params = _params;
             this.Referrer = referrer;
             this.ReferrerParams = referrerParams;
             this.ReferrerRaw = referrerRaw;
-            this.ReturnFilterValues = returnFilterValues;
             this.TimeOnPage = timeOnPage;
+            this.TimeOnPageMaxFilter = timeOnPageMaxFilter;
+            this.TimeOnPageMinFilter = timeOnPageMinFilter;
             this.Url = url;
+            this.UrlFilter = urlFilter;
         }
         
         /// <summary>
@@ -62,10 +78,46 @@ namespace com.ultracart.admin.v2.Model
         public ScreenRecordingFilterStringSearch Domain { get; set; }
 
         /// <summary>
+        /// Gets or Sets DomainFilter
+        /// </summary>
+        [DataMember(Name="domain_filter", EmitDefaultValue=false)]
+        public bool? DomainFilter { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventNameFilter
+        /// </summary>
+        [DataMember(Name="event_name_filter", EmitDefaultValue=false)]
+        public bool? EventNameFilter { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventParamNameFilter
+        /// </summary>
+        [DataMember(Name="event_param_name_filter", EmitDefaultValue=false)]
+        public bool? EventParamNameFilter { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventParamValueFilter
+        /// </summary>
+        [DataMember(Name="event_param_value_filter", EmitDefaultValue=false)]
+        public bool? EventParamValueFilter { get; set; }
+
+        /// <summary>
         /// Gets or Sets Events
         /// </summary>
         [DataMember(Name="events", EmitDefaultValue=false)]
         public List<ScreenRecordingFilterPageViewEvent> Events { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ParamNameFilter
+        /// </summary>
+        [DataMember(Name="param_name_filter", EmitDefaultValue=false)]
+        public bool? ParamNameFilter { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ParamValueFilter
+        /// </summary>
+        [DataMember(Name="param_value_filter", EmitDefaultValue=false)]
+        public bool? ParamValueFilter { get; set; }
 
         /// <summary>
         /// Gets or Sets Params
@@ -92,22 +144,34 @@ namespace com.ultracart.admin.v2.Model
         public ScreenRecordingFilterStringSearch ReferrerRaw { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReturnFilterValues
-        /// </summary>
-        [DataMember(Name="return_filter_values", EmitDefaultValue=false)]
-        public List<string> ReturnFilterValues { get; set; }
-
-        /// <summary>
         /// Gets or Sets TimeOnPage
         /// </summary>
         [DataMember(Name="time_on_page", EmitDefaultValue=false)]
         public ScreenRecordingFilterRangeInteger TimeOnPage { get; set; }
 
         /// <summary>
+        /// Gets or Sets TimeOnPageMaxFilter
+        /// </summary>
+        [DataMember(Name="time_on_page_max_filter", EmitDefaultValue=false)]
+        public bool? TimeOnPageMaxFilter { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TimeOnPageMinFilter
+        /// </summary>
+        [DataMember(Name="time_on_page_min_filter", EmitDefaultValue=false)]
+        public bool? TimeOnPageMinFilter { get; set; }
+
+        /// <summary>
         /// Gets or Sets Url
         /// </summary>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public ScreenRecordingFilterStringSearch Url { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UrlFilter
+        /// </summary>
+        [DataMember(Name="url_filter", EmitDefaultValue=false)]
+        public bool? UrlFilter { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -118,14 +182,22 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ScreenRecordingFilterPageView {\n");
             sb.Append("  Domain: ").Append(Domain).Append("\n");
+            sb.Append("  DomainFilter: ").Append(DomainFilter).Append("\n");
+            sb.Append("  EventNameFilter: ").Append(EventNameFilter).Append("\n");
+            sb.Append("  EventParamNameFilter: ").Append(EventParamNameFilter).Append("\n");
+            sb.Append("  EventParamValueFilter: ").Append(EventParamValueFilter).Append("\n");
             sb.Append("  Events: ").Append(Events).Append("\n");
+            sb.Append("  ParamNameFilter: ").Append(ParamNameFilter).Append("\n");
+            sb.Append("  ParamValueFilter: ").Append(ParamValueFilter).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  Referrer: ").Append(Referrer).Append("\n");
             sb.Append("  ReferrerParams: ").Append(ReferrerParams).Append("\n");
             sb.Append("  ReferrerRaw: ").Append(ReferrerRaw).Append("\n");
-            sb.Append("  ReturnFilterValues: ").Append(ReturnFilterValues).Append("\n");
             sb.Append("  TimeOnPage: ").Append(TimeOnPage).Append("\n");
+            sb.Append("  TimeOnPageMaxFilter: ").Append(TimeOnPageMaxFilter).Append("\n");
+            sb.Append("  TimeOnPageMinFilter: ").Append(TimeOnPageMinFilter).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  UrlFilter: ").Append(UrlFilter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,9 +238,39 @@ namespace com.ultracart.admin.v2.Model
                     this.Domain.Equals(input.Domain))
                 ) && 
                 (
+                    this.DomainFilter == input.DomainFilter ||
+                    (this.DomainFilter != null &&
+                    this.DomainFilter.Equals(input.DomainFilter))
+                ) && 
+                (
+                    this.EventNameFilter == input.EventNameFilter ||
+                    (this.EventNameFilter != null &&
+                    this.EventNameFilter.Equals(input.EventNameFilter))
+                ) && 
+                (
+                    this.EventParamNameFilter == input.EventParamNameFilter ||
+                    (this.EventParamNameFilter != null &&
+                    this.EventParamNameFilter.Equals(input.EventParamNameFilter))
+                ) && 
+                (
+                    this.EventParamValueFilter == input.EventParamValueFilter ||
+                    (this.EventParamValueFilter != null &&
+                    this.EventParamValueFilter.Equals(input.EventParamValueFilter))
+                ) && 
+                (
                     this.Events == input.Events ||
                     this.Events != null &&
                     this.Events.SequenceEqual(input.Events)
+                ) && 
+                (
+                    this.ParamNameFilter == input.ParamNameFilter ||
+                    (this.ParamNameFilter != null &&
+                    this.ParamNameFilter.Equals(input.ParamNameFilter))
+                ) && 
+                (
+                    this.ParamValueFilter == input.ParamValueFilter ||
+                    (this.ParamValueFilter != null &&
+                    this.ParamValueFilter.Equals(input.ParamValueFilter))
                 ) && 
                 (
                     this.Params == input.Params ||
@@ -191,19 +293,29 @@ namespace com.ultracart.admin.v2.Model
                     this.ReferrerRaw.Equals(input.ReferrerRaw))
                 ) && 
                 (
-                    this.ReturnFilterValues == input.ReturnFilterValues ||
-                    this.ReturnFilterValues != null &&
-                    this.ReturnFilterValues.SequenceEqual(input.ReturnFilterValues)
-                ) && 
-                (
                     this.TimeOnPage == input.TimeOnPage ||
                     (this.TimeOnPage != null &&
                     this.TimeOnPage.Equals(input.TimeOnPage))
                 ) && 
                 (
+                    this.TimeOnPageMaxFilter == input.TimeOnPageMaxFilter ||
+                    (this.TimeOnPageMaxFilter != null &&
+                    this.TimeOnPageMaxFilter.Equals(input.TimeOnPageMaxFilter))
+                ) && 
+                (
+                    this.TimeOnPageMinFilter == input.TimeOnPageMinFilter ||
+                    (this.TimeOnPageMinFilter != null &&
+                    this.TimeOnPageMinFilter.Equals(input.TimeOnPageMinFilter))
+                ) && 
+                (
                     this.Url == input.Url ||
                     (this.Url != null &&
                     this.Url.Equals(input.Url))
+                ) && 
+                (
+                    this.UrlFilter == input.UrlFilter ||
+                    (this.UrlFilter != null &&
+                    this.UrlFilter.Equals(input.UrlFilter))
                 );
         }
 
@@ -218,8 +330,20 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Domain != null)
                     hashCode = hashCode * 59 + this.Domain.GetHashCode();
+                if (this.DomainFilter != null)
+                    hashCode = hashCode * 59 + this.DomainFilter.GetHashCode();
+                if (this.EventNameFilter != null)
+                    hashCode = hashCode * 59 + this.EventNameFilter.GetHashCode();
+                if (this.EventParamNameFilter != null)
+                    hashCode = hashCode * 59 + this.EventParamNameFilter.GetHashCode();
+                if (this.EventParamValueFilter != null)
+                    hashCode = hashCode * 59 + this.EventParamValueFilter.GetHashCode();
                 if (this.Events != null)
                     hashCode = hashCode * 59 + this.Events.GetHashCode();
+                if (this.ParamNameFilter != null)
+                    hashCode = hashCode * 59 + this.ParamNameFilter.GetHashCode();
+                if (this.ParamValueFilter != null)
+                    hashCode = hashCode * 59 + this.ParamValueFilter.GetHashCode();
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 if (this.Referrer != null)
@@ -228,12 +352,16 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ReferrerParams.GetHashCode();
                 if (this.ReferrerRaw != null)
                     hashCode = hashCode * 59 + this.ReferrerRaw.GetHashCode();
-                if (this.ReturnFilterValues != null)
-                    hashCode = hashCode * 59 + this.ReturnFilterValues.GetHashCode();
                 if (this.TimeOnPage != null)
                     hashCode = hashCode * 59 + this.TimeOnPage.GetHashCode();
+                if (this.TimeOnPageMaxFilter != null)
+                    hashCode = hashCode * 59 + this.TimeOnPageMaxFilter.GetHashCode();
+                if (this.TimeOnPageMinFilter != null)
+                    hashCode = hashCode * 59 + this.TimeOnPageMinFilter.GetHashCode();
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
+                if (this.UrlFilter != null)
+                    hashCode = hashCode * 59 + this.UrlFilter.GetHashCode();
                 return hashCode;
             }
         }

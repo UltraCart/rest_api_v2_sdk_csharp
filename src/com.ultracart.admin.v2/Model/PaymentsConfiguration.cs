@@ -40,6 +40,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="cod">cod.</param>
         /// <param name="creditCard">creditCard.</param>
         /// <param name="echeck">echeck.</param>
+        /// <param name="insurance">insurance.</param>
         /// <param name="loanHero">loanHero.</param>
         /// <param name="moneyOrder">moneyOrder.</param>
         /// <param name="paypal">paypal.</param>
@@ -51,7 +52,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="switchToTab">switchToTab.</param>
         /// <param name="ultracartPaymentsWepay">ultracartPaymentsWepay.</param>
         /// <param name="wireTransfer">wireTransfer.</param>
-        public PaymentsConfiguration(PaymentsConfigurationAffirm affirm = default(PaymentsConfigurationAffirm), PaymentsConfigurationAmazon amazon = default(PaymentsConfigurationAmazon), PaymentsConfigurationCash cash = default(PaymentsConfigurationCash), PaymentsConfigurationCheck check = default(PaymentsConfigurationCheck), PaymentsConfigurationCOD cod = default(PaymentsConfigurationCOD), PaymentsConfigurationCreditCard creditCard = default(PaymentsConfigurationCreditCard), PaymentsConfigurationEcheck echeck = default(PaymentsConfigurationEcheck), PaymentsConfigurationLoanHero loanHero = default(PaymentsConfigurationLoanHero), PaymentsConfigurationMoneyOrder moneyOrder = default(PaymentsConfigurationMoneyOrder), PaymentsConfigurationPayPal paypal = default(PaymentsConfigurationPayPal), PaymentsConfigurationPurchaseOrder purchaseOrder = default(PaymentsConfigurationPurchaseOrder), PaymentsConfigurationQuoteRequest quoteRequest = default(PaymentsConfigurationQuoteRequest), PaymentsConfigurationSezzle sezzle = default(PaymentsConfigurationSezzle), bool? showAccountingCode = default(bool?), string switchToSubTab = default(string), string switchToTab = default(string), PaymentsConfigurationWePay ultracartPaymentsWepay = default(PaymentsConfigurationWePay), PaymentsConfigurationWireTransfer wireTransfer = default(PaymentsConfigurationWireTransfer))
+        public PaymentsConfiguration(PaymentsConfigurationAffirm affirm = default(PaymentsConfigurationAffirm), PaymentsConfigurationAmazon amazon = default(PaymentsConfigurationAmazon), PaymentsConfigurationCash cash = default(PaymentsConfigurationCash), PaymentsConfigurationCheck check = default(PaymentsConfigurationCheck), PaymentsConfigurationCOD cod = default(PaymentsConfigurationCOD), PaymentsConfigurationCreditCard creditCard = default(PaymentsConfigurationCreditCard), PaymentsConfigurationEcheck echeck = default(PaymentsConfigurationEcheck), PaymentsConfigurationInsurance insurance = default(PaymentsConfigurationInsurance), PaymentsConfigurationLoanHero loanHero = default(PaymentsConfigurationLoanHero), PaymentsConfigurationMoneyOrder moneyOrder = default(PaymentsConfigurationMoneyOrder), PaymentsConfigurationPayPal paypal = default(PaymentsConfigurationPayPal), PaymentsConfigurationPurchaseOrder purchaseOrder = default(PaymentsConfigurationPurchaseOrder), PaymentsConfigurationQuoteRequest quoteRequest = default(PaymentsConfigurationQuoteRequest), PaymentsConfigurationSezzle sezzle = default(PaymentsConfigurationSezzle), bool? showAccountingCode = default(bool?), string switchToSubTab = default(string), string switchToTab = default(string), PaymentsConfigurationWePay ultracartPaymentsWepay = default(PaymentsConfigurationWePay), PaymentsConfigurationWireTransfer wireTransfer = default(PaymentsConfigurationWireTransfer))
         {
             this.Affirm = affirm;
             this.Amazon = amazon;
@@ -60,6 +61,7 @@ namespace com.ultracart.admin.v2.Model
             this.Cod = cod;
             this.CreditCard = creditCard;
             this.Echeck = echeck;
+            this.Insurance = insurance;
             this.LoanHero = loanHero;
             this.MoneyOrder = moneyOrder;
             this.Paypal = paypal;
@@ -114,6 +116,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="echeck", EmitDefaultValue=false)]
         public PaymentsConfigurationEcheck Echeck { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Insurance
+        /// </summary>
+        [DataMember(Name="insurance", EmitDefaultValue=false)]
+        public PaymentsConfigurationInsurance Insurance { get; set; }
 
         /// <summary>
         /// Gets or Sets LoanHero
@@ -197,6 +205,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Cod: ").Append(Cod).Append("\n");
             sb.Append("  CreditCard: ").Append(CreditCard).Append("\n");
             sb.Append("  Echeck: ").Append(Echeck).Append("\n");
+            sb.Append("  Insurance: ").Append(Insurance).Append("\n");
             sb.Append("  LoanHero: ").Append(LoanHero).Append("\n");
             sb.Append("  MoneyOrder: ").Append(MoneyOrder).Append("\n");
             sb.Append("  Paypal: ").Append(Paypal).Append("\n");
@@ -278,6 +287,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Echeck.Equals(input.Echeck))
                 ) && 
                 (
+                    this.Insurance == input.Insurance ||
+                    (this.Insurance != null &&
+                    this.Insurance.Equals(input.Insurance))
+                ) && 
+                (
                     this.LoanHero == input.LoanHero ||
                     (this.LoanHero != null &&
                     this.LoanHero.Equals(input.LoanHero))
@@ -357,6 +371,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CreditCard.GetHashCode();
                 if (this.Echeck != null)
                     hashCode = hashCode * 59 + this.Echeck.GetHashCode();
+                if (this.Insurance != null)
+                    hashCode = hashCode * 59 + this.Insurance.GetHashCode();
                 if (this.LoanHero != null)
                     hashCode = hashCode * 59 + this.LoanHero.GetHashCode();
                 if (this.MoneyOrder != null)

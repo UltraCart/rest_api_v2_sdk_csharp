@@ -93,52 +93,58 @@ namespace com.ultracart.admin.v2.Model
             ECheck = 9,
             
             /// <summary>
+            /// Enum Insurance for value: Insurance
+            /// </summary>
+            [EnumMember(Value = "Insurance")]
+            Insurance = 10,
+            
+            /// <summary>
             /// Enum LoanHero for value: LoanHero
             /// </summary>
             [EnumMember(Value = "LoanHero")]
-            LoanHero = 10,
+            LoanHero = 11,
             
             /// <summary>
             /// Enum MoneyOrder for value: Money Order
             /// </summary>
             [EnumMember(Value = "Money Order")]
-            MoneyOrder = 11,
+            MoneyOrder = 12,
             
             /// <summary>
             /// Enum PayPal for value: PayPal
             /// </summary>
             [EnumMember(Value = "PayPal")]
-            PayPal = 12,
+            PayPal = 13,
             
             /// <summary>
             /// Enum PurchaseOrder for value: Purchase Order
             /// </summary>
             [EnumMember(Value = "Purchase Order")]
-            PurchaseOrder = 13,
+            PurchaseOrder = 14,
             
             /// <summary>
             /// Enum QuoteRequest for value: Quote Request
             /// </summary>
             [EnumMember(Value = "Quote Request")]
-            QuoteRequest = 14,
+            QuoteRequest = 15,
             
             /// <summary>
             /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown = 15,
+            Unknown = 16,
             
             /// <summary>
             /// Enum WireTransfer for value: Wire Transfer
             /// </summary>
             [EnumMember(Value = "Wire Transfer")]
-            WireTransfer = 16,
+            WireTransfer = 17,
             
             /// <summary>
             /// Enum Walmart for value: Walmart
             /// </summary>
             [EnumMember(Value = "Walmart")]
-            Walmart = 17
+            Walmart = 18
         }
 
         /// <summary>
@@ -217,6 +223,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="creditCard">creditCard.</param>
         /// <param name="echeck">echeck.</param>
         /// <param name="holdForFraudReview">True if order has been held for fraud review.</param>
+        /// <param name="insurance">insurance.</param>
         /// <param name="paymentDts">Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true.</param>
         /// <param name="paymentMethod">Payment method.</param>
         /// <param name="paymentMethodAccountingCode">Payment method QuickBooks code.</param>
@@ -230,12 +237,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="surchargeTransactionPercentage">Surcharge transaction percentage.</param>
         /// <param name="testOrder">True if this is a test order.</param>
         /// <param name="transactions">Transactions associated with processing this payment.</param>
-        public OrderPayment(OrderPaymentCheck check = default(OrderPaymentCheck), OrderPaymentCreditCard creditCard = default(OrderPaymentCreditCard), OrderPaymentECheck echeck = default(OrderPaymentECheck), bool? holdForFraudReview = default(bool?), string paymentDts = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string paymentMethodAccountingCode = default(string), string paymentMethodDepositToAccount = default(string), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), OrderPaymentPurchaseOrder purchaseOrder = default(OrderPaymentPurchaseOrder), string rotatingTransactionGatewayCode = default(string), Currency surcharge = default(Currency), string surchargeAccountingCode = default(string), decimal? surchargeTransactionFee = default(decimal?), decimal? surchargeTransactionPercentage = default(decimal?), bool? testOrder = default(bool?), List<OrderPaymentTransaction> transactions = default(List<OrderPaymentTransaction>))
+        public OrderPayment(OrderPaymentCheck check = default(OrderPaymentCheck), OrderPaymentCreditCard creditCard = default(OrderPaymentCreditCard), OrderPaymentECheck echeck = default(OrderPaymentECheck), bool? holdForFraudReview = default(bool?), OrderPaymentInsurance insurance = default(OrderPaymentInsurance), string paymentDts = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string paymentMethodAccountingCode = default(string), string paymentMethodDepositToAccount = default(string), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), OrderPaymentPurchaseOrder purchaseOrder = default(OrderPaymentPurchaseOrder), string rotatingTransactionGatewayCode = default(string), Currency surcharge = default(Currency), string surchargeAccountingCode = default(string), decimal? surchargeTransactionFee = default(decimal?), decimal? surchargeTransactionPercentage = default(decimal?), bool? testOrder = default(bool?), List<OrderPaymentTransaction> transactions = default(List<OrderPaymentTransaction>))
         {
             this.Check = check;
             this.CreditCard = creditCard;
             this.Echeck = echeck;
             this.HoldForFraudReview = holdForFraudReview;
+            this.Insurance = insurance;
             this.PaymentDts = paymentDts;
             this.PaymentMethod = paymentMethod;
             this.PaymentMethodAccountingCode = paymentMethodAccountingCode;
@@ -275,6 +283,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if order has been held for fraud review</value>
         [DataMember(Name="hold_for_fraud_review", EmitDefaultValue=false)]
         public bool? HoldForFraudReview { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Insurance
+        /// </summary>
+        [DataMember(Name="insurance", EmitDefaultValue=false)]
+        public OrderPaymentInsurance Insurance { get; set; }
 
         /// <summary>
         /// Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true
@@ -365,6 +379,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreditCard: ").Append(CreditCard).Append("\n");
             sb.Append("  Echeck: ").Append(Echeck).Append("\n");
             sb.Append("  HoldForFraudReview: ").Append(HoldForFraudReview).Append("\n");
+            sb.Append("  Insurance: ").Append(Insurance).Append("\n");
             sb.Append("  PaymentDts: ").Append(PaymentDts).Append("\n");
             sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
             sb.Append("  PaymentMethodAccountingCode: ").Append(PaymentMethodAccountingCode).Append("\n");
@@ -431,6 +446,11 @@ namespace com.ultracart.admin.v2.Model
                     this.HoldForFraudReview == input.HoldForFraudReview ||
                     (this.HoldForFraudReview != null &&
                     this.HoldForFraudReview.Equals(input.HoldForFraudReview))
+                ) && 
+                (
+                    this.Insurance == input.Insurance ||
+                    (this.Insurance != null &&
+                    this.Insurance.Equals(input.Insurance))
                 ) && 
                 (
                     this.PaymentDts == input.PaymentDts ||
@@ -516,6 +536,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Echeck.GetHashCode();
                 if (this.HoldForFraudReview != null)
                     hashCode = hashCode * 59 + this.HoldForFraudReview.GetHashCode();
+                if (this.Insurance != null)
+                    hashCode = hashCode * 59 + this.Insurance.GetHashCode();
                 if (this.PaymentDts != null)
                     hashCode = hashCode * 59 + this.PaymentDts.GetHashCode();
                 if (this.PaymentMethod != null)

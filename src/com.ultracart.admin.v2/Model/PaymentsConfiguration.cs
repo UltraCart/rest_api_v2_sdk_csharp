@@ -48,11 +48,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="quoteRequest">quoteRequest.</param>
         /// <param name="sezzle">sezzle.</param>
         /// <param name="showAccountingCode">Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured..</param>
-        /// <param name="switchToSubTab">switchToSubTab.</param>
-        /// <param name="switchToTab">switchToTab.</param>
         /// <param name="ultracartPaymentsWepay">ultracartPaymentsWepay.</param>
         /// <param name="wireTransfer">wireTransfer.</param>
-        public PaymentsConfiguration(PaymentsConfigurationAffirm affirm = default(PaymentsConfigurationAffirm), PaymentsConfigurationAmazon amazon = default(PaymentsConfigurationAmazon), PaymentsConfigurationCash cash = default(PaymentsConfigurationCash), PaymentsConfigurationCheck check = default(PaymentsConfigurationCheck), PaymentsConfigurationCOD cod = default(PaymentsConfigurationCOD), PaymentsConfigurationCreditCard creditCard = default(PaymentsConfigurationCreditCard), PaymentsConfigurationEcheck echeck = default(PaymentsConfigurationEcheck), PaymentsConfigurationInsurance insurance = default(PaymentsConfigurationInsurance), PaymentsConfigurationLoanHero loanHero = default(PaymentsConfigurationLoanHero), PaymentsConfigurationMoneyOrder moneyOrder = default(PaymentsConfigurationMoneyOrder), PaymentsConfigurationPayPal paypal = default(PaymentsConfigurationPayPal), PaymentsConfigurationPurchaseOrder purchaseOrder = default(PaymentsConfigurationPurchaseOrder), PaymentsConfigurationQuoteRequest quoteRequest = default(PaymentsConfigurationQuoteRequest), PaymentsConfigurationSezzle sezzle = default(PaymentsConfigurationSezzle), bool? showAccountingCode = default(bool?), string switchToSubTab = default(string), string switchToTab = default(string), PaymentsConfigurationWePay ultracartPaymentsWepay = default(PaymentsConfigurationWePay), PaymentsConfigurationWireTransfer wireTransfer = default(PaymentsConfigurationWireTransfer))
+        public PaymentsConfiguration(PaymentsConfigurationAffirm affirm = default(PaymentsConfigurationAffirm), PaymentsConfigurationAmazon amazon = default(PaymentsConfigurationAmazon), PaymentsConfigurationCash cash = default(PaymentsConfigurationCash), PaymentsConfigurationCheck check = default(PaymentsConfigurationCheck), PaymentsConfigurationCOD cod = default(PaymentsConfigurationCOD), PaymentsConfigurationCreditCard creditCard = default(PaymentsConfigurationCreditCard), PaymentsConfigurationEcheck echeck = default(PaymentsConfigurationEcheck), PaymentsConfigurationInsurance insurance = default(PaymentsConfigurationInsurance), PaymentsConfigurationLoanHero loanHero = default(PaymentsConfigurationLoanHero), PaymentsConfigurationMoneyOrder moneyOrder = default(PaymentsConfigurationMoneyOrder), PaymentsConfigurationPayPal paypal = default(PaymentsConfigurationPayPal), PaymentsConfigurationPurchaseOrder purchaseOrder = default(PaymentsConfigurationPurchaseOrder), PaymentsConfigurationQuoteRequest quoteRequest = default(PaymentsConfigurationQuoteRequest), PaymentsConfigurationSezzle sezzle = default(PaymentsConfigurationSezzle), bool? showAccountingCode = default(bool?), PaymentsConfigurationWePay ultracartPaymentsWepay = default(PaymentsConfigurationWePay), PaymentsConfigurationWireTransfer wireTransfer = default(PaymentsConfigurationWireTransfer))
         {
             this.Affirm = affirm;
             this.Amazon = amazon;
@@ -69,8 +67,6 @@ namespace com.ultracart.admin.v2.Model
             this.QuoteRequest = quoteRequest;
             this.Sezzle = sezzle;
             this.ShowAccountingCode = showAccountingCode;
-            this.SwitchToSubTab = switchToSubTab;
-            this.SwitchToTab = switchToTab;
             this.UltracartPaymentsWepay = ultracartPaymentsWepay;
             this.WireTransfer = wireTransfer;
         }
@@ -167,18 +163,6 @@ namespace com.ultracart.admin.v2.Model
         public bool? ShowAccountingCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets SwitchToSubTab
-        /// </summary>
-        [DataMember(Name="switchToSubTab", EmitDefaultValue=false)]
-        public string SwitchToSubTab { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SwitchToTab
-        /// </summary>
-        [DataMember(Name="switchToTab", EmitDefaultValue=false)]
-        public string SwitchToTab { get; set; }
-
-        /// <summary>
         /// Gets or Sets UltracartPaymentsWepay
         /// </summary>
         [DataMember(Name="ultracart_payments_wepay", EmitDefaultValue=false)]
@@ -213,8 +197,6 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  QuoteRequest: ").Append(QuoteRequest).Append("\n");
             sb.Append("  Sezzle: ").Append(Sezzle).Append("\n");
             sb.Append("  ShowAccountingCode: ").Append(ShowAccountingCode).Append("\n");
-            sb.Append("  SwitchToSubTab: ").Append(SwitchToSubTab).Append("\n");
-            sb.Append("  SwitchToTab: ").Append(SwitchToTab).Append("\n");
             sb.Append("  UltracartPaymentsWepay: ").Append(UltracartPaymentsWepay).Append("\n");
             sb.Append("  WireTransfer: ").Append(WireTransfer).Append("\n");
             sb.Append("}\n");
@@ -327,16 +309,6 @@ namespace com.ultracart.admin.v2.Model
                     this.ShowAccountingCode.Equals(input.ShowAccountingCode))
                 ) && 
                 (
-                    this.SwitchToSubTab == input.SwitchToSubTab ||
-                    (this.SwitchToSubTab != null &&
-                    this.SwitchToSubTab.Equals(input.SwitchToSubTab))
-                ) && 
-                (
-                    this.SwitchToTab == input.SwitchToTab ||
-                    (this.SwitchToTab != null &&
-                    this.SwitchToTab.Equals(input.SwitchToTab))
-                ) && 
-                (
                     this.UltracartPaymentsWepay == input.UltracartPaymentsWepay ||
                     (this.UltracartPaymentsWepay != null &&
                     this.UltracartPaymentsWepay.Equals(input.UltracartPaymentsWepay))
@@ -387,10 +359,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Sezzle.GetHashCode();
                 if (this.ShowAccountingCode != null)
                     hashCode = hashCode * 59 + this.ShowAccountingCode.GetHashCode();
-                if (this.SwitchToSubTab != null)
-                    hashCode = hashCode * 59 + this.SwitchToSubTab.GetHashCode();
-                if (this.SwitchToTab != null)
-                    hashCode = hashCode * 59 + this.SwitchToTab.GetHashCode();
                 if (this.UltracartPaymentsWepay != null)
                     hashCode = hashCode * 59 + this.UltracartPaymentsWepay.GetHashCode();
                 if (this.WireTransfer != null)

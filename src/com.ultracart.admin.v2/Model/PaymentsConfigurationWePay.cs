@@ -53,7 +53,6 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ownerName">Owner name.</param>
         /// <param name="ownerPhone">Owner phone.</param>
         /// <param name="postalCode">Postal code.</param>
-        /// <param name="removePayPalPro">removePayPalPro.</param>
         /// <param name="restrictions">restrictions.</param>
         /// <param name="shortPaypalMarketingText">Internal UI aid.</param>
         /// <param name="showUltracartPaymentsDisabled">Internal flag to aid UI.</param>
@@ -62,7 +61,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="showUltracartPaymentsVerified">Internal flag to aid UI.</param>
         /// <param name="state">State.</param>
         /// <param name="websiteUrl">Website URL.</param>
-        public PaymentsConfigurationWePay(bool? acceptWepay = default(bool?), string accountUpdateUri = default(string), string address1 = default(string), string address2 = default(string), bool? canadaAcceptDebitCards = default(bool?), string city = default(string), string company = default(string), string companyDescription = default(string), string consoleHostname = default(string), string country = default(string), string creditCardRate = default(string), string currency = default(string), string expectedRevenue = default(string), bool? hideCreditCardNonUltracartPayments = default(bool?), bool? hideSurchargeAmount = default(bool?), string industry = default(string), string ownerEmail = default(string), string ownerName = default(string), string ownerPhone = default(string), string postalCode = default(string), bool? removePayPalPro = default(bool?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? shortPaypalMarketingText = default(bool?), bool? showUltracartPaymentsDisabled = default(bool?), bool? showUltracartPaymentsIntro = default(bool?), bool? showUltracartPaymentsVerification = default(bool?), bool? showUltracartPaymentsVerified = default(bool?), string state = default(string), string websiteUrl = default(string))
+        public PaymentsConfigurationWePay(bool? acceptWepay = default(bool?), string accountUpdateUri = default(string), string address1 = default(string), string address2 = default(string), bool? canadaAcceptDebitCards = default(bool?), string city = default(string), string company = default(string), string companyDescription = default(string), string consoleHostname = default(string), string country = default(string), string creditCardRate = default(string), string currency = default(string), string expectedRevenue = default(string), bool? hideCreditCardNonUltracartPayments = default(bool?), bool? hideSurchargeAmount = default(bool?), string industry = default(string), string ownerEmail = default(string), string ownerName = default(string), string ownerPhone = default(string), string postalCode = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? shortPaypalMarketingText = default(bool?), bool? showUltracartPaymentsDisabled = default(bool?), bool? showUltracartPaymentsIntro = default(bool?), bool? showUltracartPaymentsVerification = default(bool?), bool? showUltracartPaymentsVerified = default(bool?), string state = default(string), string websiteUrl = default(string))
         {
             this.AcceptWepay = acceptWepay;
             this.AccountUpdateUri = accountUpdateUri;
@@ -84,7 +83,6 @@ namespace com.ultracart.admin.v2.Model
             this.OwnerName = ownerName;
             this.OwnerPhone = ownerPhone;
             this.PostalCode = postalCode;
-            this.RemovePayPalPro = removePayPalPro;
             this.Restrictions = restrictions;
             this.ShortPaypalMarketingText = shortPaypalMarketingText;
             this.ShowUltracartPaymentsDisabled = showUltracartPaymentsDisabled;
@@ -236,12 +234,6 @@ namespace com.ultracart.admin.v2.Model
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets RemovePayPalPro
-        /// </summary>
-        [DataMember(Name="removePayPalPro", EmitDefaultValue=false)]
-        public bool? RemovePayPalPro { get; set; }
-
-        /// <summary>
         /// Gets or Sets Restrictions
         /// </summary>
         [DataMember(Name="restrictions", EmitDefaultValue=false)]
@@ -324,7 +316,6 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  OwnerName: ").Append(OwnerName).Append("\n");
             sb.Append("  OwnerPhone: ").Append(OwnerPhone).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  RemovePayPalPro: ").Append(RemovePayPalPro).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
             sb.Append("  ShortPaypalMarketingText: ").Append(ShortPaypalMarketingText).Append("\n");
             sb.Append("  ShowUltracartPaymentsDisabled: ").Append(ShowUltracartPaymentsDisabled).Append("\n");
@@ -468,11 +459,6 @@ namespace com.ultracart.admin.v2.Model
                     this.PostalCode.Equals(input.PostalCode))
                 ) && 
                 (
-                    this.RemovePayPalPro == input.RemovePayPalPro ||
-                    (this.RemovePayPalPro != null &&
-                    this.RemovePayPalPro.Equals(input.RemovePayPalPro))
-                ) && 
-                (
                     this.Restrictions == input.Restrictions ||
                     (this.Restrictions != null &&
                     this.Restrictions.Equals(input.Restrictions))
@@ -563,8 +549,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OwnerPhone.GetHashCode();
                 if (this.PostalCode != null)
                     hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
-                if (this.RemovePayPalPro != null)
-                    hashCode = hashCode * 59 + this.RemovePayPalPro.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
                 if (this.ShortPaypalMarketingText != null)

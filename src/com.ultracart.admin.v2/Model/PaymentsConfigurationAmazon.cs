@@ -31,6 +31,33 @@ namespace com.ultracart.admin.v2.Model
     public partial class PaymentsConfigurationAmazon :  IEquatable<PaymentsConfigurationAmazon>, IValidatableObject
     {
         /// <summary>
+        /// Environment
+        /// </summary>
+        /// <value>Environment</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EnvironmentEnum
+        {
+            
+            /// <summary>
+            /// Enum Live for value: Live
+            /// </summary>
+            [EnumMember(Value = "Live")]
+            Live = 1,
+            
+            /// <summary>
+            /// Enum Sandbox for value: Sandbox
+            /// </summary>
+            [EnumMember(Value = "Sandbox")]
+            Sandbox = 2
+        }
+
+        /// <summary>
+        /// Environment
+        /// </summary>
+        /// <value>Environment</value>
+        [DataMember(Name="environment", EmitDefaultValue=false)]
+        public EnvironmentEnum? Environment { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsConfigurationAmazon" /> class.
         /// </summary>
         /// <param name="acceptAmazon">Master flag to determine if this merchant accepts Pay by Amazon.</param>
@@ -38,18 +65,18 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="accountingCode">Optional accounting code for use with Quickbooks integrations.</param>
         /// <param name="amazonMerchantId">Amazon merchant ID.</param>
         /// <param name="depositToAccount">Optional deposit to account field for use with Quickbooks integrations.</param>
+        /// <param name="environment">Environment.</param>
         /// <param name="restrictions">restrictions.</param>
-        /// <param name="sandbox">True if transactions should run against the Amazon sandbox.  Useful for testing not configurations.</param>
         /// <param name="secretAccessKey">Amazon secret access key.</param>
-        public PaymentsConfigurationAmazon(bool? acceptAmazon = default(bool?), string accessKeyId = default(string), string accountingCode = default(string), string amazonMerchantId = default(string), string depositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), bool? sandbox = default(bool?), string secretAccessKey = default(string))
+        public PaymentsConfigurationAmazon(bool? acceptAmazon = default(bool?), string accessKeyId = default(string), string accountingCode = default(string), string amazonMerchantId = default(string), string depositToAccount = default(string), EnvironmentEnum? environment = default(EnvironmentEnum?), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), string secretAccessKey = default(string))
         {
             this.AcceptAmazon = acceptAmazon;
             this.AccessKeyId = accessKeyId;
             this.AccountingCode = accountingCode;
             this.AmazonMerchantId = amazonMerchantId;
             this.DepositToAccount = depositToAccount;
+            this.Environment = environment;
             this.Restrictions = restrictions;
-            this.Sandbox = sandbox;
             this.SecretAccessKey = secretAccessKey;
         }
         
@@ -88,18 +115,12 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="deposit_to_account", EmitDefaultValue=false)]
         public string DepositToAccount { get; set; }
 
+
         /// <summary>
         /// Gets or Sets Restrictions
         /// </summary>
         [DataMember(Name="restrictions", EmitDefaultValue=false)]
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
-
-        /// <summary>
-        /// True if transactions should run against the Amazon sandbox.  Useful for testing not configurations
-        /// </summary>
-        /// <value>True if transactions should run against the Amazon sandbox.  Useful for testing not configurations</value>
-        [DataMember(Name="sandbox", EmitDefaultValue=false)]
-        public bool? Sandbox { get; set; }
 
         /// <summary>
         /// Amazon secret access key
@@ -121,8 +142,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
             sb.Append("  AmazonMerchantId: ").Append(AmazonMerchantId).Append("\n");
             sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
+            sb.Append("  Environment: ").Append(Environment).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
-            sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  SecretAccessKey: ").Append(SecretAccessKey).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -184,14 +205,14 @@ namespace com.ultracart.admin.v2.Model
                     this.DepositToAccount.Equals(input.DepositToAccount))
                 ) && 
                 (
+                    this.Environment == input.Environment ||
+                    (this.Environment != null &&
+                    this.Environment.Equals(input.Environment))
+                ) && 
+                (
                     this.Restrictions == input.Restrictions ||
                     (this.Restrictions != null &&
                     this.Restrictions.Equals(input.Restrictions))
-                ) && 
-                (
-                    this.Sandbox == input.Sandbox ||
-                    (this.Sandbox != null &&
-                    this.Sandbox.Equals(input.Sandbox))
                 ) && 
                 (
                     this.SecretAccessKey == input.SecretAccessKey ||
@@ -219,10 +240,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AmazonMerchantId.GetHashCode();
                 if (this.DepositToAccount != null)
                     hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
+                if (this.Environment != null)
+                    hashCode = hashCode * 59 + this.Environment.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
-                if (this.Sandbox != null)
-                    hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 if (this.SecretAccessKey != null)
                     hashCode = hashCode * 59 + this.SecretAccessKey.GetHashCode();
                 return hashCode;

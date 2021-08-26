@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **AccountingCode** | **string** | Optional accounting code for use with Quickbooks integrations | [optional] 
 **AmazonMerchantId** | **string** | Amazon merchant ID | [optional] 
 **DepositToAccount** | **string** | Optional deposit to account field for use with Quickbooks integrations | [optional] 
+**Environment** | **string** | Environment | [optional] 
 **Restrictions** | [**PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
-**Sandbox** | **bool?** | True if transactions should run against the Amazon sandbox.  Useful for testing not configurations | [optional] 
 **SecretAccessKey** | **string** | Amazon secret access key | [optional] 
 
 

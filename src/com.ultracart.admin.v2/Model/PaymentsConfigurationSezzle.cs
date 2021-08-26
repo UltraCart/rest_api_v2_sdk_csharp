@@ -65,18 +65,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="businessId">Business ID.</param>
         /// <param name="depositToAccount">Optional Quickbooks Deposit to Account value.</param>
         /// <param name="environment">Sezzle environment.</param>
-        /// <param name="environments">List of environments possible.</param>
         /// <param name="privateApiKey">Private API key.</param>
         /// <param name="publicApiKey">Public API key.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationSezzle(bool? acceptSezzle = default(bool?), string accountingCode = default(string), string businessId = default(string), string depositToAccount = default(string), EnvironmentEnum? environment = default(EnvironmentEnum?), List<string> environments = default(List<string>), string privateApiKey = default(string), string publicApiKey = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        public PaymentsConfigurationSezzle(bool? acceptSezzle = default(bool?), string accountingCode = default(string), string businessId = default(string), string depositToAccount = default(string), EnvironmentEnum? environment = default(EnvironmentEnum?), string privateApiKey = default(string), string publicApiKey = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
             this.AcceptSezzle = acceptSezzle;
             this.AccountingCode = accountingCode;
             this.BusinessId = businessId;
             this.DepositToAccount = depositToAccount;
             this.Environment = environment;
-            this.Environments = environments;
             this.PrivateApiKey = privateApiKey;
             this.PublicApiKey = publicApiKey;
             this.Restrictions = restrictions;
@@ -112,13 +110,6 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
-        /// List of environments possible
-        /// </summary>
-        /// <value>List of environments possible</value>
-        [DataMember(Name="environments", EmitDefaultValue=false)]
-        public List<string> Environments { get; set; }
-
-        /// <summary>
         /// Private API key
         /// </summary>
         /// <value>Private API key</value>
@@ -151,7 +142,6 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  BusinessId: ").Append(BusinessId).Append("\n");
             sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
             sb.Append("  Environment: ").Append(Environment).Append("\n");
-            sb.Append("  Environments: ").Append(Environments).Append("\n");
             sb.Append("  PrivateApiKey: ").Append(PrivateApiKey).Append("\n");
             sb.Append("  PublicApiKey: ").Append(PublicApiKey).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
@@ -215,11 +205,6 @@ namespace com.ultracart.admin.v2.Model
                     this.Environment.Equals(input.Environment))
                 ) && 
                 (
-                    this.Environments == input.Environments ||
-                    this.Environments != null &&
-                    this.Environments.SequenceEqual(input.Environments)
-                ) && 
-                (
                     this.PrivateApiKey == input.PrivateApiKey ||
                     (this.PrivateApiKey != null &&
                     this.PrivateApiKey.Equals(input.PrivateApiKey))
@@ -255,8 +240,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
                 if (this.Environment != null)
                     hashCode = hashCode * 59 + this.Environment.GetHashCode();
-                if (this.Environments != null)
-                    hashCode = hashCode * 59 + this.Environments.GetHashCode();
                 if (this.PrivateApiKey != null)
                     hashCode = hashCode * 59 + this.PrivateApiKey.GetHashCode();
                 if (this.PublicApiKey != null)

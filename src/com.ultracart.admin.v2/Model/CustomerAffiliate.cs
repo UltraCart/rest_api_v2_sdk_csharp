@@ -35,10 +35,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="affiliateOid">Affiliate object identifier.</param>
         /// <param name="email">email.</param>
-        public CustomerAffiliate(int? affiliateOid = default(int?), string email = default(string))
+        /// <param name="firstName">First name.</param>
+        /// <param name="lastName">Last name.</param>
+        public CustomerAffiliate(int? affiliateOid = default(int?), string email = default(string), string firstName = default(string), string lastName = default(string))
         {
             this.AffiliateOid = affiliateOid;
             this.Email = email;
+            this.FirstName = firstName;
+            this.LastName = lastName;
         }
         
         /// <summary>
@@ -56,6 +60,20 @@ namespace com.ultracart.admin.v2.Model
         public string Email { get; set; }
 
         /// <summary>
+        /// First name
+        /// </summary>
+        /// <value>First name</value>
+        [DataMember(Name="first_name", EmitDefaultValue=false)]
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Last name
+        /// </summary>
+        /// <value>Last name</value>
+        [DataMember(Name="last_name", EmitDefaultValue=false)]
+        public string LastName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +83,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class CustomerAffiliate {\n");
             sb.Append("  AffiliateOid: ").Append(AffiliateOid).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +128,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Email == input.Email ||
                     (this.Email != null &&
                     this.Email.Equals(input.Email))
+                ) && 
+                (
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
+                ) && 
+                (
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
                 );
         }
 
@@ -124,6 +154,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AffiliateOid.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
+                if (this.FirstName != null)
+                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
+                if (this.LastName != null)
+                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 return hashCode;
             }
         }

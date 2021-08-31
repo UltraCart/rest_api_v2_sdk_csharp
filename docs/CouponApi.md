@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 
 <a name="getcoupons"></a>
 # **GetCoupons**
-> CouponsResponse GetCoupons (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+> CouponsResponse GetCoupons (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, string merchantCodeOrDescription = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
 
 Retrieve coupons
 
@@ -656,6 +656,7 @@ namespace Example
             var expirationDateEnd = expirationDateEnd_example;  // string | Expiration date end (optional) 
             var affiliateOid = 56;  // int? | Affiliate oid (optional) 
             var excludeExpired = true;  // bool? | Exclude expired (optional) 
+            var merchantCodeOrDescription = merchantCodeOrDescription_example;  // string | Merchant code or description (optional) 
             var limit = 56;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
             var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
             var sort = sort_example;  // string | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
@@ -664,7 +665,7 @@ namespace Example
             try
             {
                 // Retrieve coupons
-                CouponsResponse result = apiInstance.GetCoupons(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand);
+                CouponsResponse result = apiInstance.GetCoupons(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, merchantCodeOrDescription, limit, offset, sort, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -690,6 +691,7 @@ Name | Type | Description  | Notes
  **expirationDateEnd** | **string**| Expiration date end | [optional] 
  **affiliateOid** | **int?**| Affiliate oid | [optional] 
  **excludeExpired** | **bool?**| Exclude expired | [optional] 
+ **merchantCodeOrDescription** | **string**| Merchant code or description | [optional] 
  **limit** | **int?**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **sort** | **string**| The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 

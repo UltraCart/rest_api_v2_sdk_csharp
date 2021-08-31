@@ -235,12 +235,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expirationDateEnd">Expiration date end (optional)</param>
         /// <param name="affiliateOid">Affiliate oid (optional)</param>
         /// <param name="excludeExpired">Exclude expired (optional)</param>
+        /// <param name="merchantCodeOrDescription">Merchant code or description (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CouponsResponse</returns>
-        CouponsResponse GetCoupons (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        CouponsResponse GetCoupons (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, string merchantCodeOrDescription = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
 
         /// <summary>
         /// Retrieve coupons
@@ -258,12 +259,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expirationDateEnd">Expiration date end (optional)</param>
         /// <param name="affiliateOid">Affiliate oid (optional)</param>
         /// <param name="excludeExpired">Exclude expired (optional)</param>
+        /// <param name="merchantCodeOrDescription">Merchant code or description (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CouponsResponse</returns>
-        ApiResponse<CouponsResponse> GetCouponsWithHttpInfo (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        ApiResponse<CouponsResponse> GetCouponsWithHttpInfo (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, string merchantCodeOrDescription = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
         /// <summary>
         /// Retrieve coupons by query
         /// </summary>
@@ -692,12 +694,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expirationDateEnd">Expiration date end (optional)</param>
         /// <param name="affiliateOid">Affiliate oid (optional)</param>
         /// <param name="excludeExpired">Exclude expired (optional)</param>
+        /// <param name="merchantCodeOrDescription">Merchant code or description (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CouponsResponse</returns>
-        System.Threading.Tasks.Task<CouponsResponse> GetCouponsAsync (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        System.Threading.Tasks.Task<CouponsResponse> GetCouponsAsync (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, string merchantCodeOrDescription = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
 
         /// <summary>
         /// Retrieve coupons
@@ -715,12 +718,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expirationDateEnd">Expiration date end (optional)</param>
         /// <param name="affiliateOid">Affiliate oid (optional)</param>
         /// <param name="excludeExpired">Exclude expired (optional)</param>
+        /// <param name="merchantCodeOrDescription">Merchant code or description (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CouponsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CouponsResponse>> GetCouponsAsyncWithHttpInfo (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<CouponsResponse>> GetCouponsAsyncWithHttpInfo (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, string merchantCodeOrDescription = null, int? limit = null, int? offset = null, string sort = null, string expand = null);
         /// <summary>
         /// Retrieve coupons by query
         /// </summary>
@@ -2543,14 +2547,15 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expirationDateEnd">Expiration date end (optional)</param>
         /// <param name="affiliateOid">Affiliate oid (optional)</param>
         /// <param name="excludeExpired">Exclude expired (optional)</param>
+        /// <param name="merchantCodeOrDescription">Merchant code or description (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>CouponsResponse</returns>
-        public CouponsResponse GetCoupons (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public CouponsResponse GetCoupons (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, string merchantCodeOrDescription = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
-             ApiResponse<CouponsResponse> localVarResponse = GetCouponsWithHttpInfo(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand);
+             ApiResponse<CouponsResponse> localVarResponse = GetCouponsWithHttpInfo(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, merchantCodeOrDescription, limit, offset, sort, expand);
              return localVarResponse.Data;
         }
 
@@ -2567,12 +2572,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expirationDateEnd">Expiration date end (optional)</param>
         /// <param name="affiliateOid">Affiliate oid (optional)</param>
         /// <param name="excludeExpired">Exclude expired (optional)</param>
+        /// <param name="merchantCodeOrDescription">Merchant code or description (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of CouponsResponse</returns>
-        public ApiResponse< CouponsResponse > GetCouponsWithHttpInfo (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public ApiResponse< CouponsResponse > GetCouponsWithHttpInfo (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, string merchantCodeOrDescription = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
 
             var localVarPath = "/coupon/coupons";
@@ -2606,6 +2612,7 @@ namespace com.ultracart.admin.v2.Api
             if (expirationDateEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "expiration_date_end", expirationDateEnd)); // query parameter
             if (affiliateOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "affiliate_oid", affiliateOid)); // query parameter
             if (excludeExpired != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "exclude_expired", excludeExpired)); // query parameter
+            if (merchantCodeOrDescription != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_code_or_description", merchantCodeOrDescription)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
@@ -2654,14 +2661,15 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expirationDateEnd">Expiration date end (optional)</param>
         /// <param name="affiliateOid">Affiliate oid (optional)</param>
         /// <param name="excludeExpired">Exclude expired (optional)</param>
+        /// <param name="merchantCodeOrDescription">Merchant code or description (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of CouponsResponse</returns>
-        public async System.Threading.Tasks.Task<CouponsResponse> GetCouponsAsync (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public async System.Threading.Tasks.Task<CouponsResponse> GetCouponsAsync (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, string merchantCodeOrDescription = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
-             ApiResponse<CouponsResponse> localVarResponse = await GetCouponsAsyncWithHttpInfo(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, limit, offset, sort, expand);
+             ApiResponse<CouponsResponse> localVarResponse = await GetCouponsAsyncWithHttpInfo(merchantCode, description, couponType, startDateBegin, startDateEnd, expirationDateBegin, expirationDateEnd, affiliateOid, excludeExpired, merchantCodeOrDescription, limit, offset, sort, expand);
              return localVarResponse.Data;
 
         }
@@ -2679,12 +2687,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expirationDateEnd">Expiration date end (optional)</param>
         /// <param name="affiliateOid">Affiliate oid (optional)</param>
         /// <param name="excludeExpired">Exclude expired (optional)</param>
+        /// <param name="merchantCodeOrDescription">Merchant code or description (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <param name="sort">The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CouponsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CouponsResponse>> GetCouponsAsyncWithHttpInfo (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CouponsResponse>> GetCouponsAsyncWithHttpInfo (string merchantCode = null, string description = null, string couponType = null, string startDateBegin = null, string startDateEnd = null, string expirationDateBegin = null, string expirationDateEnd = null, int? affiliateOid = null, bool? excludeExpired = null, string merchantCodeOrDescription = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
         {
 
             var localVarPath = "/coupon/coupons";
@@ -2718,6 +2727,7 @@ namespace com.ultracart.admin.v2.Api
             if (expirationDateEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "expiration_date_end", expirationDateEnd)); // query parameter
             if (affiliateOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "affiliate_oid", affiliateOid)); // query parameter
             if (excludeExpired != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "exclude_expired", excludeExpired)); // query parameter
+            if (merchantCodeOrDescription != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "merchant_code_or_description", merchantCodeOrDescription)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter

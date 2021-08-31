@@ -40,9 +40,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="expirationDtsBegin">Expiration date begin.</param>
         /// <param name="expirationDtsEnd">Expiration date begin.</param>
         /// <param name="merchantCode">Merchant code is a unique character string for this coupon..</param>
+        /// <param name="merchantCodeOrDescription">Merchant code description used for searching.</param>
         /// <param name="startDtsBegin">Start date begin.</param>
         /// <param name="startDtsEnd">Start date end.</param>
-        public CouponQuery(int? affiliateOid = default(int?), string couponType = default(string), string description = default(string), bool? excludeExpired = default(bool?), string expirationDtsBegin = default(string), string expirationDtsEnd = default(string), string merchantCode = default(string), string startDtsBegin = default(string), string startDtsEnd = default(string))
+        public CouponQuery(int? affiliateOid = default(int?), string couponType = default(string), string description = default(string), bool? excludeExpired = default(bool?), string expirationDtsBegin = default(string), string expirationDtsEnd = default(string), string merchantCode = default(string), string merchantCodeOrDescription = default(string), string startDtsBegin = default(string), string startDtsEnd = default(string))
         {
             this.AffiliateOid = affiliateOid;
             this.CouponType = couponType;
@@ -51,6 +52,7 @@ namespace com.ultracart.admin.v2.Model
             this.ExpirationDtsBegin = expirationDtsBegin;
             this.ExpirationDtsEnd = expirationDtsEnd;
             this.MerchantCode = merchantCode;
+            this.MerchantCodeOrDescription = merchantCodeOrDescription;
             this.StartDtsBegin = startDtsBegin;
             this.StartDtsEnd = startDtsEnd;
         }
@@ -105,6 +107,13 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantCode { get; set; }
 
         /// <summary>
+        /// Merchant code description used for searching
+        /// </summary>
+        /// <value>Merchant code description used for searching</value>
+        [DataMember(Name="merchant_code_or_description", EmitDefaultValue=false)]
+        public string MerchantCodeOrDescription { get; set; }
+
+        /// <summary>
         /// Start date begin
         /// </summary>
         /// <value>Start date begin</value>
@@ -133,6 +142,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ExpirationDtsBegin: ").Append(ExpirationDtsBegin).Append("\n");
             sb.Append("  ExpirationDtsEnd: ").Append(ExpirationDtsEnd).Append("\n");
             sb.Append("  MerchantCode: ").Append(MerchantCode).Append("\n");
+            sb.Append("  MerchantCodeOrDescription: ").Append(MerchantCodeOrDescription).Append("\n");
             sb.Append("  StartDtsBegin: ").Append(StartDtsBegin).Append("\n");
             sb.Append("  StartDtsEnd: ").Append(StartDtsEnd).Append("\n");
             sb.Append("}\n");
@@ -205,6 +215,11 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantCode.Equals(input.MerchantCode))
                 ) && 
                 (
+                    this.MerchantCodeOrDescription == input.MerchantCodeOrDescription ||
+                    (this.MerchantCodeOrDescription != null &&
+                    this.MerchantCodeOrDescription.Equals(input.MerchantCodeOrDescription))
+                ) && 
+                (
                     this.StartDtsBegin == input.StartDtsBegin ||
                     (this.StartDtsBegin != null &&
                     this.StartDtsBegin.Equals(input.StartDtsBegin))
@@ -239,6 +254,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ExpirationDtsEnd.GetHashCode();
                 if (this.MerchantCode != null)
                     hashCode = hashCode * 59 + this.MerchantCode.GetHashCode();
+                if (this.MerchantCodeOrDescription != null)
+                    hashCode = hashCode * 59 + this.MerchantCodeOrDescription.GetHashCode();
                 if (this.StartDtsBegin != null)
                     hashCode = hashCode * 59 + this.StartDtsBegin.GetHashCode();
                 if (this.StartDtsEnd != null)

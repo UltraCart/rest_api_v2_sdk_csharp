@@ -40,8 +40,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="countries">countries.</param>
         /// <param name="qbClasses">qb_classes.</param>
         /// <param name="salesRepCodes">sales_rep_codes.</param>
+        /// <param name="stateOptionalCountries">state_optional_countries.</param>
         /// <param name="terms">terms.</param>
-        public CustomerEditorValues(List<CustomerAffiliate> affiliates = default(List<CustomerAffiliate>), List<string> cardExpMonths = default(List<string>), List<string> cardExpYears = default(List<string>), List<string> cardTypes = default(List<string>), List<Country> countries = default(List<Country>), List<string> qbClasses = default(List<string>), List<string> salesRepCodes = default(List<string>), List<string> terms = default(List<string>))
+        public CustomerEditorValues(List<CustomerAffiliate> affiliates = default(List<CustomerAffiliate>), List<string> cardExpMonths = default(List<string>), List<string> cardExpYears = default(List<string>), List<string> cardTypes = default(List<string>), List<Country> countries = default(List<Country>), List<string> qbClasses = default(List<string>), List<string> salesRepCodes = default(List<string>), List<Country> stateOptionalCountries = default(List<Country>), List<string> terms = default(List<string>))
         {
             this.Affiliates = affiliates;
             this.CardExpMonths = cardExpMonths;
@@ -50,6 +51,7 @@ namespace com.ultracart.admin.v2.Model
             this.Countries = countries;
             this.QbClasses = qbClasses;
             this.SalesRepCodes = salesRepCodes;
+            this.StateOptionalCountries = stateOptionalCountries;
             this.Terms = terms;
         }
         
@@ -103,6 +105,13 @@ namespace com.ultracart.admin.v2.Model
         public List<string> SalesRepCodes { get; set; }
 
         /// <summary>
+        /// state_optional_countries
+        /// </summary>
+        /// <value>state_optional_countries</value>
+        [DataMember(Name="state_optional_countries", EmitDefaultValue=false)]
+        public List<Country> StateOptionalCountries { get; set; }
+
+        /// <summary>
         /// terms
         /// </summary>
         /// <value>terms</value>
@@ -124,6 +133,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Countries: ").Append(Countries).Append("\n");
             sb.Append("  QbClasses: ").Append(QbClasses).Append("\n");
             sb.Append("  SalesRepCodes: ").Append(SalesRepCodes).Append("\n");
+            sb.Append("  StateOptionalCountries: ").Append(StateOptionalCountries).Append("\n");
             sb.Append("  Terms: ").Append(Terms).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -195,6 +205,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SalesRepCodes.SequenceEqual(input.SalesRepCodes)
                 ) && 
                 (
+                    this.StateOptionalCountries == input.StateOptionalCountries ||
+                    this.StateOptionalCountries != null &&
+                    this.StateOptionalCountries.SequenceEqual(input.StateOptionalCountries)
+                ) && 
+                (
                     this.Terms == input.Terms ||
                     this.Terms != null &&
                     this.Terms.SequenceEqual(input.Terms)
@@ -224,6 +239,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.QbClasses.GetHashCode();
                 if (this.SalesRepCodes != null)
                     hashCode = hashCode * 59 + this.SalesRepCodes.GetHashCode();
+                if (this.StateOptionalCountries != null)
+                    hashCode = hashCode * 59 + this.StateOptionalCountries.GetHashCode();
                 if (this.Terms != null)
                     hashCode = hashCode * 59 + this.Terms.GetHashCode();
                 return hashCode;

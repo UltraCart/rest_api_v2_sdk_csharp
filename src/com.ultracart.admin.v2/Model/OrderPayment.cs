@@ -93,58 +93,64 @@ namespace com.ultracart.admin.v2.Model
             ECheck = 9,
             
             /// <summary>
+            /// Enum GoogleShopping for value: Google Shopping
+            /// </summary>
+            [EnumMember(Value = "Google Shopping")]
+            GoogleShopping = 10,
+            
+            /// <summary>
             /// Enum Insurance for value: Insurance
             /// </summary>
             [EnumMember(Value = "Insurance")]
-            Insurance = 10,
+            Insurance = 11,
             
             /// <summary>
             /// Enum LoanHero for value: LoanHero
             /// </summary>
             [EnumMember(Value = "LoanHero")]
-            LoanHero = 11,
+            LoanHero = 12,
             
             /// <summary>
             /// Enum MoneyOrder for value: Money Order
             /// </summary>
             [EnumMember(Value = "Money Order")]
-            MoneyOrder = 12,
+            MoneyOrder = 13,
             
             /// <summary>
             /// Enum PayPal for value: PayPal
             /// </summary>
             [EnumMember(Value = "PayPal")]
-            PayPal = 13,
+            PayPal = 14,
             
             /// <summary>
             /// Enum PurchaseOrder for value: Purchase Order
             /// </summary>
             [EnumMember(Value = "Purchase Order")]
-            PurchaseOrder = 14,
+            PurchaseOrder = 15,
             
             /// <summary>
             /// Enum QuoteRequest for value: Quote Request
             /// </summary>
             [EnumMember(Value = "Quote Request")]
-            QuoteRequest = 15,
+            QuoteRequest = 16,
             
             /// <summary>
             /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown = 16,
+            Unknown = 17,
             
             /// <summary>
             /// Enum WireTransfer for value: Wire Transfer
             /// </summary>
             [EnumMember(Value = "Wire Transfer")]
-            WireTransfer = 17,
+            WireTransfer = 18,
             
             /// <summary>
             /// Enum Walmart for value: Walmart
             /// </summary>
             [EnumMember(Value = "Walmart")]
-            Walmart = 18
+            Walmart = 19
         }
 
         /// <summary>

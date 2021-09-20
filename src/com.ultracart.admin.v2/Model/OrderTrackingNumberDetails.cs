@@ -36,6 +36,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="actualDeliveryDate">actualDeliveryDate.</param>
         /// <param name="actualDeliveryDateFormatted">actualDeliveryDateFormatted.</param>
         /// <param name="details">details.</param>
+        /// <param name="easypostTrackerId">easypostTrackerId.</param>
         /// <param name="expectedDeliveryDate">expectedDeliveryDate.</param>
         /// <param name="expectedDeliveryDateFormatted">expectedDeliveryDateFormatted.</param>
         /// <param name="mapUrl">mapUrl.</param>
@@ -50,11 +51,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="statusDescription">statusDescription.</param>
         /// <param name="trackingNumber">trackingNumber.</param>
         /// <param name="trackingUrl">trackingUrl.</param>
-        public OrderTrackingNumberDetails(string actualDeliveryDate = default(string), string actualDeliveryDateFormatted = default(string), List<OrderTrackingNumberDetail> details = default(List<OrderTrackingNumberDetail>), string expectedDeliveryDate = default(string), string expectedDeliveryDateFormatted = default(string), string mapUrl = default(string), string orderPlacedDate = default(string), string orderPlacedDateFormatted = default(string), string paymentProcessedDate = default(string), string paymentProcessedDateFormatted = default(string), string shippedDate = default(string), string shippedDateFormatted = default(string), string shippingMethod = default(string), string status = default(string), string statusDescription = default(string), string trackingNumber = default(string), string trackingUrl = default(string))
+        public OrderTrackingNumberDetails(string actualDeliveryDate = default(string), string actualDeliveryDateFormatted = default(string), List<OrderTrackingNumberDetail> details = default(List<OrderTrackingNumberDetail>), string easypostTrackerId = default(string), string expectedDeliveryDate = default(string), string expectedDeliveryDateFormatted = default(string), string mapUrl = default(string), string orderPlacedDate = default(string), string orderPlacedDateFormatted = default(string), string paymentProcessedDate = default(string), string paymentProcessedDateFormatted = default(string), string shippedDate = default(string), string shippedDateFormatted = default(string), string shippingMethod = default(string), string status = default(string), string statusDescription = default(string), string trackingNumber = default(string), string trackingUrl = default(string))
         {
             this.ActualDeliveryDate = actualDeliveryDate;
             this.ActualDeliveryDateFormatted = actualDeliveryDateFormatted;
             this.Details = details;
+            this.EasypostTrackerId = easypostTrackerId;
             this.ExpectedDeliveryDate = expectedDeliveryDate;
             this.ExpectedDeliveryDateFormatted = expectedDeliveryDateFormatted;
             this.MapUrl = mapUrl;
@@ -88,6 +90,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
         public List<OrderTrackingNumberDetail> Details { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EasypostTrackerId
+        /// </summary>
+        [DataMember(Name="easypost_tracker_id", EmitDefaultValue=false)]
+        public string EasypostTrackerId { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpectedDeliveryDate
@@ -184,6 +192,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ActualDeliveryDate: ").Append(ActualDeliveryDate).Append("\n");
             sb.Append("  ActualDeliveryDateFormatted: ").Append(ActualDeliveryDateFormatted).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  EasypostTrackerId: ").Append(EasypostTrackerId).Append("\n");
             sb.Append("  ExpectedDeliveryDate: ").Append(ExpectedDeliveryDate).Append("\n");
             sb.Append("  ExpectedDeliveryDateFormatted: ").Append(ExpectedDeliveryDateFormatted).Append("\n");
             sb.Append("  MapUrl: ").Append(MapUrl).Append("\n");
@@ -246,6 +255,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Details == input.Details ||
                     this.Details != null &&
                     this.Details.SequenceEqual(input.Details)
+                ) && 
+                (
+                    this.EasypostTrackerId == input.EasypostTrackerId ||
+                    (this.EasypostTrackerId != null &&
+                    this.EasypostTrackerId.Equals(input.EasypostTrackerId))
                 ) && 
                 (
                     this.ExpectedDeliveryDate == input.ExpectedDeliveryDate ||
@@ -334,6 +348,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ActualDeliveryDateFormatted.GetHashCode();
                 if (this.Details != null)
                     hashCode = hashCode * 59 + this.Details.GetHashCode();
+                if (this.EasypostTrackerId != null)
+                    hashCode = hashCode * 59 + this.EasypostTrackerId.GetHashCode();
                 if (this.ExpectedDeliveryDate != null)
                     hashCode = hashCode * 59 + this.ExpectedDeliveryDate.GetHashCode();
                 if (this.ExpectedDeliveryDateFormatted != null)

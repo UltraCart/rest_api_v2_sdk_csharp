@@ -45,8 +45,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="mailToPostalCode">MailTo postal code.</param>
         /// <param name="mailToStore">MailTo store.</param>
         /// <param name="restrictions">restrictions.</param>
-        /// <param name="testMethods">Test methods for this payment method.</param>
-        public PaymentsConfigurationCheck(bool? acceptCheckOrders = default(bool?), string accountingCode = default(string), string checksPayableTo = default(string), string depositToAccount = default(string), string mailToAddress1 = default(string), string mailToAddress2 = default(string), string mailToCity = default(string), string mailToCountry = default(string), string mailToName = default(string), string mailToPostalCode = default(string), string mailToStore = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), List<PaymentsConfigurationTestMethod> testMethods = default(List<PaymentsConfigurationTestMethod>))
+        public PaymentsConfigurationCheck(bool? acceptCheckOrders = default(bool?), string accountingCode = default(string), string checksPayableTo = default(string), string depositToAccount = default(string), string mailToAddress1 = default(string), string mailToAddress2 = default(string), string mailToCity = default(string), string mailToCountry = default(string), string mailToName = default(string), string mailToPostalCode = default(string), string mailToStore = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
         {
             this.AcceptCheckOrders = acceptCheckOrders;
             this.AccountingCode = accountingCode;
@@ -60,7 +59,6 @@ namespace com.ultracart.admin.v2.Model
             this.MailToPostalCode = mailToPostalCode;
             this.MailToStore = mailToStore;
             this.Restrictions = restrictions;
-            this.TestMethods = testMethods;
         }
         
         /// <summary>
@@ -147,13 +145,6 @@ namespace com.ultracart.admin.v2.Model
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
 
         /// <summary>
-        /// Test methods for this payment method
-        /// </summary>
-        /// <value>Test methods for this payment method</value>
-        [DataMember(Name="test_methods", EmitDefaultValue=false)]
-        public List<PaymentsConfigurationTestMethod> TestMethods { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -173,7 +164,6 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MailToPostalCode: ").Append(MailToPostalCode).Append("\n");
             sb.Append("  MailToStore: ").Append(MailToStore).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
-            sb.Append("  TestMethods: ").Append(TestMethods).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -267,11 +257,6 @@ namespace com.ultracart.admin.v2.Model
                     this.Restrictions == input.Restrictions ||
                     (this.Restrictions != null &&
                     this.Restrictions.Equals(input.Restrictions))
-                ) && 
-                (
-                    this.TestMethods == input.TestMethods ||
-                    this.TestMethods != null &&
-                    this.TestMethods.SequenceEqual(input.TestMethods)
                 );
         }
 
@@ -308,8 +293,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MailToStore.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
-                if (this.TestMethods != null)
-                    hashCode = hashCode * 59 + this.TestMethods.GetHashCode();
                 return hashCode;
             }
         }

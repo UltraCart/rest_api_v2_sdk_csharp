@@ -37,12 +37,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="accountingCode">Optional Quickbooks accounting code.</param>
         /// <param name="depositToAccount">Optional Quickbooks deposit to account.</param>
         /// <param name="restrictions">restrictions.</param>
-        public PaymentsConfigurationEcheck(bool? acceptEcheck = default(bool?), string accountingCode = default(string), string depositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions))
+        /// <param name="testMethods">Test methods for this payment method.</param>
+        public PaymentsConfigurationEcheck(bool? acceptEcheck = default(bool?), string accountingCode = default(string), string depositToAccount = default(string), PaymentsConfigurationRestrictions restrictions = default(PaymentsConfigurationRestrictions), List<PaymentsConfigurationTestMethod> testMethods = default(List<PaymentsConfigurationTestMethod>))
         {
             this.AcceptEcheck = acceptEcheck;
             this.AccountingCode = accountingCode;
             this.DepositToAccount = depositToAccount;
             this.Restrictions = restrictions;
+            this.TestMethods = testMethods;
         }
         
         /// <summary>
@@ -73,6 +75,13 @@ namespace com.ultracart.admin.v2.Model
         public PaymentsConfigurationRestrictions Restrictions { get; set; }
 
         /// <summary>
+        /// Test methods for this payment method
+        /// </summary>
+        /// <value>Test methods for this payment method</value>
+        [DataMember(Name="test_methods", EmitDefaultValue=false)]
+        public List<PaymentsConfigurationTestMethod> TestMethods { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +93,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AccountingCode: ").Append(AccountingCode).Append("\n");
             sb.Append("  DepositToAccount: ").Append(DepositToAccount).Append("\n");
             sb.Append("  Restrictions: ").Append(Restrictions).Append("\n");
+            sb.Append("  TestMethods: ").Append(TestMethods).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,6 +147,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Restrictions == input.Restrictions ||
                     (this.Restrictions != null &&
                     this.Restrictions.Equals(input.Restrictions))
+                ) && 
+                (
+                    this.TestMethods == input.TestMethods ||
+                    this.TestMethods != null &&
+                    this.TestMethods.SequenceEqual(input.TestMethods)
                 );
         }
 
@@ -157,6 +172,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DepositToAccount.GetHashCode();
                 if (this.Restrictions != null)
                     hashCode = hashCode * 59 + this.Restrictions.GetHashCode();
+                if (this.TestMethods != null)
+                    hashCode = hashCode * 59 + this.TestMethods.GetHashCode();
                 return hashCode;
             }
         }

@@ -91,7 +91,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="cardExpirationMonth">Card expiration month (1-12).</param>
         /// <param name="cardExpirationYear">Card expiration year (Four digit year).</param>
         /// <param name="cardNumber">Card number (masked to last 4).</param>
-        /// <param name="cardNumberToken">Card number token from hosted fields used to update the cart number.</param>
+        /// <param name="cardNumberToken">Card number token from hosted fields used to update the card number.</param>
         /// <param name="cardNumberTruncated">True if the card has been truncated.</param>
         /// <param name="cardType">Card type.</param>
         /// <param name="cardVerificationNumberToken">Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries.</param>
@@ -160,9 +160,9 @@ namespace com.ultracart.admin.v2.Model
         public string CardNumber { get; set; }
 
         /// <summary>
-        /// Card number token from hosted fields used to update the cart number
+        /// Card number token from hosted fields used to update the card number
         /// </summary>
-        /// <value>Card number token from hosted fields used to update the cart number</value>
+        /// <value>Card number token from hosted fields used to update the card number</value>
         [DataMember(Name="card_number_token", EmitDefaultValue=false)]
         public string CardNumberToken { get; set; }
 

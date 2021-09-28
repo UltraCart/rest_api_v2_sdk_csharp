@@ -35,10 +35,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="applicationId">application id.</param>
         /// <param name="claimId">claim id.</param>
-        public OrderPaymentInsurance(string applicationId = default(string), string claimId = default(string))
+        /// <param name="refundClaimId">refund claim id.</param>
+        public OrderPaymentInsurance(string applicationId = default(string), string claimId = default(string), string refundClaimId = default(string))
         {
             this.ApplicationId = applicationId;
             this.ClaimId = claimId;
+            this.RefundClaimId = refundClaimId;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace com.ultracart.admin.v2.Model
         public string ClaimId { get; set; }
 
         /// <summary>
+        /// refund claim id
+        /// </summary>
+        /// <value>refund claim id</value>
+        [DataMember(Name="refund_claim_id", EmitDefaultValue=false)]
+        public string RefundClaimId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class OrderPaymentInsurance {\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  ClaimId: ").Append(ClaimId).Append("\n");
+            sb.Append("  RefundClaimId: ").Append(RefundClaimId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ClaimId == input.ClaimId ||
                     (this.ClaimId != null &&
                     this.ClaimId.Equals(input.ClaimId))
+                ) && 
+                (
+                    this.RefundClaimId == input.RefundClaimId ||
+                    (this.RefundClaimId != null &&
+                    this.RefundClaimId.Equals(input.RefundClaimId))
                 );
         }
 
@@ -124,6 +139,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 if (this.ClaimId != null)
                     hashCode = hashCode * 59 + this.ClaimId.GetHashCode();
+                if (this.RefundClaimId != null)
+                    hashCode = hashCode * 59 + this.RefundClaimId.GetHashCode();
                 return hashCode;
             }
         }

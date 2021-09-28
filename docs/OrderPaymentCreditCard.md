@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **CardExpirationMonth** | **int?** | Card expiration month (1-12) | [optional] 
 **CardExpirationYear** | **int?** | Card expiration year (Four digit year) | [optional] 
 **CardNumber** | **string** | Card number (masked to last 4) | [optional] 
-**CardNumberToken** | **string** | Card number token from hosted fields used to update the cart number | [optional] 
+**CardNumberToken** | **string** | Card number token from hosted fields used to update the card number | [optional] 
 **CardNumberTruncated** | **bool?** | True if the card has been truncated | [optional] 
 **CardType** | **string** | Card type | [optional] 
 **CardVerificationNumberToken** | **string** | Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries | [optional] 

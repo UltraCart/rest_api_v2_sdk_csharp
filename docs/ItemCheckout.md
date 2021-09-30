@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SuppressBuysafe** | **bool?** | True to suppress buySAFE (deprecated) | [optional] 
 **Terms** | **string** | Terms for purchasing this item | [optional] 
+**TermsIfAutoOrder** | **bool?** | Terms only apply if the item is on auto order | [optional] 
 **TermsTranslatedTextInstanceOid** | **int?** | Terms translated text instance identifier | [optional] 
 
 

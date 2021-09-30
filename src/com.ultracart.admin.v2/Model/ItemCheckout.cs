@@ -35,11 +35,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="suppressBuysafe">True to suppress buySAFE (deprecated).</param>
         /// <param name="terms">Terms for purchasing this item.</param>
+        /// <param name="termsIfAutoOrder">Terms only apply if the item is on auto order.</param>
         /// <param name="termsTranslatedTextInstanceOid">Terms translated text instance identifier.</param>
-        public ItemCheckout(bool? suppressBuysafe = default(bool?), string terms = default(string), int? termsTranslatedTextInstanceOid = default(int?))
+        public ItemCheckout(bool? suppressBuysafe = default(bool?), string terms = default(string), bool? termsIfAutoOrder = default(bool?), int? termsTranslatedTextInstanceOid = default(int?))
         {
             this.SuppressBuysafe = suppressBuysafe;
             this.Terms = terms;
+            this.TermsIfAutoOrder = termsIfAutoOrder;
             this.TermsTranslatedTextInstanceOid = termsTranslatedTextInstanceOid;
         }
         
@@ -58,6 +60,13 @@ namespace com.ultracart.admin.v2.Model
         public string Terms { get; set; }
 
         /// <summary>
+        /// Terms only apply if the item is on auto order
+        /// </summary>
+        /// <value>Terms only apply if the item is on auto order</value>
+        [DataMember(Name="terms_if_auto_order", EmitDefaultValue=false)]
+        public bool? TermsIfAutoOrder { get; set; }
+
+        /// <summary>
         /// Terms translated text instance identifier
         /// </summary>
         /// <value>Terms translated text instance identifier</value>
@@ -74,6 +83,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ItemCheckout {\n");
             sb.Append("  SuppressBuysafe: ").Append(SuppressBuysafe).Append("\n");
             sb.Append("  Terms: ").Append(Terms).Append("\n");
+            sb.Append("  TermsIfAutoOrder: ").Append(TermsIfAutoOrder).Append("\n");
             sb.Append("  TermsTranslatedTextInstanceOid: ").Append(TermsTranslatedTextInstanceOid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -120,6 +130,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Terms.Equals(input.Terms))
                 ) && 
                 (
+                    this.TermsIfAutoOrder == input.TermsIfAutoOrder ||
+                    (this.TermsIfAutoOrder != null &&
+                    this.TermsIfAutoOrder.Equals(input.TermsIfAutoOrder))
+                ) && 
+                (
                     this.TermsTranslatedTextInstanceOid == input.TermsTranslatedTextInstanceOid ||
                     (this.TermsTranslatedTextInstanceOid != null &&
                     this.TermsTranslatedTextInstanceOid.Equals(input.TermsTranslatedTextInstanceOid))
@@ -139,6 +154,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SuppressBuysafe.GetHashCode();
                 if (this.Terms != null)
                     hashCode = hashCode * 59 + this.Terms.GetHashCode();
+                if (this.TermsIfAutoOrder != null)
+                    hashCode = hashCode * 59 + this.TermsIfAutoOrder.GetHashCode();
                 if (this.TermsTranslatedTextInstanceOid != null)
                     hashCode = hashCode * 59 + this.TermsTranslatedTextInstanceOid.GetHashCode();
                 return hashCode;

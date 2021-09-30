@@ -37,6 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="attributes">StoreFront attributes.</param>
         /// <param name="customThankYouUrl">Custom Thank You URL.</param>
         /// <param name="excludeFromSearch">Exclude from search.</param>
+        /// <param name="excludeFromSitemap">Exclude from the sitemap for the StoreFront.</param>
         /// <param name="excludeFromTopSellers">Exclude from the top sellers list in the StoreFront.</param>
         /// <param name="extendedDescription">Extended description (max 10000 characters).</param>
         /// <param name="extendedDescriptionTranslatedTextInstanceOid">Extneded description text translation instance identifier.</param>
@@ -45,12 +46,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="newItemEnd">The date the item should no longer be considered new.</param>
         /// <param name="newItemStart">The date the item should start being considered new.</param>
         /// <param name="viewUrl">Legacy view URL (not used by StoreFronts).</param>
-        public ItemContent(List<ItemContentAssignment> assignments = default(List<ItemContentAssignment>), List<ItemContentAttribute> attributes = default(List<ItemContentAttribute>), string customThankYouUrl = default(string), bool? excludeFromSearch = default(bool?), bool? excludeFromTopSellers = default(bool?), string extendedDescription = default(string), int? extendedDescriptionTranslatedTextInstanceOid = default(int?), List<ItemContentMultimedia> multimedia = default(List<ItemContentMultimedia>), bool? newItem = default(bool?), string newItemEnd = default(string), string newItemStart = default(string), string viewUrl = default(string))
+        public ItemContent(List<ItemContentAssignment> assignments = default(List<ItemContentAssignment>), List<ItemContentAttribute> attributes = default(List<ItemContentAttribute>), string customThankYouUrl = default(string), bool? excludeFromSearch = default(bool?), bool? excludeFromSitemap = default(bool?), bool? excludeFromTopSellers = default(bool?), string extendedDescription = default(string), int? extendedDescriptionTranslatedTextInstanceOid = default(int?), List<ItemContentMultimedia> multimedia = default(List<ItemContentMultimedia>), bool? newItem = default(bool?), string newItemEnd = default(string), string newItemStart = default(string), string viewUrl = default(string))
         {
             this.Assignments = assignments;
             this.Attributes = attributes;
             this.CustomThankYouUrl = customThankYouUrl;
             this.ExcludeFromSearch = excludeFromSearch;
+            this.ExcludeFromSitemap = excludeFromSitemap;
             this.ExcludeFromTopSellers = excludeFromTopSellers;
             this.ExtendedDescription = extendedDescription;
             this.ExtendedDescriptionTranslatedTextInstanceOid = extendedDescriptionTranslatedTextInstanceOid;
@@ -88,6 +90,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Exclude from search</value>
         [DataMember(Name="exclude_from_search", EmitDefaultValue=false)]
         public bool? ExcludeFromSearch { get; set; }
+
+        /// <summary>
+        /// Exclude from the sitemap for the StoreFront
+        /// </summary>
+        /// <value>Exclude from the sitemap for the StoreFront</value>
+        [DataMember(Name="exclude_from_sitemap", EmitDefaultValue=false)]
+        public bool? ExcludeFromSitemap { get; set; }
 
         /// <summary>
         /// Exclude from the top sellers list in the StoreFront
@@ -157,6 +166,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  CustomThankYouUrl: ").Append(CustomThankYouUrl).Append("\n");
             sb.Append("  ExcludeFromSearch: ").Append(ExcludeFromSearch).Append("\n");
+            sb.Append("  ExcludeFromSitemap: ").Append(ExcludeFromSitemap).Append("\n");
             sb.Append("  ExcludeFromTopSellers: ").Append(ExcludeFromTopSellers).Append("\n");
             sb.Append("  ExtendedDescription: ").Append(ExtendedDescription).Append("\n");
             sb.Append("  ExtendedDescriptionTranslatedTextInstanceOid: ").Append(ExtendedDescriptionTranslatedTextInstanceOid).Append("\n");
@@ -220,6 +230,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ExcludeFromSearch.Equals(input.ExcludeFromSearch))
                 ) && 
                 (
+                    this.ExcludeFromSitemap == input.ExcludeFromSitemap ||
+                    (this.ExcludeFromSitemap != null &&
+                    this.ExcludeFromSitemap.Equals(input.ExcludeFromSitemap))
+                ) && 
+                (
                     this.ExcludeFromTopSellers == input.ExcludeFromTopSellers ||
                     (this.ExcludeFromTopSellers != null &&
                     this.ExcludeFromTopSellers.Equals(input.ExcludeFromTopSellers))
@@ -278,6 +293,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CustomThankYouUrl.GetHashCode();
                 if (this.ExcludeFromSearch != null)
                     hashCode = hashCode * 59 + this.ExcludeFromSearch.GetHashCode();
+                if (this.ExcludeFromSitemap != null)
+                    hashCode = hashCode * 59 + this.ExcludeFromSitemap.GetHashCode();
                 if (this.ExcludeFromTopSellers != null)
                     hashCode = hashCode * 59 + this.ExcludeFromTopSellers.GetHashCode();
                 if (this.ExtendedDescription != null)

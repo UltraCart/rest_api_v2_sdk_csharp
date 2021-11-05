@@ -31,9 +31,9 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemAutoOrderStep :  IEquatable<ItemAutoOrderStep>, IValidatableObject
     {
         /// <summary>
-        /// Type of step (item or pause)
+        /// Type of step (item, kit only, loop or pause)
         /// </summary>
-        /// <value>Type of step (item or pause)</value>
+        /// <value>Type of step (item, kit only, loop or pause)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -48,13 +48,25 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Pause for value: pause
             /// </summary>
             [EnumMember(Value = "pause")]
-            Pause = 2
+            Pause = 2,
+            
+            /// <summary>
+            /// Enum Loop for value: loop
+            /// </summary>
+            [EnumMember(Value = "loop")]
+            Loop = 3,
+            
+            /// <summary>
+            /// Enum Kitonly for value: kit only
+            /// </summary>
+            [EnumMember(Value = "kit only")]
+            Kitonly = 4
         }
 
         /// <summary>
-        /// Type of step (item or pause)
+        /// Type of step (item, kit only, loop or pause)
         /// </summary>
-        /// <value>Type of step (item or pause)</value>
+        /// <value>Type of step (item, kit only, loop or pause)</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
@@ -74,7 +86,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="schedule">Frequency of the rebill.</param>
         /// <param name="subscribeEmailListName">Email list name to subscribe the customer to when the rebill occurs.</param>
         /// <param name="subscribeEmailListOid">Email list identifier to subscribe the customer to when this rebill occurs.</param>
-        /// <param name="type">Type of step (item or pause).</param>
+        /// <param name="type">Type of step (item, kit only, loop or pause).</param>
         public ItemAutoOrderStep(int? arbitraryScheduleDays = default(int?), decimal? arbitraryUnitCost = default(decimal?), List<ItemAutoOrderStepArbitraryUnitCostSchedule> arbitraryUnitCostSchedules = default(List<ItemAutoOrderStepArbitraryUnitCostSchedule>), List<ItemAutoOrderStepGrandfatherPricing> grandfatherPricing = default(List<ItemAutoOrderStepGrandfatherPricing>), string managedBy = default(string), int? pauseDays = default(int?), string pauseUntilDate = default(string), int? preshipmentNoticeDays = default(int?), string recurringMerchantItemId = default(string), int? recurringMerchantItemOid = default(int?), int? repeatCount = default(int?), string schedule = default(string), string subscribeEmailListName = default(string), int? subscribeEmailListOid = default(int?), TypeEnum? type = default(TypeEnum?))
         {
             this.ArbitraryScheduleDays = arbitraryScheduleDays;

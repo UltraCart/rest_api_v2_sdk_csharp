@@ -35,7 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="attributes">Attributes associated with the library item to contain additional configuration..</param>
         /// <param name="cjson">Cjson to be added to library.</param>
-        /// <param name="contentType">flow, campaign, cjson, email, transactional_email or upsell.</param>
+        /// <param name="contentType">flow, campaign, cjson, email, transactional_email, postcard or upsell.</param>
         /// <param name="description">description of library item.</param>
         /// <param name="emailName">Required if content_type is transactional_email. This is the name of the email template (html, not text).  This name should have a .vm file extension.  An example is auto_order_cancel_html.vm.</param>
         /// <param name="emailPath">Required if content_type is transactional_email. This is the full path to the email template stored in the file system.  This defines which StoreFront contains the desired email template.  An example is /themes/Elements/core/emails/auto_order_cancel_html.vm.</param>
@@ -43,7 +43,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="storefrontOid">StoreFront oid where content originates necessary for tracking down relative assets.</param>
         /// <param name="title">title of library item, usually the name of the flow or campaign, or description of cjson.</param>
         /// <param name="upsellOfferOid">Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer..</param>
-        /// <param name="uuid">UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name.</param>
+        /// <param name="uuid">UUID of communication flow, campaign, email, postcard, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name.</param>
         public AddLibraryItemRequest(List<LibraryItemAttribute> attributes = default(List<LibraryItemAttribute>), string cjson = default(string), string contentType = default(string), string description = default(string), string emailName = default(string), string emailPath = default(string), List<LibraryItemScreenshot> screenshots = default(List<LibraryItemScreenshot>), int? storefrontOid = default(int?), string title = default(string), int? upsellOfferOid = default(int?), string uuid = default(string))
         {
             this.Attributes = attributes;
@@ -74,9 +74,9 @@ namespace com.ultracart.admin.v2.Model
         public string Cjson { get; set; }
 
         /// <summary>
-        /// flow, campaign, cjson, email, transactional_email or upsell
+        /// flow, campaign, cjson, email, transactional_email, postcard or upsell
         /// </summary>
-        /// <value>flow, campaign, cjson, email, transactional_email or upsell</value>
+        /// <value>flow, campaign, cjson, email, transactional_email, postcard or upsell</value>
         [DataMember(Name="content_type", EmitDefaultValue=false)]
         public string ContentType { get; set; }
 
@@ -130,9 +130,9 @@ namespace com.ultracart.admin.v2.Model
         public int? UpsellOfferOid { get; set; }
 
         /// <summary>
-        /// UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name
+        /// UUID of communication flow, campaign, email, postcard, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name
         /// </summary>
-        /// <value>UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name</value>
+        /// <value>UUID of communication flow, campaign, email, postcard, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name</value>
         [DataMember(Name="uuid", EmitDefaultValue=false)]
         public string Uuid { get; set; }
 

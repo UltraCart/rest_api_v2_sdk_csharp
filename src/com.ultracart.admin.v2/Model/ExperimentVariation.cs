@@ -39,10 +39,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="averageOrderValue">Average order value for this variation.</param>
         /// <param name="bounceCount">Total bounce count for this variation.</param>
         /// <param name="conversionRate">Conversion rate for this variation.</param>
+        /// <param name="dailyStatistics">Array of daily statistics for this variation.</param>
         /// <param name="durationSecondsSum">Total number of seconds spent on the site for this variation.</param>
         /// <param name="eventCount">Total event ocunt for this variation.</param>
         /// <param name="initiateCheckoutCount">Total initiate checkout count for this variation.</param>
         /// <param name="orderCount">Total order count for this variation.</param>
+        /// <param name="orderItemCount">Total order item count for this variation.</param>
         /// <param name="originalTrafficPercentage">Percentage of the traffic the variation originally started out with.</param>
         /// <param name="pageViewCount">Total page view count for this variation.</param>
         /// <param name="revenue">Total revenue for this variation.</param>
@@ -52,7 +54,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="variationName">Name of the variation.</param>
         /// <param name="variationNumber">Variation number.</param>
         /// <param name="winner">True if this variation has been declared the winner.</param>
-        public ExperimentVariation(int? addToCartCount = default(int?), int? averageDurationSeconds = default(int?), decimal? averageObjectivePerSession = default(decimal?), decimal? averageOrderValue = default(decimal?), int? bounceCount = default(int?), decimal? conversionRate = default(decimal?), long? durationSecondsSum = default(long?), int? eventCount = default(int?), int? initiateCheckoutCount = default(int?), int? orderCount = default(int?), decimal? originalTrafficPercentage = default(decimal?), int? pageViewCount = default(int?), decimal? revenue = default(decimal?), int? sessionCount = default(int?), decimal? trafficPercentage = default(decimal?), string url = default(string), string variationName = default(string), int? variationNumber = default(int?), bool? winner = default(bool?))
+        public ExperimentVariation(int? addToCartCount = default(int?), int? averageDurationSeconds = default(int?), decimal? averageObjectivePerSession = default(decimal?), decimal? averageOrderValue = default(decimal?), int? bounceCount = default(int?), decimal? conversionRate = default(decimal?), List<ExperimentVariationStat> dailyStatistics = default(List<ExperimentVariationStat>), long? durationSecondsSum = default(long?), int? eventCount = default(int?), int? initiateCheckoutCount = default(int?), int? orderCount = default(int?), int? orderItemCount = default(int?), decimal? originalTrafficPercentage = default(decimal?), int? pageViewCount = default(int?), decimal? revenue = default(decimal?), int? sessionCount = default(int?), decimal? trafficPercentage = default(decimal?), string url = default(string), string variationName = default(string), int? variationNumber = default(int?), bool? winner = default(bool?))
         {
             this.AddToCartCount = addToCartCount;
             this.AverageDurationSeconds = averageDurationSeconds;
@@ -60,10 +62,12 @@ namespace com.ultracart.admin.v2.Model
             this.AverageOrderValue = averageOrderValue;
             this.BounceCount = bounceCount;
             this.ConversionRate = conversionRate;
+            this.DailyStatistics = dailyStatistics;
             this.DurationSecondsSum = durationSecondsSum;
             this.EventCount = eventCount;
             this.InitiateCheckoutCount = initiateCheckoutCount;
             this.OrderCount = orderCount;
+            this.OrderItemCount = orderItemCount;
             this.OriginalTrafficPercentage = originalTrafficPercentage;
             this.PageViewCount = pageViewCount;
             this.Revenue = revenue;
@@ -118,6 +122,13 @@ namespace com.ultracart.admin.v2.Model
         public decimal? ConversionRate { get; set; }
 
         /// <summary>
+        /// Array of daily statistics for this variation
+        /// </summary>
+        /// <value>Array of daily statistics for this variation</value>
+        [DataMember(Name="daily_statistics", EmitDefaultValue=false)]
+        public List<ExperimentVariationStat> DailyStatistics { get; set; }
+
+        /// <summary>
         /// Total number of seconds spent on the site for this variation
         /// </summary>
         /// <value>Total number of seconds spent on the site for this variation</value>
@@ -144,6 +155,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Total order count for this variation</value>
         [DataMember(Name="order_count", EmitDefaultValue=false)]
         public int? OrderCount { get; set; }
+
+        /// <summary>
+        /// Total order item count for this variation
+        /// </summary>
+        /// <value>Total order item count for this variation</value>
+        [DataMember(Name="order_item_count", EmitDefaultValue=false)]
+        public int? OrderItemCount { get; set; }
 
         /// <summary>
         /// Percentage of the traffic the variation originally started out with
@@ -222,10 +240,12 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AverageOrderValue: ").Append(AverageOrderValue).Append("\n");
             sb.Append("  BounceCount: ").Append(BounceCount).Append("\n");
             sb.Append("  ConversionRate: ").Append(ConversionRate).Append("\n");
+            sb.Append("  DailyStatistics: ").Append(DailyStatistics).Append("\n");
             sb.Append("  DurationSecondsSum: ").Append(DurationSecondsSum).Append("\n");
             sb.Append("  EventCount: ").Append(EventCount).Append("\n");
             sb.Append("  InitiateCheckoutCount: ").Append(InitiateCheckoutCount).Append("\n");
             sb.Append("  OrderCount: ").Append(OrderCount).Append("\n");
+            sb.Append("  OrderItemCount: ").Append(OrderItemCount).Append("\n");
             sb.Append("  OriginalTrafficPercentage: ").Append(OriginalTrafficPercentage).Append("\n");
             sb.Append("  PageViewCount: ").Append(PageViewCount).Append("\n");
             sb.Append("  Revenue: ").Append(Revenue).Append("\n");
@@ -300,6 +320,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversionRate.Equals(input.ConversionRate))
                 ) && 
                 (
+                    this.DailyStatistics == input.DailyStatistics ||
+                    this.DailyStatistics != null &&
+                    this.DailyStatistics.SequenceEqual(input.DailyStatistics)
+                ) && 
+                (
                     this.DurationSecondsSum == input.DurationSecondsSum ||
                     (this.DurationSecondsSum != null &&
                     this.DurationSecondsSum.Equals(input.DurationSecondsSum))
@@ -318,6 +343,11 @@ namespace com.ultracart.admin.v2.Model
                     this.OrderCount == input.OrderCount ||
                     (this.OrderCount != null &&
                     this.OrderCount.Equals(input.OrderCount))
+                ) && 
+                (
+                    this.OrderItemCount == input.OrderItemCount ||
+                    (this.OrderItemCount != null &&
+                    this.OrderItemCount.Equals(input.OrderItemCount))
                 ) && 
                 (
                     this.OriginalTrafficPercentage == input.OriginalTrafficPercentage ||
@@ -387,6 +417,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.BounceCount.GetHashCode();
                 if (this.ConversionRate != null)
                     hashCode = hashCode * 59 + this.ConversionRate.GetHashCode();
+                if (this.DailyStatistics != null)
+                    hashCode = hashCode * 59 + this.DailyStatistics.GetHashCode();
                 if (this.DurationSecondsSum != null)
                     hashCode = hashCode * 59 + this.DurationSecondsSum.GetHashCode();
                 if (this.EventCount != null)
@@ -395,6 +427,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.InitiateCheckoutCount.GetHashCode();
                 if (this.OrderCount != null)
                     hashCode = hashCode * 59 + this.OrderCount.GetHashCode();
+                if (this.OrderItemCount != null)
+                    hashCode = hashCode * 59 + this.OrderItemCount.GetHashCode();
                 if (this.OriginalTrafficPercentage != null)
                     hashCode = hashCode * 59 + this.OriginalTrafficPercentage.GetHashCode();
                 if (this.PageViewCount != null)

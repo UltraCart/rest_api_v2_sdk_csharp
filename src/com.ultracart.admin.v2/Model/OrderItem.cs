@@ -82,13 +82,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taxableCost">taxableCost.</param>
         /// <param name="totalCostWithDiscount">totalCostWithDiscount.</param>
         /// <param name="totalRefunded">totalRefunded.</param>
-        /// <param name="trackingNumber">Tracking number, if null or missing, use order level tracking number(s). Used if there are multiple shipments for one order.</param>
         /// <param name="transmittedToDistributionCenterDts">Date/time that this item was transmitted to the distribution center.</param>
         /// <param name="unitCostWithDiscount">unitCostWithDiscount.</param>
         /// <param name="upsell">True if this item was added to the order as part of an upsell.</param>
         /// <param name="weight">weight.</param>
         /// <param name="width">width.</param>
-        public OrderItem(string accountingCode = default(string), List<string> activationCodes = default(List<string>), Currency arbitraryUnitCost = default(Currency), string autoOrderLastRebillDts = default(string), string autoOrderSchedule = default(string), string barcode = default(string), string channelPartnerItemId = default(string), decimal? cogs = default(decimal?), decimal? componentUnitValue = default(decimal?), Currency cost = default(Currency), string countryCodeOfOrigin = default(string), string customsDescription = default(string), string description = default(string), Currency discount = default(Currency), decimal? discountQuantity = default(decimal?), Weight discountShippingWeight = default(Weight), string distributionCenterCode = default(string), OrderItemEdi edi = default(OrderItemEdi), bool? excludeCoupon = default(bool?), bool? freeShipping = default(bool?), bool? hazmat = default(bool?), Distance height = default(Distance), int? itemReferenceOid = default(int?), bool? kit = default(bool?), bool? kitComponent = default(bool?), Distance length = default(Distance), string manufacturerSku = default(string), int? maxDaysTimeInTransit = default(int?), string merchantItemId = default(string), string mixAndMatchGroupName = default(string), int? mixAndMatchGroupOid = default(int?), bool? noShippingDiscount = default(bool?), List<OrderItemOption> options = default(List<OrderItemOption>), string packedByUser = default(string), string perishableClass = default(string), string pricingTierName = default(string), List<OrderItemProperty> properties = default(List<OrderItemProperty>), decimal? quantity = default(decimal?), decimal? quantityRefunded = default(decimal?), string quickbooksClass = default(string), bool? shipSeparately = default(bool?), string shippedByUser = default(string), string shippedDts = default(string), string specialProductType = default(string), List<OrderItemTag> tags = default(List<OrderItemTag>), bool? taxFree = default(bool?), Currency taxableCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency totalRefunded = default(Currency), string trackingNumber = default(string), string transmittedToDistributionCenterDts = default(string), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), Weight weight = default(Weight), Distance width = default(Distance))
+        public OrderItem(string accountingCode = default(string), List<string> activationCodes = default(List<string>), Currency arbitraryUnitCost = default(Currency), string autoOrderLastRebillDts = default(string), string autoOrderSchedule = default(string), string barcode = default(string), string channelPartnerItemId = default(string), decimal? cogs = default(decimal?), decimal? componentUnitValue = default(decimal?), Currency cost = default(Currency), string countryCodeOfOrigin = default(string), string customsDescription = default(string), string description = default(string), Currency discount = default(Currency), decimal? discountQuantity = default(decimal?), Weight discountShippingWeight = default(Weight), string distributionCenterCode = default(string), OrderItemEdi edi = default(OrderItemEdi), bool? excludeCoupon = default(bool?), bool? freeShipping = default(bool?), bool? hazmat = default(bool?), Distance height = default(Distance), int? itemReferenceOid = default(int?), bool? kit = default(bool?), bool? kitComponent = default(bool?), Distance length = default(Distance), string manufacturerSku = default(string), int? maxDaysTimeInTransit = default(int?), string merchantItemId = default(string), string mixAndMatchGroupName = default(string), int? mixAndMatchGroupOid = default(int?), bool? noShippingDiscount = default(bool?), List<OrderItemOption> options = default(List<OrderItemOption>), string packedByUser = default(string), string perishableClass = default(string), string pricingTierName = default(string), List<OrderItemProperty> properties = default(List<OrderItemProperty>), decimal? quantity = default(decimal?), decimal? quantityRefunded = default(decimal?), string quickbooksClass = default(string), bool? shipSeparately = default(bool?), string shippedByUser = default(string), string shippedDts = default(string), string specialProductType = default(string), List<OrderItemTag> tags = default(List<OrderItemTag>), bool? taxFree = default(bool?), Currency taxableCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency totalRefunded = default(Currency), string transmittedToDistributionCenterDts = default(string), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), Weight weight = default(Weight), Distance width = default(Distance))
         {
             this.AccountingCode = accountingCode;
             this.ActivationCodes = activationCodes;
@@ -139,7 +138,6 @@ namespace com.ultracart.admin.v2.Model
             this.TaxableCost = taxableCost;
             this.TotalCostWithDiscount = totalCostWithDiscount;
             this.TotalRefunded = totalRefunded;
-            this.TrackingNumber = trackingNumber;
             this.TransmittedToDistributionCenterDts = transmittedToDistributionCenterDts;
             this.UnitCostWithDiscount = unitCostWithDiscount;
             this.Upsell = upsell;
@@ -481,13 +479,6 @@ namespace com.ultracart.admin.v2.Model
         public Currency TotalRefunded { get; set; }
 
         /// <summary>
-        /// Tracking number, if null or missing, use order level tracking number(s). Used if there are multiple shipments for one order
-        /// </summary>
-        /// <value>Tracking number, if null or missing, use order level tracking number(s). Used if there are multiple shipments for one order</value>
-        [DataMember(Name="tracking_number", EmitDefaultValue=false)]
-        public string TrackingNumber { get; set; }
-
-        /// <summary>
         /// Date/time that this item was transmitted to the distribution center
         /// </summary>
         /// <value>Date/time that this item was transmitted to the distribution center</value>
@@ -576,7 +567,6 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  TaxableCost: ").Append(TaxableCost).Append("\n");
             sb.Append("  TotalCostWithDiscount: ").Append(TotalCostWithDiscount).Append("\n");
             sb.Append("  TotalRefunded: ").Append(TotalRefunded).Append("\n");
-            sb.Append("  TrackingNumber: ").Append(TrackingNumber).Append("\n");
             sb.Append("  TransmittedToDistributionCenterDts: ").Append(TransmittedToDistributionCenterDts).Append("\n");
             sb.Append("  UnitCostWithDiscount: ").Append(UnitCostWithDiscount).Append("\n");
             sb.Append("  Upsell: ").Append(Upsell).Append("\n");
@@ -862,11 +852,6 @@ namespace com.ultracart.admin.v2.Model
                     this.TotalRefunded.Equals(input.TotalRefunded))
                 ) && 
                 (
-                    this.TrackingNumber == input.TrackingNumber ||
-                    (this.TrackingNumber != null &&
-                    this.TrackingNumber.Equals(input.TrackingNumber))
-                ) && 
-                (
                     this.TransmittedToDistributionCenterDts == input.TransmittedToDistributionCenterDts ||
                     (this.TransmittedToDistributionCenterDts != null &&
                     this.TransmittedToDistributionCenterDts.Equals(input.TransmittedToDistributionCenterDts))
@@ -1000,8 +985,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.TotalCostWithDiscount.GetHashCode();
                 if (this.TotalRefunded != null)
                     hashCode = hashCode * 59 + this.TotalRefunded.GetHashCode();
-                if (this.TrackingNumber != null)
-                    hashCode = hashCode * 59 + this.TrackingNumber.GetHashCode();
                 if (this.TransmittedToDistributionCenterDts != null)
                     hashCode = hashCode * 59 + this.TransmittedToDistributionCenterDts.GetHashCode();
                 if (this.UnitCostWithDiscount != null)

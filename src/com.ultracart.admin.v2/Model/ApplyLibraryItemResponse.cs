@@ -35,7 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="attributes">Attributes from the library item.</param>
         /// <param name="cjson">Cjson from library item, only populated if this library item was a cjson snippet or marketing email (not transactional).</param>
-        /// <param name="contentType">flow, campaign, cjson, upsell, transactional_email or email.</param>
+        /// <param name="contentType">flow, campaign, cjson, upsell, postcard, transactional_email or email.</param>
         /// <param name="emailTemplateVmPath">If a marketing email was applied, this is the path to the template encapsulating the cjson.  This is needed for the UltraCart UI..</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
@@ -74,9 +74,9 @@ namespace com.ultracart.admin.v2.Model
         public string Cjson { get; set; }
 
         /// <summary>
-        /// flow, campaign, cjson, upsell, transactional_email or email
+        /// flow, campaign, cjson, upsell, postcard, transactional_email or email
         /// </summary>
-        /// <value>flow, campaign, cjson, upsell, transactional_email or email</value>
+        /// <value>flow, campaign, cjson, upsell, postcard, transactional_email or email</value>
         [DataMember(Name="content_type", EmitDefaultValue=false)]
         public string ContentType { get; set; }
 

@@ -162,52 +162,46 @@ namespace com.ultracart.admin.v2.Model
             ECheck = 8,
             
             /// <summary>
-            /// Enum GoogleShopping for value: Google Shopping
-            /// </summary>
-            [EnumMember(Value = "Google Shopping")]
-            GoogleShopping = 9,
-            
-            /// <summary>
             /// Enum LoanHero for value: LoanHero
             /// </summary>
             [EnumMember(Value = "LoanHero")]
-            LoanHero = 10,
+            LoanHero = 9,
             
             /// <summary>
             /// Enum MoneyOrder for value: Money Order
             /// </summary>
             [EnumMember(Value = "Money Order")]
-            MoneyOrder = 11,
+            MoneyOrder = 10,
             
             /// <summary>
             /// Enum PayPal for value: PayPal
             /// </summary>
             [EnumMember(Value = "PayPal")]
-            PayPal = 12,
+            PayPal = 11,
             
             /// <summary>
             /// Enum PurchaseOrder for value: Purchase Order
             /// </summary>
             [EnumMember(Value = "Purchase Order")]
-            PurchaseOrder = 13,
+            PurchaseOrder = 12,
             
             /// <summary>
             /// Enum QuoteRequest for value: Quote Request
             /// </summary>
             [EnumMember(Value = "Quote Request")]
-            QuoteRequest = 14,
+            QuoteRequest = 13,
             
             /// <summary>
             /// Enum Unknown for value: Unknown
             /// </summary>
             [EnumMember(Value = "Unknown")]
-            Unknown = 15,
+            Unknown = 14,
             
             /// <summary>
             /// Enum WireTransfer for value: Wire Transfer
             /// </summary>
             [EnumMember(Value = "Wire Transfer")]
-            WireTransfer = 16
+            WireTransfer = 15
         }
 
         /// <summary>

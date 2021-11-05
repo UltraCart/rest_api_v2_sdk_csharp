@@ -35,11 +35,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="emailUuid">Normal emails are applied to an existing email object, so when requesting a library item to be applied to an email, supply the email uuid.  This is only for normal emails.  Transactional emails do not have a uuid..</param>
         /// <param name="libraryItemOid">Library item oid that you wish to apply to the given StoreFront.</param>
+        /// <param name="postcardUuid">The postcard uuid you wish to apply to a given StoreFront..</param>
         /// <param name="storefrontOid">StoreFront oid where content originates necessary for tracking down relative assets.</param>
-        public ApplyLibraryItemRequest(string emailUuid = default(string), int? libraryItemOid = default(int?), int? storefrontOid = default(int?))
+        public ApplyLibraryItemRequest(string emailUuid = default(string), int? libraryItemOid = default(int?), string postcardUuid = default(string), int? storefrontOid = default(int?))
         {
             this.EmailUuid = emailUuid;
             this.LibraryItemOid = libraryItemOid;
+            this.PostcardUuid = postcardUuid;
             this.StorefrontOid = storefrontOid;
         }
         
@@ -58,6 +60,13 @@ namespace com.ultracart.admin.v2.Model
         public int? LibraryItemOid { get; set; }
 
         /// <summary>
+        /// The postcard uuid you wish to apply to a given StoreFront.
+        /// </summary>
+        /// <value>The postcard uuid you wish to apply to a given StoreFront.</value>
+        [DataMember(Name="postcard_uuid", EmitDefaultValue=false)]
+        public string PostcardUuid { get; set; }
+
+        /// <summary>
         /// StoreFront oid where content originates necessary for tracking down relative assets
         /// </summary>
         /// <value>StoreFront oid where content originates necessary for tracking down relative assets</value>
@@ -74,6 +83,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ApplyLibraryItemRequest {\n");
             sb.Append("  EmailUuid: ").Append(EmailUuid).Append("\n");
             sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
+            sb.Append("  PostcardUuid: ").Append(PostcardUuid).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -120,6 +130,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LibraryItemOid.Equals(input.LibraryItemOid))
                 ) && 
                 (
+                    this.PostcardUuid == input.PostcardUuid ||
+                    (this.PostcardUuid != null &&
+                    this.PostcardUuid.Equals(input.PostcardUuid))
+                ) && 
+                (
                     this.StorefrontOid == input.StorefrontOid ||
                     (this.StorefrontOid != null &&
                     this.StorefrontOid.Equals(input.StorefrontOid))
@@ -139,6 +154,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailUuid.GetHashCode();
                 if (this.LibraryItemOid != null)
                     hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
+                if (this.PostcardUuid != null)
+                    hashCode = hashCode * 59 + this.PostcardUuid.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
                 return hashCode;

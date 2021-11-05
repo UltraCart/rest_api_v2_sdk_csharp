@@ -85,6 +85,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="AffiliateLedger" /> class.
         /// </summary>
         /// <param name="affiliateClickOid">Unique object identifier for the click associated with this ledger entry.</param>
+        /// <param name="affiliateLedgerOid">Affiliate ledger object ID associated with this ledger.</param>
         /// <param name="affiliateLinkOid">Unique object identifier for the link that this click is associated with.</param>
         /// <param name="affiliateOid">Affiliate object ID associated with this transaction.</param>
         /// <param name="assignedByUser">User that assigned the transaction if it was done manually.</param>
@@ -102,9 +103,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="transactionMemo">Memo explaining the transaction.</param>
         /// <param name="transactionPercentage">Percentage associated with this transaction.</param>
         /// <param name="transactionState">Transaction state.</param>
-        public AffiliateLedger(int? affiliateClickOid = default(int?), int? affiliateLinkOid = default(int?), int? affiliateOid = default(int?), string assignedByUser = default(string), AffiliateClick click = default(AffiliateClick), string itemId = default(string), AffiliateLink link = default(AffiliateLink), Order order = default(Order), string orderId = default(string), string originalTransactionDts = default(string), string subId = default(string), string tierNumber = default(string), decimal? transactionAmount = default(decimal?), decimal? transactionAmountPaid = default(decimal?), string transactionDts = default(string), string transactionMemo = default(string), string transactionPercentage = default(string), TransactionStateEnum? transactionState = default(TransactionStateEnum?))
+        public AffiliateLedger(int? affiliateClickOid = default(int?), int? affiliateLedgerOid = default(int?), int? affiliateLinkOid = default(int?), int? affiliateOid = default(int?), string assignedByUser = default(string), AffiliateClick click = default(AffiliateClick), string itemId = default(string), AffiliateLink link = default(AffiliateLink), Order order = default(Order), string orderId = default(string), string originalTransactionDts = default(string), string subId = default(string), int? tierNumber = default(int?), decimal? transactionAmount = default(decimal?), decimal? transactionAmountPaid = default(decimal?), string transactionDts = default(string), string transactionMemo = default(string), decimal? transactionPercentage = default(decimal?), TransactionStateEnum? transactionState = default(TransactionStateEnum?))
         {
             this.AffiliateClickOid = affiliateClickOid;
+            this.AffiliateLedgerOid = affiliateLedgerOid;
             this.AffiliateLinkOid = affiliateLinkOid;
             this.AffiliateOid = affiliateOid;
             this.AssignedByUser = assignedByUser;
@@ -130,6 +132,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Unique object identifier for the click associated with this ledger entry</value>
         [DataMember(Name="affiliate_click_oid", EmitDefaultValue=false)]
         public int? AffiliateClickOid { get; set; }
+
+        /// <summary>
+        /// Affiliate ledger object ID associated with this ledger
+        /// </summary>
+        /// <value>Affiliate ledger object ID associated with this ledger</value>
+        [DataMember(Name="affiliate_ledger_oid", EmitDefaultValue=false)]
+        public int? AffiliateLedgerOid { get; set; }
 
         /// <summary>
         /// Unique object identifier for the link that this click is associated with
@@ -203,7 +212,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Tier number that this transaction earned</value>
         [DataMember(Name="tier_number", EmitDefaultValue=false)]
-        public string TierNumber { get; set; }
+        public int? TierNumber { get; set; }
 
         /// <summary>
         /// Transaction amount
@@ -238,7 +247,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <value>Percentage associated with this transaction</value>
         [DataMember(Name="transaction_percentage", EmitDefaultValue=false)]
-        public string TransactionPercentage { get; set; }
+        public decimal? TransactionPercentage { get; set; }
 
 
         /// <summary>
@@ -250,6 +259,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class AffiliateLedger {\n");
             sb.Append("  AffiliateClickOid: ").Append(AffiliateClickOid).Append("\n");
+            sb.Append("  AffiliateLedgerOid: ").Append(AffiliateLedgerOid).Append("\n");
             sb.Append("  AffiliateLinkOid: ").Append(AffiliateLinkOid).Append("\n");
             sb.Append("  AffiliateOid: ").Append(AffiliateOid).Append("\n");
             sb.Append("  AssignedByUser: ").Append(AssignedByUser).Append("\n");
@@ -305,6 +315,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AffiliateClickOid == input.AffiliateClickOid ||
                     (this.AffiliateClickOid != null &&
                     this.AffiliateClickOid.Equals(input.AffiliateClickOid))
+                ) && 
+                (
+                    this.AffiliateLedgerOid == input.AffiliateLedgerOid ||
+                    (this.AffiliateLedgerOid != null &&
+                    this.AffiliateLedgerOid.Equals(input.AffiliateLedgerOid))
                 ) && 
                 (
                     this.AffiliateLinkOid == input.AffiliateLinkOid ||
@@ -404,6 +419,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AffiliateClickOid != null)
                     hashCode = hashCode * 59 + this.AffiliateClickOid.GetHashCode();
+                if (this.AffiliateLedgerOid != null)
+                    hashCode = hashCode * 59 + this.AffiliateLedgerOid.GetHashCode();
                 if (this.AffiliateLinkOid != null)
                     hashCode = hashCode * 59 + this.AffiliateLinkOid.GetHashCode();
                 if (this.AffiliateOid != null)

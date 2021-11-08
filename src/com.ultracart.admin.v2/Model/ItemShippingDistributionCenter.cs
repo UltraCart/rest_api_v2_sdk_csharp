@@ -36,6 +36,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="allocatedToPlacedOrders">Allocated to placed orders.</param>
         /// <param name="allocatedToShoppingCarts">Allocated to shopping carts.</param>
         /// <param name="availableToAllocate">Available to allocate.</param>
+        /// <param name="cogs">Cost of goods sold override at the distribution center level.</param>
         /// <param name="desiredInventoryLevel">Desired inventory level.</param>
         /// <param name="distributionCenterCode">Distribution center code.</param>
         /// <param name="distributionCenterOid">Distribution center object identifier.</param>
@@ -46,11 +47,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="reorderInventoryLevel">Reorder inventory level (triggers notification).</param>
         /// <param name="sku">SKU.</param>
         /// <param name="stockPickingLocation">Stock picking location.</param>
-        public ItemShippingDistributionCenter(decimal? allocatedToPlacedOrders = default(decimal?), decimal? allocatedToShoppingCarts = default(decimal?), decimal? availableToAllocate = default(decimal?), decimal? desiredInventoryLevel = default(decimal?), string distributionCenterCode = default(string), int? distributionCenterOid = default(int?), string eta = default(string), bool? handles = default(bool?), decimal? inventoryLevel = default(decimal?), int? maximumBackorder = default(int?), decimal? reorderInventoryLevel = default(decimal?), string sku = default(string), string stockPickingLocation = default(string))
+        public ItemShippingDistributionCenter(decimal? allocatedToPlacedOrders = default(decimal?), decimal? allocatedToShoppingCarts = default(decimal?), decimal? availableToAllocate = default(decimal?), decimal? cogs = default(decimal?), decimal? desiredInventoryLevel = default(decimal?), string distributionCenterCode = default(string), int? distributionCenterOid = default(int?), string eta = default(string), bool? handles = default(bool?), decimal? inventoryLevel = default(decimal?), int? maximumBackorder = default(int?), decimal? reorderInventoryLevel = default(decimal?), string sku = default(string), string stockPickingLocation = default(string))
         {
             this.AllocatedToPlacedOrders = allocatedToPlacedOrders;
             this.AllocatedToShoppingCarts = allocatedToShoppingCarts;
             this.AvailableToAllocate = availableToAllocate;
+            this.Cogs = cogs;
             this.DesiredInventoryLevel = desiredInventoryLevel;
             this.DistributionCenterCode = distributionCenterCode;
             this.DistributionCenterOid = distributionCenterOid;
@@ -83,6 +85,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Available to allocate</value>
         [DataMember(Name="available_to_allocate", EmitDefaultValue=false)]
         public decimal? AvailableToAllocate { get; set; }
+
+        /// <summary>
+        /// Cost of goods sold override at the distribution center level
+        /// </summary>
+        /// <value>Cost of goods sold override at the distribution center level</value>
+        [DataMember(Name="cogs", EmitDefaultValue=false)]
+        public decimal? Cogs { get; set; }
 
         /// <summary>
         /// Desired inventory level
@@ -165,6 +174,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AllocatedToPlacedOrders: ").Append(AllocatedToPlacedOrders).Append("\n");
             sb.Append("  AllocatedToShoppingCarts: ").Append(AllocatedToShoppingCarts).Append("\n");
             sb.Append("  AvailableToAllocate: ").Append(AvailableToAllocate).Append("\n");
+            sb.Append("  Cogs: ").Append(Cogs).Append("\n");
             sb.Append("  DesiredInventoryLevel: ").Append(DesiredInventoryLevel).Append("\n");
             sb.Append("  DistributionCenterCode: ").Append(DistributionCenterCode).Append("\n");
             sb.Append("  DistributionCenterOid: ").Append(DistributionCenterOid).Append("\n");
@@ -223,6 +233,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AvailableToAllocate == input.AvailableToAllocate ||
                     (this.AvailableToAllocate != null &&
                     this.AvailableToAllocate.Equals(input.AvailableToAllocate))
+                ) && 
+                (
+                    this.Cogs == input.Cogs ||
+                    (this.Cogs != null &&
+                    this.Cogs.Equals(input.Cogs))
                 ) && 
                 (
                     this.DesiredInventoryLevel == input.DesiredInventoryLevel ||
@@ -291,6 +306,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AllocatedToShoppingCarts.GetHashCode();
                 if (this.AvailableToAllocate != null)
                     hashCode = hashCode * 59 + this.AvailableToAllocate.GetHashCode();
+                if (this.Cogs != null)
+                    hashCode = hashCode * 59 + this.Cogs.GetHashCode();
                 if (this.DesiredInventoryLevel != null)
                     hashCode = hashCode * 59 + this.DesiredInventoryLevel.GetHashCode();
                 if (this.DistributionCenterCode != null)

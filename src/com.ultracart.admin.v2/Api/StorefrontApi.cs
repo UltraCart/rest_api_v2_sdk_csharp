@@ -234,6 +234,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailSendingDomainResponse</returns>
         ApiResponse<EmailSendingDomainResponse> CreateEmailSendingDomainWithHttpInfo (string domain);
         /// <summary>
+        /// Create Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>TwilioResponse</returns>
+        TwilioResponse CreateTwilioAccount (Twilio twilio);
+
+        /// <summary>
+        /// Create Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>ApiResponse of TwilioResponse</returns>
+        ApiResponse<TwilioResponse> CreateTwilioAccountWithHttpInfo (Twilio twilio);
+        /// <summary>
         /// Delete email campaignFolder
         /// </summary>
         /// <remarks>
@@ -528,6 +549,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="screenRecordingSegmentOid"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteScreenRecordingSegmentWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid);
+        /// <summary>
+        /// delete Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse DeleteTwilioAccount (string espTwilioUuid);
+
+        /// <summary>
+        /// delete Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> DeleteTwilioAccountWithHttpInfo (string espTwilioUuid);
         /// <summary>
         /// Duplicate library item.
         /// </summary>
@@ -2363,6 +2405,46 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ScreenshotsResponse</returns>
         ApiResponse<ScreenshotsResponse> GetTransactionEmailScreenshotsWithHttpInfo (int? storefrontOid, string emailId);
         /// <summary>
+        /// Get Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>TwilioResponse</returns>
+        TwilioResponse GetTwilioAccount (string espTwilioUuid);
+
+        /// <summary>
+        /// Get Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>ApiResponse of TwilioResponse</returns>
+        ApiResponse<TwilioResponse> GetTwilioAccountWithHttpInfo (string espTwilioUuid);
+        /// <summary>
+        /// Get all Twilio accounts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TwiliosResponse</returns>
+        TwiliosResponse GetTwilioAccounts ();
+
+        /// <summary>
+        /// Get all Twilio accounts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TwiliosResponse</returns>
+        ApiResponse<TwiliosResponse> GetTwilioAccountsWithHttpInfo ();
+        /// <summary>
         /// Globally unsubscribe a customer
         /// </summary>
         /// <remarks>
@@ -3645,6 +3727,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="transactionEmail">TransactionEmail</param>
         /// <returns>ApiResponse of TransactionEmailResponse</returns>
         ApiResponse<TransactionEmailResponse> UpdateTransactionEmailWithHttpInfo (int? storefrontOid, string emailId, TransactionEmail transactionEmail);
+        /// <summary>
+        /// Update Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>TwilioResponse</returns>
+        TwilioResponse UpdateTwilioAccount (string espTwilioUuid, Twilio twilio);
+
+        /// <summary>
+        /// Update Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>ApiResponse of TwilioResponse</returns>
+        ApiResponse<TwilioResponse> UpdateTwilioAccountWithHttpInfo (string espTwilioUuid, Twilio twilio);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -3856,6 +3961,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="domain"></param>
         /// <returns>Task of ApiResponse (EmailSendingDomainResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailSendingDomainResponse>> CreateEmailSendingDomainAsyncWithHttpInfo (string domain);
+        /// <summary>
+        /// Create Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>Task of TwilioResponse</returns>
+        System.Threading.Tasks.Task<TwilioResponse> CreateTwilioAccountAsync (Twilio twilio);
+
+        /// <summary>
+        /// Create Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>Task of ApiResponse (TwilioResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TwilioResponse>> CreateTwilioAccountAsyncWithHttpInfo (Twilio twilio);
         /// <summary>
         /// Delete email campaignFolder
         /// </summary>
@@ -4151,6 +4277,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="screenRecordingSegmentOid"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteScreenRecordingSegmentAsyncWithHttpInfo (int? storefrontOid, int? screenRecordingSegmentOid);
+        /// <summary>
+        /// delete Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> DeleteTwilioAccountAsync (string espTwilioUuid);
+
+        /// <summary>
+        /// delete Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteTwilioAccountAsyncWithHttpInfo (string espTwilioUuid);
         /// <summary>
         /// Duplicate library item.
         /// </summary>
@@ -5986,6 +6133,46 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ScreenshotsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ScreenshotsResponse>> GetTransactionEmailScreenshotsAsyncWithHttpInfo (int? storefrontOid, string emailId);
         /// <summary>
+        /// Get Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>Task of TwilioResponse</returns>
+        System.Threading.Tasks.Task<TwilioResponse> GetTwilioAccountAsync (string espTwilioUuid);
+
+        /// <summary>
+        /// Get Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>Task of ApiResponse (TwilioResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TwilioResponse>> GetTwilioAccountAsyncWithHttpInfo (string espTwilioUuid);
+        /// <summary>
+        /// Get all Twilio accounts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of TwiliosResponse</returns>
+        System.Threading.Tasks.Task<TwiliosResponse> GetTwilioAccountsAsync ();
+
+        /// <summary>
+        /// Get all Twilio accounts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (TwiliosResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TwiliosResponse>> GetTwilioAccountsAsyncWithHttpInfo ();
+        /// <summary>
         /// Globally unsubscribe a customer
         /// </summary>
         /// <remarks>
@@ -7268,6 +7455,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="transactionEmail">TransactionEmail</param>
         /// <returns>Task of ApiResponse (TransactionEmailResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransactionEmailResponse>> UpdateTransactionEmailAsyncWithHttpInfo (int? storefrontOid, string emailId, TransactionEmail transactionEmail);
+        /// <summary>
+        /// Update Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>Task of TwilioResponse</returns>
+        System.Threading.Tasks.Task<TwilioResponse> UpdateTwilioAccountAsync (string espTwilioUuid, Twilio twilio);
+
+        /// <summary>
+        /// Update Twilio account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>Task of ApiResponse (TwilioResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TwilioResponse>> UpdateTwilioAccountAsyncWithHttpInfo (string espTwilioUuid, Twilio twilio);
         #endregion Asynchronous Operations
     }
 
@@ -9026,6 +9236,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailSendingDomainResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailSendingDomainResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSendingDomainResponse)));
+        }
+
+        /// <summary>
+        /// Create Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>TwilioResponse</returns>
+        public TwilioResponse CreateTwilioAccount (Twilio twilio)
+        {
+             ApiResponse<TwilioResponse> localVarResponse = CreateTwilioAccountWithHttpInfo(twilio);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>ApiResponse of TwilioResponse</returns>
+        public ApiResponse< TwilioResponse > CreateTwilioAccountWithHttpInfo (Twilio twilio)
+        {
+            // verify the required parameter 'twilio' is set
+            if (twilio == null)
+                throw new ApiException(400, "Missing required parameter 'twilio' when calling StorefrontApi->CreateTwilioAccount");
+
+            var localVarPath = "/storefront/twilio/accounts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (twilio != null && twilio.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(twilio); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = twilio; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TwilioResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TwilioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TwilioResponse)));
+        }
+
+        /// <summary>
+        /// Create Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>Task of TwilioResponse</returns>
+        public async System.Threading.Tasks.Task<TwilioResponse> CreateTwilioAccountAsync (Twilio twilio)
+        {
+             ApiResponse<TwilioResponse> localVarResponse = await CreateTwilioAccountAsyncWithHttpInfo(twilio);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>Task of ApiResponse (TwilioResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TwilioResponse>> CreateTwilioAccountAsyncWithHttpInfo (Twilio twilio)
+        {
+            // verify the required parameter 'twilio' is set
+            if (twilio == null)
+                throw new ApiException(400, "Missing required parameter 'twilio' when calling StorefrontApi->CreateTwilioAccount");
+
+            var localVarPath = "/storefront/twilio/accounts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (twilio != null && twilio.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(twilio); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = twilio; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TwilioResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TwilioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TwilioResponse)));
         }
 
         /// <summary>
@@ -11321,6 +11712,173 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// delete Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse DeleteTwilioAccount (string espTwilioUuid)
+        {
+             ApiResponse<BaseResponse> localVarResponse = DeleteTwilioAccountWithHttpInfo(espTwilioUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// delete Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse< BaseResponse > DeleteTwilioAccountWithHttpInfo (string espTwilioUuid)
+        {
+            // verify the required parameter 'espTwilioUuid' is set
+            if (espTwilioUuid == null)
+                throw new ApiException(400, "Missing required parameter 'espTwilioUuid' when calling StorefrontApi->DeleteTwilioAccount");
+
+            var localVarPath = "/storefront/twilio/accounts/{esp_twilio_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (espTwilioUuid != null) localVarPathParams.Add("esp_twilio_uuid", this.Configuration.ApiClient.ParameterToString(espTwilioUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// delete Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> DeleteTwilioAccountAsync (string espTwilioUuid)
+        {
+             ApiResponse<BaseResponse> localVarResponse = await DeleteTwilioAccountAsyncWithHttpInfo(espTwilioUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// delete Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> DeleteTwilioAccountAsyncWithHttpInfo (string espTwilioUuid)
+        {
+            // verify the required parameter 'espTwilioUuid' is set
+            if (espTwilioUuid == null)
+                throw new ApiException(400, "Missing required parameter 'espTwilioUuid' when calling StorefrontApi->DeleteTwilioAccount");
+
+            var localVarPath = "/storefront/twilio/accounts/{esp_twilio_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (espTwilioUuid != null) localVarPathParams.Add("esp_twilio_uuid", this.Configuration.ApiClient.ParameterToString(espTwilioUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
         }
 
         /// <summary>
@@ -25514,6 +26072,328 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Get Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>TwilioResponse</returns>
+        public TwilioResponse GetTwilioAccount (string espTwilioUuid)
+        {
+             ApiResponse<TwilioResponse> localVarResponse = GetTwilioAccountWithHttpInfo(espTwilioUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>ApiResponse of TwilioResponse</returns>
+        public ApiResponse< TwilioResponse > GetTwilioAccountWithHttpInfo (string espTwilioUuid)
+        {
+            // verify the required parameter 'espTwilioUuid' is set
+            if (espTwilioUuid == null)
+                throw new ApiException(400, "Missing required parameter 'espTwilioUuid' when calling StorefrontApi->GetTwilioAccount");
+
+            var localVarPath = "/storefront/twilio/accounts/{esp_twilio_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (espTwilioUuid != null) localVarPathParams.Add("esp_twilio_uuid", this.Configuration.ApiClient.ParameterToString(espTwilioUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TwilioResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TwilioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TwilioResponse)));
+        }
+
+        /// <summary>
+        /// Get Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>Task of TwilioResponse</returns>
+        public async System.Threading.Tasks.Task<TwilioResponse> GetTwilioAccountAsync (string espTwilioUuid)
+        {
+             ApiResponse<TwilioResponse> localVarResponse = await GetTwilioAccountAsyncWithHttpInfo(espTwilioUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <returns>Task of ApiResponse (TwilioResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TwilioResponse>> GetTwilioAccountAsyncWithHttpInfo (string espTwilioUuid)
+        {
+            // verify the required parameter 'espTwilioUuid' is set
+            if (espTwilioUuid == null)
+                throw new ApiException(400, "Missing required parameter 'espTwilioUuid' when calling StorefrontApi->GetTwilioAccount");
+
+            var localVarPath = "/storefront/twilio/accounts/{esp_twilio_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (espTwilioUuid != null) localVarPathParams.Add("esp_twilio_uuid", this.Configuration.ApiClient.ParameterToString(espTwilioUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TwilioResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TwilioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TwilioResponse)));
+        }
+
+        /// <summary>
+        /// Get all Twilio accounts 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TwiliosResponse</returns>
+        public TwiliosResponse GetTwilioAccounts ()
+        {
+             ApiResponse<TwiliosResponse> localVarResponse = GetTwilioAccountsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all Twilio accounts 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TwiliosResponse</returns>
+        public ApiResponse< TwiliosResponse > GetTwilioAccountsWithHttpInfo ()
+        {
+
+            var localVarPath = "/storefront/twilio/accounts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTwilioAccounts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TwiliosResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TwiliosResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TwiliosResponse)));
+        }
+
+        /// <summary>
+        /// Get all Twilio accounts 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of TwiliosResponse</returns>
+        public async System.Threading.Tasks.Task<TwiliosResponse> GetTwilioAccountsAsync ()
+        {
+             ApiResponse<TwiliosResponse> localVarResponse = await GetTwilioAccountsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get all Twilio accounts 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (TwiliosResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TwiliosResponse>> GetTwilioAccountsAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/storefront/twilio/accounts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTwilioAccounts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TwiliosResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TwiliosResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TwiliosResponse)));
+        }
+
+        /// <summary>
         /// Globally unsubscribe a customer 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -35810,6 +36690,199 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<TransactionEmailResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (TransactionEmailResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TransactionEmailResponse)));
+        }
+
+        /// <summary>
+        /// Update Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>TwilioResponse</returns>
+        public TwilioResponse UpdateTwilioAccount (string espTwilioUuid, Twilio twilio)
+        {
+             ApiResponse<TwilioResponse> localVarResponse = UpdateTwilioAccountWithHttpInfo(espTwilioUuid, twilio);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>ApiResponse of TwilioResponse</returns>
+        public ApiResponse< TwilioResponse > UpdateTwilioAccountWithHttpInfo (string espTwilioUuid, Twilio twilio)
+        {
+            // verify the required parameter 'espTwilioUuid' is set
+            if (espTwilioUuid == null)
+                throw new ApiException(400, "Missing required parameter 'espTwilioUuid' when calling StorefrontApi->UpdateTwilioAccount");
+            // verify the required parameter 'twilio' is set
+            if (twilio == null)
+                throw new ApiException(400, "Missing required parameter 'twilio' when calling StorefrontApi->UpdateTwilioAccount");
+
+            var localVarPath = "/storefront/twilio/accounts/{esp_twilio_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (espTwilioUuid != null) localVarPathParams.Add("esp_twilio_uuid", this.Configuration.ApiClient.ParameterToString(espTwilioUuid)); // path parameter
+            if (twilio != null && twilio.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(twilio); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = twilio; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TwilioResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TwilioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TwilioResponse)));
+        }
+
+        /// <summary>
+        /// Update Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>Task of TwilioResponse</returns>
+        public async System.Threading.Tasks.Task<TwilioResponse> UpdateTwilioAccountAsync (string espTwilioUuid, Twilio twilio)
+        {
+             ApiResponse<TwilioResponse> localVarResponse = await UpdateTwilioAccountAsyncWithHttpInfo(espTwilioUuid, twilio);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update Twilio account 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="espTwilioUuid"></param>
+        /// <param name="twilio">Twilio</param>
+        /// <returns>Task of ApiResponse (TwilioResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TwilioResponse>> UpdateTwilioAccountAsyncWithHttpInfo (string espTwilioUuid, Twilio twilio)
+        {
+            // verify the required parameter 'espTwilioUuid' is set
+            if (espTwilioUuid == null)
+                throw new ApiException(400, "Missing required parameter 'espTwilioUuid' when calling StorefrontApi->UpdateTwilioAccount");
+            // verify the required parameter 'twilio' is set
+            if (twilio == null)
+                throw new ApiException(400, "Missing required parameter 'twilio' when calling StorefrontApi->UpdateTwilioAccount");
+
+            var localVarPath = "/storefront/twilio/accounts/{esp_twilio_uuid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (espTwilioUuid != null) localVarPathParams.Add("esp_twilio_uuid", this.Configuration.ApiClient.ParameterToString(espTwilioUuid)); // path parameter
+            if (twilio != null && twilio.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(twilio); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = twilio; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateTwilioAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TwilioResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TwilioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TwilioResponse)));
         }
 
     }

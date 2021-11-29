@@ -39,6 +39,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="autoOrderCancelItemOid">Item object identifier to attempt charging the customer for if they cancel.</param>
         /// <param name="autoOrderDowngradeItems">List of downgrade items presented to customer service representatives.</param>
         /// <param name="autoOrderPaused">True if the rebill processing of this item is paused.</param>
+        /// <param name="autoOrderProhibitExpiringCards">Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable..</param>
         /// <param name="autoOrderSchedules">The user selectable schedules that are available.</param>
         /// <param name="autoOrderUpgradeItems">List of upgrade items presented to customer service representatives.</param>
         /// <param name="autoOrderUpsell">True if this item uses a fixed upsell step schedule.</param>
@@ -49,7 +50,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="freeShippingAutoOrder">True if the customer should be given free shipping.</param>
         /// <param name="refundOtherAutoOrders">True if other auto orders for this customer should refunded if this item is refunded..</param>
         /// <param name="steps">The rebill steps if this auto order is an upsell.</param>
-        public ItemAutoOrder(decimal? authFutureAmount = default(decimal?), decimal? authTestAmount = default(decimal?), string autoOrderCancelItemId = default(string), int? autoOrderCancelItemOid = default(int?), List<string> autoOrderDowngradeItems = default(List<string>), bool? autoOrderPaused = default(bool?), List<string> autoOrderSchedules = default(List<string>), List<string> autoOrderUpgradeItems = default(List<string>), bool? autoOrderUpsell = default(bool?), bool? autoOrderUpsellNoEasyCancel = default(bool?), bool? autoOrderUpsellOnePerCustomer = default(bool?), bool? autoOrderable = default(bool?), bool? cancelOtherAutoOrders = default(bool?), bool? freeShippingAutoOrder = default(bool?), bool? refundOtherAutoOrders = default(bool?), List<ItemAutoOrderStep> steps = default(List<ItemAutoOrderStep>))
+        public ItemAutoOrder(decimal? authFutureAmount = default(decimal?), decimal? authTestAmount = default(decimal?), string autoOrderCancelItemId = default(string), int? autoOrderCancelItemOid = default(int?), List<string> autoOrderDowngradeItems = default(List<string>), bool? autoOrderPaused = default(bool?), int? autoOrderProhibitExpiringCards = default(int?), List<string> autoOrderSchedules = default(List<string>), List<string> autoOrderUpgradeItems = default(List<string>), bool? autoOrderUpsell = default(bool?), bool? autoOrderUpsellNoEasyCancel = default(bool?), bool? autoOrderUpsellOnePerCustomer = default(bool?), bool? autoOrderable = default(bool?), bool? cancelOtherAutoOrders = default(bool?), bool? freeShippingAutoOrder = default(bool?), bool? refundOtherAutoOrders = default(bool?), List<ItemAutoOrderStep> steps = default(List<ItemAutoOrderStep>))
         {
             this.AuthFutureAmount = authFutureAmount;
             this.AuthTestAmount = authTestAmount;
@@ -57,6 +58,7 @@ namespace com.ultracart.admin.v2.Model
             this.AutoOrderCancelItemOid = autoOrderCancelItemOid;
             this.AutoOrderDowngradeItems = autoOrderDowngradeItems;
             this.AutoOrderPaused = autoOrderPaused;
+            this.AutoOrderProhibitExpiringCards = autoOrderProhibitExpiringCards;
             this.AutoOrderSchedules = autoOrderSchedules;
             this.AutoOrderUpgradeItems = autoOrderUpgradeItems;
             this.AutoOrderUpsell = autoOrderUpsell;
@@ -110,6 +112,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if the rebill processing of this item is paused</value>
         [DataMember(Name="auto_order_paused", EmitDefaultValue=false)]
         public bool? AutoOrderPaused { get; set; }
+
+        /// <summary>
+        /// Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable.
+        /// </summary>
+        /// <value>Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable.</value>
+        [DataMember(Name="auto_order_prohibit_expiring_cards", EmitDefaultValue=false)]
+        public int? AutoOrderProhibitExpiringCards { get; set; }
 
         /// <summary>
         /// The user selectable schedules that are available
@@ -195,6 +204,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AutoOrderCancelItemOid: ").Append(AutoOrderCancelItemOid).Append("\n");
             sb.Append("  AutoOrderDowngradeItems: ").Append(AutoOrderDowngradeItems).Append("\n");
             sb.Append("  AutoOrderPaused: ").Append(AutoOrderPaused).Append("\n");
+            sb.Append("  AutoOrderProhibitExpiringCards: ").Append(AutoOrderProhibitExpiringCards).Append("\n");
             sb.Append("  AutoOrderSchedules: ").Append(AutoOrderSchedules).Append("\n");
             sb.Append("  AutoOrderUpgradeItems: ").Append(AutoOrderUpgradeItems).Append("\n");
             sb.Append("  AutoOrderUpsell: ").Append(AutoOrderUpsell).Append("\n");
@@ -270,6 +280,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AutoOrderPaused.Equals(input.AutoOrderPaused))
                 ) && 
                 (
+                    this.AutoOrderProhibitExpiringCards == input.AutoOrderProhibitExpiringCards ||
+                    (this.AutoOrderProhibitExpiringCards != null &&
+                    this.AutoOrderProhibitExpiringCards.Equals(input.AutoOrderProhibitExpiringCards))
+                ) && 
+                (
                     this.AutoOrderSchedules == input.AutoOrderSchedules ||
                     this.AutoOrderSchedules != null &&
                     this.AutoOrderSchedules.SequenceEqual(input.AutoOrderSchedules)
@@ -342,6 +357,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AutoOrderDowngradeItems.GetHashCode();
                 if (this.AutoOrderPaused != null)
                     hashCode = hashCode * 59 + this.AutoOrderPaused.GetHashCode();
+                if (this.AutoOrderProhibitExpiringCards != null)
+                    hashCode = hashCode * 59 + this.AutoOrderProhibitExpiringCards.GetHashCode();
                 if (this.AutoOrderSchedules != null)
                     hashCode = hashCode * 59 + this.AutoOrderSchedules.GetHashCode();
                 if (this.AutoOrderUpgradeItems != null)

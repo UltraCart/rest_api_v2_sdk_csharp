@@ -35,13 +35,15 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="coupon">coupon.</param>
         /// <param name="error">error.</param>
+        /// <param name="itemsInvalidForCoupons">Items invalid for coupons.  These will display as warnings within the UI..</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public CouponResponse(Coupon coupon = default(Coupon), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
+        public CouponResponse(Coupon coupon = default(Coupon), Error error = default(Error), List<string> itemsInvalidForCoupons = default(List<string>), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
         {
             this.Coupon = coupon;
             this.Error = error;
+            this.ItemsInvalidForCoupons = itemsInvalidForCoupons;
             this.Metadata = metadata;
             this.Success = success;
             this.Warning = warning;
@@ -58,6 +60,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
+
+        /// <summary>
+        /// Items invalid for coupons.  These will display as warnings within the UI.
+        /// </summary>
+        /// <value>Items invalid for coupons.  These will display as warnings within the UI.</value>
+        [DataMember(Name="items_invalid_for_coupons", EmitDefaultValue=false)]
+        public List<string> ItemsInvalidForCoupons { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
@@ -88,6 +97,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class CouponResponse {\n");
             sb.Append("  Coupon: ").Append(Coupon).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
+            sb.Append("  ItemsInvalidForCoupons: ").Append(ItemsInvalidForCoupons).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
@@ -136,6 +146,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Error.Equals(input.Error))
                 ) && 
                 (
+                    this.ItemsInvalidForCoupons == input.ItemsInvalidForCoupons ||
+                    this.ItemsInvalidForCoupons != null &&
+                    this.ItemsInvalidForCoupons.SequenceEqual(input.ItemsInvalidForCoupons)
+                ) && 
+                (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
@@ -165,6 +180,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Coupon.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
+                if (this.ItemsInvalidForCoupons != null)
+                    hashCode = hashCode * 59 + this.ItemsInvalidForCoupons.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Success != null)

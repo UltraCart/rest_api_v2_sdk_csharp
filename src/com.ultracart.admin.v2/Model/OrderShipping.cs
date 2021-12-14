@@ -42,6 +42,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="dayPhoneE164">Day time phone (E164 format).</param>
         /// <param name="deliveryDate">Date the customer is requesting delivery on.  Typically used for perishable product delivery..</param>
         /// <param name="eveningPhone">Evening phone.</param>
+        /// <param name="eveningPhoneE164">Evening phone (E164 format).</param>
         /// <param name="firstName">First name.</param>
         /// <param name="lastName">Last name.</param>
         /// <param name="leastCostRoute">If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts..</param>
@@ -62,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="trackingNumberDetails">Tracking number details.</param>
         /// <param name="trackingNumbers">Tracking numbers.</param>
         /// <param name="weight">weight.</param>
-        public OrderShipping(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string dayPhoneE164 = default(string), string deliveryDate = default(string), string eveningPhone = default(string), string firstName = default(string), string lastName = default(string), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? liftGate = default(bool?), string postalCode = default(string), string rma = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shipping3rdPartyAccountNumber = default(string), string shippingDate = default(string), string shippingDepartmentStatus = default(string), string shippingMethod = default(string), string shippingMethodAccountingCode = default(string), string specialInstructions = default(string), string stateRegion = default(string), string title = default(string), List<OrderTrackingNumberDetails> trackingNumberDetails = default(List<OrderTrackingNumberDetails>), List<string> trackingNumbers = default(List<string>), Weight weight = default(Weight))
+        public OrderShipping(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string dayPhoneE164 = default(string), string deliveryDate = default(string), string eveningPhone = default(string), string eveningPhoneE164 = default(string), string firstName = default(string), string lastName = default(string), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? liftGate = default(bool?), string postalCode = default(string), string rma = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shipping3rdPartyAccountNumber = default(string), string shippingDate = default(string), string shippingDepartmentStatus = default(string), string shippingMethod = default(string), string shippingMethodAccountingCode = default(string), string specialInstructions = default(string), string stateRegion = default(string), string title = default(string), List<OrderTrackingNumberDetails> trackingNumberDetails = default(List<OrderTrackingNumberDetails>), List<string> trackingNumbers = default(List<string>), Weight weight = default(Weight))
         {
             this.Address1 = address1;
             this.Address2 = address2;
@@ -73,6 +74,7 @@ namespace com.ultracart.admin.v2.Model
             this.DayPhoneE164 = dayPhoneE164;
             this.DeliveryDate = deliveryDate;
             this.EveningPhone = eveningPhone;
+            this.EveningPhoneE164 = eveningPhoneE164;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.LeastCostRoute = leastCostRoute;
@@ -157,6 +159,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Evening phone</value>
         [DataMember(Name="evening_phone", EmitDefaultValue=false)]
         public string EveningPhone { get; set; }
+
+        /// <summary>
+        /// Evening phone (E164 format)
+        /// </summary>
+        /// <value>Evening phone (E164 format)</value>
+        [DataMember(Name="evening_phone_e164", EmitDefaultValue=false)]
+        public string EveningPhoneE164 { get; set; }
 
         /// <summary>
         /// First name
@@ -314,6 +323,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DayPhoneE164: ").Append(DayPhoneE164).Append("\n");
             sb.Append("  DeliveryDate: ").Append(DeliveryDate).Append("\n");
             sb.Append("  EveningPhone: ").Append(EveningPhone).Append("\n");
+            sb.Append("  EveningPhoneE164: ").Append(EveningPhoneE164).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  LeastCostRoute: ").Append(LeastCostRoute).Append("\n");
@@ -412,6 +422,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EveningPhone == input.EveningPhone ||
                     (this.EveningPhone != null &&
                     this.EveningPhone.Equals(input.EveningPhone))
+                ) && 
+                (
+                    this.EveningPhoneE164 == input.EveningPhoneE164 ||
+                    (this.EveningPhoneE164 != null &&
+                    this.EveningPhoneE164.Equals(input.EveningPhoneE164))
                 ) && 
                 (
                     this.FirstName == input.FirstName ||
@@ -542,6 +557,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DeliveryDate.GetHashCode();
                 if (this.EveningPhone != null)
                     hashCode = hashCode * 59 + this.EveningPhone.GetHashCode();
+                if (this.EveningPhoneE164 != null)
+                    hashCode = hashCode * 59 + this.EveningPhoneE164.GetHashCode();
                 if (this.FirstName != null)
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
@@ -639,6 +656,12 @@ namespace com.ultracart.admin.v2.Model
             if(this.EveningPhone != null && this.EveningPhone.Length > 25)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EveningPhone, length must be less than 25.", new [] { "EveningPhone" });
+            }
+
+            // EveningPhoneE164 (string) maxLength
+            if(this.EveningPhoneE164 != null && this.EveningPhoneE164.Length > 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EveningPhoneE164, length must be less than 25.", new [] { "EveningPhoneE164" });
             }
 
             // FirstName (string) maxLength

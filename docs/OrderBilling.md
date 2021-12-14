@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **DayPhoneE164** | **string** | Day time phone (E164 format) | [optional] 
 **Email** | **string** | Email | [optional] 
 **EveningPhone** | **string** | Evening phone | [optional] 
+**EveningPhoneE164** | **string** | Evening phone (E164 format) | [optional] 
 **FirstName** | **string** | First name | [optional] 
 **LastName** | **string** | Last name | [optional] 
 **PostalCode** | **string** | Postal code | [optional] 

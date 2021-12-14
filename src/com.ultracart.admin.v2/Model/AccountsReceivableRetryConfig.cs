@@ -35,6 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="active">True if the retry should run daily.  False puts the retry service into an inactive state for this merchant..</param>
         /// <param name="allowProcessLinkedAccounts">True if this account has linked accounts that it can process..</param>
+        /// <param name="cancelAutoOrder">If true also cancel the auto order if the order is rejected at the end.</param>
         /// <param name="currentServicePlan">The current service plan that the account is on..</param>
         /// <param name="dailyActivityList">A list of days and what actions should take place on those days after an order reaches accounts receivable.</param>
         /// <param name="managedByLinkedAccountMerchantId">If not null, this account is managed by the specified parent merchant id..</param>
@@ -47,10 +48,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rejectAtEnd">If true, the order is rejected the day after the last configured activity day.</param>
         /// <param name="trialMode">True if the account is currently in trial mode.  Set to false to exit trial mode..</param>
         /// <param name="trialModeExpirationDts">The date when trial mode expires.  If this date is reached without exiting trial mode, the service will de-activate..</param>
-        public AccountsReceivableRetryConfig(bool? active = default(bool?), bool? allowProcessLinkedAccounts = default(bool?), string currentServicePlan = default(string), List<AccountsReceivableRetryDayActivity> dailyActivityList = default(List<AccountsReceivableRetryDayActivity>), bool? managedByLinkedAccountMerchantId = default(bool?), string merchantId = default(string), List<string> notifyEmails = default(List<string>), bool? notifyRejections = default(bool?), bool? notifySuccesses = default(bool?), bool? processLinkedAccounts = default(bool?), string processingPercentage = default(string), bool? rejectAtEnd = default(bool?), bool? trialMode = default(bool?), string trialModeExpirationDts = default(string))
+        public AccountsReceivableRetryConfig(bool? active = default(bool?), bool? allowProcessLinkedAccounts = default(bool?), bool? cancelAutoOrder = default(bool?), string currentServicePlan = default(string), List<AccountsReceivableRetryDayActivity> dailyActivityList = default(List<AccountsReceivableRetryDayActivity>), bool? managedByLinkedAccountMerchantId = default(bool?), string merchantId = default(string), List<string> notifyEmails = default(List<string>), bool? notifyRejections = default(bool?), bool? notifySuccesses = default(bool?), bool? processLinkedAccounts = default(bool?), string processingPercentage = default(string), bool? rejectAtEnd = default(bool?), bool? trialMode = default(bool?), string trialModeExpirationDts = default(string))
         {
             this.Active = active;
             this.AllowProcessLinkedAccounts = allowProcessLinkedAccounts;
+            this.CancelAutoOrder = cancelAutoOrder;
             this.CurrentServicePlan = currentServicePlan;
             this.DailyActivityList = dailyActivityList;
             this.ManagedByLinkedAccountMerchantId = managedByLinkedAccountMerchantId;
@@ -78,6 +80,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if this account has linked accounts that it can process.</value>
         [DataMember(Name="allow_process_linked_accounts", EmitDefaultValue=false)]
         public bool? AllowProcessLinkedAccounts { get; set; }
+
+        /// <summary>
+        /// If true also cancel the auto order if the order is rejected at the end
+        /// </summary>
+        /// <value>If true also cancel the auto order if the order is rejected at the end</value>
+        [DataMember(Name="cancel_auto_order", EmitDefaultValue=false)]
+        public bool? CancelAutoOrder { get; set; }
 
         /// <summary>
         /// The current service plan that the account is on.
@@ -173,6 +182,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class AccountsReceivableRetryConfig {\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  AllowProcessLinkedAccounts: ").Append(AllowProcessLinkedAccounts).Append("\n");
+            sb.Append("  CancelAutoOrder: ").Append(CancelAutoOrder).Append("\n");
             sb.Append("  CurrentServicePlan: ").Append(CurrentServicePlan).Append("\n");
             sb.Append("  DailyActivityList: ").Append(DailyActivityList).Append("\n");
             sb.Append("  ManagedByLinkedAccountMerchantId: ").Append(ManagedByLinkedAccountMerchantId).Append("\n");
@@ -228,6 +238,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AllowProcessLinkedAccounts == input.AllowProcessLinkedAccounts ||
                     (this.AllowProcessLinkedAccounts != null &&
                     this.AllowProcessLinkedAccounts.Equals(input.AllowProcessLinkedAccounts))
+                ) && 
+                (
+                    this.CancelAutoOrder == input.CancelAutoOrder ||
+                    (this.CancelAutoOrder != null &&
+                    this.CancelAutoOrder.Equals(input.CancelAutoOrder))
                 ) && 
                 (
                     this.CurrentServicePlan == input.CurrentServicePlan ||
@@ -304,6 +319,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Active.GetHashCode();
                 if (this.AllowProcessLinkedAccounts != null)
                     hashCode = hashCode * 59 + this.AllowProcessLinkedAccounts.GetHashCode();
+                if (this.CancelAutoOrder != null)
+                    hashCode = hashCode * 59 + this.CancelAutoOrder.GetHashCode();
                 if (this.CurrentServicePlan != null)
                     hashCode = hashCode * 59 + this.CurrentServicePlan.GetHashCode();
                 if (this.DailyActivityList != null)

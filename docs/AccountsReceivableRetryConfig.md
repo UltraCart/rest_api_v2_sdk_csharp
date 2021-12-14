@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Active** | **bool?** | True if the retry should run daily.  False puts the retry service into an inactive state for this merchant. | [optional] 
 **AllowProcessLinkedAccounts** | **bool?** | True if this account has linked accounts that it can process. | [optional] 
+**CancelAutoOrder** | **bool?** | If true also cancel the auto order if the order is rejected at the end | [optional] 
 **CurrentServicePlan** | **string** | The current service plan that the account is on. | [optional] 
 **DailyActivityList** | [**List&lt;AccountsReceivableRetryDayActivity&gt;**](AccountsReceivableRetryDayActivity.md) | A list of days and what actions should take place on those days after an order reaches accounts receivable | [optional] 
 **ManagedByLinkedAccountMerchantId** | **bool?** | If not null, this account is managed by the specified parent merchant id. | [optional] 

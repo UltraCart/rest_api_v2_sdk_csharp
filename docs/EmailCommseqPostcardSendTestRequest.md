@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **EspCommseqPostcardUuid** | **string** |  | [optional] 
 **EspCommseqStepUuid** | **string** |  | [optional] 
 **EspCommseqUuid** | **string** |  | [optional] 
+**MailCard** | **bool?** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **OrderId** | **string** |  | [optional] 
 **PostalCode** | **string** |  | [optional] 

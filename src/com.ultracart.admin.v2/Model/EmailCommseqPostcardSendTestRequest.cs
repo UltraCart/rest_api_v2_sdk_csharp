@@ -41,11 +41,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="espCommseqPostcardUuid">espCommseqPostcardUuid.</param>
         /// <param name="espCommseqStepUuid">espCommseqStepUuid.</param>
         /// <param name="espCommseqUuid">espCommseqUuid.</param>
+        /// <param name="mailCard">mailCard.</param>
         /// <param name="name">name.</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="postalCode">postalCode.</param>
         /// <param name="state">state.</param>
-        public EmailCommseqPostcardSendTestRequest(string address1 = default(string), string address2 = default(string), string cartId = default(string), List<string> cartItemIds = default(List<string>), string city = default(string), string espCommseqPostcardUuid = default(string), string espCommseqStepUuid = default(string), string espCommseqUuid = default(string), string name = default(string), string orderId = default(string), string postalCode = default(string), string state = default(string))
+        public EmailCommseqPostcardSendTestRequest(string address1 = default(string), string address2 = default(string), string cartId = default(string), List<string> cartItemIds = default(List<string>), string city = default(string), string espCommseqPostcardUuid = default(string), string espCommseqStepUuid = default(string), string espCommseqUuid = default(string), bool? mailCard = default(bool?), string name = default(string), string orderId = default(string), string postalCode = default(string), string state = default(string))
         {
             this.Address1 = address1;
             this.Address2 = address2;
@@ -55,6 +56,7 @@ namespace com.ultracart.admin.v2.Model
             this.EspCommseqPostcardUuid = espCommseqPostcardUuid;
             this.EspCommseqStepUuid = espCommseqStepUuid;
             this.EspCommseqUuid = espCommseqUuid;
+            this.MailCard = mailCard;
             this.Name = name;
             this.OrderId = orderId;
             this.PostalCode = postalCode;
@@ -110,6 +112,12 @@ namespace com.ultracart.admin.v2.Model
         public string EspCommseqUuid { get; set; }
 
         /// <summary>
+        /// Gets or Sets MailCard
+        /// </summary>
+        [DataMember(Name="mail_card", EmitDefaultValue=false)]
+        public bool? MailCard { get; set; }
+
+        /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
@@ -149,6 +157,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EspCommseqPostcardUuid: ").Append(EspCommseqPostcardUuid).Append("\n");
             sb.Append("  EspCommseqStepUuid: ").Append(EspCommseqStepUuid).Append("\n");
             sb.Append("  EspCommseqUuid: ").Append(EspCommseqUuid).Append("\n");
+            sb.Append("  MailCard: ").Append(MailCard).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
@@ -228,6 +237,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EspCommseqUuid.Equals(input.EspCommseqUuid))
                 ) && 
                 (
+                    this.MailCard == input.MailCard ||
+                    (this.MailCard != null &&
+                    this.MailCard.Equals(input.MailCard))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -274,6 +288,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EspCommseqStepUuid.GetHashCode();
                 if (this.EspCommseqUuid != null)
                     hashCode = hashCode * 59 + this.EspCommseqUuid.GetHashCode();
+                if (this.MailCard != null)
+                    hashCode = hashCode * 59 + this.MailCard.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.OrderId != null)

@@ -35,11 +35,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="applicationId">application id.</param>
         /// <param name="claimId">claim id.</param>
+        /// <param name="insuranceType">insurance type.</param>
         /// <param name="refundClaimId">refund claim id.</param>
-        public OrderPaymentInsurance(string applicationId = default(string), string claimId = default(string), string refundClaimId = default(string))
+        public OrderPaymentInsurance(string applicationId = default(string), string claimId = default(string), string insuranceType = default(string), string refundClaimId = default(string))
         {
             this.ApplicationId = applicationId;
             this.ClaimId = claimId;
+            this.InsuranceType = insuranceType;
             this.RefundClaimId = refundClaimId;
         }
         
@@ -58,6 +60,13 @@ namespace com.ultracart.admin.v2.Model
         public string ClaimId { get; set; }
 
         /// <summary>
+        /// insurance type
+        /// </summary>
+        /// <value>insurance type</value>
+        [DataMember(Name="insurance_type", EmitDefaultValue=false)]
+        public string InsuranceType { get; set; }
+
+        /// <summary>
         /// refund claim id
         /// </summary>
         /// <value>refund claim id</value>
@@ -74,6 +83,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class OrderPaymentInsurance {\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  ClaimId: ").Append(ClaimId).Append("\n");
+            sb.Append("  InsuranceType: ").Append(InsuranceType).Append("\n");
             sb.Append("  RefundClaimId: ").Append(RefundClaimId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -120,6 +130,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ClaimId.Equals(input.ClaimId))
                 ) && 
                 (
+                    this.InsuranceType == input.InsuranceType ||
+                    (this.InsuranceType != null &&
+                    this.InsuranceType.Equals(input.InsuranceType))
+                ) && 
+                (
                     this.RefundClaimId == input.RefundClaimId ||
                     (this.RefundClaimId != null &&
                     this.RefundClaimId.Equals(input.RefundClaimId))
@@ -139,6 +154,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 if (this.ClaimId != null)
                     hashCode = hashCode * 59 + this.ClaimId.GetHashCode();
+                if (this.InsuranceType != null)
+                    hashCode = hashCode * 59 + this.InsuranceType.GetHashCode();
                 if (this.RefundClaimId != null)
                     hashCode = hashCode * 59 + this.RefundClaimId.GetHashCode();
                 return hashCode;

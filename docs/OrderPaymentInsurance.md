@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ApplicationId** | **string** | application id | [optional] 
 **ClaimId** | **string** | claim id | [optional] 
+**InsuranceType** | **string** | insurance type | [optional] 
 **RefundClaimId** | **string** | refund claim id | [optional] 
 
 

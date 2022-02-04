@@ -39,7 +39,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="gacid">Google Analytics CID (Cookie).</param>
         /// <param name="glcid">Google Adwords Click Id (Parameter).</param>
         /// <param name="msclkid">Bing Click Id (Parameter.</param>
-        public ScreenRecordingAdPlatform(string fbc = default(string), string fbclid = default(string), string fbp = default(string), string gacid = default(string), string glcid = default(string), string msclkid = default(string))
+        /// <param name="ttclid">TikTok Click Id (Parameter.</param>
+        public ScreenRecordingAdPlatform(string fbc = default(string), string fbclid = default(string), string fbp = default(string), string gacid = default(string), string glcid = default(string), string msclkid = default(string), string ttclid = default(string))
         {
             this.Fbc = fbc;
             this.Fbclid = fbclid;
@@ -47,6 +48,7 @@ namespace com.ultracart.admin.v2.Model
             this.Gacid = gacid;
             this.Glcid = glcid;
             this.Msclkid = msclkid;
+            this.Ttclid = ttclid;
         }
         
         /// <summary>
@@ -92,6 +94,13 @@ namespace com.ultracart.admin.v2.Model
         public string Msclkid { get; set; }
 
         /// <summary>
+        /// TikTok Click Id (Parameter
+        /// </summary>
+        /// <value>TikTok Click Id (Parameter</value>
+        [DataMember(Name="ttclid", EmitDefaultValue=false)]
+        public string Ttclid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +114,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Gacid: ").Append(Gacid).Append("\n");
             sb.Append("  Glcid: ").Append(Glcid).Append("\n");
             sb.Append("  Msclkid: ").Append(Msclkid).Append("\n");
+            sb.Append("  Ttclid: ").Append(Ttclid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -168,6 +178,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Msclkid == input.Msclkid ||
                     (this.Msclkid != null &&
                     this.Msclkid.Equals(input.Msclkid))
+                ) && 
+                (
+                    this.Ttclid == input.Ttclid ||
+                    (this.Ttclid != null &&
+                    this.Ttclid.Equals(input.Ttclid))
                 );
         }
 
@@ -192,6 +207,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Glcid.GetHashCode();
                 if (this.Msclkid != null)
                     hashCode = hashCode * 59 + this.Msclkid.GetHashCode();
+                if (this.Ttclid != null)
+                    hashCode = hashCode * 59 + this.Ttclid.GetHashCode();
                 return hashCode;
             }
         }

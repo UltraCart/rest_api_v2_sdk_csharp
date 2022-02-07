@@ -79,6 +79,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="enabled">True if this auto order is enabled.</param>
         /// <param name="failureReason">The reason this auto order failed during the last rebill attempt.</param>
         /// <param name="items">The items that are setup to rebill.</param>
+        /// <param name="logs">Logs associated with this auto order.</param>
         /// <param name="nextAttempt">The next time that the auto order will be attempted for processing.</param>
         /// <param name="originalOrder">originalOrder.</param>
         /// <param name="originalOrderId">The original order id that this auto order is associated with..</param>
@@ -86,7 +87,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rebillOrders">Rebill orders that have taken place on this auto order.</param>
         /// <param name="rotatingTransactionGatewayCode">The RTG code associated with this order for future rebills.</param>
         /// <param name="status">The status of the auto order.</param>
-        public AutoOrder(string autoOrderCode = default(string), int? autoOrderOid = default(int?), int? cancelAfterNextXOrders = default(int?), bool? cancelDowngrade = default(bool?), bool? cancelUpgrade = default(bool?), string canceledByUser = default(string), string canceledDts = default(string), bool? completed = default(bool?), int? creditCardAttempt = default(int?), string disabledDts = default(string), bool? enabled = default(bool?), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int? overrideAffiliateId = default(int?), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
+        public AutoOrder(string autoOrderCode = default(string), int? autoOrderOid = default(int?), int? cancelAfterNextXOrders = default(int?), bool? cancelDowngrade = default(bool?), bool? cancelUpgrade = default(bool?), string canceledByUser = default(string), string canceledDts = default(string), bool? completed = default(bool?), int? creditCardAttempt = default(int?), string disabledDts = default(string), bool? enabled = default(bool?), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), List<AutoOrderLog> logs = default(List<AutoOrderLog>), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int? overrideAffiliateId = default(int?), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
         {
             this.AutoOrderCode = autoOrderCode;
             this.AutoOrderOid = autoOrderOid;
@@ -101,6 +102,7 @@ namespace com.ultracart.admin.v2.Model
             this.Enabled = enabled;
             this.FailureReason = failureReason;
             this.Items = items;
+            this.Logs = logs;
             this.NextAttempt = nextAttempt;
             this.OriginalOrder = originalOrder;
             this.OriginalOrderId = originalOrderId;
@@ -202,6 +204,13 @@ namespace com.ultracart.admin.v2.Model
         public List<AutoOrderItem> Items { get; set; }
 
         /// <summary>
+        /// Logs associated with this auto order
+        /// </summary>
+        /// <value>Logs associated with this auto order</value>
+        [DataMember(Name="logs", EmitDefaultValue=false)]
+        public List<AutoOrderLog> Logs { get; set; }
+
+        /// <summary>
         /// The next time that the auto order will be attempted for processing
         /// </summary>
         /// <value>The next time that the auto order will be attempted for processing</value>
@@ -264,6 +273,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  FailureReason: ").Append(FailureReason).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
+            sb.Append("  Logs: ").Append(Logs).Append("\n");
             sb.Append("  NextAttempt: ").Append(NextAttempt).Append("\n");
             sb.Append("  OriginalOrder: ").Append(OriginalOrder).Append("\n");
             sb.Append("  OriginalOrderId: ").Append(OriginalOrderId).Append("\n");
@@ -371,6 +381,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Items.SequenceEqual(input.Items)
                 ) && 
                 (
+                    this.Logs == input.Logs ||
+                    this.Logs != null &&
+                    this.Logs.SequenceEqual(input.Logs)
+                ) && 
+                (
                     this.NextAttempt == input.NextAttempt ||
                     (this.NextAttempt != null &&
                     this.NextAttempt.Equals(input.NextAttempt))
@@ -442,6 +457,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FailureReason.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
+                if (this.Logs != null)
+                    hashCode = hashCode * 59 + this.Logs.GetHashCode();
                 if (this.NextAttempt != null)
                     hashCode = hashCode * 59 + this.NextAttempt.GetHashCode();
                 if (this.OriginalOrder != null)

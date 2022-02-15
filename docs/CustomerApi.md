@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 <a name="deletecustomer"></a>
 # **DeleteCustomer**
-> CustomerResponse DeleteCustomer (int? customerProfileOid)
+> void DeleteCustomer (int? customerProfileOid)
 
 Delete a customer
 
@@ -51,8 +51,7 @@ namespace Example
             try
             {
                 // Delete a customer
-                CustomerResponse result = apiInstance.DeleteCustomer(customerProfileOid);
-                Debug.WriteLine(result);
+                apiInstance.DeleteCustomer(customerProfileOid);
             }
             catch (Exception e)
             {
@@ -72,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomerResponse**](CustomerResponse.md)
+void (empty response body)
 
 ### Authorization
 

@@ -32,8 +32,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
-        /// <returns>CustomerResponse</returns>
-        CustomerResponse DeleteCustomer (int? customerProfileOid);
+        /// <returns></returns>
+        void DeleteCustomer (int? customerProfileOid);
 
         /// <summary>
         /// Delete a customer
@@ -43,8 +43,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
-        /// <returns>ApiResponse of CustomerResponse</returns>
-        ApiResponse<CustomerResponse> DeleteCustomerWithHttpInfo (int? customerProfileOid);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteCustomerWithHttpInfo (int? customerProfileOid);
         /// <summary>
         /// Retrieve a customer
         /// </summary>
@@ -387,8 +387,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
-        /// <returns>Task of CustomerResponse</returns>
-        System.Threading.Tasks.Task<CustomerResponse> DeleteCustomerAsync (int? customerProfileOid);
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteCustomerAsync (int? customerProfileOid);
 
         /// <summary>
         /// Delete a customer
@@ -398,8 +398,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
-        /// <returns>Task of ApiResponse (CustomerResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> DeleteCustomerAsyncWithHttpInfo (int? customerProfileOid);
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomerAsyncWithHttpInfo (int? customerProfileOid);
         /// <summary>
         /// Retrieve a customer
         /// </summary>
@@ -844,11 +844,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
-        /// <returns>CustomerResponse</returns>
-        public CustomerResponse DeleteCustomer (int? customerProfileOid)
+        /// <returns></returns>
+        public void DeleteCustomer (int? customerProfileOid)
         {
-             ApiResponse<CustomerResponse> localVarResponse = DeleteCustomerWithHttpInfo(customerProfileOid);
-             return localVarResponse.Data;
+             DeleteCustomerWithHttpInfo(customerProfileOid);
         }
 
         /// <summary>
@@ -856,8 +855,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
-        /// <returns>ApiResponse of CustomerResponse</returns>
-        public ApiResponse< CustomerResponse > DeleteCustomerWithHttpInfo (int? customerProfileOid)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteCustomerWithHttpInfo (int? customerProfileOid)
         {
             // verify the required parameter 'customerProfileOid' is set
             if (customerProfileOid == null)
@@ -912,9 +911,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CustomerResponse>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CustomerResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerResponse)));
+                null);
         }
 
         /// <summary>
@@ -922,11 +921,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
-        /// <returns>Task of CustomerResponse</returns>
-        public async System.Threading.Tasks.Task<CustomerResponse> DeleteCustomerAsync (int? customerProfileOid)
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteCustomerAsync (int? customerProfileOid)
         {
-             ApiResponse<CustomerResponse> localVarResponse = await DeleteCustomerAsyncWithHttpInfo(customerProfileOid);
-             return localVarResponse.Data;
+             await DeleteCustomerAsyncWithHttpInfo(customerProfileOid);
 
         }
 
@@ -935,8 +933,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerProfileOid">The customer_profile_oid to delete.</param>
-        /// <returns>Task of ApiResponse (CustomerResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> DeleteCustomerAsyncWithHttpInfo (int? customerProfileOid)
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomerAsyncWithHttpInfo (int? customerProfileOid)
         {
             // verify the required parameter 'customerProfileOid' is set
             if (customerProfileOid == null)
@@ -991,9 +989,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CustomerResponse>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CustomerResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerResponse)));
+                null);
         }
 
         /// <summary>

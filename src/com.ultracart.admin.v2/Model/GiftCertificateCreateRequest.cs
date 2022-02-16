@@ -34,12 +34,14 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="GiftCertificateCreateRequest" /> class.
         /// </summary>
         /// <param name="amount">Initial amount of this gift certificate..</param>
+        /// <param name="email">The email address (customer/owner) associated with this gift certificate..</param>
         /// <param name="expirationDts">Expiration date time..</param>
         /// <param name="initialLedgerDescription">A brief description of how and/or why this gift certificate was created..</param>
         /// <param name="merchantNote">Any internal details you wish to record about this gift certificate..</param>
-        public GiftCertificateCreateRequest(decimal? amount = default(decimal?), string expirationDts = default(string), string initialLedgerDescription = default(string), string merchantNote = default(string))
+        public GiftCertificateCreateRequest(decimal? amount = default(decimal?), string email = default(string), string expirationDts = default(string), string initialLedgerDescription = default(string), string merchantNote = default(string))
         {
             this.Amount = amount;
+            this.Email = email;
             this.ExpirationDts = expirationDts;
             this.InitialLedgerDescription = initialLedgerDescription;
             this.MerchantNote = merchantNote;
@@ -51,6 +53,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Initial amount of this gift certificate.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public decimal? Amount { get; set; }
+
+        /// <summary>
+        /// The email address (customer/owner) associated with this gift certificate.
+        /// </summary>
+        /// <value>The email address (customer/owner) associated with this gift certificate.</value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Expiration date time.
@@ -82,6 +91,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class GiftCertificateCreateRequest {\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  ExpirationDts: ").Append(ExpirationDts).Append("\n");
             sb.Append("  InitialLedgerDescription: ").Append(InitialLedgerDescription).Append("\n");
             sb.Append("  MerchantNote: ").Append(MerchantNote).Append("\n");
@@ -125,6 +135,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Amount.Equals(input.Amount))
                 ) && 
                 (
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
+                ) && 
+                (
                     this.ExpirationDts == input.ExpirationDts ||
                     (this.ExpirationDts != null &&
                     this.ExpirationDts.Equals(input.ExpirationDts))
@@ -152,6 +167,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
+                if (this.Email != null)
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.ExpirationDts != null)
                     hashCode = hashCode * 59 + this.ExpirationDts.GetHashCode();
                 if (this.InitialLedgerDescription != null)

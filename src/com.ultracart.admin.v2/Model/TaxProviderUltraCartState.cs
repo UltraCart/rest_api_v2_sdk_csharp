@@ -34,15 +34,21 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="TaxProviderUltraCartState" /> class.
         /// </summary>
         /// <param name="enabled">True if this state taxes are managed by UltraCart.</param>
+        /// <param name="exemptDigitalItems">True if digital items are exempt from sales tax in this state..</param>
+        /// <param name="exemptPhysicalItems">True if physical items are exempt from sales tax in this state..</param>
+        /// <param name="exemptServiceItems">True if service items are exempt from sales tax in this state..</param>
         /// <param name="stateCode">State Code (2 digits).</param>
         /// <param name="stateName">Fully spelled out state name.</param>
         /// <param name="taxGiftCharge">True if gift charges should be taxed in this state..</param>
         /// <param name="taxGiftWrap">True if gift wrap should be taxed in this state..</param>
         /// <param name="taxRateFormatted">State tax rate formatted for display.</param>
         /// <param name="taxShipping">True if shipping should be taxed in this state..</param>
-        public TaxProviderUltraCartState(bool? enabled = default(bool?), string stateCode = default(string), string stateName = default(string), bool? taxGiftCharge = default(bool?), bool? taxGiftWrap = default(bool?), string taxRateFormatted = default(string), bool? taxShipping = default(bool?))
+        public TaxProviderUltraCartState(bool? enabled = default(bool?), bool? exemptDigitalItems = default(bool?), bool? exemptPhysicalItems = default(bool?), bool? exemptServiceItems = default(bool?), string stateCode = default(string), string stateName = default(string), bool? taxGiftCharge = default(bool?), bool? taxGiftWrap = default(bool?), string taxRateFormatted = default(string), bool? taxShipping = default(bool?))
         {
             this.Enabled = enabled;
+            this.ExemptDigitalItems = exemptDigitalItems;
+            this.ExemptPhysicalItems = exemptPhysicalItems;
+            this.ExemptServiceItems = exemptServiceItems;
             this.StateCode = stateCode;
             this.StateName = stateName;
             this.TaxGiftCharge = taxGiftCharge;
@@ -57,6 +63,27 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if this state taxes are managed by UltraCart</value>
         [DataMember(Name="enabled", EmitDefaultValue=false)]
         public bool? Enabled { get; set; }
+
+        /// <summary>
+        /// True if digital items are exempt from sales tax in this state.
+        /// </summary>
+        /// <value>True if digital items are exempt from sales tax in this state.</value>
+        [DataMember(Name="exempt_digital_items", EmitDefaultValue=false)]
+        public bool? ExemptDigitalItems { get; set; }
+
+        /// <summary>
+        /// True if physical items are exempt from sales tax in this state.
+        /// </summary>
+        /// <value>True if physical items are exempt from sales tax in this state.</value>
+        [DataMember(Name="exempt_physical_items", EmitDefaultValue=false)]
+        public bool? ExemptPhysicalItems { get; set; }
+
+        /// <summary>
+        /// True if service items are exempt from sales tax in this state.
+        /// </summary>
+        /// <value>True if service items are exempt from sales tax in this state.</value>
+        [DataMember(Name="exempt_service_items", EmitDefaultValue=false)]
+        public bool? ExemptServiceItems { get; set; }
 
         /// <summary>
         /// State Code (2 digits)
@@ -109,6 +136,9 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class TaxProviderUltraCartState {\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            sb.Append("  ExemptDigitalItems: ").Append(ExemptDigitalItems).Append("\n");
+            sb.Append("  ExemptPhysicalItems: ").Append(ExemptPhysicalItems).Append("\n");
+            sb.Append("  ExemptServiceItems: ").Append(ExemptServiceItems).Append("\n");
             sb.Append("  StateCode: ").Append(StateCode).Append("\n");
             sb.Append("  StateName: ").Append(StateName).Append("\n");
             sb.Append("  TaxGiftCharge: ").Append(TaxGiftCharge).Append("\n");
@@ -155,6 +185,21 @@ namespace com.ultracart.admin.v2.Model
                     this.Enabled.Equals(input.Enabled))
                 ) && 
                 (
+                    this.ExemptDigitalItems == input.ExemptDigitalItems ||
+                    (this.ExemptDigitalItems != null &&
+                    this.ExemptDigitalItems.Equals(input.ExemptDigitalItems))
+                ) && 
+                (
+                    this.ExemptPhysicalItems == input.ExemptPhysicalItems ||
+                    (this.ExemptPhysicalItems != null &&
+                    this.ExemptPhysicalItems.Equals(input.ExemptPhysicalItems))
+                ) && 
+                (
+                    this.ExemptServiceItems == input.ExemptServiceItems ||
+                    (this.ExemptServiceItems != null &&
+                    this.ExemptServiceItems.Equals(input.ExemptServiceItems))
+                ) && 
+                (
                     this.StateCode == input.StateCode ||
                     (this.StateCode != null &&
                     this.StateCode.Equals(input.StateCode))
@@ -197,6 +242,12 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Enabled != null)
                     hashCode = hashCode * 59 + this.Enabled.GetHashCode();
+                if (this.ExemptDigitalItems != null)
+                    hashCode = hashCode * 59 + this.ExemptDigitalItems.GetHashCode();
+                if (this.ExemptPhysicalItems != null)
+                    hashCode = hashCode * 59 + this.ExemptPhysicalItems.GetHashCode();
+                if (this.ExemptServiceItems != null)
+                    hashCode = hashCode * 59 + this.ExemptServiceItems.GetHashCode();
                 if (this.StateCode != null)
                     hashCode = hashCode * 59 + this.StateCode.GetHashCode();
                 if (this.StateName != null)

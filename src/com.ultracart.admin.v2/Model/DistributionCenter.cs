@@ -66,8 +66,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="shipmentCutoffTimeTuesday">The time (EST) after which shipments will not be processed on Tuesday.</param>
         /// <param name="shipmentCutoffTimeWednesday">The time (EST) after which shipments will not be processed on Wednesday.</param>
         /// <param name="state">State of the distribution center.</param>
+        /// <param name="transmitBlankCosts">True if monetary amounts should be zeroed before transmission.</param>
         /// <param name="transport">Transport mechanism for this distribution center.</param>
-        public DistributionCenter(string address1 = default(string), string address2 = default(string), string city = default(string), string code = default(string), string countryCode = default(string), bool? defaultCenter = default(bool?), bool? defaultHandlesAllItems = default(bool?), int? distributionCenterOid = default(int?), string duns = default(string), int? estimateFromDistributionCenterOid = default(int?), string ftpPassword = default(string), int? holdBeforeShipmentMinutes = default(int?), bool? holdBeforeTransmission = default(bool?), int? holdAutoOrderBeforeShipmentMinutes = default(int?), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string name = default(string), bool? noCustomerDirectShipments = default(bool?), bool? noSplitShipment = default(bool?), string postalCode = default(string), int? processDays = default(int?), string processInventoryStartTime = default(string), string processInventoryStopTime = default(string), bool? requireAsn = default(bool?), bool? sendKitInsteadOfComponents = default(bool?), string shipmentCutoffTimeFriday = default(string), string shipmentCutoffTimeMonday = default(string), string shipmentCutoffTimeSaturday = default(string), string shipmentCutoffTimeSunday = default(string), string shipmentCutoffTimeThursday = default(string), string shipmentCutoffTimeTuesday = default(string), string shipmentCutoffTimeWednesday = default(string), string state = default(string), string transport = default(string))
+        public DistributionCenter(string address1 = default(string), string address2 = default(string), string city = default(string), string code = default(string), string countryCode = default(string), bool? defaultCenter = default(bool?), bool? defaultHandlesAllItems = default(bool?), int? distributionCenterOid = default(int?), string duns = default(string), int? estimateFromDistributionCenterOid = default(int?), string ftpPassword = default(string), int? holdBeforeShipmentMinutes = default(int?), bool? holdBeforeTransmission = default(bool?), int? holdAutoOrderBeforeShipmentMinutes = default(int?), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string name = default(string), bool? noCustomerDirectShipments = default(bool?), bool? noSplitShipment = default(bool?), string postalCode = default(string), int? processDays = default(int?), string processInventoryStartTime = default(string), string processInventoryStopTime = default(string), bool? requireAsn = default(bool?), bool? sendKitInsteadOfComponents = default(bool?), string shipmentCutoffTimeFriday = default(string), string shipmentCutoffTimeMonday = default(string), string shipmentCutoffTimeSaturday = default(string), string shipmentCutoffTimeSunday = default(string), string shipmentCutoffTimeThursday = default(string), string shipmentCutoffTimeTuesday = default(string), string shipmentCutoffTimeWednesday = default(string), string state = default(string), bool? transmitBlankCosts = default(bool?), string transport = default(string))
         {
             this.Address1 = address1;
             this.Address2 = address2;
@@ -102,6 +103,7 @@ namespace com.ultracart.admin.v2.Model
             this.ShipmentCutoffTimeTuesday = shipmentCutoffTimeTuesday;
             this.ShipmentCutoffTimeWednesday = shipmentCutoffTimeWednesday;
             this.State = state;
+            this.TransmitBlankCosts = transmitBlankCosts;
             this.Transport = transport;
         }
         
@@ -336,6 +338,13 @@ namespace com.ultracart.admin.v2.Model
         public string State { get; set; }
 
         /// <summary>
+        /// True if monetary amounts should be zeroed before transmission
+        /// </summary>
+        /// <value>True if monetary amounts should be zeroed before transmission</value>
+        [DataMember(Name="transmit_blank_costs", EmitDefaultValue=false)]
+        public bool? TransmitBlankCosts { get; set; }
+
+        /// <summary>
         /// Transport mechanism for this distribution center
         /// </summary>
         /// <value>Transport mechanism for this distribution center</value>
@@ -383,6 +392,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ShipmentCutoffTimeTuesday: ").Append(ShipmentCutoffTimeTuesday).Append("\n");
             sb.Append("  ShipmentCutoffTimeWednesday: ").Append(ShipmentCutoffTimeWednesday).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  TransmitBlankCosts: ").Append(TransmitBlankCosts).Append("\n");
             sb.Append("  Transport: ").Append(Transport).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -584,6 +594,11 @@ namespace com.ultracart.admin.v2.Model
                     this.State.Equals(input.State))
                 ) && 
                 (
+                    this.TransmitBlankCosts == input.TransmitBlankCosts ||
+                    (this.TransmitBlankCosts != null &&
+                    this.TransmitBlankCosts.Equals(input.TransmitBlankCosts))
+                ) && 
+                (
                     this.Transport == input.Transport ||
                     (this.Transport != null &&
                     this.Transport.Equals(input.Transport))
@@ -665,6 +680,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ShipmentCutoffTimeWednesday.GetHashCode();
                 if (this.State != null)
                     hashCode = hashCode * 59 + this.State.GetHashCode();
+                if (this.TransmitBlankCosts != null)
+                    hashCode = hashCode * 59 + this.TransmitBlankCosts.GetHashCode();
                 if (this.Transport != null)
                     hashCode = hashCode * 59 + this.Transport.GetHashCode();
                 return hashCode;

@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderCheckout" /> class.
         /// </summary>
+        /// <param name="browser">browser.</param>
         /// <param name="comments">Comments from the customer.  Rarely used on the single page checkout..</param>
         /// <param name="customField1">Custom field 1.</param>
         /// <param name="customField2">Custom field 2.</param>
@@ -43,10 +44,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="customField7">Custom field 7.</param>
         /// <param name="customerIpAddress">IP address of the customer when placing the order.</param>
         /// <param name="screenBrandingThemeCode">Screen branding theme code associated with the order (legacy checkout).</param>
+        /// <param name="screenSize">Screen size small, medium or large.</param>
         /// <param name="storefrontHostName">StoreFront host name associated with the order.</param>
         /// <param name="upsellPathCode">Upsell path code assigned during the checkout that the customer went through.</param>
-        public OrderCheckout(string comments = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customerIpAddress = default(string), string screenBrandingThemeCode = default(string), string storefrontHostName = default(string), string upsellPathCode = default(string))
+        public OrderCheckout(Browser browser = default(Browser), string comments = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customerIpAddress = default(string), string screenBrandingThemeCode = default(string), string screenSize = default(string), string storefrontHostName = default(string), string upsellPathCode = default(string))
         {
+            this.Browser = browser;
             this.Comments = comments;
             this.CustomField1 = customField1;
             this.CustomField2 = customField2;
@@ -57,10 +60,17 @@ namespace com.ultracart.admin.v2.Model
             this.CustomField7 = customField7;
             this.CustomerIpAddress = customerIpAddress;
             this.ScreenBrandingThemeCode = screenBrandingThemeCode;
+            this.ScreenSize = screenSize;
             this.StorefrontHostName = storefrontHostName;
             this.UpsellPathCode = upsellPathCode;
         }
         
+        /// <summary>
+        /// Gets or Sets Browser
+        /// </summary>
+        [DataMember(Name="browser", EmitDefaultValue=false)]
+        public Browser Browser { get; set; }
+
         /// <summary>
         /// Comments from the customer.  Rarely used on the single page checkout.
         /// </summary>
@@ -132,6 +142,13 @@ namespace com.ultracart.admin.v2.Model
         public string ScreenBrandingThemeCode { get; set; }
 
         /// <summary>
+        /// Screen size small, medium or large
+        /// </summary>
+        /// <value>Screen size small, medium or large</value>
+        [DataMember(Name="screen_size", EmitDefaultValue=false)]
+        public string ScreenSize { get; set; }
+
+        /// <summary>
         /// StoreFront host name associated with the order
         /// </summary>
         /// <value>StoreFront host name associated with the order</value>
@@ -153,6 +170,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class OrderCheckout {\n");
+            sb.Append("  Browser: ").Append(Browser).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
             sb.Append("  CustomField1: ").Append(CustomField1).Append("\n");
             sb.Append("  CustomField2: ").Append(CustomField2).Append("\n");
@@ -163,6 +181,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CustomField7: ").Append(CustomField7).Append("\n");
             sb.Append("  CustomerIpAddress: ").Append(CustomerIpAddress).Append("\n");
             sb.Append("  ScreenBrandingThemeCode: ").Append(ScreenBrandingThemeCode).Append("\n");
+            sb.Append("  ScreenSize: ").Append(ScreenSize).Append("\n");
             sb.Append("  StorefrontHostName: ").Append(StorefrontHostName).Append("\n");
             sb.Append("  UpsellPathCode: ").Append(UpsellPathCode).Append("\n");
             sb.Append("}\n");
@@ -199,6 +218,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Browser == input.Browser ||
+                    (this.Browser != null &&
+                    this.Browser.Equals(input.Browser))
+                ) && 
                 (
                     this.Comments == input.Comments ||
                     (this.Comments != null &&
@@ -250,6 +274,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ScreenBrandingThemeCode.Equals(input.ScreenBrandingThemeCode))
                 ) && 
                 (
+                    this.ScreenSize == input.ScreenSize ||
+                    (this.ScreenSize != null &&
+                    this.ScreenSize.Equals(input.ScreenSize))
+                ) && 
+                (
                     this.StorefrontHostName == input.StorefrontHostName ||
                     (this.StorefrontHostName != null &&
                     this.StorefrontHostName.Equals(input.StorefrontHostName))
@@ -270,6 +299,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Browser != null)
+                    hashCode = hashCode * 59 + this.Browser.GetHashCode();
                 if (this.Comments != null)
                     hashCode = hashCode * 59 + this.Comments.GetHashCode();
                 if (this.CustomField1 != null)
@@ -290,6 +321,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CustomerIpAddress.GetHashCode();
                 if (this.ScreenBrandingThemeCode != null)
                     hashCode = hashCode * 59 + this.ScreenBrandingThemeCode.GetHashCode();
+                if (this.ScreenSize != null)
+                    hashCode = hashCode * 59 + this.ScreenSize.GetHashCode();
                 if (this.StorefrontHostName != null)
                     hashCode = hashCode * 59 + this.StorefrontHostName.GetHashCode();
                 if (this.UpsellPathCode != null)

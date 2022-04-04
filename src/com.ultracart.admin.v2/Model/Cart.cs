@@ -34,6 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="Cart" /> class.
         /// </summary>
         /// <param name="affiliate">affiliate.</param>
+        /// <param name="affiliateNetworkPixelOid">The affiliate network pixel identifier associated with the cart.</param>
         /// <param name="baseCurrencyCode">The ISO-4217 three letter base currency code of the account.</param>
         /// <param name="billing">billing.</param>
         /// <param name="buysafe">buysafe.</param>
@@ -58,9 +59,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="summary">summary.</param>
         /// <param name="taxes">taxes.</param>
         /// <param name="upsellAfter">upsellAfter.</param>
-        public Cart(CartAffiliate affiliate = default(CartAffiliate), string baseCurrencyCode = default(string), CartBilling billing = default(CartBilling), CartBuysafe buysafe = default(CartBuysafe), string cartId = default(string), CartCheckout checkout = default(CartCheckout), List<CartCoupon> coupons = default(List<CartCoupon>), string currencyCode = default(string), CartCurrencyConversion currencyConversion = default(CartCurrencyConversion), CartCustomerProfile customerProfile = default(CartCustomerProfile), decimal? exchangeRate = default(decimal?), CartGift gift = default(CartGift), CartGiftCertificate giftCertificate = default(CartGiftCertificate), List<CartItem> items = default(List<CartItem>), string languageIsoCode = default(string), bool? loggedIn = default(bool?), CartMarketing marketing = default(CartMarketing), string merchantId = default(string), CartPayment payment = default(CartPayment), List<CartProperty> properties = default(List<CartProperty>), CartSettings settings = default(CartSettings), CartShipping shipping = default(CartShipping), CartSummary summary = default(CartSummary), CartTaxes taxes = default(CartTaxes), CartUpsellAfter upsellAfter = default(CartUpsellAfter))
+        public Cart(CartAffiliate affiliate = default(CartAffiliate), int? affiliateNetworkPixelOid = default(int?), string baseCurrencyCode = default(string), CartBilling billing = default(CartBilling), CartBuysafe buysafe = default(CartBuysafe), string cartId = default(string), CartCheckout checkout = default(CartCheckout), List<CartCoupon> coupons = default(List<CartCoupon>), string currencyCode = default(string), CartCurrencyConversion currencyConversion = default(CartCurrencyConversion), CartCustomerProfile customerProfile = default(CartCustomerProfile), decimal? exchangeRate = default(decimal?), CartGift gift = default(CartGift), CartGiftCertificate giftCertificate = default(CartGiftCertificate), List<CartItem> items = default(List<CartItem>), string languageIsoCode = default(string), bool? loggedIn = default(bool?), CartMarketing marketing = default(CartMarketing), string merchantId = default(string), CartPayment payment = default(CartPayment), List<CartProperty> properties = default(List<CartProperty>), CartSettings settings = default(CartSettings), CartShipping shipping = default(CartShipping), CartSummary summary = default(CartSummary), CartTaxes taxes = default(CartTaxes), CartUpsellAfter upsellAfter = default(CartUpsellAfter))
         {
             this.Affiliate = affiliate;
+            this.AffiliateNetworkPixelOid = affiliateNetworkPixelOid;
             this.BaseCurrencyCode = baseCurrencyCode;
             this.Billing = billing;
             this.Buysafe = buysafe;
@@ -92,6 +94,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="affiliate", EmitDefaultValue=false)]
         public CartAffiliate Affiliate { get; set; }
+
+        /// <summary>
+        /// The affiliate network pixel identifier associated with the cart
+        /// </summary>
+        /// <value>The affiliate network pixel identifier associated with the cart</value>
+        [DataMember(Name="affiliate_network_pixel_oid", EmitDefaultValue=false)]
+        public int? AffiliateNetworkPixelOid { get; set; }
 
         /// <summary>
         /// The ISO-4217 three letter base currency code of the account
@@ -256,6 +265,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class Cart {\n");
             sb.Append("  Affiliate: ").Append(Affiliate).Append("\n");
+            sb.Append("  AffiliateNetworkPixelOid: ").Append(AffiliateNetworkPixelOid).Append("\n");
             sb.Append("  BaseCurrencyCode: ").Append(BaseCurrencyCode).Append("\n");
             sb.Append("  Billing: ").Append(Billing).Append("\n");
             sb.Append("  Buysafe: ").Append(Buysafe).Append("\n");
@@ -318,6 +328,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Affiliate == input.Affiliate ||
                     (this.Affiliate != null &&
                     this.Affiliate.Equals(input.Affiliate))
+                ) && 
+                (
+                    this.AffiliateNetworkPixelOid == input.AffiliateNetworkPixelOid ||
+                    (this.AffiliateNetworkPixelOid != null &&
+                    this.AffiliateNetworkPixelOid.Equals(input.AffiliateNetworkPixelOid))
                 ) && 
                 (
                     this.BaseCurrencyCode == input.BaseCurrencyCode ||
@@ -452,6 +467,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Affiliate != null)
                     hashCode = hashCode * 59 + this.Affiliate.GetHashCode();
+                if (this.AffiliateNetworkPixelOid != null)
+                    hashCode = hashCode * 59 + this.AffiliateNetworkPixelOid.GetHashCode();
                 if (this.BaseCurrencyCode != null)
                     hashCode = hashCode * 59 + this.BaseCurrencyCode.GetHashCode();
                 if (this.Billing != null)

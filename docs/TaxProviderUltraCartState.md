@@ -4,6 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Enabled** | **bool?** | True if this state taxes are managed by UltraCart | [optional] 
+**ExemptDigitalItems** | **bool?** | True if digital items are exempt from sales tax in this state. | [optional] 
+**ExemptPhysicalItems** | **bool?** | True if physical items are exempt from sales tax in this state. | [optional] 
+**ExemptServiceItems** | **bool?** | True if service items are exempt from sales tax in this state. | [optional] 
 **StateCode** | **string** | State Code (2 digits) | [optional] 
 **StateName** | **string** | Fully spelled out state name | [optional] 
 **TaxGiftCharge** | **bool?** | True if gift charges should be taxed in this state. | [optional] 

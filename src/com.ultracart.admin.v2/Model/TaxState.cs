@@ -40,6 +40,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="dontCollectCounty">Flag instructing engine to not collect county tax for this state.</param>
         /// <param name="dontCollectPostalCode">Flag instructing engine to not collect postal code tax for this state.</param>
         /// <param name="dontCollectState">Flag instructing engine to not collect state tax for this state.</param>
+        /// <param name="exemptDigitalItems">True if digital items are exempt from sales tax in this state..</param>
+        /// <param name="exemptPhysicalItems">True if physical items are exempt from sales tax in this state..</param>
+        /// <param name="exemptServiceItems">True if service items are exempt from sales tax in this state..</param>
         /// <param name="stateCode">State code.</param>
         /// <param name="stateOid">Tax record object identifier used internally by database.</param>
         /// <param name="taxGiftCharge">True if taxation within this jurisdiction should charge tax on gift charge.</param>
@@ -48,7 +51,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taxRateFormatted">Tax rate formatted.</param>
         /// <param name="taxShipping">True if taxation within this jurisdiction should charge tax on shipping.</param>
         /// <param name="useUltracartManagedRates">If true, use UltraCart managed rates for this state.</param>
-        public TaxState(string accountingCode = default(string), List<TaxCounty> counties = default(List<TaxCounty>), int? countryOid = default(int?), bool? dontCollectCity = default(bool?), bool? dontCollectCounty = default(bool?), bool? dontCollectPostalCode = default(bool?), bool? dontCollectState = default(bool?), string stateCode = default(string), int? stateOid = default(int?), bool? taxGiftCharge = default(bool?), bool? taxGiftWrap = default(bool?), decimal? taxRate = default(decimal?), string taxRateFormatted = default(string), bool? taxShipping = default(bool?), bool? useUltracartManagedRates = default(bool?))
+        public TaxState(string accountingCode = default(string), List<TaxCounty> counties = default(List<TaxCounty>), int? countryOid = default(int?), bool? dontCollectCity = default(bool?), bool? dontCollectCounty = default(bool?), bool? dontCollectPostalCode = default(bool?), bool? dontCollectState = default(bool?), bool? exemptDigitalItems = default(bool?), bool? exemptPhysicalItems = default(bool?), bool? exemptServiceItems = default(bool?), string stateCode = default(string), int? stateOid = default(int?), bool? taxGiftCharge = default(bool?), bool? taxGiftWrap = default(bool?), decimal? taxRate = default(decimal?), string taxRateFormatted = default(string), bool? taxShipping = default(bool?), bool? useUltracartManagedRates = default(bool?))
         {
             this.AccountingCode = accountingCode;
             this.Counties = counties;
@@ -57,6 +60,9 @@ namespace com.ultracart.admin.v2.Model
             this.DontCollectCounty = dontCollectCounty;
             this.DontCollectPostalCode = dontCollectPostalCode;
             this.DontCollectState = dontCollectState;
+            this.ExemptDigitalItems = exemptDigitalItems;
+            this.ExemptPhysicalItems = exemptPhysicalItems;
+            this.ExemptServiceItems = exemptServiceItems;
             this.StateCode = stateCode;
             this.StateOid = stateOid;
             this.TaxGiftCharge = taxGiftCharge;
@@ -115,6 +121,27 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Flag instructing engine to not collect state tax for this state</value>
         [DataMember(Name="dont_collect_state", EmitDefaultValue=false)]
         public bool? DontCollectState { get; set; }
+
+        /// <summary>
+        /// True if digital items are exempt from sales tax in this state.
+        /// </summary>
+        /// <value>True if digital items are exempt from sales tax in this state.</value>
+        [DataMember(Name="exempt_digital_items", EmitDefaultValue=false)]
+        public bool? ExemptDigitalItems { get; set; }
+
+        /// <summary>
+        /// True if physical items are exempt from sales tax in this state.
+        /// </summary>
+        /// <value>True if physical items are exempt from sales tax in this state.</value>
+        [DataMember(Name="exempt_physical_items", EmitDefaultValue=false)]
+        public bool? ExemptPhysicalItems { get; set; }
+
+        /// <summary>
+        /// True if service items are exempt from sales tax in this state.
+        /// </summary>
+        /// <value>True if service items are exempt from sales tax in this state.</value>
+        [DataMember(Name="exempt_service_items", EmitDefaultValue=false)]
+        public bool? ExemptServiceItems { get; set; }
 
         /// <summary>
         /// State code
@@ -187,6 +214,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DontCollectCounty: ").Append(DontCollectCounty).Append("\n");
             sb.Append("  DontCollectPostalCode: ").Append(DontCollectPostalCode).Append("\n");
             sb.Append("  DontCollectState: ").Append(DontCollectState).Append("\n");
+            sb.Append("  ExemptDigitalItems: ").Append(ExemptDigitalItems).Append("\n");
+            sb.Append("  ExemptPhysicalItems: ").Append(ExemptPhysicalItems).Append("\n");
+            sb.Append("  ExemptServiceItems: ").Append(ExemptServiceItems).Append("\n");
             sb.Append("  StateCode: ").Append(StateCode).Append("\n");
             sb.Append("  StateOid: ").Append(StateOid).Append("\n");
             sb.Append("  TaxGiftCharge: ").Append(TaxGiftCharge).Append("\n");
@@ -265,6 +295,21 @@ namespace com.ultracart.admin.v2.Model
                     this.DontCollectState.Equals(input.DontCollectState))
                 ) && 
                 (
+                    this.ExemptDigitalItems == input.ExemptDigitalItems ||
+                    (this.ExemptDigitalItems != null &&
+                    this.ExemptDigitalItems.Equals(input.ExemptDigitalItems))
+                ) && 
+                (
+                    this.ExemptPhysicalItems == input.ExemptPhysicalItems ||
+                    (this.ExemptPhysicalItems != null &&
+                    this.ExemptPhysicalItems.Equals(input.ExemptPhysicalItems))
+                ) && 
+                (
+                    this.ExemptServiceItems == input.ExemptServiceItems ||
+                    (this.ExemptServiceItems != null &&
+                    this.ExemptServiceItems.Equals(input.ExemptServiceItems))
+                ) && 
+                (
                     this.StateCode == input.StateCode ||
                     (this.StateCode != null &&
                     this.StateCode.Equals(input.StateCode))
@@ -329,6 +374,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DontCollectPostalCode.GetHashCode();
                 if (this.DontCollectState != null)
                     hashCode = hashCode * 59 + this.DontCollectState.GetHashCode();
+                if (this.ExemptDigitalItems != null)
+                    hashCode = hashCode * 59 + this.ExemptDigitalItems.GetHashCode();
+                if (this.ExemptPhysicalItems != null)
+                    hashCode = hashCode * 59 + this.ExemptPhysicalItems.GetHashCode();
+                if (this.ExemptServiceItems != null)
+                    hashCode = hashCode * 59 + this.ExemptServiceItems.GetHashCode();
                 if (this.StateCode != null)
                     hashCode = hashCode * 59 + this.StateCode.GetHashCode();
                 if (this.StateOid != null)

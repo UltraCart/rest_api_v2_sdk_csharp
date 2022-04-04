@@ -31,15 +31,56 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemTax :  IEquatable<ItemTax>, IValidatableObject
     {
         /// <summary>
+        /// Tax product type
+        /// </summary>
+        /// <value>Tax product type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TaxProductTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Empty for value: 
+            /// </summary>
+            [EnumMember(Value = "")]
+            Empty = 1,
+            
+            /// <summary>
+            /// Enum Digital for value: digital
+            /// </summary>
+            [EnumMember(Value = "digital")]
+            Digital = 2,
+            
+            /// <summary>
+            /// Enum Physical for value: physical
+            /// </summary>
+            [EnumMember(Value = "physical")]
+            Physical = 3,
+            
+            /// <summary>
+            /// Enum Service for value: service
+            /// </summary>
+            [EnumMember(Value = "service")]
+            Service = 4
+        }
+
+        /// <summary>
+        /// Tax product type
+        /// </summary>
+        /// <value>Tax product type</value>
+        [DataMember(Name="tax_product_type", EmitDefaultValue=false)]
+        public TaxProductTypeEnum? TaxProductType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemTax" /> class.
         /// </summary>
         /// <param name="exemptions">Exemptions.</param>
         /// <param name="taxFree">True if tax free.</param>
+        /// <param name="taxProductType">Tax product type.</param>
         /// <param name="taxableCost">Taxable cost if different than regular cost.</param>
-        public ItemTax(List<ItemTaxExemption> exemptions = default(List<ItemTaxExemption>), bool? taxFree = default(bool?), decimal? taxableCost = default(decimal?))
+        public ItemTax(List<ItemTaxExemption> exemptions = default(List<ItemTaxExemption>), bool? taxFree = default(bool?), TaxProductTypeEnum? taxProductType = default(TaxProductTypeEnum?), decimal? taxableCost = default(decimal?))
         {
             this.Exemptions = exemptions;
             this.TaxFree = taxFree;
+            this.TaxProductType = taxProductType;
             this.TaxableCost = taxableCost;
         }
         
@@ -56,6 +97,7 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if tax free</value>
         [DataMember(Name="tax_free", EmitDefaultValue=false)]
         public bool? TaxFree { get; set; }
+
 
         /// <summary>
         /// Taxable cost if different than regular cost
@@ -74,6 +116,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ItemTax {\n");
             sb.Append("  Exemptions: ").Append(Exemptions).Append("\n");
             sb.Append("  TaxFree: ").Append(TaxFree).Append("\n");
+            sb.Append("  TaxProductType: ").Append(TaxProductType).Append("\n");
             sb.Append("  TaxableCost: ").Append(TaxableCost).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -120,6 +163,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TaxFree.Equals(input.TaxFree))
                 ) && 
                 (
+                    this.TaxProductType == input.TaxProductType ||
+                    (this.TaxProductType != null &&
+                    this.TaxProductType.Equals(input.TaxProductType))
+                ) && 
+                (
                     this.TaxableCost == input.TaxableCost ||
                     (this.TaxableCost != null &&
                     this.TaxableCost.Equals(input.TaxableCost))
@@ -139,6 +187,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Exemptions.GetHashCode();
                 if (this.TaxFree != null)
                     hashCode = hashCode * 59 + this.TaxFree.GetHashCode();
+                if (this.TaxProductType != null)
+                    hashCode = hashCode * 59 + this.TaxProductType.GetHashCode();
                 if (this.TaxableCost != null)
                     hashCode = hashCode * 59 + this.TaxableCost.GetHashCode();
                 return hashCode;

@@ -25,26 +25,41 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// CustomerTag
+    /// Browser
     /// </summary>
     [DataContract]
-    public partial class CustomerTag :  IEquatable<CustomerTag>, IValidatableObject
+    public partial class Browser :  IEquatable<Browser>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomerTag" /> class.
+        /// Initializes a new instance of the <see cref="Browser" /> class.
         /// </summary>
-        /// <param name="tagValue">Tag Value.</param>
-        public CustomerTag(string tagValue = default(string))
+        /// <param name="device">device.</param>
+        /// <param name="os">os.</param>
+        /// <param name="userAgent">userAgent.</param>
+        public Browser(BrowserDevice device = default(BrowserDevice), BrowserOS os = default(BrowserOS), BrowserUserAgent userAgent = default(BrowserUserAgent))
         {
-            this.TagValue = tagValue;
+            this.Device = device;
+            this.Os = os;
+            this.UserAgent = userAgent;
         }
         
         /// <summary>
-        /// Tag Value
+        /// Gets or Sets Device
         /// </summary>
-        /// <value>Tag Value</value>
-        [DataMember(Name="tag_value", EmitDefaultValue=false)]
-        public string TagValue { get; set; }
+        [DataMember(Name="device", EmitDefaultValue=false)]
+        public BrowserDevice Device { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Os
+        /// </summary>
+        [DataMember(Name="os", EmitDefaultValue=false)]
+        public BrowserOS Os { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserAgent
+        /// </summary>
+        [DataMember(Name="user_agent", EmitDefaultValue=false)]
+        public BrowserUserAgent UserAgent { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +68,10 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CustomerTag {\n");
-            sb.Append("  TagValue: ").Append(TagValue).Append("\n");
+            sb.Append("class Browser {\n");
+            sb.Append("  Device: ").Append(Device).Append("\n");
+            sb.Append("  Os: ").Append(Os).Append("\n");
+            sb.Append("  UserAgent: ").Append(UserAgent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,24 +92,34 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CustomerTag);
+            return this.Equals(input as Browser);
         }
 
         /// <summary>
-        /// Returns true if CustomerTag instances are equal
+        /// Returns true if Browser instances are equal
         /// </summary>
-        /// <param name="input">Instance of CustomerTag to be compared</param>
+        /// <param name="input">Instance of Browser to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CustomerTag input)
+        public bool Equals(Browser input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.TagValue == input.TagValue ||
-                    (this.TagValue != null &&
-                    this.TagValue.Equals(input.TagValue))
+                    this.Device == input.Device ||
+                    (this.Device != null &&
+                    this.Device.Equals(input.Device))
+                ) && 
+                (
+                    this.Os == input.Os ||
+                    (this.Os != null &&
+                    this.Os.Equals(input.Os))
+                ) && 
+                (
+                    this.UserAgent == input.UserAgent ||
+                    (this.UserAgent != null &&
+                    this.UserAgent.Equals(input.UserAgent))
                 );
         }
 
@@ -105,8 +132,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TagValue != null)
-                    hashCode = hashCode * 59 + this.TagValue.GetHashCode();
+                if (this.Device != null)
+                    hashCode = hashCode * 59 + this.Device.GetHashCode();
+                if (this.Os != null)
+                    hashCode = hashCode * 59 + this.Os.GetHashCode();
+                if (this.UserAgent != null)
+                    hashCode = hashCode * 59 + this.UserAgent.GetHashCode();
                 return hashCode;
             }
         }
@@ -118,12 +149,6 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // TagValue (string) maxLength
-            if(this.TagValue != null && this.TagValue.Length > 250)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TagValue, length must be less than 250.", new [] { "TagValue" });
-            }
-
             yield break;
         }
     }

@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **ShipmentCutoffTimeTuesday** | **string** | The time (EST) after which shipments will not be processed on Tuesday | [optional] 
 **ShipmentCutoffTimeWednesday** | **string** | The time (EST) after which shipments will not be processed on Wednesday | [optional] 
 **State** | **string** | State of the distribution center | [optional] 
+**TransmitBlankCosts** | **bool?** | True if monetary amounts should be zeroed before transmission | [optional] 
 **Transport** | **string** | Transport mechanism for this distribution center | [optional] 
 
 

@@ -35,24 +35,28 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="activated">True if this gift certificate is activated and ready to apply to purchases..</param>
         /// <param name="code">The code used by the customer to purchase against this gift certificate..</param>
+        /// <param name="customerProfileOid">This is the customer profile oid associated with this internally managed gift certificate..</param>
         /// <param name="deleted">True if this gift certificate was deleted..</param>
         /// <param name="email">Email of the customer associated with this gift certificate..</param>
         /// <param name="expirationDts">Expiration date time..</param>
         /// <param name="giftCertificateOid">Gift certificate oid..</param>
+        /// <param name="_internal">This is an internally managed gift certificate associated with the loyalty cash rewards program..</param>
         /// <param name="ledgerEntries">A list of all ledger activity for this gift certificate..</param>
         /// <param name="merchantId">Merchant Id.</param>
         /// <param name="merchantNote">A list of all ledger activity for this gift certificate..</param>
         /// <param name="originalBalance">Original balance of the gift certificate..</param>
         /// <param name="referenceOrderId">The order used to purchase this gift certificate.  This value is ONLY set during checkout when a certificate is purchased, not when it is used.  Any usage is recorded in the ledger.</param>
         /// <param name="remainingBalance">The remaining balance on the gift certificate.  This is never set directly, but calculated from the ledger.  To change the remaining balance, add a ledger entry..</param>
-        public GiftCertificate(bool? activated = default(bool?), string code = default(string), bool? deleted = default(bool?), string email = default(string), string expirationDts = default(string), int? giftCertificateOid = default(int?), List<GiftCertificateLedgerEntry> ledgerEntries = default(List<GiftCertificateLedgerEntry>), string merchantId = default(string), string merchantNote = default(string), decimal? originalBalance = default(decimal?), string referenceOrderId = default(string), decimal? remainingBalance = default(decimal?))
+        public GiftCertificate(bool? activated = default(bool?), string code = default(string), int? customerProfileOid = default(int?), bool? deleted = default(bool?), string email = default(string), string expirationDts = default(string), int? giftCertificateOid = default(int?), bool? _internal = default(bool?), List<GiftCertificateLedgerEntry> ledgerEntries = default(List<GiftCertificateLedgerEntry>), string merchantId = default(string), string merchantNote = default(string), decimal? originalBalance = default(decimal?), string referenceOrderId = default(string), decimal? remainingBalance = default(decimal?))
         {
             this.Activated = activated;
             this.Code = code;
+            this.CustomerProfileOid = customerProfileOid;
             this.Deleted = deleted;
             this.Email = email;
             this.ExpirationDts = expirationDts;
             this.GiftCertificateOid = giftCertificateOid;
+            this.Internal = _internal;
             this.LedgerEntries = ledgerEntries;
             this.MerchantId = merchantId;
             this.MerchantNote = merchantNote;
@@ -74,6 +78,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The code used by the customer to purchase against this gift certificate.</value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
+
+        /// <summary>
+        /// This is the customer profile oid associated with this internally managed gift certificate.
+        /// </summary>
+        /// <value>This is the customer profile oid associated with this internally managed gift certificate.</value>
+        [DataMember(Name="customer_profile_oid", EmitDefaultValue=false)]
+        public int? CustomerProfileOid { get; set; }
 
         /// <summary>
         /// True if this gift certificate was deleted.
@@ -102,6 +113,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Gift certificate oid.</value>
         [DataMember(Name="gift_certificate_oid", EmitDefaultValue=false)]
         public int? GiftCertificateOid { get; set; }
+
+        /// <summary>
+        /// This is an internally managed gift certificate associated with the loyalty cash rewards program.
+        /// </summary>
+        /// <value>This is an internally managed gift certificate associated with the loyalty cash rewards program.</value>
+        [DataMember(Name="internal", EmitDefaultValue=false)]
+        public bool? Internal { get; set; }
 
         /// <summary>
         /// A list of all ledger activity for this gift certificate.
@@ -155,10 +173,12 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class GiftCertificate {\n");
             sb.Append("  Activated: ").Append(Activated).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  CustomerProfileOid: ").Append(CustomerProfileOid).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  ExpirationDts: ").Append(ExpirationDts).Append("\n");
             sb.Append("  GiftCertificateOid: ").Append(GiftCertificateOid).Append("\n");
+            sb.Append("  Internal: ").Append(Internal).Append("\n");
             sb.Append("  LedgerEntries: ").Append(LedgerEntries).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MerchantNote: ").Append(MerchantNote).Append("\n");
@@ -210,6 +230,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Code.Equals(input.Code))
                 ) && 
                 (
+                    this.CustomerProfileOid == input.CustomerProfileOid ||
+                    (this.CustomerProfileOid != null &&
+                    this.CustomerProfileOid.Equals(input.CustomerProfileOid))
+                ) && 
+                (
                     this.Deleted == input.Deleted ||
                     (this.Deleted != null &&
                     this.Deleted.Equals(input.Deleted))
@@ -228,6 +253,11 @@ namespace com.ultracart.admin.v2.Model
                     this.GiftCertificateOid == input.GiftCertificateOid ||
                     (this.GiftCertificateOid != null &&
                     this.GiftCertificateOid.Equals(input.GiftCertificateOid))
+                ) && 
+                (
+                    this.Internal == input.Internal ||
+                    (this.Internal != null &&
+                    this.Internal.Equals(input.Internal))
                 ) && 
                 (
                     this.LedgerEntries == input.LedgerEntries ||
@@ -274,6 +304,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Activated.GetHashCode();
                 if (this.Code != null)
                     hashCode = hashCode * 59 + this.Code.GetHashCode();
+                if (this.CustomerProfileOid != null)
+                    hashCode = hashCode * 59 + this.CustomerProfileOid.GetHashCode();
                 if (this.Deleted != null)
                     hashCode = hashCode * 59 + this.Deleted.GetHashCode();
                 if (this.Email != null)
@@ -282,6 +314,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ExpirationDts.GetHashCode();
                 if (this.GiftCertificateOid != null)
                     hashCode = hashCode * 59 + this.GiftCertificateOid.GetHashCode();
+                if (this.Internal != null)
+                    hashCode = hashCode * 59 + this.Internal.GetHashCode();
                 if (this.LedgerEntries != null)
                     hashCode = hashCode * 59 + this.LedgerEntries.GetHashCode();
                 if (this.MerchantId != null)
@@ -305,6 +339,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Email (string) maxLength
+            if(this.Email != null && this.Email.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 100.", new [] { "Email" });
+            }
+
             yield break;
         }
     }

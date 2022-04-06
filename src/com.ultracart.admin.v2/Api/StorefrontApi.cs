@@ -3129,8 +3129,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
-        /// <returns>EmailCommseqEmailSendTestResponse</returns>
-        EmailCommseqEmailSendTestResponse SendWebhookTest (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
+        /// <returns>EmailCommseqWebhookSendTestResponse</returns>
+        EmailCommseqWebhookSendTestResponse SendWebhookTest (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
 
         /// <summary>
         /// Send webhook test
@@ -3141,8 +3141,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
-        /// <returns>ApiResponse of EmailCommseqEmailSendTestResponse</returns>
-        ApiResponse<EmailCommseqEmailSendTestResponse> SendWebhookTestWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
+        /// <returns>ApiResponse of EmailCommseqWebhookSendTestResponse</returns>
+        ApiResponse<EmailCommseqWebhookSendTestResponse> SendWebhookTestWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
         /// <summary>
         /// Start email campaign
         /// </summary>
@@ -6857,8 +6857,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
-        /// <returns>Task of EmailCommseqEmailSendTestResponse</returns>
-        System.Threading.Tasks.Task<EmailCommseqEmailSendTestResponse> SendWebhookTestAsync (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
+        /// <returns>Task of EmailCommseqWebhookSendTestResponse</returns>
+        System.Threading.Tasks.Task<EmailCommseqWebhookSendTestResponse> SendWebhookTestAsync (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
 
         /// <summary>
         /// Send webhook test
@@ -6869,8 +6869,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
-        /// <returns>Task of ApiResponse (EmailCommseqEmailSendTestResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailCommseqEmailSendTestResponse>> SendWebhookTestAsyncWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
+        /// <returns>Task of ApiResponse (EmailCommseqWebhookSendTestResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailCommseqWebhookSendTestResponse>> SendWebhookTestAsyncWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest);
         /// <summary>
         /// Start email campaign
         /// </summary>
@@ -31747,10 +31747,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
-        /// <returns>EmailCommseqEmailSendTestResponse</returns>
-        public EmailCommseqEmailSendTestResponse SendWebhookTest (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
+        /// <returns>EmailCommseqWebhookSendTestResponse</returns>
+        public EmailCommseqWebhookSendTestResponse SendWebhookTest (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
         {
-             ApiResponse<EmailCommseqEmailSendTestResponse> localVarResponse = SendWebhookTestWithHttpInfo(storefrontOid, emailCommseqWebhookTestRequest);
+             ApiResponse<EmailCommseqWebhookSendTestResponse> localVarResponse = SendWebhookTestWithHttpInfo(storefrontOid, emailCommseqWebhookTestRequest);
              return localVarResponse.Data;
         }
 
@@ -31760,8 +31760,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
-        /// <returns>ApiResponse of EmailCommseqEmailSendTestResponse</returns>
-        public ApiResponse< EmailCommseqEmailSendTestResponse > SendWebhookTestWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
+        /// <returns>ApiResponse of EmailCommseqWebhookSendTestResponse</returns>
+        public ApiResponse< EmailCommseqWebhookSendTestResponse > SendWebhookTestWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -31832,9 +31832,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<EmailCommseqEmailSendTestResponse>(localVarStatusCode,
+            return new ApiResponse<EmailCommseqWebhookSendTestResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (EmailCommseqEmailSendTestResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqEmailSendTestResponse)));
+                (EmailCommseqWebhookSendTestResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqWebhookSendTestResponse)));
         }
 
         /// <summary>
@@ -31843,10 +31843,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
-        /// <returns>Task of EmailCommseqEmailSendTestResponse</returns>
-        public async System.Threading.Tasks.Task<EmailCommseqEmailSendTestResponse> SendWebhookTestAsync (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
+        /// <returns>Task of EmailCommseqWebhookSendTestResponse</returns>
+        public async System.Threading.Tasks.Task<EmailCommseqWebhookSendTestResponse> SendWebhookTestAsync (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
         {
-             ApiResponse<EmailCommseqEmailSendTestResponse> localVarResponse = await SendWebhookTestAsyncWithHttpInfo(storefrontOid, emailCommseqWebhookTestRequest);
+             ApiResponse<EmailCommseqWebhookSendTestResponse> localVarResponse = await SendWebhookTestAsyncWithHttpInfo(storefrontOid, emailCommseqWebhookTestRequest);
              return localVarResponse.Data;
 
         }
@@ -31857,8 +31857,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="storefrontOid"></param>
         /// <param name="emailCommseqWebhookTestRequest">Email commseq webhook test request</param>
-        /// <returns>Task of ApiResponse (EmailCommseqEmailSendTestResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EmailCommseqEmailSendTestResponse>> SendWebhookTestAsyncWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
+        /// <returns>Task of ApiResponse (EmailCommseqWebhookSendTestResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailCommseqWebhookSendTestResponse>> SendWebhookTestAsyncWithHttpInfo (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
         {
             // verify the required parameter 'storefrontOid' is set
             if (storefrontOid == null)
@@ -31929,9 +31929,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<EmailCommseqEmailSendTestResponse>(localVarStatusCode,
+            return new ApiResponse<EmailCommseqWebhookSendTestResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (EmailCommseqEmailSendTestResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqEmailSendTestResponse)));
+                (EmailCommseqWebhookSendTestResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailCommseqWebhookSendTestResponse)));
         }
 
         /// <summary>

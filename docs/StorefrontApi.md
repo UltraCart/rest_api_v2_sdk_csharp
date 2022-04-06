@@ -9049,7 +9049,7 @@ Name | Type | Description  | Notes
 
 <a name="sendwebhooktest"></a>
 # **SendWebhookTest**
-> EmailCommseqEmailSendTestResponse SendWebhookTest (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
+> EmailCommseqWebhookSendTestResponse SendWebhookTest (int? storefrontOid, EmailCommseqWebhookSendTestRequest emailCommseqWebhookTestRequest)
 
 Send webhook test
 ### Example
@@ -9078,7 +9078,7 @@ namespace Example
             try
             {
                 // Send webhook test
-                EmailCommseqEmailSendTestResponse result = apiInstance.SendWebhookTest(storefrontOid, emailCommseqWebhookTestRequest);
+                EmailCommseqWebhookSendTestResponse result = apiInstance.SendWebhookTest(storefrontOid, emailCommseqWebhookTestRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -9100,7 +9100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EmailCommseqEmailSendTestResponse**](EmailCommseqEmailSendTestResponse.md)
+[**EmailCommseqWebhookSendTestResponse**](EmailCommseqWebhookSendTestResponse.md)
 
 ### Authorization
 

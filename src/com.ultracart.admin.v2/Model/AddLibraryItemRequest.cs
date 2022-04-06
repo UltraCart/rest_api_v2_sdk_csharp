@@ -35,7 +35,6 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="attributes">Attributes associated with the library item to contain additional configuration..</param>
         /// <param name="cjson">Cjson to be added to library.</param>
-        /// <param name="cjson2">Additional Cjson to be added to library, notably for the postcard which has a front and back..</param>
         /// <param name="contentType">flow, campaign, cjson, email, transactional_email, postcard or upsell.</param>
         /// <param name="description">description of library item.</param>
         /// <param name="emailName">Required if content_type is transactional_email. This is the name of the email template (html, not text).  This name should have a .vm file extension.  An example is auto_order_cancel_html.vm.</param>
@@ -45,11 +44,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="title">title of library item, usually the name of the flow or campaign, or description of cjson.</param>
         /// <param name="upsellOfferOid">Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer..</param>
         /// <param name="uuid">UUID of communication flow, campaign, email, postcard, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name.</param>
-        public AddLibraryItemRequest(List<LibraryItemAttribute> attributes = default(List<LibraryItemAttribute>), string cjson = default(string), string cjson2 = default(string), string contentType = default(string), string description = default(string), string emailName = default(string), string emailPath = default(string), List<LibraryItemScreenshot> screenshots = default(List<LibraryItemScreenshot>), int? storefrontOid = default(int?), string title = default(string), int? upsellOfferOid = default(int?), string uuid = default(string))
+        public AddLibraryItemRequest(List<LibraryItemAttribute> attributes = default(List<LibraryItemAttribute>), string cjson = default(string), string contentType = default(string), string description = default(string), string emailName = default(string), string emailPath = default(string), List<LibraryItemScreenshot> screenshots = default(List<LibraryItemScreenshot>), int? storefrontOid = default(int?), string title = default(string), int? upsellOfferOid = default(int?), string uuid = default(string))
         {
             this.Attributes = attributes;
             this.Cjson = cjson;
-            this.Cjson2 = cjson2;
             this.ContentType = contentType;
             this.Description = description;
             this.EmailName = emailName;
@@ -74,13 +72,6 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Cjson to be added to library</value>
         [DataMember(Name="cjson", EmitDefaultValue=false)]
         public string Cjson { get; set; }
-
-        /// <summary>
-        /// Additional Cjson to be added to library, notably for the postcard which has a front and back.
-        /// </summary>
-        /// <value>Additional Cjson to be added to library, notably for the postcard which has a front and back.</value>
-        [DataMember(Name="cjson2", EmitDefaultValue=false)]
-        public string Cjson2 { get; set; }
 
         /// <summary>
         /// flow, campaign, cjson, email, transactional_email, postcard or upsell
@@ -155,7 +146,6 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class AddLibraryItemRequest {\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Cjson: ").Append(Cjson).Append("\n");
-            sb.Append("  Cjson2: ").Append(Cjson2).Append("\n");
             sb.Append("  ContentType: ").Append(ContentType).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  EmailName: ").Append(EmailName).Append("\n");
@@ -208,11 +198,6 @@ namespace com.ultracart.admin.v2.Model
                     this.Cjson == input.Cjson ||
                     (this.Cjson != null &&
                     this.Cjson.Equals(input.Cjson))
-                ) && 
-                (
-                    this.Cjson2 == input.Cjson2 ||
-                    (this.Cjson2 != null &&
-                    this.Cjson2.Equals(input.Cjson2))
                 ) && 
                 (
                     this.ContentType == input.ContentType ||
@@ -274,8 +259,6 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Cjson != null)
                     hashCode = hashCode * 59 + this.Cjson.GetHashCode();
-                if (this.Cjson2 != null)
-                    hashCode = hashCode * 59 + this.Cjson2.GetHashCode();
                 if (this.ContentType != null)
                     hashCode = hashCode * 59 + this.ContentType.GetHashCode();
                 if (this.Description != null)

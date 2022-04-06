@@ -43,16 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="postcardContainerCjsonLastModifiedDts">Timestamp the last time the container was modified..</param>
         /// <param name="postcardFrontContainerCjson">Postcard front container cjson.</param>
         /// <param name="postcardFrontContainerUuid">Postcard front container uuid.</param>
-        /// <param name="screenshotBackLargeFullUrl">URL to screenshot (back) in large form factor full page.</param>
-        /// <param name="screenshotBackLargeViewportUrl">URL to screenshot (back) in large form factor viewport.</param>
-        /// <param name="screenshotBackSmallFullUrl">URL to screenshot (back) in small form factor full page.</param>
-        /// <param name="screenshotBackSmallViewportUrl">URL to screenshot (back) in small form factor viewport.</param>
-        /// <param name="screenshotLargeFullUrl">URL to screenshot in large form factor full page.</param>
-        /// <param name="screenshotLargeViewportUrl">URL to screenshot in large form factor viewport.</param>
-        /// <param name="screenshotSmallFullUrl">URL to screenshot in small form factor full page.</param>
-        /// <param name="screenshotSmallViewportUrl">URL to screenshot in small form factor viewport.</param>
+        /// <param name="screenshotFrontUrl">URL for front screenshot.</param>
+        /// <param name="screenshotSmallFullUrl">URL for back screenshot.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
-        public EmailCommseqPostcard(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequencePostcardUuid = default(string), string filterProfileEquationJson = default(string), string merchantId = default(string), string postcardBackContainerCjson = default(string), string postcardBackContainerUuid = default(string), string postcardContainerCjsonLastModifiedDts = default(string), string postcardFrontContainerCjson = default(string), string postcardFrontContainerUuid = default(string), string screenshotBackLargeFullUrl = default(string), string screenshotBackLargeViewportUrl = default(string), string screenshotBackSmallFullUrl = default(string), string screenshotBackSmallViewportUrl = default(string), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), int? storefrontOid = default(int?))
+        public EmailCommseqPostcard(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequencePostcardUuid = default(string), string filterProfileEquationJson = default(string), string merchantId = default(string), string postcardBackContainerCjson = default(string), string postcardBackContainerUuid = default(string), string postcardContainerCjsonLastModifiedDts = default(string), string postcardFrontContainerCjson = default(string), string postcardFrontContainerUuid = default(string), string screenshotFrontUrl = default(string), string screenshotSmallFullUrl = default(string), int? storefrontOid = default(int?))
         {
             this.Deleted = deleted;
             this.EditedByUser = editedByUser;
@@ -64,14 +58,8 @@ namespace com.ultracart.admin.v2.Model
             this.PostcardContainerCjsonLastModifiedDts = postcardContainerCjsonLastModifiedDts;
             this.PostcardFrontContainerCjson = postcardFrontContainerCjson;
             this.PostcardFrontContainerUuid = postcardFrontContainerUuid;
-            this.ScreenshotBackLargeFullUrl = screenshotBackLargeFullUrl;
-            this.ScreenshotBackLargeViewportUrl = screenshotBackLargeViewportUrl;
-            this.ScreenshotBackSmallFullUrl = screenshotBackSmallFullUrl;
-            this.ScreenshotBackSmallViewportUrl = screenshotBackSmallViewportUrl;
-            this.ScreenshotLargeFullUrl = screenshotLargeFullUrl;
-            this.ScreenshotLargeViewportUrl = screenshotLargeViewportUrl;
+            this.ScreenshotFrontUrl = screenshotFrontUrl;
             this.ScreenshotSmallFullUrl = screenshotSmallFullUrl;
-            this.ScreenshotSmallViewportUrl = screenshotSmallViewportUrl;
             this.StorefrontOid = storefrontOid;
         }
         
@@ -146,60 +134,18 @@ namespace com.ultracart.admin.v2.Model
         public string PostcardFrontContainerUuid { get; set; }
 
         /// <summary>
-        /// URL to screenshot (back) in large form factor full page
+        /// URL for front screenshot
         /// </summary>
-        /// <value>URL to screenshot (back) in large form factor full page</value>
-        [DataMember(Name="screenshot_back_large_full_url", EmitDefaultValue=false)]
-        public string ScreenshotBackLargeFullUrl { get; set; }
+        /// <value>URL for front screenshot</value>
+        [DataMember(Name="screenshot_front_url", EmitDefaultValue=false)]
+        public string ScreenshotFrontUrl { get; set; }
 
         /// <summary>
-        /// URL to screenshot (back) in large form factor viewport
+        /// URL for back screenshot
         /// </summary>
-        /// <value>URL to screenshot (back) in large form factor viewport</value>
-        [DataMember(Name="screenshot_back_large_viewport_url", EmitDefaultValue=false)]
-        public string ScreenshotBackLargeViewportUrl { get; set; }
-
-        /// <summary>
-        /// URL to screenshot (back) in small form factor full page
-        /// </summary>
-        /// <value>URL to screenshot (back) in small form factor full page</value>
-        [DataMember(Name="screenshot_back_small_full_url", EmitDefaultValue=false)]
-        public string ScreenshotBackSmallFullUrl { get; set; }
-
-        /// <summary>
-        /// URL to screenshot (back) in small form factor viewport
-        /// </summary>
-        /// <value>URL to screenshot (back) in small form factor viewport</value>
-        [DataMember(Name="screenshot_back_small_viewport_url", EmitDefaultValue=false)]
-        public string ScreenshotBackSmallViewportUrl { get; set; }
-
-        /// <summary>
-        /// URL to screenshot in large form factor full page
-        /// </summary>
-        /// <value>URL to screenshot in large form factor full page</value>
-        [DataMember(Name="screenshot_large_full_url", EmitDefaultValue=false)]
-        public string ScreenshotLargeFullUrl { get; set; }
-
-        /// <summary>
-        /// URL to screenshot in large form factor viewport
-        /// </summary>
-        /// <value>URL to screenshot in large form factor viewport</value>
-        [DataMember(Name="screenshot_large_viewport_url", EmitDefaultValue=false)]
-        public string ScreenshotLargeViewportUrl { get; set; }
-
-        /// <summary>
-        /// URL to screenshot in small form factor full page
-        /// </summary>
-        /// <value>URL to screenshot in small form factor full page</value>
+        /// <value>URL for back screenshot</value>
         [DataMember(Name="screenshot_small_full_url", EmitDefaultValue=false)]
         public string ScreenshotSmallFullUrl { get; set; }
-
-        /// <summary>
-        /// URL to screenshot in small form factor viewport
-        /// </summary>
-        /// <value>URL to screenshot in small form factor viewport</value>
-        [DataMember(Name="screenshot_small_viewport_url", EmitDefaultValue=false)]
-        public string ScreenshotSmallViewportUrl { get; set; }
 
         /// <summary>
         /// Storefront oid
@@ -226,14 +172,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PostcardContainerCjsonLastModifiedDts: ").Append(PostcardContainerCjsonLastModifiedDts).Append("\n");
             sb.Append("  PostcardFrontContainerCjson: ").Append(PostcardFrontContainerCjson).Append("\n");
             sb.Append("  PostcardFrontContainerUuid: ").Append(PostcardFrontContainerUuid).Append("\n");
-            sb.Append("  ScreenshotBackLargeFullUrl: ").Append(ScreenshotBackLargeFullUrl).Append("\n");
-            sb.Append("  ScreenshotBackLargeViewportUrl: ").Append(ScreenshotBackLargeViewportUrl).Append("\n");
-            sb.Append("  ScreenshotBackSmallFullUrl: ").Append(ScreenshotBackSmallFullUrl).Append("\n");
-            sb.Append("  ScreenshotBackSmallViewportUrl: ").Append(ScreenshotBackSmallViewportUrl).Append("\n");
-            sb.Append("  ScreenshotLargeFullUrl: ").Append(ScreenshotLargeFullUrl).Append("\n");
-            sb.Append("  ScreenshotLargeViewportUrl: ").Append(ScreenshotLargeViewportUrl).Append("\n");
+            sb.Append("  ScreenshotFrontUrl: ").Append(ScreenshotFrontUrl).Append("\n");
             sb.Append("  ScreenshotSmallFullUrl: ").Append(ScreenshotSmallFullUrl).Append("\n");
-            sb.Append("  ScreenshotSmallViewportUrl: ").Append(ScreenshotSmallViewportUrl).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -320,44 +260,14 @@ namespace com.ultracart.admin.v2.Model
                     this.PostcardFrontContainerUuid.Equals(input.PostcardFrontContainerUuid))
                 ) && 
                 (
-                    this.ScreenshotBackLargeFullUrl == input.ScreenshotBackLargeFullUrl ||
-                    (this.ScreenshotBackLargeFullUrl != null &&
-                    this.ScreenshotBackLargeFullUrl.Equals(input.ScreenshotBackLargeFullUrl))
-                ) && 
-                (
-                    this.ScreenshotBackLargeViewportUrl == input.ScreenshotBackLargeViewportUrl ||
-                    (this.ScreenshotBackLargeViewportUrl != null &&
-                    this.ScreenshotBackLargeViewportUrl.Equals(input.ScreenshotBackLargeViewportUrl))
-                ) && 
-                (
-                    this.ScreenshotBackSmallFullUrl == input.ScreenshotBackSmallFullUrl ||
-                    (this.ScreenshotBackSmallFullUrl != null &&
-                    this.ScreenshotBackSmallFullUrl.Equals(input.ScreenshotBackSmallFullUrl))
-                ) && 
-                (
-                    this.ScreenshotBackSmallViewportUrl == input.ScreenshotBackSmallViewportUrl ||
-                    (this.ScreenshotBackSmallViewportUrl != null &&
-                    this.ScreenshotBackSmallViewportUrl.Equals(input.ScreenshotBackSmallViewportUrl))
-                ) && 
-                (
-                    this.ScreenshotLargeFullUrl == input.ScreenshotLargeFullUrl ||
-                    (this.ScreenshotLargeFullUrl != null &&
-                    this.ScreenshotLargeFullUrl.Equals(input.ScreenshotLargeFullUrl))
-                ) && 
-                (
-                    this.ScreenshotLargeViewportUrl == input.ScreenshotLargeViewportUrl ||
-                    (this.ScreenshotLargeViewportUrl != null &&
-                    this.ScreenshotLargeViewportUrl.Equals(input.ScreenshotLargeViewportUrl))
+                    this.ScreenshotFrontUrl == input.ScreenshotFrontUrl ||
+                    (this.ScreenshotFrontUrl != null &&
+                    this.ScreenshotFrontUrl.Equals(input.ScreenshotFrontUrl))
                 ) && 
                 (
                     this.ScreenshotSmallFullUrl == input.ScreenshotSmallFullUrl ||
                     (this.ScreenshotSmallFullUrl != null &&
                     this.ScreenshotSmallFullUrl.Equals(input.ScreenshotSmallFullUrl))
-                ) && 
-                (
-                    this.ScreenshotSmallViewportUrl == input.ScreenshotSmallViewportUrl ||
-                    (this.ScreenshotSmallViewportUrl != null &&
-                    this.ScreenshotSmallViewportUrl.Equals(input.ScreenshotSmallViewportUrl))
                 ) && 
                 (
                     this.StorefrontOid == input.StorefrontOid ||
@@ -395,22 +305,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PostcardFrontContainerCjson.GetHashCode();
                 if (this.PostcardFrontContainerUuid != null)
                     hashCode = hashCode * 59 + this.PostcardFrontContainerUuid.GetHashCode();
-                if (this.ScreenshotBackLargeFullUrl != null)
-                    hashCode = hashCode * 59 + this.ScreenshotBackLargeFullUrl.GetHashCode();
-                if (this.ScreenshotBackLargeViewportUrl != null)
-                    hashCode = hashCode * 59 + this.ScreenshotBackLargeViewportUrl.GetHashCode();
-                if (this.ScreenshotBackSmallFullUrl != null)
-                    hashCode = hashCode * 59 + this.ScreenshotBackSmallFullUrl.GetHashCode();
-                if (this.ScreenshotBackSmallViewportUrl != null)
-                    hashCode = hashCode * 59 + this.ScreenshotBackSmallViewportUrl.GetHashCode();
-                if (this.ScreenshotLargeFullUrl != null)
-                    hashCode = hashCode * 59 + this.ScreenshotLargeFullUrl.GetHashCode();
-                if (this.ScreenshotLargeViewportUrl != null)
-                    hashCode = hashCode * 59 + this.ScreenshotLargeViewportUrl.GetHashCode();
+                if (this.ScreenshotFrontUrl != null)
+                    hashCode = hashCode * 59 + this.ScreenshotFrontUrl.GetHashCode();
                 if (this.ScreenshotSmallFullUrl != null)
                     hashCode = hashCode * 59 + this.ScreenshotSmallFullUrl.GetHashCode();
-                if (this.ScreenshotSmallViewportUrl != null)
-                    hashCode = hashCode * 59 + this.ScreenshotSmallViewportUrl.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
                 return hashCode;

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **IdentityStatus** | **string** |  | [optional] 
 **MerchantId** | **string** |  | [optional] 
 **Provider** | **string** |  | [optional] 
+**Spf** | [**VerificationRecord**](VerificationRecord.md) |  | [optional] 
 **StartDkimDts** | **string** |  | [optional] 
 **StartIdentityDts** | **string** |  | [optional] 
 **Verification** | [**VerificationRecord**](VerificationRecord.md) |  | [optional] 

@@ -34,12 +34,16 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="CustomerLoyalty" /> class.
         /// </summary>
         /// <param name="currentPoints">Current Points.</param>
+        /// <param name="internalGiftCertificateBalance">Loyalty Cashback / Store credit balance (internal gift certificate balance).</param>
+        /// <param name="internalGiftCertificateOid">Internal gift certificate oid used to tracking loyalty cashback / store credit..</param>
         /// <param name="ledgerEntries">Ledger entries.</param>
         /// <param name="pendingPoints">Pending Points.</param>
         /// <param name="redemptions">Redemptions.</param>
-        public CustomerLoyalty(int? currentPoints = default(int?), List<CustomerLoyaltyLedger> ledgerEntries = default(List<CustomerLoyaltyLedger>), int? pendingPoints = default(int?), List<CustomerLoyaltyRedemption> redemptions = default(List<CustomerLoyaltyRedemption>))
+        public CustomerLoyalty(int? currentPoints = default(int?), string internalGiftCertificateBalance = default(string), int? internalGiftCertificateOid = default(int?), List<CustomerLoyaltyLedger> ledgerEntries = default(List<CustomerLoyaltyLedger>), int? pendingPoints = default(int?), List<CustomerLoyaltyRedemption> redemptions = default(List<CustomerLoyaltyRedemption>))
         {
             this.CurrentPoints = currentPoints;
+            this.InternalGiftCertificateBalance = internalGiftCertificateBalance;
+            this.InternalGiftCertificateOid = internalGiftCertificateOid;
             this.LedgerEntries = ledgerEntries;
             this.PendingPoints = pendingPoints;
             this.Redemptions = redemptions;
@@ -51,6 +55,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Current Points</value>
         [DataMember(Name="current_points", EmitDefaultValue=false)]
         public int? CurrentPoints { get; set; }
+
+        /// <summary>
+        /// Loyalty Cashback / Store credit balance (internal gift certificate balance)
+        /// </summary>
+        /// <value>Loyalty Cashback / Store credit balance (internal gift certificate balance)</value>
+        [DataMember(Name="internal_gift_certificate_balance", EmitDefaultValue=false)]
+        public string InternalGiftCertificateBalance { get; set; }
+
+        /// <summary>
+        /// Internal gift certificate oid used to tracking loyalty cashback / store credit.
+        /// </summary>
+        /// <value>Internal gift certificate oid used to tracking loyalty cashback / store credit.</value>
+        [DataMember(Name="internal_gift_certificate_oid", EmitDefaultValue=false)]
+        public int? InternalGiftCertificateOid { get; set; }
 
         /// <summary>
         /// Ledger entries
@@ -82,6 +100,8 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class CustomerLoyalty {\n");
             sb.Append("  CurrentPoints: ").Append(CurrentPoints).Append("\n");
+            sb.Append("  InternalGiftCertificateBalance: ").Append(InternalGiftCertificateBalance).Append("\n");
+            sb.Append("  InternalGiftCertificateOid: ").Append(InternalGiftCertificateOid).Append("\n");
             sb.Append("  LedgerEntries: ").Append(LedgerEntries).Append("\n");
             sb.Append("  PendingPoints: ").Append(PendingPoints).Append("\n");
             sb.Append("  Redemptions: ").Append(Redemptions).Append("\n");
@@ -125,6 +145,16 @@ namespace com.ultracart.admin.v2.Model
                     this.CurrentPoints.Equals(input.CurrentPoints))
                 ) && 
                 (
+                    this.InternalGiftCertificateBalance == input.InternalGiftCertificateBalance ||
+                    (this.InternalGiftCertificateBalance != null &&
+                    this.InternalGiftCertificateBalance.Equals(input.InternalGiftCertificateBalance))
+                ) && 
+                (
+                    this.InternalGiftCertificateOid == input.InternalGiftCertificateOid ||
+                    (this.InternalGiftCertificateOid != null &&
+                    this.InternalGiftCertificateOid.Equals(input.InternalGiftCertificateOid))
+                ) && 
+                (
                     this.LedgerEntries == input.LedgerEntries ||
                     this.LedgerEntries != null &&
                     this.LedgerEntries.SequenceEqual(input.LedgerEntries)
@@ -152,6 +182,10 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.CurrentPoints != null)
                     hashCode = hashCode * 59 + this.CurrentPoints.GetHashCode();
+                if (this.InternalGiftCertificateBalance != null)
+                    hashCode = hashCode * 59 + this.InternalGiftCertificateBalance.GetHashCode();
+                if (this.InternalGiftCertificateOid != null)
+                    hashCode = hashCode * 59 + this.InternalGiftCertificateOid.GetHashCode();
                 if (this.LedgerEntries != null)
                     hashCode = hashCode * 59 + this.LedgerEntries.GetHashCode();
                 if (this.PendingPoints != null)

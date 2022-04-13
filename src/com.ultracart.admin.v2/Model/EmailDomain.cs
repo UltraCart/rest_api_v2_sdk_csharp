@@ -41,10 +41,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="identityStatus">identityStatus.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="provider">provider.</param>
+        /// <param name="spf">spf.</param>
         /// <param name="startDkimDts">startDkimDts.</param>
         /// <param name="startIdentityDts">startIdentityDts.</param>
         /// <param name="verification">verification.</param>
-        public EmailDomain(string comment = default(string), List<VerificationRecord> dkim = default(List<VerificationRecord>), string dkimStatus = default(string), string domain = default(string), string espDomainUuid = default(string), string identityStatus = default(string), string merchantId = default(string), string provider = default(string), string startDkimDts = default(string), string startIdentityDts = default(string), VerificationRecord verification = default(VerificationRecord))
+        public EmailDomain(string comment = default(string), List<VerificationRecord> dkim = default(List<VerificationRecord>), string dkimStatus = default(string), string domain = default(string), string espDomainUuid = default(string), string identityStatus = default(string), string merchantId = default(string), string provider = default(string), VerificationRecord spf = default(VerificationRecord), string startDkimDts = default(string), string startIdentityDts = default(string), VerificationRecord verification = default(VerificationRecord))
         {
             this.Comment = comment;
             this.Dkim = dkim;
@@ -54,6 +55,7 @@ namespace com.ultracart.admin.v2.Model
             this.IdentityStatus = identityStatus;
             this.MerchantId = merchantId;
             this.Provider = provider;
+            this.Spf = spf;
             this.StartDkimDts = startDkimDts;
             this.StartIdentityDts = startIdentityDts;
             this.Verification = verification;
@@ -108,6 +110,12 @@ namespace com.ultracart.admin.v2.Model
         public string Provider { get; set; }
 
         /// <summary>
+        /// Gets or Sets Spf
+        /// </summary>
+        [DataMember(Name="spf", EmitDefaultValue=false)]
+        public VerificationRecord Spf { get; set; }
+
+        /// <summary>
         /// Gets or Sets StartDkimDts
         /// </summary>
         [DataMember(Name="start_dkim_dts", EmitDefaultValue=false)]
@@ -141,6 +149,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  IdentityStatus: ").Append(IdentityStatus).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
+            sb.Append("  Spf: ").Append(Spf).Append("\n");
             sb.Append("  StartDkimDts: ").Append(StartDkimDts).Append("\n");
             sb.Append("  StartIdentityDts: ").Append(StartIdentityDts).Append("\n");
             sb.Append("  Verification: ").Append(Verification).Append("\n");
@@ -219,6 +228,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Provider.Equals(input.Provider))
                 ) && 
                 (
+                    this.Spf == input.Spf ||
+                    (this.Spf != null &&
+                    this.Spf.Equals(input.Spf))
+                ) && 
+                (
                     this.StartDkimDts == input.StartDkimDts ||
                     (this.StartDkimDts != null &&
                     this.StartDkimDts.Equals(input.StartDkimDts))
@@ -260,6 +274,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Provider != null)
                     hashCode = hashCode * 59 + this.Provider.GetHashCode();
+                if (this.Spf != null)
+                    hashCode = hashCode * 59 + this.Spf.GetHashCode();
                 if (this.StartDkimDts != null)
                     hashCode = hashCode * 59 + this.StartDkimDts.GetHashCode();
                 if (this.StartIdentityDts != null)

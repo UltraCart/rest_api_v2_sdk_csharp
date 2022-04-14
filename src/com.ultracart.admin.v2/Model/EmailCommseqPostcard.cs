@@ -43,10 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="postcardContainerCjsonLastModifiedDts">Timestamp the last time the container was modified..</param>
         /// <param name="postcardFrontContainerCjson">Postcard front container cjson.</param>
         /// <param name="postcardFrontContainerUuid">Postcard front container uuid.</param>
-        /// <param name="screenshotFrontUrl">URL for front screenshot.</param>
-        /// <param name="screenshotSmallFullUrl">URL for back screenshot.</param>
+        /// <param name="screenshotBackUrl">URL to screenshot of the back of the postcard.</param>
+        /// <param name="screenshotFrontUrl">URL to screenshot of the front of the postcard.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
-        public EmailCommseqPostcard(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequencePostcardUuid = default(string), string filterProfileEquationJson = default(string), string merchantId = default(string), string postcardBackContainerCjson = default(string), string postcardBackContainerUuid = default(string), string postcardContainerCjsonLastModifiedDts = default(string), string postcardFrontContainerCjson = default(string), string postcardFrontContainerUuid = default(string), string screenshotFrontUrl = default(string), string screenshotSmallFullUrl = default(string), int? storefrontOid = default(int?))
+        public EmailCommseqPostcard(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequencePostcardUuid = default(string), string filterProfileEquationJson = default(string), string merchantId = default(string), string postcardBackContainerCjson = default(string), string postcardBackContainerUuid = default(string), string postcardContainerCjsonLastModifiedDts = default(string), string postcardFrontContainerCjson = default(string), string postcardFrontContainerUuid = default(string), string screenshotBackUrl = default(string), string screenshotFrontUrl = default(string), int? storefrontOid = default(int?))
         {
             this.Deleted = deleted;
             this.EditedByUser = editedByUser;
@@ -58,8 +58,8 @@ namespace com.ultracart.admin.v2.Model
             this.PostcardContainerCjsonLastModifiedDts = postcardContainerCjsonLastModifiedDts;
             this.PostcardFrontContainerCjson = postcardFrontContainerCjson;
             this.PostcardFrontContainerUuid = postcardFrontContainerUuid;
+            this.ScreenshotBackUrl = screenshotBackUrl;
             this.ScreenshotFrontUrl = screenshotFrontUrl;
-            this.ScreenshotSmallFullUrl = screenshotSmallFullUrl;
             this.StorefrontOid = storefrontOid;
         }
         
@@ -134,18 +134,18 @@ namespace com.ultracart.admin.v2.Model
         public string PostcardFrontContainerUuid { get; set; }
 
         /// <summary>
-        /// URL for front screenshot
+        /// URL to screenshot of the back of the postcard
         /// </summary>
-        /// <value>URL for front screenshot</value>
-        [DataMember(Name="screenshot_front_url", EmitDefaultValue=false)]
-        public string ScreenshotFrontUrl { get; set; }
+        /// <value>URL to screenshot of the back of the postcard</value>
+        [DataMember(Name="screenshot_back_url", EmitDefaultValue=false)]
+        public string ScreenshotBackUrl { get; set; }
 
         /// <summary>
-        /// URL for back screenshot
+        /// URL to screenshot of the front of the postcard
         /// </summary>
-        /// <value>URL for back screenshot</value>
-        [DataMember(Name="screenshot_small_full_url", EmitDefaultValue=false)]
-        public string ScreenshotSmallFullUrl { get; set; }
+        /// <value>URL to screenshot of the front of the postcard</value>
+        [DataMember(Name="screenshot_front_url", EmitDefaultValue=false)]
+        public string ScreenshotFrontUrl { get; set; }
 
         /// <summary>
         /// Storefront oid
@@ -172,8 +172,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PostcardContainerCjsonLastModifiedDts: ").Append(PostcardContainerCjsonLastModifiedDts).Append("\n");
             sb.Append("  PostcardFrontContainerCjson: ").Append(PostcardFrontContainerCjson).Append("\n");
             sb.Append("  PostcardFrontContainerUuid: ").Append(PostcardFrontContainerUuid).Append("\n");
+            sb.Append("  ScreenshotBackUrl: ").Append(ScreenshotBackUrl).Append("\n");
             sb.Append("  ScreenshotFrontUrl: ").Append(ScreenshotFrontUrl).Append("\n");
-            sb.Append("  ScreenshotSmallFullUrl: ").Append(ScreenshotSmallFullUrl).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -260,14 +260,14 @@ namespace com.ultracart.admin.v2.Model
                     this.PostcardFrontContainerUuid.Equals(input.PostcardFrontContainerUuid))
                 ) && 
                 (
+                    this.ScreenshotBackUrl == input.ScreenshotBackUrl ||
+                    (this.ScreenshotBackUrl != null &&
+                    this.ScreenshotBackUrl.Equals(input.ScreenshotBackUrl))
+                ) && 
+                (
                     this.ScreenshotFrontUrl == input.ScreenshotFrontUrl ||
                     (this.ScreenshotFrontUrl != null &&
                     this.ScreenshotFrontUrl.Equals(input.ScreenshotFrontUrl))
-                ) && 
-                (
-                    this.ScreenshotSmallFullUrl == input.ScreenshotSmallFullUrl ||
-                    (this.ScreenshotSmallFullUrl != null &&
-                    this.ScreenshotSmallFullUrl.Equals(input.ScreenshotSmallFullUrl))
                 ) && 
                 (
                     this.StorefrontOid == input.StorefrontOid ||
@@ -305,10 +305,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PostcardFrontContainerCjson.GetHashCode();
                 if (this.PostcardFrontContainerUuid != null)
                     hashCode = hashCode * 59 + this.PostcardFrontContainerUuid.GetHashCode();
+                if (this.ScreenshotBackUrl != null)
+                    hashCode = hashCode * 59 + this.ScreenshotBackUrl.GetHashCode();
                 if (this.ScreenshotFrontUrl != null)
                     hashCode = hashCode * 59 + this.ScreenshotFrontUrl.GetHashCode();
-                if (this.ScreenshotSmallFullUrl != null)
-                    hashCode = hashCode * 59 + this.ScreenshotSmallFullUrl.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
                 return hashCode;

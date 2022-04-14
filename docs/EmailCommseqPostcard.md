@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **PostcardContainerCjsonLastModifiedDts** | **string** | Timestamp the last time the container was modified. | [optional] 
 **PostcardFrontContainerCjson** | **string** | Postcard front container cjson | [optional] 
 **PostcardFrontContainerUuid** | **string** | Postcard front container uuid | [optional] 
-**ScreenshotFrontUrl** | **string** | URL for front screenshot | [optional] 
-**ScreenshotSmallFullUrl** | **string** | URL for back screenshot | [optional] 
+**ScreenshotBackUrl** | **string** | URL to screenshot of the back of the postcard | [optional] 
+**ScreenshotFrontUrl** | **string** | URL to screenshot of the front of the postcard | [optional] 
 **StorefrontOid** | **int?** | Storefront oid | [optional] 
 
 

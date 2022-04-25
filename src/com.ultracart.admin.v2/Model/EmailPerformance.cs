@@ -31,6 +31,39 @@ namespace com.ultracart.admin.v2.Model
     public partial class EmailPerformance :  IEquatable<EmailPerformance>, IValidatableObject
     {
         /// <summary>
+        /// Loyalty Program Type
+        /// </summary>
+        /// <value>Loyalty Program Type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum LoyaltyProgramTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Disabled for value: disabled
+            /// </summary>
+            [EnumMember(Value = "disabled")]
+            Disabled = 1,
+            
+            /// <summary>
+            /// Enum Points for value: points
+            /// </summary>
+            [EnumMember(Value = "points")]
+            Points = 2,
+            
+            /// <summary>
+            /// Enum Cashback for value: cashback
+            /// </summary>
+            [EnumMember(Value = "cashback")]
+            Cashback = 3
+        }
+
+        /// <summary>
+        /// Loyalty Program Type
+        /// </summary>
+        /// <value>Loyalty Program Type</value>
+        [DataMember(Name="loyalty_program_type", EmitDefaultValue=false)]
+        public LoyaltyProgramTypeEnum? LoyaltyProgramType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="EmailPerformance" /> class.
         /// </summary>
         /// <param name="activeCustomers">Active customers.  The value will be -1 if calculation is pending..</param>
@@ -41,6 +74,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="customerHistogram">customerHistogram.</param>
         /// <param name="dailyStats">Daily statistics used for charting.</param>
         /// <param name="deliveredCount">Delivered count.</param>
+        /// <param name="loyaltyProgramType">Loyalty Program Type.</param>
         /// <param name="maxActiveCustomers">Maximum active customers allowed under their billing plan.</param>
         /// <param name="maxEmailsPerDay">Max emails per day.</param>
         /// <param name="maxEmailsPerHour">Max emails per hour.</param>
@@ -55,7 +89,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="spamPercentage">Spam percentage rate based upon our look back window.  This should be under one half a percent or the account will be paused for sending..</param>
         /// <param name="spamPercentageFormatted">Spam percentage rate (formatted) based upon our look back window.  This should be under one half a percent or the account will be paused for sending..</param>
         /// <param name="transactionalSendCount">Total transactions emails sent.</param>
-        public EmailPerformance(int? activeCustomers = default(int?), int? actualCustomers = default(int?), int? bounceCount = default(int?), decimal? bouncePercentage = default(decimal?), string bouncePercentageFormatted = default(string), EmailPerformanceCustomerHistogram customerHistogram = default(EmailPerformanceCustomerHistogram), List<EmailPerformanceDaily> dailyStats = default(List<EmailPerformanceDaily>), int? deliveredCount = default(int?), int? maxActiveCustomers = default(int?), int? maxEmailsPerDay = default(int?), int? maxEmailsPerHour = default(int?), int? maxEmailsPerMonth = default(int?), bool? pausedForSpam = default(bool?), decimal? revenue = default(decimal?), int? sentEmailsPerDay = default(int?), int? sentEmailsPerHour = default(int?), int? sentEmailsPerMonth = default(int?), int? sequenceSendCount = default(int?), int? spamCount = default(int?), decimal? spamPercentage = default(decimal?), string spamPercentageFormatted = default(string), int? transactionalSendCount = default(int?))
+        public EmailPerformance(int? activeCustomers = default(int?), int? actualCustomers = default(int?), int? bounceCount = default(int?), decimal? bouncePercentage = default(decimal?), string bouncePercentageFormatted = default(string), EmailPerformanceCustomerHistogram customerHistogram = default(EmailPerformanceCustomerHistogram), List<EmailPerformanceDaily> dailyStats = default(List<EmailPerformanceDaily>), int? deliveredCount = default(int?), LoyaltyProgramTypeEnum? loyaltyProgramType = default(LoyaltyProgramTypeEnum?), int? maxActiveCustomers = default(int?), int? maxEmailsPerDay = default(int?), int? maxEmailsPerHour = default(int?), int? maxEmailsPerMonth = default(int?), bool? pausedForSpam = default(bool?), decimal? revenue = default(decimal?), int? sentEmailsPerDay = default(int?), int? sentEmailsPerHour = default(int?), int? sentEmailsPerMonth = default(int?), int? sequenceSendCount = default(int?), int? spamCount = default(int?), decimal? spamPercentage = default(decimal?), string spamPercentageFormatted = default(string), int? transactionalSendCount = default(int?))
         {
             this.ActiveCustomers = activeCustomers;
             this.ActualCustomers = actualCustomers;
@@ -65,6 +99,7 @@ namespace com.ultracart.admin.v2.Model
             this.CustomerHistogram = customerHistogram;
             this.DailyStats = dailyStats;
             this.DeliveredCount = deliveredCount;
+            this.LoyaltyProgramType = loyaltyProgramType;
             this.MaxActiveCustomers = maxActiveCustomers;
             this.MaxEmailsPerDay = maxEmailsPerDay;
             this.MaxEmailsPerHour = maxEmailsPerHour;
@@ -135,6 +170,7 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Delivered count</value>
         [DataMember(Name="delivered_count", EmitDefaultValue=false)]
         public int? DeliveredCount { get; set; }
+
 
         /// <summary>
         /// Maximum active customers allowed under their billing plan
@@ -250,6 +286,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CustomerHistogram: ").Append(CustomerHistogram).Append("\n");
             sb.Append("  DailyStats: ").Append(DailyStats).Append("\n");
             sb.Append("  DeliveredCount: ").Append(DeliveredCount).Append("\n");
+            sb.Append("  LoyaltyProgramType: ").Append(LoyaltyProgramType).Append("\n");
             sb.Append("  MaxActiveCustomers: ").Append(MaxActiveCustomers).Append("\n");
             sb.Append("  MaxEmailsPerDay: ").Append(MaxEmailsPerDay).Append("\n");
             sb.Append("  MaxEmailsPerHour: ").Append(MaxEmailsPerHour).Append("\n");
@@ -337,6 +374,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DeliveredCount == input.DeliveredCount ||
                     (this.DeliveredCount != null &&
                     this.DeliveredCount.Equals(input.DeliveredCount))
+                ) && 
+                (
+                    this.LoyaltyProgramType == input.LoyaltyProgramType ||
+                    (this.LoyaltyProgramType != null &&
+                    this.LoyaltyProgramType.Equals(input.LoyaltyProgramType))
                 ) && 
                 (
                     this.MaxActiveCustomers == input.MaxActiveCustomers ||
@@ -435,6 +477,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DailyStats.GetHashCode();
                 if (this.DeliveredCount != null)
                     hashCode = hashCode * 59 + this.DeliveredCount.GetHashCode();
+                if (this.LoyaltyProgramType != null)
+                    hashCode = hashCode * 59 + this.LoyaltyProgramType.GetHashCode();
                 if (this.MaxActiveCustomers != null)
                     hashCode = hashCode * 59 + this.MaxActiveCustomers.GetHashCode();
                 if (this.MaxEmailsPerDay != null)

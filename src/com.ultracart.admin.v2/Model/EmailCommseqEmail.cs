@@ -43,6 +43,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="filterProfileEquationJson">Filter profile equation json.</param>
         /// <param name="individuallyRender">Individually render.</param>
         /// <param name="libraryItemOid">If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated..</param>
+        /// <param name="magicLink">True if email links should contain magic link tokens to log the customer in automatically.</param>
         /// <param name="merchantId">Merchant ID.</param>
         /// <param name="pendingReview">True if the content of this email is pending review by UltraCart.</param>
         /// <param name="previewText">Preview text.</param>
@@ -58,7 +59,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="suspendedForSpam">True if the email was suspended for too high of a spam rate..</param>
         /// <param name="transactionalEmail">Transactional email.</param>
         /// <param name="version">Version.</param>
-        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), int? libraryItemOid = default(int?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? suspendedForSpam = default(bool?), bool? transactionalEmail = default(bool?), int? version = default(int?))
+        public EmailCommseqEmail(bool? deleted = default(bool?), string editedByUser = default(string), string emailCommunicationSequenceEmailUuid = default(string), string emailCommunicationSequenceUuid = default(string), string emailContainerCjson = default(string), string emailContainerCjsonLastModifiedDts = default(string), string emailTemplateVmPath = default(string), string filterProfileEquationJson = default(string), bool? individuallyRender = default(bool?), int? libraryItemOid = default(int?), bool? magicLink = default(bool?), string merchantId = default(string), bool? pendingReview = default(bool?), string previewText = default(string), bool? rejected = default(bool?), bool? requiresReview = default(bool?), string screenshotLargeFullUrl = default(string), string screenshotLargeViewportUrl = default(string), string screenshotSmallFullUrl = default(string), string screenshotSmallViewportUrl = default(string), bool? smartSending = default(bool?), int? storefrontOid = default(int?), string subject = default(string), bool? suspendedForSpam = default(bool?), bool? transactionalEmail = default(bool?), int? version = default(int?))
         {
             this.Deleted = deleted;
             this.EditedByUser = editedByUser;
@@ -70,6 +71,7 @@ namespace com.ultracart.admin.v2.Model
             this.FilterProfileEquationJson = filterProfileEquationJson;
             this.IndividuallyRender = individuallyRender;
             this.LibraryItemOid = libraryItemOid;
+            this.MagicLink = magicLink;
             this.MerchantId = merchantId;
             this.PendingReview = pendingReview;
             this.PreviewText = previewText;
@@ -156,6 +158,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.</value>
         [DataMember(Name="library_item_oid", EmitDefaultValue=false)]
         public int? LibraryItemOid { get; set; }
+
+        /// <summary>
+        /// True if email links should contain magic link tokens to log the customer in automatically
+        /// </summary>
+        /// <value>True if email links should contain magic link tokens to log the customer in automatically</value>
+        [DataMember(Name="magic_link", EmitDefaultValue=false)]
+        public bool? MagicLink { get; set; }
 
         /// <summary>
         /// Merchant ID
@@ -280,6 +289,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
             sb.Append("  IndividuallyRender: ").Append(IndividuallyRender).Append("\n");
             sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
+            sb.Append("  MagicLink: ").Append(MagicLink).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  PendingReview: ").Append(PendingReview).Append("\n");
             sb.Append("  PreviewText: ").Append(PreviewText).Append("\n");
@@ -378,6 +388,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LibraryItemOid == input.LibraryItemOid ||
                     (this.LibraryItemOid != null &&
                     this.LibraryItemOid.Equals(input.LibraryItemOid))
+                ) && 
+                (
+                    this.MagicLink == input.MagicLink ||
+                    (this.MagicLink != null &&
+                    this.MagicLink.Equals(input.MagicLink))
                 ) && 
                 (
                     this.MerchantId == input.MerchantId ||
@@ -485,6 +500,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.IndividuallyRender.GetHashCode();
                 if (this.LibraryItemOid != null)
                     hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
+                if (this.MagicLink != null)
+                    hashCode = hashCode * 59 + this.MagicLink.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.PendingReview != null)

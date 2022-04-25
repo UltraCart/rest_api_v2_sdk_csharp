@@ -70,6 +70,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="autoOrderOid">Auto order object identifier.</param>
         /// <param name="cancelAfterNextXOrders">Cancel this auto order after X additional rebills.</param>
         /// <param name="cancelDowngrade">True if the auto order was canceled because the customer purchased a downgrade item.</param>
+        /// <param name="cancelReason">The reason this auto order was canceled by either merchant or customer.</param>
         /// <param name="cancelUpgrade">True if the auto order was canceled because the customer purchased an upgrade item.</param>
         /// <param name="canceledByUser">The user that canceled the auto order.</param>
         /// <param name="canceledDts">The date/time that the auto order was canceled.</param>
@@ -85,12 +86,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rebillOrders">Rebill orders that have taken place on this auto order.</param>
         /// <param name="rotatingTransactionGatewayCode">The RTG code associated with this order for future rebills.</param>
         /// <param name="status">The status of the auto order.</param>
-        public OrderAutoOrder(string autoOrderCode = default(string), int? autoOrderOid = default(int?), int? cancelAfterNextXOrders = default(int?), bool? cancelDowngrade = default(bool?), bool? cancelUpgrade = default(bool?), string canceledByUser = default(string), string canceledDts = default(string), bool? completed = default(bool?), int? creditCardAttempt = default(int?), string disabledDts = default(string), bool? enabled = default(bool?), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), string nextAttempt = default(string), string originalOrderId = default(string), int? overrideAffiliateId = default(int?), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
+        public OrderAutoOrder(string autoOrderCode = default(string), int? autoOrderOid = default(int?), int? cancelAfterNextXOrders = default(int?), bool? cancelDowngrade = default(bool?), string cancelReason = default(string), bool? cancelUpgrade = default(bool?), string canceledByUser = default(string), string canceledDts = default(string), bool? completed = default(bool?), int? creditCardAttempt = default(int?), string disabledDts = default(string), bool? enabled = default(bool?), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), string nextAttempt = default(string), string originalOrderId = default(string), int? overrideAffiliateId = default(int?), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
         {
             this.AutoOrderCode = autoOrderCode;
             this.AutoOrderOid = autoOrderOid;
             this.CancelAfterNextXOrders = cancelAfterNextXOrders;
             this.CancelDowngrade = cancelDowngrade;
+            this.CancelReason = cancelReason;
             this.CancelUpgrade = cancelUpgrade;
             this.CanceledByUser = canceledByUser;
             this.CanceledDts = canceledDts;
@@ -135,6 +137,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if the auto order was canceled because the customer purchased a downgrade item</value>
         [DataMember(Name="cancel_downgrade", EmitDefaultValue=false)]
         public bool? CancelDowngrade { get; set; }
+
+        /// <summary>
+        /// The reason this auto order was canceled by either merchant or customer
+        /// </summary>
+        /// <value>The reason this auto order was canceled by either merchant or customer</value>
+        [DataMember(Name="cancel_reason", EmitDefaultValue=false)]
+        public string CancelReason { get; set; }
 
         /// <summary>
         /// True if the auto order was canceled because the customer purchased an upgrade item
@@ -247,6 +256,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AutoOrderOid: ").Append(AutoOrderOid).Append("\n");
             sb.Append("  CancelAfterNextXOrders: ").Append(CancelAfterNextXOrders).Append("\n");
             sb.Append("  CancelDowngrade: ").Append(CancelDowngrade).Append("\n");
+            sb.Append("  CancelReason: ").Append(CancelReason).Append("\n");
             sb.Append("  CancelUpgrade: ").Append(CancelUpgrade).Append("\n");
             sb.Append("  CanceledByUser: ").Append(CanceledByUser).Append("\n");
             sb.Append("  CanceledDts: ").Append(CanceledDts).Append("\n");
@@ -315,6 +325,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CancelDowngrade == input.CancelDowngrade ||
                     (this.CancelDowngrade != null &&
                     this.CancelDowngrade.Equals(input.CancelDowngrade))
+                ) && 
+                (
+                    this.CancelReason == input.CancelReason ||
+                    (this.CancelReason != null &&
+                    this.CancelReason.Equals(input.CancelReason))
                 ) && 
                 (
                     this.CancelUpgrade == input.CancelUpgrade ||
@@ -410,6 +425,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CancelAfterNextXOrders.GetHashCode();
                 if (this.CancelDowngrade != null)
                     hashCode = hashCode * 59 + this.CancelDowngrade.GetHashCode();
+                if (this.CancelReason != null)
+                    hashCode = hashCode * 59 + this.CancelReason.GetHashCode();
                 if (this.CancelUpgrade != null)
                     hashCode = hashCode * 59 + this.CancelUpgrade.GetHashCode();
                 if (this.CanceledByUser != null)

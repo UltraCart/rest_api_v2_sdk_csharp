@@ -73,6 +73,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> GetIntegrationLogFileWithHttpInfo (string pk, string sk, string uuid);
         /// <summary>
+        /// Retrieve an integration log file converted to PDF
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an integration log file from the account based identifiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pk"></param>
+        /// <param name="sk"></param>
+        /// <param name="uuid"></param>
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream GetIntegrationLogFilePdf (string pk, string sk, string uuid);
+
+        /// <summary>
+        /// Retrieve an integration log file converted to PDF
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an integration log file from the account based identifiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pk"></param>
+        /// <param name="sk"></param>
+        /// <param name="uuid"></param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> GetIntegrationLogFilePdfWithHttpInfo (string pk, string sk, string uuid);
+        /// <summary>
         /// Retrieve integration log summaries
         /// </summary>
         /// <remarks>
@@ -170,6 +195,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="uuid"></param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetIntegrationLogFileAsyncWithHttpInfo (string pk, string sk, string uuid);
+        /// <summary>
+        /// Retrieve an integration log file converted to PDF
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an integration log file from the account based identifiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pk"></param>
+        /// <param name="sk"></param>
+        /// <param name="uuid"></param>
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> GetIntegrationLogFilePdfAsync (string pk, string sk, string uuid);
+
+        /// <summary>
+        /// Retrieve an integration log file converted to PDF
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an integration log file from the account based identifiers 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pk"></param>
+        /// <param name="sk"></param>
+        /// <param name="uuid"></param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetIntegrationLogFilePdfAsyncWithHttpInfo (string pk, string sk, string uuid);
         /// <summary>
         /// Retrieve integration log summaries
         /// </summary>
@@ -667,6 +717,187 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetIntegrationLogFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<System.IO.Stream>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
+        }
+
+        /// <summary>
+        /// Retrieve an integration log file converted to PDF Retrieve an integration log file from the account based identifiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pk"></param>
+        /// <param name="sk"></param>
+        /// <param name="uuid"></param>
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream GetIntegrationLogFilePdf (string pk, string sk, string uuid)
+        {
+             ApiResponse<System.IO.Stream> localVarResponse = GetIntegrationLogFilePdfWithHttpInfo(pk, sk, uuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve an integration log file converted to PDF Retrieve an integration log file from the account based identifiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pk"></param>
+        /// <param name="sk"></param>
+        /// <param name="uuid"></param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public ApiResponse< System.IO.Stream > GetIntegrationLogFilePdfWithHttpInfo (string pk, string sk, string uuid)
+        {
+            // verify the required parameter 'pk' is set
+            if (pk == null)
+                throw new ApiException(400, "Missing required parameter 'pk' when calling IntegrationLogApi->GetIntegrationLogFilePdf");
+            // verify the required parameter 'sk' is set
+            if (sk == null)
+                throw new ApiException(400, "Missing required parameter 'sk' when calling IntegrationLogApi->GetIntegrationLogFilePdf");
+            // verify the required parameter 'uuid' is set
+            if (uuid == null)
+                throw new ApiException(400, "Missing required parameter 'uuid' when calling IntegrationLogApi->GetIntegrationLogFilePdf");
+
+            var localVarPath = "/integration_log/query/{pk}/{sk}/{uuid}/pdf";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (pk != null) localVarPathParams.Add("pk", this.Configuration.ApiClient.ParameterToString(pk)); // path parameter
+            if (sk != null) localVarPathParams.Add("sk", this.Configuration.ApiClient.ParameterToString(sk)); // path parameter
+            if (uuid != null) localVarPathParams.Add("uuid", this.Configuration.ApiClient.ParameterToString(uuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetIntegrationLogFilePdf", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<System.IO.Stream>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
+        }
+
+        /// <summary>
+        /// Retrieve an integration log file converted to PDF Retrieve an integration log file from the account based identifiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pk"></param>
+        /// <param name="sk"></param>
+        /// <param name="uuid"></param>
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetIntegrationLogFilePdfAsync (string pk, string sk, string uuid)
+        {
+             ApiResponse<System.IO.Stream> localVarResponse = await GetIntegrationLogFilePdfAsyncWithHttpInfo(pk, sk, uuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve an integration log file converted to PDF Retrieve an integration log file from the account based identifiers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pk"></param>
+        /// <param name="sk"></param>
+        /// <param name="uuid"></param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetIntegrationLogFilePdfAsyncWithHttpInfo (string pk, string sk, string uuid)
+        {
+            // verify the required parameter 'pk' is set
+            if (pk == null)
+                throw new ApiException(400, "Missing required parameter 'pk' when calling IntegrationLogApi->GetIntegrationLogFilePdf");
+            // verify the required parameter 'sk' is set
+            if (sk == null)
+                throw new ApiException(400, "Missing required parameter 'sk' when calling IntegrationLogApi->GetIntegrationLogFilePdf");
+            // verify the required parameter 'uuid' is set
+            if (uuid == null)
+                throw new ApiException(400, "Missing required parameter 'uuid' when calling IntegrationLogApi->GetIntegrationLogFilePdf");
+
+            var localVarPath = "/integration_log/query/{pk}/{sk}/{uuid}/pdf";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (pk != null) localVarPathParams.Add("pk", this.Configuration.ApiClient.ParameterToString(pk)); // path parameter
+            if (sk != null) localVarPathParams.Add("sk", this.Configuration.ApiClient.ParameterToString(sk)); // path parameter
+            if (uuid != null) localVarPathParams.Add("uuid", this.Configuration.ApiClient.ParameterToString(uuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetIntegrationLogFilePdf", localVarResponse);
                 if (exception != null) throw exception;
             }
 

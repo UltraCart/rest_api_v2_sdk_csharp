@@ -25,6 +25,29 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+        /// </summary>
+        /// <remarks>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustInternalCertificateRequest">adjustInternalCertificateRequest</param>
+        /// <returns>AdjustInternalCertificateResponse</returns>
+        AdjustInternalCertificateResponse AdjustInternalCertificate (int? customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest);
+
+        /// <summary>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+        /// </summary>
+        /// <remarks>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustInternalCertificateRequest">adjustInternalCertificateRequest</param>
+        /// <returns>ApiResponse of AdjustInternalCertificateResponse</returns>
+        ApiResponse<AdjustInternalCertificateResponse> AdjustInternalCertificateWithHttpInfo (int? customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest);
+        /// <summary>
         /// Delete a customer
         /// </summary>
         /// <remarks>
@@ -379,6 +402,29 @@ namespace com.ultracart.admin.v2.Api
         ApiResponse<EmailVerifyTokenValidateResponse> ValidateEmailVerificationTokenWithHttpInfo (EmailVerifyTokenValidateRequest validationRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+        /// </summary>
+        /// <remarks>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustInternalCertificateRequest">adjustInternalCertificateRequest</param>
+        /// <returns>Task of AdjustInternalCertificateResponse</returns>
+        System.Threading.Tasks.Task<AdjustInternalCertificateResponse> AdjustInternalCertificateAsync (int? customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest);
+
+        /// <summary>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+        /// </summary>
+        /// <remarks>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustInternalCertificateRequest">adjustInternalCertificateRequest</param>
+        /// <returns>Task of ApiResponse (AdjustInternalCertificateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AdjustInternalCertificateResponse>> AdjustInternalCertificateAsyncWithHttpInfo (int? customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest);
         /// <summary>
         /// Delete a customer
         /// </summary>
@@ -837,6 +883,189 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustInternalCertificateRequest">adjustInternalCertificateRequest</param>
+        /// <returns>AdjustInternalCertificateResponse</returns>
+        public AdjustInternalCertificateResponse AdjustInternalCertificate (int? customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest)
+        {
+             ApiResponse<AdjustInternalCertificateResponse> localVarResponse = AdjustInternalCertificateWithHttpInfo(customerProfileOid, adjustInternalCertificateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustInternalCertificateRequest">adjustInternalCertificateRequest</param>
+        /// <returns>ApiResponse of AdjustInternalCertificateResponse</returns>
+        public ApiResponse< AdjustInternalCertificateResponse > AdjustInternalCertificateWithHttpInfo (int? customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->AdjustInternalCertificate");
+            // verify the required parameter 'adjustInternalCertificateRequest' is set
+            if (adjustInternalCertificateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'adjustInternalCertificateRequest' when calling CustomerApi->AdjustInternalCertificate");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/adjust_cashback_balance";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (adjustInternalCertificateRequest != null && adjustInternalCertificateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(adjustInternalCertificateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = adjustInternalCertificateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AdjustInternalCertificate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AdjustInternalCertificateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AdjustInternalCertificateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AdjustInternalCertificateResponse)));
+        }
+
+        /// <summary>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustInternalCertificateRequest">adjustInternalCertificateRequest</param>
+        /// <returns>Task of AdjustInternalCertificateResponse</returns>
+        public async System.Threading.Tasks.Task<AdjustInternalCertificateResponse> AdjustInternalCertificateAsync (int? customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest)
+        {
+             ApiResponse<AdjustInternalCertificateResponse> localVarResponse = await AdjustInternalCertificateAsyncWithHttpInfo(customerProfileOid, adjustInternalCertificateRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer profile oid</param>
+        /// <param name="adjustInternalCertificateRequest">adjustInternalCertificateRequest</param>
+        /// <returns>Task of ApiResponse (AdjustInternalCertificateResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AdjustInternalCertificateResponse>> AdjustInternalCertificateAsyncWithHttpInfo (int? customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->AdjustInternalCertificate");
+            // verify the required parameter 'adjustInternalCertificateRequest' is set
+            if (adjustInternalCertificateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'adjustInternalCertificateRequest' when calling CustomerApi->AdjustInternalCertificate");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/adjust_cashback_balance";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (adjustInternalCertificateRequest != null && adjustInternalCertificateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(adjustInternalCertificateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = adjustInternalCertificateRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AdjustInternalCertificate", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AdjustInternalCertificateResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AdjustInternalCertificateResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AdjustInternalCertificateResponse)));
         }
 
         /// <summary>

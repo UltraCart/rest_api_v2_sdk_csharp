@@ -4,6 +4,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AdjustInternalCertificate**](CustomerApi.md#adjustinternalcertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
 [**DeleteCustomer**](CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**GetCustomer**](CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**GetCustomerByEmail**](CustomerApi.md#getcustomerbyemail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
@@ -18,6 +19,74 @@ Method | HTTP request | Description
 [**UpdateCustomerEmailLists**](CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 [**ValidateEmailVerificationToken**](CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 
+
+<a name="adjustinternalcertificate"></a>
+# **AdjustInternalCertificate**
+> AdjustInternalCertificateResponse AdjustInternalCertificate (int? customerProfileOid, AdjustInternalCertificateRequest adjustInternalCertificateRequest)
+
+Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+
+Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class AdjustInternalCertificateExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new CustomerApi(simpleKey);
+
+            var customerProfileOid = 56;  // int? | The customer profile oid
+            var adjustInternalCertificateRequest = new AdjustInternalCertificateRequest(); // AdjustInternalCertificateRequest | adjustInternalCertificateRequest
+
+            try
+            {
+                // Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+                AdjustInternalCertificateResponse result = apiInstance.AdjustInternalCertificate(customerProfileOid, adjustInternalCertificateRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CustomerApi.AdjustInternalCertificate: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customerProfileOid** | **int?**| The customer profile oid | 
+ **adjustInternalCertificateRequest** | [**AdjustInternalCertificateRequest**](AdjustInternalCertificateRequest.md)| adjustInternalCertificateRequest | 
+
+### Return type
+
+[**AdjustInternalCertificateResponse**](AdjustInternalCertificateResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="deletecustomer"></a>
 # **DeleteCustomer**

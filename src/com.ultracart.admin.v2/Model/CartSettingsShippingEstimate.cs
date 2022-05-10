@@ -44,9 +44,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="estimatedDelivery">Date of the estimated delivery (or range).</param>
         /// <param name="liftGateOption">True if a lift gate option for this method should be offered to the customer.</param>
         /// <param name="name">Shipping method name.</param>
+        /// <param name="pickup">True if this shipping method requires customers to physically pickup product themselves.</param>
         /// <param name="tax">tax.</param>
         /// <param name="totalTax">totalTax.</param>
-        public CartSettingsShippingEstimate(bool? allow3rdPartyBilling = default(bool?), string comment = default(string), Currency cost = default(Currency), Currency costBeforeDiscount = default(Currency), bool? defaultMethod = default(bool?), Currency discount = default(Currency), bool? discounted = default(bool?), string displayName = default(string), string estimatedDelivery = default(string), bool? liftGateOption = default(bool?), string name = default(string), Currency tax = default(Currency), Currency totalTax = default(Currency))
+        public CartSettingsShippingEstimate(bool? allow3rdPartyBilling = default(bool?), string comment = default(string), Currency cost = default(Currency), Currency costBeforeDiscount = default(Currency), bool? defaultMethod = default(bool?), Currency discount = default(Currency), bool? discounted = default(bool?), string displayName = default(string), string estimatedDelivery = default(string), bool? liftGateOption = default(bool?), string name = default(string), bool? pickup = default(bool?), Currency tax = default(Currency), Currency totalTax = default(Currency))
         {
             this.Allow3rdPartyBilling = allow3rdPartyBilling;
             this.Comment = comment;
@@ -59,6 +60,7 @@ namespace com.ultracart.admin.v2.Model
             this.EstimatedDelivery = estimatedDelivery;
             this.LiftGateOption = liftGateOption;
             this.Name = name;
+            this.Pickup = pickup;
             this.Tax = tax;
             this.TotalTax = totalTax;
         }
@@ -138,6 +140,13 @@ namespace com.ultracart.admin.v2.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// True if this shipping method requires customers to physically pickup product themselves
+        /// </summary>
+        /// <value>True if this shipping method requires customers to physically pickup product themselves</value>
+        [DataMember(Name="pickup", EmitDefaultValue=false)]
+        public bool? Pickup { get; set; }
+
+        /// <summary>
         /// Gets or Sets Tax
         /// </summary>
         [DataMember(Name="tax", EmitDefaultValue=false)]
@@ -168,6 +177,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EstimatedDelivery: ").Append(EstimatedDelivery).Append("\n");
             sb.Append("  LiftGateOption: ").Append(LiftGateOption).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Pickup: ").Append(Pickup).Append("\n");
             sb.Append("  Tax: ").Append(Tax).Append("\n");
             sb.Append("  TotalTax: ").Append(TotalTax).Append("\n");
             sb.Append("}\n");
@@ -260,6 +270,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.Pickup == input.Pickup ||
+                    (this.Pickup != null &&
+                    this.Pickup.Equals(input.Pickup))
+                ) && 
+                (
                     this.Tax == input.Tax ||
                     (this.Tax != null &&
                     this.Tax.Equals(input.Tax))
@@ -302,6 +317,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LiftGateOption.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Pickup != null)
+                    hashCode = hashCode * 59 + this.Pickup.GetHashCode();
                 if (this.Tax != null)
                     hashCode = hashCode * 59 + this.Tax.GetHashCode();
                 if (this.TotalTax != null)

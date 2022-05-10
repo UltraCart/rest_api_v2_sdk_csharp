@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **EstimatedDelivery** | **string** | Date of the estimated delivery (or range) | [optional] 
 **LiftGateOption** | **bool?** | True if a lift gate option for this method should be offered to the customer | [optional] 
 **Name** | **string** | Shipping method name | [optional] 
+**Pickup** | **bool?** | True if this shipping method requires customers to physically pickup product themselves | [optional] 
 **Tax** | [**Currency**](Currency.md) |  | [optional] 
 **TotalTax** | [**Currency**](Currency.md) |  | [optional] 
 

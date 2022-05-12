@@ -54,7 +54,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The UltraCart order id to delete.</param>
         /// <returns>ChannelPartnerCancelResponse</returns>
-        ChannelPartnerCancelResponse CancelOrderByChannelUltraCartOrderId (string orderId);
+        ChannelPartnerCancelResponse CancelOrderByUltraCartOrderId (string orderId);
 
         /// <summary>
         /// Cancel channel partner order by UltraCart order id
@@ -65,7 +65,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The UltraCart order id to delete.</param>
         /// <returns>ApiResponse of ChannelPartnerCancelResponse</returns>
-        ApiResponse<ChannelPartnerCancelResponse> CancelOrderByChannelUltraCartOrderIdWithHttpInfo (string orderId);
+        ApiResponse<ChannelPartnerCancelResponse> CancelOrderByUltraCartOrderIdWithHttpInfo (string orderId);
         /// <summary>
         /// Estimate shipping for channel partner order
         /// </summary>
@@ -140,7 +140,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The UltraCart order id to delete.</param>
         /// <returns>Task of ChannelPartnerCancelResponse</returns>
-        System.Threading.Tasks.Task<ChannelPartnerCancelResponse> CancelOrderByChannelUltraCartOrderIdAsync (string orderId);
+        System.Threading.Tasks.Task<ChannelPartnerCancelResponse> CancelOrderByUltraCartOrderIdAsync (string orderId);
 
         /// <summary>
         /// Cancel channel partner order by UltraCart order id
@@ -151,7 +151,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The UltraCart order id to delete.</param>
         /// <returns>Task of ApiResponse (ChannelPartnerCancelResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ChannelPartnerCancelResponse>> CancelOrderByChannelUltraCartOrderIdAsyncWithHttpInfo (string orderId);
+        System.Threading.Tasks.Task<ApiResponse<ChannelPartnerCancelResponse>> CancelOrderByUltraCartOrderIdAsyncWithHttpInfo (string orderId);
         /// <summary>
         /// Estimate shipping for channel partner order
         /// </summary>
@@ -464,9 +464,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The UltraCart order id to delete.</param>
         /// <returns>ChannelPartnerCancelResponse</returns>
-        public ChannelPartnerCancelResponse CancelOrderByChannelUltraCartOrderId (string orderId)
+        public ChannelPartnerCancelResponse CancelOrderByUltraCartOrderId (string orderId)
         {
-             ApiResponse<ChannelPartnerCancelResponse> localVarResponse = CancelOrderByChannelUltraCartOrderIdWithHttpInfo(orderId);
+             ApiResponse<ChannelPartnerCancelResponse> localVarResponse = CancelOrderByUltraCartOrderIdWithHttpInfo(orderId);
              return localVarResponse.Data;
         }
 
@@ -476,11 +476,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The UltraCart order id to delete.</param>
         /// <returns>ApiResponse of ChannelPartnerCancelResponse</returns>
-        public ApiResponse< ChannelPartnerCancelResponse > CancelOrderByChannelUltraCartOrderIdWithHttpInfo (string orderId)
+        public ApiResponse< ChannelPartnerCancelResponse > CancelOrderByUltraCartOrderIdWithHttpInfo (string orderId)
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling ChannelPartnerApi->CancelOrderByChannelUltraCartOrderId");
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling ChannelPartnerApi->CancelOrderByUltraCartOrderId");
 
             var localVarPath = "/channel_partner/cancel/by_ultracart_order_id/{order_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -527,7 +527,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CancelOrderByChannelUltraCartOrderId", localVarResponse);
+                Exception exception = ExceptionFactory("CancelOrderByUltraCartOrderId", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -542,9 +542,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The UltraCart order id to delete.</param>
         /// <returns>Task of ChannelPartnerCancelResponse</returns>
-        public async System.Threading.Tasks.Task<ChannelPartnerCancelResponse> CancelOrderByChannelUltraCartOrderIdAsync (string orderId)
+        public async System.Threading.Tasks.Task<ChannelPartnerCancelResponse> CancelOrderByUltraCartOrderIdAsync (string orderId)
         {
-             ApiResponse<ChannelPartnerCancelResponse> localVarResponse = await CancelOrderByChannelUltraCartOrderIdAsyncWithHttpInfo(orderId);
+             ApiResponse<ChannelPartnerCancelResponse> localVarResponse = await CancelOrderByUltraCartOrderIdAsyncWithHttpInfo(orderId);
              return localVarResponse.Data;
 
         }
@@ -555,11 +555,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The UltraCart order id to delete.</param>
         /// <returns>Task of ApiResponse (ChannelPartnerCancelResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ChannelPartnerCancelResponse>> CancelOrderByChannelUltraCartOrderIdAsyncWithHttpInfo (string orderId)
+        public async System.Threading.Tasks.Task<ApiResponse<ChannelPartnerCancelResponse>> CancelOrderByUltraCartOrderIdAsyncWithHttpInfo (string orderId)
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
-                throw new ApiException(400, "Missing required parameter 'orderId' when calling ChannelPartnerApi->CancelOrderByChannelUltraCartOrderId");
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling ChannelPartnerApi->CancelOrderByUltraCartOrderId");
 
             var localVarPath = "/channel_partner/cancel/by_ultracart_order_id/{order_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -606,7 +606,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CancelOrderByChannelUltraCartOrderId", localVarResponse);
+                Exception exception = ExceptionFactory("CancelOrderByUltraCartOrderId", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -5,7 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CancelOrderByChannelPartnerOrderId**](ChannelPartnerApi.md#cancelorderbychannelpartnerorderid) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
-[**CancelOrderByChannelUltraCartOrderId**](ChannelPartnerApi.md#cancelorderbychannelultracartorderid) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
+[**CancelOrderByUltraCartOrderId**](ChannelPartnerApi.md#cancelorderbyultracartorderid) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
 [**EstimateShippingForChannelPartnerOrder**](ChannelPartnerApi.md#estimateshippingforchannelpartnerorder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
 [**ImportChannelPartnerOrder**](ChannelPartnerApi.md#importchannelpartnerorder) | **POST** /channel_partner/import | Insert channel partner order
 
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cancelorderbychannelultracartorderid"></a>
-# **CancelOrderByChannelUltraCartOrderId**
-> ChannelPartnerCancelResponse CancelOrderByChannelUltraCartOrderId (string orderId)
+<a name="cancelorderbyultracartorderid"></a>
+# **CancelOrderByUltraCartOrderId**
+> ChannelPartnerCancelResponse CancelOrderByUltraCartOrderId (string orderId)
 
 Cancel channel partner order by UltraCart order id
 
@@ -94,7 +94,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class CancelOrderByChannelUltraCartOrderIdExample
+    public class CancelOrderByUltraCartOrderIdExample
     {
         public void main()
         {
@@ -108,12 +108,12 @@ namespace Example
             try
             {
                 // Cancel channel partner order by UltraCart order id
-                ChannelPartnerCancelResponse result = apiInstance.CancelOrderByChannelUltraCartOrderId(orderId);
+                ChannelPartnerCancelResponse result = apiInstance.CancelOrderByUltraCartOrderId(orderId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ChannelPartnerApi.CancelOrderByChannelUltraCartOrderId: " + e.Message );
+                Debug.Print("Exception when calling ChannelPartnerApi.CancelOrderByUltraCartOrderId: " + e.Message );
             }
         }
     }

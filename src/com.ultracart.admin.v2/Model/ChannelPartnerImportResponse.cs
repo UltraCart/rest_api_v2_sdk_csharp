@@ -37,14 +37,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="importErrors">Array of errors if errors occurred.</param>
         /// <param name="importWarnings">Array of warnings if warnings occurred.</param>
         /// <param name="metadata">metadata.</param>
+        /// <param name="orderId">The order id of the newly imported order if successful.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ChannelPartnerImportResponse(Error error = default(Error), List<string> importErrors = default(List<string>), List<string> importWarnings = default(List<string>), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
+        public ChannelPartnerImportResponse(Error error = default(Error), List<string> importErrors = default(List<string>), List<string> importWarnings = default(List<string>), ResponseMetadata metadata = default(ResponseMetadata), string orderId = default(string), bool? success = default(bool?), Warning warning = default(Warning))
         {
             this.Error = error;
             this.ImportErrors = importErrors;
             this.ImportWarnings = importWarnings;
             this.Metadata = metadata;
+            this.OrderId = orderId;
             this.Success = success;
             this.Warning = warning;
         }
@@ -76,6 +78,13 @@ namespace com.ultracart.admin.v2.Model
         public ResponseMetadata Metadata { get; set; }
 
         /// <summary>
+        /// The order id of the newly imported order if successful
+        /// </summary>
+        /// <value>The order id of the newly imported order if successful</value>
+        [DataMember(Name="order_id", EmitDefaultValue=false)]
+        public string OrderId { get; set; }
+
+        /// <summary>
         /// Indicates if API call was successful
         /// </summary>
         /// <value>Indicates if API call was successful</value>
@@ -100,6 +109,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ImportErrors: ").Append(ImportErrors).Append("\n");
             sb.Append("  ImportWarnings: ").Append(ImportWarnings).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
@@ -157,6 +167,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
+                    this.OrderId == input.OrderId ||
+                    (this.OrderId != null &&
+                    this.OrderId.Equals(input.OrderId))
+                ) && 
+                (
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
@@ -185,6 +200,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ImportWarnings.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                if (this.OrderId != null)
+                    hashCode = hashCode * 59 + this.OrderId.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Warning != null)

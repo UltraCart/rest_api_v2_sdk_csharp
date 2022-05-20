@@ -164,8 +164,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
-        /// <returns>OrdersResponse</returns>
-        OrdersResponse GeneratePackingSlipAllDC (string orderId);
+        /// <returns>OrderPackingSlipResponse</returns>
+        OrderPackingSlipResponse GeneratePackingSlipAllDC (string orderId);
 
         /// <summary>
         /// Generate a packing slip for this order across all distribution centers.
@@ -175,8 +175,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
-        /// <returns>ApiResponse of OrdersResponse</returns>
-        ApiResponse<OrdersResponse> GeneratePackingSlipAllDCWithHttpInfo (string orderId);
+        /// <returns>ApiResponse of OrderPackingSlipResponse</returns>
+        ApiResponse<OrderPackingSlipResponse> GeneratePackingSlipAllDCWithHttpInfo (string orderId);
         /// <summary>
         /// Generate a packing slip for this order for the given distribution center.
         /// </summary>
@@ -186,8 +186,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>OrdersResponse</returns>
-        OrdersResponse GeneratePackingSlipSpecificDC (string distributionCenterCode, string orderId);
+        /// <returns>OrderPackingSlipResponse</returns>
+        OrderPackingSlipResponse GeneratePackingSlipSpecificDC (string distributionCenterCode, string orderId);
 
         /// <summary>
         /// Generate a packing slip for this order for the given distribution center.
@@ -198,8 +198,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>ApiResponse of OrdersResponse</returns>
-        ApiResponse<OrdersResponse> GeneratePackingSlipSpecificDCWithHttpInfo (string distributionCenterCode, string orderId);
+        /// <returns>ApiResponse of OrderPackingSlipResponse</returns>
+        ApiResponse<OrderPackingSlipResponse> GeneratePackingSlipSpecificDCWithHttpInfo (string distributionCenterCode, string orderId);
         /// <summary>
         /// Retrieve A/R Retry Configuration
         /// </summary>
@@ -779,8 +779,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of OrdersResponse</returns>
-        System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipAllDCAsync (string orderId);
+        /// <returns>Task of OrderPackingSlipResponse</returns>
+        System.Threading.Tasks.Task<OrderPackingSlipResponse> GeneratePackingSlipAllDCAsync (string orderId);
 
         /// <summary>
         /// Generate a packing slip for this order across all distribution centers.
@@ -790,8 +790,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GeneratePackingSlipAllDCAsyncWithHttpInfo (string orderId);
+        /// <returns>Task of ApiResponse (OrderPackingSlipResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderPackingSlipResponse>> GeneratePackingSlipAllDCAsyncWithHttpInfo (string orderId);
         /// <summary>
         /// Generate a packing slip for this order for the given distribution center.
         /// </summary>
@@ -801,8 +801,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of OrdersResponse</returns>
-        System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipSpecificDCAsync (string distributionCenterCode, string orderId);
+        /// <returns>Task of OrderPackingSlipResponse</returns>
+        System.Threading.Tasks.Task<OrderPackingSlipResponse> GeneratePackingSlipSpecificDCAsync (string distributionCenterCode, string orderId);
 
         /// <summary>
         /// Generate a packing slip for this order for the given distribution center.
@@ -813,8 +813,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GeneratePackingSlipSpecificDCAsyncWithHttpInfo (string distributionCenterCode, string orderId);
+        /// <returns>Task of ApiResponse (OrderPackingSlipResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderPackingSlipResponse>> GeneratePackingSlipSpecificDCAsyncWithHttpInfo (string distributionCenterCode, string orderId);
         /// <summary>
         /// Retrieve A/R Retry Configuration
         /// </summary>
@@ -2348,10 +2348,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
-        /// <returns>OrdersResponse</returns>
-        public OrdersResponse GeneratePackingSlipAllDC (string orderId)
+        /// <returns>OrderPackingSlipResponse</returns>
+        public OrderPackingSlipResponse GeneratePackingSlipAllDC (string orderId)
         {
-             ApiResponse<OrdersResponse> localVarResponse = GeneratePackingSlipAllDCWithHttpInfo(orderId);
+             ApiResponse<OrderPackingSlipResponse> localVarResponse = GeneratePackingSlipAllDCWithHttpInfo(orderId);
              return localVarResponse.Data;
         }
 
@@ -2360,8 +2360,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
-        /// <returns>ApiResponse of OrdersResponse</returns>
-        public ApiResponse< OrdersResponse > GeneratePackingSlipAllDCWithHttpInfo (string orderId)
+        /// <returns>ApiResponse of OrderPackingSlipResponse</returns>
+        public ApiResponse< OrderPackingSlipResponse > GeneratePackingSlipAllDCWithHttpInfo (string orderId)
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -2416,9 +2416,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+            return new ApiResponse<OrderPackingSlipResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+                (OrderPackingSlipResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderPackingSlipResponse)));
         }
 
         /// <summary>
@@ -2426,10 +2426,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of OrdersResponse</returns>
-        public async System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipAllDCAsync (string orderId)
+        /// <returns>Task of OrderPackingSlipResponse</returns>
+        public async System.Threading.Tasks.Task<OrderPackingSlipResponse> GeneratePackingSlipAllDCAsync (string orderId)
         {
-             ApiResponse<OrdersResponse> localVarResponse = await GeneratePackingSlipAllDCAsyncWithHttpInfo(orderId);
+             ApiResponse<OrderPackingSlipResponse> localVarResponse = await GeneratePackingSlipAllDCAsyncWithHttpInfo(orderId);
              return localVarResponse.Data;
 
         }
@@ -2439,8 +2439,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GeneratePackingSlipAllDCAsyncWithHttpInfo (string orderId)
+        /// <returns>Task of ApiResponse (OrderPackingSlipResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderPackingSlipResponse>> GeneratePackingSlipAllDCAsyncWithHttpInfo (string orderId)
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -2495,9 +2495,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+            return new ApiResponse<OrderPackingSlipResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+                (OrderPackingSlipResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderPackingSlipResponse)));
         }
 
         /// <summary>
@@ -2506,10 +2506,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>OrdersResponse</returns>
-        public OrdersResponse GeneratePackingSlipSpecificDC (string distributionCenterCode, string orderId)
+        /// <returns>OrderPackingSlipResponse</returns>
+        public OrderPackingSlipResponse GeneratePackingSlipSpecificDC (string distributionCenterCode, string orderId)
         {
-             ApiResponse<OrdersResponse> localVarResponse = GeneratePackingSlipSpecificDCWithHttpInfo(distributionCenterCode, orderId);
+             ApiResponse<OrderPackingSlipResponse> localVarResponse = GeneratePackingSlipSpecificDCWithHttpInfo(distributionCenterCode, orderId);
              return localVarResponse.Data;
         }
 
@@ -2519,8 +2519,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>ApiResponse of OrdersResponse</returns>
-        public ApiResponse< OrdersResponse > GeneratePackingSlipSpecificDCWithHttpInfo (string distributionCenterCode, string orderId)
+        /// <returns>ApiResponse of OrderPackingSlipResponse</returns>
+        public ApiResponse< OrderPackingSlipResponse > GeneratePackingSlipSpecificDCWithHttpInfo (string distributionCenterCode, string orderId)
         {
             // verify the required parameter 'distributionCenterCode' is set
             if (distributionCenterCode == null)
@@ -2579,9 +2579,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+            return new ApiResponse<OrderPackingSlipResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+                (OrderPackingSlipResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderPackingSlipResponse)));
         }
 
         /// <summary>
@@ -2590,10 +2590,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of OrdersResponse</returns>
-        public async System.Threading.Tasks.Task<OrdersResponse> GeneratePackingSlipSpecificDCAsync (string distributionCenterCode, string orderId)
+        /// <returns>Task of OrderPackingSlipResponse</returns>
+        public async System.Threading.Tasks.Task<OrderPackingSlipResponse> GeneratePackingSlipSpecificDCAsync (string distributionCenterCode, string orderId)
         {
-             ApiResponse<OrdersResponse> localVarResponse = await GeneratePackingSlipSpecificDCAsyncWithHttpInfo(distributionCenterCode, orderId);
+             ApiResponse<OrderPackingSlipResponse> localVarResponse = await GeneratePackingSlipSpecificDCAsyncWithHttpInfo(distributionCenterCode, orderId);
              return localVarResponse.Data;
 
         }
@@ -2604,8 +2604,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="distributionCenterCode">Distribution center code</param>
         /// <param name="orderId">Order ID</param>
-        /// <returns>Task of ApiResponse (OrdersResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrdersResponse>> GeneratePackingSlipSpecificDCAsyncWithHttpInfo (string distributionCenterCode, string orderId)
+        /// <returns>Task of ApiResponse (OrderPackingSlipResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderPackingSlipResponse>> GeneratePackingSlipSpecificDCAsyncWithHttpInfo (string distributionCenterCode, string orderId)
         {
             // verify the required parameter 'distributionCenterCode' is set
             if (distributionCenterCode == null)
@@ -2664,9 +2664,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<OrdersResponse>(localVarStatusCode,
+            return new ApiResponse<OrderPackingSlipResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OrdersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrdersResponse)));
+                (OrderPackingSlipResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderPackingSlipResponse)));
         }
 
         /// <summary>

@@ -76,7 +76,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="dontLinkEmailToSearch">True to not link the email address to the order search.</param>
         /// <param name="emailAsLink">True to make the email address a clickable mailto link.</param>
         /// <param name="filterDistributionCenterOid">Specify a distribution center oid to filter the items displayed to that particular distribution center..</param>
-        /// <param name="filterToItemsInContactOid">The container oid to filter items to..</param>
+        /// <param name="filterToItemsInContainerOid">The container oid to filter items to..</param>
         /// <param name="format">The desired format..</param>
         /// <param name="hideBillToAddress">True to ide the bill to address.</param>
         /// <param name="hidePriceInformation">True to hide price information.</param>
@@ -88,13 +88,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="showNonSensitivePaymentInfo">True to show non-sensitive payment information.</param>
         /// <param name="showPaymentInfo">True to show payment information.</param>
         /// <param name="translate">True to translate the order into the native language of the customer.</param>
-        public OrderFormat(string context = default(string), bool? dontLinkEmailToSearch = default(bool?), bool? emailAsLink = default(bool?), int? filterDistributionCenterOid = default(int?), int? filterToItemsInContactOid = default(int?), FormatEnum? format = default(FormatEnum?), bool? hideBillToAddress = default(bool?), bool? hidePriceInformation = default(bool?), bool? linkFileAttachments = default(bool?), bool? showContactInfo = default(bool?), bool? showInMerchantCurrency = default(bool?), bool? showInternalInformation = default(bool?), bool? showMerchantNotes = default(bool?), bool? showNonSensitivePaymentInfo = default(bool?), bool? showPaymentInfo = default(bool?), bool? translate = default(bool?))
+        public OrderFormat(string context = default(string), bool? dontLinkEmailToSearch = default(bool?), bool? emailAsLink = default(bool?), int? filterDistributionCenterOid = default(int?), int? filterToItemsInContainerOid = default(int?), FormatEnum? format = default(FormatEnum?), bool? hideBillToAddress = default(bool?), bool? hidePriceInformation = default(bool?), bool? linkFileAttachments = default(bool?), bool? showContactInfo = default(bool?), bool? showInMerchantCurrency = default(bool?), bool? showInternalInformation = default(bool?), bool? showMerchantNotes = default(bool?), bool? showNonSensitivePaymentInfo = default(bool?), bool? showPaymentInfo = default(bool?), bool? translate = default(bool?))
         {
             this.Context = context;
             this.DontLinkEmailToSearch = dontLinkEmailToSearch;
             this.EmailAsLink = emailAsLink;
             this.FilterDistributionCenterOid = filterDistributionCenterOid;
-            this.FilterToItemsInContactOid = filterToItemsInContactOid;
+            this.FilterToItemsInContainerOid = filterToItemsInContainerOid;
             this.Format = format;
             this.HideBillToAddress = hideBillToAddress;
             this.HidePriceInformation = hidePriceInformation;
@@ -140,8 +140,8 @@ namespace com.ultracart.admin.v2.Model
         /// The container oid to filter items to.
         /// </summary>
         /// <value>The container oid to filter items to.</value>
-        [DataMember(Name="filter_to_items_in_contact_oid", EmitDefaultValue=false)]
-        public int? FilterToItemsInContactOid { get; set; }
+        [DataMember(Name="filter_to_items_in_container_oid", EmitDefaultValue=false)]
+        public int? FilterToItemsInContainerOid { get; set; }
 
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DontLinkEmailToSearch: ").Append(DontLinkEmailToSearch).Append("\n");
             sb.Append("  EmailAsLink: ").Append(EmailAsLink).Append("\n");
             sb.Append("  FilterDistributionCenterOid: ").Append(FilterDistributionCenterOid).Append("\n");
-            sb.Append("  FilterToItemsInContactOid: ").Append(FilterToItemsInContactOid).Append("\n");
+            sb.Append("  FilterToItemsInContainerOid: ").Append(FilterToItemsInContainerOid).Append("\n");
             sb.Append("  Format: ").Append(Format).Append("\n");
             sb.Append("  HideBillToAddress: ").Append(HideBillToAddress).Append("\n");
             sb.Append("  HidePriceInformation: ").Append(HidePriceInformation).Append("\n");
@@ -293,9 +293,9 @@ namespace com.ultracart.admin.v2.Model
                     this.FilterDistributionCenterOid.Equals(input.FilterDistributionCenterOid))
                 ) && 
                 (
-                    this.FilterToItemsInContactOid == input.FilterToItemsInContactOid ||
-                    (this.FilterToItemsInContactOid != null &&
-                    this.FilterToItemsInContactOid.Equals(input.FilterToItemsInContactOid))
+                    this.FilterToItemsInContainerOid == input.FilterToItemsInContainerOid ||
+                    (this.FilterToItemsInContainerOid != null &&
+                    this.FilterToItemsInContainerOid.Equals(input.FilterToItemsInContainerOid))
                 ) && 
                 (
                     this.Format == input.Format ||
@@ -371,8 +371,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EmailAsLink.GetHashCode();
                 if (this.FilterDistributionCenterOid != null)
                     hashCode = hashCode * 59 + this.FilterDistributionCenterOid.GetHashCode();
-                if (this.FilterToItemsInContactOid != null)
-                    hashCode = hashCode * 59 + this.FilterToItemsInContactOid.GetHashCode();
+                if (this.FilterToItemsInContainerOid != null)
+                    hashCode = hashCode * 59 + this.FilterToItemsInContainerOid.GetHashCode();
                 if (this.Format != null)
                     hashCode = hashCode * 59 + this.Format.GetHashCode();
                 if (this.HideBillToAddress != null)

@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 
 <a name="generatepackingslipalldc"></a>
 # **GeneratePackingSlipAllDC**
-> OrdersResponse GeneratePackingSlipAllDC (string orderId)
+> OrderPackingSlipResponse GeneratePackingSlipAllDC (string orderId)
 
 Generate a packing slip for this order across all distribution centers.
 
@@ -462,7 +462,7 @@ namespace Example
             try
             {
                 // Generate a packing slip for this order across all distribution centers.
-                OrdersResponse result = apiInstance.GeneratePackingSlipAllDC(orderId);
+                OrderPackingSlipResponse result = apiInstance.GeneratePackingSlipAllDC(orderId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrdersResponse**](OrdersResponse.md)
+[**OrderPackingSlipResponse**](OrderPackingSlipResponse.md)
 
 ### Authorization
 
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 <a name="generatepackingslipspecificdc"></a>
 # **GeneratePackingSlipSpecificDC**
-> OrdersResponse GeneratePackingSlipSpecificDC (string distributionCenterCode, string orderId)
+> OrderPackingSlipResponse GeneratePackingSlipSpecificDC (string distributionCenterCode, string orderId)
 
 Generate a packing slip for this order for the given distribution center.
 
@@ -529,7 +529,7 @@ namespace Example
             try
             {
                 // Generate a packing slip for this order for the given distribution center.
-                OrdersResponse result = apiInstance.GeneratePackingSlipSpecificDC(distributionCenterCode, orderId);
+                OrderPackingSlipResponse result = apiInstance.GeneratePackingSlipSpecificDC(distributionCenterCode, orderId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -551,7 +551,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrdersResponse**](OrdersResponse.md)
+[**OrderPackingSlipResponse**](OrderPackingSlipResponse.md)
 
 ### Authorization
 

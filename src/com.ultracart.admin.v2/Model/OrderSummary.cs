@@ -37,6 +37,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="actualPaymentProcessing">actualPaymentProcessing.</param>
         /// <param name="actualShipping">actualShipping.</param>
         /// <param name="arbitraryShippingHandlingTotal">arbitraryShippingHandlingTotal.</param>
+        /// <param name="internalGiftCertificateAmount">internalGiftCertificateAmount.</param>
+        /// <param name="internalGiftCertificateRefunded">internalGiftCertificateRefunded.</param>
         /// <param name="otherRefunded">otherRefunded.</param>
         /// <param name="shippingHandlingRefunded">shippingHandlingRefunded.</param>
         /// <param name="shippingHandlingTotal">shippingHandlingTotal.</param>
@@ -51,12 +53,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taxableSubtotalDiscount">taxableSubtotalDiscount.</param>
         /// <param name="total">total.</param>
         /// <param name="totalRefunded">totalRefunded.</param>
-        public OrderSummary(Currency actualFulfillment = default(Currency), Currency actualPaymentProcessing = default(Currency), Currency actualShipping = default(Currency), Currency arbitraryShippingHandlingTotal = default(Currency), Currency otherRefunded = default(Currency), Currency shippingHandlingRefunded = default(Currency), Currency shippingHandlingTotal = default(Currency), Currency shippingHandlingTotalDiscount = default(Currency), Currency subtotal = default(Currency), Currency subtotalDiscount = default(Currency), Currency subtotalDiscountRefunded = default(Currency), Currency subtotalRefunded = default(Currency), Currency tax = default(Currency), Currency taxRefunded = default(Currency), Currency taxableSubtotal = default(Currency), Currency taxableSubtotalDiscount = default(Currency), Currency total = default(Currency), Currency totalRefunded = default(Currency))
+        public OrderSummary(Currency actualFulfillment = default(Currency), Currency actualPaymentProcessing = default(Currency), Currency actualShipping = default(Currency), Currency arbitraryShippingHandlingTotal = default(Currency), Currency internalGiftCertificateAmount = default(Currency), Currency internalGiftCertificateRefunded = default(Currency), Currency otherRefunded = default(Currency), Currency shippingHandlingRefunded = default(Currency), Currency shippingHandlingTotal = default(Currency), Currency shippingHandlingTotalDiscount = default(Currency), Currency subtotal = default(Currency), Currency subtotalDiscount = default(Currency), Currency subtotalDiscountRefunded = default(Currency), Currency subtotalRefunded = default(Currency), Currency tax = default(Currency), Currency taxRefunded = default(Currency), Currency taxableSubtotal = default(Currency), Currency taxableSubtotalDiscount = default(Currency), Currency total = default(Currency), Currency totalRefunded = default(Currency))
         {
             this.ActualFulfillment = actualFulfillment;
             this.ActualPaymentProcessing = actualPaymentProcessing;
             this.ActualShipping = actualShipping;
             this.ArbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+            this.InternalGiftCertificateAmount = internalGiftCertificateAmount;
+            this.InternalGiftCertificateRefunded = internalGiftCertificateRefunded;
             this.OtherRefunded = otherRefunded;
             this.ShippingHandlingRefunded = shippingHandlingRefunded;
             this.ShippingHandlingTotal = shippingHandlingTotal;
@@ -96,6 +100,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="arbitrary_shipping_handling_total", EmitDefaultValue=false)]
         public Currency ArbitraryShippingHandlingTotal { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InternalGiftCertificateAmount
+        /// </summary>
+        [DataMember(Name="internal_gift_certificate_amount", EmitDefaultValue=false)]
+        public Currency InternalGiftCertificateAmount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InternalGiftCertificateRefunded
+        /// </summary>
+        [DataMember(Name="internal_gift_certificate_refunded", EmitDefaultValue=false)]
+        public Currency InternalGiftCertificateRefunded { get; set; }
 
         /// <summary>
         /// Gets or Sets OtherRefunded
@@ -193,6 +209,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ActualPaymentProcessing: ").Append(ActualPaymentProcessing).Append("\n");
             sb.Append("  ActualShipping: ").Append(ActualShipping).Append("\n");
             sb.Append("  ArbitraryShippingHandlingTotal: ").Append(ArbitraryShippingHandlingTotal).Append("\n");
+            sb.Append("  InternalGiftCertificateAmount: ").Append(InternalGiftCertificateAmount).Append("\n");
+            sb.Append("  InternalGiftCertificateRefunded: ").Append(InternalGiftCertificateRefunded).Append("\n");
             sb.Append("  OtherRefunded: ").Append(OtherRefunded).Append("\n");
             sb.Append("  ShippingHandlingRefunded: ").Append(ShippingHandlingRefunded).Append("\n");
             sb.Append("  ShippingHandlingTotal: ").Append(ShippingHandlingTotal).Append("\n");
@@ -260,6 +278,16 @@ namespace com.ultracart.admin.v2.Model
                     this.ArbitraryShippingHandlingTotal == input.ArbitraryShippingHandlingTotal ||
                     (this.ArbitraryShippingHandlingTotal != null &&
                     this.ArbitraryShippingHandlingTotal.Equals(input.ArbitraryShippingHandlingTotal))
+                ) && 
+                (
+                    this.InternalGiftCertificateAmount == input.InternalGiftCertificateAmount ||
+                    (this.InternalGiftCertificateAmount != null &&
+                    this.InternalGiftCertificateAmount.Equals(input.InternalGiftCertificateAmount))
+                ) && 
+                (
+                    this.InternalGiftCertificateRefunded == input.InternalGiftCertificateRefunded ||
+                    (this.InternalGiftCertificateRefunded != null &&
+                    this.InternalGiftCertificateRefunded.Equals(input.InternalGiftCertificateRefunded))
                 ) && 
                 (
                     this.OtherRefunded == input.OtherRefunded ||
@@ -350,6 +378,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ActualShipping.GetHashCode();
                 if (this.ArbitraryShippingHandlingTotal != null)
                     hashCode = hashCode * 59 + this.ArbitraryShippingHandlingTotal.GetHashCode();
+                if (this.InternalGiftCertificateAmount != null)
+                    hashCode = hashCode * 59 + this.InternalGiftCertificateAmount.GetHashCode();
+                if (this.InternalGiftCertificateRefunded != null)
+                    hashCode = hashCode * 59 + this.InternalGiftCertificateRefunded.GetHashCode();
                 if (this.OtherRefunded != null)
                     hashCode = hashCode * 59 + this.OtherRefunded.GetHashCode();
                 if (this.ShippingHandlingRefunded != null)

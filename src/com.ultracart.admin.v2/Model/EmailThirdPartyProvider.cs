@@ -42,7 +42,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="supportsListSubscribe">True if this provider can support list subscribe.</param>
         /// <param name="supportsListUnsubscribe">True if this provider can support list unsubscribe.</param>
         /// <param name="supportsRemoveTags">True if this provider can support remove tags.</param>
-        public EmailThirdPartyProvider(string connectUrl = default(string), int? listCount = default(int?), List<EmailThirdPartyList> lists = default(List<EmailThirdPartyList>), string logoUrl = default(string), string name = default(string), bool? supportsAddTags = default(bool?), bool? supportsListSubscribe = default(bool?), bool? supportsListUnsubscribe = default(bool?), bool? supportsRemoveTags = default(bool?))
+        /// <param name="tagCount">tag_count.</param>
+        /// <param name="tags">tags.</param>
+        public EmailThirdPartyProvider(string connectUrl = default(string), int? listCount = default(int?), List<EmailThirdPartyList> lists = default(List<EmailThirdPartyList>), string logoUrl = default(string), string name = default(string), bool? supportsAddTags = default(bool?), bool? supportsListSubscribe = default(bool?), bool? supportsListUnsubscribe = default(bool?), bool? supportsRemoveTags = default(bool?), int? tagCount = default(int?), List<EmailThirdPartyTag> tags = default(List<EmailThirdPartyTag>))
         {
             this.ConnectUrl = connectUrl;
             this.ListCount = listCount;
@@ -53,6 +55,8 @@ namespace com.ultracart.admin.v2.Model
             this.SupportsListSubscribe = supportsListSubscribe;
             this.SupportsListUnsubscribe = supportsListUnsubscribe;
             this.SupportsRemoveTags = supportsRemoveTags;
+            this.TagCount = tagCount;
+            this.Tags = tags;
         }
         
         /// <summary>
@@ -119,6 +123,20 @@ namespace com.ultracart.admin.v2.Model
         public bool? SupportsRemoveTags { get; set; }
 
         /// <summary>
+        /// tag_count
+        /// </summary>
+        /// <value>tag_count</value>
+        [DataMember(Name="tag_count", EmitDefaultValue=false)]
+        public int? TagCount { get; set; }
+
+        /// <summary>
+        /// tags
+        /// </summary>
+        /// <value>tags</value>
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public List<EmailThirdPartyTag> Tags { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +153,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  SupportsListSubscribe: ").Append(SupportsListSubscribe).Append("\n");
             sb.Append("  SupportsListUnsubscribe: ").Append(SupportsListUnsubscribe).Append("\n");
             sb.Append("  SupportsRemoveTags: ").Append(SupportsRemoveTags).Append("\n");
+            sb.Append("  TagCount: ").Append(TagCount).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -213,6 +233,16 @@ namespace com.ultracart.admin.v2.Model
                     this.SupportsRemoveTags == input.SupportsRemoveTags ||
                     (this.SupportsRemoveTags != null &&
                     this.SupportsRemoveTags.Equals(input.SupportsRemoveTags))
+                ) && 
+                (
+                    this.TagCount == input.TagCount ||
+                    (this.TagCount != null &&
+                    this.TagCount.Equals(input.TagCount))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
                 );
         }
 
@@ -243,6 +273,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.SupportsListUnsubscribe.GetHashCode();
                 if (this.SupportsRemoveTags != null)
                     hashCode = hashCode * 59 + this.SupportsRemoveTags.GetHashCode();
+                if (this.TagCount != null)
+                    hashCode = hashCode * 59 + this.TagCount.GetHashCode();
+                if (this.Tags != null)
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 return hashCode;
             }
         }

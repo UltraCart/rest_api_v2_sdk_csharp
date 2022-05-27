@@ -25,6 +25,29 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Adds store credit to a customer
+        /// </summary>
+        /// <remarks>
+        /// Adds store credit to a customer 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to credit.</param>
+        /// <param name="storeCreditRequest">Store credit to add</param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse AddCustomerStoreCredit (int? customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest);
+
+        /// <summary>
+        /// Adds store credit to a customer
+        /// </summary>
+        /// <remarks>
+        /// Adds store credit to a customer 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to credit.</param>
+        /// <param name="storeCreditRequest">Store credit to add</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> AddCustomerStoreCreditWithHttpInfo (int? customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest);
+        /// <summary>
         /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
         /// </summary>
         /// <remarks>
@@ -152,6 +175,27 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of EmailListsResponse</returns>
         ApiResponse<EmailListsResponse> GetCustomerEmailListsWithHttpInfo ();
+        /// <summary>
+        /// Retrieve the customer store credit accumulated through loyalty programs
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the customer store credit accumulated through loyalty programs 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>CustomerStoreCreditResponse</returns>
+        CustomerStoreCreditResponse GetCustomerStoreCredit (int? customerProfileOid);
+
+        /// <summary>
+        /// Retrieve the customer store credit accumulated through loyalty programs
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the customer store credit accumulated through loyalty programs 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>ApiResponse of CustomerStoreCreditResponse</returns>
+        ApiResponse<CustomerStoreCreditResponse> GetCustomerStoreCreditWithHttpInfo (int? customerProfileOid);
         /// <summary>
         /// Retrieve customers
         /// </summary>
@@ -403,6 +447,29 @@ namespace com.ultracart.admin.v2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Adds store credit to a customer
+        /// </summary>
+        /// <remarks>
+        /// Adds store credit to a customer 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to credit.</param>
+        /// <param name="storeCreditRequest">Store credit to add</param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> AddCustomerStoreCreditAsync (int? customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest);
+
+        /// <summary>
+        /// Adds store credit to a customer
+        /// </summary>
+        /// <remarks>
+        /// Adds store credit to a customer 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to credit.</param>
+        /// <param name="storeCreditRequest">Store credit to add</param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> AddCustomerStoreCreditAsyncWithHttpInfo (int? customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest);
+        /// <summary>
         /// Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
         /// </summary>
         /// <remarks>
@@ -530,6 +597,27 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (EmailListsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailListsResponse>> GetCustomerEmailListsAsyncWithHttpInfo ();
+        /// <summary>
+        /// Retrieve the customer store credit accumulated through loyalty programs
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the customer store credit accumulated through loyalty programs 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>Task of CustomerStoreCreditResponse</returns>
+        System.Threading.Tasks.Task<CustomerStoreCreditResponse> GetCustomerStoreCreditAsync (int? customerProfileOid);
+
+        /// <summary>
+        /// Retrieve the customer store credit accumulated through loyalty programs
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the customer store credit accumulated through loyalty programs 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>Task of ApiResponse (CustomerStoreCreditResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerStoreCreditResponse>> GetCustomerStoreCreditAsyncWithHttpInfo (int? customerProfileOid);
         /// <summary>
         /// Retrieve customers
         /// </summary>
@@ -883,6 +971,189 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Adds store credit to a customer Adds store credit to a customer 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to credit.</param>
+        /// <param name="storeCreditRequest">Store credit to add</param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse AddCustomerStoreCredit (int? customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest)
+        {
+             ApiResponse<BaseResponse> localVarResponse = AddCustomerStoreCreditWithHttpInfo(customerProfileOid, storeCreditRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Adds store credit to a customer Adds store credit to a customer 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to credit.</param>
+        /// <param name="storeCreditRequest">Store credit to add</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse< BaseResponse > AddCustomerStoreCreditWithHttpInfo (int? customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->AddCustomerStoreCredit");
+            // verify the required parameter 'storeCreditRequest' is set
+            if (storeCreditRequest == null)
+                throw new ApiException(400, "Missing required parameter 'storeCreditRequest' when calling CustomerApi->AddCustomerStoreCredit");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/store_credit";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (storeCreditRequest != null && storeCreditRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(storeCreditRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = storeCreditRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddCustomerStoreCredit", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Adds store credit to a customer Adds store credit to a customer 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to credit.</param>
+        /// <param name="storeCreditRequest">Store credit to add</param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> AddCustomerStoreCreditAsync (int? customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest)
+        {
+             ApiResponse<BaseResponse> localVarResponse = await AddCustomerStoreCreditAsyncWithHttpInfo(customerProfileOid, storeCreditRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Adds store credit to a customer Adds store credit to a customer 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to credit.</param>
+        /// <param name="storeCreditRequest">Store credit to add</param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> AddCustomerStoreCreditAsyncWithHttpInfo (int? customerProfileOid, CustomerStoreCreditAddRequest storeCreditRequest)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->AddCustomerStoreCredit");
+            // verify the required parameter 'storeCreditRequest' is set
+            if (storeCreditRequest == null)
+                throw new ApiException(400, "Missing required parameter 'storeCreditRequest' when calling CustomerApi->AddCustomerStoreCredit");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/store_credit";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (storeCreditRequest != null && storeCreditRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(storeCreditRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = storeCreditRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddCustomerStoreCredit", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
         }
 
         /// <summary>
@@ -1837,6 +2108,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailListsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailListsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailListsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve the customer store credit accumulated through loyalty programs Retrieve the customer store credit accumulated through loyalty programs 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>CustomerStoreCreditResponse</returns>
+        public CustomerStoreCreditResponse GetCustomerStoreCredit (int? customerProfileOid)
+        {
+             ApiResponse<CustomerStoreCreditResponse> localVarResponse = GetCustomerStoreCreditWithHttpInfo(customerProfileOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the customer store credit accumulated through loyalty programs Retrieve the customer store credit accumulated through loyalty programs 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>ApiResponse of CustomerStoreCreditResponse</returns>
+        public ApiResponse< CustomerStoreCreditResponse > GetCustomerStoreCreditWithHttpInfo (int? customerProfileOid)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->GetCustomerStoreCredit");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/store_credit";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomerStoreCredit", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerStoreCreditResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerStoreCreditResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerStoreCreditResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve the customer store credit accumulated through loyalty programs Retrieve the customer store credit accumulated through loyalty programs 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>Task of CustomerStoreCreditResponse</returns>
+        public async System.Threading.Tasks.Task<CustomerStoreCreditResponse> GetCustomerStoreCreditAsync (int? customerProfileOid)
+        {
+             ApiResponse<CustomerStoreCreditResponse> localVarResponse = await GetCustomerStoreCreditAsyncWithHttpInfo(customerProfileOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve the customer store credit accumulated through loyalty programs Retrieve the customer store credit accumulated through loyalty programs 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid to retrieve.</param>
+        /// <returns>Task of ApiResponse (CustomerStoreCreditResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerStoreCreditResponse>> GetCustomerStoreCreditAsyncWithHttpInfo (int? customerProfileOid)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->GetCustomerStoreCredit");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/store_credit";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomerStoreCredit", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerStoreCreditResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerStoreCreditResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerStoreCreditResponse)));
         }
 
         /// <summary>

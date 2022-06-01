@@ -33,12 +33,12 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerStoreCredit" /> class.
         /// </summary>
-        /// <param name="available">available.</param>
-        /// <param name="expiring">expiring.</param>
-        /// <param name="futureLedgers">futureLedgers.</param>
-        /// <param name="pastLedgers">pastLedgers.</param>
-        /// <param name="total">total.</param>
-        /// <param name="vesting">vesting.</param>
+        /// <param name="available">Available store credit which is defined as unused and vested.</param>
+        /// <param name="expiring">Amount of store credit expiring within 30 days.</param>
+        /// <param name="futureLedgers">Array of future ledger entries including expiring entries.</param>
+        /// <param name="pastLedgers">Array of past ledger entries including accrual, usage, and expiring entries.</param>
+        /// <param name="total">Total lifetime store credit for this customer..</param>
+        /// <param name="vesting">Amount of store credit vesting.</param>
         public CustomerStoreCredit(decimal? available = default(decimal?), decimal? expiring = default(decimal?), List<CustomerStoreCreditLedgerEntry> futureLedgers = default(List<CustomerStoreCreditLedgerEntry>), List<CustomerStoreCreditLedgerEntry> pastLedgers = default(List<CustomerStoreCreditLedgerEntry>), decimal? total = default(decimal?), decimal? vesting = default(decimal?))
         {
             this.Available = available;
@@ -50,38 +50,44 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets Available
+        /// Available store credit which is defined as unused and vested
         /// </summary>
+        /// <value>Available store credit which is defined as unused and vested</value>
         [DataMember(Name="available", EmitDefaultValue=false)]
         public decimal? Available { get; set; }
 
         /// <summary>
-        /// Gets or Sets Expiring
+        /// Amount of store credit expiring within 30 days
         /// </summary>
+        /// <value>Amount of store credit expiring within 30 days</value>
         [DataMember(Name="expiring", EmitDefaultValue=false)]
         public decimal? Expiring { get; set; }
 
         /// <summary>
-        /// Gets or Sets FutureLedgers
+        /// Array of future ledger entries including expiring entries
         /// </summary>
-        [DataMember(Name="futureLedgers", EmitDefaultValue=false)]
+        /// <value>Array of future ledger entries including expiring entries</value>
+        [DataMember(Name="future_ledgers", EmitDefaultValue=false)]
         public List<CustomerStoreCreditLedgerEntry> FutureLedgers { get; set; }
 
         /// <summary>
-        /// Gets or Sets PastLedgers
+        /// Array of past ledger entries including accrual, usage, and expiring entries
         /// </summary>
-        [DataMember(Name="pastLedgers", EmitDefaultValue=false)]
+        /// <value>Array of past ledger entries including accrual, usage, and expiring entries</value>
+        [DataMember(Name="past_ledgers", EmitDefaultValue=false)]
         public List<CustomerStoreCreditLedgerEntry> PastLedgers { get; set; }
 
         /// <summary>
-        /// Gets or Sets Total
+        /// Total lifetime store credit for this customer.
         /// </summary>
+        /// <value>Total lifetime store credit for this customer.</value>
         [DataMember(Name="total", EmitDefaultValue=false)]
         public decimal? Total { get; set; }
 
         /// <summary>
-        /// Gets or Sets Vesting
+        /// Amount of store credit vesting
         /// </summary>
+        /// <value>Amount of store credit vesting</value>
         [DataMember(Name="vesting", EmitDefaultValue=false)]
         public decimal? Vesting { get; set; }
 

@@ -47,8 +47,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rankJson">Rank settings json.</param>
         /// <param name="rebuildRequired">True if a rebuild is required because some part of the segment has changed.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
+        /// <param name="thirdpartyListId">List id of third party provider to sync with..</param>
+        /// <param name="thirdpartyProviderName">Name of third party provider to sync segment to a list with..</param>
         /// <param name="usedBy">Details on the flows or campaigns that use this list..</param>
-        public EmailSegment(bool? allowCsvDownload = default(bool?), bool? allowFacebookAudiences = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailSegmentUuid = default(string), string espListSegmentFolderUuid = default(string), bool? facebookCustomAudience = default(bool?), string filterProfileEquationJson = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string rankJson = default(string), bool? rebuildRequired = default(bool?), int? storefrontOid = default(int?), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
+        public EmailSegment(bool? allowCsvDownload = default(bool?), bool? allowFacebookAudiences = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailSegmentUuid = default(string), string espListSegmentFolderUuid = default(string), bool? facebookCustomAudience = default(bool?), string filterProfileEquationJson = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string rankJson = default(string), bool? rebuildRequired = default(bool?), int? storefrontOid = default(int?), string thirdpartyListId = default(string), string thirdpartyProviderName = default(string), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
         {
             this.AllowCsvDownload = allowCsvDownload;
             this.AllowFacebookAudiences = allowFacebookAudiences;
@@ -64,6 +66,8 @@ namespace com.ultracart.admin.v2.Model
             this.RankJson = rankJson;
             this.RebuildRequired = rebuildRequired;
             this.StorefrontOid = storefrontOid;
+            this.ThirdpartyListId = thirdpartyListId;
+            this.ThirdpartyProviderName = thirdpartyProviderName;
             this.UsedBy = usedBy;
         }
         
@@ -166,6 +170,20 @@ namespace com.ultracart.admin.v2.Model
         public int? StorefrontOid { get; set; }
 
         /// <summary>
+        /// List id of third party provider to sync with.
+        /// </summary>
+        /// <value>List id of third party provider to sync with.</value>
+        [DataMember(Name="thirdparty_list_id", EmitDefaultValue=false)]
+        public string ThirdpartyListId { get; set; }
+
+        /// <summary>
+        /// Name of third party provider to sync segment to a list with.
+        /// </summary>
+        /// <value>Name of third party provider to sync segment to a list with.</value>
+        [DataMember(Name="thirdparty_provider_name", EmitDefaultValue=false)]
+        public string ThirdpartyProviderName { get; set; }
+
+        /// <summary>
         /// Details on the flows or campaigns that use this list.
         /// </summary>
         /// <value>Details on the flows or campaigns that use this list.</value>
@@ -194,6 +212,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  RankJson: ").Append(RankJson).Append("\n");
             sb.Append("  RebuildRequired: ").Append(RebuildRequired).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
+            sb.Append("  ThirdpartyListId: ").Append(ThirdpartyListId).Append("\n");
+            sb.Append("  ThirdpartyProviderName: ").Append(ThirdpartyProviderName).Append("\n");
             sb.Append("  UsedBy: ").Append(UsedBy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -300,6 +320,16 @@ namespace com.ultracart.admin.v2.Model
                     this.StorefrontOid.Equals(input.StorefrontOid))
                 ) && 
                 (
+                    this.ThirdpartyListId == input.ThirdpartyListId ||
+                    (this.ThirdpartyListId != null &&
+                    this.ThirdpartyListId.Equals(input.ThirdpartyListId))
+                ) && 
+                (
+                    this.ThirdpartyProviderName == input.ThirdpartyProviderName ||
+                    (this.ThirdpartyProviderName != null &&
+                    this.ThirdpartyProviderName.Equals(input.ThirdpartyProviderName))
+                ) && 
+                (
                     this.UsedBy == input.UsedBy ||
                     this.UsedBy != null &&
                     this.UsedBy.SequenceEqual(input.UsedBy)
@@ -343,6 +373,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RebuildRequired.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
+                if (this.ThirdpartyListId != null)
+                    hashCode = hashCode * 59 + this.ThirdpartyListId.GetHashCode();
+                if (this.ThirdpartyProviderName != null)
+                    hashCode = hashCode * 59 + this.ThirdpartyProviderName.GetHashCode();
                 if (this.UsedBy != null)
                     hashCode = hashCode * 59 + this.UsedBy.GetHashCode();
                 return hashCode;

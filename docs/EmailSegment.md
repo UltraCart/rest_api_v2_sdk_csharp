@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **RankJson** | **string** | Rank settings json | [optional] 
 **RebuildRequired** | **bool?** | True if a rebuild is required because some part of the segment has changed | [optional] 
 **StorefrontOid** | **int?** | Storefront oid | [optional] 
+**ThirdpartyListId** | **string** | List id of third party provider to sync with. | [optional] 
+**ThirdpartyProviderName** | **string** | Name of third party provider to sync segment to a list with. | [optional] 
 **UsedBy** | [**List&lt;EmailListSegmentUsedBy&gt;**](EmailListSegmentUsedBy.md) | Details on the flows or campaigns that use this list. | [optional] 
 
 

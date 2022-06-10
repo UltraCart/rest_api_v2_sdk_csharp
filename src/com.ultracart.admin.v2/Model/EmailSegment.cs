@@ -47,10 +47,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rankJson">Rank settings json.</param>
         /// <param name="rebuildRequired">True if a rebuild is required because some part of the segment has changed.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
+        /// <param name="thirdpartyJoinAddTags">Third party provider tags to add when a customer joins the segment..</param>
+        /// <param name="thirdpartyJoinRemoveTags">Third party provider tags to remove when a customer joins the segment..</param>
+        /// <param name="thirdpartyLeaveAddTags">Third party provider tags to add when a customer leaves the segment..</param>
+        /// <param name="thirdpartyLeaveRemoveTags">Third party provider tags to remove when a customer leaves the segment..</param>
         /// <param name="thirdpartyListId">List id of third party provider to sync with..</param>
         /// <param name="thirdpartyProviderName">Name of third party provider to sync segment to a list with..</param>
         /// <param name="usedBy">Details on the flows or campaigns that use this list..</param>
-        public EmailSegment(bool? allowCsvDownload = default(bool?), bool? allowFacebookAudiences = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailSegmentUuid = default(string), string espListSegmentFolderUuid = default(string), bool? facebookCustomAudience = default(bool?), string filterProfileEquationJson = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string rankJson = default(string), bool? rebuildRequired = default(bool?), int? storefrontOid = default(int?), string thirdpartyListId = default(string), string thirdpartyProviderName = default(string), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
+        public EmailSegment(bool? allowCsvDownload = default(bool?), bool? allowFacebookAudiences = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailSegmentUuid = default(string), string espListSegmentFolderUuid = default(string), bool? facebookCustomAudience = default(bool?), string filterProfileEquationJson = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string rankJson = default(string), bool? rebuildRequired = default(bool?), int? storefrontOid = default(int?), List<string> thirdpartyJoinAddTags = default(List<string>), List<string> thirdpartyJoinRemoveTags = default(List<string>), List<string> thirdpartyLeaveAddTags = default(List<string>), List<string> thirdpartyLeaveRemoveTags = default(List<string>), string thirdpartyListId = default(string), string thirdpartyProviderName = default(string), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
         {
             this.AllowCsvDownload = allowCsvDownload;
             this.AllowFacebookAudiences = allowFacebookAudiences;
@@ -66,6 +70,10 @@ namespace com.ultracart.admin.v2.Model
             this.RankJson = rankJson;
             this.RebuildRequired = rebuildRequired;
             this.StorefrontOid = storefrontOid;
+            this.ThirdpartyJoinAddTags = thirdpartyJoinAddTags;
+            this.ThirdpartyJoinRemoveTags = thirdpartyJoinRemoveTags;
+            this.ThirdpartyLeaveAddTags = thirdpartyLeaveAddTags;
+            this.ThirdpartyLeaveRemoveTags = thirdpartyLeaveRemoveTags;
             this.ThirdpartyListId = thirdpartyListId;
             this.ThirdpartyProviderName = thirdpartyProviderName;
             this.UsedBy = usedBy;
@@ -170,6 +178,34 @@ namespace com.ultracart.admin.v2.Model
         public int? StorefrontOid { get; set; }
 
         /// <summary>
+        /// Third party provider tags to add when a customer joins the segment.
+        /// </summary>
+        /// <value>Third party provider tags to add when a customer joins the segment.</value>
+        [DataMember(Name="thirdparty_join_add_tags", EmitDefaultValue=false)]
+        public List<string> ThirdpartyJoinAddTags { get; set; }
+
+        /// <summary>
+        /// Third party provider tags to remove when a customer joins the segment.
+        /// </summary>
+        /// <value>Third party provider tags to remove when a customer joins the segment.</value>
+        [DataMember(Name="thirdparty_join_remove_tags", EmitDefaultValue=false)]
+        public List<string> ThirdpartyJoinRemoveTags { get; set; }
+
+        /// <summary>
+        /// Third party provider tags to add when a customer leaves the segment.
+        /// </summary>
+        /// <value>Third party provider tags to add when a customer leaves the segment.</value>
+        [DataMember(Name="thirdparty_leave_add_tags", EmitDefaultValue=false)]
+        public List<string> ThirdpartyLeaveAddTags { get; set; }
+
+        /// <summary>
+        /// Third party provider tags to remove when a customer leaves the segment.
+        /// </summary>
+        /// <value>Third party provider tags to remove when a customer leaves the segment.</value>
+        [DataMember(Name="thirdparty_leave_remove_tags", EmitDefaultValue=false)]
+        public List<string> ThirdpartyLeaveRemoveTags { get; set; }
+
+        /// <summary>
         /// List id of third party provider to sync with.
         /// </summary>
         /// <value>List id of third party provider to sync with.</value>
@@ -212,6 +248,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  RankJson: ").Append(RankJson).Append("\n");
             sb.Append("  RebuildRequired: ").Append(RebuildRequired).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
+            sb.Append("  ThirdpartyJoinAddTags: ").Append(ThirdpartyJoinAddTags).Append("\n");
+            sb.Append("  ThirdpartyJoinRemoveTags: ").Append(ThirdpartyJoinRemoveTags).Append("\n");
+            sb.Append("  ThirdpartyLeaveAddTags: ").Append(ThirdpartyLeaveAddTags).Append("\n");
+            sb.Append("  ThirdpartyLeaveRemoveTags: ").Append(ThirdpartyLeaveRemoveTags).Append("\n");
             sb.Append("  ThirdpartyListId: ").Append(ThirdpartyListId).Append("\n");
             sb.Append("  ThirdpartyProviderName: ").Append(ThirdpartyProviderName).Append("\n");
             sb.Append("  UsedBy: ").Append(UsedBy).Append("\n");
@@ -320,6 +360,26 @@ namespace com.ultracart.admin.v2.Model
                     this.StorefrontOid.Equals(input.StorefrontOid))
                 ) && 
                 (
+                    this.ThirdpartyJoinAddTags == input.ThirdpartyJoinAddTags ||
+                    this.ThirdpartyJoinAddTags != null &&
+                    this.ThirdpartyJoinAddTags.SequenceEqual(input.ThirdpartyJoinAddTags)
+                ) && 
+                (
+                    this.ThirdpartyJoinRemoveTags == input.ThirdpartyJoinRemoveTags ||
+                    this.ThirdpartyJoinRemoveTags != null &&
+                    this.ThirdpartyJoinRemoveTags.SequenceEqual(input.ThirdpartyJoinRemoveTags)
+                ) && 
+                (
+                    this.ThirdpartyLeaveAddTags == input.ThirdpartyLeaveAddTags ||
+                    this.ThirdpartyLeaveAddTags != null &&
+                    this.ThirdpartyLeaveAddTags.SequenceEqual(input.ThirdpartyLeaveAddTags)
+                ) && 
+                (
+                    this.ThirdpartyLeaveRemoveTags == input.ThirdpartyLeaveRemoveTags ||
+                    this.ThirdpartyLeaveRemoveTags != null &&
+                    this.ThirdpartyLeaveRemoveTags.SequenceEqual(input.ThirdpartyLeaveRemoveTags)
+                ) && 
+                (
                     this.ThirdpartyListId == input.ThirdpartyListId ||
                     (this.ThirdpartyListId != null &&
                     this.ThirdpartyListId.Equals(input.ThirdpartyListId))
@@ -373,6 +433,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RebuildRequired.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
+                if (this.ThirdpartyJoinAddTags != null)
+                    hashCode = hashCode * 59 + this.ThirdpartyJoinAddTags.GetHashCode();
+                if (this.ThirdpartyJoinRemoveTags != null)
+                    hashCode = hashCode * 59 + this.ThirdpartyJoinRemoveTags.GetHashCode();
+                if (this.ThirdpartyLeaveAddTags != null)
+                    hashCode = hashCode * 59 + this.ThirdpartyLeaveAddTags.GetHashCode();
+                if (this.ThirdpartyLeaveRemoveTags != null)
+                    hashCode = hashCode * 59 + this.ThirdpartyLeaveRemoveTags.GetHashCode();
                 if (this.ThirdpartyListId != null)
                     hashCode = hashCode * 59 + this.ThirdpartyListId.GetHashCode();
                 if (this.ThirdpartyProviderName != null)

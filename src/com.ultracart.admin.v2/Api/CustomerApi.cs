@@ -376,6 +376,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CustomerResponse</returns>
         ApiResponse<CustomerResponse> InsertCustomerWithHttpInfo (Customer customer, string expand = null);
         /// <summary>
+        /// Searches for all matching values (using POST)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>LookupResponse</returns>
+        LookupResponse Search (LookupRequest lookupRequest);
+
+        /// <summary>
+        /// Searches for all matching values (using POST)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>ApiResponse of LookupResponse</returns>
+        ApiResponse<LookupResponse> SearchWithHttpInfo (LookupRequest lookupRequest);
+        /// <summary>
         /// Update a customer
         /// </summary>
         /// <remarks>
@@ -797,6 +818,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> InsertCustomerAsyncWithHttpInfo (Customer customer, string expand = null);
+        /// <summary>
+        /// Searches for all matching values (using POST)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>Task of LookupResponse</returns>
+        System.Threading.Tasks.Task<LookupResponse> SearchAsync (LookupRequest lookupRequest);
+
+        /// <summary>
+        /// Searches for all matching values (using POST)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>Task of ApiResponse (LookupResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LookupResponse>> SearchAsyncWithHttpInfo (LookupRequest lookupRequest);
         /// <summary>
         /// Update a customer
         /// </summary>
@@ -3302,6 +3344,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomerResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CustomerResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerResponse)));
+        }
+
+        /// <summary>
+        /// Searches for all matching values (using POST) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>LookupResponse</returns>
+        public LookupResponse Search (LookupRequest lookupRequest)
+        {
+             ApiResponse<LookupResponse> localVarResponse = SearchWithHttpInfo(lookupRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Searches for all matching values (using POST) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>ApiResponse of LookupResponse</returns>
+        public ApiResponse< LookupResponse > SearchWithHttpInfo (LookupRequest lookupRequest)
+        {
+            // verify the required parameter 'lookupRequest' is set
+            if (lookupRequest == null)
+                throw new ApiException(400, "Missing required parameter 'lookupRequest' when calling CustomerApi->Search");
+
+            var localVarPath = "/customer/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (lookupRequest != null && lookupRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(lookupRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = lookupRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Search", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LookupResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LookupResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LookupResponse)));
+        }
+
+        /// <summary>
+        /// Searches for all matching values (using POST) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>Task of LookupResponse</returns>
+        public async System.Threading.Tasks.Task<LookupResponse> SearchAsync (LookupRequest lookupRequest)
+        {
+             ApiResponse<LookupResponse> localVarResponse = await SearchAsyncWithHttpInfo(lookupRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Searches for all matching values (using POST) 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lookupRequest">LookupRequest</param>
+        /// <returns>Task of ApiResponse (LookupResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LookupResponse>> SearchAsyncWithHttpInfo (LookupRequest lookupRequest)
+        {
+            // verify the required parameter 'lookupRequest' is set
+            if (lookupRequest == null)
+                throw new ApiException(400, "Missing required parameter 'lookupRequest' when calling CustomerApi->Search");
+
+            var localVarPath = "/customer/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (lookupRequest != null && lookupRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(lookupRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = lookupRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Search", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LookupResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (LookupResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LookupResponse)));
         }
 
         /// <summary>

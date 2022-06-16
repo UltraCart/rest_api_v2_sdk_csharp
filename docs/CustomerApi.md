@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**GetCustomersForDataTables**](CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**GetEmailVerificationToken**](CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**InsertCustomer**](CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
-[**Search**](CustomerApi.md#search) | **POST** /customer/search | Searches for all matching values (using POST)
+[**SearchCustomerProfileValues**](CustomerApi.md#searchcustomerprofilevalues) | **POST** /customer/search | Searches for all matching values (using POST)
 [**UpdateCustomer**](CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**UpdateCustomerEmailLists**](CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 [**ValidateEmailVerificationToken**](CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
@@ -944,9 +944,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="search"></a>
-# **Search**
-> LookupResponse Search (LookupRequest lookupRequest)
+<a name="searchcustomerprofilevalues"></a>
+# **SearchCustomerProfileValues**
+> LookupResponse SearchCustomerProfileValues (LookupRequest lookupRequest)
 
 Searches for all matching values (using POST)
 ### Example
@@ -960,7 +960,7 @@ using com.ultracart.admin.v2.Model;
 
 namespace Example
 {
-    public class SearchExample
+    public class SearchCustomerProfileValuesExample
     {
         public void main()
         {
@@ -974,12 +974,12 @@ namespace Example
             try
             {
                 // Searches for all matching values (using POST)
-                LookupResponse result = apiInstance.Search(lookupRequest);
+                LookupResponse result = apiInstance.SearchCustomerProfileValues(lookupRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CustomerApi.Search: " + e.Message );
+                Debug.Print("Exception when calling CustomerApi.SearchCustomerProfileValues: " + e.Message );
             }
         }
     }

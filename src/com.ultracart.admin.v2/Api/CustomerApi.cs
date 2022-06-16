@@ -384,7 +384,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupRequest">LookupRequest</param>
         /// <returns>LookupResponse</returns>
-        LookupResponse Search (LookupRequest lookupRequest);
+        LookupResponse SearchCustomerProfileValues (LookupRequest lookupRequest);
 
         /// <summary>
         /// Searches for all matching values (using POST)
@@ -395,7 +395,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupRequest">LookupRequest</param>
         /// <returns>ApiResponse of LookupResponse</returns>
-        ApiResponse<LookupResponse> SearchWithHttpInfo (LookupRequest lookupRequest);
+        ApiResponse<LookupResponse> SearchCustomerProfileValuesWithHttpInfo (LookupRequest lookupRequest);
         /// <summary>
         /// Update a customer
         /// </summary>
@@ -827,7 +827,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupRequest">LookupRequest</param>
         /// <returns>Task of LookupResponse</returns>
-        System.Threading.Tasks.Task<LookupResponse> SearchAsync (LookupRequest lookupRequest);
+        System.Threading.Tasks.Task<LookupResponse> SearchCustomerProfileValuesAsync (LookupRequest lookupRequest);
 
         /// <summary>
         /// Searches for all matching values (using POST)
@@ -838,7 +838,7 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupRequest">LookupRequest</param>
         /// <returns>Task of ApiResponse (LookupResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LookupResponse>> SearchAsyncWithHttpInfo (LookupRequest lookupRequest);
+        System.Threading.Tasks.Task<ApiResponse<LookupResponse>> SearchCustomerProfileValuesAsyncWithHttpInfo (LookupRequest lookupRequest);
         /// <summary>
         /// Update a customer
         /// </summary>
@@ -3352,9 +3352,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupRequest">LookupRequest</param>
         /// <returns>LookupResponse</returns>
-        public LookupResponse Search (LookupRequest lookupRequest)
+        public LookupResponse SearchCustomerProfileValues (LookupRequest lookupRequest)
         {
-             ApiResponse<LookupResponse> localVarResponse = SearchWithHttpInfo(lookupRequest);
+             ApiResponse<LookupResponse> localVarResponse = SearchCustomerProfileValuesWithHttpInfo(lookupRequest);
              return localVarResponse.Data;
         }
 
@@ -3364,11 +3364,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupRequest">LookupRequest</param>
         /// <returns>ApiResponse of LookupResponse</returns>
-        public ApiResponse< LookupResponse > SearchWithHttpInfo (LookupRequest lookupRequest)
+        public ApiResponse< LookupResponse > SearchCustomerProfileValuesWithHttpInfo (LookupRequest lookupRequest)
         {
             // verify the required parameter 'lookupRequest' is set
             if (lookupRequest == null)
-                throw new ApiException(400, "Missing required parameter 'lookupRequest' when calling CustomerApi->Search");
+                throw new ApiException(400, "Missing required parameter 'lookupRequest' when calling CustomerApi->SearchCustomerProfileValues");
 
             var localVarPath = "/customer/search";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3427,7 +3427,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Search", localVarResponse);
+                Exception exception = ExceptionFactory("SearchCustomerProfileValues", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3442,9 +3442,9 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupRequest">LookupRequest</param>
         /// <returns>Task of LookupResponse</returns>
-        public async System.Threading.Tasks.Task<LookupResponse> SearchAsync (LookupRequest lookupRequest)
+        public async System.Threading.Tasks.Task<LookupResponse> SearchCustomerProfileValuesAsync (LookupRequest lookupRequest)
         {
-             ApiResponse<LookupResponse> localVarResponse = await SearchAsyncWithHttpInfo(lookupRequest);
+             ApiResponse<LookupResponse> localVarResponse = await SearchCustomerProfileValuesAsyncWithHttpInfo(lookupRequest);
              return localVarResponse.Data;
 
         }
@@ -3455,11 +3455,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="lookupRequest">LookupRequest</param>
         /// <returns>Task of ApiResponse (LookupResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<LookupResponse>> SearchAsyncWithHttpInfo (LookupRequest lookupRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<LookupResponse>> SearchCustomerProfileValuesAsyncWithHttpInfo (LookupRequest lookupRequest)
         {
             // verify the required parameter 'lookupRequest' is set
             if (lookupRequest == null)
-                throw new ApiException(400, "Missing required parameter 'lookupRequest' when calling CustomerApi->Search");
+                throw new ApiException(400, "Missing required parameter 'lookupRequest' when calling CustomerApi->SearchCustomerProfileValues");
 
             var localVarPath = "/customer/search";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3518,7 +3518,7 @@ namespace com.ultracart.admin.v2.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Search", localVarResponse);
+                Exception exception = ExceptionFactory("SearchCustomerProfileValues", localVarResponse);
                 if (exception != null) throw exception;
             }
 

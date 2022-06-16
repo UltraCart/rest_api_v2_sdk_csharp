@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Domain** | **string** |  | [optional] 
 **EspDomainUuid** | **string** |  | [optional] 
 **IdentityStatus** | **string** |  | [optional] 
+**Mailgun** | [**Mailgun**](Mailgun.md) |  | [optional] 
 **MerchantId** | **string** |  | [optional] 
 **Provider** | **string** |  | [optional] 
 **Spf** | [**VerificationRecord**](VerificationRecord.md) |  | [optional] 

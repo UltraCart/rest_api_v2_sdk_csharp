@@ -234,6 +234,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailSendingDomainResponse</returns>
         ApiResponse<EmailSendingDomainResponse> CreateEmailSendingDomainWithHttpInfo (string domain);
         /// <summary>
+        /// Create email sending domain for various providers
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>EmailSendingDomainResponse</returns>
+        EmailSendingDomainResponse CreateEmailSendingDomain2 (EmailDomain emailDomain);
+
+        /// <summary>
+        /// Create email sending domain for various providers
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>ApiResponse of EmailSendingDomainResponse</returns>
+        ApiResponse<EmailSendingDomainResponse> CreateEmailSendingDomain2WithHttpInfo (EmailDomain emailDomain);
+        /// <summary>
         /// Create Twilio account
         /// </summary>
         /// <remarks>
@@ -3534,6 +3555,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailSegmentResponse</returns>
         ApiResponse<EmailSegmentResponse> UpdateEmailSegmentWithHttpInfo (int? storefrontOid, string emailSegmentUuid, EmailSegment emailSegment);
         /// <summary>
+        /// Update email sending domain
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>EmailSendingDomainResponse</returns>
+        EmailSendingDomainResponse UpdateEmailSendingDomain (string domain, EmailDomain emailDomain);
+
+        /// <summary>
+        /// Update email sending domain
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>ApiResponse of EmailSendingDomainResponse</returns>
+        ApiResponse<EmailSendingDomainResponse> UpdateEmailSendingDomainWithHttpInfo (string domain, EmailDomain emailDomain);
+        /// <summary>
         /// Update email settings
         /// </summary>
         /// <remarks>
@@ -3961,6 +4005,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="domain"></param>
         /// <returns>Task of ApiResponse (EmailSendingDomainResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailSendingDomainResponse>> CreateEmailSendingDomainAsyncWithHttpInfo (string domain);
+        /// <summary>
+        /// Create email sending domain for various providers
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>Task of EmailSendingDomainResponse</returns>
+        System.Threading.Tasks.Task<EmailSendingDomainResponse> CreateEmailSendingDomain2Async (EmailDomain emailDomain);
+
+        /// <summary>
+        /// Create email sending domain for various providers
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>Task of ApiResponse (EmailSendingDomainResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailSendingDomainResponse>> CreateEmailSendingDomain2AsyncWithHttpInfo (EmailDomain emailDomain);
         /// <summary>
         /// Create Twilio account
         /// </summary>
@@ -7262,6 +7327,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailSegmentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailSegmentResponse>> UpdateEmailSegmentAsyncWithHttpInfo (int? storefrontOid, string emailSegmentUuid, EmailSegment emailSegment);
         /// <summary>
+        /// Update email sending domain
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>Task of EmailSendingDomainResponse</returns>
+        System.Threading.Tasks.Task<EmailSendingDomainResponse> UpdateEmailSendingDomainAsync (string domain, EmailDomain emailDomain);
+
+        /// <summary>
+        /// Update email sending domain
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>Task of ApiResponse (EmailSendingDomainResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailSendingDomainResponse>> UpdateEmailSendingDomainAsyncWithHttpInfo (string domain, EmailDomain emailDomain);
+        /// <summary>
         /// Update email settings
         /// </summary>
         /// <remarks>
@@ -9230,6 +9318,187 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateEmailSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailSendingDomainResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailSendingDomainResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSendingDomainResponse)));
+        }
+
+        /// <summary>
+        /// Create email sending domain for various providers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>EmailSendingDomainResponse</returns>
+        public EmailSendingDomainResponse CreateEmailSendingDomain2 (EmailDomain emailDomain)
+        {
+             ApiResponse<EmailSendingDomainResponse> localVarResponse = CreateEmailSendingDomain2WithHttpInfo(emailDomain);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create email sending domain for various providers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>ApiResponse of EmailSendingDomainResponse</returns>
+        public ApiResponse< EmailSendingDomainResponse > CreateEmailSendingDomain2WithHttpInfo (EmailDomain emailDomain)
+        {
+            // verify the required parameter 'emailDomain' is set
+            if (emailDomain == null)
+                throw new ApiException(400, "Missing required parameter 'emailDomain' when calling StorefrontApi->CreateEmailSendingDomain2");
+
+            var localVarPath = "/storefront/email/sending_domains";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (emailDomain != null && emailDomain.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailDomain); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailDomain; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateEmailSendingDomain2", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailSendingDomainResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailSendingDomainResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSendingDomainResponse)));
+        }
+
+        /// <summary>
+        /// Create email sending domain for various providers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>Task of EmailSendingDomainResponse</returns>
+        public async System.Threading.Tasks.Task<EmailSendingDomainResponse> CreateEmailSendingDomain2Async (EmailDomain emailDomain)
+        {
+             ApiResponse<EmailSendingDomainResponse> localVarResponse = await CreateEmailSendingDomain2AsyncWithHttpInfo(emailDomain);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create email sending domain for various providers 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>Task of ApiResponse (EmailSendingDomainResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailSendingDomainResponse>> CreateEmailSendingDomain2AsyncWithHttpInfo (EmailDomain emailDomain)
+        {
+            // verify the required parameter 'emailDomain' is set
+            if (emailDomain == null)
+                throw new ApiException(400, "Missing required parameter 'emailDomain' when calling StorefrontApi->CreateEmailSendingDomain2");
+
+            var localVarPath = "/storefront/email/sending_domains";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (emailDomain != null && emailDomain.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailDomain); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailDomain; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateEmailSendingDomain2", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -35110,6 +35379,199 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailSegmentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailSegmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSegmentResponse)));
+        }
+
+        /// <summary>
+        /// Update email sending domain 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>EmailSendingDomainResponse</returns>
+        public EmailSendingDomainResponse UpdateEmailSendingDomain (string domain, EmailDomain emailDomain)
+        {
+             ApiResponse<EmailSendingDomainResponse> localVarResponse = UpdateEmailSendingDomainWithHttpInfo(domain, emailDomain);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update email sending domain 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>ApiResponse of EmailSendingDomainResponse</returns>
+        public ApiResponse< EmailSendingDomainResponse > UpdateEmailSendingDomainWithHttpInfo (string domain, EmailDomain emailDomain)
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling StorefrontApi->UpdateEmailSendingDomain");
+            // verify the required parameter 'emailDomain' is set
+            if (emailDomain == null)
+                throw new ApiException(400, "Missing required parameter 'emailDomain' when calling StorefrontApi->UpdateEmailSendingDomain");
+
+            var localVarPath = "/storefront/email/sending_domains/{domain}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+            if (emailDomain != null && emailDomain.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailDomain); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailDomain; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateEmailSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailSendingDomainResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailSendingDomainResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSendingDomainResponse)));
+        }
+
+        /// <summary>
+        /// Update email sending domain 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>Task of EmailSendingDomainResponse</returns>
+        public async System.Threading.Tasks.Task<EmailSendingDomainResponse> UpdateEmailSendingDomainAsync (string domain, EmailDomain emailDomain)
+        {
+             ApiResponse<EmailSendingDomainResponse> localVarResponse = await UpdateEmailSendingDomainAsyncWithHttpInfo(domain, emailDomain);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update email sending domain 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain"></param>
+        /// <param name="emailDomain">EmailDomain</param>
+        /// <returns>Task of ApiResponse (EmailSendingDomainResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailSendingDomainResponse>> UpdateEmailSendingDomainAsyncWithHttpInfo (string domain, EmailDomain emailDomain)
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling StorefrontApi->UpdateEmailSendingDomain");
+            // verify the required parameter 'emailDomain' is set
+            if (emailDomain == null)
+                throw new ApiException(400, "Missing required parameter 'emailDomain' when calling StorefrontApi->UpdateEmailSendingDomain");
+
+            var localVarPath = "/storefront/email/sending_domains/{domain}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+            if (emailDomain != null && emailDomain.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailDomain); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = emailDomain; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateEmailSendingDomain", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailSendingDomainResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailSendingDomainResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSendingDomainResponse)));
         }
 
         /// <summary>

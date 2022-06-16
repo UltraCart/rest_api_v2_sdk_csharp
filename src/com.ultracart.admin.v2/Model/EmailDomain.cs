@@ -39,13 +39,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="domain">domain.</param>
         /// <param name="espDomainUuid">espDomainUuid.</param>
         /// <param name="identityStatus">identityStatus.</param>
+        /// <param name="mailgun">mailgun.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="provider">provider.</param>
         /// <param name="spf">spf.</param>
         /// <param name="startDkimDts">startDkimDts.</param>
         /// <param name="startIdentityDts">startIdentityDts.</param>
         /// <param name="verification">verification.</param>
-        public EmailDomain(string comment = default(string), List<VerificationRecord> dkim = default(List<VerificationRecord>), string dkimStatus = default(string), string domain = default(string), string espDomainUuid = default(string), string identityStatus = default(string), string merchantId = default(string), string provider = default(string), VerificationRecord spf = default(VerificationRecord), string startDkimDts = default(string), string startIdentityDts = default(string), VerificationRecord verification = default(VerificationRecord))
+        public EmailDomain(string comment = default(string), List<VerificationRecord> dkim = default(List<VerificationRecord>), string dkimStatus = default(string), string domain = default(string), string espDomainUuid = default(string), string identityStatus = default(string), Mailgun mailgun = default(Mailgun), string merchantId = default(string), string provider = default(string), VerificationRecord spf = default(VerificationRecord), string startDkimDts = default(string), string startIdentityDts = default(string), VerificationRecord verification = default(VerificationRecord))
         {
             this.Comment = comment;
             this.Dkim = dkim;
@@ -53,6 +54,7 @@ namespace com.ultracart.admin.v2.Model
             this.Domain = domain;
             this.EspDomainUuid = espDomainUuid;
             this.IdentityStatus = identityStatus;
+            this.Mailgun = mailgun;
             this.MerchantId = merchantId;
             this.Provider = provider;
             this.Spf = spf;
@@ -96,6 +98,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="identity_status", EmitDefaultValue=false)]
         public string IdentityStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Mailgun
+        /// </summary>
+        [DataMember(Name="mailgun", EmitDefaultValue=false)]
+        public Mailgun Mailgun { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantId
@@ -147,6 +155,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Domain: ").Append(Domain).Append("\n");
             sb.Append("  EspDomainUuid: ").Append(EspDomainUuid).Append("\n");
             sb.Append("  IdentityStatus: ").Append(IdentityStatus).Append("\n");
+            sb.Append("  Mailgun: ").Append(Mailgun).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  Spf: ").Append(Spf).Append("\n");
@@ -218,6 +227,11 @@ namespace com.ultracart.admin.v2.Model
                     this.IdentityStatus.Equals(input.IdentityStatus))
                 ) && 
                 (
+                    this.Mailgun == input.Mailgun ||
+                    (this.Mailgun != null &&
+                    this.Mailgun.Equals(input.Mailgun))
+                ) && 
+                (
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
@@ -270,6 +284,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EspDomainUuid.GetHashCode();
                 if (this.IdentityStatus != null)
                     hashCode = hashCode * 59 + this.IdentityStatus.GetHashCode();
+                if (this.Mailgun != null)
+                    hashCode = hashCode * 59 + this.Mailgun.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Provider != null)

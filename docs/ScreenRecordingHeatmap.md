@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.ScreenRecordingHeatmap
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -28,6 +30,7 @@ Name | Type | Description | Notes
 **SmallScrollThumbnailUrl** | **string** |  | [optional] 
 **SmallScrollUrl** | **string** |  | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.OrderCheckout
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,6 +20,7 @@ Name | Type | Description | Notes
 **StorefrontHostName** | **string** | StoreFront host name associated with the order | [optional] 
 **UpsellPathCode** | **string** | Upsell path code assigned during the checkout that the customer went through | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

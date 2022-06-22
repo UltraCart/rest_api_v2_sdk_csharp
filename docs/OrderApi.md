@@ -29,17 +29,19 @@ Method | HTTP request | Description
 [**UpdateOrder**](OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
 
 
-<a name="adjustordertotal"></a>
-# **AdjustOrderTotal**
+
+## AdjustOrderTotal
+
 > BaseResponse AdjustOrderTotal (string orderId, string desiredTotal)
 
 Adjusts an order total
 
 Adjusts an order total.  Adjusts individual items appropriately and considers taxes.  Desired total should be provided in the same currency as the order and must be less than the current total and greater than zero.  This call will change the order total.  It returns true if the desired total is achieved.  If the goal seeking algorithm falls short (usually by pennies), this method returns back false.  View the merchant notes for the order for further details. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -49,15 +51,19 @@ namespace Example
 {
     public class AdjustOrderTotalExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to cancel.
-            var desiredTotal = desiredTotal_example;  // string | The desired total with no formatting. example 123.45
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to cancel.
+            var desiredTotal = "desiredTotal_example";  // string | The desired total with no formatting. example 123.45
 
             try
             {
@@ -65,17 +71,19 @@ namespace Example
                 BaseResponse result = apiInstance.AdjustOrderTotal(orderId, desiredTotal);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.AdjustOrderTotal: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -92,22 +100,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cancelorder"></a>
-# **CancelOrder**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CancelOrder
+
 > BaseResponse CancelOrder (string orderId)
 
 Cancel an order
 
 Cancel an order on the UltraCart account.  If the success flag is false, then consult the error message for why it failed. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -117,14 +141,18 @@ namespace Example
 {
     public class CancelOrderExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to cancel.
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to cancel.
 
             try
             {
@@ -132,17 +160,19 @@ namespace Example
                 BaseResponse result = apiInstance.CancelOrder(orderId);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.CancelOrder: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -158,22 +188,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteorder"></a>
-# **DeleteOrder**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteOrder
+
 > void DeleteOrder (string orderId)
 
 Delete an order
 
 Delete an order on the UltraCart account. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -183,31 +229,37 @@ namespace Example
 {
     public class DeleteOrderExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to delete.
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to delete.
 
             try
             {
                 // Delete an order
                 apiInstance.DeleteOrder(orderId);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.DeleteOrder: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -223,22 +275,38 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="duplicateorder"></a>
-# **DuplicateOrder**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DuplicateOrder
+
 > OrderResponse DuplicateOrder (string orderId, string expand = null)
 
 Duplicate an order
 
 Perform a duplicate of the specified order_id and return a new order located in Accounts Receivable. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -248,15 +316,19 @@ namespace Example
 {
     public class DuplicateOrderExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to duplicate.
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to duplicate.
+            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
@@ -264,17 +336,19 @@ namespace Example
                 OrderResponse result = apiInstance.DuplicateOrder(orderId, expand);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.DuplicateOrder: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -291,22 +365,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="format"></a>
-# **Format**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Format
+
 > OrderFormatResponse Format (string orderId, OrderFormat formatOptions)
 
 Format order
 
 Format the order for display at text or html 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -316,14 +406,18 @@ namespace Example
 {
     public class FormatExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to format
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to format
             var formatOptions = new OrderFormat(); // OrderFormat | Format options
 
             try
@@ -332,17 +426,19 @@ namespace Example
                 OrderFormatResponse result = apiInstance.Format(orderId, formatOptions);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.Format: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -359,22 +455,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generateordertoken"></a>
-# **GenerateOrderToken**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateOrderToken
+
 > OrderTokenResponse GenerateOrderToken (string orderId)
 
 Generate an order token for a given order id
 
 Retrieves a single order token for a given order id.  The token can be used with the getOrderByToken API. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -384,14 +496,18 @@ namespace Example
 {
     public class GenerateOrderTokenExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to generate a token for.
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to generate a token for.
 
             try
             {
@@ -399,17 +515,19 @@ namespace Example
                 OrderTokenResponse result = apiInstance.GenerateOrderToken(orderId);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.GenerateOrderToken: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -425,22 +543,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generatepackingslipalldc"></a>
-# **GeneratePackingSlipAllDC**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GeneratePackingSlipAllDC
+
 > OrderPackingSlipResponse GeneratePackingSlipAllDC (string orderId)
 
 Generate a packing slip for this order across all distribution centers.
 
 The packing slip PDF that is returned is base 64 encoded 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -450,14 +584,18 @@ namespace Example
 {
     public class GeneratePackingSlipAllDCExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | Order ID
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | Order ID
 
             try
             {
@@ -465,17 +603,19 @@ namespace Example
                 OrderPackingSlipResponse result = apiInstance.GeneratePackingSlipAllDC(orderId);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.GeneratePackingSlipAllDC: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -491,22 +631,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generatepackingslipspecificdc"></a>
-# **GeneratePackingSlipSpecificDC**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GeneratePackingSlipSpecificDC
+
 > OrderPackingSlipResponse GeneratePackingSlipSpecificDC (string distributionCenterCode, string orderId)
 
 Generate a packing slip for this order for the given distribution center.
 
 The packing slip PDF that is returned is base 64 encoded 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -516,15 +672,19 @@ namespace Example
 {
     public class GeneratePackingSlipSpecificDCExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var distributionCenterCode = distributionCenterCode_example;  // string | Distribution center code
-            var orderId = orderId_example;  // string | Order ID
+            var apiInstance = new OrderApi(Configuration.Default);
+            var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
+            var orderId = "orderId_example";  // string | Order ID
 
             try
             {
@@ -532,17 +692,19 @@ namespace Example
                 OrderPackingSlipResponse result = apiInstance.GeneratePackingSlipSpecificDC(distributionCenterCode, orderId);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.GeneratePackingSlipSpecificDC: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -559,22 +721,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getaccountsreceivableretryconfig"></a>
-# **GetAccountsReceivableRetryConfig**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAccountsReceivableRetryConfig
+
 > AccountsReceivableRetryConfigResponse GetAccountsReceivableRetryConfig ()
 
 Retrieve A/R Retry Configuration
 
 Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is doubtful you would ever need to use it. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -584,13 +762,17 @@ namespace Example
 {
     public class GetAccountsReceivableRetryConfigExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
+            var apiInstance = new OrderApi(Configuration.Default);
 
             try
             {
@@ -598,17 +780,19 @@ namespace Example
                 AccountsReceivableRetryConfigResponse result = apiInstance.GetAccountsReceivableRetryConfig();
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.GetAccountsReceivableRetryConfig: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -621,22 +805,38 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getaccountsreceivableretrystats"></a>
-# **GetAccountsReceivableRetryStats**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAccountsReceivableRetryStats
+
 > AccountsReceivableRetryStatsResponse GetAccountsReceivableRetryStats (string from = null, string to = null)
 
 Retrieve A/R Retry Statistics
 
 Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is doubtful you would ever need to use it. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -646,15 +846,19 @@ namespace Example
 {
     public class GetAccountsReceivableRetryStatsExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var from = from_example;  // string |  (optional) 
-            var to = to_example;  // string |  (optional) 
+            var apiInstance = new OrderApi(Configuration.Default);
+            var from = "from_example";  // string |  (optional) 
+            var to = "to_example";  // string |  (optional) 
 
             try
             {
@@ -662,17 +866,19 @@ namespace Example
                 AccountsReceivableRetryStatsResponse result = apiInstance.GetAccountsReceivableRetryStats(from, to);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.GetAccountsReceivableRetryStats: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -689,22 +895,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getorder"></a>
-# **GetOrder**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOrder
+
 > OrderResponse GetOrder (string orderId, string expand = null)
 
 Retrieve an order
 
 Retrieves a single order using the specified order id. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -714,15 +936,19 @@ namespace Example
 {
     public class GetOrderExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to retrieve.
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to retrieve.
+            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
@@ -730,17 +956,19 @@ namespace Example
                 OrderResponse result = apiInstance.GetOrder(orderId, expand);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.GetOrder: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -757,22 +985,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getorderbytoken"></a>
-# **GetOrderByToken**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOrderByToken
+
 > OrderResponse GetOrderByToken (OrderByTokenQuery orderByTokenQuery, string expand = null)
 
 Retrieve an order using a token
 
 Retrieves a single order using the specified order token. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -782,15 +1026,19 @@ namespace Example
 {
     public class GetOrderByTokenExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
+            var apiInstance = new OrderApi(Configuration.Default);
             var orderByTokenQuery = new OrderByTokenQuery(); // OrderByTokenQuery | Order by token query
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
@@ -798,17 +1046,19 @@ namespace Example
                 OrderResponse result = apiInstance.GetOrderByToken(orderByTokenQuery, expand);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.GetOrderByToken: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -825,22 +1075,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getorders"></a>
-# **GetOrders**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOrders
+
 > OrdersResponse GetOrders (string orderId = null, string paymentMethod = null, string company = null, string firstName = null, string lastName = null, string city = null, string stateRegion = null, string postalCode = null, string countryCode = null, string phone = null, string email = null, string ccEmail = null, decimal? total = null, string screenBrandingThemeCode = null, string storefrontHostName = null, string creationDateBegin = null, string creationDateEnd = null, string paymentDateBegin = null, string paymentDateEnd = null, string shipmentDateBegin = null, string shipmentDateEnd = null, string rma = null, string purchaseOrderNumber = null, string itemId = null, string currentStage = null, string channelPartnerCode = null, string channelPartnerOrderId = null, int? limit = null, int? offset = null, string sort = null, string expand = null)
 
 Retrieve orders
 
 Retrieves a group of orders from the account.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -850,44 +1116,48 @@ namespace Example
 {
     public class GetOrdersExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | Order Id (optional) 
-            var paymentMethod = paymentMethod_example;  // string | Payment Method (optional) 
-            var company = company_example;  // string | Company (optional) 
-            var firstName = firstName_example;  // string | First Name (optional) 
-            var lastName = lastName_example;  // string | Last Name (optional) 
-            var city = city_example;  // string | City (optional) 
-            var stateRegion = stateRegion_example;  // string | State/Region (optional) 
-            var postalCode = postalCode_example;  // string | Postal Code (optional) 
-            var countryCode = countryCode_example;  // string | Country Code (ISO-3166 two letter) (optional) 
-            var phone = phone_example;  // string | Phone (optional) 
-            var email = email_example;  // string | Email (optional) 
-            var ccEmail = ccEmail_example;  // string | CC Email (optional) 
-            var total = 8.14;  // decimal? | Total (optional) 
-            var screenBrandingThemeCode = screenBrandingThemeCode_example;  // string | Screen Branding Theme Code (optional) 
-            var storefrontHostName = storefrontHostName_example;  // string | StoreFront Host Name (optional) 
-            var creationDateBegin = creationDateBegin_example;  // string | Creation Date Begin (optional) 
-            var creationDateEnd = creationDateEnd_example;  // string | Creation Date End (optional) 
-            var paymentDateBegin = paymentDateBegin_example;  // string | Payment Date Begin (optional) 
-            var paymentDateEnd = paymentDateEnd_example;  // string | Payment Date End (optional) 
-            var shipmentDateBegin = shipmentDateBegin_example;  // string | Shipment Date Begin (optional) 
-            var shipmentDateEnd = shipmentDateEnd_example;  // string | Shipment Date End (optional) 
-            var rma = rma_example;  // string | RMA (optional) 
-            var purchaseOrderNumber = purchaseOrderNumber_example;  // string | Purchase Order Number (optional) 
-            var itemId = itemId_example;  // string | Item Id (optional) 
-            var currentStage = currentStage_example;  // string | Current Stage (optional) 
-            var channelPartnerCode = channelPartnerCode_example;  // string | Channel Partner Code (optional) 
-            var channelPartnerOrderId = channelPartnerOrderId_example;  // string | Channel Partner Order ID (optional) 
-            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Maximum 200) (optional)  (default to 100)
-            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = sort_example;  // string | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-            var expand = expand_example;  // string | The object expansion to perform on the result. (optional) 
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | Order Id (optional) 
+            var paymentMethod = "paymentMethod_example";  // string | Payment Method (optional) 
+            var company = "company_example";  // string | Company (optional) 
+            var firstName = "firstName_example";  // string | First Name (optional) 
+            var lastName = "lastName_example";  // string | Last Name (optional) 
+            var city = "city_example";  // string | City (optional) 
+            var stateRegion = "stateRegion_example";  // string | State/Region (optional) 
+            var postalCode = "postalCode_example";  // string | Postal Code (optional) 
+            var countryCode = "countryCode_example";  // string | Country Code (ISO-3166 two letter) (optional) 
+            var phone = "phone_example";  // string | Phone (optional) 
+            var email = "email_example";  // string | Email (optional) 
+            var ccEmail = "ccEmail_example";  // string | CC Email (optional) 
+            var total = 8.14D;  // decimal? | Total (optional) 
+            var screenBrandingThemeCode = "screenBrandingThemeCode_example";  // string | Screen Branding Theme Code (optional) 
+            var storefrontHostName = "storefrontHostName_example";  // string | StoreFront Host Name (optional) 
+            var creationDateBegin = "creationDateBegin_example";  // string | Creation Date Begin (optional) 
+            var creationDateEnd = "creationDateEnd_example";  // string | Creation Date End (optional) 
+            var paymentDateBegin = "paymentDateBegin_example";  // string | Payment Date Begin (optional) 
+            var paymentDateEnd = "paymentDateEnd_example";  // string | Payment Date End (optional) 
+            var shipmentDateBegin = "shipmentDateBegin_example";  // string | Shipment Date Begin (optional) 
+            var shipmentDateEnd = "shipmentDateEnd_example";  // string | Shipment Date End (optional) 
+            var rma = "rma_example";  // string | RMA (optional) 
+            var purchaseOrderNumber = "purchaseOrderNumber_example";  // string | Purchase Order Number (optional) 
+            var itemId = "itemId_example";  // string | Item Id (optional) 
+            var currentStage = "currentStage_example";  // string | Current Stage (optional) 
+            var channelPartnerCode = "channelPartnerCode_example";  // string | Channel Partner Code (optional) 
+            var channelPartnerOrderId = "channelPartnerOrderId_example";  // string | Channel Partner Order ID (optional) 
+            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Maximum 200) (optional)  (default to 100)
+            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var sort = "sort_example";  // string | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
+            var expand = "expand_example";  // string | The object expansion to perform on the result. (optional) 
 
             try
             {
@@ -895,17 +1165,19 @@ namespace Example
                 OrdersResponse result = apiInstance.GetOrders(orderId, paymentMethod, company, firstName, lastName, city, stateRegion, postalCode, countryCode, phone, email, ccEmail, total, screenBrandingThemeCode, storefrontHostName, creationDateBegin, creationDateEnd, paymentDateBegin, paymentDateEnd, shipmentDateBegin, shipmentDateEnd, rma, purchaseOrderNumber, itemId, currentStage, channelPartnerCode, channelPartnerOrderId, limit, offset, sort, expand);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.GetOrders: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -951,22 +1223,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getordersbatch"></a>
-# **GetOrdersBatch**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOrdersBatch
+
 > OrdersResponse GetOrdersBatch (OrderQueryBatch orderBatch, string expand = null)
 
 Retrieve order batch
 
 Retrieves a group of orders from the account based on an array of order ids.  If more than 500 order ids are specified, the API call will fail with a bad request error. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -976,15 +1264,19 @@ namespace Example
 {
     public class GetOrdersBatchExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
+            var apiInstance = new OrderApi(Configuration.Default);
             var orderBatch = new OrderQueryBatch(); // OrderQueryBatch | Order batch
-            var expand = expand_example;  // string | The object expansion to perform on the result. (optional) 
+            var expand = "expand_example";  // string | The object expansion to perform on the result. (optional) 
 
             try
             {
@@ -992,17 +1284,19 @@ namespace Example
                 OrdersResponse result = apiInstance.GetOrdersBatch(orderBatch, expand);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.GetOrdersBatch: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1019,22 +1313,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getordersbyquery"></a>
-# **GetOrdersByQuery**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetOrdersByQuery
+
 > OrdersResponse GetOrdersByQuery (OrderQuery orderQuery, int? limit = null, int? offset = null, string sort = null, string expand = null)
 
 Retrieve orders by query
 
 Retrieves a group of orders from the account based on a query object.  If no parameters are specified, the API call will fail with a bad request error.  Always specify some parameters to limit the scope of the orders returned to ones you are truly interested in.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -1044,18 +1354,22 @@ namespace Example
 {
     public class GetOrdersByQueryExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
+            var apiInstance = new OrderApi(Configuration.Default);
             var orderQuery = new OrderQuery(); // OrderQuery | Order query
-            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Maximum 200) (optional)  (default to 100)
-            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var sort = sort_example;  // string | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-            var expand = expand_example;  // string | The object expansion to perform on the result. (optional) 
+            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Maximum 200) (optional)  (default to 100)
+            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var sort = "sort_example";  // string | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
+            var expand = "expand_example";  // string | The object expansion to perform on the result. (optional) 
 
             try
             {
@@ -1063,17 +1377,19 @@ namespace Example
                 OrdersResponse result = apiInstance.GetOrdersByQuery(orderQuery, limit, offset, sort, expand);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.GetOrdersByQuery: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1093,22 +1409,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="insertorder"></a>
-# **InsertOrder**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InsertOrder
+
 > OrderResponse InsertOrder (Order order, string expand = null)
 
 Insert an order
 
 Inserts a new order on the UltraCart account.  This is probably NOT the method you want.  This is for channel orders.  For regular orders the customer is entering, use the CheckoutApi.  It has many, many more features, checks, and validations. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -1118,15 +1450,19 @@ namespace Example
 {
     public class InsertOrderExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
+            var apiInstance = new OrderApi(Configuration.Default);
             var order = new Order(); // Order | Order to insert
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
@@ -1134,17 +1470,19 @@ namespace Example
                 OrderResponse result = apiInstance.InsertOrder(order, expand);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.InsertOrder: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1161,22 +1499,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="processpayment"></a>
-# **ProcessPayment**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ProcessPayment
+
 > OrderProcessPaymentResponse ProcessPayment (string orderId, OrderProcessPaymentRequest processPaymentRequest)
 
 Process payment
 
 Process payment on order 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -1186,14 +1540,18 @@ namespace Example
 {
     public class ProcessPaymentExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to process payment on
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to process payment on
             var processPaymentRequest = new OrderProcessPaymentRequest(); // OrderProcessPaymentRequest | Process payment parameters
 
             try
@@ -1202,17 +1560,19 @@ namespace Example
                 OrderProcessPaymentResponse result = apiInstance.ProcessPayment(orderId, processPaymentRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.ProcessPayment: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1229,22 +1589,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="refundorder"></a>
-# **RefundOrder**
-> OrderResponse RefundOrder (Order order, string orderId, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RefundOrder
+
+> OrderResponse RefundOrder (string orderId, Order order, bool? rejectAfterRefund = null, bool? skipCustomerNotification = null, bool? autoOrderCancel = null, bool? manualRefund = null, bool? reverseAffiliateTransactions = null, string expand = null)
 
 Refund an order
 
 Perform a refund operation on an order and then update the order if successful 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -1254,44 +1630,50 @@ namespace Example
 {
     public class RefundOrderExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to refund.
             var order = new Order(); // Order | Order to refund
-            var orderId = orderId_example;  // string | The order id to refund.
-            var rejectAfterRefund = true;  // bool? | Reject order after refund (optional)  (default to false)
-            var skipCustomerNotification = true;  // bool? | Skip customer email notification (optional)  (default to false)
-            var autoOrderCancel = true;  // bool? | Cancel associated auto orders (optional)  (default to false)
-            var manualRefund = true;  // bool? | Consider a manual refund done externally (optional)  (default to false)
+            var rejectAfterRefund = false;  // bool? | Reject order after refund (optional)  (default to false)
+            var skipCustomerNotification = false;  // bool? | Skip customer email notification (optional)  (default to false)
+            var autoOrderCancel = false;  // bool? | Cancel associated auto orders (optional)  (default to false)
+            var manualRefund = false;  // bool? | Consider a manual refund done externally (optional)  (default to false)
             var reverseAffiliateTransactions = true;  // bool? | Reverse affiliate transactions (optional)  (default to true)
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
                 // Refund an order
-                OrderResponse result = apiInstance.RefundOrder(order, orderId, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
+                OrderResponse result = apiInstance.RefundOrder(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.RefundOrder: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order** | [**Order**](Order.md)| Order to refund | 
  **orderId** | **string**| The order id to refund. | 
+ **order** | [**Order**](Order.md)| Order to refund | 
  **rejectAfterRefund** | **bool?**| Reject order after refund | [optional] [default to false]
  **skipCustomerNotification** | **bool?**| Skip customer email notification | [optional] [default to false]
  **autoOrderCancel** | **bool?**| Cancel associated auto orders | [optional] [default to false]
@@ -1309,22 +1691,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="replacement"></a>
-# **Replacement**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Replacement
+
 > OrderReplacementResponse Replacement (string orderId, OrderReplacement replacement)
 
 Replacement order
 
 Create a replacement order based upon a previous order 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -1334,14 +1732,18 @@ namespace Example
 {
     public class ReplacementExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to generate a replacement for.
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to generate a replacement for.
             var replacement = new OrderReplacement(); // OrderReplacement | Replacement order details
 
             try
@@ -1350,17 +1752,19 @@ namespace Example
                 OrderReplacementResponse result = apiInstance.Replacement(orderId, replacement);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.Replacement: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1377,22 +1781,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="resendreceipt"></a>
-# **ResendReceipt**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResendReceipt
+
 > BaseResponse ResendReceipt (string orderId)
 
 Resend receipt
 
 Resend the receipt for an order on the UltraCart account. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -1402,14 +1822,18 @@ namespace Example
 {
     public class ResendReceiptExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to resend the receipt for.
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to resend the receipt for.
 
             try
             {
@@ -1417,17 +1841,19 @@ namespace Example
                 BaseResponse result = apiInstance.ResendReceipt(orderId);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.ResendReceipt: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1443,22 +1869,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="resendshipmentconfirmation"></a>
-# **ResendShipmentConfirmation**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResendShipmentConfirmation
+
 > BaseResponse ResendShipmentConfirmation (string orderId)
 
 Resend shipment confirmation
 
 Resend shipment confirmation for an order on the UltraCart account. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -1468,14 +1910,18 @@ namespace Example
 {
     public class ResendShipmentConfirmationExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
-            var orderId = orderId_example;  // string | The order id to resend the shipment notification for.
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to resend the shipment notification for.
 
             try
             {
@@ -1483,17 +1929,19 @@ namespace Example
                 BaseResponse result = apiInstance.ResendShipmentConfirmation(orderId);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.ResendShipmentConfirmation: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1509,22 +1957,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateaccountsreceivableretryconfig"></a>
-# **UpdateAccountsReceivableRetryConfig**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateAccountsReceivableRetryConfig
+
 > BaseResponse UpdateAccountsReceivableRetryConfig (AccountsReceivableRetryConfig retryConfig)
 
 Update A/R Retry Configuration
 
 Update A/R Retry Configuration.  This is primarily an internal API call.  It is doubtful you would ever need to use it. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -1534,13 +1998,17 @@ namespace Example
 {
     public class UpdateAccountsReceivableRetryConfigExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
+            var apiInstance = new OrderApi(Configuration.Default);
             var retryConfig = new AccountsReceivableRetryConfig(); // AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
 
             try
@@ -1549,17 +2017,19 @@ namespace Example
                 BaseResponse result = apiInstance.UpdateAccountsReceivableRetryConfig(retryConfig);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.UpdateAccountsReceivableRetryConfig: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1575,22 +2045,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateorder"></a>
-# **UpdateOrder**
-> OrderResponse UpdateOrder (Order order, string orderId, string expand = null)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateOrder
+
+> OrderResponse UpdateOrder (string orderId, Order order, string expand = null)
 
 Update an order
 
 Update a new order on the UltraCart account.  This is probably NOT the method you want.  It is rare to update a completed order.  This will not trigger charges, emails, or any other automation. 
-### Example
-```csharp
 
-using System;
+### Example
+
+```csharp
+using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
 using com.ultracart.admin.v2.Client;
@@ -1600,39 +2086,45 @@ namespace Example
 {
     public class UpdateOrderExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
+            // Configure OAuth2 access token for authorization: ultraCartOauth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ultraCartSimpleApiKey
+            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
 
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new OrderApi(simpleKey);
-
+            var apiInstance = new OrderApi(Configuration.Default);
+            var orderId = "orderId_example";  // string | The order id to update.
             var order = new Order(); // Order | Order to update
-            var orderId = orderId_example;  // string | The order id to update.
-            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
                 // Update an order
-                OrderResponse result = apiInstance.UpdateOrder(order, orderId, expand);
+                OrderResponse result = apiInstance.UpdateOrder(orderId, order, expand);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrderApi.UpdateOrder: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
 }
-
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order** | [**Order**](Order.md)| Order to update | 
  **orderId** | **string**| The order id to update. | 
+ **order** | [**Order**](Order.md)| Order to update | 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type
@@ -1645,8 +2137,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

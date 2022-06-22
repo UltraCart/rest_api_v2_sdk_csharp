@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.Activity
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -6,10 +8,11 @@ Name | Type | Description | Notes
 **Action** | **string** |  | [optional] 
 **Metric** | **string** |  | [optional] 
 **Subject** | **string** |  | [optional] 
-**Ts** | **long?** |  | [optional] 
+**Ts** | **long** |  | [optional] 
 **Type** | **string** |  | [optional] 
 **Uuid** | **string** |  | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

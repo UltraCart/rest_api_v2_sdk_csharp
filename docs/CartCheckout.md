@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.CartCheckout
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,6 +20,7 @@ Name | Type | Description | Notes
 **StorefrontHostName** | **string** | StoreFront Host Name | [optional] 
 **UserAgent** | **string** | User agent of the browser | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

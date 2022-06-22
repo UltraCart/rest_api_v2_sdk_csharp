@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.ScreenRecordingUserAgent
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -7,8 +9,9 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [optional] 
 **Original** | **string** |  | [optional] 
 **Os** | [**ScreenRecordingUserAgentOS**](ScreenRecordingUserAgentOS.md) |  | [optional] 
-**Version** | **string** |  | [optional] 
+**_Version** | **string** |  | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

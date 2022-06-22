@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.Order
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +18,7 @@ Name | Type | Description | Notes
 **CustomerProfile** | [**Customer**](Customer.md) |  | [optional] 
 **DigitalOrder** | [**OrderDigitalOrder**](OrderDigitalOrder.md) |  | [optional] 
 **Edi** | [**OrderEdi**](OrderEdi.md) |  | [optional] 
-**ExchangeRate** | **decimal?** | Exchange rate at the time the order was placed if currency code is different than the base currency | [optional] 
+**ExchangeRate** | **decimal** | Exchange rate at the time the order was placed if currency code is different than the base currency | [optional] 
 **FraudScore** | [**OrderFraudScore**](OrderFraudScore.md) |  | [optional] 
 **Gift** | [**OrderGift**](OrderGift.md) |  | [optional] 
 **GiftCertificate** | [**OrderGiftCertificate**](OrderGiftCertificate.md) |  | [optional] 
@@ -38,6 +40,7 @@ Name | Type | Description | Notes
 **Tags** | [**List&lt;OrderTag&gt;**](OrderTag.md) | tags, available only through update, not through insert due to the nature of how tags are handled internally | [optional] 
 **Taxes** | [**OrderTaxes**](OrderTaxes.md) |  | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

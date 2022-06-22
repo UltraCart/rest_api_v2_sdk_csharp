@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.CustomerEditorValues
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,6 +16,7 @@ Name | Type | Description | Notes
 **StateOptionalCountries** | [**List&lt;Country&gt;**](Country.md) | state_optional_countries | [optional] 
 **Terms** | **List&lt;string&gt;** | terms | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

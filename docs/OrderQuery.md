@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.OrderQuery
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -19,7 +21,7 @@ Name | Type | Description | Notes
 **CustomField5** | **string** | Custom field 5 | [optional] 
 **CustomField6** | **string** | Custom field 6 | [optional] 
 **CustomField7** | **string** | Custom field 7 | [optional] 
-**CustomerProfileOid** | **int?** | The customer profile to find associated orders for | [optional] 
+**CustomerProfileOid** | **int** | The customer profile to find associated orders for | [optional] 
 **Email** | **string** | Email | [optional] 
 **FirstName** | **string** | First name | [optional] 
 **ItemId** | **string** | Item ID | [optional] 
@@ -41,8 +43,9 @@ Name | Type | Description | Notes
 **ShippedOnDateEnd** | **string** | Date/time that the order should ship on | [optional] 
 **StateRegion** | **string** | State for United States otherwise region or province for other countries | [optional] 
 **StorefrontHostName** | **string** | StoreFront host name associated with the order | [optional] 
-**Total** | **decimal?** | Total | [optional] 
+**Total** | **decimal** | Total | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

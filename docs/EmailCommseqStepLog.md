@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.EmailCommseqStepLog
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -7,6 +9,7 @@ Name | Type | Description | Notes
 **Log** | **string** | Log text | [optional] 
 **LogDts** | **string** | Log date/time | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

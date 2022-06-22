@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.CartSettingsPaymentPayPal
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,6 +11,7 @@ Name | Type | Description | Notes
 **PaypalCreditLegalImageUrl** | **string** | PayPal Credit legal image URL | [optional] 
 **PaypalCreditLegalUrl** | **string** | PayPal Credit legal URL | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

@@ -1,10 +1,12 @@
+
 # com.ultracart.admin.v2.Model.Coupon
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AffiliateOid** | **int?** | Associates an order with an affiliate when this value is set. | [optional] 
-**AllowMultipleOneTimeCodes** | **bool?** | True if multiple one time codes for this coupon can be used on a cart at the same time. | [optional] 
+**AffiliateOid** | **int** | Associates an order with an affiliate when this value is set. | [optional] 
+**AllowMultipleOneTimeCodes** | **bool** | True if multiple one time codes for this coupon can be used on a cart at the same time. | [optional] 
 **AmountOffItems** | [**CouponAmountOffItems**](CouponAmountOffItems.md) |  | [optional] 
 **AmountOffShipping** | [**CouponAmountOffShipping**](CouponAmountOffShipping.md) |  | [optional] 
 **AmountOffShippingWithItemsPurchase** | [**CouponAmountOffShippingWithItemsPurchase**](CouponAmountOffShippingWithItemsPurchase.md) |  | [optional] 
@@ -18,8 +20,8 @@ Name | Type | Description | Notes
 **AutomaticallyApplyCouponCodes** | [**CouponAutomaticallyApplyCouponCodes**](CouponAutomaticallyApplyCouponCodes.md) |  | [optional] 
 **BuyOneGetOne** | [**CouponBuyOneGetOneLimit**](CouponBuyOneGetOneLimit.md) |  | [optional] 
 **CalculatedDescription** | **string** | Calculated description displayed to the customer if no description is specified. | [optional] 
-**CanBeUsedWithOtherCoupons** | **bool?** | True if this coupon can be used with other coupons in a single order. | [optional] 
-**CouponOid** | **int?** | Coupon oid. | [optional] 
+**CanBeUsedWithOtherCoupons** | **bool** | True if this coupon can be used with other coupons in a single order. | [optional] 
+**CouponOid** | **int** | Coupon oid. | [optional] 
 **CouponType** | **string** | Coupon type. | [optional] 
 **Description** | **string** | Description of the coupon up to 50 characters. | [optional] 
 **DiscountItemWithItemPurchase** | [**CouponDiscountItemWithItemPurchase**](CouponDiscountItemWithItemPurchase.md) |  | [optional] 
@@ -34,11 +36,11 @@ Name | Type | Description | Notes
 **FreeShippingSpecificItems** | [**CouponFreeShippingSpecificItems**](CouponFreeShippingSpecificItems.md) |  | [optional] 
 **FreeShippingWithItemsPurchase** | [**CouponFreeShippingWithItemsPurchase**](CouponFreeShippingWithItemsPurchase.md) |  | [optional] 
 **FreeShippingWithSubtotal** | [**CouponFreeShippingWithSubtotal**](CouponFreeShippingWithSubtotal.md) |  | [optional] 
-**HideFromCustomer** | **bool?** | Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms. | [optional] 
+**HideFromCustomer** | **bool** | Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms. | [optional] 
 **MerchantCode** | **string** | Merchant code of coupon up to 20 characters. | [optional] 
 **MerchantNotes** | **string** | Internal notes about this coupon.  These are not visible to customer. | [optional] 
 **MultipleAmountsOffItems** | [**CouponMultipleAmountsOffItems**](CouponMultipleAmountsOffItems.md) |  | [optional] 
-**NoDiscount** | [**CouponNoDiscount**](CouponNoDiscount.md) |  | [optional] 
+**NoDiscount** | **Object** |  | [optional] 
 **PercentOffItemWithItemsQuantityPurchase** | [**CouponPercentOffItemWithItemsQuantityPurchase**](CouponPercentOffItemWithItemsQuantityPurchase.md) |  | [optional] 
 **PercentOffItems** | [**CouponPercentOffItems**](CouponPercentOffItems.md) |  | [optional] 
 **PercentOffItemsAndFreeShipping** | [**CouponPercentOffItemsAndFreeShipping**](CouponPercentOffItemsAndFreeShipping.md) |  | [optional] 
@@ -56,7 +58,7 @@ Name | Type | Description | Notes
 **RestrictByScreenBrandingThemeCodes** | [**List&lt;CouponRestriction&gt;**](CouponRestriction.md) | Optional list of legacy screen branding theme codes to limit coupon use to only those themes. | [optional] 
 **RestrictByStorefronts** | [**List&lt;CouponRestriction&gt;**](CouponRestriction.md) | Optional list of storefronts to limit coupon use to only those storefronts. | [optional] 
 **StartDts** | **string** | Date/time when coupon is valid | [optional] 
-**SuperCoupon** | **bool?** | If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration | [optional] 
+**SuperCoupon** | **bool** | If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration | [optional] 
 **TieredAmountOffItems** | [**CouponTieredAmountOffItems**](CouponTieredAmountOffItems.md) |  | [optional] 
 **TieredAmountOffSubtotal** | [**CouponTieredAmountOffSubtotal**](CouponTieredAmountOffSubtotal.md) |  | [optional] 
 **TieredPercentOffItems** | [**CouponTieredPercentOffItems**](CouponTieredPercentOffItems.md) |  | [optional] 
@@ -64,6 +66,7 @@ Name | Type | Description | Notes
 **TieredPercentOffSubtotal** | [**CouponTieredPercentOffSubtotal**](CouponTieredPercentOffSubtotal.md) |  | [optional] 
 **UsableBy** | **string** | Who may use this coupon. | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

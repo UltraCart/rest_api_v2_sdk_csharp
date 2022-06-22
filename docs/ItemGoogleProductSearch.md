@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.ItemGoogleProductSearch
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,7 +12,7 @@ Name | Type | Description | Notes
 **AdwordsLabel4** | **string** | Adwords label 4 | [optional] 
 **AdwordsLabel5** | **string** | Adwords label 5 | [optional] 
 **AgeGroup** | **string** | Age group | [optional] 
-**AvailableAtPhysicalStore** | **bool?** | Available at physical store | [optional] 
+**AvailableAtPhysicalStore** | **bool** | Available at physical store | [optional] 
 **BookAuthor** | **string** | Book - author | [optional] 
 **BookFormat** | **string** | Book - format | [optional] 
 **BookIsbn** | **string** | Bood - ISBN | [optional] 
@@ -28,7 +30,7 @@ Name | Type | Description | Notes
 **MusicArtist** | **string** | Music - artist | [optional] 
 **MusicFormat** | **string** | Music - format | [optional] 
 **MusicReleaseDate** | **string** | Music - release date | [optional] 
-**OmitFromFeed** | **bool?** | Omit from feed | [optional] 
+**OmitFromFeed** | **bool** | Omit from feed | [optional] 
 **ProductType** | **string** | Product type | [optional] 
 **PromotionId1** | **string** | Promotion ID 1 | [optional] 
 **PromotionId10** | **string** | Promotion ID 10 | [optional] 
@@ -41,9 +43,9 @@ Name | Type | Description | Notes
 **PromotionId8** | **string** | Promotion ID 8 | [optional] 
 **PromotionId9** | **string** | Promotion ID 9 | [optional] 
 **SearchDts** | **string** | Search date/time | [optional] 
-**SearchLowestPrice** | **decimal?** | Search lowest price | [optional] 
+**SearchLowestPrice** | **decimal** | Search lowest price | [optional] 
 **SearchLowestUrl** | **string** | Search lowest URL | [optional] 
-**SearchPosition** | **int?** | Search position | [optional] 
+**SearchPosition** | **int** | Search position | [optional] 
 **ShippingLabel** | **string** |  | [optional] 
 **Size** | **string** | Size | [optional] 
 **VideoDirector** | **string** | Video - director | [optional] 
@@ -52,6 +54,7 @@ Name | Type | Description | Notes
 **VideoReleaseDate** | **string** | Video - release date | [optional] 
 **VideoStarring** | **string** | Video - starring | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

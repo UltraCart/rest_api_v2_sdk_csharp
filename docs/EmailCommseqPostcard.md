@@ -1,9 +1,11 @@
+
 # com.ultracart.admin.v2.Model.EmailCommseqPostcard
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Deleted** | **bool?** | Deleted | [optional] 
+**Deleted** | **bool** | Deleted | [optional] 
 **EditedByUser** | **string** | Edited by user | [optional] 
 **EmailCommunicationSequencePostcardUuid** | **string** | communication sequence postcard uuid | [optional] 
 **FilterProfileEquationJson** | **string** | Filter profile equation json | [optional] 
@@ -15,8 +17,9 @@ Name | Type | Description | Notes
 **PostcardFrontContainerUuid** | **string** | Postcard front container uuid | [optional] 
 **ScreenshotBackUrl** | **string** | URL to screenshot of the back of the postcard | [optional] 
 **ScreenshotFrontUrl** | **string** | URL to screenshot of the front of the postcard | [optional] 
-**StorefrontOid** | **int?** | Storefront oid | [optional] 
+**StorefrontOid** | **int** | Storefront oid | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.ItemTaxExemption
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,6 +11,7 @@ Name | Type | Description | Notes
 **PostalCode** | **string** | Postal code | [optional] 
 **StateCode** | **string** | State code | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

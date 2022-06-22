@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.OauthTokenResponse
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,6 +14,7 @@ Name | Type | Description | Notes
 **Scope** | **string** | The scope of permissions associated with teh access token | [optional] 
 **TokenType** | **string** | Type of token | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

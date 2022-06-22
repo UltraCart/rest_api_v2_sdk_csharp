@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.OrderShipping
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -15,13 +17,13 @@ Name | Type | Description | Notes
 **EveningPhoneE164** | **string** | Evening phone (E164 format) | [optional] 
 **FirstName** | **string** | First name | [optional] 
 **LastName** | **string** | Last name | [optional] 
-**LeastCostRoute** | **bool?** | If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts. | [optional] 
+**LeastCostRoute** | **bool** | If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts. | [optional] 
 **LeastCostRouteShippingMethods** | **List&lt;string&gt;** | List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts. | [optional] 
-**LiftGate** | **bool?** | Lift gate requested (LTL shipping methods only) | [optional] 
+**LiftGate** | **bool** | Lift gate requested (LTL shipping methods only) | [optional] 
 **PostalCode** | **string** | Postal code | [optional] 
 **Rma** | **string** | RMA number | [optional] 
 **ShipOnDate** | **string** | Date the customer is requesting that the order ship on.  Typically used for perishable product delivery. | [optional] 
-**ShipToResidential** | **bool?** | True if the shipping address is residential.  Effects the methods that are available to the customer as well as the price of the shipping method. | [optional] 
+**ShipToResidential** | **bool** | True if the shipping address is residential.  Effects the methods that are available to the customer as well as the price of the shipping method. | [optional] 
 **Shipping3rdPartyAccountNumber** | **string** | Shipping 3rd party account number | [optional] 
 **ShippingDate** | **string** | Date/time the order shipped on.  This date is set once the first shipment is sent to the customer. | [optional] 
 **ShippingDepartmentStatus** | **string** | Shipping department status | [optional] 
@@ -34,6 +36,7 @@ Name | Type | Description | Notes
 **TrackingNumbers** | **List&lt;string&gt;** | Tracking numbers | [optional] 
 **Weight** | [**Weight**](Weight.md) |  | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

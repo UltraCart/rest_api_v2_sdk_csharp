@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.CouponEditorValues
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,6 +16,7 @@ Name | Type | Description | Notes
 **UsableBy** | [**List&lt;SimpleValue&gt;**](SimpleValue.md) | usable_by | [optional] 
 **ValidWithOtherCoupons** | **List&lt;string&gt;** | valid_with_other_coupons | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

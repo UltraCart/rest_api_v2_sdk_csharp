@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.OrderBilling
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -20,6 +22,7 @@ Name | Type | Description | Notes
 **StateRegion** | **string** | State for United States otherwise region or province for other countries | [optional] 
 **Title** | **string** | Title | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

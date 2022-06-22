@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.EmailCommseqPostcardSendTestRequest
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,12 +13,13 @@ Name | Type | Description | Notes
 **EspCommseqPostcardUuid** | **string** |  | [optional] 
 **EspCommseqStepUuid** | **string** |  | [optional] 
 **EspCommseqUuid** | **string** |  | [optional] 
-**MailCard** | **bool?** |  | [optional] 
+**MailCard** | **bool** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **OrderId** | **string** |  | [optional] 
 **PostalCode** | **string** |  | [optional] 
 **State** | **string** |  | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

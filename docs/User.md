@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.User
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,8 +18,9 @@ Name | Type | Description | Notes
 **OtpSerialNumber** | **string** | OTP Serial Number such as Google Authenticator or Crypto Card. | [optional] 
 **Permissions** | [**List&lt;Permission&gt;**](Permission.md) | A list of permissions the user enjoys for accessing the backend of UltraCart. | [optional] 
 **Phone** | **string** | Phone number of user.  Please supply a valid phone number.  When something breaks on your account, we need to be able to reach you. | [optional] 
-**UserId** | **int?** | User id is a unique identifier for this user | [optional] 
+**UserId** | **int** | User id is a unique identifier for this user | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

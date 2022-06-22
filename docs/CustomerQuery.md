@@ -1,4 +1,6 @@
+
 # com.ultracart.admin.v2.Model.CustomerQuery
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,7 +20,7 @@ Name | Type | Description | Notes
 **LastModifiedDtsEnd** | **string** | Last modified date end | [optional] 
 **LastModifiedDtsStart** | **string** | Last modified date start | [optional] 
 **PricingTierName** | **string** | Pricing tier name | [optional] 
-**PricingTierOid** | **int?** | Pricing tier oid | [optional] 
+**PricingTierOid** | **int** | Pricing tier oid | [optional] 
 **QbClass** | **string** | QuickBooks class to import this customer as | [optional] 
 **QuickbooksCode** | **string** | QuickBooks name to import this customer as | [optional] 
 **ShippingCity** | **string** | Billing city | [optional] 
@@ -33,6 +35,7 @@ Name | Type | Description | Notes
 **SignupDtsEnd** | **string** | Signup date end | [optional] 
 **SignupDtsStart** | **string** | Signup date start | [optional] 
 
-
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

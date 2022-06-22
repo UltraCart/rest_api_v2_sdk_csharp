@@ -21,7 +21,8 @@
              nuget.org gallery uses information you add in the portal. -->
         <description>A library for calling UltraCart REST services using C#</description>
         <copyright>https://www.ultracart.com/api/terms.html</copyright>
-        <licenseUrl>http://localhost</licenseUrl>
+        <icon>images\ultracart-icon-fill-blue.png</icon>
+        <license type="expression">MIT</license>
 
         <!-- Dependencies are automatically installed when the package is installed -->
         <dependencies>
@@ -35,8 +36,9 @@
     <files>
 
         <!-- A readme.txt will be displayed when the package is installed -->
-        <file src="..\..\README.md" target="" />
+        <file src="..\..\README.md" target="docs" />
         <file src="..\..\docs\**\*.*" target="docs" />
+        <file src="..\..\ultracart-icon-fill-blue.png" target="images\" />
 
     </files>
 </package>

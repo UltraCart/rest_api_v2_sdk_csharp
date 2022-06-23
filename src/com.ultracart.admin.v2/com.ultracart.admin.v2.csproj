@@ -12,7 +12,7 @@ Contact: support@ultracart.com
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ABDEF809-B721-42CA-9D2E-909409AF8CD0}</ProjectGuid>
+    <ProjectGuid>{3CE5E7FE-F7C2-4876-9A16-72B2659E9036}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>com.ultracart.admin.v2</RootNamespace>
@@ -50,10 +50,10 @@ Contact: support@ultracart.com
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\packages')">..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\..\packages')">..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath Condition="Exists('..\packages')">..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath Condition="Exists('..\..\packages')">..\..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="JsonSubTypes">
       <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\JsonSubTypes.1.6.0\lib\net45\JsonSubTypes.dll</HintPath>

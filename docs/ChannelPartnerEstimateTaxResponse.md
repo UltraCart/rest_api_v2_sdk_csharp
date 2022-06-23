@@ -1,10 +1,10 @@
-# com.ultracart.admin.v2.Model.DelayAutoOrdersResponse
+# com.ultracart.admin.v2.Model.ChannelPartnerEstimateTaxResponse
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ArbitraryTax** | **decimal?** |  | [optional] 
 **Error** | [**Error**](Error.md) |  | [optional] 
-**Message** | **string** |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **Success** | **bool?** | Indicates if API call was successful | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 

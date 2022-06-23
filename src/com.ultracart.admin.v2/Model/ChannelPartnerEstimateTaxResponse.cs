@@ -25,39 +25,39 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// TransactionGatewaysResponse
+    /// ChannelPartnerEstimateTaxResponse
     /// </summary>
     [DataContract]
-    public partial class TransactionGatewaysResponse :  IEquatable<TransactionGatewaysResponse>, IValidatableObject
+    public partial class ChannelPartnerEstimateTaxResponse :  IEquatable<ChannelPartnerEstimateTaxResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionGatewaysResponse" /> class.
+        /// Initializes a new instance of the <see cref="ChannelPartnerEstimateTaxResponse" /> class.
         /// </summary>
+        /// <param name="arbitraryTax">arbitraryTax.</param>
         /// <param name="error">error.</param>
-        /// <param name="gateways">gateways.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public TransactionGatewaysResponse(Error error = default(Error), List<TransactionGateway> gateways = default(List<TransactionGateway>), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
+        public ChannelPartnerEstimateTaxResponse(decimal? arbitraryTax = default(decimal?), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
         {
+            this.ArbitraryTax = arbitraryTax;
             this.Error = error;
-            this.Gateways = gateways;
             this.Metadata = metadata;
             this.Success = success;
             this.Warning = warning;
         }
         
         /// <summary>
+        /// Gets or Sets ArbitraryTax
+        /// </summary>
+        [DataMember(Name="arbitrary_tax", EmitDefaultValue=false)]
+        public decimal? ArbitraryTax { get; set; }
+
+        /// <summary>
         /// Gets or Sets Error
         /// </summary>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public Error Error { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Gateways
-        /// </summary>
-        [DataMember(Name="gateways", EmitDefaultValue=false)]
-        public List<TransactionGateway> Gateways { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
@@ -85,9 +85,9 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransactionGatewaysResponse {\n");
+            sb.Append("class ChannelPartnerEstimateTaxResponse {\n");
+            sb.Append("  ArbitraryTax: ").Append(ArbitraryTax).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
-            sb.Append("  Gateways: ").Append(Gateways).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
@@ -111,29 +111,29 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionGatewaysResponse);
+            return this.Equals(input as ChannelPartnerEstimateTaxResponse);
         }
 
         /// <summary>
-        /// Returns true if TransactionGatewaysResponse instances are equal
+        /// Returns true if ChannelPartnerEstimateTaxResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionGatewaysResponse to be compared</param>
+        /// <param name="input">Instance of ChannelPartnerEstimateTaxResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionGatewaysResponse input)
+        public bool Equals(ChannelPartnerEstimateTaxResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
+                    this.ArbitraryTax == input.ArbitraryTax ||
+                    (this.ArbitraryTax != null &&
+                    this.ArbitraryTax.Equals(input.ArbitraryTax))
+                ) && 
+                (
                     this.Error == input.Error ||
                     (this.Error != null &&
                     this.Error.Equals(input.Error))
-                ) && 
-                (
-                    this.Gateways == input.Gateways ||
-                    this.Gateways != null &&
-                    this.Gateways.SequenceEqual(input.Gateways)
                 ) && 
                 (
                     this.Metadata == input.Metadata ||
@@ -161,10 +161,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ArbitraryTax != null)
+                    hashCode = hashCode * 59 + this.ArbitraryTax.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
-                if (this.Gateways != null)
-                    hashCode = hashCode * 59 + this.Gateways.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Success != null)

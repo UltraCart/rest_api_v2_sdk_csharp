@@ -88,6 +88,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ChannelPartnerEstimateShippingResponse</returns>
         ApiResponse<ChannelPartnerEstimateShippingResponse> EstimateShippingForChannelPartnerOrderWithHttpInfo (ChannelPartnerOrder channelPartnerOrder);
         /// <summary>
+        /// Estimate tax for channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Estimate tax for order from a channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOrder">Order needing tax estimate</param>
+        /// <returns>ChannelPartnerEstimateTaxResponse</returns>
+        ChannelPartnerEstimateTaxResponse EstimateTaxForChannelPartnerOrder (ChannelPartnerOrder channelPartnerOrder);
+
+        /// <summary>
+        /// Estimate tax for channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Estimate tax for order from a channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOrder">Order needing tax estimate</param>
+        /// <returns>ApiResponse of ChannelPartnerEstimateTaxResponse</returns>
+        ApiResponse<ChannelPartnerEstimateTaxResponse> EstimateTaxForChannelPartnerOrderWithHttpInfo (ChannelPartnerOrder channelPartnerOrder);
+        /// <summary>
         /// Insert channel partner order
         /// </summary>
         /// <remarks>
@@ -173,6 +194,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="channelPartnerOrder">Order needing shipping estimate</param>
         /// <returns>Task of ApiResponse (ChannelPartnerEstimateShippingResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ChannelPartnerEstimateShippingResponse>> EstimateShippingForChannelPartnerOrderAsyncWithHttpInfo (ChannelPartnerOrder channelPartnerOrder);
+        /// <summary>
+        /// Estimate tax for channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Estimate tax for order from a channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOrder">Order needing tax estimate</param>
+        /// <returns>Task of ChannelPartnerEstimateTaxResponse</returns>
+        System.Threading.Tasks.Task<ChannelPartnerEstimateTaxResponse> EstimateTaxForChannelPartnerOrderAsync (ChannelPartnerOrder channelPartnerOrder);
+
+        /// <summary>
+        /// Estimate tax for channel partner order
+        /// </summary>
+        /// <remarks>
+        /// Estimate tax for order from a channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOrder">Order needing tax estimate</param>
+        /// <returns>Task of ApiResponse (ChannelPartnerEstimateTaxResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ChannelPartnerEstimateTaxResponse>> EstimateTaxForChannelPartnerOrderAsyncWithHttpInfo (ChannelPartnerOrder channelPartnerOrder);
         /// <summary>
         /// Insert channel partner order
         /// </summary>
@@ -784,6 +826,177 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ChannelPartnerEstimateShippingResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ChannelPartnerEstimateShippingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerEstimateShippingResponse)));
+        }
+
+        /// <summary>
+        /// Estimate tax for channel partner order Estimate tax for order from a channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOrder">Order needing tax estimate</param>
+        /// <returns>ChannelPartnerEstimateTaxResponse</returns>
+        public ChannelPartnerEstimateTaxResponse EstimateTaxForChannelPartnerOrder (ChannelPartnerOrder channelPartnerOrder)
+        {
+             ApiResponse<ChannelPartnerEstimateTaxResponse> localVarResponse = EstimateTaxForChannelPartnerOrderWithHttpInfo(channelPartnerOrder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Estimate tax for channel partner order Estimate tax for order from a channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOrder">Order needing tax estimate</param>
+        /// <returns>ApiResponse of ChannelPartnerEstimateTaxResponse</returns>
+        public ApiResponse< ChannelPartnerEstimateTaxResponse > EstimateTaxForChannelPartnerOrderWithHttpInfo (ChannelPartnerOrder channelPartnerOrder)
+        {
+            // verify the required parameter 'channelPartnerOrder' is set
+            if (channelPartnerOrder == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOrder' when calling ChannelPartnerApi->EstimateTaxForChannelPartnerOrder");
+
+            var localVarPath = "/channel_partner/estimate_tax";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOrder != null && channelPartnerOrder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(channelPartnerOrder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = channelPartnerOrder; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EstimateTaxForChannelPartnerOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnerEstimateTaxResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ChannelPartnerEstimateTaxResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerEstimateTaxResponse)));
+        }
+
+        /// <summary>
+        /// Estimate tax for channel partner order Estimate tax for order from a channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOrder">Order needing tax estimate</param>
+        /// <returns>Task of ChannelPartnerEstimateTaxResponse</returns>
+        public async System.Threading.Tasks.Task<ChannelPartnerEstimateTaxResponse> EstimateTaxForChannelPartnerOrderAsync (ChannelPartnerOrder channelPartnerOrder)
+        {
+             ApiResponse<ChannelPartnerEstimateTaxResponse> localVarResponse = await EstimateTaxForChannelPartnerOrderAsyncWithHttpInfo(channelPartnerOrder);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Estimate tax for channel partner order Estimate tax for order from a channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOrder">Order needing tax estimate</param>
+        /// <returns>Task of ApiResponse (ChannelPartnerEstimateTaxResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ChannelPartnerEstimateTaxResponse>> EstimateTaxForChannelPartnerOrderAsyncWithHttpInfo (ChannelPartnerOrder channelPartnerOrder)
+        {
+            // verify the required parameter 'channelPartnerOrder' is set
+            if (channelPartnerOrder == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOrder' when calling ChannelPartnerApi->EstimateTaxForChannelPartnerOrder");
+
+            var localVarPath = "/channel_partner/estimate_tax";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOrder != null && channelPartnerOrder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(channelPartnerOrder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = channelPartnerOrder; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EstimateTaxForChannelPartnerOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnerEstimateTaxResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ChannelPartnerEstimateTaxResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerEstimateTaxResponse)));
         }
 
         /// <summary>

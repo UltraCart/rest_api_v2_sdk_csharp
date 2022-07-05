@@ -26,10 +26,14 @@ Adds a ledger entry for this gift certificate.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -38,15 +42,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new GiftCertificateApi(Configuration.Default);
             var giftCertificateOid = 56;  // int | 
             var giftCertificateLedgerEntry = new GiftCertificateLedgerEntry(); // GiftCertificateLedgerEntry | Gift certificate ledger entry
 
@@ -116,10 +114,14 @@ Creates a gift certificate for this merchant account.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -128,15 +130,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new GiftCertificateApi(Configuration.Default);
             var giftCertificateCreateRequest = new GiftCertificateCreateRequest(); // GiftCertificateCreateRequest | Gift certificate create request
 
             try
@@ -204,10 +200,14 @@ Deletes a gift certificate for this merchant account.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -216,15 +216,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new GiftCertificateApi(Configuration.Default);
             var giftCertificateOid = 56;  // int | 
 
             try
@@ -290,10 +284,14 @@ Retrieves a gift certificate from the account based on the code (the value the c
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -302,15 +300,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new GiftCertificateApi(Configuration.Default);
             var code = "code_example";  // string | 
 
             try
@@ -378,10 +370,14 @@ Retrieves a gift certificate from the account based on the internal primary key.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -390,15 +386,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new GiftCertificateApi(Configuration.Default);
             var giftCertificateOid = 56;  // int | 
 
             try
@@ -466,10 +456,14 @@ Retrieves all gift certificates from the account based on customer email.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -478,15 +472,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new GiftCertificateApi(Configuration.Default);
             var email = "email_example";  // string | 
 
             try
@@ -554,10 +542,14 @@ Retrieves gift certificates from the account.  If no parameters are specified, a
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -566,15 +558,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new GiftCertificateApi(Configuration.Default);
             var giftCertificateQuery = new GiftCertificateQuery(); // GiftCertificateQuery | Gift certificates query
             var limit = 100;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
             var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
@@ -652,10 +638,14 @@ Update a gift certificate for this merchant account.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -664,15 +654,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new GiftCertificateApi(Configuration.Default);
             var giftCertificateOid = 56;  // int | 
             var giftCertificate = new GiftCertificate(); // GiftCertificate | Gift certificate
 

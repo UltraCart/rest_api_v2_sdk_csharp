@@ -46,10 +46,14 @@ Deletes a Self tax provider city.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -58,15 +62,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var city = "city_example";  // string | The city being deleted.
             var taxCity = new TaxCity(); // TaxCity | tax city to be deleted
 
@@ -134,10 +132,14 @@ Deletes a Self tax provider country.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -146,15 +148,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var countryCode = "countryCode_example";  // string | The country code being deleted.
             var taxCountry = new TaxCountry(); // TaxCountry | tax country to be deleted
 
@@ -222,10 +218,14 @@ Deletes a Self tax provider county.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -234,15 +234,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var county = "county_example";  // string | The county being deleted.
             var taxCounty = new TaxCounty(); // TaxCounty | tax county to be deleted
 
@@ -310,10 +304,14 @@ Deletes a Self tax provider postalCode.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -322,15 +320,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var postalCode = "postalCode_example";  // string | The postal code being deleted.
             var taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be deleted
 
@@ -398,10 +390,14 @@ Deletes a Self tax provider state.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -410,15 +406,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var stateCode = "stateCode_example";  // string | The state code being deleted.
             var taxState = new TaxState(); // TaxState | tax state to be deleted
 
@@ -486,10 +476,14 @@ Retrieves the Avalara tax provider.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -498,15 +492,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
 
             try
             {
@@ -570,10 +558,14 @@ Returns Avalara Tax companies configured by the merchant
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -582,15 +574,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
 
             try
@@ -658,10 +644,14 @@ Attempts to connect to Avalara and returns back the response.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -670,15 +660,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
 
             try
             {
@@ -742,10 +726,14 @@ Retrieves the Self tax provider.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -754,15 +742,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
 
             try
             {
@@ -826,10 +808,14 @@ Retrieves the Self tax provider countries.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -838,15 +824,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
 
             try
             {
@@ -910,10 +890,14 @@ Retrieves the Self tax provider regions for a given country code.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -922,15 +906,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var countryCode = "countryCode_example";  // string | The country code regions desired.
 
             try
@@ -998,10 +976,14 @@ Retrieves the Sovos tax provider.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1010,15 +992,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
 
             try
             {
@@ -1082,10 +1058,14 @@ Attempts to connect to Sovos and returns back the response.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1094,15 +1074,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
 
             try
             {
@@ -1166,10 +1140,14 @@ Retrieves the TaxJar tax provider.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1178,15 +1156,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
 
             try
             {
@@ -1250,10 +1222,14 @@ Attempts to connect to TaxJar and returns back the response.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1262,15 +1238,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
 
             try
             {
@@ -1334,10 +1304,14 @@ Retrieves the UltraCart tax provider.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1346,15 +1320,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
 
             try
             {
@@ -1418,10 +1386,14 @@ Retrieves tax methods for this account.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1430,15 +1402,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var limit = 100;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
             var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
             var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
@@ -1510,10 +1476,14 @@ Toggle a tax provider to active.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1522,15 +1492,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var providerName = "providerName_example";  // string | The tax provider to set active.
 
             try
@@ -1598,10 +1562,14 @@ Update the Avalara tax provider.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1610,15 +1578,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var taxProviderAvalara = new TaxProviderAvalara(); // TaxProviderAvalara | TaxProviderAvalara object
 
             try
@@ -1686,10 +1648,14 @@ Update the Self tax provider.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1698,15 +1664,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var taxProviderSelf = new TaxProviderSelf(); // TaxProviderSelf | TaxProviderSelf object
 
             try
@@ -1774,10 +1734,14 @@ Updates a Self tax provider city.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1786,15 +1750,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var city = "city_example";  // string | The city being updated.
             var taxCity = new TaxCity(); // TaxCity | tax city to be updated
 
@@ -1864,10 +1822,14 @@ Updates a Self tax provider country.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1876,15 +1838,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var countryCode = "countryCode_example";  // string | The country code being updated.
             var taxCountry = new TaxCountry(); // TaxCountry | tax country to be updated
 
@@ -1954,10 +1910,14 @@ Updates a Self tax provider county.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -1966,15 +1926,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var county = "county_example";  // string | The county being updated.
             var taxCounty = new TaxCounty(); // TaxCounty | tax county to be updated
 
@@ -2044,10 +1998,14 @@ Updates a Self tax provider postalCode.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -2056,15 +2014,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var postalCode = "postalCode_example";  // string | The postal code being updated.
             var taxPostalCode = new TaxPostalCode(); // TaxPostalCode | tax postal code to be updated
 
@@ -2134,10 +2086,14 @@ Updates a Self tax provider state.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -2146,15 +2102,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var stateCode = "stateCode_example";  // string | The state code being updated.
             var taxState = new TaxState(); // TaxState | tax state to be updated
 
@@ -2224,10 +2174,14 @@ Update the Sovos tax provider.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -2236,15 +2190,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var taxProviderSovos = new TaxProviderSovos(); // TaxProviderSovos | TaxProviderSovos object
 
             try
@@ -2312,10 +2260,14 @@ Update the TaxJar tax provider.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -2324,15 +2276,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var taxProviderTaxJar = new TaxProviderTaxJar(); // TaxProviderTaxJar | TaxProviderTaxJar object
 
             try
@@ -2400,10 +2346,14 @@ Update the UltraCart tax provider.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -2412,15 +2362,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new TaxApi(Configuration.Default);
             var taxProviderUltracart = new TaxProviderUltraCart(); // TaxProviderUltraCart | TaxProviderUltraCart object
 
             try

@@ -26,10 +26,14 @@ Delete a webhook on the UltraCart account.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -38,15 +42,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new WebhookApi(Configuration.Default);
             var webhookOid = 56;  // int | The webhook oid to delete.
 
             try
@@ -113,10 +111,14 @@ Delete a webhook based upon the URL on the webhook_url matching an existing webh
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -125,15 +127,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new WebhookApi(Configuration.Default);
             var webhook = new Webhook(); // Webhook | Webhook to delete
 
             try
@@ -201,10 +197,14 @@ Retrieves an individual log for a webhook given the webhook oid the request id.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -213,15 +213,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new WebhookApi(Configuration.Default);
             var webhookOid = 56;  // int | The webhook oid that owns the log.
             var requestId = "requestId_example";  // string | The request id associated with the log to view.
 
@@ -291,10 +285,14 @@ Retrieves the log summary information for a given webhook.  This is useful for d
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -303,15 +301,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new WebhookApi(Configuration.Default);
             var webhookOid = 56;  // int | The webhook oid to retrieve log summaries for.
             var limit = 100;  // int? | The maximum number of records to return on this one API call. (optional)  (default to 100)
             var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
@@ -385,10 +377,14 @@ Retrieves the webhooks associated with this application.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -397,15 +393,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new WebhookApi(Configuration.Default);
             var limit = 100;  // int? | The maximum number of records to return on this one API call. (optional)  (default to 100)
             var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
             var sort = "sort_example";  // string | The sort order of the webhooks.  See documentation for examples (optional) 
@@ -479,10 +469,14 @@ Adds a new webhook on the account.  If you add a new webhook with the authentica
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -491,15 +485,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new WebhookApi(Configuration.Default);
             var webhook = new Webhook(); // Webhook | Webhook to create
             var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
@@ -569,10 +557,14 @@ This method will resend events to the webhook endpoint.  This method can be used
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -581,15 +573,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new WebhookApi(Configuration.Default);
             var webhookOid = 56;  // int | The webhook oid that is receiving the reflowed events.
             var eventName = "eventName_example";  // string | The event to reflow.
 
@@ -659,10 +645,14 @@ Update a webhook on the account
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -671,15 +661,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new WebhookApi(Configuration.Default);
             var webhookOid = 56;  // int | The webhook oid to update.
             var webhook = new Webhook(); // Webhook | Webhook to update
             var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 

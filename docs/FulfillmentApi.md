@@ -24,10 +24,14 @@ Acknowledge receipt of orders so that they are removed from the fulfillment queu
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -36,15 +40,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new FulfillmentApi(Configuration.Default);
             var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
             var orderIds = new List<string>(); // List<string> | Orders to acknowledge receipt of (limit 100)
 
@@ -113,10 +111,14 @@ The packing slip PDF that is returned is base 64 encoded
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -125,15 +127,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new FulfillmentApi(Configuration.Default);
             var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
             var orderId = "orderId_example";  // string | Order ID
 
@@ -203,10 +199,14 @@ Retrieves up to 100 orders that are queued up in this distribution center.  You 
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -215,15 +215,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new FulfillmentApi(Configuration.Default);
             var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
 
             try
@@ -291,10 +285,14 @@ Retrieves the distribution centers that this user has access to.
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -303,15 +301,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new FulfillmentApi(Configuration.Default);
 
             try
             {
@@ -375,10 +367,14 @@ Store the tracking information and mark the order shipped for this distribution 
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -387,15 +383,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new FulfillmentApi(Configuration.Default);
             var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
             var shipments = new List<FulfillmentShipment>(); // List<FulfillmentShipment> | Orders to mark shipped
 
@@ -464,10 +454,14 @@ Update the inventory for items associated with this distribution center
 ### Example
 
 ```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
 using com.ultracart.admin.v2.Model;
 
 namespace Example
@@ -476,15 +470,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://secure.ultracart.com/rest/v2";
-            // Configure OAuth2 access token for authorization: ultraCartOauth
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ultraCartSimpleApiKey
-            Configuration.Default.AddApiKey("x-ultracart-simple-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("x-ultracart-simple-key", "Bearer");
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
-            var apiInstance = new FulfillmentApi(Configuration.Default);
             var distributionCenterCode = "distributionCenterCode_example";  // string | Distribution center code
             var inventories = new List<FulfillmentInventory>(); // List<FulfillmentInventory> | Inventory updates (limit 500)
 

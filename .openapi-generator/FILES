@@ -204,6 +204,7 @@ docs/CustomerEmailListChanges.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
+docs/CustomerMergeRequest.md
 docs/CustomerOrdersSummary.md
 docs/CustomerPricingTier.md
 docs/CustomerPrivacy.md
@@ -875,6 +876,7 @@ src/com.ultracart.admin.v2/Model/CustomerEmailListChanges.cs
 src/com.ultracart.admin.v2/Model/CustomerLoyalty.cs
 src/com.ultracart.admin.v2/Model/CustomerLoyaltyLedger.cs
 src/com.ultracart.admin.v2/Model/CustomerLoyaltyRedemption.cs
+src/com.ultracart.admin.v2/Model/CustomerMergeRequest.cs
 src/com.ultracart.admin.v2/Model/CustomerOrdersSummary.cs
 src/com.ultracart.admin.v2/Model/CustomerPricingTier.cs
 src/com.ultracart.admin.v2/Model/CustomerPrivacy.cs

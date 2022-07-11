@@ -376,6 +376,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CustomerResponse</returns>
         ApiResponse<CustomerResponse> InsertCustomerWithHttpInfo (Customer customer, string expand = null);
         /// <summary>
+        /// Merge customer into this customer
+        /// </summary>
+        /// <remarks>
+        /// Merge customer into this customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to merge into this profile.</param>
+        /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns></returns>
+        void MergeCustomer (CustomerMergeRequest customer, int? customerProfileOid, string expand = null);
+
+        /// <summary>
+        /// Merge customer into this customer
+        /// </summary>
+        /// <remarks>
+        /// Merge customer into this customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to merge into this profile.</param>
+        /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> MergeCustomerWithHttpInfo (CustomerMergeRequest customer, int? customerProfileOid, string expand = null);
+        /// <summary>
         /// Searches for all matching values (using POST)
         /// </summary>
         /// <remarks>
@@ -818,6 +843,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (CustomerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> InsertCustomerAsyncWithHttpInfo (Customer customer, string expand = null);
+        /// <summary>
+        /// Merge customer into this customer
+        /// </summary>
+        /// <remarks>
+        /// Merge customer into this customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to merge into this profile.</param>
+        /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task MergeCustomerAsync (CustomerMergeRequest customer, int? customerProfileOid, string expand = null);
+
+        /// <summary>
+        /// Merge customer into this customer
+        /// </summary>
+        /// <remarks>
+        /// Merge customer into this customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to merge into this profile.</param>
+        /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> MergeCustomerAsyncWithHttpInfo (CustomerMergeRequest customer, int? customerProfileOid, string expand = null);
         /// <summary>
         /// Searches for all matching values (using POST)
         /// </summary>
@@ -3344,6 +3394,193 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomerResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CustomerResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerResponse)));
+        }
+
+        /// <summary>
+        /// Merge customer into this customer Merge customer into this customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to merge into this profile.</param>
+        /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns></returns>
+        public void MergeCustomer (CustomerMergeRequest customer, int? customerProfileOid, string expand = null)
+        {
+             MergeCustomerWithHttpInfo(customer, customerProfileOid, expand);
+        }
+
+        /// <summary>
+        /// Merge customer into this customer Merge customer into this customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to merge into this profile.</param>
+        /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> MergeCustomerWithHttpInfo (CustomerMergeRequest customer, int? customerProfileOid, string expand = null)
+        {
+            // verify the required parameter 'customer' is set
+            if (customer == null)
+                throw new ApiException(400, "Missing required parameter 'customer' when calling CustomerApi->MergeCustomer");
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->MergeCustomer");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/merge";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (customer != null && customer.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(customer); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = customer; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MergeCustomer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Merge customer into this customer Merge customer into this customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to merge into this profile.</param>
+        /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task MergeCustomerAsync (CustomerMergeRequest customer, int? customerProfileOid, string expand = null)
+        {
+             await MergeCustomerAsyncWithHttpInfo(customer, customerProfileOid, expand);
+
+        }
+
+        /// <summary>
+        /// Merge customer into this customer Merge customer into this customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customer">Customer to merge into this profile.</param>
+        /// <param name="customerProfileOid">The customer_profile_oid to update.</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> MergeCustomerAsyncWithHttpInfo (CustomerMergeRequest customer, int? customerProfileOid, string expand = null)
+        {
+            // verify the required parameter 'customer' is set
+            if (customer == null)
+                throw new ApiException(400, "Missing required parameter 'customer' when calling CustomerApi->MergeCustomer");
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->MergeCustomer");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/merge";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (customer != null && customer.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(customer); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = customer; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MergeCustomer", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>

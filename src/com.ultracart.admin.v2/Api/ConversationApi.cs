@@ -65,6 +65,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Conversation</returns>
         ApiResponse<Conversation> GetConversationWithHttpInfo (string conversationUuid);
         /// <summary>
+        /// Get a presigned conersation multimedia upload URL
+        /// </summary>
+        /// <remarks>
+        /// Get a presigned conersation multimedia upload URL 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extension"></param>
+        /// <returns></returns>
+        void GetConversationMultimediaUploadUrl (string extension);
+
+        /// <summary>
+        /// Get a presigned conersation multimedia upload URL
+        /// </summary>
+        /// <remarks>
+        /// Get a presigned conersation multimedia upload URL 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extension"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> GetConversationMultimediaUploadUrlWithHttpInfo (string extension);
+        /// <summary>
         /// Retrieve a list of conversation summaries newest to oldest
         /// </summary>
         /// <remarks>
@@ -192,6 +213,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="conversationUuid"></param>
         /// <returns>Task of ApiResponse (Conversation)</returns>
         System.Threading.Tasks.Task<ApiResponse<Conversation>> GetConversationAsyncWithHttpInfo (string conversationUuid);
+        /// <summary>
+        /// Get a presigned conersation multimedia upload URL
+        /// </summary>
+        /// <remarks>
+        /// Get a presigned conersation multimedia upload URL 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extension"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task GetConversationMultimediaUploadUrlAsync (string extension);
+
+        /// <summary>
+        /// Get a presigned conersation multimedia upload URL
+        /// </summary>
+        /// <remarks>
+        /// Get a presigned conersation multimedia upload URL 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extension"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetConversationMultimediaUploadUrlAsyncWithHttpInfo (string extension);
         /// <summary>
         /// Retrieve a list of conversation summaries newest to oldest
         /// </summary>
@@ -685,6 +727,161 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Conversation>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Conversation) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Conversation)));
+        }
+
+        /// <summary>
+        /// Get a presigned conersation multimedia upload URL Get a presigned conersation multimedia upload URL 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extension"></param>
+        /// <returns></returns>
+        public void GetConversationMultimediaUploadUrl (string extension)
+        {
+             GetConversationMultimediaUploadUrlWithHttpInfo(extension);
+        }
+
+        /// <summary>
+        /// Get a presigned conersation multimedia upload URL Get a presigned conersation multimedia upload URL 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extension"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> GetConversationMultimediaUploadUrlWithHttpInfo (string extension)
+        {
+            // verify the required parameter 'extension' is set
+            if (extension == null)
+                throw new ApiException(400, "Missing required parameter 'extension' when calling ConversationApi->GetConversationMultimediaUploadUrl");
+
+            var localVarPath = "/conversation/upload_url/{extension}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (extension != null) localVarPathParams.Add("extension", this.Configuration.ApiClient.ParameterToString(extension)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationMultimediaUploadUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Get a presigned conersation multimedia upload URL Get a presigned conersation multimedia upload URL 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extension"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task GetConversationMultimediaUploadUrlAsync (string extension)
+        {
+             await GetConversationMultimediaUploadUrlAsyncWithHttpInfo(extension);
+
+        }
+
+        /// <summary>
+        /// Get a presigned conersation multimedia upload URL Get a presigned conersation multimedia upload URL 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extension"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetConversationMultimediaUploadUrlAsyncWithHttpInfo (string extension)
+        {
+            // verify the required parameter 'extension' is set
+            if (extension == null)
+                throw new ApiException(400, "Missing required parameter 'extension' when calling ConversationApi->GetConversationMultimediaUploadUrl");
+
+            var localVarPath = "/conversation/upload_url/{extension}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (extension != null) localVarPathParams.Add("extension", this.Configuration.ApiClient.ParameterToString(extension)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationMultimediaUploadUrl", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>

@@ -5,6 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConversationParticipantArn** | **string** |  | [optional] 
 **Jwt** | **string** |  | [optional] 
+**MerchantId** | **string** |  | [optional] 
+**TwilioPhoneNumbers** | **List&lt;string&gt;** |  | [optional] 
 **WebsocketUrl** | **string** |  | [optional] 
 
 

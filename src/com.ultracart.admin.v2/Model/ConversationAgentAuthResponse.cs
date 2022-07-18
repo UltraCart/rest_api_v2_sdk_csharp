@@ -35,11 +35,15 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="conversationParticipantArn">conversationParticipantArn.</param>
         /// <param name="jwt">jwt.</param>
+        /// <param name="merchantId">merchantId.</param>
+        /// <param name="twilioPhoneNumbers">twilioPhoneNumbers.</param>
         /// <param name="websocketUrl">websocketUrl.</param>
-        public ConversationAgentAuthResponse(string conversationParticipantArn = default(string), string jwt = default(string), string websocketUrl = default(string))
+        public ConversationAgentAuthResponse(string conversationParticipantArn = default(string), string jwt = default(string), string merchantId = default(string), List<string> twilioPhoneNumbers = default(List<string>), string websocketUrl = default(string))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.Jwt = jwt;
+            this.MerchantId = merchantId;
+            this.TwilioPhoneNumbers = twilioPhoneNumbers;
             this.WebsocketUrl = websocketUrl;
         }
         
@@ -54,6 +58,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="jwt", EmitDefaultValue=false)]
         public string Jwt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantId
+        /// </summary>
+        [DataMember(Name="merchant_id", EmitDefaultValue=false)]
+        public string MerchantId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TwilioPhoneNumbers
+        /// </summary>
+        [DataMember(Name="twilio_phone_numbers", EmitDefaultValue=false)]
+        public List<string> TwilioPhoneNumbers { get; set; }
 
         /// <summary>
         /// Gets or Sets WebsocketUrl
@@ -71,6 +87,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationAgentAuthResponse {\n");
             sb.Append("  ConversationParticipantArn: ").Append(ConversationParticipantArn).Append("\n");
             sb.Append("  Jwt: ").Append(Jwt).Append("\n");
+            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  TwilioPhoneNumbers: ").Append(TwilioPhoneNumbers).Append("\n");
             sb.Append("  WebsocketUrl: ").Append(WebsocketUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -117,6 +135,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Jwt.Equals(input.Jwt))
                 ) && 
                 (
+                    this.MerchantId == input.MerchantId ||
+                    (this.MerchantId != null &&
+                    this.MerchantId.Equals(input.MerchantId))
+                ) && 
+                (
+                    this.TwilioPhoneNumbers == input.TwilioPhoneNumbers ||
+                    this.TwilioPhoneNumbers != null &&
+                    this.TwilioPhoneNumbers.SequenceEqual(input.TwilioPhoneNumbers)
+                ) && 
+                (
                     this.WebsocketUrl == input.WebsocketUrl ||
                     (this.WebsocketUrl != null &&
                     this.WebsocketUrl.Equals(input.WebsocketUrl))
@@ -136,6 +164,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationParticipantArn.GetHashCode();
                 if (this.Jwt != null)
                     hashCode = hashCode * 59 + this.Jwt.GetHashCode();
+                if (this.MerchantId != null)
+                    hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.TwilioPhoneNumbers != null)
+                    hashCode = hashCode * 59 + this.TwilioPhoneNumbers.GetHashCode();
                 if (this.WebsocketUrl != null)
                     hashCode = hashCode * 59 + this.WebsocketUrl.GetHashCode();
                 return hashCode;

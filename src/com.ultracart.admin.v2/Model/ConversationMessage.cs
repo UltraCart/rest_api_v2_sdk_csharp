@@ -38,13 +38,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="body">body.</param>
         /// <param name="mediaUrls">mediaUrls.</param>
         /// <param name="messageDts">Message date/time.</param>
-        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), List<string> mediaUrls = default(List<string>), string messageDts = default(string))
+        /// <param name="transportStatuses">transportStatuses.</param>
+        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), List<string> mediaUrls = default(List<string>), string messageDts = default(string), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>))
         {
             this.AuthorConversationParticipantArn = authorConversationParticipantArn;
             this.AuthorConversationParticipantName = authorConversationParticipantName;
             this.Body = body;
             this.MediaUrls = mediaUrls;
             this.MessageDts = messageDts;
+            this.TransportStatuses = transportStatuses;
         }
 
         /// <summary>
@@ -79,6 +81,12 @@ namespace com.ultracart.admin.v2.Model
         public string MessageDts { get; set; }
 
         /// <summary>
+        /// Gets or Sets TransportStatuses
+        /// </summary>
+        [DataMember(Name="transport_statuses", EmitDefaultValue=false)]
+        public List<ConversationMessageTransportStatus> TransportStatuses { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +99,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  MediaUrls: ").Append(MediaUrls).Append("\n");
             sb.Append("  MessageDts: ").Append(MessageDts).Append("\n");
+            sb.Append("  TransportStatuses: ").Append(TransportStatuses).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +159,12 @@ namespace com.ultracart.admin.v2.Model
                     this.MessageDts == input.MessageDts ||
                     (this.MessageDts != null &&
                     this.MessageDts.Equals(input.MessageDts))
+                ) && 
+                (
+                    this.TransportStatuses == input.TransportStatuses ||
+                    this.TransportStatuses != null &&
+                    input.TransportStatuses != null &&
+                    this.TransportStatuses.SequenceEqual(input.TransportStatuses)
                 );
         }
 
@@ -172,6 +187,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MediaUrls.GetHashCode();
                 if (this.MessageDts != null)
                     hashCode = hashCode * 59 + this.MessageDts.GetHashCode();
+                if (this.TransportStatuses != null)
+                    hashCode = hashCode * 59 + this.TransportStatuses.GetHashCode();
                 return hashCode;
             }
         }

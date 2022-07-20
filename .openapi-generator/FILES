@@ -129,6 +129,7 @@ docs/Conversation.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
 docs/ConversationMessage.md
+docs/ConversationMessageTransportStatus.md
 docs/ConversationParticipant.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
@@ -812,6 +813,7 @@ src/com.ultracart.admin.v2/Model/CityStateZip.cs
 src/com.ultracart.admin.v2/Model/Conversation.cs
 src/com.ultracart.admin.v2/Model/ConversationAgentAuthResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationMessage.cs
+src/com.ultracart.admin.v2/Model/ConversationMessageTransportStatus.cs
 src/com.ultracart.admin.v2/Model/ConversationParticipant.cs
 src/com.ultracart.admin.v2/Model/ConversationStartRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationStartResponse.cs

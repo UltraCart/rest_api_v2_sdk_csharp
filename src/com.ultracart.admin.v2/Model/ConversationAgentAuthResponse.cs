@@ -34,13 +34,15 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ConversationAgentAuthResponse" /> class.
         /// </summary>
         /// <param name="conversationParticipantArn">conversationParticipantArn.</param>
+        /// <param name="conversationParticipantName">conversationParticipantName.</param>
         /// <param name="jwt">jwt.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="twilioPhoneNumbers">twilioPhoneNumbers.</param>
         /// <param name="websocketUrl">websocketUrl.</param>
-        public ConversationAgentAuthResponse(string conversationParticipantArn = default(string), string jwt = default(string), string merchantId = default(string), List<string> twilioPhoneNumbers = default(List<string>), string websocketUrl = default(string))
+        public ConversationAgentAuthResponse(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string jwt = default(string), string merchantId = default(string), List<string> twilioPhoneNumbers = default(List<string>), string websocketUrl = default(string))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
+            this.ConversationParticipantName = conversationParticipantName;
             this.Jwt = jwt;
             this.MerchantId = merchantId;
             this.TwilioPhoneNumbers = twilioPhoneNumbers;
@@ -52,6 +54,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="conversation_participant_arn", EmitDefaultValue=false)]
         public string ConversationParticipantArn { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ConversationParticipantName
+        /// </summary>
+        [DataMember(Name="conversation_participant_name", EmitDefaultValue=false)]
+        public string ConversationParticipantName { get; set; }
 
         /// <summary>
         /// Gets or Sets Jwt
@@ -86,6 +94,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ConversationAgentAuthResponse {\n");
             sb.Append("  ConversationParticipantArn: ").Append(ConversationParticipantArn).Append("\n");
+            sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
             sb.Append("  Jwt: ").Append(Jwt).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  TwilioPhoneNumbers: ").Append(TwilioPhoneNumbers).Append("\n");
@@ -130,6 +139,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationParticipantArn.Equals(input.ConversationParticipantArn))
                 ) && 
                 (
+                    this.ConversationParticipantName == input.ConversationParticipantName ||
+                    (this.ConversationParticipantName != null &&
+                    this.ConversationParticipantName.Equals(input.ConversationParticipantName))
+                ) && 
+                (
                     this.Jwt == input.Jwt ||
                     (this.Jwt != null &&
                     this.Jwt.Equals(input.Jwt))
@@ -162,6 +176,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.ConversationParticipantArn != null)
                     hashCode = hashCode * 59 + this.ConversationParticipantArn.GetHashCode();
+                if (this.ConversationParticipantName != null)
+                    hashCode = hashCode * 59 + this.ConversationParticipantName.GetHashCode();
                 if (this.Jwt != null)
                     hashCode = hashCode * 59 + this.Jwt.GetHashCode();
                 if (this.MerchantId != null)

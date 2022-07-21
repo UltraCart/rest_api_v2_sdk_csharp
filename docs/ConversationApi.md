@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ## GetConversationMultimediaUploadUrl
 
-> void GetConversationMultimediaUploadUrl (string extension)
+> ConversationMultimediaUploadUrlResponse GetConversationMultimediaUploadUrl (string extension)
 
 Get a presigned conersation multimedia upload URL
 
@@ -217,7 +217,8 @@ namespace Example
             try
             {
                 // Get a presigned conersation multimedia upload URL
-                apiInstance.GetConversationMultimediaUploadUrl(extension);
+                ConversationMultimediaUploadUrlResponse result = apiInstance.GetConversationMultimediaUploadUrl(extension);
+                Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
@@ -239,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ConversationMultimediaUploadUrlResponse**](ConversationMultimediaUploadUrlResponse.md)
 
 ### Authorization
 
@@ -254,6 +255,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |

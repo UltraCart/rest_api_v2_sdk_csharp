@@ -73,8 +73,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns></returns>
-        void GetConversationMultimediaUploadUrl (string extension);
+        /// <returns>ConversationMultimediaUploadUrlResponse</returns>
+        ConversationMultimediaUploadUrlResponse GetConversationMultimediaUploadUrl (string extension);
 
         /// <summary>
         /// Get a presigned conersation multimedia upload URL
@@ -84,8 +84,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetConversationMultimediaUploadUrlWithHttpInfo (string extension);
+        /// <returns>ApiResponse of ConversationMultimediaUploadUrlResponse</returns>
+        ApiResponse<ConversationMultimediaUploadUrlResponse> GetConversationMultimediaUploadUrlWithHttpInfo (string extension);
         /// <summary>
         /// Retrieve a list of conversation summaries newest to oldest
         /// </summary>
@@ -227,8 +227,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetConversationMultimediaUploadUrlAsync (string extension, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ConversationMultimediaUploadUrlResponse</returns>
+        System.Threading.Tasks.Task<ConversationMultimediaUploadUrlResponse> GetConversationMultimediaUploadUrlAsync (string extension, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get a presigned conersation multimedia upload URL
@@ -239,8 +239,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetConversationMultimediaUploadUrlWithHttpInfoAsync (string extension, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (ConversationMultimediaUploadUrlResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationMultimediaUploadUrlResponse>> GetConversationMultimediaUploadUrlWithHttpInfoAsync (string extension, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve a list of conversation summaries newest to oldest
         /// </summary>
@@ -771,10 +771,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns></returns>
-        public void GetConversationMultimediaUploadUrl (string extension)
+        /// <returns>ConversationMultimediaUploadUrlResponse</returns>
+        public ConversationMultimediaUploadUrlResponse GetConversationMultimediaUploadUrl (string extension)
         {
-             GetConversationMultimediaUploadUrlWithHttpInfo(extension);
+             ApiResponse<ConversationMultimediaUploadUrlResponse> localVarResponse = GetConversationMultimediaUploadUrlWithHttpInfo(extension);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -782,8 +783,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetConversationMultimediaUploadUrlWithHttpInfo (string extension)
+        /// <returns>ApiResponse of ConversationMultimediaUploadUrlResponse</returns>
+        public ApiResponse<ConversationMultimediaUploadUrlResponse> GetConversationMultimediaUploadUrlWithHttpInfo (string extension)
         {
             // verify the required parameter 'extension' is set
             if (extension == null)
@@ -837,9 +838,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ConversationMultimediaUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (ConversationMultimediaUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMultimediaUploadUrlResponse)));
         }
 
         /// <summary>
@@ -848,10 +849,11 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetConversationMultimediaUploadUrlAsync (string extension, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ConversationMultimediaUploadUrlResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationMultimediaUploadUrlResponse> GetConversationMultimediaUploadUrlAsync (string extension, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await GetConversationMultimediaUploadUrlWithHttpInfoAsync(extension, cancellationToken);
+             ApiResponse<ConversationMultimediaUploadUrlResponse> localVarResponse = await GetConversationMultimediaUploadUrlWithHttpInfoAsync(extension, cancellationToken);
+             return localVarResponse.Data;
 
         }
 
@@ -861,8 +863,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetConversationMultimediaUploadUrlWithHttpInfoAsync (string extension, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (ConversationMultimediaUploadUrlResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationMultimediaUploadUrlResponse>> GetConversationMultimediaUploadUrlWithHttpInfoAsync (string extension, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'extension' is set
             if (extension == null)
@@ -916,9 +918,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ConversationMultimediaUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (ConversationMultimediaUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMultimediaUploadUrlResponse)));
         }
 
         /// <summary>

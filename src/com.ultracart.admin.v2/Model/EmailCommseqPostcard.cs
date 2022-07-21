@@ -43,7 +43,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="postcardContainerCjsonLastModifiedDts">Timestamp the last time the container was modified..</param>
         /// <param name="postcardFrontContainerCjson">Postcard front container cjson.</param>
         /// <param name="postcardFrontContainerUuid">Postcard front container uuid.</param>
-        /// <param name="screenshotBackUrl">URL to screenshot of the back of the postcard.</param>
+        /// <param name="screenshotBackUrl">URL to screenshot of the front of the postcard.</param>
         /// <param name="screenshotFrontUrl">URL to screenshot of the front of the postcard.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
         public EmailCommseqPostcard(bool deleted = default(bool), string editedByUser = default(string), string emailCommunicationSequencePostcardUuid = default(string), string filterProfileEquationJson = default(string), string merchantId = default(string), string postcardBackContainerCjson = default(string), string postcardBackContainerUuid = default(string), string postcardContainerCjsonLastModifiedDts = default(string), string postcardFrontContainerCjson = default(string), string postcardFrontContainerUuid = default(string), string screenshotBackUrl = default(string), string screenshotFrontUrl = default(string), int storefrontOid = default(int))
@@ -134,9 +134,9 @@ namespace com.ultracart.admin.v2.Model
         public string PostcardFrontContainerUuid { get; set; }
 
         /// <summary>
-        /// URL to screenshot of the back of the postcard
+        /// URL to screenshot of the front of the postcard
         /// </summary>
-        /// <value>URL to screenshot of the back of the postcard</value>
+        /// <value>URL to screenshot of the front of the postcard</value>
         [DataMember(Name="screenshot_back_url", EmitDefaultValue=false)]
         public string ScreenshotBackUrl { get; set; }
 

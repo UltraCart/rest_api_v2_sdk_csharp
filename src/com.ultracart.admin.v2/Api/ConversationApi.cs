@@ -52,8 +52,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>Conversation</returns>
-        Conversation GetConversation (string conversationUuid);
+        /// <returns>ConversationResponse</returns>
+        ConversationResponse GetConversation (string conversationUuid);
 
         /// <summary>
         /// Retrieve a conversation
@@ -63,8 +63,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>ApiResponse of Conversation</returns>
-        ApiResponse<Conversation> GetConversationWithHttpInfo (string conversationUuid);
+        /// <returns>ApiResponse of ConversationResponse</returns>
+        ApiResponse<ConversationResponse> GetConversationWithHttpInfo (string conversationUuid);
         /// <summary>
         /// Get a presigned conersation multimedia upload URL
         /// </summary>
@@ -204,8 +204,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of Conversation</returns>
-        System.Threading.Tasks.Task<Conversation> GetConversationAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ConversationResponse</returns>
+        System.Threading.Tasks.Task<ConversationResponse> GetConversationAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Retrieve a conversation
@@ -216,8 +216,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (Conversation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Conversation>> GetConversationWithHttpInfoAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (ConversationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationResponse>> GetConversationWithHttpInfoAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a presigned conersation multimedia upload URL
         /// </summary>
@@ -614,10 +614,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>Conversation</returns>
-        public Conversation GetConversation (string conversationUuid)
+        /// <returns>ConversationResponse</returns>
+        public ConversationResponse GetConversation (string conversationUuid)
         {
-             ApiResponse<Conversation> localVarResponse = GetConversationWithHttpInfo(conversationUuid);
+             ApiResponse<ConversationResponse> localVarResponse = GetConversationWithHttpInfo(conversationUuid);
              return localVarResponse.Data;
         }
 
@@ -626,8 +626,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>ApiResponse of Conversation</returns>
-        public ApiResponse<Conversation> GetConversationWithHttpInfo (string conversationUuid)
+        /// <returns>ApiResponse of ConversationResponse</returns>
+        public ApiResponse<ConversationResponse> GetConversationWithHttpInfo (string conversationUuid)
         {
             // verify the required parameter 'conversationUuid' is set
             if (conversationUuid == null)
@@ -681,9 +681,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Conversation>(localVarStatusCode,
+            return new ApiResponse<ConversationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Conversation) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Conversation)));
+                (ConversationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationResponse)));
         }
 
         /// <summary>
@@ -692,10 +692,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of Conversation</returns>
-        public async System.Threading.Tasks.Task<Conversation> GetConversationAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ConversationResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationResponse> GetConversationAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Conversation> localVarResponse = await GetConversationWithHttpInfoAsync(conversationUuid, cancellationToken);
+             ApiResponse<ConversationResponse> localVarResponse = await GetConversationWithHttpInfoAsync(conversationUuid, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -706,8 +706,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (Conversation)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Conversation>> GetConversationWithHttpInfoAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (ConversationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationResponse>> GetConversationWithHttpInfoAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'conversationUuid' is set
             if (conversationUuid == null)
@@ -761,9 +761,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Conversation>(localVarStatusCode,
+            return new ApiResponse<ConversationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Conversation) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Conversation)));
+                (ConversationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationResponse)));
         }
 
         /// <summary>

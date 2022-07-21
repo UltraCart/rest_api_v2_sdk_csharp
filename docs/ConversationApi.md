@@ -98,7 +98,7 @@ This endpoint does not need any parameter.
 
 ## GetConversation
 
-> Conversation GetConversation (string conversationUuid)
+> ConversationResponse GetConversation (string conversationUuid)
 
 Retrieve a conversation
 
@@ -131,7 +131,7 @@ namespace Example
             try
             {
                 // Retrieve a conversation
-                Conversation result = apiInstance.GetConversation(conversationUuid);
+                ConversationResponse result = apiInstance.GetConversation(conversationUuid);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Conversation**](Conversation.md)
+[**ConversationResponse**](ConversationResponse.md)
 
 ### Authorization
 

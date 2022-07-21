@@ -5,12 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConversationParticipantArn** | **string** |  | [optional] 
-**ConversationParticipantName** | **string** |  | [optional] 
-**Jwt** | **string** |  | [optional] 
-**MerchantId** | **string** |  | [optional] 
-**TwilioPhoneNumbers** | **List&lt;string&gt;** |  | [optional] 
-**WebsocketUrl** | **string** |  | [optional] 
+**AgentAuth** | [**ConversationAgentAuth**](ConversationAgentAuth.md) |  | [optional] 
+**Error** | [**Error**](Error.md) |  | [optional] 
+**Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**Success** | **bool** | Indicates if API call was successful | [optional] 
+**Warning** | [**Warning**](Warning.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

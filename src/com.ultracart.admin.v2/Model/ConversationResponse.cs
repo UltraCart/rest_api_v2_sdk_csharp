@@ -25,22 +25,22 @@ using OpenAPIDateConverter = com.ultracart.admin.v2.Client.OpenAPIDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationAgentAuthResponse
+    /// ConversationResponse
     /// </summary>
     [DataContract]
-    public partial class ConversationAgentAuthResponse :  IEquatable<ConversationAgentAuthResponse>, IValidatableObject
+    public partial class ConversationResponse :  IEquatable<ConversationResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationAgentAuthResponse" /> class.
+        /// Initializes a new instance of the <see cref="ConversationResponse" /> class.
         /// </summary>
-        /// <param name="agentAuth">agentAuth.</param>
+        /// <param name="conversation">conversation.</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ConversationAgentAuthResponse(ConversationAgentAuth agentAuth = default(ConversationAgentAuth), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), Warning warning = default(Warning))
+        public ConversationResponse(Conversation conversation = default(Conversation), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), Warning warning = default(Warning))
         {
-            this.AgentAuth = agentAuth;
+            this.Conversation = conversation;
             this.Error = error;
             this.Metadata = metadata;
             this.Success = success;
@@ -48,10 +48,10 @@ namespace com.ultracart.admin.v2.Model
         }
 
         /// <summary>
-        /// Gets or Sets AgentAuth
+        /// Gets or Sets Conversation
         /// </summary>
-        [DataMember(Name="agent_auth", EmitDefaultValue=false)]
-        public ConversationAgentAuth AgentAuth { get; set; }
+        [DataMember(Name="conversation", EmitDefaultValue=false)]
+        public Conversation Conversation { get; set; }
 
         /// <summary>
         /// Gets or Sets Error
@@ -85,8 +85,8 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationAgentAuthResponse {\n");
-            sb.Append("  AgentAuth: ").Append(AgentAuth).Append("\n");
+            sb.Append("class ConversationResponse {\n");
+            sb.Append("  Conversation: ").Append(Conversation).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
@@ -111,24 +111,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationAgentAuthResponse);
+            return this.Equals(input as ConversationResponse);
         }
 
         /// <summary>
-        /// Returns true if ConversationAgentAuthResponse instances are equal
+        /// Returns true if ConversationResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationAgentAuthResponse to be compared</param>
+        /// <param name="input">Instance of ConversationResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationAgentAuthResponse input)
+        public bool Equals(ConversationResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.AgentAuth == input.AgentAuth ||
-                    (this.AgentAuth != null &&
-                    this.AgentAuth.Equals(input.AgentAuth))
+                    this.Conversation == input.Conversation ||
+                    (this.Conversation != null &&
+                    this.Conversation.Equals(input.Conversation))
                 ) && 
                 (
                     this.Error == input.Error ||
@@ -161,8 +161,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AgentAuth != null)
-                    hashCode = hashCode * 59 + this.AgentAuth.GetHashCode();
+                if (this.Conversation != null)
+                    hashCode = hashCode * 59 + this.Conversation.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)

@@ -33,25 +33,17 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationStartResponse" /> class.
         /// </summary>
-        /// <param name="conversationArn">conversationArn.</param>
-        /// <param name="conversationUuid">conversationUuid.</param>
-        public ConversationStartResponse(string conversationArn = default(string), string conversationUuid = default(string))
+        /// <param name="conversation">conversation.</param>
+        public ConversationStartResponse(Conversation conversation = default(Conversation))
         {
-            this.ConversationArn = conversationArn;
-            this.ConversationUuid = conversationUuid;
+            this.Conversation = conversation;
         }
 
         /// <summary>
-        /// Gets or Sets ConversationArn
+        /// Gets or Sets Conversation
         /// </summary>
-        [DataMember(Name="conversation_arn", EmitDefaultValue=false)]
-        public string ConversationArn { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ConversationUuid
-        /// </summary>
-        [DataMember(Name="conversation_uuid", EmitDefaultValue=false)]
-        public string ConversationUuid { get; set; }
+        [DataMember(Name="conversation", EmitDefaultValue=false)]
+        public Conversation Conversation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,8 +53,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationStartResponse {\n");
-            sb.Append("  ConversationArn: ").Append(ConversationArn).Append("\n");
-            sb.Append("  ConversationUuid: ").Append(ConversationUuid).Append("\n");
+            sb.Append("  Conversation: ").Append(Conversation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,14 +89,9 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.ConversationArn == input.ConversationArn ||
-                    (this.ConversationArn != null &&
-                    this.ConversationArn.Equals(input.ConversationArn))
-                ) && 
-                (
-                    this.ConversationUuid == input.ConversationUuid ||
-                    (this.ConversationUuid != null &&
-                    this.ConversationUuid.Equals(input.ConversationUuid))
+                    this.Conversation == input.Conversation ||
+                    (this.Conversation != null &&
+                    this.Conversation.Equals(input.Conversation))
                 );
         }
 
@@ -118,10 +104,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ConversationArn != null)
-                    hashCode = hashCode * 59 + this.ConversationArn.GetHashCode();
-                if (this.ConversationUuid != null)
-                    hashCode = hashCode * 59 + this.ConversationUuid.GetHashCode();
+                if (this.Conversation != null)
+                    hashCode = hashCode * 59 + this.Conversation.GetHashCode();
                 return hashCode;
             }
         }

@@ -1,13 +1,11 @@
 
-# com.ultracart.admin.v2.Model.ConversationStartRequest
+# com.ultracart.admin.v2.Model.AutoOrderManagement
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AddConversationParticipantArns** | **List&lt;string&gt;** |  | [optional] 
-**ConversationArn** | **string** |  | [optional] 
-**ConversationWebchatQueueUuid** | **string** |  | [optional] 
+**UpdateBillingUrl** | **string** | URL where the customer can go to update their billing information. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

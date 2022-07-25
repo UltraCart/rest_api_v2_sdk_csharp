@@ -33,6 +33,7 @@ docs/AutoOrderItemFutureSchedule.md
 docs/AutoOrderItemOption.md
 docs/AutoOrderItemSimpleSchedule.md
 docs/AutoOrderLog.md
+docs/AutoOrderManagement.md
 docs/AutoOrderQuery.md
 docs/AutoOrderQueryBatch.md
 docs/AutoOrderResponse.md
@@ -138,6 +139,7 @@ docs/ConversationResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
+docs/ConversationWebsocketMessage.md
 docs/ConversationsResponse.md
 docs/CountriesResponse.md
 docs/Country.md
@@ -725,6 +727,7 @@ src/com.ultracart.admin.v2/Model/AutoOrderItemFutureSchedule.cs
 src/com.ultracart.admin.v2/Model/AutoOrderItemOption.cs
 src/com.ultracart.admin.v2/Model/AutoOrderItemSimpleSchedule.cs
 src/com.ultracart.admin.v2/Model/AutoOrderLog.cs
+src/com.ultracart.admin.v2/Model/AutoOrderManagement.cs
 src/com.ultracart.admin.v2/Model/AutoOrderQuery.cs
 src/com.ultracart.admin.v2/Model/AutoOrderQueryBatch.cs
 src/com.ultracart.admin.v2/Model/AutoOrderResponse.cs
@@ -826,6 +829,7 @@ src/com.ultracart.admin.v2/Model/ConversationResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationStartRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationStartResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationSummary.cs
+src/com.ultracart.admin.v2/Model/ConversationWebsocketMessage.cs
 src/com.ultracart.admin.v2/Model/ConversationsResponse.cs
 src/com.ultracart.admin.v2/Model/CountriesResponse.cs
 src/com.ultracart.admin.v2/Model/Country.cs

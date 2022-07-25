@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationSummary" /> class.
         /// </summary>
+        /// <param name="closed">closed.</param>
         /// <param name="conversationArn">conversationArn.</param>
         /// <param name="conversationUuid">conversationUuid.</param>
         /// <param name="lastConversationMessageBody">lastConversationMessageBody.</param>
@@ -42,8 +43,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantId">merchantId.</param>
         /// <param name="messageCount">messageCount.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
-        public ConversationSummary(string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastMessageDts = default(string), string merchantId = default(string), int? messageCount = default(int?), bool? unreadMessages = default(bool?))
+        public ConversationSummary(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastMessageDts = default(string), string merchantId = default(string), int? messageCount = default(int?), bool? unreadMessages = default(bool?))
         {
+            this.Closed = closed;
             this.ConversationArn = conversationArn;
             this.ConversationUuid = conversationUuid;
             this.LastConversationMessageBody = lastConversationMessageBody;
@@ -55,6 +57,12 @@ namespace com.ultracart.admin.v2.Model
             this.UnreadMessages = unreadMessages;
         }
         
+        /// <summary>
+        /// Gets or Sets Closed
+        /// </summary>
+        [DataMember(Name="closed", EmitDefaultValue=false)]
+        public bool? Closed { get; set; }
+
         /// <summary>
         /// Gets or Sets ConversationArn
         /// </summary>
@@ -118,6 +126,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationSummary {\n");
+            sb.Append("  Closed: ").Append(Closed).Append("\n");
             sb.Append("  ConversationArn: ").Append(ConversationArn).Append("\n");
             sb.Append("  ConversationUuid: ").Append(ConversationUuid).Append("\n");
             sb.Append("  LastConversationMessageBody: ").Append(LastConversationMessageBody).Append("\n");
@@ -161,6 +170,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Closed == input.Closed ||
+                    (this.Closed != null &&
+                    this.Closed.Equals(input.Closed))
+                ) && 
                 (
                     this.ConversationArn == input.ConversationArn ||
                     (this.ConversationArn != null &&
@@ -217,6 +231,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Closed != null)
+                    hashCode = hashCode * 59 + this.Closed.GetHashCode();
                 if (this.ConversationArn != null)
                     hashCode = hashCode * 59 + this.ConversationArn.GetHashCode();
                 if (this.ConversationUuid != null)

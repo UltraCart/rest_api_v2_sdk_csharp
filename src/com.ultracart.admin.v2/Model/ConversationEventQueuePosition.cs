@@ -25,26 +25,19 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationStartResponse
+    /// ConversationEventQueuePosition
     /// </summary>
     [DataContract]
-    public partial class ConversationStartResponse :  IEquatable<ConversationStartResponse>, IValidatableObject
+    public partial class ConversationEventQueuePosition :  IEquatable<ConversationEventQueuePosition>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationStartResponse" /> class.
+        /// Initializes a new instance of the <see cref="ConversationEventQueuePosition" /> class.
         /// </summary>
-        /// <param name="conversation">conversation.</param>
-        public ConversationStartResponse(Conversation conversation = default(Conversation))
+        [JsonConstructorAttribute]
+        public ConversationEventQueuePosition()
         {
-            this.Conversation = conversation;
         }
         
-        /// <summary>
-        /// Gets or Sets Conversation
-        /// </summary>
-        [DataMember(Name="conversation", EmitDefaultValue=false)]
-        public Conversation Conversation { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -52,8 +45,7 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationStartResponse {\n");
-            sb.Append("  Conversation: ").Append(Conversation).Append("\n");
+            sb.Append("class ConversationEventQueuePosition {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,25 +66,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationStartResponse);
+            return this.Equals(input as ConversationEventQueuePosition);
         }
 
         /// <summary>
-        /// Returns true if ConversationStartResponse instances are equal
+        /// Returns true if ConversationEventQueuePosition instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationStartResponse to be compared</param>
+        /// <param name="input">Instance of ConversationEventQueuePosition to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationStartResponse input)
+        public bool Equals(ConversationEventQueuePosition input)
         {
             if (input == null)
                 return false;
 
-            return 
-                (
-                    this.Conversation == input.Conversation ||
-                    (this.Conversation != null &&
-                    this.Conversation.Equals(input.Conversation))
-                );
+            return false;
         }
 
         /// <summary>
@@ -104,8 +91,6 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Conversation != null)
-                    hashCode = hashCode * 59 + this.Conversation.GetHashCode();
                 return hashCode;
             }
         }

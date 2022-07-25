@@ -1,9 +1,9 @@
-# com.ultracart.admin.v2.Model.ConversationAgentAuthResponse
+# com.ultracart.admin.v2.Model.ConversationMultimediaUploadUrlResponse
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AgentAuth** | [**ConversationAgentAuth**](ConversationAgentAuth.md) |  | [optional] 
+**ConversationMultimediaUploadUrl** | [**ConversationMultimediaUploadUrl**](ConversationMultimediaUploadUrl.md) |  | [optional] 
 **Error** | [**Error**](Error.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **Success** | **bool?** | Indicates if API call was successful | [optional] 

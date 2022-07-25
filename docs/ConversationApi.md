@@ -77,7 +77,7 @@ This endpoint does not need any parameter.
 
 <a name="getconversation"></a>
 # **GetConversation**
-> Conversation GetConversation (string conversationUuid)
+> ConversationResponse GetConversation (string conversationUuid)
 
 Retrieve a conversation
 
@@ -107,7 +107,7 @@ namespace Example
             try
             {
                 // Retrieve a conversation
-                Conversation result = apiInstance.GetConversation(conversationUuid);
+                ConversationResponse result = apiInstance.GetConversation(conversationUuid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Conversation**](Conversation.md)
+[**ConversationResponse**](ConversationResponse.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 <a name="getconversationmultimediauploadurl"></a>
 # **GetConversationMultimediaUploadUrl**
-> void GetConversationMultimediaUploadUrl (string extension)
+> ConversationMultimediaUploadUrlResponse GetConversationMultimediaUploadUrl (string extension)
 
 Get a presigned conersation multimedia upload URL
 
@@ -173,7 +173,8 @@ namespace Example
             try
             {
                 // Get a presigned conersation multimedia upload URL
-                apiInstance.GetConversationMultimediaUploadUrl(extension);
+                ConversationMultimediaUploadUrlResponse result = apiInstance.GetConversationMultimediaUploadUrl(extension);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
@@ -193,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ConversationMultimediaUploadUrlResponse**](ConversationMultimediaUploadUrlResponse.md)
 
 ### Authorization
 

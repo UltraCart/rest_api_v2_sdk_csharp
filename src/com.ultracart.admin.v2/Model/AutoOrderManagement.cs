@@ -25,25 +25,26 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationStartResponse
+    /// AutoOrderManagement
     /// </summary>
     [DataContract]
-    public partial class ConversationStartResponse :  IEquatable<ConversationStartResponse>, IValidatableObject
+    public partial class AutoOrderManagement :  IEquatable<AutoOrderManagement>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationStartResponse" /> class.
+        /// Initializes a new instance of the <see cref="AutoOrderManagement" /> class.
         /// </summary>
-        /// <param name="conversation">conversation.</param>
-        public ConversationStartResponse(Conversation conversation = default(Conversation))
+        /// <param name="updateBillingUrl">URL where the customer can go to update their billing information..</param>
+        public AutoOrderManagement(string updateBillingUrl = default(string))
         {
-            this.Conversation = conversation;
+            this.UpdateBillingUrl = updateBillingUrl;
         }
         
         /// <summary>
-        /// Gets or Sets Conversation
+        /// URL where the customer can go to update their billing information.
         /// </summary>
-        [DataMember(Name="conversation", EmitDefaultValue=false)]
-        public Conversation Conversation { get; set; }
+        /// <value>URL where the customer can go to update their billing information.</value>
+        [DataMember(Name="update_billing_url", EmitDefaultValue=false)]
+        public string UpdateBillingUrl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +53,8 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationStartResponse {\n");
-            sb.Append("  Conversation: ").Append(Conversation).Append("\n");
+            sb.Append("class AutoOrderManagement {\n");
+            sb.Append("  UpdateBillingUrl: ").Append(UpdateBillingUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +75,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationStartResponse);
+            return this.Equals(input as AutoOrderManagement);
         }
 
         /// <summary>
-        /// Returns true if ConversationStartResponse instances are equal
+        /// Returns true if AutoOrderManagement instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationStartResponse to be compared</param>
+        /// <param name="input">Instance of AutoOrderManagement to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationStartResponse input)
+        public bool Equals(AutoOrderManagement input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Conversation == input.Conversation ||
-                    (this.Conversation != null &&
-                    this.Conversation.Equals(input.Conversation))
+                    this.UpdateBillingUrl == input.UpdateBillingUrl ||
+                    (this.UpdateBillingUrl != null &&
+                    this.UpdateBillingUrl.Equals(input.UpdateBillingUrl))
                 );
         }
 
@@ -104,8 +105,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Conversation != null)
-                    hashCode = hashCode * 59 + this.Conversation.GetHashCode();
+                if (this.UpdateBillingUrl != null)
+                    hashCode = hashCode * 59 + this.UpdateBillingUrl.GetHashCode();
                 return hashCode;
             }
         }

@@ -35,10 +35,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="addConversationParticipantArns">addConversationParticipantArns.</param>
         /// <param name="conversationArn">conversationArn.</param>
-        public ConversationStartRequest(List<string> addConversationParticipantArns = default(List<string>), string conversationArn = default(string))
+        /// <param name="conversationWebchatQueueUuid">conversationWebchatQueueUuid.</param>
+        public ConversationStartRequest(List<string> addConversationParticipantArns = default(List<string>), string conversationArn = default(string), string conversationWebchatQueueUuid = default(string))
         {
             this.AddConversationParticipantArns = addConversationParticipantArns;
             this.ConversationArn = conversationArn;
+            this.ConversationWebchatQueueUuid = conversationWebchatQueueUuid;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace com.ultracart.admin.v2.Model
         public string ConversationArn { get; set; }
 
         /// <summary>
+        /// Gets or Sets ConversationWebchatQueueUuid
+        /// </summary>
+        [DataMember(Name="conversation_webchat_queue_uuid", EmitDefaultValue=false)]
+        public string ConversationWebchatQueueUuid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationStartRequest {\n");
             sb.Append("  AddConversationParticipantArns: ").Append(AddConversationParticipantArns).Append("\n");
             sb.Append("  ConversationArn: ").Append(ConversationArn).Append("\n");
+            sb.Append("  ConversationWebchatQueueUuid: ").Append(ConversationWebchatQueueUuid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +115,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationArn == input.ConversationArn ||
                     (this.ConversationArn != null &&
                     this.ConversationArn.Equals(input.ConversationArn))
+                ) && 
+                (
+                    this.ConversationWebchatQueueUuid == input.ConversationWebchatQueueUuid ||
+                    (this.ConversationWebchatQueueUuid != null &&
+                    this.ConversationWebchatQueueUuid.Equals(input.ConversationWebchatQueueUuid))
                 );
         }
 
@@ -122,6 +136,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AddConversationParticipantArns.GetHashCode();
                 if (this.ConversationArn != null)
                     hashCode = hashCode * 59 + this.ConversationArn.GetHashCode();
+                if (this.ConversationWebchatQueueUuid != null)
+                    hashCode = hashCode * 59 + this.ConversationWebchatQueueUuid.GetHashCode();
                 return hashCode;
             }
         }

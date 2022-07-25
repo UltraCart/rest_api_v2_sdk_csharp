@@ -25,25 +25,33 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationStartResponse
+    /// ConversationMultimediaUploadUrl
     /// </summary>
     [DataContract]
-    public partial class ConversationStartResponse :  IEquatable<ConversationStartResponse>, IValidatableObject
+    public partial class ConversationMultimediaUploadUrl :  IEquatable<ConversationMultimediaUploadUrl>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationStartResponse" /> class.
+        /// Initializes a new instance of the <see cref="ConversationMultimediaUploadUrl" /> class.
         /// </summary>
-        /// <param name="conversation">conversation.</param>
-        public ConversationStartResponse(Conversation conversation = default(Conversation))
+        /// <param name="key">key.</param>
+        /// <param name="url">url.</param>
+        public ConversationMultimediaUploadUrl(string key = default(string), string url = default(string))
         {
-            this.Conversation = conversation;
+            this.Key = key;
+            this.Url = url;
         }
         
         /// <summary>
-        /// Gets or Sets Conversation
+        /// Gets or Sets Key
         /// </summary>
-        [DataMember(Name="conversation", EmitDefaultValue=false)]
-        public Conversation Conversation { get; set; }
+        [DataMember(Name="key", EmitDefaultValue=false)]
+        public string Key { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Url
+        /// </summary>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +60,9 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationStartResponse {\n");
-            sb.Append("  Conversation: ").Append(Conversation).Append("\n");
+            sb.Append("class ConversationMultimediaUploadUrl {\n");
+            sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +83,29 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationStartResponse);
+            return this.Equals(input as ConversationMultimediaUploadUrl);
         }
 
         /// <summary>
-        /// Returns true if ConversationStartResponse instances are equal
+        /// Returns true if ConversationMultimediaUploadUrl instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationStartResponse to be compared</param>
+        /// <param name="input">Instance of ConversationMultimediaUploadUrl to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationStartResponse input)
+        public bool Equals(ConversationMultimediaUploadUrl input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Conversation == input.Conversation ||
-                    (this.Conversation != null &&
-                    this.Conversation.Equals(input.Conversation))
+                    this.Key == input.Key ||
+                    (this.Key != null &&
+                    this.Key.Equals(input.Key))
+                ) && 
+                (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -104,8 +118,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Conversation != null)
-                    hashCode = hashCode * 59 + this.Conversation.GetHashCode();
+                if (this.Key != null)
+                    hashCode = hashCode * 59 + this.Key.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 return hashCode;
             }
         }

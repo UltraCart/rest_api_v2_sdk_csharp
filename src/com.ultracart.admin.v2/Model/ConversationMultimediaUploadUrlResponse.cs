@@ -25,22 +25,22 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationAgentAuthResponse
+    /// ConversationMultimediaUploadUrlResponse
     /// </summary>
     [DataContract]
-    public partial class ConversationAgentAuthResponse :  IEquatable<ConversationAgentAuthResponse>, IValidatableObject
+    public partial class ConversationMultimediaUploadUrlResponse :  IEquatable<ConversationMultimediaUploadUrlResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationAgentAuthResponse" /> class.
+        /// Initializes a new instance of the <see cref="ConversationMultimediaUploadUrlResponse" /> class.
         /// </summary>
-        /// <param name="agentAuth">agentAuth.</param>
+        /// <param name="conversationMultimediaUploadUrl">conversationMultimediaUploadUrl.</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ConversationAgentAuthResponse(ConversationAgentAuth agentAuth = default(ConversationAgentAuth), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
+        public ConversationMultimediaUploadUrlResponse(ConversationMultimediaUploadUrl conversationMultimediaUploadUrl = default(ConversationMultimediaUploadUrl), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
         {
-            this.AgentAuth = agentAuth;
+            this.ConversationMultimediaUploadUrl = conversationMultimediaUploadUrl;
             this.Error = error;
             this.Metadata = metadata;
             this.Success = success;
@@ -48,10 +48,10 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
-        /// Gets or Sets AgentAuth
+        /// Gets or Sets ConversationMultimediaUploadUrl
         /// </summary>
-        [DataMember(Name="agent_auth", EmitDefaultValue=false)]
-        public ConversationAgentAuth AgentAuth { get; set; }
+        [DataMember(Name="conversation_multimedia_upload_url", EmitDefaultValue=false)]
+        public ConversationMultimediaUploadUrl ConversationMultimediaUploadUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Error
@@ -85,8 +85,8 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationAgentAuthResponse {\n");
-            sb.Append("  AgentAuth: ").Append(AgentAuth).Append("\n");
+            sb.Append("class ConversationMultimediaUploadUrlResponse {\n");
+            sb.Append("  ConversationMultimediaUploadUrl: ").Append(ConversationMultimediaUploadUrl).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
@@ -111,24 +111,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationAgentAuthResponse);
+            return this.Equals(input as ConversationMultimediaUploadUrlResponse);
         }
 
         /// <summary>
-        /// Returns true if ConversationAgentAuthResponse instances are equal
+        /// Returns true if ConversationMultimediaUploadUrlResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationAgentAuthResponse to be compared</param>
+        /// <param name="input">Instance of ConversationMultimediaUploadUrlResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationAgentAuthResponse input)
+        public bool Equals(ConversationMultimediaUploadUrlResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.AgentAuth == input.AgentAuth ||
-                    (this.AgentAuth != null &&
-                    this.AgentAuth.Equals(input.AgentAuth))
+                    this.ConversationMultimediaUploadUrl == input.ConversationMultimediaUploadUrl ||
+                    (this.ConversationMultimediaUploadUrl != null &&
+                    this.ConversationMultimediaUploadUrl.Equals(input.ConversationMultimediaUploadUrl))
                 ) && 
                 (
                     this.Error == input.Error ||
@@ -161,8 +161,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AgentAuth != null)
-                    hashCode = hashCode * 59 + this.AgentAuth.GetHashCode();
+                if (this.ConversationMultimediaUploadUrl != null)
+                    hashCode = hashCode * 59 + this.ConversationMultimediaUploadUrl.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)

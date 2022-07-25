@@ -51,8 +51,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>Conversation</returns>
-        Conversation GetConversation (string conversationUuid);
+        /// <returns>ConversationResponse</returns>
+        ConversationResponse GetConversation (string conversationUuid);
 
         /// <summary>
         /// Retrieve a conversation
@@ -62,8 +62,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>ApiResponse of Conversation</returns>
-        ApiResponse<Conversation> GetConversationWithHttpInfo (string conversationUuid);
+        /// <returns>ApiResponse of ConversationResponse</returns>
+        ApiResponse<ConversationResponse> GetConversationWithHttpInfo (string conversationUuid);
         /// <summary>
         /// Get a presigned conersation multimedia upload URL
         /// </summary>
@@ -72,8 +72,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns></returns>
-        void GetConversationMultimediaUploadUrl (string extension);
+        /// <returns>ConversationMultimediaUploadUrlResponse</returns>
+        ConversationMultimediaUploadUrlResponse GetConversationMultimediaUploadUrl (string extension);
 
         /// <summary>
         /// Get a presigned conersation multimedia upload URL
@@ -83,8 +83,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetConversationMultimediaUploadUrlWithHttpInfo (string extension);
+        /// <returns>ApiResponse of ConversationMultimediaUploadUrlResponse</returns>
+        ApiResponse<ConversationMultimediaUploadUrlResponse> GetConversationMultimediaUploadUrlWithHttpInfo (string extension);
         /// <summary>
         /// Retrieve a list of conversation summaries newest to oldest
         /// </summary>
@@ -200,8 +200,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>Task of Conversation</returns>
-        System.Threading.Tasks.Task<Conversation> GetConversationAsync (string conversationUuid);
+        /// <returns>Task of ConversationResponse</returns>
+        System.Threading.Tasks.Task<ConversationResponse> GetConversationAsync (string conversationUuid);
 
         /// <summary>
         /// Retrieve a conversation
@@ -211,8 +211,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>Task of ApiResponse (Conversation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Conversation>> GetConversationAsyncWithHttpInfo (string conversationUuid);
+        /// <returns>Task of ApiResponse (ConversationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationResponse>> GetConversationAsyncWithHttpInfo (string conversationUuid);
         /// <summary>
         /// Get a presigned conersation multimedia upload URL
         /// </summary>
@@ -221,8 +221,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetConversationMultimediaUploadUrlAsync (string extension);
+        /// <returns>Task of ConversationMultimediaUploadUrlResponse</returns>
+        System.Threading.Tasks.Task<ConversationMultimediaUploadUrlResponse> GetConversationMultimediaUploadUrlAsync (string extension);
 
         /// <summary>
         /// Get a presigned conersation multimedia upload URL
@@ -232,8 +232,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetConversationMultimediaUploadUrlAsyncWithHttpInfo (string extension);
+        /// <returns>Task of ApiResponse (ConversationMultimediaUploadUrlResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationMultimediaUploadUrlResponse>> GetConversationMultimediaUploadUrlAsyncWithHttpInfo (string extension);
         /// <summary>
         /// Retrieve a list of conversation summaries newest to oldest
         /// </summary>
@@ -577,10 +577,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>Conversation</returns>
-        public Conversation GetConversation (string conversationUuid)
+        /// <returns>ConversationResponse</returns>
+        public ConversationResponse GetConversation (string conversationUuid)
         {
-             ApiResponse<Conversation> localVarResponse = GetConversationWithHttpInfo(conversationUuid);
+             ApiResponse<ConversationResponse> localVarResponse = GetConversationWithHttpInfo(conversationUuid);
              return localVarResponse.Data;
         }
 
@@ -589,8 +589,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>ApiResponse of Conversation</returns>
-        public ApiResponse< Conversation > GetConversationWithHttpInfo (string conversationUuid)
+        /// <returns>ApiResponse of ConversationResponse</returns>
+        public ApiResponse< ConversationResponse > GetConversationWithHttpInfo (string conversationUuid)
         {
             // verify the required parameter 'conversationUuid' is set
             if (conversationUuid == null)
@@ -645,9 +645,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Conversation>(localVarStatusCode,
+            return new ApiResponse<ConversationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Conversation) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Conversation)));
+                (ConversationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationResponse)));
         }
 
         /// <summary>
@@ -655,10 +655,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>Task of Conversation</returns>
-        public async System.Threading.Tasks.Task<Conversation> GetConversationAsync (string conversationUuid)
+        /// <returns>Task of ConversationResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationResponse> GetConversationAsync (string conversationUuid)
         {
-             ApiResponse<Conversation> localVarResponse = await GetConversationAsyncWithHttpInfo(conversationUuid);
+             ApiResponse<ConversationResponse> localVarResponse = await GetConversationAsyncWithHttpInfo(conversationUuid);
              return localVarResponse.Data;
 
         }
@@ -668,8 +668,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
-        /// <returns>Task of ApiResponse (Conversation)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Conversation>> GetConversationAsyncWithHttpInfo (string conversationUuid)
+        /// <returns>Task of ApiResponse (ConversationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationResponse>> GetConversationAsyncWithHttpInfo (string conversationUuid)
         {
             // verify the required parameter 'conversationUuid' is set
             if (conversationUuid == null)
@@ -724,9 +724,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Conversation>(localVarStatusCode,
+            return new ApiResponse<ConversationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Conversation) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Conversation)));
+                (ConversationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationResponse)));
         }
 
         /// <summary>
@@ -734,10 +734,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns></returns>
-        public void GetConversationMultimediaUploadUrl (string extension)
+        /// <returns>ConversationMultimediaUploadUrlResponse</returns>
+        public ConversationMultimediaUploadUrlResponse GetConversationMultimediaUploadUrl (string extension)
         {
-             GetConversationMultimediaUploadUrlWithHttpInfo(extension);
+             ApiResponse<ConversationMultimediaUploadUrlResponse> localVarResponse = GetConversationMultimediaUploadUrlWithHttpInfo(extension);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -745,8 +746,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetConversationMultimediaUploadUrlWithHttpInfo (string extension)
+        /// <returns>ApiResponse of ConversationMultimediaUploadUrlResponse</returns>
+        public ApiResponse< ConversationMultimediaUploadUrlResponse > GetConversationMultimediaUploadUrlWithHttpInfo (string extension)
         {
             // verify the required parameter 'extension' is set
             if (extension == null)
@@ -801,9 +802,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ConversationMultimediaUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                (ConversationMultimediaUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMultimediaUploadUrlResponse)));
         }
 
         /// <summary>
@@ -811,10 +812,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetConversationMultimediaUploadUrlAsync (string extension)
+        /// <returns>Task of ConversationMultimediaUploadUrlResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationMultimediaUploadUrlResponse> GetConversationMultimediaUploadUrlAsync (string extension)
         {
-             await GetConversationMultimediaUploadUrlAsyncWithHttpInfo(extension);
+             ApiResponse<ConversationMultimediaUploadUrlResponse> localVarResponse = await GetConversationMultimediaUploadUrlAsyncWithHttpInfo(extension);
+             return localVarResponse.Data;
 
         }
 
@@ -823,8 +825,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetConversationMultimediaUploadUrlAsyncWithHttpInfo (string extension)
+        /// <returns>Task of ApiResponse (ConversationMultimediaUploadUrlResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationMultimediaUploadUrlResponse>> GetConversationMultimediaUploadUrlAsyncWithHttpInfo (string extension)
         {
             // verify the required parameter 'extension' is set
             if (extension == null)
@@ -879,9 +881,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ConversationMultimediaUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                null);
+                (ConversationMultimediaUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMultimediaUploadUrlResponse)));
         }
 
         /// <summary>

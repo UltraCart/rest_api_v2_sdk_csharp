@@ -33,11 +33,28 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationEventQueuePosition" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public ConversationEventQueuePosition()
+        /// <param name="available">True if agents are logged into the queue.</param>
+        /// <param name="position">Position in the queue.  Value will be -1 if they cant be found in the queue..</param>
+        public ConversationEventQueuePosition(bool? available = default(bool?), int? position = default(int?))
         {
+            this.Available = available;
+            this.Position = position;
         }
         
+        /// <summary>
+        /// True if agents are logged into the queue
+        /// </summary>
+        /// <value>True if agents are logged into the queue</value>
+        [DataMember(Name="available", EmitDefaultValue=false)]
+        public bool? Available { get; set; }
+
+        /// <summary>
+        /// Position in the queue.  Value will be -1 if they cant be found in the queue.
+        /// </summary>
+        /// <value>Position in the queue.  Value will be -1 if they cant be found in the queue.</value>
+        [DataMember(Name="position", EmitDefaultValue=false)]
+        public int? Position { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -46,6 +63,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationEventQueuePosition {\n");
+            sb.Append("  Available: ").Append(Available).Append("\n");
+            sb.Append("  Position: ").Append(Position).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -79,7 +98,17 @@ namespace com.ultracart.admin.v2.Model
             if (input == null)
                 return false;
 
-            return false;
+            return 
+                (
+                    this.Available == input.Available ||
+                    (this.Available != null &&
+                    this.Available.Equals(input.Available))
+                ) && 
+                (
+                    this.Position == input.Position ||
+                    (this.Position != null &&
+                    this.Position.Equals(input.Position))
+                );
         }
 
         /// <summary>
@@ -91,6 +120,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Available != null)
+                    hashCode = hashCode * 59 + this.Available.GetHashCode();
+                if (this.Position != null)
+                    hashCode = hashCode * 59 + this.Position.GetHashCode();
                 return hashCode;
             }
         }

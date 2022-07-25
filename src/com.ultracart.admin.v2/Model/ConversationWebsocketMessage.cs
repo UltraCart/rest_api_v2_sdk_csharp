@@ -126,7 +126,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventUpdatedMessage">eventUpdatedMessage.</param>
         /// <param name="message">message.</param>
         /// <param name="type">Type of message.</param>
-        public ConversationWebsocketMessage(string conversationUuid = default(string), Conversation eventConversationClosed = default(Conversation), Conversation eventNewConversation = default(Conversation), ConversationMessage eventNewMessage = default(ConversationMessage), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
+        public ConversationWebsocketMessage(string conversationUuid = default(string), Conversation eventConversationClosed = default(Conversation), Conversation eventNewConversation = default(Conversation), Conversation eventNewMessage = default(Conversation), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
         {
             this.ConversationUuid = conversationUuid;
             this.EventConversationClosed = eventConversationClosed;
@@ -162,7 +162,7 @@ namespace com.ultracart.admin.v2.Model
         /// Gets or Sets EventNewMessage
         /// </summary>
         [DataMember(Name="event_new_message", EmitDefaultValue=false)]
-        public ConversationMessage EventNewMessage { get; set; }
+        public Conversation EventNewMessage { get; set; }
 
         /// <summary>
         /// Gets or Sets EventQueuePosition

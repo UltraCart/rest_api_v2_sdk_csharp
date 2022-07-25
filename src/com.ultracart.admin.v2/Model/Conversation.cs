@@ -33,19 +33,27 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Conversation" /> class.
         /// </summary>
+        /// <param name="closed">closed.</param>
         /// <param name="conversationArn">conversationArn.</param>
         /// <param name="conversationUuid">conversationUuid.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="messages">messages.</param>
         /// <param name="participants">participants.</param>
-        public Conversation(string conversationArn = default(string), string conversationUuid = default(string), string merchantId = default(string), List<ConversationMessage> messages = default(List<ConversationMessage>), List<ConversationParticipant> participants = default(List<ConversationParticipant>))
+        public Conversation(bool closed = default(bool), string conversationArn = default(string), string conversationUuid = default(string), string merchantId = default(string), List<ConversationMessage> messages = default(List<ConversationMessage>), List<ConversationParticipant> participants = default(List<ConversationParticipant>))
         {
+            this.Closed = closed;
             this.ConversationArn = conversationArn;
             this.ConversationUuid = conversationUuid;
             this.MerchantId = merchantId;
             this.Messages = messages;
             this.Participants = participants;
         }
+
+        /// <summary>
+        /// Gets or Sets Closed
+        /// </summary>
+        [DataMember(Name="closed", EmitDefaultValue=false)]
+        public bool Closed { get; set; }
 
         /// <summary>
         /// Gets or Sets ConversationArn
@@ -85,6 +93,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Conversation {\n");
+            sb.Append("  Closed: ").Append(Closed).Append("\n");
             sb.Append("  ConversationArn: ").Append(ConversationArn).Append("\n");
             sb.Append("  ConversationUuid: ").Append(ConversationUuid).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
@@ -125,6 +134,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Closed == input.Closed ||
+                    (this.Closed != null &&
+                    this.Closed.Equals(input.Closed))
+                ) && 
+                (
                     this.ConversationArn == input.ConversationArn ||
                     (this.ConversationArn != null &&
                     this.ConversationArn.Equals(input.ConversationArn))
@@ -162,6 +176,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Closed != null)
+                    hashCode = hashCode * 59 + this.Closed.GetHashCode();
                 if (this.ConversationArn != null)
                     hashCode = hashCode * 59 + this.ConversationArn.GetHashCode();
                 if (this.ConversationUuid != null)

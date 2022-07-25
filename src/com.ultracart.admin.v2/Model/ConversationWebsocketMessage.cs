@@ -126,7 +126,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventUpdatedMessage">eventUpdatedMessage.</param>
         /// <param name="message">message.</param>
         /// <param name="type">Type of message.</param>
-        public ConversationWebsocketMessage(string conversationUuid = default(string), Conversation eventConversationClosed = default(Conversation), Conversation eventNewConversation = default(Conversation), Conversation eventNewMessage = default(Conversation), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
+        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
         {
             this.ConversationUuid = conversationUuid;
             this.EventConversationClosed = eventConversationClosed;
@@ -150,19 +150,19 @@ namespace com.ultracart.admin.v2.Model
         /// Gets or Sets EventConversationClosed
         /// </summary>
         [DataMember(Name="event_conversation_closed", EmitDefaultValue=false)]
-        public Conversation EventConversationClosed { get; set; }
+        public ConversationSummary EventConversationClosed { get; set; }
 
         /// <summary>
         /// Gets or Sets EventNewConversation
         /// </summary>
         [DataMember(Name="event_new_conversation", EmitDefaultValue=false)]
-        public Conversation EventNewConversation { get; set; }
+        public ConversationSummary EventNewConversation { get; set; }
 
         /// <summary>
         /// Gets or Sets EventNewMessage
         /// </summary>
         [DataMember(Name="event_new_message", EmitDefaultValue=false)]
-        public Conversation EventNewMessage { get; set; }
+        public ConversationSummary EventNewMessage { get; set; }
 
         /// <summary>
         /// Gets or Sets EventQueuePosition

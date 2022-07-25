@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Closed** | **bool** |  | [optional] 
 **ConversationArn** | **string** |  | [optional] 
 **ConversationUuid** | **string** |  | [optional] 
 **LastConversationMessageBody** | **string** |  | [optional] 

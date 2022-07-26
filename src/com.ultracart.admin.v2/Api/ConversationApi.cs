@@ -86,6 +86,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationMultimediaUploadUrlResponse</returns>
         ApiResponse<ConversationMultimediaUploadUrlResponse> GetConversationMultimediaUploadUrlWithHttpInfo (string extension);
         /// <summary>
+        /// Retrieve a conversation webchat queue statuses
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a conversation webchat queue statuses including agent status and queue entries 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationWebchatQueueStatusesResponse</returns>
+        ConversationWebchatQueueStatusesResponse GetConversationWebchatQueueStatuses ();
+
+        /// <summary>
+        /// Retrieve a conversation webchat queue statuses
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a conversation webchat queue statuses including agent status and queue entries 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationWebchatQueueStatusesResponse</returns>
+        ApiResponse<ConversationWebchatQueueStatusesResponse> GetConversationWebchatQueueStatusesWithHttpInfo ();
+        /// <summary>
         /// Retrieve a list of conversation summaries newest to oldest
         /// </summary>
         /// <remarks>
@@ -171,6 +190,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="startRequest">Start request</param>
         /// <returns>ApiResponse of ConversationStartResponse</returns>
         ApiResponse<ConversationStartResponse> StartConversationWithHttpInfo (ConversationStartRequest startRequest);
+        /// <summary>
+        /// Update status within the queue
+        /// </summary>
+        /// <remarks>
+        /// Update status within the queue 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueName"></param>
+        /// <param name="statusRequest">Status request</param>
+        /// <returns></returns>
+        void UpdateConversationWebchatQueueStatus (string queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest);
+
+        /// <summary>
+        /// Update status within the queue
+        /// </summary>
+        /// <remarks>
+        /// Update status within the queue 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueName"></param>
+        /// <param name="statusRequest">Status request</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateConversationWebchatQueueStatusWithHttpInfo (string queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -234,6 +276,25 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="extension"></param>
         /// <returns>Task of ApiResponse (ConversationMultimediaUploadUrlResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationMultimediaUploadUrlResponse>> GetConversationMultimediaUploadUrlAsyncWithHttpInfo (string extension);
+        /// <summary>
+        /// Retrieve a conversation webchat queue statuses
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a conversation webchat queue statuses including agent status and queue entries 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationWebchatQueueStatusesResponse</returns>
+        System.Threading.Tasks.Task<ConversationWebchatQueueStatusesResponse> GetConversationWebchatQueueStatusesAsync ();
+
+        /// <summary>
+        /// Retrieve a conversation webchat queue statuses
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a conversation webchat queue statuses including agent status and queue entries 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationWebchatQueueStatusesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationWebchatQueueStatusesResponse>> GetConversationWebchatQueueStatusesAsyncWithHttpInfo ();
         /// <summary>
         /// Retrieve a list of conversation summaries newest to oldest
         /// </summary>
@@ -320,6 +381,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="startRequest">Start request</param>
         /// <returns>Task of ApiResponse (ConversationStartResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationStartResponse>> StartConversationAsyncWithHttpInfo (ConversationStartRequest startRequest);
+        /// <summary>
+        /// Update status within the queue
+        /// </summary>
+        /// <remarks>
+        /// Update status within the queue 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueName"></param>
+        /// <param name="statusRequest">Status request</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateConversationWebchatQueueStatusAsync (string queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest);
+
+        /// <summary>
+        /// Update status within the queue
+        /// </summary>
+        /// <remarks>
+        /// Update status within the queue 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueName"></param>
+        /// <param name="statusRequest">Status request</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateConversationWebchatQueueStatusAsyncWithHttpInfo (string queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest);
         #endregion Asynchronous Operations
     }
 
@@ -884,6 +968,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationMultimediaUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationMultimediaUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMultimediaUploadUrlResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a conversation webchat queue statuses Retrieve a conversation webchat queue statuses including agent status and queue entries 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationWebchatQueueStatusesResponse</returns>
+        public ConversationWebchatQueueStatusesResponse GetConversationWebchatQueueStatuses ()
+        {
+             ApiResponse<ConversationWebchatQueueStatusesResponse> localVarResponse = GetConversationWebchatQueueStatusesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a conversation webchat queue statuses Retrieve a conversation webchat queue statuses including agent status and queue entries 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationWebchatQueueStatusesResponse</returns>
+        public ApiResponse< ConversationWebchatQueueStatusesResponse > GetConversationWebchatQueueStatusesWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/conversations/queues/statuses";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationWebchatQueueStatuses", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationWebchatQueueStatusesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationWebchatQueueStatusesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationWebchatQueueStatusesResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a conversation webchat queue statuses Retrieve a conversation webchat queue statuses including agent status and queue entries 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationWebchatQueueStatusesResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationWebchatQueueStatusesResponse> GetConversationWebchatQueueStatusesAsync ()
+        {
+             ApiResponse<ConversationWebchatQueueStatusesResponse> localVarResponse = await GetConversationWebchatQueueStatusesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a conversation webchat queue statuses Retrieve a conversation webchat queue statuses including agent status and queue entries 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationWebchatQueueStatusesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationWebchatQueueStatusesResponse>> GetConversationWebchatQueueStatusesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/conversations/queues/statuses";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationWebchatQueueStatuses", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationWebchatQueueStatusesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationWebchatQueueStatusesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationWebchatQueueStatusesResponse)));
         }
 
         /// <summary>
@@ -1522,6 +1751,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationStartResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationStartResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationStartResponse)));
+        }
+
+        /// <summary>
+        /// Update status within the queue Update status within the queue 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueName"></param>
+        /// <param name="statusRequest">Status request</param>
+        /// <returns></returns>
+        public void UpdateConversationWebchatQueueStatus (string queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest)
+        {
+             UpdateConversationWebchatQueueStatusWithHttpInfo(queueName, statusRequest);
+        }
+
+        /// <summary>
+        /// Update status within the queue Update status within the queue 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueName"></param>
+        /// <param name="statusRequest">Status request</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateConversationWebchatQueueStatusWithHttpInfo (string queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest)
+        {
+            // verify the required parameter 'queueName' is set
+            if (queueName == null)
+                throw new ApiException(400, "Missing required parameter 'queueName' when calling ConversationApi->UpdateConversationWebchatQueueStatus");
+            // verify the required parameter 'statusRequest' is set
+            if (statusRequest == null)
+                throw new ApiException(400, "Missing required parameter 'statusRequest' when calling ConversationApi->UpdateConversationWebchatQueueStatus");
+
+            var localVarPath = "/conversation/conversations/queues/{queue_name}/status";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (queueName != null) localVarPathParams.Add("queue_name", this.Configuration.ApiClient.ParameterToString(queueName)); // path parameter
+            if (statusRequest != null && statusRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(statusRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = statusRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateConversationWebchatQueueStatus", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Update status within the queue Update status within the queue 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueName"></param>
+        /// <param name="statusRequest">Status request</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateConversationWebchatQueueStatusAsync (string queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest)
+        {
+             await UpdateConversationWebchatQueueStatusAsyncWithHttpInfo(queueName, statusRequest);
+
+        }
+
+        /// <summary>
+        /// Update status within the queue Update status within the queue 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queueName"></param>
+        /// <param name="statusRequest">Status request</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateConversationWebchatQueueStatusAsyncWithHttpInfo (string queueName, ConversationWebchatQueueStatusUpdateRequest statusRequest)
+        {
+            // verify the required parameter 'queueName' is set
+            if (queueName == null)
+                throw new ApiException(400, "Missing required parameter 'queueName' when calling ConversationApi->UpdateConversationWebchatQueueStatus");
+            // verify the required parameter 'statusRequest' is set
+            if (statusRequest == null)
+                throw new ApiException(400, "Missing required parameter 'statusRequest' when calling ConversationApi->UpdateConversationWebchatQueueStatus");
+
+            var localVarPath = "/conversation/conversations/queues/{queue_name}/status";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (queueName != null) localVarPathParams.Add("queue_name", this.Configuration.ApiClient.ParameterToString(queueName)); // path parameter
+            if (statusRequest != null && statusRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(statusRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = statusRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateConversationWebchatQueueStatus", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
     }

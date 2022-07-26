@@ -72,7 +72,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Updatedmessage for value: updated message
             /// </summary>
             [EnumMember(Value = "updated message")]
-            Updatedmessage = 6
+            Updatedmessage = 6,
+            
+            /// <summary>
+            /// Enum Queuestatusupdate for value: queue status update
+            /// </summary>
+            [EnumMember(Value = "queue status update")]
+            Queuestatusupdate = 7
         }
 
         /// <summary>
@@ -122,17 +128,19 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventNewConversation">eventNewConversation.</param>
         /// <param name="eventNewMessage">eventNewMessage.</param>
         /// <param name="eventQueuePosition">eventQueuePosition.</param>
+        /// <param name="eventQueueStatusUpdate">eventQueueStatusUpdate.</param>
         /// <param name="eventType">Type of event.</param>
         /// <param name="eventUpdatedMessage">eventUpdatedMessage.</param>
         /// <param name="message">message.</param>
         /// <param name="type">Type of message.</param>
-        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
+        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
         {
             this.ConversationUuid = conversationUuid;
             this.EventConversationClosed = eventConversationClosed;
             this.EventNewConversation = eventNewConversation;
             this.EventNewMessage = eventNewMessage;
             this.EventQueuePosition = eventQueuePosition;
+            this.EventQueueStatusUpdate = eventQueueStatusUpdate;
             this.EventType = eventType;
             this.EventUpdatedMessage = eventUpdatedMessage;
             this.Message = message;
@@ -170,6 +178,12 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="event_queue_position", EmitDefaultValue=false)]
         public ConversationEventQueuePosition EventQueuePosition { get; set; }
 
+        /// <summary>
+        /// Gets or Sets EventQueueStatusUpdate
+        /// </summary>
+        [DataMember(Name="event_queue_status_update", EmitDefaultValue=false)]
+        public ConversationWebchatQueueStatus EventQueueStatusUpdate { get; set; }
+
 
         /// <summary>
         /// Gets or Sets EventUpdatedMessage
@@ -197,6 +211,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EventNewConversation: ").Append(EventNewConversation).Append("\n");
             sb.Append("  EventNewMessage: ").Append(EventNewMessage).Append("\n");
             sb.Append("  EventQueuePosition: ").Append(EventQueuePosition).Append("\n");
+            sb.Append("  EventQueueStatusUpdate: ").Append(EventQueueStatusUpdate).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("  EventUpdatedMessage: ").Append(EventUpdatedMessage).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -261,6 +276,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EventQueuePosition.Equals(input.EventQueuePosition))
                 ) && 
                 (
+                    this.EventQueueStatusUpdate == input.EventQueueStatusUpdate ||
+                    (this.EventQueueStatusUpdate != null &&
+                    this.EventQueueStatusUpdate.Equals(input.EventQueueStatusUpdate))
+                ) && 
+                (
                     this.EventType == input.EventType ||
                     (this.EventType != null &&
                     this.EventType.Equals(input.EventType))
@@ -301,6 +321,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EventNewMessage.GetHashCode();
                 if (this.EventQueuePosition != null)
                     hashCode = hashCode * 59 + this.EventQueuePosition.GetHashCode();
+                if (this.EventQueueStatusUpdate != null)
+                    hashCode = hashCode * 59 + this.EventQueueStatusUpdate.GetHashCode();
                 if (this.EventType != null)
                     hashCode = hashCode * 59 + this.EventType.GetHashCode();
                 if (this.EventUpdatedMessage != null)

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **EventNewConversation** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **EventNewMessage** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **EventQueuePosition** | [**ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  | [optional] 
+**EventQueueStatusUpdate** | [**ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  | [optional] 
 **EventType** | **string** | Type of event | [optional] 
 **EventUpdatedMessage** | [**ConversationMessage**](ConversationMessage.md) |  | [optional] 
 **Message** | [**ConversationMessage**](ConversationMessage.md) |  | [optional] 

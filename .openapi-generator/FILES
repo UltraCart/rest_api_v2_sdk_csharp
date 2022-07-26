@@ -140,6 +140,11 @@ docs/ConversationResponse.md
 docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
+docs/ConversationWebchatQueueStatus.md
+docs/ConversationWebchatQueueStatusAgent.md
+docs/ConversationWebchatQueueStatusQueueEntry.md
+docs/ConversationWebchatQueueStatusUpdateRequest.md
+docs/ConversationWebchatQueueStatusesResponse.md
 docs/ConversationWebsocketMessage.md
 docs/ConversationsResponse.md
 docs/CountriesResponse.md
@@ -831,6 +836,11 @@ src/com.ultracart.admin.v2/Model/ConversationResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationStartRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationStartResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationSummary.cs
+src/com.ultracart.admin.v2/Model/ConversationWebchatQueueStatus.cs
+src/com.ultracart.admin.v2/Model/ConversationWebchatQueueStatusAgent.cs
+src/com.ultracart.admin.v2/Model/ConversationWebchatQueueStatusQueueEntry.cs
+src/com.ultracart.admin.v2/Model/ConversationWebchatQueueStatusUpdateRequest.cs
+src/com.ultracart.admin.v2/Model/ConversationWebchatQueueStatusesResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationWebsocketMessage.cs
 src/com.ultracart.admin.v2/Model/ConversationsResponse.cs
 src/com.ultracart.admin.v2/Model/CountriesResponse.cs

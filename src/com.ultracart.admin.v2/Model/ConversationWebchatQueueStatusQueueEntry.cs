@@ -37,12 +37,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="conversationParticipantName">conversationParticipantName.</param>
         /// <param name="conversationWebchatQueueUuid">conversationWebchatQueueUuid.</param>
         /// <param name="joinDts">Date/time the customer joined the queue.</param>
-        public ConversationWebchatQueueStatusQueueEntry(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationWebchatQueueUuid = default(string), string joinDts = default(string))
+        /// <param name="question">question.</param>
+        public ConversationWebchatQueueStatusQueueEntry(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationWebchatQueueUuid = default(string), string joinDts = default(string), string question = default(string))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
             this.ConversationWebchatQueueUuid = conversationWebchatQueueUuid;
             this.JoinDts = joinDts;
+            this.Question = question;
         }
         
         /// <summary>
@@ -71,6 +73,12 @@ namespace com.ultracart.admin.v2.Model
         public string JoinDts { get; set; }
 
         /// <summary>
+        /// Gets or Sets Question
+        /// </summary>
+        [DataMember(Name="question", EmitDefaultValue=false)]
+        public string Question { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +90,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
             sb.Append("  ConversationWebchatQueueUuid: ").Append(ConversationWebchatQueueUuid).Append("\n");
             sb.Append("  JoinDts: ").Append(JoinDts).Append("\n");
+            sb.Append("  Question: ").Append(Question).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,6 +144,11 @@ namespace com.ultracart.admin.v2.Model
                     this.JoinDts == input.JoinDts ||
                     (this.JoinDts != null &&
                     this.JoinDts.Equals(input.JoinDts))
+                ) && 
+                (
+                    this.Question == input.Question ||
+                    (this.Question != null &&
+                    this.Question.Equals(input.Question))
                 );
         }
 
@@ -155,6 +169,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationWebchatQueueUuid.GetHashCode();
                 if (this.JoinDts != null)
                     hashCode = hashCode * 59 + this.JoinDts.GetHashCode();
+                if (this.Question != null)
+                    hashCode = hashCode * 59 + this.Question.GetHashCode();
                 return hashCode;
             }
         }

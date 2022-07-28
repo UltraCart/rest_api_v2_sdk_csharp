@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **MediaUrls** | **List&lt;string&gt;** |  | [optional] 
 **MessageDts** | **string** | Message date/time | [optional] 
 **TransportStatuses** | [**List&lt;ConversationMessageTransportStatus&gt;**](ConversationMessageTransportStatus.md) |  | [optional] 
+**UploadKeys** | **List&lt;string&gt;** |  | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

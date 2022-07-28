@@ -36,13 +36,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="conversationParticipantArn">conversationParticipantArn.</param>
         /// <param name="conversationParticipantName">conversationParticipantName.</param>
         /// <param name="conversationWebchatQueueUuid">conversationWebchatQueueUuid.</param>
+        /// <param name="email">email.</param>
         /// <param name="joinDts">Date/time the customer joined the queue.</param>
         /// <param name="question">question.</param>
-        public ConversationWebchatQueueStatusQueueEntry(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationWebchatQueueUuid = default(string), string joinDts = default(string), string question = default(string))
+        public ConversationWebchatQueueStatusQueueEntry(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationWebchatQueueUuid = default(string), string email = default(string), string joinDts = default(string), string question = default(string))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
             this.ConversationWebchatQueueUuid = conversationWebchatQueueUuid;
+            this.Email = email;
             this.JoinDts = joinDts;
             this.Question = question;
         }
@@ -64,6 +66,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="conversation_webchat_queue_uuid", EmitDefaultValue=false)]
         public string ConversationWebchatQueueUuid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Email
+        /// </summary>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Date/time the customer joined the queue
@@ -89,6 +97,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConversationParticipantArn: ").Append(ConversationParticipantArn).Append("\n");
             sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
             sb.Append("  ConversationWebchatQueueUuid: ").Append(ConversationWebchatQueueUuid).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  JoinDts: ").Append(JoinDts).Append("\n");
             sb.Append("  Question: ").Append(Question).Append("\n");
             sb.Append("}\n");
@@ -141,6 +150,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationWebchatQueueUuid.Equals(input.ConversationWebchatQueueUuid))
                 ) && 
                 (
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
+                ) && 
+                (
                     this.JoinDts == input.JoinDts ||
                     (this.JoinDts != null &&
                     this.JoinDts.Equals(input.JoinDts))
@@ -167,6 +181,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationParticipantName.GetHashCode();
                 if (this.ConversationWebchatQueueUuid != null)
                     hashCode = hashCode * 59 + this.ConversationWebchatQueueUuid.GetHashCode();
+                if (this.Email != null)
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.JoinDts != null)
                     hashCode = hashCode * 59 + this.JoinDts.GetHashCode();
                 if (this.Question != null)

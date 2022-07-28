@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ConversationParticipantName** | **string** |  | [optional] 
 **ConversationWebchatQueueUuid** | **string** |  | [optional] 
 **JoinDts** | **string** | Date/time the customer joined the queue | [optional] 
+**Question** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

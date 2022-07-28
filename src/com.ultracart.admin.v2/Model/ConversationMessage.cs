@@ -39,7 +39,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="mediaUrls">mediaUrls.</param>
         /// <param name="messageDts">Message date/time.</param>
         /// <param name="transportStatuses">transportStatuses.</param>
-        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), List<string> mediaUrls = default(List<string>), string messageDts = default(string), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>))
+        /// <param name="uploadKeys">uploadKeys.</param>
+        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), List<string> mediaUrls = default(List<string>), string messageDts = default(string), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), List<string> uploadKeys = default(List<string>))
         {
             this.AuthorConversationParticipantArn = authorConversationParticipantArn;
             this.AuthorConversationParticipantName = authorConversationParticipantName;
@@ -47,6 +48,7 @@ namespace com.ultracart.admin.v2.Model
             this.MediaUrls = mediaUrls;
             this.MessageDts = messageDts;
             this.TransportStatuses = transportStatuses;
+            this.UploadKeys = uploadKeys;
         }
 
         /// <summary>
@@ -87,6 +89,12 @@ namespace com.ultracart.admin.v2.Model
         public List<ConversationMessageTransportStatus> TransportStatuses { get; set; }
 
         /// <summary>
+        /// Gets or Sets UploadKeys
+        /// </summary>
+        [DataMember(Name="upload_keys", EmitDefaultValue=false)]
+        public List<string> UploadKeys { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -100,6 +108,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MediaUrls: ").Append(MediaUrls).Append("\n");
             sb.Append("  MessageDts: ").Append(MessageDts).Append("\n");
             sb.Append("  TransportStatuses: ").Append(TransportStatuses).Append("\n");
+            sb.Append("  UploadKeys: ").Append(UploadKeys).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,6 +174,12 @@ namespace com.ultracart.admin.v2.Model
                     this.TransportStatuses != null &&
                     input.TransportStatuses != null &&
                     this.TransportStatuses.SequenceEqual(input.TransportStatuses)
+                ) && 
+                (
+                    this.UploadKeys == input.UploadKeys ||
+                    this.UploadKeys != null &&
+                    input.UploadKeys != null &&
+                    this.UploadKeys.SequenceEqual(input.UploadKeys)
                 );
         }
 
@@ -189,6 +204,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MessageDts.GetHashCode();
                 if (this.TransportStatuses != null)
                     hashCode = hashCode * 59 + this.TransportStatuses.GetHashCode();
+                if (this.UploadKeys != null)
+                    hashCode = hashCode * 59 + this.UploadKeys.GetHashCode();
                 return hashCode;
             }
         }

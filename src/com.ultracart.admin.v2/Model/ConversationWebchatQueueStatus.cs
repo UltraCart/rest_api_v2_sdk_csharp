@@ -40,11 +40,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="agents">agents.</param>
         /// <param name="customerAbandonCount">customerAbandonCount.</param>
         /// <param name="customerActiveCount">customerActiveCount.</param>
+        /// <param name="customerAverageAbandonTimeSeconds">customerAverageAbandonTimeSeconds.</param>
+        /// <param name="customerAverageChatTimeSeconds">customerAverageChatTimeSeconds.</param>
+        /// <param name="customerAverageHoldTimeSeconds">customerAverageHoldTimeSeconds.</param>
         /// <param name="customerWaitingCount">customerWaitingCount.</param>
         /// <param name="customerWaitingJoinDts">Date/time that the oldest person joined the queue.</param>
         /// <param name="queueEntries">queueEntries.</param>
         /// <param name="queueName">queueName.</param>
-        public ConversationWebchatQueueStatus(int agentAvailableCount = default(int), int agentBusyCount = default(int), int agentCount = default(int), int agentUnavailableCount = default(int), List<ConversationWebchatQueueStatusAgent> agents = default(List<ConversationWebchatQueueStatusAgent>), int customerAbandonCount = default(int), int customerActiveCount = default(int), int customerWaitingCount = default(int), string customerWaitingJoinDts = default(string), List<ConversationWebchatQueueStatusQueueEntry> queueEntries = default(List<ConversationWebchatQueueStatusQueueEntry>), string queueName = default(string))
+        public ConversationWebchatQueueStatus(int agentAvailableCount = default(int), int agentBusyCount = default(int), int agentCount = default(int), int agentUnavailableCount = default(int), List<ConversationWebchatQueueStatusAgent> agents = default(List<ConversationWebchatQueueStatusAgent>), int customerAbandonCount = default(int), int customerActiveCount = default(int), int customerAverageAbandonTimeSeconds = default(int), int customerAverageChatTimeSeconds = default(int), int customerAverageHoldTimeSeconds = default(int), int customerWaitingCount = default(int), string customerWaitingJoinDts = default(string), List<ConversationWebchatQueueStatusQueueEntry> queueEntries = default(List<ConversationWebchatQueueStatusQueueEntry>), string queueName = default(string))
         {
             this.AgentAvailableCount = agentAvailableCount;
             this.AgentBusyCount = agentBusyCount;
@@ -53,6 +56,9 @@ namespace com.ultracart.admin.v2.Model
             this.Agents = agents;
             this.CustomerAbandonCount = customerAbandonCount;
             this.CustomerActiveCount = customerActiveCount;
+            this.CustomerAverageAbandonTimeSeconds = customerAverageAbandonTimeSeconds;
+            this.CustomerAverageChatTimeSeconds = customerAverageChatTimeSeconds;
+            this.CustomerAverageHoldTimeSeconds = customerAverageHoldTimeSeconds;
             this.CustomerWaitingCount = customerWaitingCount;
             this.CustomerWaitingJoinDts = customerWaitingJoinDts;
             this.QueueEntries = queueEntries;
@@ -102,6 +108,24 @@ namespace com.ultracart.admin.v2.Model
         public int CustomerActiveCount { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustomerAverageAbandonTimeSeconds
+        /// </summary>
+        [DataMember(Name="customer_average_abandon_time_seconds", EmitDefaultValue=false)]
+        public int CustomerAverageAbandonTimeSeconds { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CustomerAverageChatTimeSeconds
+        /// </summary>
+        [DataMember(Name="customer_average_chat_time_seconds", EmitDefaultValue=false)]
+        public int CustomerAverageChatTimeSeconds { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CustomerAverageHoldTimeSeconds
+        /// </summary>
+        [DataMember(Name="customer_average_hold_time_seconds", EmitDefaultValue=false)]
+        public int CustomerAverageHoldTimeSeconds { get; set; }
+
+        /// <summary>
         /// Gets or Sets CustomerWaitingCount
         /// </summary>
         [DataMember(Name="customer_waiting_count", EmitDefaultValue=false)]
@@ -141,6 +165,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Agents: ").Append(Agents).Append("\n");
             sb.Append("  CustomerAbandonCount: ").Append(CustomerAbandonCount).Append("\n");
             sb.Append("  CustomerActiveCount: ").Append(CustomerActiveCount).Append("\n");
+            sb.Append("  CustomerAverageAbandonTimeSeconds: ").Append(CustomerAverageAbandonTimeSeconds).Append("\n");
+            sb.Append("  CustomerAverageChatTimeSeconds: ").Append(CustomerAverageChatTimeSeconds).Append("\n");
+            sb.Append("  CustomerAverageHoldTimeSeconds: ").Append(CustomerAverageHoldTimeSeconds).Append("\n");
             sb.Append("  CustomerWaitingCount: ").Append(CustomerWaitingCount).Append("\n");
             sb.Append("  CustomerWaitingJoinDts: ").Append(CustomerWaitingJoinDts).Append("\n");
             sb.Append("  QueueEntries: ").Append(QueueEntries).Append("\n");
@@ -216,6 +243,21 @@ namespace com.ultracart.admin.v2.Model
                     this.CustomerActiveCount.Equals(input.CustomerActiveCount))
                 ) && 
                 (
+                    this.CustomerAverageAbandonTimeSeconds == input.CustomerAverageAbandonTimeSeconds ||
+                    (this.CustomerAverageAbandonTimeSeconds != null &&
+                    this.CustomerAverageAbandonTimeSeconds.Equals(input.CustomerAverageAbandonTimeSeconds))
+                ) && 
+                (
+                    this.CustomerAverageChatTimeSeconds == input.CustomerAverageChatTimeSeconds ||
+                    (this.CustomerAverageChatTimeSeconds != null &&
+                    this.CustomerAverageChatTimeSeconds.Equals(input.CustomerAverageChatTimeSeconds))
+                ) && 
+                (
+                    this.CustomerAverageHoldTimeSeconds == input.CustomerAverageHoldTimeSeconds ||
+                    (this.CustomerAverageHoldTimeSeconds != null &&
+                    this.CustomerAverageHoldTimeSeconds.Equals(input.CustomerAverageHoldTimeSeconds))
+                ) && 
+                (
                     this.CustomerWaitingCount == input.CustomerWaitingCount ||
                     (this.CustomerWaitingCount != null &&
                     this.CustomerWaitingCount.Equals(input.CustomerWaitingCount))
@@ -261,6 +303,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CustomerAbandonCount.GetHashCode();
                 if (this.CustomerActiveCount != null)
                     hashCode = hashCode * 59 + this.CustomerActiveCount.GetHashCode();
+                if (this.CustomerAverageAbandonTimeSeconds != null)
+                    hashCode = hashCode * 59 + this.CustomerAverageAbandonTimeSeconds.GetHashCode();
+                if (this.CustomerAverageChatTimeSeconds != null)
+                    hashCode = hashCode * 59 + this.CustomerAverageChatTimeSeconds.GetHashCode();
+                if (this.CustomerAverageHoldTimeSeconds != null)
+                    hashCode = hashCode * 59 + this.CustomerAverageHoldTimeSeconds.GetHashCode();
                 if (this.CustomerWaitingCount != null)
                     hashCode = hashCode * 59 + this.CustomerWaitingCount.GetHashCode();
                 if (this.CustomerWaitingJoinDts != null)

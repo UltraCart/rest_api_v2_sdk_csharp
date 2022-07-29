@@ -36,15 +36,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="authorConversationParticipantArn">authorConversationParticipantArn.</param>
         /// <param name="authorConversationParticipantName">authorConversationParticipantName.</param>
         /// <param name="body">body.</param>
+        /// <param name="clientMessageId">clientMessageId.</param>
         /// <param name="mediaUrls">mediaUrls.</param>
         /// <param name="messageDts">Message date/time.</param>
         /// <param name="transportStatuses">transportStatuses.</param>
         /// <param name="uploadKeys">uploadKeys.</param>
-        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), List<string> mediaUrls = default(List<string>), string messageDts = default(string), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), List<string> uploadKeys = default(List<string>))
+        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), List<string> mediaUrls = default(List<string>), string messageDts = default(string), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), List<string> uploadKeys = default(List<string>))
         {
             this.AuthorConversationParticipantArn = authorConversationParticipantArn;
             this.AuthorConversationParticipantName = authorConversationParticipantName;
             this.Body = body;
+            this.ClientMessageId = clientMessageId;
             this.MediaUrls = mediaUrls;
             this.MessageDts = messageDts;
             this.TransportStatuses = transportStatuses;
@@ -68,6 +70,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="body", EmitDefaultValue=false)]
         public string Body { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ClientMessageId
+        /// </summary>
+        [DataMember(Name="client_message_id", EmitDefaultValue=false)]
+        public string ClientMessageId { get; set; }
 
         /// <summary>
         /// Gets or Sets MediaUrls
@@ -105,6 +113,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AuthorConversationParticipantArn: ").Append(AuthorConversationParticipantArn).Append("\n");
             sb.Append("  AuthorConversationParticipantName: ").Append(AuthorConversationParticipantName).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
+            sb.Append("  ClientMessageId: ").Append(ClientMessageId).Append("\n");
             sb.Append("  MediaUrls: ").Append(MediaUrls).Append("\n");
             sb.Append("  MessageDts: ").Append(MessageDts).Append("\n");
             sb.Append("  TransportStatuses: ").Append(TransportStatuses).Append("\n");
@@ -159,6 +168,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Body.Equals(input.Body))
                 ) && 
                 (
+                    this.ClientMessageId == input.ClientMessageId ||
+                    (this.ClientMessageId != null &&
+                    this.ClientMessageId.Equals(input.ClientMessageId))
+                ) && 
+                (
                     this.MediaUrls == input.MediaUrls ||
                     this.MediaUrls != null &&
                     input.MediaUrls != null &&
@@ -198,6 +212,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AuthorConversationParticipantName.GetHashCode();
                 if (this.Body != null)
                     hashCode = hashCode * 59 + this.Body.GetHashCode();
+                if (this.ClientMessageId != null)
+                    hashCode = hashCode * 59 + this.ClientMessageId.GetHashCode();
                 if (this.MediaUrls != null)
                     hashCode = hashCode * 59 + this.MediaUrls.GetHashCode();
                 if (this.MessageDts != null)

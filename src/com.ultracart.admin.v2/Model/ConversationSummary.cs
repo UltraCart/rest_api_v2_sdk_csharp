@@ -42,8 +42,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="lastMessageDts">Last message date/time.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="messageCount">messageCount.</param>
+        /// <param name="startDts">Start of the conversation date/time.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
-        public ConversationSummary(bool closed = default(bool), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastMessageDts = default(string), string merchantId = default(string), int messageCount = default(int), bool unreadMessages = default(bool))
+        /// <param name="visible">visible.</param>
+        public ConversationSummary(bool closed = default(bool), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastMessageDts = default(string), string merchantId = default(string), int messageCount = default(int), string startDts = default(string), bool unreadMessages = default(bool), bool visible = default(bool))
         {
             this.Closed = closed;
             this.ConversationArn = conversationArn;
@@ -54,7 +56,9 @@ namespace com.ultracart.admin.v2.Model
             this.LastMessageDts = lastMessageDts;
             this.MerchantId = merchantId;
             this.MessageCount = messageCount;
+            this.StartDts = startDts;
             this.UnreadMessages = unreadMessages;
+            this.Visible = visible;
         }
 
         /// <summary>
@@ -113,10 +117,23 @@ namespace com.ultracart.admin.v2.Model
         public int MessageCount { get; set; }
 
         /// <summary>
+        /// Start of the conversation date/time
+        /// </summary>
+        /// <value>Start of the conversation date/time</value>
+        [DataMember(Name="start_dts", EmitDefaultValue=false)]
+        public string StartDts { get; set; }
+
+        /// <summary>
         /// Gets or Sets UnreadMessages
         /// </summary>
         [DataMember(Name="unread_messages", EmitDefaultValue=false)]
         public bool UnreadMessages { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Visible
+        /// </summary>
+        [DataMember(Name="visible", EmitDefaultValue=false)]
+        public bool Visible { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,7 +152,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LastMessageDts: ").Append(LastMessageDts).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MessageCount: ").Append(MessageCount).Append("\n");
+            sb.Append("  StartDts: ").Append(StartDts).Append("\n");
             sb.Append("  UnreadMessages: ").Append(UnreadMessages).Append("\n");
+            sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -216,9 +235,19 @@ namespace com.ultracart.admin.v2.Model
                     this.MessageCount.Equals(input.MessageCount))
                 ) && 
                 (
+                    this.StartDts == input.StartDts ||
+                    (this.StartDts != null &&
+                    this.StartDts.Equals(input.StartDts))
+                ) && 
+                (
                     this.UnreadMessages == input.UnreadMessages ||
                     (this.UnreadMessages != null &&
                     this.UnreadMessages.Equals(input.UnreadMessages))
+                ) && 
+                (
+                    this.Visible == input.Visible ||
+                    (this.Visible != null &&
+                    this.Visible.Equals(input.Visible))
                 );
         }
 
@@ -249,8 +278,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.MessageCount != null)
                     hashCode = hashCode * 59 + this.MessageCount.GetHashCode();
+                if (this.StartDts != null)
+                    hashCode = hashCode * 59 + this.StartDts.GetHashCode();
                 if (this.UnreadMessages != null)
                     hashCode = hashCode * 59 + this.UnreadMessages.GetHashCode();
+                if (this.Visible != null)
+                    hashCode = hashCode * 59 + this.Visible.GetHashCode();
                 return hashCode;
             }
         }

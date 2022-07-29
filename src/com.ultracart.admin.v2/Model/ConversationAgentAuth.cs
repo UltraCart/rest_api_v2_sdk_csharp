@@ -37,15 +37,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="conversationParticipantName">conversationParticipantName.</param>
         /// <param name="jwt">jwt.</param>
         /// <param name="merchantId">merchantId.</param>
-        /// <param name="twilioPhoneNumbers">twilioPhoneNumbers.</param>
+        /// <param name="twilioAccounts">twilioAccounts.</param>
         /// <param name="websocketUrl">websocketUrl.</param>
-        public ConversationAgentAuth(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string jwt = default(string), string merchantId = default(string), List<string> twilioPhoneNumbers = default(List<string>), string websocketUrl = default(string))
+        public ConversationAgentAuth(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string jwt = default(string), string merchantId = default(string), List<ConversationTwilioAccount> twilioAccounts = default(List<ConversationTwilioAccount>), string websocketUrl = default(string))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
             this.Jwt = jwt;
             this.MerchantId = merchantId;
-            this.TwilioPhoneNumbers = twilioPhoneNumbers;
+            this.TwilioAccounts = twilioAccounts;
             this.WebsocketUrl = websocketUrl;
         }
 
@@ -74,10 +74,10 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
-        /// Gets or Sets TwilioPhoneNumbers
+        /// Gets or Sets TwilioAccounts
         /// </summary>
-        [DataMember(Name="twilio_phone_numbers", EmitDefaultValue=false)]
-        public List<string> TwilioPhoneNumbers { get; set; }
+        [DataMember(Name="twilio_accounts", EmitDefaultValue=false)]
+        public List<ConversationTwilioAccount> TwilioAccounts { get; set; }
 
         /// <summary>
         /// Gets or Sets WebsocketUrl
@@ -97,7 +97,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
             sb.Append("  Jwt: ").Append(Jwt).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
-            sb.Append("  TwilioPhoneNumbers: ").Append(TwilioPhoneNumbers).Append("\n");
+            sb.Append("  TwilioAccounts: ").Append(TwilioAccounts).Append("\n");
             sb.Append("  WebsocketUrl: ").Append(WebsocketUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -154,10 +154,10 @@ namespace com.ultracart.admin.v2.Model
                     this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
-                    this.TwilioPhoneNumbers == input.TwilioPhoneNumbers ||
-                    this.TwilioPhoneNumbers != null &&
-                    input.TwilioPhoneNumbers != null &&
-                    this.TwilioPhoneNumbers.SequenceEqual(input.TwilioPhoneNumbers)
+                    this.TwilioAccounts == input.TwilioAccounts ||
+                    this.TwilioAccounts != null &&
+                    input.TwilioAccounts != null &&
+                    this.TwilioAccounts.SequenceEqual(input.TwilioAccounts)
                 ) && 
                 (
                     this.WebsocketUrl == input.WebsocketUrl ||
@@ -183,8 +183,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Jwt.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
-                if (this.TwilioPhoneNumbers != null)
-                    hashCode = hashCode * 59 + this.TwilioPhoneNumbers.GetHashCode();
+                if (this.TwilioAccounts != null)
+                    hashCode = hashCode * 59 + this.TwilioAccounts.GetHashCode();
                 if (this.WebsocketUrl != null)
                     hashCode = hashCode * 59 + this.WebsocketUrl.GetHashCode();
                 return hashCode;

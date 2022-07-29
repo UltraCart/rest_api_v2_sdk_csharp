@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ConversationParticipantName** | **string** |  | [optional] 
 **Jwt** | **string** |  | [optional] 
 **MerchantId** | **string** |  | [optional] 
-**TwilioPhoneNumbers** | **List&lt;string&gt;** |  | [optional] 
+**TwilioAccounts** | [**List&lt;ConversationTwilioAccount&gt;**](ConversationTwilioAccount.md) |  | [optional] 
 **WebsocketUrl** | **string** |  | [optional] 
 
 

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **AuthorConversationParticipantArn** | **string** |  | [optional] 
 **AuthorConversationParticipantName** | **string** |  | [optional] 
 **Body** | **string** |  | [optional] 
+**ClientMessageId** | **string** |  | [optional] 
 **MediaUrls** | **List&lt;string&gt;** |  | [optional] 
 **MessageDts** | **string** | Message date/time | [optional] 
 **TransportStatuses** | [**List&lt;ConversationMessageTransportStatus&gt;**](ConversationMessageTransportStatus.md) |  | [optional] 

@@ -31,6 +31,33 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationMessage :  IEquatable<ConversationMessage>, IValidatableObject
     {
         /// <summary>
+        /// Message type
+        /// </summary>
+        /// <value>Message type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Message for value: message
+            /// </summary>
+            [EnumMember(Value = "message")]
+            Message = 1,
+            
+            /// <summary>
+            /// Enum Notice for value: notice
+            /// </summary>
+            [EnumMember(Value = "notice")]
+            Notice = 2
+        }
+
+        /// <summary>
+        /// Message type
+        /// </summary>
+        /// <value>Message type</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationMessage" /> class.
         /// </summary>
         /// <param name="authorConversationParticipantArn">authorConversationParticipantArn.</param>
@@ -40,8 +67,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="mediaUrls">mediaUrls.</param>
         /// <param name="messageDts">Message date/time.</param>
         /// <param name="transportStatuses">transportStatuses.</param>
+        /// <param name="type">Message type.</param>
         /// <param name="uploadKeys">uploadKeys.</param>
-        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), List<string> mediaUrls = default(List<string>), string messageDts = default(string), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), List<string> uploadKeys = default(List<string>))
+        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), List<string> mediaUrls = default(List<string>), string messageDts = default(string), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), TypeEnum? type = default(TypeEnum?), List<string> uploadKeys = default(List<string>))
         {
             this.AuthorConversationParticipantArn = authorConversationParticipantArn;
             this.AuthorConversationParticipantName = authorConversationParticipantName;
@@ -50,6 +78,7 @@ namespace com.ultracart.admin.v2.Model
             this.MediaUrls = mediaUrls;
             this.MessageDts = messageDts;
             this.TransportStatuses = transportStatuses;
+            this.Type = type;
             this.UploadKeys = uploadKeys;
         }
         
@@ -96,6 +125,7 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="transport_statuses", EmitDefaultValue=false)]
         public List<ConversationMessageTransportStatus> TransportStatuses { get; set; }
 
+
         /// <summary>
         /// Gets or Sets UploadKeys
         /// </summary>
@@ -117,6 +147,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MediaUrls: ").Append(MediaUrls).Append("\n");
             sb.Append("  MessageDts: ").Append(MessageDts).Append("\n");
             sb.Append("  TransportStatuses: ").Append(TransportStatuses).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  UploadKeys: ").Append(UploadKeys).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -188,6 +219,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TransportStatuses.SequenceEqual(input.TransportStatuses)
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
                     this.UploadKeys == input.UploadKeys ||
                     this.UploadKeys != null &&
                     this.UploadKeys.SequenceEqual(input.UploadKeys)
@@ -217,6 +253,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MessageDts.GetHashCode();
                 if (this.TransportStatuses != null)
                     hashCode = hashCode * 59 + this.TransportStatuses.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.UploadKeys != null)
                     hashCode = hashCode * 59 + this.UploadKeys.GetHashCode();
                 return hashCode;

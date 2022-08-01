@@ -78,7 +78,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Queuestatusupdate for value: queue status update
             /// </summary>
             [EnumMember(Value = "queue status update")]
-            Queuestatusupdate = 7
+            Queuestatusupdate = 7,
+            
+            /// <summary>
+            /// Enum Rrweb for value: rrweb
+            /// </summary>
+            [EnumMember(Value = "rrweb")]
+            Rrweb = 8
         }
 
         /// <summary>
@@ -111,7 +117,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Ping for value: ping
             /// </summary>
             [EnumMember(Value = "ping")]
-            Ping = 3
+            Ping = 3,
+            
+            /// <summary>
+            /// Enum Checkqueueposition for value: check queue position
+            /// </summary>
+            [EnumMember(Value = "check queue position")]
+            Checkqueueposition = 4
         }
 
         /// <summary>
@@ -129,11 +141,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventNewMessage">eventNewMessage.</param>
         /// <param name="eventQueuePosition">eventQueuePosition.</param>
         /// <param name="eventQueueStatusUpdate">eventQueueStatusUpdate.</param>
+        /// <param name="eventRrweb">eventRrweb.</param>
         /// <param name="eventType">Type of event.</param>
         /// <param name="eventUpdatedMessage">eventUpdatedMessage.</param>
         /// <param name="message">message.</param>
         /// <param name="type">Type of message.</param>
-        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
+        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
         {
             this.ConversationUuid = conversationUuid;
             this.EventConversationClosed = eventConversationClosed;
@@ -141,6 +154,7 @@ namespace com.ultracart.admin.v2.Model
             this.EventNewMessage = eventNewMessage;
             this.EventQueuePosition = eventQueuePosition;
             this.EventQueueStatusUpdate = eventQueueStatusUpdate;
+            this.EventRrweb = eventRrweb;
             this.EventType = eventType;
             this.EventUpdatedMessage = eventUpdatedMessage;
             this.Message = message;
@@ -184,6 +198,12 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="event_queue_status_update", EmitDefaultValue=false)]
         public ConversationWebchatQueueStatus EventQueueStatusUpdate { get; set; }
 
+        /// <summary>
+        /// Gets or Sets EventRrweb
+        /// </summary>
+        [DataMember(Name="event_rrweb", EmitDefaultValue=false)]
+        public ConversationEventRRWeb EventRrweb { get; set; }
+
 
         /// <summary>
         /// Gets or Sets EventUpdatedMessage
@@ -212,6 +232,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EventNewMessage: ").Append(EventNewMessage).Append("\n");
             sb.Append("  EventQueuePosition: ").Append(EventQueuePosition).Append("\n");
             sb.Append("  EventQueueStatusUpdate: ").Append(EventQueueStatusUpdate).Append("\n");
+            sb.Append("  EventRrweb: ").Append(EventRrweb).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("  EventUpdatedMessage: ").Append(EventUpdatedMessage).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -281,6 +302,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EventQueueStatusUpdate.Equals(input.EventQueueStatusUpdate))
                 ) && 
                 (
+                    this.EventRrweb == input.EventRrweb ||
+                    (this.EventRrweb != null &&
+                    this.EventRrweb.Equals(input.EventRrweb))
+                ) && 
+                (
                     this.EventType == input.EventType ||
                     (this.EventType != null &&
                     this.EventType.Equals(input.EventType))
@@ -323,6 +349,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EventQueuePosition.GetHashCode();
                 if (this.EventQueueStatusUpdate != null)
                     hashCode = hashCode * 59 + this.EventQueueStatusUpdate.GetHashCode();
+                if (this.EventRrweb != null)
+                    hashCode = hashCode * 59 + this.EventRrweb.GetHashCode();
                 if (this.EventType != null)
                     hashCode = hashCode * 59 + this.EventType.GetHashCode();
                 if (this.EventUpdatedMessage != null)

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **MediaUrls** | **List&lt;string&gt;** |  | [optional] 
 **MessageDts** | **string** | Message date/time | [optional] 
 **TransportStatuses** | [**List&lt;ConversationMessageTransportStatus&gt;**](ConversationMessageTransportStatus.md) |  | [optional] 
+**Type** | **string** | Message type | [optional] 
 **UploadKeys** | **List&lt;string&gt;** |  | [optional] 
 
 

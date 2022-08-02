@@ -272,6 +272,8 @@ docs/EmailCommseqPostcardSendTestResponse.md
 docs/EmailCommseqPostcardsRequest.md
 docs/EmailCommseqPostcardsResponse.md
 docs/EmailCommseqResponse.md
+docs/EmailCommseqSequenceTestRequest.md
+docs/EmailCommseqSequenceTestResponse.md
 docs/EmailCommseqStat.md
 docs/EmailCommseqStatResponse.md
 docs/EmailCommseqStep.md
@@ -968,6 +970,8 @@ src/com.ultracart.admin.v2/Model/EmailCommseqPostcardSendTestResponse.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqPostcardsRequest.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqPostcardsResponse.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqResponse.cs
+src/com.ultracart.admin.v2/Model/EmailCommseqSequenceTestRequest.cs
+src/com.ultracart.admin.v2/Model/EmailCommseqSequenceTestResponse.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqStat.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqStatResponse.cs
 src/com.ultracart.admin.v2/Model/EmailCommseqStep.cs

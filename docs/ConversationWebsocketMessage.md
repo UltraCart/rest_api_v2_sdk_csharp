@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **EventConversationClosed** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **EventNewConversation** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **EventNewMessage** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
+**EventParticipantUpdate** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **EventQueuePosition** | [**ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  | [optional] 
 **EventQueueStatusUpdate** | [**ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  | [optional] 
 **EventRrweb** | [**ConversationEventRRWeb**](ConversationEventRRWeb.md) |  | [optional] 

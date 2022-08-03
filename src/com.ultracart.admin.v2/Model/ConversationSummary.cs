@@ -42,10 +42,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="lastMessageDts">Last message date/time.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="messageCount">messageCount.</param>
+        /// <param name="participants">participants.</param>
         /// <param name="startDts">Start of the conversation date/time.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
         /// <param name="visible">visible.</param>
-        public ConversationSummary(bool closed = default(bool), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastMessageDts = default(string), string merchantId = default(string), int messageCount = default(int), string startDts = default(string), bool unreadMessages = default(bool), bool visible = default(bool))
+        public ConversationSummary(bool closed = default(bool), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastMessageDts = default(string), string merchantId = default(string), int messageCount = default(int), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool unreadMessages = default(bool), bool visible = default(bool))
         {
             this.Closed = closed;
             this.ConversationArn = conversationArn;
@@ -56,6 +57,7 @@ namespace com.ultracart.admin.v2.Model
             this.LastMessageDts = lastMessageDts;
             this.MerchantId = merchantId;
             this.MessageCount = messageCount;
+            this.Participants = participants;
             this.StartDts = startDts;
             this.UnreadMessages = unreadMessages;
             this.Visible = visible;
@@ -117,6 +119,12 @@ namespace com.ultracart.admin.v2.Model
         public int MessageCount { get; set; }
 
         /// <summary>
+        /// Gets or Sets Participants
+        /// </summary>
+        [DataMember(Name="participants", EmitDefaultValue=false)]
+        public List<ConversationParticipant> Participants { get; set; }
+
+        /// <summary>
         /// Start of the conversation date/time
         /// </summary>
         /// <value>Start of the conversation date/time</value>
@@ -152,6 +160,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LastMessageDts: ").Append(LastMessageDts).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MessageCount: ").Append(MessageCount).Append("\n");
+            sb.Append("  Participants: ").Append(Participants).Append("\n");
             sb.Append("  StartDts: ").Append(StartDts).Append("\n");
             sb.Append("  UnreadMessages: ").Append(UnreadMessages).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
@@ -235,6 +244,12 @@ namespace com.ultracart.admin.v2.Model
                     this.MessageCount.Equals(input.MessageCount))
                 ) && 
                 (
+                    this.Participants == input.Participants ||
+                    this.Participants != null &&
+                    input.Participants != null &&
+                    this.Participants.SequenceEqual(input.Participants)
+                ) && 
+                (
                     this.StartDts == input.StartDts ||
                     (this.StartDts != null &&
                     this.StartDts.Equals(input.StartDts))
@@ -278,6 +293,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.MessageCount != null)
                     hashCode = hashCode * 59 + this.MessageCount.GetHashCode();
+                if (this.Participants != null)
+                    hashCode = hashCode * 59 + this.Participants.GetHashCode();
                 if (this.StartDts != null)
                     hashCode = hashCode * 59 + this.StartDts.GetHashCode();
                 if (this.UnreadMessages != null)

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **EventQueueStatusUpdate** | [**ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  | [optional] 
 **EventRrweb** | [**ConversationEventRRWeb**](ConversationEventRRWeb.md) |  | [optional] 
 **EventType** | **string** | Type of event | [optional] 
+**EventTyping** | [**ConversationEventTyping**](ConversationEventTyping.md) |  | [optional] 
 **EventUpdatedMessage** | [**ConversationMessage**](ConversationMessage.md) |  | [optional] 
 **Message** | [**ConversationMessage**](ConversationMessage.md) |  | [optional] 
 **Type** | **string** | Type of message | [optional] 

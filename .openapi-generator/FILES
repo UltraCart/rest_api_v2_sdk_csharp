@@ -132,6 +132,7 @@ docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
 docs/ConversationEventQueuePosition.md
 docs/ConversationEventRRWeb.md
+docs/ConversationEventTyping.md
 docs/ConversationMessage.md
 docs/ConversationMessageTransportStatus.md
 docs/ConversationMultimediaUploadUrl.md
@@ -832,6 +833,7 @@ src/com.ultracart.admin.v2/Model/ConversationAgentAuth.cs
 src/com.ultracart.admin.v2/Model/ConversationAgentAuthResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationEventQueuePosition.cs
 src/com.ultracart.admin.v2/Model/ConversationEventRRWeb.cs
+src/com.ultracart.admin.v2/Model/ConversationEventTyping.cs
 src/com.ultracart.admin.v2/Model/ConversationMessage.cs
 src/com.ultracart.admin.v2/Model/ConversationMessageTransportStatus.cs
 src/com.ultracart.admin.v2/Model/ConversationMultimediaUploadUrl.cs

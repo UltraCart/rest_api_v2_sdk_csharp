@@ -64,18 +64,22 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="authorConversationParticipantName">authorConversationParticipantName.</param>
         /// <param name="body">body.</param>
         /// <param name="clientMessageId">clientMessageId.</param>
+        /// <param name="conversationMessageUuid">conversationMessageUuid.</param>
         /// <param name="mediaUrls">mediaUrls.</param>
+        /// <param name="merchantId">merchantId.</param>
         /// <param name="messageDts">Message date/time.</param>
         /// <param name="transportStatuses">transportStatuses.</param>
         /// <param name="type">Message type.</param>
         /// <param name="uploadKeys">uploadKeys.</param>
-        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), List<string> mediaUrls = default(List<string>), string messageDts = default(string), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), TypeEnum? type = default(TypeEnum?), List<string> uploadKeys = default(List<string>))
+        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), string conversationMessageUuid = default(string), List<string> mediaUrls = default(List<string>), string merchantId = default(string), string messageDts = default(string), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), TypeEnum? type = default(TypeEnum?), List<string> uploadKeys = default(List<string>))
         {
             this.AuthorConversationParticipantArn = authorConversationParticipantArn;
             this.AuthorConversationParticipantName = authorConversationParticipantName;
             this.Body = body;
             this.ClientMessageId = clientMessageId;
+            this.ConversationMessageUuid = conversationMessageUuid;
             this.MediaUrls = mediaUrls;
+            this.MerchantId = merchantId;
             this.MessageDts = messageDts;
             this.TransportStatuses = transportStatuses;
             this.Type = type;
@@ -107,10 +111,22 @@ namespace com.ultracart.admin.v2.Model
         public string ClientMessageId { get; set; }
 
         /// <summary>
+        /// Gets or Sets ConversationMessageUuid
+        /// </summary>
+        [DataMember(Name="conversation_message_uuid", EmitDefaultValue=false)]
+        public string ConversationMessageUuid { get; set; }
+
+        /// <summary>
         /// Gets or Sets MediaUrls
         /// </summary>
         [DataMember(Name="media_urls", EmitDefaultValue=false)]
         public List<string> MediaUrls { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantId
+        /// </summary>
+        [DataMember(Name="merchant_id", EmitDefaultValue=false)]
+        public string MerchantId { get; set; }
 
         /// <summary>
         /// Message date/time
@@ -144,7 +160,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AuthorConversationParticipantName: ").Append(AuthorConversationParticipantName).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  ClientMessageId: ").Append(ClientMessageId).Append("\n");
+            sb.Append("  ConversationMessageUuid: ").Append(ConversationMessageUuid).Append("\n");
             sb.Append("  MediaUrls: ").Append(MediaUrls).Append("\n");
+            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MessageDts: ").Append(MessageDts).Append("\n");
             sb.Append("  TransportStatuses: ").Append(TransportStatuses).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -204,10 +222,20 @@ namespace com.ultracart.admin.v2.Model
                     this.ClientMessageId.Equals(input.ClientMessageId))
                 ) && 
                 (
+                    this.ConversationMessageUuid == input.ConversationMessageUuid ||
+                    (this.ConversationMessageUuid != null &&
+                    this.ConversationMessageUuid.Equals(input.ConversationMessageUuid))
+                ) && 
+                (
                     this.MediaUrls == input.MediaUrls ||
                     this.MediaUrls != null &&
                     input.MediaUrls != null &&
                     this.MediaUrls.SequenceEqual(input.MediaUrls)
+                ) && 
+                (
+                    this.MerchantId == input.MerchantId ||
+                    (this.MerchantId != null &&
+                    this.MerchantId.Equals(input.MerchantId))
                 ) && 
                 (
                     this.MessageDts == input.MessageDts ||
@@ -250,8 +278,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Body.GetHashCode();
                 if (this.ClientMessageId != null)
                     hashCode = hashCode * 59 + this.ClientMessageId.GetHashCode();
+                if (this.ConversationMessageUuid != null)
+                    hashCode = hashCode * 59 + this.ConversationMessageUuid.GetHashCode();
                 if (this.MediaUrls != null)
                     hashCode = hashCode * 59 + this.MediaUrls.GetHashCode();
+                if (this.MerchantId != null)
+                    hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.MessageDts != null)
                     hashCode = hashCode * 59 + this.MessageDts.GetHashCode();
                 if (this.TransportStatuses != null)

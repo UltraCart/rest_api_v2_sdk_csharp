@@ -8,9 +8,18 @@ Name | Type | Description | Notes
 **Closed** | **bool** |  | [optional] 
 **ConversationArn** | **string** |  | [optional] 
 **ConversationUuid** | **string** |  | [optional] 
+**LastConversationMessageBody** | **string** |  | [optional] 
+**LastConversationParticipantArn** | **string** |  | [optional] 
+**LastConversationParticipantName** | **string** |  | [optional] 
+**LastMessageDts** | **string** | Last message date/time | [optional] 
+**Medium** | **string** | The communication medium of the customer. | [optional] 
 **MerchantId** | **string** |  | [optional] 
+**MessageCount** | **int** |  | [optional] 
 **Messages** | [**List&lt;ConversationMessage&gt;**](ConversationMessage.md) |  | [optional] 
 **Participants** | [**List&lt;ConversationParticipant&gt;**](ConversationParticipant.md) |  | [optional] 
+**StartDts** | **string** | Start of the conversation date/time | [optional] 
+**UnreadMessages** | **bool** |  | [optional] 
+**Visible** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

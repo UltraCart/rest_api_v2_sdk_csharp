@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **LastConversationParticipantArn** | **string** |  | [optional] 
 **LastConversationParticipantName** | **string** |  | [optional] 
 **LastMessageDts** | **string** | Last message date/time | [optional] 
+**Medium** | **string** | The communication medium of the customer. | [optional] 
 **MerchantId** | **string** |  | [optional] 
 **MessageCount** | **int?** |  | [optional] 
 **Participants** | [**List&lt;ConversationParticipant&gt;**](ConversationParticipant.md) |  | [optional] 

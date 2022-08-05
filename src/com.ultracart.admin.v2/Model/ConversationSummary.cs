@@ -31,6 +31,33 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationSummary :  IEquatable<ConversationSummary>, IValidatableObject
     {
         /// <summary>
+        /// The communication medium of the customer.
+        /// </summary>
+        /// <value>The communication medium of the customer.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MediumEnum
+        {
+            
+            /// <summary>
+            /// Enum Sms for value: sms
+            /// </summary>
+            [EnumMember(Value = "sms")]
+            Sms = 1,
+            
+            /// <summary>
+            /// Enum Websocket for value: websocket
+            /// </summary>
+            [EnumMember(Value = "websocket")]
+            Websocket = 2
+        }
+
+        /// <summary>
+        /// The communication medium of the customer.
+        /// </summary>
+        /// <value>The communication medium of the customer.</value>
+        [DataMember(Name="medium", EmitDefaultValue=false)]
+        public MediumEnum? Medium { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationSummary" /> class.
         /// </summary>
         /// <param name="closed">closed.</param>
@@ -40,13 +67,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="lastConversationParticipantArn">lastConversationParticipantArn.</param>
         /// <param name="lastConversationParticipantName">lastConversationParticipantName.</param>
         /// <param name="lastMessageDts">Last message date/time.</param>
+        /// <param name="medium">The communication medium of the customer..</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="messageCount">messageCount.</param>
         /// <param name="participants">participants.</param>
         /// <param name="startDts">Start of the conversation date/time.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
         /// <param name="visible">visible.</param>
-        public ConversationSummary(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastMessageDts = default(string), string merchantId = default(string), int? messageCount = default(int?), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
+        public ConversationSummary(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
         {
             this.Closed = closed;
             this.ConversationArn = conversationArn;
@@ -55,6 +83,7 @@ namespace com.ultracart.admin.v2.Model
             this.LastConversationParticipantArn = lastConversationParticipantArn;
             this.LastConversationParticipantName = lastConversationParticipantName;
             this.LastMessageDts = lastMessageDts;
+            this.Medium = medium;
             this.MerchantId = merchantId;
             this.MessageCount = messageCount;
             this.Participants = participants;
@@ -105,6 +134,7 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Last message date/time</value>
         [DataMember(Name="last_message_dts", EmitDefaultValue=false)]
         public string LastMessageDts { get; set; }
+
 
         /// <summary>
         /// Gets or Sets MerchantId
@@ -158,6 +188,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LastConversationParticipantArn: ").Append(LastConversationParticipantArn).Append("\n");
             sb.Append("  LastConversationParticipantName: ").Append(LastConversationParticipantName).Append("\n");
             sb.Append("  LastMessageDts: ").Append(LastMessageDts).Append("\n");
+            sb.Append("  Medium: ").Append(Medium).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MessageCount: ").Append(MessageCount).Append("\n");
             sb.Append("  Participants: ").Append(Participants).Append("\n");
@@ -234,6 +265,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LastMessageDts.Equals(input.LastMessageDts))
                 ) && 
                 (
+                    this.Medium == input.Medium ||
+                    (this.Medium != null &&
+                    this.Medium.Equals(input.Medium))
+                ) && 
+                (
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
@@ -288,6 +324,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LastConversationParticipantName.GetHashCode();
                 if (this.LastMessageDts != null)
                     hashCode = hashCode * 59 + this.LastMessageDts.GetHashCode();
+                if (this.Medium != null)
+                    hashCode = hashCode * 59 + this.Medium.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.MessageCount != null)

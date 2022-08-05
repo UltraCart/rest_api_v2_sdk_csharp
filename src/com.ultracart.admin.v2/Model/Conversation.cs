@@ -31,22 +31,67 @@ namespace com.ultracart.admin.v2.Model
     public partial class Conversation :  IEquatable<Conversation>, IValidatableObject
     {
         /// <summary>
+        /// The communication medium of the customer.
+        /// </summary>
+        /// <value>The communication medium of the customer.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MediumEnum
+        {
+            
+            /// <summary>
+            /// Enum Sms for value: sms
+            /// </summary>
+            [EnumMember(Value = "sms")]
+            Sms = 1,
+            
+            /// <summary>
+            /// Enum Websocket for value: websocket
+            /// </summary>
+            [EnumMember(Value = "websocket")]
+            Websocket = 2
+        }
+
+        /// <summary>
+        /// The communication medium of the customer.
+        /// </summary>
+        /// <value>The communication medium of the customer.</value>
+        [DataMember(Name="medium", EmitDefaultValue=false)]
+        public MediumEnum? Medium { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Conversation" /> class.
         /// </summary>
         /// <param name="closed">closed.</param>
         /// <param name="conversationArn">conversationArn.</param>
         /// <param name="conversationUuid">conversationUuid.</param>
+        /// <param name="lastConversationMessageBody">lastConversationMessageBody.</param>
+        /// <param name="lastConversationParticipantArn">lastConversationParticipantArn.</param>
+        /// <param name="lastConversationParticipantName">lastConversationParticipantName.</param>
+        /// <param name="lastMessageDts">Last message date/time.</param>
+        /// <param name="medium">The communication medium of the customer..</param>
         /// <param name="merchantId">merchantId.</param>
+        /// <param name="messageCount">messageCount.</param>
         /// <param name="messages">messages.</param>
         /// <param name="participants">participants.</param>
-        public Conversation(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string merchantId = default(string), List<ConversationMessage> messages = default(List<ConversationMessage>), List<ConversationParticipant> participants = default(List<ConversationParticipant>))
+        /// <param name="startDts">Start of the conversation date/time.</param>
+        /// <param name="unreadMessages">unreadMessages.</param>
+        /// <param name="visible">visible.</param>
+        public Conversation(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationMessage> messages = default(List<ConversationMessage>), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
         {
             this.Closed = closed;
             this.ConversationArn = conversationArn;
             this.ConversationUuid = conversationUuid;
+            this.LastConversationMessageBody = lastConversationMessageBody;
+            this.LastConversationParticipantArn = lastConversationParticipantArn;
+            this.LastConversationParticipantName = lastConversationParticipantName;
+            this.LastMessageDts = lastMessageDts;
+            this.Medium = medium;
             this.MerchantId = merchantId;
+            this.MessageCount = messageCount;
             this.Messages = messages;
             this.Participants = participants;
+            this.StartDts = startDts;
+            this.UnreadMessages = unreadMessages;
+            this.Visible = visible;
         }
         
         /// <summary>
@@ -68,10 +113,42 @@ namespace com.ultracart.admin.v2.Model
         public string ConversationUuid { get; set; }
 
         /// <summary>
+        /// Gets or Sets LastConversationMessageBody
+        /// </summary>
+        [DataMember(Name="last_conversation_message_body", EmitDefaultValue=false)]
+        public string LastConversationMessageBody { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastConversationParticipantArn
+        /// </summary>
+        [DataMember(Name="last_conversation_participant_arn", EmitDefaultValue=false)]
+        public string LastConversationParticipantArn { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastConversationParticipantName
+        /// </summary>
+        [DataMember(Name="last_conversation_participant_name", EmitDefaultValue=false)]
+        public string LastConversationParticipantName { get; set; }
+
+        /// <summary>
+        /// Last message date/time
+        /// </summary>
+        /// <value>Last message date/time</value>
+        [DataMember(Name="last_message_dts", EmitDefaultValue=false)]
+        public string LastMessageDts { get; set; }
+
+
+        /// <summary>
         /// Gets or Sets MerchantId
         /// </summary>
         [DataMember(Name="merchant_id", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MessageCount
+        /// </summary>
+        [DataMember(Name="message_count", EmitDefaultValue=false)]
+        public int? MessageCount { get; set; }
 
         /// <summary>
         /// Gets or Sets Messages
@@ -86,6 +163,25 @@ namespace com.ultracart.admin.v2.Model
         public List<ConversationParticipant> Participants { get; set; }
 
         /// <summary>
+        /// Start of the conversation date/time
+        /// </summary>
+        /// <value>Start of the conversation date/time</value>
+        [DataMember(Name="start_dts", EmitDefaultValue=false)]
+        public string StartDts { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UnreadMessages
+        /// </summary>
+        [DataMember(Name="unread_messages", EmitDefaultValue=false)]
+        public bool? UnreadMessages { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Visible
+        /// </summary>
+        [DataMember(Name="visible", EmitDefaultValue=false)]
+        public bool? Visible { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,9 +192,18 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Closed: ").Append(Closed).Append("\n");
             sb.Append("  ConversationArn: ").Append(ConversationArn).Append("\n");
             sb.Append("  ConversationUuid: ").Append(ConversationUuid).Append("\n");
+            sb.Append("  LastConversationMessageBody: ").Append(LastConversationMessageBody).Append("\n");
+            sb.Append("  LastConversationParticipantArn: ").Append(LastConversationParticipantArn).Append("\n");
+            sb.Append("  LastConversationParticipantName: ").Append(LastConversationParticipantName).Append("\n");
+            sb.Append("  LastMessageDts: ").Append(LastMessageDts).Append("\n");
+            sb.Append("  Medium: ").Append(Medium).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            sb.Append("  MessageCount: ").Append(MessageCount).Append("\n");
             sb.Append("  Messages: ").Append(Messages).Append("\n");
             sb.Append("  Participants: ").Append(Participants).Append("\n");
+            sb.Append("  StartDts: ").Append(StartDts).Append("\n");
+            sb.Append("  UnreadMessages: ").Append(UnreadMessages).Append("\n");
+            sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -149,9 +254,39 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationUuid.Equals(input.ConversationUuid))
                 ) && 
                 (
+                    this.LastConversationMessageBody == input.LastConversationMessageBody ||
+                    (this.LastConversationMessageBody != null &&
+                    this.LastConversationMessageBody.Equals(input.LastConversationMessageBody))
+                ) && 
+                (
+                    this.LastConversationParticipantArn == input.LastConversationParticipantArn ||
+                    (this.LastConversationParticipantArn != null &&
+                    this.LastConversationParticipantArn.Equals(input.LastConversationParticipantArn))
+                ) && 
+                (
+                    this.LastConversationParticipantName == input.LastConversationParticipantName ||
+                    (this.LastConversationParticipantName != null &&
+                    this.LastConversationParticipantName.Equals(input.LastConversationParticipantName))
+                ) && 
+                (
+                    this.LastMessageDts == input.LastMessageDts ||
+                    (this.LastMessageDts != null &&
+                    this.LastMessageDts.Equals(input.LastMessageDts))
+                ) && 
+                (
+                    this.Medium == input.Medium ||
+                    (this.Medium != null &&
+                    this.Medium.Equals(input.Medium))
+                ) && 
+                (
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
+                ) && 
+                (
+                    this.MessageCount == input.MessageCount ||
+                    (this.MessageCount != null &&
+                    this.MessageCount.Equals(input.MessageCount))
                 ) && 
                 (
                     this.Messages == input.Messages ||
@@ -162,6 +297,21 @@ namespace com.ultracart.admin.v2.Model
                     this.Participants == input.Participants ||
                     this.Participants != null &&
                     this.Participants.SequenceEqual(input.Participants)
+                ) && 
+                (
+                    this.StartDts == input.StartDts ||
+                    (this.StartDts != null &&
+                    this.StartDts.Equals(input.StartDts))
+                ) && 
+                (
+                    this.UnreadMessages == input.UnreadMessages ||
+                    (this.UnreadMessages != null &&
+                    this.UnreadMessages.Equals(input.UnreadMessages))
+                ) && 
+                (
+                    this.Visible == input.Visible ||
+                    (this.Visible != null &&
+                    this.Visible.Equals(input.Visible))
                 );
         }
 
@@ -180,12 +330,30 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationArn.GetHashCode();
                 if (this.ConversationUuid != null)
                     hashCode = hashCode * 59 + this.ConversationUuid.GetHashCode();
+                if (this.LastConversationMessageBody != null)
+                    hashCode = hashCode * 59 + this.LastConversationMessageBody.GetHashCode();
+                if (this.LastConversationParticipantArn != null)
+                    hashCode = hashCode * 59 + this.LastConversationParticipantArn.GetHashCode();
+                if (this.LastConversationParticipantName != null)
+                    hashCode = hashCode * 59 + this.LastConversationParticipantName.GetHashCode();
+                if (this.LastMessageDts != null)
+                    hashCode = hashCode * 59 + this.LastMessageDts.GetHashCode();
+                if (this.Medium != null)
+                    hashCode = hashCode * 59 + this.Medium.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
+                if (this.MessageCount != null)
+                    hashCode = hashCode * 59 + this.MessageCount.GetHashCode();
                 if (this.Messages != null)
                     hashCode = hashCode * 59 + this.Messages.GetHashCode();
                 if (this.Participants != null)
                     hashCode = hashCode * 59 + this.Participants.GetHashCode();
+                if (this.StartDts != null)
+                    hashCode = hashCode * 59 + this.StartDts.GetHashCode();
+                if (this.UnreadMessages != null)
+                    hashCode = hashCode * 59 + this.UnreadMessages.GetHashCode();
+                if (this.Visible != null)
+                    hashCode = hashCode * 59 + this.Visible.GetHashCode();
                 return hashCode;
             }
         }

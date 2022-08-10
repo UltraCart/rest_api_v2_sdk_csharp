@@ -90,7 +90,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Participantupdate for value: participant update
             /// </summary>
             [EnumMember(Value = "participant update")]
-            Participantupdate = 9
+            Participantupdate = 9,
+            
+            /// <summary>
+            /// Enum Readmessage for value: read message
+            /// </summary>
+            [EnumMember(Value = "read message")]
+            Readmessage = 10
         }
 
         /// <summary>
@@ -148,13 +154,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventParticipantUpdate">eventParticipantUpdate.</param>
         /// <param name="eventQueuePosition">eventQueuePosition.</param>
         /// <param name="eventQueueStatusUpdate">eventQueueStatusUpdate.</param>
+        /// <param name="eventReadMessage">eventReadMessage.</param>
         /// <param name="eventRrweb">eventRrweb.</param>
         /// <param name="eventType">Type of event.</param>
         /// <param name="eventTyping">eventTyping.</param>
         /// <param name="eventUpdatedMessage">eventUpdatedMessage.</param>
         /// <param name="message">message.</param>
         /// <param name="type">Type of message.</param>
-        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
+        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
         {
             this.ConversationUuid = conversationUuid;
             this.EventConversationClosed = eventConversationClosed;
@@ -163,6 +170,7 @@ namespace com.ultracart.admin.v2.Model
             this.EventParticipantUpdate = eventParticipantUpdate;
             this.EventQueuePosition = eventQueuePosition;
             this.EventQueueStatusUpdate = eventQueueStatusUpdate;
+            this.EventReadMessage = eventReadMessage;
             this.EventRrweb = eventRrweb;
             this.EventType = eventType;
             this.EventTyping = eventTyping;
@@ -215,6 +223,12 @@ namespace com.ultracart.admin.v2.Model
         public ConversationWebchatQueueStatus EventQueueStatusUpdate { get; set; }
 
         /// <summary>
+        /// Gets or Sets EventReadMessage
+        /// </summary>
+        [DataMember(Name="event_read_message", EmitDefaultValue=false)]
+        public ConversationEventReadMessage EventReadMessage { get; set; }
+
+        /// <summary>
         /// Gets or Sets EventRrweb
         /// </summary>
         [DataMember(Name="event_rrweb", EmitDefaultValue=false)]
@@ -255,6 +269,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EventParticipantUpdate: ").Append(EventParticipantUpdate).Append("\n");
             sb.Append("  EventQueuePosition: ").Append(EventQueuePosition).Append("\n");
             sb.Append("  EventQueueStatusUpdate: ").Append(EventQueueStatusUpdate).Append("\n");
+            sb.Append("  EventReadMessage: ").Append(EventReadMessage).Append("\n");
             sb.Append("  EventRrweb: ").Append(EventRrweb).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("  EventTyping: ").Append(EventTyping).Append("\n");
@@ -331,6 +346,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EventQueueStatusUpdate.Equals(input.EventQueueStatusUpdate))
                 ) && 
                 (
+                    this.EventReadMessage == input.EventReadMessage ||
+                    (this.EventReadMessage != null &&
+                    this.EventReadMessage.Equals(input.EventReadMessage))
+                ) && 
+                (
                     this.EventRrweb == input.EventRrweb ||
                     (this.EventRrweb != null &&
                     this.EventRrweb.Equals(input.EventRrweb))
@@ -385,6 +405,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EventQueuePosition.GetHashCode();
                 if (this.EventQueueStatusUpdate != null)
                     hashCode = hashCode * 59 + this.EventQueueStatusUpdate.GetHashCode();
+                if (this.EventReadMessage != null)
+                    hashCode = hashCode * 59 + this.EventReadMessage.GetHashCode();
                 if (this.EventRrweb != null)
                     hashCode = hashCode * 59 + this.EventRrweb.GetHashCode();
                 if (this.EventType != null)

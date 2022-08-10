@@ -68,10 +68,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="mediaUrls">mediaUrls.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="messageDts">Message date/time.</param>
+        /// <param name="messageEpoch">Message epoch milliseconds.</param>
         /// <param name="transportStatuses">transportStatuses.</param>
         /// <param name="type">Message type.</param>
         /// <param name="uploadKeys">uploadKeys.</param>
-        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), string conversationMessageUuid = default(string), List<string> mediaUrls = default(List<string>), string merchantId = default(string), string messageDts = default(string), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), TypeEnum? type = default(TypeEnum?), List<string> uploadKeys = default(List<string>))
+        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), string conversationMessageUuid = default(string), List<string> mediaUrls = default(List<string>), string merchantId = default(string), string messageDts = default(string), long? messageEpoch = default(long?), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), TypeEnum? type = default(TypeEnum?), List<string> uploadKeys = default(List<string>))
         {
             this.AuthorConversationParticipantArn = authorConversationParticipantArn;
             this.AuthorConversationParticipantName = authorConversationParticipantName;
@@ -81,6 +82,7 @@ namespace com.ultracart.admin.v2.Model
             this.MediaUrls = mediaUrls;
             this.MerchantId = merchantId;
             this.MessageDts = messageDts;
+            this.MessageEpoch = messageEpoch;
             this.TransportStatuses = transportStatuses;
             this.Type = type;
             this.UploadKeys = uploadKeys;
@@ -136,6 +138,13 @@ namespace com.ultracart.admin.v2.Model
         public string MessageDts { get; set; }
 
         /// <summary>
+        /// Message epoch milliseconds
+        /// </summary>
+        /// <value>Message epoch milliseconds</value>
+        [DataMember(Name="message_epoch", EmitDefaultValue=false)]
+        public long? MessageEpoch { get; set; }
+
+        /// <summary>
         /// Gets or Sets TransportStatuses
         /// </summary>
         [DataMember(Name="transport_statuses", EmitDefaultValue=false)]
@@ -164,6 +173,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MediaUrls: ").Append(MediaUrls).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MessageDts: ").Append(MessageDts).Append("\n");
+            sb.Append("  MessageEpoch: ").Append(MessageEpoch).Append("\n");
             sb.Append("  TransportStatuses: ").Append(TransportStatuses).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  UploadKeys: ").Append(UploadKeys).Append("\n");
@@ -242,6 +252,11 @@ namespace com.ultracart.admin.v2.Model
                     this.MessageDts.Equals(input.MessageDts))
                 ) && 
                 (
+                    this.MessageEpoch == input.MessageEpoch ||
+                    (this.MessageEpoch != null &&
+                    this.MessageEpoch.Equals(input.MessageEpoch))
+                ) && 
+                (
                     this.TransportStatuses == input.TransportStatuses ||
                     this.TransportStatuses != null &&
                     this.TransportStatuses.SequenceEqual(input.TransportStatuses)
@@ -283,6 +298,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.MessageDts != null)
                     hashCode = hashCode * 59 + this.MessageDts.GetHashCode();
+                if (this.MessageEpoch != null)
+                    hashCode = hashCode * 59 + this.MessageEpoch.GetHashCode();
                 if (this.TransportStatuses != null)
                     hashCode = hashCode * 59 + this.TransportStatuses.GetHashCode();
                 if (this.Type != null)

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **MediaUrls** | **List&lt;string&gt;** |  | [optional] 
 **MerchantId** | **string** |  | [optional] 
 **MessageDts** | **string** | Message date/time | [optional] 
+**MessageEpoch** | **long?** | Message epoch milliseconds | [optional] 
 **TransportStatuses** | [**List&lt;ConversationMessageTransportStatus&gt;**](ConversationMessageTransportStatus.md) |  | [optional] 
 **Type** | **string** | Message type | [optional] 
 **UploadKeys** | **List&lt;string&gt;** |  | [optional] 

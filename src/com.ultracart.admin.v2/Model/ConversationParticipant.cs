@@ -40,7 +40,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="lastMessageDts">Last message date/time.</param>
         /// <param name="leftDts">Left conversation date/time.</param>
         /// <param name="status">status.</param>
-        public ConversationParticipant(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationParticipantUuid = default(string), string joinedDts = default(string), string lastMessageDts = default(string), string leftDts = default(string), string status = default(string))
+        /// <param name="unreadMessages">unreadMessages.</param>
+        public ConversationParticipant(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationParticipantUuid = default(string), string joinedDts = default(string), string lastMessageDts = default(string), string leftDts = default(string), string status = default(string), int unreadMessages = default(int))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
@@ -49,6 +50,7 @@ namespace com.ultracart.admin.v2.Model
             this.LastMessageDts = lastMessageDts;
             this.LeftDts = leftDts;
             this.Status = status;
+            this.UnreadMessages = unreadMessages;
         }
 
         /// <summary>
@@ -97,6 +99,12 @@ namespace com.ultracart.admin.v2.Model
         public string Status { get; set; }
 
         /// <summary>
+        /// Gets or Sets UnreadMessages
+        /// </summary>
+        [DataMember(Name="unread_messages", EmitDefaultValue=false)]
+        public int UnreadMessages { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,6 +119,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LastMessageDts: ").Append(LastMessageDts).Append("\n");
             sb.Append("  LeftDts: ").Append(LeftDts).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  UnreadMessages: ").Append(UnreadMessages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -179,6 +188,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.UnreadMessages == input.UnreadMessages ||
+                    (this.UnreadMessages != null &&
+                    this.UnreadMessages.Equals(input.UnreadMessages))
                 );
         }
 
@@ -205,6 +219,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LeftDts.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.UnreadMessages != null)
+                    hashCode = hashCode * 59 + this.UnreadMessages.GetHashCode();
                 return hashCode;
             }
         }

@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **MerchantCode** | **string** | Merchant code of coupon up to 20 characters. | [optional] 
 **MerchantNotes** | **string** | Internal notes about this coupon.  These are not visible to customer. | [optional] 
 **MultipleAmountsOffItems** | [**CouponMultipleAmountsOffItems**](CouponMultipleAmountsOffItems.md) |  | [optional] 
-**NoDiscount** | **Object** |  | [optional] 
+**NoDiscount** | [**CouponNoDiscount**](CouponNoDiscount.md) |  | [optional] 
 **PercentOffItemWithItemsQuantityPurchase** | [**CouponPercentOffItemWithItemsQuantityPurchase**](CouponPercentOffItemWithItemsQuantityPurchase.md) |  | [optional] 
 **PercentOffItems** | [**CouponPercentOffItems**](CouponPercentOffItems.md) |  | [optional] 
 **PercentOffItemsAndFreeShipping** | [**CouponPercentOffItemsAndFreeShipping**](CouponPercentOffItemsAndFreeShipping.md) |  | [optional] 

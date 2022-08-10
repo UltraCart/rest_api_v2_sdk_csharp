@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **EventParticipantUpdate** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **EventQueuePosition** | [**ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  | [optional] 
 **EventQueueStatusUpdate** | [**ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  | [optional] 
+**EventReadMessage** | [**ConversationEventReadMessage**](ConversationEventReadMessage.md) |  | [optional] 
 **EventRrweb** | [**ConversationEventRRWeb**](ConversationEventRRWeb.md) |  | [optional] 
 **EventType** | **string** | Type of event | [optional] 
 **EventTyping** | [**ConversationEventTyping**](ConversationEventTyping.md) |  | [optional] 

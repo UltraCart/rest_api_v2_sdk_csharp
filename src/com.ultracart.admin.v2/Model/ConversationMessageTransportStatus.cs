@@ -31,11 +31,92 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationMessageTransportStatus :  IEquatable<ConversationMessageTransportStatus>, IValidatableObject
     {
         /// <summary>
+        /// The status of the message transport
+        /// </summary>
+        /// <value>The status of the message transport</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
+        {
+            /// <summary>
+            /// Enum Accepted for value: accepted
+            /// </summary>
+            [EnumMember(Value = "accepted")]
+            Accepted = 1,
+
+            /// <summary>
+            /// Enum Scheduled for value: scheduled
+            /// </summary>
+            [EnumMember(Value = "scheduled")]
+            Scheduled = 2,
+
+            /// <summary>
+            /// Enum Queued for value: queued
+            /// </summary>
+            [EnumMember(Value = "queued")]
+            Queued = 3,
+
+            /// <summary>
+            /// Enum Sending for value: sending
+            /// </summary>
+            [EnumMember(Value = "sending")]
+            Sending = 4,
+
+            /// <summary>
+            /// Enum Sent for value: sent
+            /// </summary>
+            [EnumMember(Value = "sent")]
+            Sent = 5,
+
+            /// <summary>
+            /// Enum Read for value: read
+            /// </summary>
+            [EnumMember(Value = "read")]
+            Read = 6,
+
+            /// <summary>
+            /// Enum TWILIOCREDENTIALSMISSING for value: TWILIO_CREDENTIALS_MISSING
+            /// </summary>
+            [EnumMember(Value = "TWILIO_CREDENTIALS_MISSING")]
+            TWILIOCREDENTIALSMISSING = 7,
+
+            /// <summary>
+            /// Enum SENTTOTWILIO for value: SENT_TO_TWILIO
+            /// </summary>
+            [EnumMember(Value = "SENT_TO_TWILIO")]
+            SENTTOTWILIO = 8,
+
+            /// <summary>
+            /// Enum TWILIOERROR for value: TWILIO_ERROR
+            /// </summary>
+            [EnumMember(Value = "TWILIO_ERROR")]
+            TWILIOERROR = 9,
+
+            /// <summary>
+            /// Enum SENTTOPINPOINT for value: SENT_TO_PINPOINT
+            /// </summary>
+            [EnumMember(Value = "SENT_TO_PINPOINT")]
+            SENTTOPINPOINT = 10,
+
+            /// <summary>
+            /// Enum PINPOINTERROR for value: PINPOINT_ERROR
+            /// </summary>
+            [EnumMember(Value = "PINPOINT_ERROR")]
+            PINPOINTERROR = 11
+
+        }
+
+        /// <summary>
+        /// The status of the message transport
+        /// </summary>
+        /// <value>The status of the message transport</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public StatusEnum? Status { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationMessageTransportStatus" /> class.
         /// </summary>
         /// <param name="conversationParticipantArn">conversationParticipantArn.</param>
-        /// <param name="status">status.</param>
-        public ConversationMessageTransportStatus(string conversationParticipantArn = default(string), string status = default(string))
+        /// <param name="status">The status of the message transport.</param>
+        public ConversationMessageTransportStatus(string conversationParticipantArn = default(string), StatusEnum? status = default(StatusEnum?))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.Status = status;
@@ -47,11 +128,6 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="conversation_participant_arn", EmitDefaultValue=false)]
         public string ConversationParticipantArn { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

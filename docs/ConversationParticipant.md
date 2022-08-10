@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **LastMessageDts** | **string** | Last message date/time | [optional] 
 **LeftDts** | **string** | Left conversation date/time | [optional] 
 **Status** | **string** |  | [optional] 
+**UnreadMessages** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

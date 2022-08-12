@@ -353,6 +353,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailVerifyTokenResponse</returns>
         ApiResponse<EmailVerifyTokenResponse> GetEmailVerificationTokenWithHttpInfo (EmailVerifyTokenRequest tokenRequest);
         /// <summary>
+        /// getMagicLink
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid of the customer.</param>
+        /// <param name="storefrontHostName">The storefront to log into.</param>
+        /// <returns>CustomerMagicLinkResponse</returns>
+        CustomerMagicLinkResponse GetMagicLink (int? customerProfileOid, string storefrontHostName);
+
+        /// <summary>
+        /// getMagicLink
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid of the customer.</param>
+        /// <param name="storefrontHostName">The storefront to log into.</param>
+        /// <returns>ApiResponse of CustomerMagicLinkResponse</returns>
+        ApiResponse<CustomerMagicLinkResponse> GetMagicLinkWithHttpInfo (int? customerProfileOid, string storefrontHostName);
+        /// <summary>
         /// Insert a customer
         /// </summary>
         /// <remarks>
@@ -820,6 +843,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="tokenRequest">Token request</param>
         /// <returns>Task of ApiResponse (EmailVerifyTokenResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailVerifyTokenResponse>> GetEmailVerificationTokenAsyncWithHttpInfo (EmailVerifyTokenRequest tokenRequest);
+        /// <summary>
+        /// getMagicLink
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid of the customer.</param>
+        /// <param name="storefrontHostName">The storefront to log into.</param>
+        /// <returns>Task of CustomerMagicLinkResponse</returns>
+        System.Threading.Tasks.Task<CustomerMagicLinkResponse> GetMagicLinkAsync (int? customerProfileOid, string storefrontHostName);
+
+        /// <summary>
+        /// getMagicLink
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid of the customer.</param>
+        /// <param name="storefrontHostName">The storefront to log into.</param>
+        /// <returns>Task of ApiResponse (CustomerMagicLinkResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerMagicLinkResponse>> GetMagicLinkAsyncWithHttpInfo (int? customerProfileOid, string storefrontHostName);
         /// <summary>
         /// Insert a customer
         /// </summary>
@@ -3217,6 +3263,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailVerifyTokenResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailVerifyTokenResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailVerifyTokenResponse)));
+        }
+
+        /// <summary>
+        /// getMagicLink Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid of the customer.</param>
+        /// <param name="storefrontHostName">The storefront to log into.</param>
+        /// <returns>CustomerMagicLinkResponse</returns>
+        public CustomerMagicLinkResponse GetMagicLink (int? customerProfileOid, string storefrontHostName)
+        {
+             ApiResponse<CustomerMagicLinkResponse> localVarResponse = GetMagicLinkWithHttpInfo(customerProfileOid, storefrontHostName);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// getMagicLink Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid of the customer.</param>
+        /// <param name="storefrontHostName">The storefront to log into.</param>
+        /// <returns>ApiResponse of CustomerMagicLinkResponse</returns>
+        public ApiResponse< CustomerMagicLinkResponse > GetMagicLinkWithHttpInfo (int? customerProfileOid, string storefrontHostName)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->GetMagicLink");
+            // verify the required parameter 'storefrontHostName' is set
+            if (storefrontHostName == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontHostName' when calling CustomerApi->GetMagicLink");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (storefrontHostName != null) localVarPathParams.Add("storefront_host_name", this.Configuration.ApiClient.ParameterToString(storefrontHostName)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMagicLink", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerMagicLinkResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerMagicLinkResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerMagicLinkResponse)));
+        }
+
+        /// <summary>
+        /// getMagicLink Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid of the customer.</param>
+        /// <param name="storefrontHostName">The storefront to log into.</param>
+        /// <returns>Task of CustomerMagicLinkResponse</returns>
+        public async System.Threading.Tasks.Task<CustomerMagicLinkResponse> GetMagicLinkAsync (int? customerProfileOid, string storefrontHostName)
+        {
+             ApiResponse<CustomerMagicLinkResponse> localVarResponse = await GetMagicLinkAsyncWithHttpInfo(customerProfileOid, storefrontHostName);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// getMagicLink Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer_profile_oid of the customer.</param>
+        /// <param name="storefrontHostName">The storefront to log into.</param>
+        /// <returns>Task of ApiResponse (CustomerMagicLinkResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerMagicLinkResponse>> GetMagicLinkAsyncWithHttpInfo (int? customerProfileOid, string storefrontHostName)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->GetMagicLink");
+            // verify the required parameter 'storefrontHostName' is set
+            if (storefrontHostName == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontHostName' when calling CustomerApi->GetMagicLink");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (storefrontHostName != null) localVarPathParams.Add("storefront_host_name", this.Configuration.ApiClient.ParameterToString(storefrontHostName)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMagicLink", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerMagicLinkResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerMagicLinkResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerMagicLinkResponse)));
         }
 
         /// <summary>

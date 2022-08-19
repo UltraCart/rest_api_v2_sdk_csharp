@@ -39,9 +39,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="joinedDts">Joined conversation date/time.</param>
         /// <param name="lastMessageDts">Last message date/time.</param>
         /// <param name="leftDts">Left conversation date/time.</param>
+        /// <param name="profileImageUrl">profileImageUrl.</param>
         /// <param name="status">status.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
-        public ConversationParticipant(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationParticipantUuid = default(string), string joinedDts = default(string), string lastMessageDts = default(string), string leftDts = default(string), string status = default(string), int? unreadMessages = default(int?))
+        public ConversationParticipant(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationParticipantUuid = default(string), string joinedDts = default(string), string lastMessageDts = default(string), string leftDts = default(string), string profileImageUrl = default(string), string status = default(string), int? unreadMessages = default(int?))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
@@ -49,6 +50,7 @@ namespace com.ultracart.admin.v2.Model
             this.JoinedDts = joinedDts;
             this.LastMessageDts = lastMessageDts;
             this.LeftDts = leftDts;
+            this.ProfileImageUrl = profileImageUrl;
             this.Status = status;
             this.UnreadMessages = unreadMessages;
         }
@@ -93,6 +95,12 @@ namespace com.ultracart.admin.v2.Model
         public string LeftDts { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProfileImageUrl
+        /// </summary>
+        [DataMember(Name="profile_image_url", EmitDefaultValue=false)]
+        public string ProfileImageUrl { get; set; }
+
+        /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=false)]
@@ -118,6 +126,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  JoinedDts: ").Append(JoinedDts).Append("\n");
             sb.Append("  LastMessageDts: ").Append(LastMessageDts).Append("\n");
             sb.Append("  LeftDts: ").Append(LeftDts).Append("\n");
+            sb.Append("  ProfileImageUrl: ").Append(ProfileImageUrl).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  UnreadMessages: ").Append(UnreadMessages).Append("\n");
             sb.Append("}\n");
@@ -185,6 +194,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LeftDts.Equals(input.LeftDts))
                 ) && 
                 (
+                    this.ProfileImageUrl == input.ProfileImageUrl ||
+                    (this.ProfileImageUrl != null &&
+                    this.ProfileImageUrl.Equals(input.ProfileImageUrl))
+                ) && 
+                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
@@ -217,6 +231,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LastMessageDts.GetHashCode();
                 if (this.LeftDts != null)
                     hashCode = hashCode * 59 + this.LeftDts.GetHashCode();
+                if (this.ProfileImageUrl != null)
+                    hashCode = hashCode * 59 + this.ProfileImageUrl.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.UnreadMessages != null)

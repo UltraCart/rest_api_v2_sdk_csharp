@@ -31,27 +31,57 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationWebchatQueueStatusAgent :  IEquatable<ConversationWebchatQueueStatusAgent>, IValidatableObject
     {
         /// <summary>
+        /// Status of the agent
+        /// </summary>
+        /// <value>Status of the agent</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AgentStatusEnum
+        {
+            
+            /// <summary>
+            /// Enum Available for value: available
+            /// </summary>
+            [EnumMember(Value = "available")]
+            Available = 1,
+            
+            /// <summary>
+            /// Enum Busy for value: busy
+            /// </summary>
+            [EnumMember(Value = "busy")]
+            Busy = 2,
+            
+            /// <summary>
+            /// Enum Unavailable for value: unavailable
+            /// </summary>
+            [EnumMember(Value = "unavailable")]
+            Unavailable = 3
+        }
+
+        /// <summary>
+        /// Status of the agent
+        /// </summary>
+        /// <value>Status of the agent</value>
+        [DataMember(Name="agent_status", EmitDefaultValue=false)]
+        public AgentStatusEnum? AgentStatus { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationWebchatQueueStatusAgent" /> class.
         /// </summary>
-        /// <param name="agentStatus">agentStatus.</param>
+        /// <param name="agentStatus">Status of the agent.</param>
         /// <param name="conversationParticipantArn">conversationParticipantArn.</param>
         /// <param name="conversationParticipantName">conversationParticipantName.</param>
         /// <param name="lastChatDts">Date/time that this agent took their last chat.</param>
         /// <param name="nextRoundRobin">nextRoundRobin.</param>
-        public ConversationWebchatQueueStatusAgent(string agentStatus = default(string), string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string lastChatDts = default(string), bool? nextRoundRobin = default(bool?))
+        /// <param name="profileImageUrl">Profile image URL.</param>
+        public ConversationWebchatQueueStatusAgent(AgentStatusEnum? agentStatus = default(AgentStatusEnum?), string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string lastChatDts = default(string), bool? nextRoundRobin = default(bool?), string profileImageUrl = default(string))
         {
             this.AgentStatus = agentStatus;
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
             this.LastChatDts = lastChatDts;
             this.NextRoundRobin = nextRoundRobin;
+            this.ProfileImageUrl = profileImageUrl;
         }
         
-        /// <summary>
-        /// Gets or Sets AgentStatus
-        /// </summary>
-        [DataMember(Name="agent_status", EmitDefaultValue=false)]
-        public string AgentStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets ConversationParticipantArn
@@ -79,6 +109,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? NextRoundRobin { get; set; }
 
         /// <summary>
+        /// Profile image URL
+        /// </summary>
+        /// <value>Profile image URL</value>
+        [DataMember(Name="profile_image_url", EmitDefaultValue=false)]
+        public string ProfileImageUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +128,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
             sb.Append("  LastChatDts: ").Append(LastChatDts).Append("\n");
             sb.Append("  NextRoundRobin: ").Append(NextRoundRobin).Append("\n");
+            sb.Append("  ProfileImageUrl: ").Append(ProfileImageUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -149,6 +187,11 @@ namespace com.ultracart.admin.v2.Model
                     this.NextRoundRobin == input.NextRoundRobin ||
                     (this.NextRoundRobin != null &&
                     this.NextRoundRobin.Equals(input.NextRoundRobin))
+                ) && 
+                (
+                    this.ProfileImageUrl == input.ProfileImageUrl ||
+                    (this.ProfileImageUrl != null &&
+                    this.ProfileImageUrl.Equals(input.ProfileImageUrl))
                 );
         }
 
@@ -171,6 +214,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LastChatDts.GetHashCode();
                 if (this.NextRoundRobin != null)
                     hashCode = hashCode * 59 + this.NextRoundRobin.GetHashCode();
+                if (this.ProfileImageUrl != null)
+                    hashCode = hashCode * 59 + this.ProfileImageUrl.GetHashCode();
                 return hashCode;
             }
         }

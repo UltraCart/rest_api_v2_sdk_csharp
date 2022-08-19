@@ -25741,7 +25741,7 @@ namespace com.ultracart.admin.v2.Api
         public ApiResponse< StoreFrontsResponse > GetStoreFrontsWithHttpInfo ()
         {
 
-            var localVarPath = "/storefront/";
+            var localVarPath = "/storefront";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -25819,7 +25819,7 @@ namespace com.ultracart.admin.v2.Api
         public async System.Threading.Tasks.Task<ApiResponse<StoreFrontsResponse>> GetStoreFrontsAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/storefront/";
+            var localVarPath = "/storefront";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);

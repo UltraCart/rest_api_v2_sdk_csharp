@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdvertisingSource** | **string** | Advertising source | [optional] 
+**CellPhoneOptIn** | **bool?** | True if the customer has opted into SMS marketing | [optional] 
 **MailingList** | **bool?** | True if the customer has opted into mailing list subscription | [optional] 
 **ReferralCode** | **string** | Referral code | [optional] 
 

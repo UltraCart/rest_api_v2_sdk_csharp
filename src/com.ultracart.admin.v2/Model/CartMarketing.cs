@@ -34,10 +34,12 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="CartMarketing" /> class.
         /// </summary>
         /// <param name="advertisingSource">The advertising source the customer indicated.</param>
+        /// <param name="cellPhoneOptIn">True if the customer agrees to receiving marketing SMS messages.</param>
         /// <param name="mailingListOptIn">True if the customer agrees to receiving marketing emails.</param>
-        public CartMarketing(string advertisingSource = default(string), bool mailingListOptIn = default(bool))
+        public CartMarketing(string advertisingSource = default(string), bool cellPhoneOptIn = default(bool), bool mailingListOptIn = default(bool))
         {
             this.AdvertisingSource = advertisingSource;
+            this.CellPhoneOptIn = cellPhoneOptIn;
             this.MailingListOptIn = mailingListOptIn;
         }
 
@@ -47,6 +49,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The advertising source the customer indicated</value>
         [DataMember(Name="advertising_source", EmitDefaultValue=false)]
         public string AdvertisingSource { get; set; }
+
+        /// <summary>
+        /// True if the customer agrees to receiving marketing SMS messages
+        /// </summary>
+        /// <value>True if the customer agrees to receiving marketing SMS messages</value>
+        [DataMember(Name="cell_phone_opt_in", EmitDefaultValue=false)]
+        public bool CellPhoneOptIn { get; set; }
 
         /// <summary>
         /// True if the customer agrees to receiving marketing emails
@@ -64,6 +73,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class CartMarketing {\n");
             sb.Append("  AdvertisingSource: ").Append(AdvertisingSource).Append("\n");
+            sb.Append("  CellPhoneOptIn: ").Append(CellPhoneOptIn).Append("\n");
             sb.Append("  MailingListOptIn: ").Append(MailingListOptIn).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -105,6 +115,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AdvertisingSource.Equals(input.AdvertisingSource))
                 ) && 
                 (
+                    this.CellPhoneOptIn == input.CellPhoneOptIn ||
+                    (this.CellPhoneOptIn != null &&
+                    this.CellPhoneOptIn.Equals(input.CellPhoneOptIn))
+                ) && 
+                (
                     this.MailingListOptIn == input.MailingListOptIn ||
                     (this.MailingListOptIn != null &&
                     this.MailingListOptIn.Equals(input.MailingListOptIn))
@@ -122,6 +137,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.AdvertisingSource != null)
                     hashCode = hashCode * 59 + this.AdvertisingSource.GetHashCode();
+                if (this.CellPhoneOptIn != null)
+                    hashCode = hashCode * 59 + this.CellPhoneOptIn.GetHashCode();
                 if (this.MailingListOptIn != null)
                     hashCode = hashCode * 59 + this.MailingListOptIn.GetHashCode();
                 return hashCode;

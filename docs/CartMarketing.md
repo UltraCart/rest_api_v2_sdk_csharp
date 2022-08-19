@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdvertisingSource** | **string** | The advertising source the customer indicated | [optional] 
+**CellPhoneOptIn** | **bool** | True if the customer agrees to receiving marketing SMS messages | [optional] 
 **MailingListOptIn** | **bool** | True if the customer agrees to receiving marketing emails | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

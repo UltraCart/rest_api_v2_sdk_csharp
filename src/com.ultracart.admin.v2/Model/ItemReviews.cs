@@ -35,6 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="hasApprovedReview">True if the item has an approved review.</param>
         /// <param name="hasReview">True if the item has a review.</param>
+        /// <param name="individualReviews">individualReviews.</param>
         /// <param name="reviewCount">Number of approved reviews.</param>
         /// <param name="reviewOverall">Overall score of reviews.</param>
         /// <param name="reviewTemplateName">Review template name.</param>
@@ -42,10 +43,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="reviewable">True if the item is reviewable.</param>
         /// <param name="shareReviewsWithMerchantItemId">Share reviews with item id.  To set, use the share_reviews_with_merchant_item_oid field..</param>
         /// <param name="shareReviewsWithMerchantItemOid">Share reviews with item oid.  To null out this field, set teh value to zero..</param>
-        public ItemReviews(bool? hasApprovedReview = default(bool?), bool? hasReview = default(bool?), int? reviewCount = default(int?), decimal? reviewOverall = default(decimal?), string reviewTemplateName = default(string), int? reviewTemplateOid = default(int?), bool? reviewable = default(bool?), string shareReviewsWithMerchantItemId = default(string), int? shareReviewsWithMerchantItemOid = default(int?))
+        public ItemReviews(bool? hasApprovedReview = default(bool?), bool? hasReview = default(bool?), List<ItemReview> individualReviews = default(List<ItemReview>), int? reviewCount = default(int?), decimal? reviewOverall = default(decimal?), string reviewTemplateName = default(string), int? reviewTemplateOid = default(int?), bool? reviewable = default(bool?), string shareReviewsWithMerchantItemId = default(string), int? shareReviewsWithMerchantItemOid = default(int?))
         {
             this.HasApprovedReview = hasApprovedReview;
             this.HasReview = hasReview;
+            this.IndividualReviews = individualReviews;
             this.ReviewCount = reviewCount;
             this.ReviewOverall = reviewOverall;
             this.ReviewTemplateName = reviewTemplateName;
@@ -68,6 +70,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if the item has a review</value>
         [DataMember(Name="has_review", EmitDefaultValue=false)]
         public bool? HasReview { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IndividualReviews
+        /// </summary>
+        [DataMember(Name="individual_reviews", EmitDefaultValue=false)]
+        public List<ItemReview> IndividualReviews { get; set; }
 
         /// <summary>
         /// Number of approved reviews
@@ -128,6 +136,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ItemReviews {\n");
             sb.Append("  HasApprovedReview: ").Append(HasApprovedReview).Append("\n");
             sb.Append("  HasReview: ").Append(HasReview).Append("\n");
+            sb.Append("  IndividualReviews: ").Append(IndividualReviews).Append("\n");
             sb.Append("  ReviewCount: ").Append(ReviewCount).Append("\n");
             sb.Append("  ReviewOverall: ").Append(ReviewOverall).Append("\n");
             sb.Append("  ReviewTemplateName: ").Append(ReviewTemplateName).Append("\n");
@@ -180,6 +189,11 @@ namespace com.ultracart.admin.v2.Model
                     this.HasReview.Equals(input.HasReview))
                 ) && 
                 (
+                    this.IndividualReviews == input.IndividualReviews ||
+                    this.IndividualReviews != null &&
+                    this.IndividualReviews.SequenceEqual(input.IndividualReviews)
+                ) && 
+                (
                     this.ReviewCount == input.ReviewCount ||
                     (this.ReviewCount != null &&
                     this.ReviewCount.Equals(input.ReviewCount))
@@ -229,6 +243,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.HasApprovedReview.GetHashCode();
                 if (this.HasReview != null)
                     hashCode = hashCode * 59 + this.HasReview.GetHashCode();
+                if (this.IndividualReviews != null)
+                    hashCode = hashCode * 59 + this.IndividualReviews.GetHashCode();
                 if (this.ReviewCount != null)
                     hashCode = hashCode * 59 + this.ReviewCount.GetHashCode();
                 if (this.ReviewOverall != null)

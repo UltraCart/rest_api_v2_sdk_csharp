@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **HasApprovedReview** | **bool** | True if the item has an approved review | [optional] 
 **HasReview** | **bool** | True if the item has a review | [optional] 
+**IndividualReviews** | [**List&lt;ItemReview&gt;**](ItemReview.md) |  | [optional] 
 **ReviewCount** | **int** | Number of approved reviews | [optional] 
 **ReviewOverall** | **decimal** | Overall score of reviews | [optional] 
 **ReviewTemplateName** | **string** | Review template name | [optional] 

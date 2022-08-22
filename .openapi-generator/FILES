@@ -455,6 +455,7 @@ docs/ItemResponse.md
 docs/ItemRestriction.md
 docs/ItemRestrictionItem.md
 docs/ItemRevguard.md
+docs/ItemReview.md
 docs/ItemReviews.md
 docs/ItemSalesforce.md
 docs/ItemShipping.md
@@ -1155,6 +1156,7 @@ src/com.ultracart.admin.v2/Model/ItemResponse.cs
 src/com.ultracart.admin.v2/Model/ItemRestriction.cs
 src/com.ultracart.admin.v2/Model/ItemRestrictionItem.cs
 src/com.ultracart.admin.v2/Model/ItemRevguard.cs
+src/com.ultracart.admin.v2/Model/ItemReview.cs
 src/com.ultracart.admin.v2/Model/ItemReviews.cs
 src/com.ultracart.admin.v2/Model/ItemSalesforce.cs
 src/com.ultracart.admin.v2/Model/ItemShipping.cs

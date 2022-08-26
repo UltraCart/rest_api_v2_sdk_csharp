@@ -50,12 +50,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="paused">True if traffic should be paused to this variation.</param>
         /// <param name="revenue">Total revenue for this variation.</param>
         /// <param name="sessionCount">Total sessions for this variation.</param>
+        /// <param name="smsOptIns">SMS Opt Ins for this variation.</param>
         /// <param name="trafficPercentage">Percentage of the traffic this variation is currently receiving.</param>
         /// <param name="url">Url of the variation if this experiment is a url experiment..</param>
         /// <param name="variationName">Name of the variation.</param>
         /// <param name="variationNumber">Variation number.</param>
         /// <param name="winner">True if this variation has been declared the winner.</param>
-        public ExperimentVariation(int addToCartCount = default(int), int averageDurationSeconds = default(int), decimal averageObjectivePerSession = default(decimal), decimal averageOrderValue = default(decimal), int bounceCount = default(int), decimal conversionRate = default(decimal), List<ExperimentVariationStat> dailyStatistics = default(List<ExperimentVariationStat>), long durationSecondsSum = default(long), int eventCount = default(int), int initiateCheckoutCount = default(int), int orderCount = default(int), int orderItemCount = default(int), decimal originalTrafficPercentage = default(decimal), int pageViewCount = default(int), bool paused = default(bool), decimal revenue = default(decimal), int sessionCount = default(int), decimal trafficPercentage = default(decimal), string url = default(string), string variationName = default(string), int variationNumber = default(int), bool winner = default(bool))
+        public ExperimentVariation(int addToCartCount = default(int), int averageDurationSeconds = default(int), decimal averageObjectivePerSession = default(decimal), decimal averageOrderValue = default(decimal), int bounceCount = default(int), decimal conversionRate = default(decimal), List<ExperimentVariationStat> dailyStatistics = default(List<ExperimentVariationStat>), long durationSecondsSum = default(long), int eventCount = default(int), int initiateCheckoutCount = default(int), int orderCount = default(int), int orderItemCount = default(int), decimal originalTrafficPercentage = default(decimal), int pageViewCount = default(int), bool paused = default(bool), decimal revenue = default(decimal), int sessionCount = default(int), int smsOptIns = default(int), decimal trafficPercentage = default(decimal), string url = default(string), string variationName = default(string), int variationNumber = default(int), bool winner = default(bool))
         {
             this.AddToCartCount = addToCartCount;
             this.AverageDurationSeconds = averageDurationSeconds;
@@ -74,6 +75,7 @@ namespace com.ultracart.admin.v2.Model
             this.Paused = paused;
             this.Revenue = revenue;
             this.SessionCount = sessionCount;
+            this.SmsOptIns = smsOptIns;
             this.TrafficPercentage = trafficPercentage;
             this.Url = url;
             this.VariationName = variationName;
@@ -201,6 +203,13 @@ namespace com.ultracart.admin.v2.Model
         public int SessionCount { get; set; }
 
         /// <summary>
+        /// SMS Opt Ins for this variation
+        /// </summary>
+        /// <value>SMS Opt Ins for this variation</value>
+        [DataMember(Name="sms_opt_ins", EmitDefaultValue=false)]
+        public int SmsOptIns { get; set; }
+
+        /// <summary>
         /// Percentage of the traffic this variation is currently receiving
         /// </summary>
         /// <value>Percentage of the traffic this variation is currently receiving</value>
@@ -260,6 +269,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Paused: ").Append(Paused).Append("\n");
             sb.Append("  Revenue: ").Append(Revenue).Append("\n");
             sb.Append("  SessionCount: ").Append(SessionCount).Append("\n");
+            sb.Append("  SmsOptIns: ").Append(SmsOptIns).Append("\n");
             sb.Append("  TrafficPercentage: ").Append(TrafficPercentage).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  VariationName: ").Append(VariationName).Append("\n");
@@ -386,6 +396,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SessionCount.Equals(input.SessionCount))
                 ) && 
                 (
+                    this.SmsOptIns == input.SmsOptIns ||
+                    (this.SmsOptIns != null &&
+                    this.SmsOptIns.Equals(input.SmsOptIns))
+                ) && 
+                (
                     this.TrafficPercentage == input.TrafficPercentage ||
                     (this.TrafficPercentage != null &&
                     this.TrafficPercentage.Equals(input.TrafficPercentage))
@@ -455,6 +470,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Revenue.GetHashCode();
                 if (this.SessionCount != null)
                     hashCode = hashCode * 59 + this.SessionCount.GetHashCode();
+                if (this.SmsOptIns != null)
+                    hashCode = hashCode * 59 + this.SmsOptIns.GetHashCode();
                 if (this.TrafficPercentage != null)
                     hashCode = hashCode * 59 + this.TrafficPercentage.GetHashCode();
                 if (this.Url != null)

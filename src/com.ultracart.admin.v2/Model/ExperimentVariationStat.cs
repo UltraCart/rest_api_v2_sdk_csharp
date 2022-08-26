@@ -43,8 +43,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="pageViewCount">Total page view count for this variation.</param>
         /// <param name="revenue">Total revenue for this variation.</param>
         /// <param name="sessionCount">Total sessions for this variation.</param>
+        /// <param name="smsOptInCount">Total SMS opt in count for this variation.</param>
         /// <param name="statDts">Date/time that the statistic was created.</param>
-        public ExperimentVariationStat(int addToCartCount = default(int), int bounceCount = default(int), long durationSecondsSum = default(long), int eventCount = default(int), int initiateCheckoutCount = default(int), int orderCount = default(int), int orderItemCount = default(int), int pageViewCount = default(int), decimal revenue = default(decimal), int sessionCount = default(int), string statDts = default(string))
+        public ExperimentVariationStat(int addToCartCount = default(int), int bounceCount = default(int), long durationSecondsSum = default(long), int eventCount = default(int), int initiateCheckoutCount = default(int), int orderCount = default(int), int orderItemCount = default(int), int pageViewCount = default(int), decimal revenue = default(decimal), int sessionCount = default(int), int smsOptInCount = default(int), string statDts = default(string))
         {
             this.AddToCartCount = addToCartCount;
             this.BounceCount = bounceCount;
@@ -56,6 +57,7 @@ namespace com.ultracart.admin.v2.Model
             this.PageViewCount = pageViewCount;
             this.Revenue = revenue;
             this.SessionCount = sessionCount;
+            this.SmsOptInCount = smsOptInCount;
             this.StatDts = statDts;
         }
 
@@ -130,6 +132,13 @@ namespace com.ultracart.admin.v2.Model
         public int SessionCount { get; set; }
 
         /// <summary>
+        /// Total SMS opt in count for this variation
+        /// </summary>
+        /// <value>Total SMS opt in count for this variation</value>
+        [DataMember(Name="sms_opt_in_count", EmitDefaultValue=false)]
+        public int SmsOptInCount { get; set; }
+
+        /// <summary>
         /// Date/time that the statistic was created
         /// </summary>
         /// <value>Date/time that the statistic was created</value>
@@ -154,6 +163,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PageViewCount: ").Append(PageViewCount).Append("\n");
             sb.Append("  Revenue: ").Append(Revenue).Append("\n");
             sb.Append("  SessionCount: ").Append(SessionCount).Append("\n");
+            sb.Append("  SmsOptInCount: ").Append(SmsOptInCount).Append("\n");
             sb.Append("  StatDts: ").Append(StatDts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -240,6 +250,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SessionCount.Equals(input.SessionCount))
                 ) && 
                 (
+                    this.SmsOptInCount == input.SmsOptInCount ||
+                    (this.SmsOptInCount != null &&
+                    this.SmsOptInCount.Equals(input.SmsOptInCount))
+                ) && 
+                (
                     this.StatDts == input.StatDts ||
                     (this.StatDts != null &&
                     this.StatDts.Equals(input.StatDts))
@@ -275,6 +290,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Revenue.GetHashCode();
                 if (this.SessionCount != null)
                     hashCode = hashCode * 59 + this.SessionCount.GetHashCode();
+                if (this.SmsOptInCount != null)
+                    hashCode = hashCode * 59 + this.SmsOptInCount.GetHashCode();
                 if (this.StatDts != null)
                     hashCode = hashCode * 59 + this.StatDts.GetHashCode();
                 return hashCode;

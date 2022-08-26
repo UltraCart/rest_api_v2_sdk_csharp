@@ -482,9 +482,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
         /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
         /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>OrderResponse</returns>
-        OrderResponse RefundOrder (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), string expand = default(string));
+        OrderResponse RefundOrder (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string expand = default(string));
 
         /// <summary>
         /// Refund an order
@@ -500,9 +501,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
         /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
         /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of OrderResponse</returns>
-        ApiResponse<OrderResponse> RefundOrderWithHttpInfo (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), string expand = default(string));
+        ApiResponse<OrderResponse> RefundOrderWithHttpInfo (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string expand = default(string));
         /// <summary>
         /// Replacement order
         /// </summary>
@@ -1107,10 +1109,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
         /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
         /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of OrderResponse</returns>
-        System.Threading.Tasks.Task<OrderResponse> RefundOrderAsync (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<OrderResponse> RefundOrderAsync (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Refund an order
@@ -1126,10 +1129,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
         /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
         /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderWithHttpInfoAsync (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderWithHttpInfoAsync (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Replacement order
         /// </summary>
@@ -4418,11 +4422,12 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
         /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
         /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>OrderResponse</returns>
-        public OrderResponse RefundOrder (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), string expand = default(string))
+        public OrderResponse RefundOrder (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string expand = default(string))
         {
-             ApiResponse<OrderResponse> localVarResponse = RefundOrderWithHttpInfo(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand);
+             ApiResponse<OrderResponse> localVarResponse = RefundOrderWithHttpInfo(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand);
              return localVarResponse.Data;
         }
 
@@ -4437,9 +4442,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
         /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
         /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of OrderResponse</returns>
-        public ApiResponse<OrderResponse> RefundOrderWithHttpInfo (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), string expand = default(string))
+        public ApiResponse<OrderResponse> RefundOrderWithHttpInfo (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string expand = default(string))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -4476,6 +4482,7 @@ namespace com.ultracart.admin.v2.Api
             if (autoOrderCancel != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel", autoOrderCancel)); // query parameter
             if (manualRefund != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "manual_refund", manualRefund)); // query parameter
             if (reverseAffiliateTransactions != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reverse_affiliate_transactions", reverseAffiliateTransactions)); // query parameter
+            if (issueStoreCredit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "issue_store_credit", issueStoreCredit)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
             if (order != null && order.GetType() != typeof(byte[]))
             {
@@ -4527,12 +4534,13 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
         /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
         /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of OrderResponse</returns>
-        public async System.Threading.Tasks.Task<OrderResponse> RefundOrderAsync (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<OrderResponse> RefundOrderAsync (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<OrderResponse> localVarResponse = await RefundOrderWithHttpInfoAsync(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, expand, cancellationToken);
+             ApiResponse<OrderResponse> localVarResponse = await RefundOrderWithHttpInfoAsync(orderId, order, rejectAfterRefund, skipCustomerNotification, autoOrderCancel, manualRefund, reverseAffiliateTransactions, issueStoreCredit, expand, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -4548,10 +4556,11 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="autoOrderCancel">Cancel associated auto orders (optional, default to false)</param>
         /// <param name="manualRefund">Consider a manual refund done externally (optional, default to false)</param>
         /// <param name="reverseAffiliateTransactions">Reverse affiliate transactions (optional, default to true)</param>
+        /// <param name="issueStoreCredit">Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account (optional, default to false)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderWithHttpInfoAsync (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<OrderResponse>> RefundOrderWithHttpInfoAsync (string orderId, Order order, bool? rejectAfterRefund = default(bool?), bool? skipCustomerNotification = default(bool?), bool? autoOrderCancel = default(bool?), bool? manualRefund = default(bool?), bool? reverseAffiliateTransactions = default(bool?), bool? issueStoreCredit = default(bool?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -4588,6 +4597,7 @@ namespace com.ultracart.admin.v2.Api
             if (autoOrderCancel != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "auto_order_cancel", autoOrderCancel)); // query parameter
             if (manualRefund != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "manual_refund", manualRefund)); // query parameter
             if (reverseAffiliateTransactions != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reverse_affiliate_transactions", reverseAffiliateTransactions)); // query parameter
+            if (issueStoreCredit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "issue_store_credit", issueStoreCredit)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
             if (order != null && order.GetType() != typeof(byte[]))
             {

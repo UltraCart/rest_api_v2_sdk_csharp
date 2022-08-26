@@ -33,25 +33,49 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailCommseqSequenceTestRequest" /> class.
         /// </summary>
+        /// <param name="address1">address1.</param>
+        /// <param name="address2">address2.</param>
         /// <param name="cartId">cartId.</param>
         /// <param name="cartItemIds">cartItemIds.</param>
+        /// <param name="city">city.</param>
         /// <param name="espCommseqUuid">espCommseqUuid.</param>
+        /// <param name="mailCard">mailCard.</param>
         /// <param name="name">name.</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="pleaseReview">pleaseReview.</param>
+        /// <param name="postalCode">postalCode.</param>
         /// <param name="sendToEmail">sendToEmail.</param>
         /// <param name="sendToLoggedInUser">sendToLoggedInUser.</param>
-        public EmailCommseqSequenceTestRequest(string cartId = default(string), List<string> cartItemIds = default(List<string>), string espCommseqUuid = default(string), string name = default(string), string orderId = default(string), bool pleaseReview = default(bool), string sendToEmail = default(string), bool sendToLoggedInUser = default(bool))
+        /// <param name="state">state.</param>
+        public EmailCommseqSequenceTestRequest(string address1 = default(string), string address2 = default(string), string cartId = default(string), List<string> cartItemIds = default(List<string>), string city = default(string), string espCommseqUuid = default(string), bool mailCard = default(bool), string name = default(string), string orderId = default(string), bool pleaseReview = default(bool), string postalCode = default(string), string sendToEmail = default(string), bool sendToLoggedInUser = default(bool), string state = default(string))
         {
+            this.Address1 = address1;
+            this.Address2 = address2;
             this.CartId = cartId;
             this.CartItemIds = cartItemIds;
+            this.City = city;
             this.EspCommseqUuid = espCommseqUuid;
+            this.MailCard = mailCard;
             this.Name = name;
             this.OrderId = orderId;
             this.PleaseReview = pleaseReview;
+            this.PostalCode = postalCode;
             this.SendToEmail = sendToEmail;
             this.SendToLoggedInUser = sendToLoggedInUser;
+            this.State = state;
         }
+
+        /// <summary>
+        /// Gets or Sets Address1
+        /// </summary>
+        [DataMember(Name="address_1", EmitDefaultValue=false)]
+        public string Address1 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Address2
+        /// </summary>
+        [DataMember(Name="address_2", EmitDefaultValue=false)]
+        public string Address2 { get; set; }
 
         /// <summary>
         /// Gets or Sets CartId
@@ -66,10 +90,22 @@ namespace com.ultracart.admin.v2.Model
         public List<string> CartItemIds { get; set; }
 
         /// <summary>
+        /// Gets or Sets City
+        /// </summary>
+        [DataMember(Name="city", EmitDefaultValue=false)]
+        public string City { get; set; }
+
+        /// <summary>
         /// Gets or Sets EspCommseqUuid
         /// </summary>
         [DataMember(Name="esp_commseq_uuid", EmitDefaultValue=false)]
         public string EspCommseqUuid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MailCard
+        /// </summary>
+        [DataMember(Name="mail_card", EmitDefaultValue=false)]
+        public bool MailCard { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -90,6 +126,12 @@ namespace com.ultracart.admin.v2.Model
         public bool PleaseReview { get; set; }
 
         /// <summary>
+        /// Gets or Sets PostalCode
+        /// </summary>
+        [DataMember(Name="postal_code", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets SendToEmail
         /// </summary>
         [DataMember(Name="send_to_email", EmitDefaultValue=false)]
@@ -102,6 +144,12 @@ namespace com.ultracart.admin.v2.Model
         public bool SendToLoggedInUser { get; set; }
 
         /// <summary>
+        /// Gets or Sets State
+        /// </summary>
+        [DataMember(Name="state", EmitDefaultValue=false)]
+        public string State { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,14 +157,20 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailCommseqSequenceTestRequest {\n");
+            sb.Append("  Address1: ").Append(Address1).Append("\n");
+            sb.Append("  Address2: ").Append(Address2).Append("\n");
             sb.Append("  CartId: ").Append(CartId).Append("\n");
             sb.Append("  CartItemIds: ").Append(CartItemIds).Append("\n");
+            sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  EspCommseqUuid: ").Append(EspCommseqUuid).Append("\n");
+            sb.Append("  MailCard: ").Append(MailCard).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  PleaseReview: ").Append(PleaseReview).Append("\n");
+            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  SendToEmail: ").Append(SendToEmail).Append("\n");
             sb.Append("  SendToLoggedInUser: ").Append(SendToLoggedInUser).Append("\n");
+            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,6 +206,16 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Address1 == input.Address1 ||
+                    (this.Address1 != null &&
+                    this.Address1.Equals(input.Address1))
+                ) && 
+                (
+                    this.Address2 == input.Address2 ||
+                    (this.Address2 != null &&
+                    this.Address2.Equals(input.Address2))
+                ) && 
+                (
                     this.CartId == input.CartId ||
                     (this.CartId != null &&
                     this.CartId.Equals(input.CartId))
@@ -163,9 +227,19 @@ namespace com.ultracart.admin.v2.Model
                     this.CartItemIds.SequenceEqual(input.CartItemIds)
                 ) && 
                 (
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
+                ) && 
+                (
                     this.EspCommseqUuid == input.EspCommseqUuid ||
                     (this.EspCommseqUuid != null &&
                     this.EspCommseqUuid.Equals(input.EspCommseqUuid))
+                ) && 
+                (
+                    this.MailCard == input.MailCard ||
+                    (this.MailCard != null &&
+                    this.MailCard.Equals(input.MailCard))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -183,6 +257,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PleaseReview.Equals(input.PleaseReview))
                 ) && 
                 (
+                    this.PostalCode == input.PostalCode ||
+                    (this.PostalCode != null &&
+                    this.PostalCode.Equals(input.PostalCode))
+                ) && 
+                (
                     this.SendToEmail == input.SendToEmail ||
                     (this.SendToEmail != null &&
                     this.SendToEmail.Equals(input.SendToEmail))
@@ -191,6 +270,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SendToLoggedInUser == input.SendToLoggedInUser ||
                     (this.SendToLoggedInUser != null &&
                     this.SendToLoggedInUser.Equals(input.SendToLoggedInUser))
+                ) && 
+                (
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
                 );
         }
 
@@ -203,22 +287,34 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Address1 != null)
+                    hashCode = hashCode * 59 + this.Address1.GetHashCode();
+                if (this.Address2 != null)
+                    hashCode = hashCode * 59 + this.Address2.GetHashCode();
                 if (this.CartId != null)
                     hashCode = hashCode * 59 + this.CartId.GetHashCode();
                 if (this.CartItemIds != null)
                     hashCode = hashCode * 59 + this.CartItemIds.GetHashCode();
+                if (this.City != null)
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.EspCommseqUuid != null)
                     hashCode = hashCode * 59 + this.EspCommseqUuid.GetHashCode();
+                if (this.MailCard != null)
+                    hashCode = hashCode * 59 + this.MailCard.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.OrderId != null)
                     hashCode = hashCode * 59 + this.OrderId.GetHashCode();
                 if (this.PleaseReview != null)
                     hashCode = hashCode * 59 + this.PleaseReview.GetHashCode();
+                if (this.PostalCode != null)
+                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.SendToEmail != null)
                     hashCode = hashCode * 59 + this.SendToEmail.GetHashCode();
                 if (this.SendToLoggedInUser != null)
                     hashCode = hashCode * 59 + this.SendToLoggedInUser.GetHashCode();
+                if (this.State != null)
+                    hashCode = hashCode * 59 + this.State.GetHashCode();
                 return hashCode;
             }
         }

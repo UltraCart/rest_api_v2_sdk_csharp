@@ -42,10 +42,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="postcardFromName">postcardFromName.</param>
         /// <param name="postcardFromPostalCode">postcardFromPostalCode.</param>
         /// <param name="postcardFromState">postcardFromState.</param>
+        /// <param name="smsEspTwilioUuid">smsEspTwilioUuid.</param>
+        /// <param name="smsPhoneNumber">smsPhoneNumber.</param>
         /// <param name="transactionalEspDomainUser">transactionalEspDomainUser.</param>
         /// <param name="transactionalEspDomainUuid">transactionalEspDomainUuid.</param>
         /// <param name="transactionalEspFriendlyName">transactionalEspFriendlyName.</param>
-        public EmailSettings(string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
+        public EmailSettings(string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
         {
             this.MarketingEspDomainUser = marketingEspDomainUser;
             this.MarketingEspDomainUuid = marketingEspDomainUuid;
@@ -56,6 +58,8 @@ namespace com.ultracart.admin.v2.Model
             this.PostcardFromName = postcardFromName;
             this.PostcardFromPostalCode = postcardFromPostalCode;
             this.PostcardFromState = postcardFromState;
+            this.SmsEspTwilioUuid = smsEspTwilioUuid;
+            this.SmsPhoneNumber = smsPhoneNumber;
             this.TransactionalEspDomainUser = transactionalEspDomainUser;
             this.TransactionalEspDomainUuid = transactionalEspDomainUuid;
             this.TransactionalEspFriendlyName = transactionalEspFriendlyName;
@@ -116,6 +120,18 @@ namespace com.ultracart.admin.v2.Model
         public string PostcardFromState { get; set; }
 
         /// <summary>
+        /// Gets or Sets SmsEspTwilioUuid
+        /// </summary>
+        [DataMember(Name="sms_esp_twilio_uuid", EmitDefaultValue=false)]
+        public string SmsEspTwilioUuid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SmsPhoneNumber
+        /// </summary>
+        [DataMember(Name="sms_phone_number", EmitDefaultValue=false)]
+        public string SmsPhoneNumber { get; set; }
+
+        /// <summary>
         /// Gets or Sets TransactionalEspDomainUser
         /// </summary>
         [DataMember(Name="transactional_esp_domain_user", EmitDefaultValue=false)]
@@ -150,6 +166,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PostcardFromName: ").Append(PostcardFromName).Append("\n");
             sb.Append("  PostcardFromPostalCode: ").Append(PostcardFromPostalCode).Append("\n");
             sb.Append("  PostcardFromState: ").Append(PostcardFromState).Append("\n");
+            sb.Append("  SmsEspTwilioUuid: ").Append(SmsEspTwilioUuid).Append("\n");
+            sb.Append("  SmsPhoneNumber: ").Append(SmsPhoneNumber).Append("\n");
             sb.Append("  TransactionalEspDomainUser: ").Append(TransactionalEspDomainUser).Append("\n");
             sb.Append("  TransactionalEspDomainUuid: ").Append(TransactionalEspDomainUuid).Append("\n");
             sb.Append("  TransactionalEspFriendlyName: ").Append(TransactionalEspFriendlyName).Append("\n");
@@ -233,6 +251,16 @@ namespace com.ultracart.admin.v2.Model
                     this.PostcardFromState.Equals(input.PostcardFromState))
                 ) && 
                 (
+                    this.SmsEspTwilioUuid == input.SmsEspTwilioUuid ||
+                    (this.SmsEspTwilioUuid != null &&
+                    this.SmsEspTwilioUuid.Equals(input.SmsEspTwilioUuid))
+                ) && 
+                (
+                    this.SmsPhoneNumber == input.SmsPhoneNumber ||
+                    (this.SmsPhoneNumber != null &&
+                    this.SmsPhoneNumber.Equals(input.SmsPhoneNumber))
+                ) && 
+                (
                     this.TransactionalEspDomainUser == input.TransactionalEspDomainUser ||
                     (this.TransactionalEspDomainUser != null &&
                     this.TransactionalEspDomainUser.Equals(input.TransactionalEspDomainUser))
@@ -276,6 +304,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PostcardFromPostalCode.GetHashCode();
                 if (this.PostcardFromState != null)
                     hashCode = hashCode * 59 + this.PostcardFromState.GetHashCode();
+                if (this.SmsEspTwilioUuid != null)
+                    hashCode = hashCode * 59 + this.SmsEspTwilioUuid.GetHashCode();
+                if (this.SmsPhoneNumber != null)
+                    hashCode = hashCode * 59 + this.SmsPhoneNumber.GetHashCode();
                 if (this.TransactionalEspDomainUser != null)
                     hashCode = hashCode * 59 + this.TransactionalEspDomainUser.GetHashCode();
                 if (this.TransactionalEspDomainUuid != null)

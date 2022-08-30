@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **PostcardFromName** | **string** |  | [optional] 
 **PostcardFromPostalCode** | **string** |  | [optional] 
 **PostcardFromState** | **string** |  | [optional] 
+**SmsEspTwilioUuid** | **string** |  | [optional] 
+**SmsPhoneNumber** | **string** |  | [optional] 
 **TransactionalEspDomainUser** | **string** |  | [optional] 
 **TransactionalEspDomainUuid** | **string** |  | [optional] 
 **TransactionalEspFriendlyName** | **string** |  | [optional] 

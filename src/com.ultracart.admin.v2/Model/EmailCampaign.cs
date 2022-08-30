@@ -54,10 +54,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="revenuePerCustomerFormatted">Revenue per customer associated with campaign.</param>
         /// <param name="scheduledDts">Scheduled date.</param>
         /// <param name="screenshotLargeFullUrl">URL to a large full length screenshot.</param>
+        /// <param name="smsEspTwilioUuid">Twilio Account UUID.  Null for none.</param>
+        /// <param name="smsPhoneNumber">Twilio SMS Phone Number.  Null for none.</param>
         /// <param name="status">Status of the campaign of draft, archived, and sent.</param>
         /// <param name="statusDts">Timestamp when the last status change happened.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
-        public EmailCampaign(string clickRateFormatted = default(string), string createdDts = default(string), bool deleted = default(bool), string emailCampaignUuid = default(string), string emailCommunicationSequenceUuid = default(string), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string espCampaignFolderUuid = default(string), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), int libraryItemOid = default(int), List<EmailListSegmentMembership> memberships = default(List<EmailListSegmentMembership>), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), bool preventSendingDueToSpam = default(bool), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string scheduledDts = default(string), string screenshotLargeFullUrl = default(string), string status = default(string), string statusDts = default(string), int storefrontOid = default(int))
+        public EmailCampaign(string clickRateFormatted = default(string), string createdDts = default(string), bool deleted = default(bool), string emailCampaignUuid = default(string), string emailCommunicationSequenceUuid = default(string), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), string espCampaignFolderUuid = default(string), string espDomainUser = default(string), string espDomainUuid = default(string), string espFriendlyName = default(string), int libraryItemOid = default(int), List<EmailListSegmentMembership> memberships = default(List<EmailListSegmentMembership>), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), bool preventSendingDueToSpam = default(bool), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string scheduledDts = default(string), string screenshotLargeFullUrl = default(string), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string), int storefrontOid = default(int))
         {
             this.ClickRateFormatted = clickRateFormatted;
             this.CreatedDts = createdDts;
@@ -80,6 +82,8 @@ namespace com.ultracart.admin.v2.Model
             this.RevenuePerCustomerFormatted = revenuePerCustomerFormatted;
             this.ScheduledDts = scheduledDts;
             this.ScreenshotLargeFullUrl = screenshotLargeFullUrl;
+            this.SmsEspTwilioUuid = smsEspTwilioUuid;
+            this.SmsPhoneNumber = smsPhoneNumber;
             this.Status = status;
             this.StatusDts = statusDts;
             this.StorefrontOid = storefrontOid;
@@ -233,6 +237,20 @@ namespace com.ultracart.admin.v2.Model
         public string ScreenshotLargeFullUrl { get; set; }
 
         /// <summary>
+        /// Twilio Account UUID.  Null for none
+        /// </summary>
+        /// <value>Twilio Account UUID.  Null for none</value>
+        [DataMember(Name="sms_esp_twilio_uuid", EmitDefaultValue=false)]
+        public string SmsEspTwilioUuid { get; set; }
+
+        /// <summary>
+        /// Twilio SMS Phone Number.  Null for none
+        /// </summary>
+        /// <value>Twilio SMS Phone Number.  Null for none</value>
+        [DataMember(Name="sms_phone_number", EmitDefaultValue=false)]
+        public string SmsPhoneNumber { get; set; }
+
+        /// <summary>
         /// Status of the campaign of draft, archived, and sent
         /// </summary>
         /// <value>Status of the campaign of draft, archived, and sent</value>
@@ -282,6 +300,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  RevenuePerCustomerFormatted: ").Append(RevenuePerCustomerFormatted).Append("\n");
             sb.Append("  ScheduledDts: ").Append(ScheduledDts).Append("\n");
             sb.Append("  ScreenshotLargeFullUrl: ").Append(ScreenshotLargeFullUrl).Append("\n");
+            sb.Append("  SmsEspTwilioUuid: ").Append(SmsEspTwilioUuid).Append("\n");
+            sb.Append("  SmsPhoneNumber: ").Append(SmsPhoneNumber).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusDts: ").Append(StatusDts).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
@@ -426,6 +446,16 @@ namespace com.ultracart.admin.v2.Model
                     this.ScreenshotLargeFullUrl.Equals(input.ScreenshotLargeFullUrl))
                 ) && 
                 (
+                    this.SmsEspTwilioUuid == input.SmsEspTwilioUuid ||
+                    (this.SmsEspTwilioUuid != null &&
+                    this.SmsEspTwilioUuid.Equals(input.SmsEspTwilioUuid))
+                ) && 
+                (
+                    this.SmsPhoneNumber == input.SmsPhoneNumber ||
+                    (this.SmsPhoneNumber != null &&
+                    this.SmsPhoneNumber.Equals(input.SmsPhoneNumber))
+                ) && 
+                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
@@ -493,6 +523,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ScheduledDts.GetHashCode();
                 if (this.ScreenshotLargeFullUrl != null)
                     hashCode = hashCode * 59 + this.ScreenshotLargeFullUrl.GetHashCode();
+                if (this.SmsEspTwilioUuid != null)
+                    hashCode = hashCode * 59 + this.SmsEspTwilioUuid.GetHashCode();
+                if (this.SmsPhoneNumber != null)
+                    hashCode = hashCode * 59 + this.SmsPhoneNumber.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.StatusDts != null)

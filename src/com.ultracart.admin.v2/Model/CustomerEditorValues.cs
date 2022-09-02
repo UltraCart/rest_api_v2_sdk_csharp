@@ -38,18 +38,20 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="cardExpYears">card_exp_years.</param>
         /// <param name="cardTypes">card_types.</param>
         /// <param name="countries">countries.</param>
+        /// <param name="loyaltyLedgerDescriptions">loyalty_ledger_descriptions.</param>
         /// <param name="loyaltyProgramType">loyalty_program_type.</param>
         /// <param name="qbClasses">qb_classes.</param>
         /// <param name="salesRepCodes">sales_rep_codes.</param>
         /// <param name="stateOptionalCountries">state_optional_countries.</param>
         /// <param name="terms">terms.</param>
-        public CustomerEditorValues(List<CustomerAffiliate> affiliates = default(List<CustomerAffiliate>), List<string> cardExpMonths = default(List<string>), List<string> cardExpYears = default(List<string>), List<string> cardTypes = default(List<string>), List<Country> countries = default(List<Country>), string loyaltyProgramType = default(string), List<string> qbClasses = default(List<string>), List<string> salesRepCodes = default(List<string>), List<Country> stateOptionalCountries = default(List<Country>), List<string> terms = default(List<string>))
+        public CustomerEditorValues(List<CustomerAffiliate> affiliates = default(List<CustomerAffiliate>), List<string> cardExpMonths = default(List<string>), List<string> cardExpYears = default(List<string>), List<string> cardTypes = default(List<string>), List<Country> countries = default(List<Country>), List<string> loyaltyLedgerDescriptions = default(List<string>), string loyaltyProgramType = default(string), List<string> qbClasses = default(List<string>), List<string> salesRepCodes = default(List<string>), List<Country> stateOptionalCountries = default(List<Country>), List<string> terms = default(List<string>))
         {
             this.Affiliates = affiliates;
             this.CardExpMonths = cardExpMonths;
             this.CardExpYears = cardExpYears;
             this.CardTypes = cardTypes;
             this.Countries = countries;
+            this.LoyaltyLedgerDescriptions = loyaltyLedgerDescriptions;
             this.LoyaltyProgramType = loyaltyProgramType;
             this.QbClasses = qbClasses;
             this.SalesRepCodes = salesRepCodes;
@@ -91,6 +93,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>countries</value>
         [DataMember(Name="countries", EmitDefaultValue=false)]
         public List<Country> Countries { get; set; }
+
+        /// <summary>
+        /// loyalty_ledger_descriptions
+        /// </summary>
+        /// <value>loyalty_ledger_descriptions</value>
+        [DataMember(Name="loyalty_ledger_descriptions", EmitDefaultValue=false)]
+        public List<string> LoyaltyLedgerDescriptions { get; set; }
 
         /// <summary>
         /// loyalty_program_type
@@ -140,6 +149,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CardExpYears: ").Append(CardExpYears).Append("\n");
             sb.Append("  CardTypes: ").Append(CardTypes).Append("\n");
             sb.Append("  Countries: ").Append(Countries).Append("\n");
+            sb.Append("  LoyaltyLedgerDescriptions: ").Append(LoyaltyLedgerDescriptions).Append("\n");
             sb.Append("  LoyaltyProgramType: ").Append(LoyaltyProgramType).Append("\n");
             sb.Append("  QbClasses: ").Append(QbClasses).Append("\n");
             sb.Append("  SalesRepCodes: ").Append(SalesRepCodes).Append("\n");
@@ -210,6 +220,12 @@ namespace com.ultracart.admin.v2.Model
                     this.Countries.SequenceEqual(input.Countries)
                 ) && 
                 (
+                    this.LoyaltyLedgerDescriptions == input.LoyaltyLedgerDescriptions ||
+                    this.LoyaltyLedgerDescriptions != null &&
+                    input.LoyaltyLedgerDescriptions != null &&
+                    this.LoyaltyLedgerDescriptions.SequenceEqual(input.LoyaltyLedgerDescriptions)
+                ) && 
+                (
                     this.LoyaltyProgramType == input.LoyaltyProgramType ||
                     (this.LoyaltyProgramType != null &&
                     this.LoyaltyProgramType.Equals(input.LoyaltyProgramType))
@@ -259,6 +275,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CardTypes.GetHashCode();
                 if (this.Countries != null)
                     hashCode = hashCode * 59 + this.Countries.GetHashCode();
+                if (this.LoyaltyLedgerDescriptions != null)
+                    hashCode = hashCode * 59 + this.LoyaltyLedgerDescriptions.GetHashCode();
                 if (this.LoyaltyProgramType != null)
                     hashCode = hashCode * 59 + this.LoyaltyProgramType.GetHashCode();
                 if (this.QbClasses != null)

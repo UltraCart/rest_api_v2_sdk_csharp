@@ -3838,6 +3838,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="twilio">Twilio</param>
         /// <returns>ApiResponse of TwilioResponse</returns>
         ApiResponse<TwilioResponse> UpdateTwilioAccountWithHttpInfo (string espTwilioUuid, Twilio twilio);
+        /// <summary>
+        /// Validate AWS Event Ruler
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rulerValidateRequest">Ruler Validate Request</param>
+        /// <returns>RulerValidationResponse</returns>
+        RulerValidationResponse ValidateRuler (RulerValidationRequest rulerValidateRequest);
+
+        /// <summary>
+        /// Validate AWS Event Ruler
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rulerValidateRequest">Ruler Validate Request</param>
+        /// <returns>ApiResponse of RulerValidationResponse</returns>
+        ApiResponse<RulerValidationResponse> ValidateRulerWithHttpInfo (RulerValidationRequest rulerValidateRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -7654,6 +7675,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="twilio">Twilio</param>
         /// <returns>Task of ApiResponse (TwilioResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TwilioResponse>> UpdateTwilioAccountAsyncWithHttpInfo (string espTwilioUuid, Twilio twilio);
+        /// <summary>
+        /// Validate AWS Event Ruler
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rulerValidateRequest">Ruler Validate Request</param>
+        /// <returns>Task of RulerValidationResponse</returns>
+        System.Threading.Tasks.Task<RulerValidationResponse> ValidateRulerAsync (RulerValidationRequest rulerValidateRequest);
+
+        /// <summary>
+        /// Validate AWS Event Ruler
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rulerValidateRequest">Ruler Validate Request</param>
+        /// <returns>Task of ApiResponse (RulerValidationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RulerValidationResponse>> ValidateRulerAsyncWithHttpInfo (RulerValidationRequest rulerValidateRequest);
         #endregion Asynchronous Operations
     }
 
@@ -37793,6 +37835,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<TwilioResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (TwilioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TwilioResponse)));
+        }
+
+        /// <summary>
+        /// Validate AWS Event Ruler 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rulerValidateRequest">Ruler Validate Request</param>
+        /// <returns>RulerValidationResponse</returns>
+        public RulerValidationResponse ValidateRuler (RulerValidationRequest rulerValidateRequest)
+        {
+             ApiResponse<RulerValidationResponse> localVarResponse = ValidateRulerWithHttpInfo(rulerValidateRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Validate AWS Event Ruler 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rulerValidateRequest">Ruler Validate Request</param>
+        /// <returns>ApiResponse of RulerValidationResponse</returns>
+        public ApiResponse< RulerValidationResponse > ValidateRulerWithHttpInfo (RulerValidationRequest rulerValidateRequest)
+        {
+            // verify the required parameter 'rulerValidateRequest' is set
+            if (rulerValidateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'rulerValidateRequest' when calling StorefrontApi->ValidateRuler");
+
+            var localVarPath = "/storefront/ruler/validate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (rulerValidateRequest != null && rulerValidateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(rulerValidateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = rulerValidateRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ValidateRuler", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RulerValidationResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RulerValidationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RulerValidationResponse)));
+        }
+
+        /// <summary>
+        /// Validate AWS Event Ruler 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rulerValidateRequest">Ruler Validate Request</param>
+        /// <returns>Task of RulerValidationResponse</returns>
+        public async System.Threading.Tasks.Task<RulerValidationResponse> ValidateRulerAsync (RulerValidationRequest rulerValidateRequest)
+        {
+             ApiResponse<RulerValidationResponse> localVarResponse = await ValidateRulerAsyncWithHttpInfo(rulerValidateRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Validate AWS Event Ruler 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rulerValidateRequest">Ruler Validate Request</param>
+        /// <returns>Task of ApiResponse (RulerValidationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RulerValidationResponse>> ValidateRulerAsyncWithHttpInfo (RulerValidationRequest rulerValidateRequest)
+        {
+            // verify the required parameter 'rulerValidateRequest' is set
+            if (rulerValidateRequest == null)
+                throw new ApiException(400, "Missing required parameter 'rulerValidateRequest' when calling StorefrontApi->ValidateRuler");
+
+            var localVarPath = "/storefront/ruler/validate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (rulerValidateRequest != null && rulerValidateRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(rulerValidateRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = rulerValidateRequest; // byte array
+            }
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ValidateRuler", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RulerValidationResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (RulerValidationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RulerValidationResponse)));
         }
 
     }

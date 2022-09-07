@@ -168,6 +168,7 @@ Method | HTTP request | Description
 [**UpdateScreenRecordingTags**](StorefrontApi.md#updatescreenrecordingtags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
 [**UpdateTransactionEmail**](StorefrontApi.md#updatetransactionemail) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
 [**UpdateTwilioAccount**](StorefrontApi.md#updatetwilioaccount) | **PUT** /storefront/twilio/accounts/{esp_twilio_uuid} | Update Twilio account
+[**ValidateRuler**](StorefrontApi.md#validateruler) | **POST** /storefront/ruler/validate | Validate AWS Event Ruler
 
 
 <a name="addtolibrary"></a>
@@ -11049,6 +11050,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TwilioResponse**](TwilioResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="validateruler"></a>
+# **ValidateRuler**
+> RulerValidationResponse ValidateRuler (RulerValidationRequest rulerValidateRequest)
+
+Validate AWS Event Ruler
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class ValidateRulerExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+
+            var rulerValidateRequest = new RulerValidationRequest(); // RulerValidationRequest | Ruler Validate Request
+
+            try
+            {
+                // Validate AWS Event Ruler
+                RulerValidationResponse result = apiInstance.ValidateRuler(rulerValidateRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.ValidateRuler: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rulerValidateRequest** | [**RulerValidationRequest**](RulerValidationRequest.md)| Ruler Validate Request | 
+
+### Return type
+
+[**RulerValidationResponse**](RulerValidationResponse.md)
 
 ### Authorization
 

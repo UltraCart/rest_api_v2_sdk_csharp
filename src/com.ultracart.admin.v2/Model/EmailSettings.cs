@@ -42,12 +42,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="postcardFromName">postcardFromName.</param>
         /// <param name="postcardFromPostalCode">postcardFromPostalCode.</param>
         /// <param name="postcardFromState">postcardFromState.</param>
+        /// <param name="reviewsIoConfigured">True if the Reviews.io integration is configured.</param>
         /// <param name="smsEspTwilioUuid">smsEspTwilioUuid.</param>
         /// <param name="smsPhoneNumber">smsPhoneNumber.</param>
         /// <param name="transactionalEspDomainUser">transactionalEspDomainUser.</param>
         /// <param name="transactionalEspDomainUuid">transactionalEspDomainUuid.</param>
         /// <param name="transactionalEspFriendlyName">transactionalEspFriendlyName.</param>
-        public EmailSettings(string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
+        public EmailSettings(string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), bool reviewsIoConfigured = default(bool), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
         {
             this.MarketingEspDomainUser = marketingEspDomainUser;
             this.MarketingEspDomainUuid = marketingEspDomainUuid;
@@ -58,6 +59,7 @@ namespace com.ultracart.admin.v2.Model
             this.PostcardFromName = postcardFromName;
             this.PostcardFromPostalCode = postcardFromPostalCode;
             this.PostcardFromState = postcardFromState;
+            this.ReviewsIoConfigured = reviewsIoConfigured;
             this.SmsEspTwilioUuid = smsEspTwilioUuid;
             this.SmsPhoneNumber = smsPhoneNumber;
             this.TransactionalEspDomainUser = transactionalEspDomainUser;
@@ -120,6 +122,13 @@ namespace com.ultracart.admin.v2.Model
         public string PostcardFromState { get; set; }
 
         /// <summary>
+        /// True if the Reviews.io integration is configured
+        /// </summary>
+        /// <value>True if the Reviews.io integration is configured</value>
+        [DataMember(Name="reviews_io_configured", EmitDefaultValue=false)]
+        public bool ReviewsIoConfigured { get; set; }
+
+        /// <summary>
         /// Gets or Sets SmsEspTwilioUuid
         /// </summary>
         [DataMember(Name="sms_esp_twilio_uuid", EmitDefaultValue=false)]
@@ -166,6 +175,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PostcardFromName: ").Append(PostcardFromName).Append("\n");
             sb.Append("  PostcardFromPostalCode: ").Append(PostcardFromPostalCode).Append("\n");
             sb.Append("  PostcardFromState: ").Append(PostcardFromState).Append("\n");
+            sb.Append("  ReviewsIoConfigured: ").Append(ReviewsIoConfigured).Append("\n");
             sb.Append("  SmsEspTwilioUuid: ").Append(SmsEspTwilioUuid).Append("\n");
             sb.Append("  SmsPhoneNumber: ").Append(SmsPhoneNumber).Append("\n");
             sb.Append("  TransactionalEspDomainUser: ").Append(TransactionalEspDomainUser).Append("\n");
@@ -251,6 +261,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PostcardFromState.Equals(input.PostcardFromState))
                 ) && 
                 (
+                    this.ReviewsIoConfigured == input.ReviewsIoConfigured ||
+                    (this.ReviewsIoConfigured != null &&
+                    this.ReviewsIoConfigured.Equals(input.ReviewsIoConfigured))
+                ) && 
+                (
                     this.SmsEspTwilioUuid == input.SmsEspTwilioUuid ||
                     (this.SmsEspTwilioUuid != null &&
                     this.SmsEspTwilioUuid.Equals(input.SmsEspTwilioUuid))
@@ -304,6 +319,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PostcardFromPostalCode.GetHashCode();
                 if (this.PostcardFromState != null)
                     hashCode = hashCode * 59 + this.PostcardFromState.GetHashCode();
+                if (this.ReviewsIoConfigured != null)
+                    hashCode = hashCode * 59 + this.ReviewsIoConfigured.GetHashCode();
                 if (this.SmsEspTwilioUuid != null)
                     hashCode = hashCode * 59 + this.SmsEspTwilioUuid.GetHashCode();
                 if (this.SmsPhoneNumber != null)

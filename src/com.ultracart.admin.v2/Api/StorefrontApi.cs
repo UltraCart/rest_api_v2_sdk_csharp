@@ -929,6 +929,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailStatPostcardSummaryResponse</returns>
         ApiResponse<EmailStatPostcardSummaryResponse> GetEmailCommseqPostcardStatsWithHttpInfo (int? storefrontOid, string commseqUuid, EmailStatPostcardSummaryRequest statsRequest);
         /// <summary>
+        /// Get email communication postcard tracking
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqPostcardUuid"></param>
+        /// <returns>EmailPostcardTrackingResponse</returns>
+        EmailPostcardTrackingResponse GetEmailCommseqPostcardTracking (int? storefrontOid, string commseqPostcardUuid);
+
+        /// <summary>
+        /// Get email communication postcard tracking
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqPostcardUuid"></param>
+        /// <returns>ApiResponse of EmailPostcardTrackingResponse</returns>
+        ApiResponse<EmailPostcardTrackingResponse> GetEmailCommseqPostcardTrackingWithHttpInfo (int? storefrontOid, string commseqPostcardUuid);
+        /// <summary>
         /// Get communication sequence stats overall
         /// </summary>
         /// <remarks>
@@ -4765,6 +4788,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="statsRequest">StatsRequest</param>
         /// <returns>Task of ApiResponse (EmailStatPostcardSummaryResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailStatPostcardSummaryResponse>> GetEmailCommseqPostcardStatsAsyncWithHttpInfo (int? storefrontOid, string commseqUuid, EmailStatPostcardSummaryRequest statsRequest);
+        /// <summary>
+        /// Get email communication postcard tracking
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqPostcardUuid"></param>
+        /// <returns>Task of EmailPostcardTrackingResponse</returns>
+        System.Threading.Tasks.Task<EmailPostcardTrackingResponse> GetEmailCommseqPostcardTrackingAsync (int? storefrontOid, string commseqPostcardUuid);
+
+        /// <summary>
+        /// Get email communication postcard tracking
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqPostcardUuid"></param>
+        /// <returns>Task of ApiResponse (EmailPostcardTrackingResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailPostcardTrackingResponse>> GetEmailCommseqPostcardTrackingAsyncWithHttpInfo (int? storefrontOid, string commseqPostcardUuid);
         /// <summary>
         /// Get communication sequence stats overall
         /// </summary>
@@ -14945,6 +14991,185 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<EmailStatPostcardSummaryResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (EmailStatPostcardSummaryResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailStatPostcardSummaryResponse)));
+        }
+
+        /// <summary>
+        /// Get email communication postcard tracking 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqPostcardUuid"></param>
+        /// <returns>EmailPostcardTrackingResponse</returns>
+        public EmailPostcardTrackingResponse GetEmailCommseqPostcardTracking (int? storefrontOid, string commseqPostcardUuid)
+        {
+             ApiResponse<EmailPostcardTrackingResponse> localVarResponse = GetEmailCommseqPostcardTrackingWithHttpInfo(storefrontOid, commseqPostcardUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email communication postcard tracking 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqPostcardUuid"></param>
+        /// <returns>ApiResponse of EmailPostcardTrackingResponse</returns>
+        public ApiResponse< EmailPostcardTrackingResponse > GetEmailCommseqPostcardTrackingWithHttpInfo (int? storefrontOid, string commseqPostcardUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCommseqPostcardTracking");
+            // verify the required parameter 'commseqPostcardUuid' is set
+            if (commseqPostcardUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqPostcardUuid' when calling StorefrontApi->GetEmailCommseqPostcardTracking");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqPostcardUuid != null) localVarPathParams.Add("commseq_postcard_uuid", this.Configuration.ApiClient.ParameterToString(commseqPostcardUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCommseqPostcardTracking", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailPostcardTrackingResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailPostcardTrackingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailPostcardTrackingResponse)));
+        }
+
+        /// <summary>
+        /// Get email communication postcard tracking 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqPostcardUuid"></param>
+        /// <returns>Task of EmailPostcardTrackingResponse</returns>
+        public async System.Threading.Tasks.Task<EmailPostcardTrackingResponse> GetEmailCommseqPostcardTrackingAsync (int? storefrontOid, string commseqPostcardUuid)
+        {
+             ApiResponse<EmailPostcardTrackingResponse> localVarResponse = await GetEmailCommseqPostcardTrackingAsyncWithHttpInfo(storefrontOid, commseqPostcardUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email communication postcard tracking 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storefrontOid"></param>
+        /// <param name="commseqPostcardUuid"></param>
+        /// <returns>Task of ApiResponse (EmailPostcardTrackingResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailPostcardTrackingResponse>> GetEmailCommseqPostcardTrackingAsyncWithHttpInfo (int? storefrontOid, string commseqPostcardUuid)
+        {
+            // verify the required parameter 'storefrontOid' is set
+            if (storefrontOid == null)
+                throw new ApiException(400, "Missing required parameter 'storefrontOid' when calling StorefrontApi->GetEmailCommseqPostcardTracking");
+            // verify the required parameter 'commseqPostcardUuid' is set
+            if (commseqPostcardUuid == null)
+                throw new ApiException(400, "Missing required parameter 'commseqPostcardUuid' when calling StorefrontApi->GetEmailCommseqPostcardTracking");
+
+            var localVarPath = "/storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (storefrontOid != null) localVarPathParams.Add("storefront_oid", this.Configuration.ApiClient.ParameterToString(storefrontOid)); // path parameter
+            if (commseqPostcardUuid != null) localVarPathParams.Add("commseq_postcard_uuid", this.Configuration.ApiClient.ParameterToString(commseqPostcardUuid)); // path parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailCommseqPostcardTracking", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailPostcardTrackingResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (EmailPostcardTrackingResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailPostcardTrackingResponse)));
         }
 
         /// <summary>

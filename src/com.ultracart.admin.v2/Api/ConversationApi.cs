@@ -26,6 +26,25 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Agent keep alive
+        /// </summary>
+        /// <remarks>
+        /// Called periodically by the conversation API to keep the session alive. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        void GetAgentKeepAlive ();
+
+        /// <summary>
+        /// Agent keep alive
+        /// </summary>
+        /// <remarks>
+        /// Called periodically by the conversation API to keep the session alive. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> GetAgentKeepAliveWithHttpInfo ();
+        /// <summary>
         /// Get agent websocket authorization
         /// </summary>
         /// <remarks>
@@ -52,8 +71,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="limit"> (optional)</param>
         /// <returns>ConversationResponse</returns>
-        ConversationResponse GetConversation (string conversationUuid);
+        ConversationResponse GetConversation (string conversationUuid, int? limit = default(int?));
 
         /// <summary>
         /// Retrieve a conversation
@@ -63,8 +83,34 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="limit"> (optional)</param>
         /// <returns>ApiResponse of ConversationResponse</returns>
-        ApiResponse<ConversationResponse> GetConversationWithHttpInfo (string conversationUuid);
+        ApiResponse<ConversationResponse> GetConversationWithHttpInfo (string conversationUuid, int? limit = default(int?));
+        /// <summary>
+        /// Retrieve conversation messages
+        /// </summary>
+        /// <remarks>
+        /// Retrieve conversation messages since a particular time 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <param name="since"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>ConversationMessagesResponse</returns>
+        ConversationMessagesResponse GetConversationMessages (string conversationUuid, long since, int? limit = default(int?));
+
+        /// <summary>
+        /// Retrieve conversation messages
+        /// </summary>
+        /// <remarks>
+        /// Retrieve conversation messages since a particular time 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <param name="since"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>ApiResponse of ConversationMessagesResponse</returns>
+        ApiResponse<ConversationMessagesResponse> GetConversationMessagesWithHttpInfo (string conversationUuid, long since, int? limit = default(int?));
         /// <summary>
         /// Get a presigned conersation multimedia upload URL
         /// </summary>
@@ -219,6 +265,27 @@ namespace com.ultracart.admin.v2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Agent keep alive
+        /// </summary>
+        /// <remarks>
+        /// Called periodically by the conversation API to keep the session alive. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task GetAgentKeepAliveAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Agent keep alive
+        /// </summary>
+        /// <remarks>
+        /// Called periodically by the conversation API to keep the session alive. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetAgentKeepAliveWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Get agent websocket authorization
         /// </summary>
         /// <remarks>
@@ -247,9 +314,10 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="limit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ConversationResponse</returns>
-        System.Threading.Tasks.Task<ConversationResponse> GetConversationAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ConversationResponse> GetConversationAsync (string conversationUuid, int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Retrieve a conversation
@@ -259,9 +327,37 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="limit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ConversationResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationResponse>> GetConversationWithHttpInfoAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConversationResponse>> GetConversationWithHttpInfoAsync (string conversationUuid, int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve conversation messages
+        /// </summary>
+        /// <remarks>
+        /// Retrieve conversation messages since a particular time 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <param name="since"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ConversationMessagesResponse</returns>
+        System.Threading.Tasks.Task<ConversationMessagesResponse> GetConversationMessagesAsync (string conversationUuid, long since, int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve conversation messages
+        /// </summary>
+        /// <remarks>
+        /// Retrieve conversation messages since a particular time 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <param name="since"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ConversationMessagesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationMessagesResponse>> GetConversationMessagesWithHttpInfoAsync (string conversationUuid, long since, int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a presigned conersation multimedia upload URL
         /// </summary>
@@ -557,6 +653,149 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Agent keep alive Called periodically by the conversation API to keep the session alive. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        public void GetAgentKeepAlive ()
+        {
+             GetAgentKeepAliveWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Agent keep alive Called periodically by the conversation API to keep the session alive. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> GetAgentKeepAliveWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/agent/keepalive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAgentKeepAlive", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Agent keep alive Called periodically by the conversation API to keep the session alive. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task GetAgentKeepAliveAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await GetAgentKeepAliveWithHttpInfoAsync(cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Agent keep alive Called periodically by the conversation API to keep the session alive. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetAgentKeepAliveWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/conversation/agent/keepalive";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAgentKeepAlive", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
         /// Get agent websocket authorization Retrieve a JWT to authorize an agent to make a websocket connection. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -706,10 +945,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="limit"> (optional)</param>
         /// <returns>ConversationResponse</returns>
-        public ConversationResponse GetConversation (string conversationUuid)
+        public ConversationResponse GetConversation (string conversationUuid, int? limit = default(int?))
         {
-             ApiResponse<ConversationResponse> localVarResponse = GetConversationWithHttpInfo(conversationUuid);
+             ApiResponse<ConversationResponse> localVarResponse = GetConversationWithHttpInfo(conversationUuid, limit);
              return localVarResponse.Data;
         }
 
@@ -718,8 +958,9 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="limit"> (optional)</param>
         /// <returns>ApiResponse of ConversationResponse</returns>
-        public ApiResponse<ConversationResponse> GetConversationWithHttpInfo (string conversationUuid)
+        public ApiResponse<ConversationResponse> GetConversationWithHttpInfo (string conversationUuid, int? limit = default(int?))
         {
             // verify the required parameter 'conversationUuid' is set
             if (conversationUuid == null)
@@ -747,6 +988,7 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -783,11 +1025,12 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="limit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ConversationResponse</returns>
-        public async System.Threading.Tasks.Task<ConversationResponse> GetConversationAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ConversationResponse> GetConversationAsync (string conversationUuid, int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<ConversationResponse> localVarResponse = await GetConversationWithHttpInfoAsync(conversationUuid, cancellationToken);
+             ApiResponse<ConversationResponse> localVarResponse = await GetConversationWithHttpInfoAsync(conversationUuid, limit, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -797,9 +1040,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="limit"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ConversationResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationResponse>> GetConversationWithHttpInfoAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationResponse>> GetConversationWithHttpInfoAsync (string conversationUuid, int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'conversationUuid' is set
             if (conversationUuid == null)
@@ -827,6 +1071,7 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -856,6 +1101,181 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ConversationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve conversation messages Retrieve conversation messages since a particular time 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <param name="since"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>ConversationMessagesResponse</returns>
+        public ConversationMessagesResponse GetConversationMessages (string conversationUuid, long since, int? limit = default(int?))
+        {
+             ApiResponse<ConversationMessagesResponse> localVarResponse = GetConversationMessagesWithHttpInfo(conversationUuid, since, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve conversation messages Retrieve conversation messages since a particular time 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <param name="since"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <returns>ApiResponse of ConversationMessagesResponse</returns>
+        public ApiResponse<ConversationMessagesResponse> GetConversationMessagesWithHttpInfo (string conversationUuid, long since, int? limit = default(int?))
+        {
+            // verify the required parameter 'conversationUuid' is set
+            if (conversationUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationUuid' when calling ConversationApi->GetConversationMessages");
+            // verify the required parameter 'since' is set
+            if (since == null)
+                throw new ApiException(400, "Missing required parameter 'since' when calling ConversationApi->GetConversationMessages");
+
+            var localVarPath = "/conversation/conversations/{conversation_uuid}/messages/{since}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+            if (since != null) localVarPathParams.Add("since", this.Configuration.ApiClient.ParameterToString(since)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationMessages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationMessagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ConversationMessagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMessagesResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve conversation messages Retrieve conversation messages since a particular time 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <param name="since"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ConversationMessagesResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationMessagesResponse> GetConversationMessagesAsync (string conversationUuid, long since, int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ConversationMessagesResponse> localVarResponse = await GetConversationMessagesWithHttpInfoAsync(conversationUuid, since, limit, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve conversation messages Retrieve conversation messages since a particular time 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <param name="since"></param>
+        /// <param name="limit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ConversationMessagesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationMessagesResponse>> GetConversationMessagesWithHttpInfoAsync (string conversationUuid, long since, int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'conversationUuid' is set
+            if (conversationUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationUuid' when calling ConversationApi->GetConversationMessages");
+            // verify the required parameter 'since' is set
+            if (since == null)
+                throw new ApiException(400, "Missing required parameter 'since' when calling ConversationApi->GetConversationMessages");
+
+            var localVarPath = "/conversation/conversations/{conversation_uuid}/messages/{since}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+            if (since != null) localVarPathParams.Add("since", this.Configuration.ApiClient.ParameterToString(since)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationMessages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationMessagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ConversationMessagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMessagesResponse)));
         }
 
         /// <summary>

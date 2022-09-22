@@ -193,7 +193,7 @@ void (empty response body)
 
 ## GetDigitalItem
 
-> ItemDigitalItemResponse GetDigitalItem (int digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+> ItemDigitalItemResponse GetDigitalItem (int digitalItemOid)
 
 Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 
@@ -222,17 +222,11 @@ namespace Example
             var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
             var digitalItemOid = 56;  // int | The digital item oid to retrieve.
-            var limit = 100;  // int? | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional)  (default to 100)
-            var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
-            var since = "since_example";  // string | Fetch items that have been created/modified since this date/time. (optional) 
-            var sort = "sort_example";  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
-            var expand = "expand_example";  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
-            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
 
             try
             {
                 // Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
-                ItemDigitalItemResponse result = apiInstance.GetDigitalItem(digitalItemOid, limit, offset, since, sort, expand, placeholders);
+                ItemDigitalItemResponse result = apiInstance.GetDigitalItem(digitalItemOid);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -252,12 +246,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **digitalItemOid** | **int**| The digital item oid to retrieve. | 
- **limit** | **int?**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
- **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **since** | **string**| Fetch items that have been created/modified since this date/time. | [optional] 
- **sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
- **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
- **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
 
 ### Return type
 

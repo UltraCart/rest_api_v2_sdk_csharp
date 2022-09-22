@@ -424,6 +424,9 @@ docs/ItemContentMultimedia.md
 docs/ItemContentMultimediaThumbnail.md
 docs/ItemDigitalDelivery.md
 docs/ItemDigitalItem.md
+docs/ItemDigitalItemPdfMeta.md
+docs/ItemDigitalItemResponse.md
+docs/ItemDigitalItemsResponse.md
 docs/ItemEbay.md
 docs/ItemEbayCategorySpecific.md
 docs/ItemEbayMarketListing.md
@@ -1130,6 +1133,9 @@ src/com.ultracart.admin.v2/Model/ItemContentMultimedia.cs
 src/com.ultracart.admin.v2/Model/ItemContentMultimediaThumbnail.cs
 src/com.ultracart.admin.v2/Model/ItemDigitalDelivery.cs
 src/com.ultracart.admin.v2/Model/ItemDigitalItem.cs
+src/com.ultracart.admin.v2/Model/ItemDigitalItemPdfMeta.cs
+src/com.ultracart.admin.v2/Model/ItemDigitalItemResponse.cs
+src/com.ultracart.admin.v2/Model/ItemDigitalItemsResponse.cs
 src/com.ultracart.admin.v2/Model/ItemEbay.cs
 src/com.ultracart.admin.v2/Model/ItemEbayCategorySpecific.cs
 src/com.ultracart.admin.v2/Model/ItemEbayMarketListing.cs

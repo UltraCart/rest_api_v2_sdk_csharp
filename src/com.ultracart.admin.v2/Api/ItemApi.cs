@@ -74,14 +74,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ItemDigitalItemResponse</returns>
-        ItemDigitalItemResponse GetDigitalItem (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+        ItemDigitalItemResponse GetDigitalItem (int? digitalItemOid);
 
         /// <summary>
         /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
@@ -91,14 +85,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemDigitalItemResponse</returns>
-        ApiResponse<ItemDigitalItemResponse> GetDigitalItemWithHttpInfo (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+        ApiResponse<ItemDigitalItemResponse> GetDigitalItemWithHttpInfo (int? digitalItemOid);
         /// <summary>
         /// Retrieve digital items from the digital library which are digital files that may be attached to normal items
         /// </summary>
@@ -432,14 +420,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ItemDigitalItemResponse</returns>
-        System.Threading.Tasks.Task<ItemDigitalItemResponse> GetDigitalItemAsync (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+        System.Threading.Tasks.Task<ItemDigitalItemResponse> GetDigitalItemAsync (int? digitalItemOid);
 
         /// <summary>
         /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
@@ -449,14 +431,8 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemDigitalItemResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> GetDigitalItemAsyncWithHttpInfo (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+        System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> GetDigitalItemAsyncWithHttpInfo (int? digitalItemOid);
         /// <summary>
         /// Retrieve digital items from the digital library which are digital files that may be attached to normal items
         /// </summary>
@@ -1160,16 +1136,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ItemDigitalItemResponse</returns>
-        public ItemDigitalItemResponse GetDigitalItem (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        public ItemDigitalItemResponse GetDigitalItem (int? digitalItemOid)
         {
-             ApiResponse<ItemDigitalItemResponse> localVarResponse = GetDigitalItemWithHttpInfo(digitalItemOid, limit, offset, since, sort, expand, placeholders);
+             ApiResponse<ItemDigitalItemResponse> localVarResponse = GetDigitalItemWithHttpInfo(digitalItemOid);
              return localVarResponse.Data;
         }
 
@@ -1178,14 +1148,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemDigitalItemResponse</returns>
-        public ApiResponse< ItemDigitalItemResponse > GetDigitalItemWithHttpInfo (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        public ApiResponse< ItemDigitalItemResponse > GetDigitalItemWithHttpInfo (int? digitalItemOid)
         {
             // verify the required parameter 'digitalItemOid' is set
             if (digitalItemOid == null)
@@ -1214,12 +1178,6 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (digitalItemOid != null) localVarPathParams.Add("digital_item_oid", this.Configuration.ApiClient.ParameterToString(digitalItemOid)); // path parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
-            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
-            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
-            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -1256,16 +1214,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ItemDigitalItemResponse</returns>
-        public async System.Threading.Tasks.Task<ItemDigitalItemResponse> GetDigitalItemAsync (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        public async System.Threading.Tasks.Task<ItemDigitalItemResponse> GetDigitalItemAsync (int? digitalItemOid)
         {
-             ApiResponse<ItemDigitalItemResponse> localVarResponse = await GetDigitalItemAsyncWithHttpInfo(digitalItemOid, limit, offset, since, sort, expand, placeholders);
+             ApiResponse<ItemDigitalItemResponse> localVarResponse = await GetDigitalItemAsyncWithHttpInfo(digitalItemOid);
              return localVarResponse.Data;
 
         }
@@ -1275,14 +1227,8 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
-        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
-        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
-        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
-        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
-        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
-        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemDigitalItemResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> GetDigitalItemAsyncWithHttpInfo (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> GetDigitalItemAsyncWithHttpInfo (int? digitalItemOid)
         {
             // verify the required parameter 'digitalItemOid' is set
             if (digitalItemOid == null)
@@ -1311,12 +1257,6 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (digitalItemOid != null) localVarPathParams.Add("digital_item_oid", this.Configuration.ApiClient.ParameterToString(digitalItemOid)); // path parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
-            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
-            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
-            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
-            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required

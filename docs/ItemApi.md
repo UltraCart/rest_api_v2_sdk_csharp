@@ -4,16 +4,86 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DeleteDigitalItem**](ItemApi.md#deletedigitalitem) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 [**DeleteItem**](ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**GetDigitalItem**](ItemApi.md#getdigitalitem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+[**GetDigitalItems**](ItemApi.md#getdigitalitems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**GetItem**](ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**GetItemByMerchantItemId**](ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**GetItems**](ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 [**GetPricingTiers**](ItemApi.md#getpricingtiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+[**InsertDigitalItem**](ItemApi.md#insertdigitalitem) | **POST** /item/digital_library | Create a file within the digital library
 [**InsertItem**](ItemApi.md#insertitem) | **POST** /item/items | Create an item
+[**UpdateDigitalItem**](ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**UpdateItem**](ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**UpdateItems**](ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
 [**UploadTemporaryMultimedia**](ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
+
+<a name="deletedigitalitem"></a>
+# **DeleteDigitalItem**
+> void DeleteDigitalItem (int? digitalItemOid)
+
+Delete a digital item, which is a file within the digital library, not an actual merchant item
+
+Delete a digital item on the UltraCart account. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteDigitalItemExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var digitalItemOid = 56;  // int? | The digital item oid to delete.
+
+            try
+            {
+                // Delete a digital item, which is a file within the digital library, not an actual merchant item
+                apiInstance.DeleteDigitalItem(digitalItemOid);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.DeleteDigitalItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digitalItemOid** | **int?**| The digital item oid to delete. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="deleteitem"></a>
 # **DeleteItem**
@@ -68,6 +138,160 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getdigitalitem"></a>
+# **GetDigitalItem**
+> ItemDigitalItemResponse GetDigitalItem (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+
+Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+
+Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetDigitalItemExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var digitalItemOid = 56;  // int? | The digital item oid to retrieve.
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional)  (default to 100)
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var since = since_example;  // string | Fetch items that have been created/modified since this date/time. (optional) 
+            var sort = sort_example;  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
+
+            try
+            {
+                // Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+                ItemDigitalItemResponse result = apiInstance.GetDigitalItem(digitalItemOid, limit, offset, since, sort, expand, placeholders);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.GetDigitalItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digitalItemOid** | **int?**| The digital item oid to retrieve. | 
+ **limit** | **int?**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **since** | **string**| Fetch items that have been created/modified since this date/time. | [optional] 
+ **sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+
+### Return type
+
+[**ItemDigitalItemResponse**](ItemDigitalItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getdigitalitems"></a>
+# **GetDigitalItems**
+> ItemDigitalItemsResponse GetDigitalItems (int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+
+Retrieve digital items from the digital library which are digital files that may be attached to normal items
+
+Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetDigitalItemsExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var limit = 56;  // int? | The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional)  (default to 100)
+            var offset = 56;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
+            var since = since_example;  // string | Fetch items that have been created/modified since this date/time. (optional) 
+            var sort = sort_example;  // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional) 
+            var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
+            var placeholders = true;  // bool? | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional) 
+
+            try
+            {
+                // Retrieve digital items from the digital library which are digital files that may be attached to normal items
+                ItemDigitalItemsResponse result = apiInstance.GetDigitalItems(limit, offset, since, sort, expand, placeholders);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.GetDigitalItems: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int?**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
+ **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **since** | **string**| Fetch items that have been created/modified since this date/time. | [optional] 
+ **sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional] 
+ **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
+ **placeholders** | **bool?**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional] 
+
+### Return type
+
+[**ItemDigitalItemsResponse**](ItemDigitalItemsResponse.md)
 
 ### Authorization
 
@@ -366,6 +590,72 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="insertdigitalitem"></a>
+# **InsertDigitalItem**
+> ItemDigitalItemResponse InsertDigitalItem (ItemDigitalItem digitalItem)
+
+Create a file within the digital library
+
+Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class InsertDigitalItemExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var digitalItem = new ItemDigitalItem(); // ItemDigitalItem | Digital item to create
+
+            try
+            {
+                // Create a file within the digital library
+                ItemDigitalItemResponse result = apiInstance.InsertDigitalItem(digitalItem);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.InsertDigitalItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digitalItem** | [**ItemDigitalItem**](ItemDigitalItem.md)| Digital item to create | 
+
+### Return type
+
+[**ItemDigitalItemResponse**](ItemDigitalItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="insertitem"></a>
 # **InsertItem**
 > ItemResponse InsertItem (Item item, string expand = null, bool? placeholders = null)
@@ -424,6 +714,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemResponse**](ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatedigitalitem"></a>
+# **UpdateDigitalItem**
+> ItemDigitalItemResponse UpdateDigitalItem (int? digitalItemOid, ItemDigitalItem digitalItem)
+
+Updates a file within the digital library
+
+Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateDigitalItemExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var digitalItemOid = 56;  // int? | The digital item oid to update.
+            var digitalItem = new ItemDigitalItem(); // ItemDigitalItem | Digital item to update
+
+            try
+            {
+                // Updates a file within the digital library
+                ItemDigitalItemResponse result = apiInstance.UpdateDigitalItem(digitalItemOid, digitalItem);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.UpdateDigitalItem: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **digitalItemOid** | **int?**| The digital item oid to update. | 
+ **digitalItem** | [**ItemDigitalItem**](ItemDigitalItem.md)| Digital item to update | 
+
+### Return type
+
+[**ItemDigitalItemResponse**](ItemDigitalItemResponse.md)
 
 ### Authorization
 

@@ -25,6 +25,27 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Delete a digital item, which is a file within the digital library, not an actual merchant item
+        /// </summary>
+        /// <remarks>
+        /// Delete a digital item on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to delete.</param>
+        /// <returns></returns>
+        void DeleteDigitalItem (int? digitalItemOid);
+
+        /// <summary>
+        /// Delete a digital item, which is a file within the digital library, not an actual merchant item
+        /// </summary>
+        /// <remarks>
+        /// Delete a digital item on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to delete.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteDigitalItemWithHttpInfo (int? digitalItemOid);
+        /// <summary>
         /// Delete an item
         /// </summary>
         /// <remarks>
@@ -45,6 +66,70 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="merchantItemOid">The item oid to delete.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteItemWithHttpInfo (int? merchantItemOid);
+        /// <summary>
+        /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ItemDigitalItemResponse</returns>
+        ItemDigitalItemResponse GetDigitalItem (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+
+        /// <summary>
+        /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of ItemDigitalItemResponse</returns>
+        ApiResponse<ItemDigitalItemResponse> GetDigitalItemWithHttpInfo (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+        /// <summary>
+        /// Retrieve digital items from the digital library which are digital files that may be attached to normal items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ItemDigitalItemsResponse</returns>
+        ItemDigitalItemsResponse GetDigitalItems (int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+
+        /// <summary>
+        /// Retrieve digital items from the digital library which are digital files that may be attached to normal items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of ItemDigitalItemsResponse</returns>
+        ApiResponse<ItemDigitalItemsResponse> GetDigitalItemsWithHttpInfo (int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
         /// <summary>
         /// Retrieve an item
         /// </summary>
@@ -152,6 +237,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of PricingTiersResponse</returns>
         ApiResponse<PricingTiersResponse> GetPricingTiersWithHttpInfo (string expand = null);
         /// <summary>
+        /// Create a file within the digital library
+        /// </summary>
+        /// <remarks>
+        /// Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItem">Digital item to create</param>
+        /// <returns>ItemDigitalItemResponse</returns>
+        ItemDigitalItemResponse InsertDigitalItem (ItemDigitalItem digitalItem);
+
+        /// <summary>
+        /// Create a file within the digital library
+        /// </summary>
+        /// <remarks>
+        /// Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItem">Digital item to create</param>
+        /// <returns>ApiResponse of ItemDigitalItemResponse</returns>
+        ApiResponse<ItemDigitalItemResponse> InsertDigitalItemWithHttpInfo (ItemDigitalItem digitalItem);
+        /// <summary>
         /// Create an item
         /// </summary>
         /// <remarks>
@@ -176,6 +282,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemResponse</returns>
         ApiResponse<ItemResponse> InsertItemWithHttpInfo (Item item, string expand = null, bool? placeholders = null);
+        /// <summary>
+        /// Updates a file within the digital library
+        /// </summary>
+        /// <remarks>
+        /// Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to update.</param>
+        /// <param name="digitalItem">Digital item to update</param>
+        /// <returns>ItemDigitalItemResponse</returns>
+        ItemDigitalItemResponse UpdateDigitalItem (int? digitalItemOid, ItemDigitalItem digitalItem);
+
+        /// <summary>
+        /// Updates a file within the digital library
+        /// </summary>
+        /// <remarks>
+        /// Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to update.</param>
+        /// <param name="digitalItem">Digital item to update</param>
+        /// <returns>ApiResponse of ItemDigitalItemResponse</returns>
+        ApiResponse<ItemDigitalItemResponse> UpdateDigitalItemWithHttpInfo (int? digitalItemOid, ItemDigitalItem digitalItem);
         /// <summary>
         /// Update an item
         /// </summary>
@@ -254,6 +383,27 @@ namespace com.ultracart.admin.v2.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Delete a digital item, which is a file within the digital library, not an actual merchant item
+        /// </summary>
+        /// <remarks>
+        /// Delete a digital item on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to delete.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteDigitalItemAsync (int? digitalItemOid);
+
+        /// <summary>
+        /// Delete a digital item, which is a file within the digital library, not an actual merchant item
+        /// </summary>
+        /// <remarks>
+        /// Delete a digital item on the UltraCart account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to delete.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDigitalItemAsyncWithHttpInfo (int? digitalItemOid);
+        /// <summary>
         /// Delete an item
         /// </summary>
         /// <remarks>
@@ -274,6 +424,70 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="merchantItemOid">The item oid to delete.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteItemAsyncWithHttpInfo (int? merchantItemOid);
+        /// <summary>
+        /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ItemDigitalItemResponse</returns>
+        System.Threading.Tasks.Task<ItemDigitalItemResponse> GetDigitalItemAsync (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+
+        /// <summary>
+        /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> GetDigitalItemAsyncWithHttpInfo (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+        /// <summary>
+        /// Retrieve digital items from the digital library which are digital files that may be attached to normal items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ItemDigitalItemsResponse</returns>
+        System.Threading.Tasks.Task<ItemDigitalItemsResponse> GetDigitalItemsAsync (int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
+
+        /// <summary>
+        /// Retrieve digital items from the digital library which are digital files that may be attached to normal items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemsResponse>> GetDigitalItemsAsyncWithHttpInfo (int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null);
         /// <summary>
         /// Retrieve an item
         /// </summary>
@@ -381,6 +595,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (PricingTiersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PricingTiersResponse>> GetPricingTiersAsyncWithHttpInfo (string expand = null);
         /// <summary>
+        /// Create a file within the digital library
+        /// </summary>
+        /// <remarks>
+        /// Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItem">Digital item to create</param>
+        /// <returns>Task of ItemDigitalItemResponse</returns>
+        System.Threading.Tasks.Task<ItemDigitalItemResponse> InsertDigitalItemAsync (ItemDigitalItem digitalItem);
+
+        /// <summary>
+        /// Create a file within the digital library
+        /// </summary>
+        /// <remarks>
+        /// Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItem">Digital item to create</param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> InsertDigitalItemAsyncWithHttpInfo (ItemDigitalItem digitalItem);
+        /// <summary>
         /// Create an item
         /// </summary>
         /// <remarks>
@@ -405,6 +640,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemResponse>> InsertItemAsyncWithHttpInfo (Item item, string expand = null, bool? placeholders = null);
+        /// <summary>
+        /// Updates a file within the digital library
+        /// </summary>
+        /// <remarks>
+        /// Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to update.</param>
+        /// <param name="digitalItem">Digital item to update</param>
+        /// <returns>Task of ItemDigitalItemResponse</returns>
+        System.Threading.Tasks.Task<ItemDigitalItemResponse> UpdateDigitalItemAsync (int? digitalItemOid, ItemDigitalItem digitalItem);
+
+        /// <summary>
+        /// Updates a file within the digital library
+        /// </summary>
+        /// <remarks>
+        /// Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to update.</param>
+        /// <param name="digitalItem">Digital item to update</param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> UpdateDigitalItemAsyncWithHttpInfo (int? digitalItemOid, ItemDigitalItem digitalItem);
         /// <summary>
         /// Update an item
         /// </summary>
@@ -588,6 +846,161 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Delete a digital item, which is a file within the digital library, not an actual merchant item Delete a digital item on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to delete.</param>
+        /// <returns></returns>
+        public void DeleteDigitalItem (int? digitalItemOid)
+        {
+             DeleteDigitalItemWithHttpInfo(digitalItemOid);
+        }
+
+        /// <summary>
+        /// Delete a digital item, which is a file within the digital library, not an actual merchant item Delete a digital item on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to delete.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteDigitalItemWithHttpInfo (int? digitalItemOid)
+        {
+            // verify the required parameter 'digitalItemOid' is set
+            if (digitalItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'digitalItemOid' when calling ItemApi->DeleteDigitalItem");
+
+            var localVarPath = "/item/digital_library/{digital_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (digitalItemOid != null) localVarPathParams.Add("digital_item_oid", this.Configuration.ApiClient.ParameterToString(digitalItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteDigitalItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a digital item, which is a file within the digital library, not an actual merchant item Delete a digital item on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to delete.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteDigitalItemAsync (int? digitalItemOid)
+        {
+             await DeleteDigitalItemAsyncWithHttpInfo(digitalItemOid);
+
+        }
+
+        /// <summary>
+        /// Delete a digital item, which is a file within the digital library, not an actual merchant item Delete a digital item on the UltraCart account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to delete.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteDigitalItemAsyncWithHttpInfo (int? digitalItemOid)
+        {
+            // verify the required parameter 'digitalItemOid' is set
+            if (digitalItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'digitalItemOid' when calling ItemApi->DeleteDigitalItem");
+
+            var localVarPath = "/item/digital_library/{digital_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (digitalItemOid != null) localVarPathParams.Add("digital_item_oid", this.Configuration.ApiClient.ParameterToString(digitalItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteDigitalItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
         /// Delete an item Delete an item on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -740,6 +1153,380 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ItemDigitalItemResponse</returns>
+        public ItemDigitalItemResponse GetDigitalItem (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        {
+             ApiResponse<ItemDigitalItemResponse> localVarResponse = GetDigitalItemWithHttpInfo(digitalItemOid, limit, offset, since, sort, expand, placeholders);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of ItemDigitalItemResponse</returns>
+        public ApiResponse< ItemDigitalItemResponse > GetDigitalItemWithHttpInfo (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        {
+            // verify the required parameter 'digitalItemOid' is set
+            if (digitalItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'digitalItemOid' when calling ItemApi->GetDigitalItem");
+
+            var localVarPath = "/item/digital_library/{digital_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (digitalItemOid != null) localVarPathParams.Add("digital_item_oid", this.Configuration.ApiClient.ParameterToString(digitalItemOid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetDigitalItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemDigitalItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ItemDigitalItemResponse</returns>
+        public async System.Threading.Tasks.Task<ItemDigitalItemResponse> GetDigitalItemAsync (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        {
+             ApiResponse<ItemDigitalItemResponse> localVarResponse = await GetDigitalItemAsyncWithHttpInfo(digitalItemOid, limit, offset, since, sort, expand, placeholders);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items Retrieves a digital item (file information) from the account.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to retrieve.</param>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> GetDigitalItemAsyncWithHttpInfo (int? digitalItemOid, int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        {
+            // verify the required parameter 'digitalItemOid' is set
+            if (digitalItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'digitalItemOid' when calling ItemApi->GetDigitalItem");
+
+            var localVarPath = "/item/digital_library/{digital_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (digitalItemOid != null) localVarPathParams.Add("digital_item_oid", this.Configuration.ApiClient.ParameterToString(digitalItemOid)); // path parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetDigitalItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemDigitalItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve digital items from the digital library which are digital files that may be attached to normal items Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ItemDigitalItemsResponse</returns>
+        public ItemDigitalItemsResponse GetDigitalItems (int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        {
+             ApiResponse<ItemDigitalItemsResponse> localVarResponse = GetDigitalItemsWithHttpInfo(limit, offset, since, sort, expand, placeholders);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve digital items from the digital library which are digital files that may be attached to normal items Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of ItemDigitalItemsResponse</returns>
+        public ApiResponse< ItemDigitalItemsResponse > GetDigitalItemsWithHttpInfo (int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        {
+
+            var localVarPath = "/item/digital_library";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetDigitalItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemDigitalItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve digital items from the digital library which are digital files that may be attached to normal items Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ItemDigitalItemsResponse</returns>
+        public async System.Threading.Tasks.Task<ItemDigitalItemsResponse> GetDigitalItemsAsync (int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        {
+             ApiResponse<ItemDigitalItemsResponse> localVarResponse = await GetDigitalItemsAsyncWithHttpInfo(limit, offset, since, sort, expand, placeholders);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve digital items from the digital library which are digital files that may be attached to normal items Retrieves a group of digital items (file information) from the account.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemsResponse>> GetDigitalItemsAsyncWithHttpInfo (int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
+        {
+
+            var localVarPath = "/item/digital_library";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetDigitalItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemDigitalItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemsResponse)));
         }
 
         /// <summary>
@@ -1425,6 +2212,177 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Create a file within the digital library Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItem">Digital item to create</param>
+        /// <returns>ItemDigitalItemResponse</returns>
+        public ItemDigitalItemResponse InsertDigitalItem (ItemDigitalItem digitalItem)
+        {
+             ApiResponse<ItemDigitalItemResponse> localVarResponse = InsertDigitalItemWithHttpInfo(digitalItem);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a file within the digital library Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItem">Digital item to create</param>
+        /// <returns>ApiResponse of ItemDigitalItemResponse</returns>
+        public ApiResponse< ItemDigitalItemResponse > InsertDigitalItemWithHttpInfo (ItemDigitalItem digitalItem)
+        {
+            // verify the required parameter 'digitalItem' is set
+            if (digitalItem == null)
+                throw new ApiException(400, "Missing required parameter 'digitalItem' when calling ItemApi->InsertDigitalItem");
+
+            var localVarPath = "/item/digital_library";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (digitalItem != null && digitalItem.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(digitalItem); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = digitalItem; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertDigitalItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemDigitalItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemResponse)));
+        }
+
+        /// <summary>
+        /// Create a file within the digital library Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItem">Digital item to create</param>
+        /// <returns>Task of ItemDigitalItemResponse</returns>
+        public async System.Threading.Tasks.Task<ItemDigitalItemResponse> InsertDigitalItemAsync (ItemDigitalItem digitalItem)
+        {
+             ApiResponse<ItemDigitalItemResponse> localVarResponse = await InsertDigitalItemAsyncWithHttpInfo(digitalItem);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a file within the digital library Create a file within the digital library.  This does not create an item, but makes this digital file available and selectable as part (or all) of an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItem">Digital item to create</param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> InsertDigitalItemAsyncWithHttpInfo (ItemDigitalItem digitalItem)
+        {
+            // verify the required parameter 'digitalItem' is set
+            if (digitalItem == null)
+                throw new ApiException(400, "Missing required parameter 'digitalItem' when calling ItemApi->InsertDigitalItem");
+
+            var localVarPath = "/item/digital_library";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (digitalItem != null && digitalItem.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(digitalItem); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = digitalItem; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertDigitalItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemDigitalItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemResponse)));
+        }
+
+        /// <summary>
         /// Create an item Create a new item on the UltraCart account. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1605,6 +2563,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemResponse)));
+        }
+
+        /// <summary>
+        /// Updates a file within the digital library Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to update.</param>
+        /// <param name="digitalItem">Digital item to update</param>
+        /// <returns>ItemDigitalItemResponse</returns>
+        public ItemDigitalItemResponse UpdateDigitalItem (int? digitalItemOid, ItemDigitalItem digitalItem)
+        {
+             ApiResponse<ItemDigitalItemResponse> localVarResponse = UpdateDigitalItemWithHttpInfo(digitalItemOid, digitalItem);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates a file within the digital library Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to update.</param>
+        /// <param name="digitalItem">Digital item to update</param>
+        /// <returns>ApiResponse of ItemDigitalItemResponse</returns>
+        public ApiResponse< ItemDigitalItemResponse > UpdateDigitalItemWithHttpInfo (int? digitalItemOid, ItemDigitalItem digitalItem)
+        {
+            // verify the required parameter 'digitalItemOid' is set
+            if (digitalItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'digitalItemOid' when calling ItemApi->UpdateDigitalItem");
+            // verify the required parameter 'digitalItem' is set
+            if (digitalItem == null)
+                throw new ApiException(400, "Missing required parameter 'digitalItem' when calling ItemApi->UpdateDigitalItem");
+
+            var localVarPath = "/item/digital_library/{digital_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (digitalItemOid != null) localVarPathParams.Add("digital_item_oid", this.Configuration.ApiClient.ParameterToString(digitalItemOid)); // path parameter
+            if (digitalItem != null && digitalItem.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(digitalItem); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = digitalItem; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateDigitalItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemDigitalItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemResponse)));
+        }
+
+        /// <summary>
+        /// Updates a file within the digital library Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to update.</param>
+        /// <param name="digitalItem">Digital item to update</param>
+        /// <returns>Task of ItemDigitalItemResponse</returns>
+        public async System.Threading.Tasks.Task<ItemDigitalItemResponse> UpdateDigitalItemAsync (int? digitalItemOid, ItemDigitalItem digitalItem)
+        {
+             ApiResponse<ItemDigitalItemResponse> localVarResponse = await UpdateDigitalItemAsyncWithHttpInfo(digitalItemOid, digitalItem);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Updates a file within the digital library Updates a file within the digital library.  This does not update an item, but updates a digital file available and selectable as part (or all) of an item. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="digitalItemOid">The digital item oid to update.</param>
+        /// <param name="digitalItem">Digital item to update</param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemResponse>> UpdateDigitalItemAsyncWithHttpInfo (int? digitalItemOid, ItemDigitalItem digitalItem)
+        {
+            // verify the required parameter 'digitalItemOid' is set
+            if (digitalItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'digitalItemOid' when calling ItemApi->UpdateDigitalItem");
+            // verify the required parameter 'digitalItem' is set
+            if (digitalItem == null)
+                throw new ApiException(400, "Missing required parameter 'digitalItem' when calling ItemApi->UpdateDigitalItem");
+
+            var localVarPath = "/item/digital_library/{digital_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (digitalItemOid != null) localVarPathParams.Add("digital_item_oid", this.Configuration.ApiClient.ParameterToString(digitalItemOid)); // path parameter
+            if (digitalItem != null && digitalItem.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(digitalItem); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = digitalItem; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateDigitalItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ItemDigitalItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemResponse)));
         }
 
         /// <summary>

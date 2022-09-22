@@ -33,20 +33,35 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemDigitalItem" /> class.
         /// </summary>
+        /// <param name="clickWrapAgreement">Click wrap agreement is presented to the customer before they can purchase your product..</param>
         /// <param name="creationDts">File creation date.</param>
         /// <param name="description">Description of the digital item.</param>
+        /// <param name="digitalItemOid">The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect..</param>
         /// <param name="fileSize">File size.</param>
+        /// <param name="importFromUrl">This url is sourced to create or update a digital file in your digital library.  It is only considered during an insert or update operation..</param>
         /// <param name="mimeType">Mime type associated with the file.</param>
         /// <param name="originalFilename">Original filename.</param>
-        public ItemDigitalItem(string creationDts = default(string), string description = default(string), long? fileSize = default(long?), string mimeType = default(string), string originalFilename = default(string))
+        /// <param name="pdfMeta">pdfMeta.</param>
+        public ItemDigitalItem(string clickWrapAgreement = default(string), string creationDts = default(string), string description = default(string), int? digitalItemOid = default(int?), long? fileSize = default(long?), string importFromUrl = default(string), string mimeType = default(string), string originalFilename = default(string), ItemDigitalItemPdfMeta pdfMeta = default(ItemDigitalItemPdfMeta))
         {
+            this.ClickWrapAgreement = clickWrapAgreement;
             this.CreationDts = creationDts;
             this.Description = description;
+            this.DigitalItemOid = digitalItemOid;
             this.FileSize = fileSize;
+            this.ImportFromUrl = importFromUrl;
             this.MimeType = mimeType;
             this.OriginalFilename = originalFilename;
+            this.PdfMeta = pdfMeta;
         }
         
+        /// <summary>
+        /// Click wrap agreement is presented to the customer before they can purchase your product.
+        /// </summary>
+        /// <value>Click wrap agreement is presented to the customer before they can purchase your product.</value>
+        [DataMember(Name="click_wrap_agreement", EmitDefaultValue=false)]
+        public string ClickWrapAgreement { get; set; }
+
         /// <summary>
         /// File creation date
         /// </summary>
@@ -62,11 +77,25 @@ namespace com.ultracart.admin.v2.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect.
+        /// </summary>
+        /// <value>The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect.</value>
+        [DataMember(Name="digital_item_oid", EmitDefaultValue=false)]
+        public int? DigitalItemOid { get; set; }
+
+        /// <summary>
         /// File size
         /// </summary>
         /// <value>File size</value>
         [DataMember(Name="file_size", EmitDefaultValue=false)]
         public long? FileSize { get; set; }
+
+        /// <summary>
+        /// This url is sourced to create or update a digital file in your digital library.  It is only considered during an insert or update operation.
+        /// </summary>
+        /// <value>This url is sourced to create or update a digital file in your digital library.  It is only considered during an insert or update operation.</value>
+        [DataMember(Name="import_from_url", EmitDefaultValue=false)]
+        public string ImportFromUrl { get; set; }
 
         /// <summary>
         /// Mime type associated with the file
@@ -83,6 +112,12 @@ namespace com.ultracart.admin.v2.Model
         public string OriginalFilename { get; set; }
 
         /// <summary>
+        /// Gets or Sets PdfMeta
+        /// </summary>
+        [DataMember(Name="pdf_meta", EmitDefaultValue=false)]
+        public ItemDigitalItemPdfMeta PdfMeta { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,11 +125,15 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ItemDigitalItem {\n");
+            sb.Append("  ClickWrapAgreement: ").Append(ClickWrapAgreement).Append("\n");
             sb.Append("  CreationDts: ").Append(CreationDts).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DigitalItemOid: ").Append(DigitalItemOid).Append("\n");
             sb.Append("  FileSize: ").Append(FileSize).Append("\n");
+            sb.Append("  ImportFromUrl: ").Append(ImportFromUrl).Append("\n");
             sb.Append("  MimeType: ").Append(MimeType).Append("\n");
             sb.Append("  OriginalFilename: ").Append(OriginalFilename).Append("\n");
+            sb.Append("  PdfMeta: ").Append(PdfMeta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,6 +169,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.ClickWrapAgreement == input.ClickWrapAgreement ||
+                    (this.ClickWrapAgreement != null &&
+                    this.ClickWrapAgreement.Equals(input.ClickWrapAgreement))
+                ) && 
+                (
                     this.CreationDts == input.CreationDts ||
                     (this.CreationDts != null &&
                     this.CreationDts.Equals(input.CreationDts))
@@ -140,9 +184,19 @@ namespace com.ultracart.admin.v2.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.DigitalItemOid == input.DigitalItemOid ||
+                    (this.DigitalItemOid != null &&
+                    this.DigitalItemOid.Equals(input.DigitalItemOid))
+                ) && 
+                (
                     this.FileSize == input.FileSize ||
                     (this.FileSize != null &&
                     this.FileSize.Equals(input.FileSize))
+                ) && 
+                (
+                    this.ImportFromUrl == input.ImportFromUrl ||
+                    (this.ImportFromUrl != null &&
+                    this.ImportFromUrl.Equals(input.ImportFromUrl))
                 ) && 
                 (
                     this.MimeType == input.MimeType ||
@@ -153,6 +207,11 @@ namespace com.ultracart.admin.v2.Model
                     this.OriginalFilename == input.OriginalFilename ||
                     (this.OriginalFilename != null &&
                     this.OriginalFilename.Equals(input.OriginalFilename))
+                ) && 
+                (
+                    this.PdfMeta == input.PdfMeta ||
+                    (this.PdfMeta != null &&
+                    this.PdfMeta.Equals(input.PdfMeta))
                 );
         }
 
@@ -165,16 +224,24 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ClickWrapAgreement != null)
+                    hashCode = hashCode * 59 + this.ClickWrapAgreement.GetHashCode();
                 if (this.CreationDts != null)
                     hashCode = hashCode * 59 + this.CreationDts.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.DigitalItemOid != null)
+                    hashCode = hashCode * 59 + this.DigitalItemOid.GetHashCode();
                 if (this.FileSize != null)
                     hashCode = hashCode * 59 + this.FileSize.GetHashCode();
+                if (this.ImportFromUrl != null)
+                    hashCode = hashCode * 59 + this.ImportFromUrl.GetHashCode();
                 if (this.MimeType != null)
                     hashCode = hashCode * 59 + this.MimeType.GetHashCode();
                 if (this.OriginalFilename != null)
                     hashCode = hashCode * 59 + this.OriginalFilename.GetHashCode();
+                if (this.PdfMeta != null)
+                    hashCode = hashCode * 59 + this.PdfMeta.GetHashCode();
                 return hashCode;
             }
         }

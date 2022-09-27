@@ -213,6 +213,54 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of EmailFlowResponse</returns>
         ApiResponse<EmailFlowResponse> CloneEmailFlowWithHttpInfo (int? storefrontOid, string emailFlowUuid, int? targetStorefrontOid = null);
         /// <summary>
+        /// Create file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="name"> (optional)</param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>FileManagerPage</returns>
+        FileManagerPage CreateAdminPanelFsDirectory (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null);
+
+        /// <summary>
+        /// Create file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="name"> (optional)</param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>ApiResponse of FileManagerPage</returns>
+        ApiResponse<FileManagerPage> CreateAdminPanelFsDirectoryWithHttpInfo (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null);
+        /// <summary>
+        /// Upload file manager file for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>FileManagerPage</returns>
+        FileManagerPage CreateAdminPanelFsFileUpload (int? id, int? parentStorefrontFsDirectoryOid = null);
+
+        /// <summary>
+        /// Upload file manager file for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>ApiResponse of FileManagerPage</returns>
+        ApiResponse<FileManagerPage> CreateAdminPanelFsFileUploadWithHttpInfo (int? id, int? parentStorefrontFsDirectoryOid = null);
+        /// <summary>
         /// Create email campaign
         /// </summary>
         /// <remarks>
@@ -275,6 +323,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="twilio">Twilio</param>
         /// <returns>ApiResponse of TwilioResponse</returns>
         ApiResponse<TwilioResponse> CreateTwilioAccountWithHttpInfo (Twilio twilio);
+        /// <summary>
+        /// Delete file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontFsFileOid"> (optional)</param>
+        /// <returns>FileManagerPage</returns>
+        FileManagerPage DeleteAdminPanelFsFile (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null);
+
+        /// <summary>
+        /// Delete file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontFsFileOid"> (optional)</param>
+        /// <returns>ApiResponse of FileManagerPage</returns>
+        ApiResponse<FileManagerPage> DeleteAdminPanelFsFileWithHttpInfo (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null);
         /// <summary>
         /// Delete email campaignFolder
         /// </summary>
@@ -658,6 +731,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="geocodeRequest">geocode request</param>
         /// <returns>ApiResponse of GeocodeResponse</returns>
         ApiResponse<GeocodeResponse> GeocodeAddressWithHttpInfo (int? storefrontOid, GeocodeRequest geocodeRequest);
+        /// <summary>
+        /// Get file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="storefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontThemeOid"> (optional)</param>
+        /// <returns>FileManagerPage</returns>
+        FileManagerPage GetAdminPanelFsDirectory (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null);
+
+        /// <summary>
+        /// Get file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="storefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontThemeOid"> (optional)</param>
+        /// <returns>ApiResponse of FileManagerPage</returns>
+        ApiResponse<FileManagerPage> GetAdminPanelFsDirectoryWithHttpInfo (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null);
         /// <summary>
         /// Get countries
         /// </summary>
@@ -4073,6 +4173,54 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (EmailFlowResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailFlowResponse>> CloneEmailFlowAsyncWithHttpInfo (int? storefrontOid, string emailFlowUuid, int? targetStorefrontOid = null);
         /// <summary>
+        /// Create file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="name"> (optional)</param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>Task of FileManagerPage</returns>
+        System.Threading.Tasks.Task<FileManagerPage> CreateAdminPanelFsDirectoryAsync (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null);
+
+        /// <summary>
+        /// Create file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="name"> (optional)</param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> CreateAdminPanelFsDirectoryAsyncWithHttpInfo (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null);
+        /// <summary>
+        /// Upload file manager file for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>Task of FileManagerPage</returns>
+        System.Threading.Tasks.Task<FileManagerPage> CreateAdminPanelFsFileUploadAsync (int? id, int? parentStorefrontFsDirectoryOid = null);
+
+        /// <summary>
+        /// Upload file manager file for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> CreateAdminPanelFsFileUploadAsyncWithHttpInfo (int? id, int? parentStorefrontFsDirectoryOid = null);
+        /// <summary>
         /// Create email campaign
         /// </summary>
         /// <remarks>
@@ -4135,6 +4283,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="twilio">Twilio</param>
         /// <returns>Task of ApiResponse (TwilioResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TwilioResponse>> CreateTwilioAccountAsyncWithHttpInfo (Twilio twilio);
+        /// <summary>
+        /// Delete file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontFsFileOid"> (optional)</param>
+        /// <returns>Task of FileManagerPage</returns>
+        System.Threading.Tasks.Task<FileManagerPage> DeleteAdminPanelFsFileAsync (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null);
+
+        /// <summary>
+        /// Delete file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontFsFileOid"> (optional)</param>
+        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> DeleteAdminPanelFsFileAsyncWithHttpInfo (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null);
         /// <summary>
         /// Delete email campaignFolder
         /// </summary>
@@ -4518,6 +4691,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="geocodeRequest">geocode request</param>
         /// <returns>Task of ApiResponse (GeocodeResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GeocodeResponse>> GeocodeAddressAsyncWithHttpInfo (int? storefrontOid, GeocodeRequest geocodeRequest);
+        /// <summary>
+        /// Get file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="storefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontThemeOid"> (optional)</param>
+        /// <returns>Task of FileManagerPage</returns>
+        System.Threading.Tasks.Task<FileManagerPage> GetAdminPanelFsDirectoryAsync (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null);
+
+        /// <summary>
+        /// Get file manager directory for admin panel
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="storefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontThemeOid"> (optional)</param>
+        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> GetAdminPanelFsDirectoryAsyncWithHttpInfo (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null);
         /// <summary>
         /// Get countries
         /// </summary>
@@ -9336,6 +9536,358 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Create file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="name"> (optional)</param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>FileManagerPage</returns>
+        public FileManagerPage CreateAdminPanelFsDirectory (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null)
+        {
+             ApiResponse<FileManagerPage> localVarResponse = CreateAdminPanelFsDirectoryWithHttpInfo(id, name, parentStorefrontFsDirectoryOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="name"> (optional)</param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>ApiResponse of FileManagerPage</returns>
+        public ApiResponse< FileManagerPage > CreateAdminPanelFsDirectoryWithHttpInfo (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StorefrontApi->CreateAdminPanelFsDirectory");
+
+            var localVarPath = "/storefront/{id}/adminPanel/fs/dir";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
+            if (parentStorefrontFsDirectoryOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "parent_storefront_fs_directory_oid", parentStorefrontFsDirectoryOid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateAdminPanelFsDirectory", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+        }
+
+        /// <summary>
+        /// Create file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="name"> (optional)</param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>Task of FileManagerPage</returns>
+        public async System.Threading.Tasks.Task<FileManagerPage> CreateAdminPanelFsDirectoryAsync (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null)
+        {
+             ApiResponse<FileManagerPage> localVarResponse = await CreateAdminPanelFsDirectoryAsyncWithHttpInfo(id, name, parentStorefrontFsDirectoryOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="name"> (optional)</param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> CreateAdminPanelFsDirectoryAsyncWithHttpInfo (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StorefrontApi->CreateAdminPanelFsDirectory");
+
+            var localVarPath = "/storefront/{id}/adminPanel/fs/dir";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
+            if (parentStorefrontFsDirectoryOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "parent_storefront_fs_directory_oid", parentStorefrontFsDirectoryOid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateAdminPanelFsDirectory", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+        }
+
+        /// <summary>
+        /// Upload file manager file for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>FileManagerPage</returns>
+        public FileManagerPage CreateAdminPanelFsFileUpload (int? id, int? parentStorefrontFsDirectoryOid = null)
+        {
+             ApiResponse<FileManagerPage> localVarResponse = CreateAdminPanelFsFileUploadWithHttpInfo(id, parentStorefrontFsDirectoryOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Upload file manager file for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>ApiResponse of FileManagerPage</returns>
+        public ApiResponse< FileManagerPage > CreateAdminPanelFsFileUploadWithHttpInfo (int? id, int? parentStorefrontFsDirectoryOid = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StorefrontApi->CreateAdminPanelFsFileUpload");
+
+            var localVarPath = "/storefront/{id}/adminPanel/fs/file";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (parentStorefrontFsDirectoryOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "parent_storefront_fs_directory_oid", parentStorefrontFsDirectoryOid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateAdminPanelFsFileUpload", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+        }
+
+        /// <summary>
+        /// Upload file manager file for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>Task of FileManagerPage</returns>
+        public async System.Threading.Tasks.Task<FileManagerPage> CreateAdminPanelFsFileUploadAsync (int? id, int? parentStorefrontFsDirectoryOid = null)
+        {
+             ApiResponse<FileManagerPage> localVarResponse = await CreateAdminPanelFsFileUploadAsyncWithHttpInfo(id, parentStorefrontFsDirectoryOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Upload file manager file for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> CreateAdminPanelFsFileUploadAsyncWithHttpInfo (int? id, int? parentStorefrontFsDirectoryOid = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StorefrontApi->CreateAdminPanelFsFileUpload");
+
+            var localVarPath = "/storefront/{id}/adminPanel/fs/file";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (parentStorefrontFsDirectoryOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "parent_storefront_fs_directory_oid", parentStorefrontFsDirectoryOid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateAdminPanelFsFileUpload", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+        }
+
+        /// <summary>
         /// Create email campaign 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -9862,6 +10414,185 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<TwilioResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (TwilioResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TwilioResponse)));
+        }
+
+        /// <summary>
+        /// Delete file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontFsFileOid"> (optional)</param>
+        /// <returns>FileManagerPage</returns>
+        public FileManagerPage DeleteAdminPanelFsFile (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null)
+        {
+             ApiResponse<FileManagerPage> localVarResponse = DeleteAdminPanelFsFileWithHttpInfo(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontFsFileOid"> (optional)</param>
+        /// <returns>ApiResponse of FileManagerPage</returns>
+        public ApiResponse< FileManagerPage > DeleteAdminPanelFsFileWithHttpInfo (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StorefrontApi->DeleteAdminPanelFsFile");
+
+            var localVarPath = "/storefront/{id}/adminPanel/fs/file";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (parentStorefrontFsDirectoryOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "parent_storefront_fs_directory_oid", parentStorefrontFsDirectoryOid)); // query parameter
+            if (storefrontFsFileOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_fs_file_oid", storefrontFsFileOid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAdminPanelFsFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+        }
+
+        /// <summary>
+        /// Delete file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontFsFileOid"> (optional)</param>
+        /// <returns>Task of FileManagerPage</returns>
+        public async System.Threading.Tasks.Task<FileManagerPage> DeleteAdminPanelFsFileAsync (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null)
+        {
+             ApiResponse<FileManagerPage> localVarResponse = await DeleteAdminPanelFsFileAsyncWithHttpInfo(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontFsFileOid"> (optional)</param>
+        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> DeleteAdminPanelFsFileAsyncWithHttpInfo (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StorefrontApi->DeleteAdminPanelFsFile");
+
+            var localVarPath = "/storefront/{id}/adminPanel/fs/file";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (parentStorefrontFsDirectoryOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "parent_storefront_fs_directory_oid", parentStorefrontFsDirectoryOid)); // query parameter
+            if (storefrontFsFileOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_fs_file_oid", storefrontFsFileOid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAdminPanelFsFile", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
         }
 
         /// <summary>
@@ -12851,6 +13582,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<GeocodeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (GeocodeResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GeocodeResponse)));
+        }
+
+        /// <summary>
+        /// Get file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="storefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontThemeOid"> (optional)</param>
+        /// <returns>FileManagerPage</returns>
+        public FileManagerPage GetAdminPanelFsDirectory (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null)
+        {
+             ApiResponse<FileManagerPage> localVarResponse = GetAdminPanelFsDirectoryWithHttpInfo(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="storefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontThemeOid"> (optional)</param>
+        /// <returns>ApiResponse of FileManagerPage</returns>
+        public ApiResponse< FileManagerPage > GetAdminPanelFsDirectoryWithHttpInfo (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StorefrontApi->GetAdminPanelFsDirectory");
+
+            var localVarPath = "/storefront/{id}/adminPanel/fs/dir";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (storefrontFsDirectoryOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_fs_directory_oid", storefrontFsDirectoryOid)); // query parameter
+            if (storefrontThemeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_theme_oid", storefrontThemeOid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAdminPanelFsDirectory", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+        }
+
+        /// <summary>
+        /// Get file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="storefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontThemeOid"> (optional)</param>
+        /// <returns>Task of FileManagerPage</returns>
+        public async System.Threading.Tasks.Task<FileManagerPage> GetAdminPanelFsDirectoryAsync (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null)
+        {
+             ApiResponse<FileManagerPage> localVarResponse = await GetAdminPanelFsDirectoryAsyncWithHttpInfo(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get file manager directory for admin panel 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="path"> (optional)</param>
+        /// <param name="storefrontFsDirectoryOid"> (optional)</param>
+        /// <param name="storefrontThemeOid"> (optional)</param>
+        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> GetAdminPanelFsDirectoryAsyncWithHttpInfo (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StorefrontApi->GetAdminPanelFsDirectory");
+
+            var localVarPath = "/storefront/{id}/adminPanel/fs/dir";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (path != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "path", path)); // query parameter
+            if (storefrontFsDirectoryOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_fs_directory_oid", storefrontFsDirectoryOid)); // query parameter
+            if (storefrontThemeOid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "storefront_theme_oid", storefrontThemeOid)); // query parameter
+
+            // authentication (ultraCartBrowserApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key")))
+            {
+                localVarHeaderParams["x-ultracart-browser-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-browser-key");
+            }
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAdminPanelFsDirectory", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
         }
 
         /// <summary>

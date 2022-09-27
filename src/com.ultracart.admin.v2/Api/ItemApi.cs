@@ -226,6 +226,37 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of PricingTiersResponse</returns>
         ApiResponse<PricingTiersResponse> GetPricingTiersWithHttpInfo (string expand = default(string));
         /// <summary>
+        /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ItemDigitalItemsResponse</returns>
+        ItemDigitalItemsResponse GetUnassociatedDigitalItems (int? limit = default(int?), int? offset = default(int?), string since = default(string), string sort = default(string), string expand = default(string), bool? placeholders = default(bool?));
+
+        /// <summary>
+        /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of ItemDigitalItemsResponse</returns>
+        ApiResponse<ItemDigitalItemsResponse> GetUnassociatedDigitalItemsWithHttpInfo (int? limit = default(int?), int? offset = default(int?), string since = default(string), string sort = default(string), string expand = default(string), bool? placeholders = default(bool?));
+        /// <summary>
         /// Create a file within the digital library
         /// </summary>
         /// <remarks>
@@ -587,6 +618,39 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PricingTiersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PricingTiersResponse>> GetPricingTiersWithHttpInfoAsync (string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemDigitalItemsResponse</returns>
+        System.Threading.Tasks.Task<ItemDigitalItemsResponse> GetUnassociatedDigitalItemsAsync (int? limit = default(int?), int? offset = default(int?), string since = default(string), string sort = default(string), string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemsResponse>> GetUnassociatedDigitalItemsWithHttpInfoAsync (int? limit = default(int?), int? offset = default(int?), string since = default(string), string sort = default(string), string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create a file within the digital library
         /// </summary>
@@ -2200,6 +2264,187 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<PricingTiersResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PricingTiersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PricingTiersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ItemDigitalItemsResponse</returns>
+        public ItemDigitalItemsResponse GetUnassociatedDigitalItems (int? limit = default(int?), int? offset = default(int?), string since = default(string), string sort = default(string), string expand = default(string), bool? placeholders = default(bool?))
+        {
+             ApiResponse<ItemDigitalItemsResponse> localVarResponse = GetUnassociatedDigitalItemsWithHttpInfo(limit, offset, since, sort, expand, placeholders);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <returns>ApiResponse of ItemDigitalItemsResponse</returns>
+        public ApiResponse<ItemDigitalItemsResponse> GetUnassociatedDigitalItemsWithHttpInfo (int? limit = default(int?), int? offset = default(int?), string since = default(string), string sort = default(string), string expand = default(string), bool? placeholders = default(bool?))
+        {
+
+            var localVarPath = "/item/digital_library/unassociated";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUnassociatedDigitalItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemDigitalItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemDigitalItemsResponse</returns>
+        public async System.Threading.Tasks.Task<ItemDigitalItemsResponse> GetUnassociatedDigitalItemsAsync (int? limit = default(int?), int? offset = default(int?), string since = default(string), string sort = default(string), string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemDigitalItemsResponse> localVarResponse = await GetUnassociatedDigitalItemsWithHttpInfoAsync(limit, offset, since, sort, expand, placeholders, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)</param>
+        /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
+        /// <param name="since">Fetch items that have been created/modified since this date/time. (optional)</param>
+        /// <param name="sort">The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemsResponse>> GetUnassociatedDigitalItemsWithHttpInfoAsync (int? limit = default(int?), int? offset = default(int?), string since = default(string), string sort = default(string), string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/item/digital_library/unassociated";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
+            if (since != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_since", since)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_sort", sort)); // query parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+            if (placeholders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_placeholders", placeholders)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUnassociatedDigitalItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemDigitalItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemsResponse)));
         }
 
         /// <summary>

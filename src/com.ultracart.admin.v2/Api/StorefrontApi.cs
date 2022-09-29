@@ -265,8 +265,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="id"></param>
         /// <param name="name"> (optional)</param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
-        /// <returns>FileManagerPage</returns>
-        FileManagerPage CreateFsDirectory (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?));
+        /// <returns>FileManagerPageResponse</returns>
+        FileManagerPageResponse CreateFsDirectory (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?));
 
         /// <summary>
         /// Create file manager directory
@@ -278,8 +278,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="id"></param>
         /// <param name="name"> (optional)</param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
-        /// <returns>ApiResponse of FileManagerPage</returns>
-        ApiResponse<FileManagerPage> CreateFsDirectoryWithHttpInfo (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?));
+        /// <returns>ApiResponse of FileManagerPageResponse</returns>
+        ApiResponse<FileManagerPageResponse> CreateFsDirectoryWithHttpInfo (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?));
         /// <summary>
         /// Create Twilio account
         /// </summary>
@@ -518,8 +518,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="id"></param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontFsFileOid"> (optional)</param>
-        /// <returns>FileManagerPage</returns>
-        FileManagerPage DeleteFsFile (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?));
+        /// <returns>FileManagerPageResponse</returns>
+        FileManagerPageResponse DeleteFsFile (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?));
 
         /// <summary>
         /// Delete file manager directory
@@ -531,8 +531,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="id"></param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontFsFileOid"> (optional)</param>
-        /// <returns>ApiResponse of FileManagerPage</returns>
-        ApiResponse<FileManagerPage> DeleteFsFileWithHttpInfo (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?));
+        /// <returns>ApiResponse of FileManagerPageResponse</returns>
+        ApiResponse<FileManagerPageResponse> DeleteFsFileWithHttpInfo (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?));
         /// <summary>
         /// Delete screen recording heatmap
         /// </summary>
@@ -2046,8 +2046,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="path"> (optional)</param>
         /// <param name="storefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontThemeOid"> (optional)</param>
-        /// <returns>FileManagerPage</returns>
-        FileManagerPage GetFsDirectory (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?));
+        /// <returns>FileManagerPageResponse</returns>
+        FileManagerPageResponse GetFsDirectory (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?));
 
         /// <summary>
         /// Get file manager directory
@@ -2060,8 +2060,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="path"> (optional)</param>
         /// <param name="storefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontThemeOid"> (optional)</param>
-        /// <returns>ApiResponse of FileManagerPage</returns>
-        ApiResponse<FileManagerPage> GetFsDirectoryWithHttpInfo (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?));
+        /// <returns>ApiResponse of FileManagerPageResponse</returns>
+        ApiResponse<FileManagerPageResponse> GetFsDirectoryWithHttpInfo (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?));
         /// <summary>
         /// Get screen recording heatmap
         /// </summary>
@@ -4269,8 +4269,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="name"> (optional)</param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of FileManagerPage</returns>
-        System.Threading.Tasks.Task<FileManagerPage> CreateFsDirectoryAsync (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of FileManagerPageResponse</returns>
+        System.Threading.Tasks.Task<FileManagerPageResponse> CreateFsDirectoryAsync (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create file manager directory
@@ -4283,8 +4283,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="name"> (optional)</param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> CreateFsDirectoryWithHttpInfoAsync (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (FileManagerPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileManagerPageResponse>> CreateFsDirectoryWithHttpInfoAsync (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create Twilio account
         /// </summary>
@@ -4544,8 +4544,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontFsFileOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of FileManagerPage</returns>
-        System.Threading.Tasks.Task<FileManagerPage> DeleteFsFileAsync (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of FileManagerPageResponse</returns>
+        System.Threading.Tasks.Task<FileManagerPageResponse> DeleteFsFileAsync (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete file manager directory
@@ -4558,8 +4558,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontFsFileOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> DeleteFsFileWithHttpInfoAsync (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (FileManagerPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileManagerPageResponse>> DeleteFsFileWithHttpInfoAsync (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete screen recording heatmap
         /// </summary>
@@ -6206,8 +6206,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontThemeOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of FileManagerPage</returns>
-        System.Threading.Tasks.Task<FileManagerPage> GetFsDirectoryAsync (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of FileManagerPageResponse</returns>
+        System.Threading.Tasks.Task<FileManagerPageResponse> GetFsDirectoryAsync (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get file manager directory
@@ -6221,8 +6221,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontThemeOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> GetFsDirectoryWithHttpInfoAsync (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (FileManagerPageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileManagerPageResponse>> GetFsDirectoryWithHttpInfoAsync (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get screen recording heatmap
         /// </summary>
@@ -10309,10 +10309,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="id"></param>
         /// <param name="name"> (optional)</param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
-        /// <returns>FileManagerPage</returns>
-        public FileManagerPage CreateFsDirectory (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?))
+        /// <returns>FileManagerPageResponse</returns>
+        public FileManagerPageResponse CreateFsDirectory (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?))
         {
-             ApiResponse<FileManagerPage> localVarResponse = CreateFsDirectoryWithHttpInfo(id, name, parentStorefrontFsDirectoryOid);
+             ApiResponse<FileManagerPageResponse> localVarResponse = CreateFsDirectoryWithHttpInfo(id, name, parentStorefrontFsDirectoryOid);
              return localVarResponse.Data;
         }
 
@@ -10323,8 +10323,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="id"></param>
         /// <param name="name"> (optional)</param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
-        /// <returns>ApiResponse of FileManagerPage</returns>
-        public ApiResponse<FileManagerPage> CreateFsDirectoryWithHttpInfo (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?))
+        /// <returns>ApiResponse of FileManagerPageResponse</returns>
+        public ApiResponse<FileManagerPageResponse> CreateFsDirectoryWithHttpInfo (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -10385,9 +10385,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+            return new ApiResponse<FileManagerPageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+                (FileManagerPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPageResponse)));
         }
 
         /// <summary>
@@ -10398,10 +10398,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="name"> (optional)</param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of FileManagerPage</returns>
-        public async System.Threading.Tasks.Task<FileManagerPage> CreateFsDirectoryAsync (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of FileManagerPageResponse</returns>
+        public async System.Threading.Tasks.Task<FileManagerPageResponse> CreateFsDirectoryAsync (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<FileManagerPage> localVarResponse = await CreateFsDirectoryWithHttpInfoAsync(id, name, parentStorefrontFsDirectoryOid, cancellationToken);
+             ApiResponse<FileManagerPageResponse> localVarResponse = await CreateFsDirectoryWithHttpInfoAsync(id, name, parentStorefrontFsDirectoryOid, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -10414,8 +10414,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="name"> (optional)</param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> CreateFsDirectoryWithHttpInfoAsync (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (FileManagerPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileManagerPageResponse>> CreateFsDirectoryWithHttpInfoAsync (int id, string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -10476,9 +10476,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+            return new ApiResponse<FileManagerPageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+                (FileManagerPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPageResponse)));
         }
 
         /// <summary>
@@ -12278,10 +12278,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="id"></param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontFsFileOid"> (optional)</param>
-        /// <returns>FileManagerPage</returns>
-        public FileManagerPage DeleteFsFile (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?))
+        /// <returns>FileManagerPageResponse</returns>
+        public FileManagerPageResponse DeleteFsFile (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?))
         {
-             ApiResponse<FileManagerPage> localVarResponse = DeleteFsFileWithHttpInfo(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
+             ApiResponse<FileManagerPageResponse> localVarResponse = DeleteFsFileWithHttpInfo(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
              return localVarResponse.Data;
         }
 
@@ -12292,8 +12292,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="id"></param>
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontFsFileOid"> (optional)</param>
-        /// <returns>ApiResponse of FileManagerPage</returns>
-        public ApiResponse<FileManagerPage> DeleteFsFileWithHttpInfo (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?))
+        /// <returns>ApiResponse of FileManagerPageResponse</returns>
+        public ApiResponse<FileManagerPageResponse> DeleteFsFileWithHttpInfo (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -12354,9 +12354,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+            return new ApiResponse<FileManagerPageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+                (FileManagerPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPageResponse)));
         }
 
         /// <summary>
@@ -12367,10 +12367,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontFsFileOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of FileManagerPage</returns>
-        public async System.Threading.Tasks.Task<FileManagerPage> DeleteFsFileAsync (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of FileManagerPageResponse</returns>
+        public async System.Threading.Tasks.Task<FileManagerPageResponse> DeleteFsFileAsync (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<FileManagerPage> localVarResponse = await DeleteFsFileWithHttpInfoAsync(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid, cancellationToken);
+             ApiResponse<FileManagerPageResponse> localVarResponse = await DeleteFsFileWithHttpInfoAsync(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -12383,8 +12383,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="parentStorefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontFsFileOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> DeleteFsFileWithHttpInfoAsync (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (FileManagerPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileManagerPageResponse>> DeleteFsFileWithHttpInfoAsync (int id, int? parentStorefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -12445,9 +12445,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+            return new ApiResponse<FileManagerPageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+                (FileManagerPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPageResponse)));
         }
 
         /// <summary>
@@ -24202,10 +24202,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="path"> (optional)</param>
         /// <param name="storefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontThemeOid"> (optional)</param>
-        /// <returns>FileManagerPage</returns>
-        public FileManagerPage GetFsDirectory (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?))
+        /// <returns>FileManagerPageResponse</returns>
+        public FileManagerPageResponse GetFsDirectory (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?))
         {
-             ApiResponse<FileManagerPage> localVarResponse = GetFsDirectoryWithHttpInfo(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
+             ApiResponse<FileManagerPageResponse> localVarResponse = GetFsDirectoryWithHttpInfo(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
              return localVarResponse.Data;
         }
 
@@ -24217,8 +24217,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="path"> (optional)</param>
         /// <param name="storefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontThemeOid"> (optional)</param>
-        /// <returns>ApiResponse of FileManagerPage</returns>
-        public ApiResponse<FileManagerPage> GetFsDirectoryWithHttpInfo (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?))
+        /// <returns>ApiResponse of FileManagerPageResponse</returns>
+        public ApiResponse<FileManagerPageResponse> GetFsDirectoryWithHttpInfo (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -24280,9 +24280,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+            return new ApiResponse<FileManagerPageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+                (FileManagerPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPageResponse)));
         }
 
         /// <summary>
@@ -24294,10 +24294,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontThemeOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of FileManagerPage</returns>
-        public async System.Threading.Tasks.Task<FileManagerPage> GetFsDirectoryAsync (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of FileManagerPageResponse</returns>
+        public async System.Threading.Tasks.Task<FileManagerPageResponse> GetFsDirectoryAsync (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<FileManagerPage> localVarResponse = await GetFsDirectoryWithHttpInfoAsync(id, path, storefrontFsDirectoryOid, storefrontThemeOid, cancellationToken);
+             ApiResponse<FileManagerPageResponse> localVarResponse = await GetFsDirectoryWithHttpInfoAsync(id, path, storefrontFsDirectoryOid, storefrontThemeOid, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -24311,8 +24311,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="storefrontFsDirectoryOid"> (optional)</param>
         /// <param name="storefrontThemeOid"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (FileManagerPage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FileManagerPage>> GetFsDirectoryWithHttpInfoAsync (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (FileManagerPageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileManagerPageResponse>> GetFsDirectoryWithHttpInfoAsync (int id, string path = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontThemeOid = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -24374,9 +24374,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<FileManagerPage>(localVarStatusCode,
+            return new ApiResponse<FileManagerPageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (FileManagerPage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPage)));
+                (FileManagerPageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileManagerPageResponse)));
         }
 
         /// <summary>

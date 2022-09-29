@@ -34,16 +34,22 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="FileManagerPage" /> class.
         /// </summary>
         /// <param name="currentStorefrontFsDirectoryOid">currentStorefrontFsDirectoryOid.</param>
+        /// <param name="directories">directories.</param>
+        /// <param name="files">files.</param>
         /// <param name="hostname">hostname.</param>
         /// <param name="parentStorefrontFsDirectoryOid">parentStorefrontFsDirectoryOid.</param>
         /// <param name="path">path.</param>
+        /// <param name="pathList">pathList.</param>
         /// <param name="storefrontOid">storefrontOid.</param>
-        public FileManagerPage(int? currentStorefrontFsDirectoryOid = default(int?), string hostname = default(string), int? parentStorefrontFsDirectoryOid = default(int?), string path = default(string), int? storefrontOid = default(int?))
+        public FileManagerPage(int? currentStorefrontFsDirectoryOid = default(int?), List<FileManagerDirectory> directories = default(List<FileManagerDirectory>), List<FileManagerFile> files = default(List<FileManagerFile>), string hostname = default(string), int? parentStorefrontFsDirectoryOid = default(int?), string path = default(string), List<FileManagerDirectory> pathList = default(List<FileManagerDirectory>), int? storefrontOid = default(int?))
         {
             this.CurrentStorefrontFsDirectoryOid = currentStorefrontFsDirectoryOid;
+            this.Directories = directories;
+            this.Files = files;
             this.Hostname = hostname;
             this.ParentStorefrontFsDirectoryOid = parentStorefrontFsDirectoryOid;
             this.Path = path;
+            this.PathList = pathList;
             this.StorefrontOid = storefrontOid;
         }
         
@@ -52,6 +58,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="current_storefront_fs_directory_oid", EmitDefaultValue=false)]
         public int? CurrentStorefrontFsDirectoryOid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Directories
+        /// </summary>
+        [DataMember(Name="directories", EmitDefaultValue=false)]
+        public List<FileManagerDirectory> Directories { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Files
+        /// </summary>
+        [DataMember(Name="files", EmitDefaultValue=false)]
+        public List<FileManagerFile> Files { get; set; }
 
         /// <summary>
         /// Gets or Sets Hostname
@@ -72,6 +90,12 @@ namespace com.ultracart.admin.v2.Model
         public string Path { get; set; }
 
         /// <summary>
+        /// Gets or Sets PathList
+        /// </summary>
+        [DataMember(Name="path_list", EmitDefaultValue=false)]
+        public List<FileManagerDirectory> PathList { get; set; }
+
+        /// <summary>
         /// Gets or Sets StorefrontOid
         /// </summary>
         [DataMember(Name="storefront_oid", EmitDefaultValue=false)]
@@ -86,9 +110,12 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class FileManagerPage {\n");
             sb.Append("  CurrentStorefrontFsDirectoryOid: ").Append(CurrentStorefrontFsDirectoryOid).Append("\n");
+            sb.Append("  Directories: ").Append(Directories).Append("\n");
+            sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  Hostname: ").Append(Hostname).Append("\n");
             sb.Append("  ParentStorefrontFsDirectoryOid: ").Append(ParentStorefrontFsDirectoryOid).Append("\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("  PathList: ").Append(PathList).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -130,6 +157,16 @@ namespace com.ultracart.admin.v2.Model
                     this.CurrentStorefrontFsDirectoryOid.Equals(input.CurrentStorefrontFsDirectoryOid))
                 ) && 
                 (
+                    this.Directories == input.Directories ||
+                    this.Directories != null &&
+                    this.Directories.SequenceEqual(input.Directories)
+                ) && 
+                (
+                    this.Files == input.Files ||
+                    this.Files != null &&
+                    this.Files.SequenceEqual(input.Files)
+                ) && 
+                (
                     this.Hostname == input.Hostname ||
                     (this.Hostname != null &&
                     this.Hostname.Equals(input.Hostname))
@@ -143,6 +180,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Path == input.Path ||
                     (this.Path != null &&
                     this.Path.Equals(input.Path))
+                ) && 
+                (
+                    this.PathList == input.PathList ||
+                    this.PathList != null &&
+                    this.PathList.SequenceEqual(input.PathList)
                 ) && 
                 (
                     this.StorefrontOid == input.StorefrontOid ||
@@ -162,12 +204,18 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.CurrentStorefrontFsDirectoryOid != null)
                     hashCode = hashCode * 59 + this.CurrentStorefrontFsDirectoryOid.GetHashCode();
+                if (this.Directories != null)
+                    hashCode = hashCode * 59 + this.Directories.GetHashCode();
+                if (this.Files != null)
+                    hashCode = hashCode * 59 + this.Files.GetHashCode();
                 if (this.Hostname != null)
                     hashCode = hashCode * 59 + this.Hostname.GetHashCode();
                 if (this.ParentStorefrontFsDirectoryOid != null)
                     hashCode = hashCode * 59 + this.ParentStorefrontFsDirectoryOid.GetHashCode();
                 if (this.Path != null)
                     hashCode = hashCode * 59 + this.Path.GetHashCode();
+                if (this.PathList != null)
+                    hashCode = hashCode * 59 + this.PathList.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
                 return hashCode;

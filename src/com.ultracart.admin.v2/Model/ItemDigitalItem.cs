@@ -37,17 +37,19 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="creationDts">File creation date.</param>
         /// <param name="description">Description of the digital item.</param>
         /// <param name="digitalItemOid">The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect..</param>
+        /// <param name="externalId">External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs..</param>
         /// <param name="fileSize">File size.</param>
         /// <param name="importFromUrl">This url is sourced to create or update a digital file in your digital library.  It is only considered during an insert or update operation..</param>
         /// <param name="mimeType">Mime type associated with the file.</param>
         /// <param name="originalFilename">Original filename.</param>
         /// <param name="pdfMeta">pdfMeta.</param>
-        public ItemDigitalItem(string clickWrapAgreement = default(string), string creationDts = default(string), string description = default(string), int? digitalItemOid = default(int?), long? fileSize = default(long?), string importFromUrl = default(string), string mimeType = default(string), string originalFilename = default(string), ItemDigitalItemPdfMeta pdfMeta = default(ItemDigitalItemPdfMeta))
+        public ItemDigitalItem(string clickWrapAgreement = default(string), string creationDts = default(string), string description = default(string), int? digitalItemOid = default(int?), string externalId = default(string), long? fileSize = default(long?), string importFromUrl = default(string), string mimeType = default(string), string originalFilename = default(string), ItemDigitalItemPdfMeta pdfMeta = default(ItemDigitalItemPdfMeta))
         {
             this.ClickWrapAgreement = clickWrapAgreement;
             this.CreationDts = creationDts;
             this.Description = description;
             this.DigitalItemOid = digitalItemOid;
+            this.ExternalId = externalId;
             this.FileSize = fileSize;
             this.ImportFromUrl = importFromUrl;
             this.MimeType = mimeType;
@@ -82,6 +84,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect.</value>
         [DataMember(Name="digital_item_oid", EmitDefaultValue=false)]
         public int? DigitalItemOid { get; set; }
+
+        /// <summary>
+        /// External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.
+        /// </summary>
+        /// <value>External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.</value>
+        [DataMember(Name="external_id", EmitDefaultValue=false)]
+        public string ExternalId { get; set; }
 
         /// <summary>
         /// File size
@@ -129,6 +138,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreationDts: ").Append(CreationDts).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DigitalItemOid: ").Append(DigitalItemOid).Append("\n");
+            sb.Append("  ExternalId: ").Append(ExternalId).Append("\n");
             sb.Append("  FileSize: ").Append(FileSize).Append("\n");
             sb.Append("  ImportFromUrl: ").Append(ImportFromUrl).Append("\n");
             sb.Append("  MimeType: ").Append(MimeType).Append("\n");
@@ -189,6 +199,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DigitalItemOid.Equals(input.DigitalItemOid))
                 ) && 
                 (
+                    this.ExternalId == input.ExternalId ||
+                    (this.ExternalId != null &&
+                    this.ExternalId.Equals(input.ExternalId))
+                ) && 
+                (
                     this.FileSize == input.FileSize ||
                     (this.FileSize != null &&
                     this.FileSize.Equals(input.FileSize))
@@ -232,6 +247,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.DigitalItemOid != null)
                     hashCode = hashCode * 59 + this.DigitalItemOid.GetHashCode();
+                if (this.ExternalId != null)
+                    hashCode = hashCode * 59 + this.ExternalId.GetHashCode();
                 if (this.FileSize != null)
                     hashCode = hashCode * 59 + this.FileSize.GetHashCode();
                 if (this.ImportFromUrl != null)
@@ -257,6 +274,12 @@ namespace com.ultracart.admin.v2.Model
             if(this.Description != null && this.Description.Length > 200)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 200.", new [] { "Description" });
+            }
+
+            // ExternalId (string) maxLength
+            if(this.ExternalId != null && this.ExternalId.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExternalId, length must be less than 100.", new [] { "ExternalId" });
             }
 
             // MimeType (string) maxLength

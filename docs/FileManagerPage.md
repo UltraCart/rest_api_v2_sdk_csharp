@@ -4,9 +4,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CurrentStorefrontFsDirectoryOid** | **int?** |  | [optional] 
+**Directories** | [**List&lt;FileManagerDirectory&gt;**](FileManagerDirectory.md) |  | [optional] 
+**Files** | [**List&lt;FileManagerFile&gt;**](FileManagerFile.md) |  | [optional] 
 **Hostname** | **string** |  | [optional] 
 **ParentStorefrontFsDirectoryOid** | **int?** |  | [optional] 
 **Path** | **string** |  | [optional] 
+**PathList** | [**List&lt;FileManagerDirectory&gt;**](FileManagerDirectory.md) |  | [optional] 
 **StorefrontOid** | **int?** |  | [optional] 
 
 

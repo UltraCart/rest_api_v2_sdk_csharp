@@ -12,12 +12,10 @@ Method | HTTP request | Description
 [**CheckDownloadEmailSegment**](StorefrontApi.md#checkdownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 [**CloneEmailCampaign**](StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 [**CloneEmailFlow**](StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
-[**CreateAdminPanelFsDirectory**](StorefrontApi.md#createadminpanelfsdirectory) | **POST** /storefront/{id}/adminPanel/fs/dir | Create file manager directory for admin panel
-[**CreateAdminPanelFsFileUpload**](StorefrontApi.md#createadminpanelfsfileupload) | **POST** /storefront/{id}/adminPanel/fs/file | Upload file manager file for admin panel
 [**CreateEmailSendingDomain**](StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
 [**CreateEmailSendingDomain2**](StorefrontApi.md#createemailsendingdomain2) | **POST** /storefront/email/sending_domains | Create email sending domain for various providers
+[**CreateFsDirectory**](StorefrontApi.md#createfsdirectory) | **POST** /storefront/{id}/fs/dir | Create file manager directory
 [**CreateTwilioAccount**](StorefrontApi.md#createtwilioaccount) | **POST** /storefront/twilio/accounts | Create Twilio account
-[**DeleteAdminPanelFsFile**](StorefrontApi.md#deleteadminpanelfsfile) | **DELETE** /storefront/{id}/adminPanel/fs/file | Delete file manager directory for admin panel
 [**DeleteEmailCampaignFolder**](StorefrontApi.md#deleteemailcampaignfolder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 [**DeleteEmailCommseqStat**](StorefrontApi.md#deleteemailcommseqstat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 [**DeleteEmailEmail**](StorefrontApi.md#deleteemailemail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
@@ -27,6 +25,7 @@ Method | HTTP request | Description
 [**DeleteEmailPostcard**](StorefrontApi.md#deleteemailpostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 [**DeleteEmailSendingDomain**](StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 [**DeleteExperiment**](StorefrontApi.md#deleteexperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+[**DeleteFsFile**](StorefrontApi.md#deletefsfile) | **DELETE** /storefront/{id}/fs/file | Delete file manager directory
 [**DeleteHeatmap**](StorefrontApi.md#deleteheatmap) | **DELETE** /storefront/{storefront_oid}/screen_recordings/heatmap | Delete screen recording heatmap
 [**DeleteLibraryItem**](StorefrontApi.md#deletelibraryitem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
 [**DeleteLibraryItemPublishedVersions**](StorefrontApi.md#deletelibraryitempublishedversions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
@@ -35,7 +34,6 @@ Method | HTTP request | Description
 [**DuplicateLibraryItem**](StorefrontApi.md#duplicatelibraryitem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 [**FavoriteScreenRecording**](StorefrontApi.md#favoritescreenrecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 [**GeocodeAddress**](StorefrontApi.md#geocodeaddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
-[**GetAdminPanelFsDirectory**](StorefrontApi.md#getadminpanelfsdirectory) | **GET** /storefront/{id}/adminPanel/fs/dir | Get file manager directory for admin panel
 [**GetCountries**](StorefrontApi.md#getcountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
 [**GetEditorToken**](StorefrontApi.md#geteditortoken) | **GET** /storefront/{storefront_oid}/editor_token | Gets editor token
 [**GetEmailBaseTemplates**](StorefrontApi.md#getemailbasetemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
@@ -94,6 +92,7 @@ Method | HTTP request | Description
 [**GetEmailTemplates**](StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 [**GetEmailThirdPartyProviders**](StorefrontApi.md#getemailthirdpartyproviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 [**GetExperiments**](StorefrontApi.md#getexperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
+[**GetFsDirectory**](StorefrontApi.md#getfsdirectory) | **GET** /storefront/{id}/fs/dir | Get file manager directory
 [**GetHeatmap**](StorefrontApi.md#getheatmap) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap | Get screen recording heatmap
 [**GetHeatmapIndex**](StorefrontApi.md#getheatmapindex) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap/index | Get screen recording heatmap index
 [**GetHistogramPropertyNames**](StorefrontApi.md#gethistogrampropertynames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
@@ -117,6 +116,7 @@ Method | HTTP request | Description
 [**GetTransactionEmailScreenshots**](StorefrontApi.md#gettransactionemailscreenshots) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id}/screenshots | Get transactional email screenshots
 [**GetTwilioAccount**](StorefrontApi.md#gettwilioaccount) | **GET** /storefront/twilio/accounts/{esp_twilio_uuid} | Get Twilio account
 [**GetTwilioAccounts**](StorefrontApi.md#gettwilioaccounts) | **GET** /storefront/twilio/accounts | Get all Twilio accounts
+[**GetUploadFsFileUrl**](StorefrontApi.md#getuploadfsfileurl) | **GET** /storefront/{id}/fs/upload_url/{extension} | Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
 [**GlobalUnsubscribe**](StorefrontApi.md#globalunsubscribe) | **POST** /storefront/{storefront_oid}/email/globalUnsubscribe | Globally unsubscribe a customer
 [**ImportEmailThirdPartyProviderList**](StorefrontApi.md#importemailthirdpartyproviderlist) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 [**InsertEmailCampaign**](StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
@@ -173,6 +173,7 @@ Method | HTTP request | Description
 [**UpdateScreenRecordingTags**](StorefrontApi.md#updatescreenrecordingtags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
 [**UpdateTransactionEmail**](StorefrontApi.md#updatetransactionemail) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
 [**UpdateTwilioAccount**](StorefrontApi.md#updatetwilioaccount) | **PUT** /storefront/twilio/accounts/{esp_twilio_uuid} | Update Twilio account
+[**UploadFsFile**](StorefrontApi.md#uploadfsfile) | **POST** /storefront/{id}/fs/upload | This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
 [**ValidateRuler**](StorefrontApi.md#validateruler) | **POST** /storefront/ruler/validate | Validate AWS Event Ruler
 
 
@@ -708,140 +709,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="createadminpanelfsdirectory"></a>
-# **CreateAdminPanelFsDirectory**
-> FileManagerPage CreateAdminPanelFsDirectory (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null)
-
-Create file manager directory for admin panel
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CreateAdminPanelFsDirectoryExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new StorefrontApi(simpleKey);
-
-            var id = 56;  // int? | 
-            var name = name_example;  // string |  (optional) 
-            var parentStorefrontFsDirectoryOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Create file manager directory for admin panel
-                FileManagerPage result = apiInstance.CreateAdminPanelFsDirectory(id, name, parentStorefrontFsDirectoryOid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.CreateAdminPanelFsDirectory: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int?**|  | 
- **name** | **string**|  | [optional] 
- **parentStorefrontFsDirectoryOid** | **int?**|  | [optional] 
-
-### Return type
-
-[**FileManagerPage**](FileManagerPage.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="createadminpanelfsfileupload"></a>
-# **CreateAdminPanelFsFileUpload**
-> FileManagerPage CreateAdminPanelFsFileUpload (int? id, int? parentStorefrontFsDirectoryOid = null)
-
-Upload file manager file for admin panel
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class CreateAdminPanelFsFileUploadExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new StorefrontApi(simpleKey);
-
-            var id = 56;  // int? | 
-            var parentStorefrontFsDirectoryOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Upload file manager file for admin panel
-                FileManagerPage result = apiInstance.CreateAdminPanelFsFileUpload(id, parentStorefrontFsDirectoryOid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.CreateAdminPanelFsFileUpload: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int?**|  | 
- **parentStorefrontFsDirectoryOid** | **int?**|  | [optional] 
-
-### Return type
-
-[**FileManagerPage**](FileManagerPage.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="createemailsendingdomain"></a>
 # **CreateEmailSendingDomain**
 > EmailSendingDomainResponse CreateEmailSendingDomain (string domain)
@@ -970,6 +837,74 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="createfsdirectory"></a>
+# **CreateFsDirectory**
+> FileManagerPage CreateFsDirectory (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null)
+
+Create file manager directory
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class CreateFsDirectoryExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+
+            var id = 56;  // int? | 
+            var name = name_example;  // string |  (optional) 
+            var parentStorefrontFsDirectoryOid = 56;  // int? |  (optional) 
+
+            try
+            {
+                // Create file manager directory
+                FileManagerPage result = apiInstance.CreateFsDirectory(id, name, parentStorefrontFsDirectoryOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.CreateFsDirectory: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int?**|  | 
+ **name** | **string**|  | [optional] 
+ **parentStorefrontFsDirectoryOid** | **int?**|  | [optional] 
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="createtwilioaccount"></a>
 # **CreateTwilioAccount**
 > TwilioResponse CreateTwilioAccount (Twilio twilio)
@@ -1022,74 +957,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TwilioResponse**](TwilioResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="deleteadminpanelfsfile"></a>
-# **DeleteAdminPanelFsFile**
-> FileManagerPage DeleteAdminPanelFsFile (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null)
-
-Delete file manager directory for admin panel
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class DeleteAdminPanelFsFileExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new StorefrontApi(simpleKey);
-
-            var id = 56;  // int? | 
-            var parentStorefrontFsDirectoryOid = 56;  // int? |  (optional) 
-            var storefrontFsFileOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Delete file manager directory for admin panel
-                FileManagerPage result = apiInstance.DeleteAdminPanelFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.DeleteAdminPanelFsFile: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int?**|  | 
- **parentStorefrontFsDirectoryOid** | **int?**|  | [optional] 
- **storefrontFsFileOid** | **int?**|  | [optional] 
-
-### Return type
-
-[**FileManagerPage**](FileManagerPage.md)
 
 ### Authorization
 
@@ -1694,6 +1561,74 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deletefsfile"></a>
+# **DeleteFsFile**
+> FileManagerPage DeleteFsFile (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null)
+
+Delete file manager directory
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteFsFileExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+
+            var id = 56;  // int? | 
+            var parentStorefrontFsDirectoryOid = 56;  // int? |  (optional) 
+            var storefrontFsFileOid = 56;  // int? |  (optional) 
+
+            try
+            {
+                // Delete file manager directory
+                FileManagerPage result = apiInstance.DeleteFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.DeleteFsFile: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int?**|  | 
+ **parentStorefrontFsDirectoryOid** | **int?**|  | [optional] 
+ **storefrontFsFileOid** | **int?**|  | [optional] 
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="deleteheatmap"></a>
 # **DeleteHeatmap**
 > void DeleteHeatmap (int? storefrontOid, ScreenRecordingHeatmapReset query)
@@ -2201,76 +2136,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GeocodeResponse**](GeocodeResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getadminpanelfsdirectory"></a>
-# **GetAdminPanelFsDirectory**
-> FileManagerPage GetAdminPanelFsDirectory (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null)
-
-Get file manager directory for admin panel
-### Example
-```csharp
-
-using System;
-using System.Diagnostics;
-using com.ultracart.admin.v2.Api;
-using com.ultracart.admin.v2.Client;
-using com.ultracart.admin.v2.Model;
-
-namespace Example
-{
-    public class GetAdminPanelFsDirectoryExample
-    {
-        public void main()
-        {
-
-            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
-            var api = new StorefrontApi(simpleKey);
-
-            var id = 56;  // int? | 
-            var path = path_example;  // string |  (optional) 
-            var storefrontFsDirectoryOid = 56;  // int? |  (optional) 
-            var storefrontThemeOid = 56;  // int? |  (optional) 
-
-            try
-            {
-                // Get file manager directory for admin panel
-                FileManagerPage result = apiInstance.GetAdminPanelFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling StorefrontApi.GetAdminPanelFsDirectory: " + e.Message );
-            }
-        }
-    }
-}
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int?**|  | 
- **path** | **string**|  | [optional] 
- **storefrontFsDirectoryOid** | **int?**|  | [optional] 
- **storefrontThemeOid** | **int?**|  | [optional] 
-
-### Return type
-
-[**FileManagerPage**](FileManagerPage.md)
 
 ### Authorization
 
@@ -6103,6 +5968,76 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getfsdirectory"></a>
+# **GetFsDirectory**
+> FileManagerPage GetFsDirectory (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null)
+
+Get file manager directory
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetFsDirectoryExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+
+            var id = 56;  // int? | 
+            var path = path_example;  // string |  (optional) 
+            var storefrontFsDirectoryOid = 56;  // int? |  (optional) 
+            var storefrontThemeOid = 56;  // int? |  (optional) 
+
+            try
+            {
+                // Get file manager directory
+                FileManagerPage result = apiInstance.GetFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetFsDirectory: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int?**|  | 
+ **path** | **string**|  | [optional] 
+ **storefrontFsDirectoryOid** | **int?**|  | [optional] 
+ **storefrontThemeOid** | **int?**|  | [optional] 
+
+### Return type
+
+[**FileManagerPage**](FileManagerPage.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getheatmap"></a>
 # **GetHeatmap**
 > ScreenRecordingHeatmapResponse GetHeatmap (int? storefrontOid, ScreenRecordingHeatmapRequest query)
@@ -7621,6 +7556,72 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**TwiliosResponse**](TwiliosResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getuploadfsfileurl"></a>
+# **GetUploadFsFileUrl**
+> FileManagerUploadUrlResponse GetUploadFsFileUrl (int? id, string extension)
+
+Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetUploadFsFileUrlExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+
+            var id = 56;  // int? | 
+            var extension = extension_example;  // string | 
+
+            try
+            {
+                // Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
+                FileManagerUploadUrlResponse result = apiInstance.GetUploadFsFileUrl(id, extension);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.GetUploadFsFileUrl: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int?**|  | 
+ **extension** | **string**|  | 
+
+### Return type
+
+[**FileManagerUploadUrlResponse**](FileManagerUploadUrlResponse.md)
 
 ### Authorization
 
@@ -11393,6 +11394,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TwilioResponse**](TwilioResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="uploadfsfile"></a>
+# **UploadFsFile**
+> void UploadFsFile (int? id, FileManagerUploadRequest uploadRequest)
+
+This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UploadFsFileExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new StorefrontApi(simpleKey);
+
+            var id = 56;  // int? | 
+            var uploadRequest = new FileManagerUploadRequest(); // FileManagerUploadRequest | UploadRequest
+
+            try
+            {
+                // This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
+                apiInstance.UploadFsFile(id, uploadRequest);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.UploadFsFile: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int?**|  | 
+ **uploadRequest** | [**FileManagerUploadRequest**](FileManagerUploadRequest.md)| UploadRequest | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

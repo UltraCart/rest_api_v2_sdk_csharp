@@ -120,6 +120,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ItemDigitalItemsResponse</returns>
         ApiResponse<ItemDigitalItemsResponse> GetDigitalItemsWithHttpInfo (int? limit = default(int?), int? offset = default(int?), string since = default(string), string sort = default(string), string expand = default(string), bool? placeholders = default(bool?));
         /// <summary>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalId">The external id to match against.</param>
+        /// <returns>ItemDigitalItemsResponse</returns>
+        ItemDigitalItemsResponse GetDigitalItemsByExternalId (string externalId);
+
+        /// <summary>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalId">The external id to match against.</param>
+        /// <returns>ApiResponse of ItemDigitalItemsResponse</returns>
+        ApiResponse<ItemDigitalItemsResponse> GetDigitalItemsByExternalIdWithHttpInfo (string externalId);
+        /// <summary>
         /// Retrieve an item
         /// </summary>
         /// <remarks>
@@ -504,6 +525,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ItemDigitalItemsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemsResponse>> GetDigitalItemsWithHttpInfoAsync (int? limit = default(int?), int? offset = default(int?), string since = default(string), string sort = default(string), string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalId">The external id to match against.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemDigitalItemsResponse</returns>
+        System.Threading.Tasks.Task<ItemDigitalItemsResponse> GetDigitalItemsByExternalIdAsync (string externalId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+        /// </summary>
+        /// <remarks>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalId">The external id to match against.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemsResponse>> GetDigitalItemsByExternalIdWithHttpInfoAsync (string externalId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve an item
         /// </summary>
@@ -1576,6 +1620,163 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetDigitalItems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemDigitalItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalId">The external id to match against.</param>
+        /// <returns>ItemDigitalItemsResponse</returns>
+        public ItemDigitalItemsResponse GetDigitalItemsByExternalId (string externalId)
+        {
+             ApiResponse<ItemDigitalItemsResponse> localVarResponse = GetDigitalItemsByExternalIdWithHttpInfo(externalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalId">The external id to match against.</param>
+        /// <returns>ApiResponse of ItemDigitalItemsResponse</returns>
+        public ApiResponse<ItemDigitalItemsResponse> GetDigitalItemsByExternalIdWithHttpInfo (string externalId)
+        {
+            // verify the required parameter 'externalId' is set
+            if (externalId == null)
+                throw new ApiException(400, "Missing required parameter 'externalId' when calling ItemApi->GetDigitalItemsByExternalId");
+
+            var localVarPath = "/item/digital_library/by_external/{external_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (externalId != null) localVarPathParams.Add("external_id", this.Configuration.ApiClient.ParameterToString(externalId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetDigitalItemsByExternalId", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemDigitalItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemDigitalItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemDigitalItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalId">The external id to match against.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemDigitalItemsResponse</returns>
+        public async System.Threading.Tasks.Task<ItemDigitalItemsResponse> GetDigitalItemsByExternalIdAsync (string externalId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemDigitalItemsResponse> localVarResponse = await GetDigitalItemsByExternalIdWithHttpInfoAsync(externalId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalId">The external id to match against.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemDigitalItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemDigitalItemsResponse>> GetDigitalItemsByExternalIdWithHttpInfoAsync (string externalId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'externalId' is set
+            if (externalId == null)
+                throw new ApiException(400, "Missing required parameter 'externalId' when calling ItemApi->GetDigitalItemsByExternalId");
+
+            var localVarPath = "/item/digital_library/by_external/{external_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (externalId != null) localVarPathParams.Add("external_id", this.Configuration.ApiClient.ParameterToString(externalId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetDigitalItemsByExternalId", localVarResponse);
                 if (exception != null) throw exception;
             }
 

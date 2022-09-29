@@ -839,7 +839,7 @@ Name | Type | Description  | Notes
 
 <a name="createfsdirectory"></a>
 # **CreateFsDirectory**
-> FileManagerPage CreateFsDirectory (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null)
+> FileManagerPageResponse CreateFsDirectory (int? id, string name = null, int? parentStorefrontFsDirectoryOid = null)
 
 Create file manager directory
 ### Example
@@ -869,7 +869,7 @@ namespace Example
             try
             {
                 // Create file manager directory
-                FileManagerPage result = apiInstance.CreateFsDirectory(id, name, parentStorefrontFsDirectoryOid);
+                FileManagerPageResponse result = apiInstance.CreateFsDirectory(id, name, parentStorefrontFsDirectoryOid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -892,7 +892,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -1563,7 +1563,7 @@ void (empty response body)
 
 <a name="deletefsfile"></a>
 # **DeleteFsFile**
-> FileManagerPage DeleteFsFile (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null)
+> FileManagerPageResponse DeleteFsFile (int? id, int? parentStorefrontFsDirectoryOid = null, int? storefrontFsFileOid = null)
 
 Delete file manager directory
 ### Example
@@ -1593,7 +1593,7 @@ namespace Example
             try
             {
                 // Delete file manager directory
-                FileManagerPage result = apiInstance.DeleteFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
+                FileManagerPageResponse result = apiInstance.DeleteFsFile(id, parentStorefrontFsDirectoryOid, storefrontFsFileOid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1616,7 +1616,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -5970,7 +5970,7 @@ Name | Type | Description  | Notes
 
 <a name="getfsdirectory"></a>
 # **GetFsDirectory**
-> FileManagerPage GetFsDirectory (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null)
+> FileManagerPageResponse GetFsDirectory (int? id, string path = null, int? storefrontFsDirectoryOid = null, int? storefrontThemeOid = null)
 
 Get file manager directory
 ### Example
@@ -6001,7 +6001,7 @@ namespace Example
             try
             {
                 // Get file manager directory
-                FileManagerPage result = apiInstance.GetFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
+                FileManagerPageResponse result = apiInstance.GetFsDirectory(id, path, storefrontFsDirectoryOid, storefrontThemeOid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -6025,7 +6025,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileManagerPage**](FileManagerPage.md)
+[**FileManagerPageResponse**](FileManagerPageResponse.md)
 
 ### Authorization
 

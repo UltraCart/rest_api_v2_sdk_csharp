@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Key** | **string** |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **Success** | **bool** | Indicates if API call was successful | [optional] 
+**Url** | **string** |  | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

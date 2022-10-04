@@ -101,7 +101,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum PreOrdered for value: Pre-ordered
             /// </summary>
             [EnumMember(Value = "Pre-ordered")]
-            PreOrdered = 11
+            PreOrdered = 11,
+
+            /// <summary>
+            /// Enum AdvancedOrderRouting for value: Advanced Order Routing
+            /// </summary>
+            [EnumMember(Value = "Advanced Order Routing")]
+            AdvancedOrderRouting = 12
 
         }
 

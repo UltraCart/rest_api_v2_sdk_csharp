@@ -37,13 +37,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="key">key.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
+        /// <param name="url">url.</param>
         /// <param name="warning">warning.</param>
-        public FileManagerUploadUrlResponse(Error error = default(Error), string key = default(string), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), Warning warning = default(Warning))
+        public FileManagerUploadUrlResponse(Error error = default(Error), string key = default(string), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), string url = default(string), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Key = key;
             this.Metadata = metadata;
             this.Success = success;
+            this.Url = url;
             this.Warning = warning;
         }
 
@@ -73,6 +75,12 @@ namespace com.ultracart.admin.v2.Model
         public bool Success { get; set; }
 
         /// <summary>
+        /// Gets or Sets Url
+        /// </summary>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
+
+        /// <summary>
         /// Gets or Sets Warning
         /// </summary>
         [DataMember(Name="warning", EmitDefaultValue=false)]
@@ -90,6 +98,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -146,6 +155,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Success.Equals(input.Success))
                 ) && 
                 (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
+                ) && 
+                (
                     this.Warning == input.Warning ||
                     (this.Warning != null &&
                     this.Warning.Equals(input.Warning))
@@ -169,6 +183,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.Warning != null)
                     hashCode = hashCode * 59 + this.Warning.GetHashCode();
                 return hashCode;

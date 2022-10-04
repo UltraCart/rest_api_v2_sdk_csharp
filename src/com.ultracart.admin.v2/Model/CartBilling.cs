@@ -36,6 +36,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="address1">Address line 1.</param>
         /// <param name="address2">Address line 2.</param>
         /// <param name="ccEmails">CC emails.  Multiple allowed, but total length of all emails can not exceed 100 characters..</param>
+        /// <param name="cellPhone">Cell phone.</param>
+        /// <param name="cellPhoneE164">Cell phone (E164 format).</param>
         /// <param name="city">City.</param>
         /// <param name="company">Company.</param>
         /// <param name="countryCode">ISO-3166 two letter country code.</param>
@@ -48,11 +50,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="postalCode">Postal code.</param>
         /// <param name="stateRegion">State for United States otherwise region or province for other countries.</param>
         /// <param name="title">Title.</param>
-        public CartBilling(string address1 = default(string), string address2 = default(string), List<string> ccEmails = default(List<string>), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string email = default(string), string emailConfirm = default(string), string eveningPhone = default(string), string firstName = default(string), string lastName = default(string), string postalCode = default(string), string stateRegion = default(string), string title = default(string))
+        public CartBilling(string address1 = default(string), string address2 = default(string), List<string> ccEmails = default(List<string>), string cellPhone = default(string), string cellPhoneE164 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string email = default(string), string emailConfirm = default(string), string eveningPhone = default(string), string firstName = default(string), string lastName = default(string), string postalCode = default(string), string stateRegion = default(string), string title = default(string))
         {
             this.Address1 = address1;
             this.Address2 = address2;
             this.CcEmails = ccEmails;
+            this.CellPhone = cellPhone;
+            this.CellPhoneE164 = cellPhoneE164;
             this.City = city;
             this.Company = company;
             this.CountryCode = countryCode;
@@ -87,6 +91,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>CC emails.  Multiple allowed, but total length of all emails can not exceed 100 characters.</value>
         [DataMember(Name="cc_emails", EmitDefaultValue=false)]
         public List<string> CcEmails { get; set; }
+
+        /// <summary>
+        /// Cell phone
+        /// </summary>
+        /// <value>Cell phone</value>
+        [DataMember(Name="cell_phone", EmitDefaultValue=false)]
+        public string CellPhone { get; set; }
+
+        /// <summary>
+        /// Cell phone (E164 format)
+        /// </summary>
+        /// <value>Cell phone (E164 format)</value>
+        [DataMember(Name="cell_phone_e164", EmitDefaultValue=false)]
+        public string CellPhoneE164 { get; set; }
 
         /// <summary>
         /// City
@@ -183,6 +201,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Address1: ").Append(Address1).Append("\n");
             sb.Append("  Address2: ").Append(Address2).Append("\n");
             sb.Append("  CcEmails: ").Append(CcEmails).Append("\n");
+            sb.Append("  CellPhone: ").Append(CellPhone).Append("\n");
+            sb.Append("  CellPhoneE164: ").Append(CellPhoneE164).Append("\n");
             sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  Company: ").Append(Company).Append("\n");
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
@@ -243,6 +263,16 @@ namespace com.ultracart.admin.v2.Model
                     this.CcEmails == input.CcEmails ||
                     this.CcEmails != null &&
                     this.CcEmails.SequenceEqual(input.CcEmails)
+                ) && 
+                (
+                    this.CellPhone == input.CellPhone ||
+                    (this.CellPhone != null &&
+                    this.CellPhone.Equals(input.CellPhone))
+                ) && 
+                (
+                    this.CellPhoneE164 == input.CellPhoneE164 ||
+                    (this.CellPhoneE164 != null &&
+                    this.CellPhoneE164.Equals(input.CellPhoneE164))
                 ) && 
                 (
                     this.City == input.City ||
@@ -321,6 +351,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Address2.GetHashCode();
                 if (this.CcEmails != null)
                     hashCode = hashCode * 59 + this.CcEmails.GetHashCode();
+                if (this.CellPhone != null)
+                    hashCode = hashCode * 59 + this.CellPhone.GetHashCode();
+                if (this.CellPhoneE164 != null)
+                    hashCode = hashCode * 59 + this.CellPhoneE164.GetHashCode();
                 if (this.City != null)
                     hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.Company != null)
@@ -366,6 +400,18 @@ namespace com.ultracart.admin.v2.Model
             if(this.Address2 != null && this.Address2.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address2, length must be less than 50.", new [] { "Address2" });
+            }
+
+            // CellPhone (string) maxLength
+            if(this.CellPhone != null && this.CellPhone.Length > 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CellPhone, length must be less than 25.", new [] { "CellPhone" });
+            }
+
+            // CellPhoneE164 (string) maxLength
+            if(this.CellPhoneE164 != null && this.CellPhoneE164.Length > 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CellPhoneE164, length must be less than 25.", new [] { "CellPhoneE164" });
             }
 
             // City (string) maxLength

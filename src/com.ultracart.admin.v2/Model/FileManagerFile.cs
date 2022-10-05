@@ -50,9 +50,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="storefrontFsDirectoryOid">storefrontFsDirectoryOid.</param>
         /// <param name="storefrontFsFileOid">storefrontFsFileOid.</param>
         /// <param name="storefrontOid">storefrontOid.</param>
+        /// <param name="thumbnail16Url">CDN thumbnail 16x16 size.</param>
+        /// <param name="thumbnail32Url">CDN thumbnail 32x32 size.</param>
+        /// <param name="thumbnail64Url">CDN thumbnail 64x64 size.</param>
         /// <param name="type">type.</param>
         /// <param name="validVelocity">validVelocity.</param>
-        public FileManagerFile(bool? favorite = default(bool?), string hostname = default(string), bool? i18nViolation = default(bool?), string icon = default(string), int? internalVersion = default(int?), string lastModified = default(string), bool? mergeConflict = default(bool?), string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?), bool? partOfActiveTheme = default(bool?), string path = default(string), int? rawSize = default(int?), bool? selected = default(bool?), string size = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?), int? storefrontOid = default(int?), string type = default(string), string validVelocity = default(string))
+        public FileManagerFile(bool? favorite = default(bool?), string hostname = default(string), bool? i18nViolation = default(bool?), string icon = default(string), int? internalVersion = default(int?), string lastModified = default(string), bool? mergeConflict = default(bool?), string name = default(string), int? parentStorefrontFsDirectoryOid = default(int?), bool? partOfActiveTheme = default(bool?), string path = default(string), int? rawSize = default(int?), bool? selected = default(bool?), string size = default(string), int? storefrontFsDirectoryOid = default(int?), int? storefrontFsFileOid = default(int?), int? storefrontOid = default(int?), string thumbnail16Url = default(string), string thumbnail32Url = default(string), string thumbnail64Url = default(string), string type = default(string), string validVelocity = default(string))
         {
             this.Favorite = favorite;
             this.Hostname = hostname;
@@ -71,6 +74,9 @@ namespace com.ultracart.admin.v2.Model
             this.StorefrontFsDirectoryOid = storefrontFsDirectoryOid;
             this.StorefrontFsFileOid = storefrontFsFileOid;
             this.StorefrontOid = storefrontOid;
+            this.Thumbnail16Url = thumbnail16Url;
+            this.Thumbnail32Url = thumbnail32Url;
+            this.Thumbnail64Url = thumbnail64Url;
             this.Type = type;
             this.ValidVelocity = validVelocity;
         }
@@ -178,6 +184,27 @@ namespace com.ultracart.admin.v2.Model
         public int? StorefrontOid { get; set; }
 
         /// <summary>
+        /// CDN thumbnail 16x16 size
+        /// </summary>
+        /// <value>CDN thumbnail 16x16 size</value>
+        [DataMember(Name="thumbnail_16_url", EmitDefaultValue=false)]
+        public string Thumbnail16Url { get; set; }
+
+        /// <summary>
+        /// CDN thumbnail 32x32 size
+        /// </summary>
+        /// <value>CDN thumbnail 32x32 size</value>
+        [DataMember(Name="thumbnail_32_url", EmitDefaultValue=false)]
+        public string Thumbnail32Url { get; set; }
+
+        /// <summary>
+        /// CDN thumbnail 64x64 size
+        /// </summary>
+        /// <value>CDN thumbnail 64x64 size</value>
+        [DataMember(Name="thumbnail_64_url", EmitDefaultValue=false)]
+        public string Thumbnail64Url { get; set; }
+
+        /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
@@ -214,6 +241,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  StorefrontFsDirectoryOid: ").Append(StorefrontFsDirectoryOid).Append("\n");
             sb.Append("  StorefrontFsFileOid: ").Append(StorefrontFsFileOid).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
+            sb.Append("  Thumbnail16Url: ").Append(Thumbnail16Url).Append("\n");
+            sb.Append("  Thumbnail32Url: ").Append(Thumbnail32Url).Append("\n");
+            sb.Append("  Thumbnail64Url: ").Append(Thumbnail64Url).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ValidVelocity: ").Append(ValidVelocity).Append("\n");
             sb.Append("}\n");
@@ -336,6 +366,21 @@ namespace com.ultracart.admin.v2.Model
                     this.StorefrontOid.Equals(input.StorefrontOid))
                 ) && 
                 (
+                    this.Thumbnail16Url == input.Thumbnail16Url ||
+                    (this.Thumbnail16Url != null &&
+                    this.Thumbnail16Url.Equals(input.Thumbnail16Url))
+                ) && 
+                (
+                    this.Thumbnail32Url == input.Thumbnail32Url ||
+                    (this.Thumbnail32Url != null &&
+                    this.Thumbnail32Url.Equals(input.Thumbnail32Url))
+                ) && 
+                (
+                    this.Thumbnail64Url == input.Thumbnail64Url ||
+                    (this.Thumbnail64Url != null &&
+                    this.Thumbnail64Url.Equals(input.Thumbnail64Url))
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
@@ -390,6 +435,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.StorefrontFsFileOid.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
+                if (this.Thumbnail16Url != null)
+                    hashCode = hashCode * 59 + this.Thumbnail16Url.GetHashCode();
+                if (this.Thumbnail32Url != null)
+                    hashCode = hashCode * 59 + this.Thumbnail32Url.GetHashCode();
+                if (this.Thumbnail64Url != null)
+                    hashCode = hashCode * 59 + this.Thumbnail64Url.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.ValidVelocity != null)

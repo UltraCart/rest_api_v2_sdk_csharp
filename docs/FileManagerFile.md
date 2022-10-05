@@ -20,6 +20,9 @@ Name | Type | Description | Notes
 **StorefrontFsDirectoryOid** | **int?** |  | [optional] 
 **StorefrontFsFileOid** | **int?** |  | [optional] 
 **StorefrontOid** | **int?** |  | [optional] 
+**Thumbnail16Url** | **string** | CDN thumbnail 16x16 size | [optional] 
+**Thumbnail32Url** | **string** | CDN thumbnail 32x32 size | [optional] 
+**Thumbnail64Url** | **string** | CDN thumbnail 64x64 size | [optional] 
 **Type** | **string** |  | [optional] 
 **ValidVelocity** | **string** |  | [optional] 
 

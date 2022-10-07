@@ -51,7 +51,7 @@ namespace com.ultracart.admin.v2.Model
         /// digital_items
         /// </summary>
         /// <value>digital_items</value>
-        [DataMember(Name="digitalItems", EmitDefaultValue=false)]
+        [DataMember(Name="digital_items", EmitDefaultValue=false)]
         public List<ItemDigitalItem> DigitalItems { get; set; }
 
         /// <summary>

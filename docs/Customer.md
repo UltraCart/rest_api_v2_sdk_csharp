@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **LastModifiedDts** | **string** | Last modified date | [optional] 
 **Loyalty** | [**CustomerLoyalty**](CustomerLoyalty.md) |  | [optional] 
 **MaximumItemCount** | **int?** | Maximum item count | [optional] 
+**MerchantId** | **string** | Merchant ID | [optional] 
 **MinimumItemCount** | **int?** | Minimum item count | [optional] 
 **MinimumSubtotal** | **decimal?** | Minimum subtotal | [optional] 
 **NoCoupons** | **bool?** | No coupons | [optional] 

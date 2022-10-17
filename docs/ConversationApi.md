@@ -528,7 +528,7 @@ This endpoint does not need any parameter.
 
 ## GetConversations
 
-> ConversationsResponse GetConversations (string medium = null, int? limit = null, int? offset = null)
+> ConversationsResponse GetConversations (string medium = null, string before = null, int? limit = null, int? offset = null)
 
 Retrieve a list of conversation summaries newest to oldest
 
@@ -557,13 +557,14 @@ namespace Example
             var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
 
             var medium = "medium_example";  // string |  (optional) 
+            var before = "before_example";  // string |  (optional) 
             var limit = 100;  // int? | The maximum number of records to return on this one API call. (Max 200) (optional)  (default to 100)
             var offset = 0;  // int? | Pagination of the record set.  Offset is a zero based index. (optional)  (default to 0)
 
             try
             {
                 // Retrieve a list of conversation summaries newest to oldest
-                ConversationsResponse result = apiInstance.GetConversations(medium, limit, offset);
+                ConversationsResponse result = apiInstance.GetConversations(medium, before, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -583,6 +584,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **medium** | **string**|  | [optional] 
+ **before** | **string**|  | [optional] 
  **limit** | **int?**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **offset** | **int?**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
 

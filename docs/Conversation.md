@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **LastConversationMessageBody** | **string** |  | [optional] 
 **LastConversationParticipantArn** | **string** |  | [optional] 
 **LastConversationParticipantName** | **string** |  | [optional] 
+**LastInteractiveMessageDts** | **string** | Last interactive message date/time | [optional] 
 **LastMessageDts** | **string** | Last message date/time | [optional] 
 **Medium** | **string** | The communication medium of the customer. | [optional] 
 **MerchantId** | **string** |  | [optional] 

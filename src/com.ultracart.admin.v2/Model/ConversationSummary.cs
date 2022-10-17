@@ -66,6 +66,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="lastConversationMessageBody">lastConversationMessageBody.</param>
         /// <param name="lastConversationParticipantArn">lastConversationParticipantArn.</param>
         /// <param name="lastConversationParticipantName">lastConversationParticipantName.</param>
+        /// <param name="lastInteractiveMessageDts">Last interactive message date/time.</param>
         /// <param name="lastMessageDts">Last message date/time.</param>
         /// <param name="medium">The communication medium of the customer..</param>
         /// <param name="merchantId">merchantId.</param>
@@ -74,7 +75,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="startDts">Start of the conversation date/time.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
         /// <param name="visible">visible.</param>
-        public ConversationSummary(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
+        public ConversationSummary(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastInteractiveMessageDts = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
         {
             this.Closed = closed;
             this.ConversationArn = conversationArn;
@@ -82,6 +83,7 @@ namespace com.ultracart.admin.v2.Model
             this.LastConversationMessageBody = lastConversationMessageBody;
             this.LastConversationParticipantArn = lastConversationParticipantArn;
             this.LastConversationParticipantName = lastConversationParticipantName;
+            this.LastInteractiveMessageDts = lastInteractiveMessageDts;
             this.LastMessageDts = lastMessageDts;
             this.Medium = medium;
             this.MerchantId = merchantId;
@@ -127,6 +129,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="last_conversation_participant_name", EmitDefaultValue=false)]
         public string LastConversationParticipantName { get; set; }
+
+        /// <summary>
+        /// Last interactive message date/time
+        /// </summary>
+        /// <value>Last interactive message date/time</value>
+        [DataMember(Name="last_interactive_message_dts", EmitDefaultValue=false)]
+        public string LastInteractiveMessageDts { get; set; }
 
         /// <summary>
         /// Last message date/time
@@ -187,6 +196,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LastConversationMessageBody: ").Append(LastConversationMessageBody).Append("\n");
             sb.Append("  LastConversationParticipantArn: ").Append(LastConversationParticipantArn).Append("\n");
             sb.Append("  LastConversationParticipantName: ").Append(LastConversationParticipantName).Append("\n");
+            sb.Append("  LastInteractiveMessageDts: ").Append(LastInteractiveMessageDts).Append("\n");
             sb.Append("  LastMessageDts: ").Append(LastMessageDts).Append("\n");
             sb.Append("  Medium: ").Append(Medium).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
@@ -260,6 +270,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LastConversationParticipantName.Equals(input.LastConversationParticipantName))
                 ) && 
                 (
+                    this.LastInteractiveMessageDts == input.LastInteractiveMessageDts ||
+                    (this.LastInteractiveMessageDts != null &&
+                    this.LastInteractiveMessageDts.Equals(input.LastInteractiveMessageDts))
+                ) && 
+                (
                     this.LastMessageDts == input.LastMessageDts ||
                     (this.LastMessageDts != null &&
                     this.LastMessageDts.Equals(input.LastMessageDts))
@@ -322,6 +337,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LastConversationParticipantArn.GetHashCode();
                 if (this.LastConversationParticipantName != null)
                     hashCode = hashCode * 59 + this.LastConversationParticipantName.GetHashCode();
+                if (this.LastInteractiveMessageDts != null)
+                    hashCode = hashCode * 59 + this.LastInteractiveMessageDts.GetHashCode();
                 if (this.LastMessageDts != null)
                     hashCode = hashCode * 59 + this.LastMessageDts.GetHashCode();
                 if (this.Medium != null)

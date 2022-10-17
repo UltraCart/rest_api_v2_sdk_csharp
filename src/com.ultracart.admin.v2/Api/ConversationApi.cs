@@ -158,10 +158,11 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="medium"> (optional)</param>
+        /// <param name="before"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <returns>ConversationsResponse</returns>
-        ConversationsResponse GetConversations (string medium = null, int? limit = null, int? offset = null);
+        ConversationsResponse GetConversations (string medium = null, string before = null, int? limit = null, int? offset = null);
 
         /// <summary>
         /// Retrieve a list of conversation summaries newest to oldest
@@ -171,10 +172,11 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="medium"> (optional)</param>
+        /// <param name="before"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <returns>ApiResponse of ConversationsResponse</returns>
-        ApiResponse<ConversationsResponse> GetConversationsWithHttpInfo (string medium = null, int? limit = null, int? offset = null);
+        ApiResponse<ConversationsResponse> GetConversationsWithHttpInfo (string medium = null, string before = null, int? limit = null, int? offset = null);
         /// <summary>
         /// Join a conversation
         /// </summary>
@@ -397,10 +399,11 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="medium"> (optional)</param>
+        /// <param name="before"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <returns>Task of ConversationsResponse</returns>
-        System.Threading.Tasks.Task<ConversationsResponse> GetConversationsAsync (string medium = null, int? limit = null, int? offset = null);
+        System.Threading.Tasks.Task<ConversationsResponse> GetConversationsAsync (string medium = null, string before = null, int? limit = null, int? offset = null);
 
         /// <summary>
         /// Retrieve a list of conversation summaries newest to oldest
@@ -410,10 +413,11 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="medium"> (optional)</param>
+        /// <param name="before"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (ConversationsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConversationsResponse>> GetConversationsAsyncWithHttpInfo (string medium = null, int? limit = null, int? offset = null);
+        System.Threading.Tasks.Task<ApiResponse<ConversationsResponse>> GetConversationsAsyncWithHttpInfo (string medium = null, string before = null, int? limit = null, int? offset = null);
         /// <summary>
         /// Join a conversation
         /// </summary>
@@ -1540,12 +1544,13 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="medium"> (optional)</param>
+        /// <param name="before"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <returns>ConversationsResponse</returns>
-        public ConversationsResponse GetConversations (string medium = null, int? limit = null, int? offset = null)
+        public ConversationsResponse GetConversations (string medium = null, string before = null, int? limit = null, int? offset = null)
         {
-             ApiResponse<ConversationsResponse> localVarResponse = GetConversationsWithHttpInfo(medium, limit, offset);
+             ApiResponse<ConversationsResponse> localVarResponse = GetConversationsWithHttpInfo(medium, before, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -1554,10 +1559,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="medium"> (optional)</param>
+        /// <param name="before"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <returns>ApiResponse of ConversationsResponse</returns>
-        public ApiResponse< ConversationsResponse > GetConversationsWithHttpInfo (string medium = null, int? limit = null, int? offset = null)
+        public ApiResponse< ConversationsResponse > GetConversationsWithHttpInfo (string medium = null, string before = null, int? limit = null, int? offset = null)
         {
 
             var localVarPath = "/conversation/conversations";
@@ -1583,6 +1589,7 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (medium != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "medium", medium)); // query parameter
+            if (before != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "before", before)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
 
@@ -1621,12 +1628,13 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="medium"> (optional)</param>
+        /// <param name="before"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <returns>Task of ConversationsResponse</returns>
-        public async System.Threading.Tasks.Task<ConversationsResponse> GetConversationsAsync (string medium = null, int? limit = null, int? offset = null)
+        public async System.Threading.Tasks.Task<ConversationsResponse> GetConversationsAsync (string medium = null, string before = null, int? limit = null, int? offset = null)
         {
-             ApiResponse<ConversationsResponse> localVarResponse = await GetConversationsAsyncWithHttpInfo(medium, limit, offset);
+             ApiResponse<ConversationsResponse> localVarResponse = await GetConversationsAsyncWithHttpInfo(medium, before, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -1636,10 +1644,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="medium"> (optional)</param>
+        /// <param name="before"> (optional)</param>
         /// <param name="limit">The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)</param>
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (ConversationsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConversationsResponse>> GetConversationsAsyncWithHttpInfo (string medium = null, int? limit = null, int? offset = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationsResponse>> GetConversationsAsyncWithHttpInfo (string medium = null, string before = null, int? limit = null, int? offset = null)
         {
 
             var localVarPath = "/conversation/conversations";
@@ -1665,6 +1674,7 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (medium != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "medium", medium)); // query parameter
+            if (before != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "before", before)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_offset", offset)); // query parameter
 

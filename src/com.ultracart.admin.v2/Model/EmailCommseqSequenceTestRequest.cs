@@ -44,10 +44,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="orderId">orderId.</param>
         /// <param name="pleaseReview">pleaseReview.</param>
         /// <param name="postalCode">postalCode.</param>
+        /// <param name="sendToCellphoneE164">sendToCellphoneE164.</param>
         /// <param name="sendToEmail">sendToEmail.</param>
         /// <param name="sendToLoggedInUser">sendToLoggedInUser.</param>
         /// <param name="state">state.</param>
-        public EmailCommseqSequenceTestRequest(string address1 = default(string), string address2 = default(string), string cartId = default(string), List<string> cartItemIds = default(List<string>), string city = default(string), string espCommseqUuid = default(string), bool? mailCard = default(bool?), string name = default(string), string orderId = default(string), bool? pleaseReview = default(bool?), string postalCode = default(string), string sendToEmail = default(string), bool? sendToLoggedInUser = default(bool?), string state = default(string))
+        public EmailCommseqSequenceTestRequest(string address1 = default(string), string address2 = default(string), string cartId = default(string), List<string> cartItemIds = default(List<string>), string city = default(string), string espCommseqUuid = default(string), bool? mailCard = default(bool?), string name = default(string), string orderId = default(string), bool? pleaseReview = default(bool?), string postalCode = default(string), string sendToCellphoneE164 = default(string), string sendToEmail = default(string), bool? sendToLoggedInUser = default(bool?), string state = default(string))
         {
             this.Address1 = address1;
             this.Address2 = address2;
@@ -60,6 +61,7 @@ namespace com.ultracart.admin.v2.Model
             this.OrderId = orderId;
             this.PleaseReview = pleaseReview;
             this.PostalCode = postalCode;
+            this.SendToCellphoneE164 = sendToCellphoneE164;
             this.SendToEmail = sendToEmail;
             this.SendToLoggedInUser = sendToLoggedInUser;
             this.State = state;
@@ -132,6 +134,12 @@ namespace com.ultracart.admin.v2.Model
         public string PostalCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets SendToCellphoneE164
+        /// </summary>
+        [DataMember(Name="send_to_cellphone_e164", EmitDefaultValue=false)]
+        public string SendToCellphoneE164 { get; set; }
+
+        /// <summary>
         /// Gets or Sets SendToEmail
         /// </summary>
         [DataMember(Name="send_to_email", EmitDefaultValue=false)]
@@ -168,6 +176,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  PleaseReview: ").Append(PleaseReview).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            sb.Append("  SendToCellphoneE164: ").Append(SendToCellphoneE164).Append("\n");
             sb.Append("  SendToEmail: ").Append(SendToEmail).Append("\n");
             sb.Append("  SendToLoggedInUser: ").Append(SendToLoggedInUser).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
@@ -261,6 +270,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PostalCode.Equals(input.PostalCode))
                 ) && 
                 (
+                    this.SendToCellphoneE164 == input.SendToCellphoneE164 ||
+                    (this.SendToCellphoneE164 != null &&
+                    this.SendToCellphoneE164.Equals(input.SendToCellphoneE164))
+                ) && 
+                (
                     this.SendToEmail == input.SendToEmail ||
                     (this.SendToEmail != null &&
                     this.SendToEmail.Equals(input.SendToEmail))
@@ -308,6 +322,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PleaseReview.GetHashCode();
                 if (this.PostalCode != null)
                     hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
+                if (this.SendToCellphoneE164 != null)
+                    hashCode = hashCode * 59 + this.SendToCellphoneE164.GetHashCode();
                 if (this.SendToEmail != null)
                     hashCode = hashCode * 59 + this.SendToEmail.GetHashCode();
                 if (this.SendToLoggedInUser != null)

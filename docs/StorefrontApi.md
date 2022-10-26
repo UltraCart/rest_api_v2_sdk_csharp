@@ -145,6 +145,7 @@ Method | HTTP request | Description
 [**SearchSharedItems**](StorefrontApi.md#searchshareditems) | **POST** /storefront/code_library/search_shared | Retrieve library items
 [**SendEmailTest**](StorefrontApi.md#sendemailtest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 [**SendPostcardTest**](StorefrontApi.md#sendpostcardtest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
+[**SendSmsTest**](StorefrontApi.md#sendsmstest) | **POST** /storefront/{storefront_oid}/email/sms/{commseq_uuid}/{commseq_step_uuid}/test | Send SMS test
 [**SendWebhookTest**](StorefrontApi.md#sendwebhooktest) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
 [**SequenceTest**](StorefrontApi.md#sequencetest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 [**StartEmailCampaign**](StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
@@ -12305,6 +12306,96 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailCommseqPostcardSendTestResponse**](EmailCommseqPostcardSendTestResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SendSmsTest
+
+> EmailCommseqSmsSendTestResponse SendSmsTest (int storefrontOid, string commseqUuid, string commseqStepUuid, EmailCommseqSmsSendTestRequest emailCommseqSmsTestRequest)
+
+Send SMS test
+
+### Example
+
+```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+using System.Collections.Generic;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class SendSmsTestExample
+    {
+        public static void Main()
+        {
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+
+            var storefrontOid = 56;  // int | 
+            var commseqUuid = "commseqUuid_example";  // string | 
+            var commseqStepUuid = "commseqStepUuid_example";  // string | 
+            var emailCommseqSmsTestRequest = new EmailCommseqSmsSendTestRequest(); // EmailCommseqSmsSendTestRequest | Email commseq sms test request
+
+            try
+            {
+                // Send SMS test
+                EmailCommseqSmsSendTestResponse result = apiInstance.SendSmsTest(storefrontOid, commseqUuid, commseqStepUuid, emailCommseqSmsTestRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling StorefrontApi.SendSmsTest: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefrontOid** | **int**|  | 
+ **commseqUuid** | **string**|  | 
+ **commseqStepUuid** | **string**|  | 
+ **emailCommseqSmsTestRequest** | [**EmailCommseqSmsSendTestRequest**](EmailCommseqSmsSendTestRequest.md)| Email commseq sms test request | 
+
+### Return type
+
+[**EmailCommseqSmsSendTestResponse**](EmailCommseqSmsSendTestResponse.md)
 
 ### Authorization
 

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **OrderId** | **string** |  | [optional] 
 **PleaseReview** | **bool** |  | [optional] 
 **PostalCode** | **string** |  | [optional] 
+**SendToCellphoneE164** | **string** |  | [optional] 
 **SendToEmail** | **string** |  | [optional] 
 **SendToLoggedInUser** | **bool** |  | [optional] 
 **State** | **string** |  | [optional] 

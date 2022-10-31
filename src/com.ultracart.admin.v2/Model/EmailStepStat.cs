@@ -33,8 +33,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailStepStat" /> class.
         /// </summary>
+        /// <param name="leftClickCount">click count (left side).</param>
         /// <param name="leftClickCountFormatted">click count formatted (left side).</param>
-        /// <param name="leftConversionCount">click count (left side).</param>
+        /// <param name="leftConversionCount">conversion count (left/default side).</param>
         /// <param name="leftConversionCountFormatted">conversion count formatted (left/default side).</param>
         /// <param name="leftCustomerCount">customer count (left/default side).</param>
         /// <param name="leftCustomerCountFormatted">customer count formatted (left/default side).</param>
@@ -62,8 +63,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rightProfitFormatted">profit formatted (right side).</param>
         /// <param name="rightRevenue">revenue (right side).</param>
         /// <param name="rightRevenueFormatted">revenue formatted (right side).</param>
-        public EmailStepStat(string leftClickCountFormatted = default(string), int? leftConversionCount = default(int?), string leftConversionCountFormatted = default(string), int? leftCustomerCount = default(int?), string leftCustomerCountFormatted = default(string), int? leftDeliveredCount = default(int?), string leftDeliveredCountFormatted = default(string), int? leftOrderCount = default(int?), string leftOrderCountFormatted = default(string), decimal? leftProfit = default(decimal?), string leftProfitFormatted = default(string), decimal? leftRevenue = default(decimal?), string leftRevenueFormatted = default(string), int? leftSendCount = default(int?), string leftSendCountFormatted = default(string), int? leftSkippedCount = default(int?), string leftSkippedCountFormatted = default(string), int? leftUnsubscribeCount = default(int?), string leftUnsubscribeCountFormatted = default(string), int? rightConversionCount = default(int?), string rightConversionCountFormatted = default(string), int? rightCustomerCount = default(int?), string rightCustomerCountFormatted = default(string), int? rightOrderCount = default(int?), string rightOrderCountFormatted = default(string), decimal? rightProfit = default(decimal?), string rightProfitFormatted = default(string), decimal? rightRevenue = default(decimal?), string rightRevenueFormatted = default(string))
+        public EmailStepStat(int? leftClickCount = default(int?), string leftClickCountFormatted = default(string), int? leftConversionCount = default(int?), string leftConversionCountFormatted = default(string), int? leftCustomerCount = default(int?), string leftCustomerCountFormatted = default(string), int? leftDeliveredCount = default(int?), string leftDeliveredCountFormatted = default(string), int? leftOrderCount = default(int?), string leftOrderCountFormatted = default(string), decimal? leftProfit = default(decimal?), string leftProfitFormatted = default(string), decimal? leftRevenue = default(decimal?), string leftRevenueFormatted = default(string), int? leftSendCount = default(int?), string leftSendCountFormatted = default(string), int? leftSkippedCount = default(int?), string leftSkippedCountFormatted = default(string), int? leftUnsubscribeCount = default(int?), string leftUnsubscribeCountFormatted = default(string), int? rightConversionCount = default(int?), string rightConversionCountFormatted = default(string), int? rightCustomerCount = default(int?), string rightCustomerCountFormatted = default(string), int? rightOrderCount = default(int?), string rightOrderCountFormatted = default(string), decimal? rightProfit = default(decimal?), string rightProfitFormatted = default(string), decimal? rightRevenue = default(decimal?), string rightRevenueFormatted = default(string))
         {
+            this.LeftClickCount = leftClickCount;
             this.LeftClickCountFormatted = leftClickCountFormatted;
             this.LeftConversionCount = leftConversionCount;
             this.LeftConversionCountFormatted = leftConversionCountFormatted;
@@ -96,6 +98,13 @@ namespace com.ultracart.admin.v2.Model
         }
         
         /// <summary>
+        /// click count (left side)
+        /// </summary>
+        /// <value>click count (left side)</value>
+        [DataMember(Name="left_click_count", EmitDefaultValue=false)]
+        public int? LeftClickCount { get; set; }
+
+        /// <summary>
         /// click count formatted (left side)
         /// </summary>
         /// <value>click count formatted (left side)</value>
@@ -103,9 +112,9 @@ namespace com.ultracart.admin.v2.Model
         public string LeftClickCountFormatted { get; set; }
 
         /// <summary>
-        /// click count (left side)
+        /// conversion count (left/default side)
         /// </summary>
-        /// <value>click count (left side)</value>
+        /// <value>conversion count (left/default side)</value>
         [DataMember(Name="left_conversion_count", EmitDefaultValue=false)]
         public int? LeftConversionCount { get; set; }
 
@@ -306,6 +315,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailStepStat {\n");
+            sb.Append("  LeftClickCount: ").Append(LeftClickCount).Append("\n");
             sb.Append("  LeftClickCountFormatted: ").Append(LeftClickCountFormatted).Append("\n");
             sb.Append("  LeftConversionCount: ").Append(LeftConversionCount).Append("\n");
             sb.Append("  LeftConversionCountFormatted: ").Append(LeftConversionCountFormatted).Append("\n");
@@ -369,6 +379,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.LeftClickCount == input.LeftClickCount ||
+                    (this.LeftClickCount != null &&
+                    this.LeftClickCount.Equals(input.LeftClickCount))
+                ) && 
                 (
                     this.LeftClickCountFormatted == input.LeftClickCountFormatted ||
                     (this.LeftClickCountFormatted != null &&
@@ -525,6 +540,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.LeftClickCount != null)
+                    hashCode = hashCode * 59 + this.LeftClickCount.GetHashCode();
                 if (this.LeftClickCountFormatted != null)
                     hashCode = hashCode * 59 + this.LeftClickCountFormatted.GetHashCode();
                 if (this.LeftConversionCount != null)

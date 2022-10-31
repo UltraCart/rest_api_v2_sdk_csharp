@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**LeftClickCount** | **int** | click count (left side) | [optional] 
 **LeftClickCountFormatted** | **string** | click count formatted (left side) | [optional] 
-**LeftConversionCount** | **int** | click count (left side) | [optional] 
+**LeftConversionCount** | **int** | conversion count (left/default side) | [optional] 
 **LeftConversionCountFormatted** | **string** | conversion count formatted (left/default side) | [optional] 
 **LeftCustomerCount** | **int** | customer count (left/default side) | [optional] 
 **LeftCustomerCountFormatted** | **string** | customer count formatted (left/default side) | [optional] 

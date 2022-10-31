@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **LeftDts** | **string** | Left conversation date/time | [optional] 
 **ProfileImageUrl** | **string** |  | [optional] 
 **Status** | **string** |  | [optional] 
+**Timezone** | **string** |  | [optional] 
 **UnreadMessages** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

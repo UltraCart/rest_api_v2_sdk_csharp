@@ -41,8 +41,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="leftDts">Left conversation date/time.</param>
         /// <param name="profileImageUrl">profileImageUrl.</param>
         /// <param name="status">status.</param>
+        /// <param name="timezone">timezone.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
-        public ConversationParticipant(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationParticipantUuid = default(string), string joinedDts = default(string), string lastMessageDts = default(string), string leftDts = default(string), string profileImageUrl = default(string), string status = default(string), int? unreadMessages = default(int?))
+        public ConversationParticipant(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationParticipantUuid = default(string), string joinedDts = default(string), string lastMessageDts = default(string), string leftDts = default(string), string profileImageUrl = default(string), string status = default(string), string timezone = default(string), int? unreadMessages = default(int?))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
@@ -52,6 +53,7 @@ namespace com.ultracart.admin.v2.Model
             this.LeftDts = leftDts;
             this.ProfileImageUrl = profileImageUrl;
             this.Status = status;
+            this.Timezone = timezone;
             this.UnreadMessages = unreadMessages;
         }
         
@@ -107,6 +109,12 @@ namespace com.ultracart.admin.v2.Model
         public string Status { get; set; }
 
         /// <summary>
+        /// Gets or Sets Timezone
+        /// </summary>
+        [DataMember(Name="timezone", EmitDefaultValue=false)]
+        public string Timezone { get; set; }
+
+        /// <summary>
         /// Gets or Sets UnreadMessages
         /// </summary>
         [DataMember(Name="unread_messages", EmitDefaultValue=false)]
@@ -128,6 +136,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LeftDts: ").Append(LeftDts).Append("\n");
             sb.Append("  ProfileImageUrl: ").Append(ProfileImageUrl).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  UnreadMessages: ").Append(UnreadMessages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -204,6 +213,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
+                    this.Timezone == input.Timezone ||
+                    (this.Timezone != null &&
+                    this.Timezone.Equals(input.Timezone))
+                ) && 
+                (
                     this.UnreadMessages == input.UnreadMessages ||
                     (this.UnreadMessages != null &&
                     this.UnreadMessages.Equals(input.UnreadMessages))
@@ -235,6 +249,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ProfileImageUrl.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Timezone != null)
+                    hashCode = hashCode * 59 + this.Timezone.GetHashCode();
                 if (this.UnreadMessages != null)
                     hashCode = hashCode * 59 + this.UnreadMessages.GetHashCode();
                 return hashCode;

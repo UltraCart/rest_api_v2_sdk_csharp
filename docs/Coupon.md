@@ -62,6 +62,7 @@ Name | Type | Description | Notes
 **TieredPercentOffItems** | [**CouponTieredPercentOffItems**](CouponTieredPercentOffItems.md) |  | [optional] 
 **TieredPercentOffShipping** | [**CouponTieredPercentOffShipping**](CouponTieredPercentOffShipping.md) |  | [optional] 
 **TieredPercentOffSubtotal** | [**CouponTieredPercentOffSubtotal**](CouponTieredPercentOffSubtotal.md) |  | [optional] 
+**TieredPercentOffSubtotalBasedOnMsrp** | [**CouponTieredPercentOffSubtotalBasedOnMSRP**](CouponTieredPercentOffSubtotalBasedOnMSRP.md) |  | [optional] 
 **UsableBy** | **string** | Who may use this coupon. | [optional] 
 
 

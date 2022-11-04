@@ -215,6 +215,7 @@ docs/CouponTieredAmountOffSubtotal.md
 docs/CouponTieredPercentOffItems.md
 docs/CouponTieredPercentOffShipping.md
 docs/CouponTieredPercentOffSubtotal.md
+docs/CouponTieredPercentOffSubtotalBasedOnMSRP.md
 docs/CouponType.md
 docs/CouponsRequest.md
 docs/CouponsResponse.md
@@ -937,6 +938,7 @@ src/com.ultracart.admin.v2/Model/CouponTieredAmountOffSubtotal.cs
 src/com.ultracart.admin.v2/Model/CouponTieredPercentOffItems.cs
 src/com.ultracart.admin.v2/Model/CouponTieredPercentOffShipping.cs
 src/com.ultracart.admin.v2/Model/CouponTieredPercentOffSubtotal.cs
+src/com.ultracart.admin.v2/Model/CouponTieredPercentOffSubtotalBasedOnMSRP.cs
 src/com.ultracart.admin.v2/Model/CouponType.cs
 src/com.ultracart.admin.v2/Model/CouponsRequest.cs
 src/com.ultracart.admin.v2/Model/CouponsResponse.cs

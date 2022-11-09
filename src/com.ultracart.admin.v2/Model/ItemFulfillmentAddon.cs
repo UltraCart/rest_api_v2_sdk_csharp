@@ -35,12 +35,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="addItemId">Add Item Id.</param>
         /// <param name="addItemOid">Add Item object identifier.</param>
-        /// <param name="oncePerOrder">Quantity.</param>
+        /// <param name="initialOrderOnly">Initial Order Only.</param>
+        /// <param name="oncePerOrder">Once Per Order.</param>
         /// <param name="quantity">Quantity.</param>
-        public ItemFulfillmentAddon(string addItemId = default(string), int addItemOid = default(int), bool oncePerOrder = default(bool), int quantity = default(int))
+        public ItemFulfillmentAddon(string addItemId = default(string), int addItemOid = default(int), bool initialOrderOnly = default(bool), bool oncePerOrder = default(bool), int quantity = default(int))
         {
             this.AddItemId = addItemId;
             this.AddItemOid = addItemOid;
+            this.InitialOrderOnly = initialOrderOnly;
             this.OncePerOrder = oncePerOrder;
             this.Quantity = quantity;
         }
@@ -60,9 +62,16 @@ namespace com.ultracart.admin.v2.Model
         public int AddItemOid { get; set; }
 
         /// <summary>
-        /// Quantity
+        /// Initial Order Only
         /// </summary>
-        /// <value>Quantity</value>
+        /// <value>Initial Order Only</value>
+        [DataMember(Name="initial_order_only", EmitDefaultValue=false)]
+        public bool InitialOrderOnly { get; set; }
+
+        /// <summary>
+        /// Once Per Order
+        /// </summary>
+        /// <value>Once Per Order</value>
         [DataMember(Name="once_per_order", EmitDefaultValue=false)]
         public bool OncePerOrder { get; set; }
 
@@ -83,6 +92,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ItemFulfillmentAddon {\n");
             sb.Append("  AddItemId: ").Append(AddItemId).Append("\n");
             sb.Append("  AddItemOid: ").Append(AddItemOid).Append("\n");
+            sb.Append("  InitialOrderOnly: ").Append(InitialOrderOnly).Append("\n");
             sb.Append("  OncePerOrder: ").Append(OncePerOrder).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("}\n");
@@ -130,6 +140,11 @@ namespace com.ultracart.admin.v2.Model
                     this.AddItemOid.Equals(input.AddItemOid))
                 ) && 
                 (
+                    this.InitialOrderOnly == input.InitialOrderOnly ||
+                    (this.InitialOrderOnly != null &&
+                    this.InitialOrderOnly.Equals(input.InitialOrderOnly))
+                ) && 
+                (
                     this.OncePerOrder == input.OncePerOrder ||
                     (this.OncePerOrder != null &&
                     this.OncePerOrder.Equals(input.OncePerOrder))
@@ -154,6 +169,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AddItemId.GetHashCode();
                 if (this.AddItemOid != null)
                     hashCode = hashCode * 59 + this.AddItemOid.GetHashCode();
+                if (this.InitialOrderOnly != null)
+                    hashCode = hashCode * 59 + this.InitialOrderOnly.GetHashCode();
                 if (this.OncePerOrder != null)
                     hashCode = hashCode * 59 + this.OncePerOrder.GetHashCode();
                 if (this.Quantity != null)

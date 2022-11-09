@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AddItemId** | **string** | Add Item Id | [optional] 
 **AddItemOid** | **int** | Add Item object identifier | [optional] 
-**OncePerOrder** | **bool** | Quantity | [optional] 
+**InitialOrderOnly** | **bool** | Initial Order Only | [optional] 
+**OncePerOrder** | **bool** | Once Per Order | [optional] 
 **Quantity** | **int** | Quantity | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -95,7 +95,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Readmessage for value: read message
             /// </summary>
             [EnumMember(Value = "read message")]
-            Readmessage = 10
+            Readmessage = 10,
+
+            /// <summary>
+            /// Enum Typing for value: typing
+            /// </summary>
+            [EnumMember(Value = "typing")]
+            Typing = 11
 
         }
 

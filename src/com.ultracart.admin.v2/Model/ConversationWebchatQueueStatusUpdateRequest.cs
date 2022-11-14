@@ -31,19 +31,47 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationWebchatQueueStatusUpdateRequest :  IEquatable<ConversationWebchatQueueStatusUpdateRequest>, IValidatableObject
     {
         /// <summary>
+        /// Status of the agent
+        /// </summary>
+        /// <value>Status of the agent</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AgentStatusEnum
+        {
+            /// <summary>
+            /// Enum Available for value: available
+            /// </summary>
+            [EnumMember(Value = "available")]
+            Available = 1,
+
+            /// <summary>
+            /// Enum Busy for value: busy
+            /// </summary>
+            [EnumMember(Value = "busy")]
+            Busy = 2,
+
+            /// <summary>
+            /// Enum Unavailable for value: unavailable
+            /// </summary>
+            [EnumMember(Value = "unavailable")]
+            Unavailable = 3
+
+        }
+
+        /// <summary>
+        /// Status of the agent
+        /// </summary>
+        /// <value>Status of the agent</value>
+        [DataMember(Name="agent_status", EmitDefaultValue=false)]
+        public AgentStatusEnum? AgentStatus { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationWebchatQueueStatusUpdateRequest" /> class.
         /// </summary>
-        /// <param name="agentStatus">agentStatus.</param>
-        public ConversationWebchatQueueStatusUpdateRequest(string agentStatus = default(string))
+        /// <param name="agentStatus">Status of the agent.</param>
+        public ConversationWebchatQueueStatusUpdateRequest(AgentStatusEnum? agentStatus = default(AgentStatusEnum?))
         {
             this.AgentStatus = agentStatus;
         }
 
-        /// <summary>
-        /// Gets or Sets AgentStatus
-        /// </summary>
-        [DataMember(Name="agent_status", EmitDefaultValue=false)]
-        public string AgentStatus { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

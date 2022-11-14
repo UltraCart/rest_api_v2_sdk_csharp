@@ -87,6 +87,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="authenticationType">The type of authentication this webhook will use when communicating with your server.</param>
         /// <param name="basicPassword">Basic authentication password.</param>
         /// <param name="basicUsername">Basic authentication user name.</param>
+        /// <param name="compressEvents">Compress events with GZIP then base 64 encode them as a string.</param>
         /// <param name="consecutiveFailures">The number of consecutive failures that have occurred trying to deliver notifications to the target server.</param>
         /// <param name="disabled">True if the webhook has been disabled.</param>
         /// <param name="eventCategories">The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval..</param>
@@ -99,7 +100,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="pending">The number of pending events for this webhook.</param>
         /// <param name="webhookOid">The object identifier for this webhook.</param>
         /// <param name="webhookUrl">The URL to deliver events to.  Must be HTTPS for customer related information..</param>
-        public Webhook(int? apiUserOid = default(int?), ApiVersionEnum? apiVersion = default(ApiVersionEnum?), ApiUserApplicationProfile applicationProfile = default(ApiUserApplicationProfile), AuthenticationTypeEnum? authenticationType = default(AuthenticationTypeEnum?), string basicPassword = default(string), string basicUsername = default(string), int? consecutiveFailures = default(int?), bool? disabled = default(bool?), List<WebhookEventCategory> eventCategories = default(List<WebhookEventCategory>), string iamAccessKey = default(string), string iamSecretKey = default(string), int? maximumEvents = default(int?), int? maximumSize = default(int?), string merchantId = default(string), string nextRetryAfter = default(string), int? pending = default(int?), int? webhookOid = default(int?), string webhookUrl = default(string))
+        public Webhook(int? apiUserOid = default(int?), ApiVersionEnum? apiVersion = default(ApiVersionEnum?), ApiUserApplicationProfile applicationProfile = default(ApiUserApplicationProfile), AuthenticationTypeEnum? authenticationType = default(AuthenticationTypeEnum?), string basicPassword = default(string), string basicUsername = default(string), bool? compressEvents = default(bool?), int? consecutiveFailures = default(int?), bool? disabled = default(bool?), List<WebhookEventCategory> eventCategories = default(List<WebhookEventCategory>), string iamAccessKey = default(string), string iamSecretKey = default(string), int? maximumEvents = default(int?), int? maximumSize = default(int?), string merchantId = default(string), string nextRetryAfter = default(string), int? pending = default(int?), int? webhookOid = default(int?), string webhookUrl = default(string))
         {
             this.ApiUserOid = apiUserOid;
             this.ApiVersion = apiVersion;
@@ -107,6 +108,7 @@ namespace com.ultracart.admin.v2.Model
             this.AuthenticationType = authenticationType;
             this.BasicPassword = basicPassword;
             this.BasicUsername = basicUsername;
+            this.CompressEvents = compressEvents;
             this.ConsecutiveFailures = consecutiveFailures;
             this.Disabled = disabled;
             this.EventCategories = eventCategories;
@@ -149,6 +151,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Basic authentication user name</value>
         [DataMember(Name="basic_username", EmitDefaultValue=false)]
         public string BasicUsername { get; set; }
+
+        /// <summary>
+        /// Compress events with GZIP then base 64 encode them as a string
+        /// </summary>
+        /// <value>Compress events with GZIP then base 64 encode them as a string</value>
+        [DataMember(Name="compress_events", EmitDefaultValue=false)]
+        public bool? CompressEvents { get; set; }
 
         /// <summary>
         /// The number of consecutive failures that have occurred trying to deliver notifications to the target server
@@ -248,6 +257,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AuthenticationType: ").Append(AuthenticationType).Append("\n");
             sb.Append("  BasicPassword: ").Append(BasicPassword).Append("\n");
             sb.Append("  BasicUsername: ").Append(BasicUsername).Append("\n");
+            sb.Append("  CompressEvents: ").Append(CompressEvents).Append("\n");
             sb.Append("  ConsecutiveFailures: ").Append(ConsecutiveFailures).Append("\n");
             sb.Append("  Disabled: ").Append(Disabled).Append("\n");
             sb.Append("  EventCategories: ").Append(EventCategories).Append("\n");
@@ -323,6 +333,11 @@ namespace com.ultracart.admin.v2.Model
                     this.BasicUsername == input.BasicUsername ||
                     (this.BasicUsername != null &&
                     this.BasicUsername.Equals(input.BasicUsername))
+                ) && 
+                (
+                    this.CompressEvents == input.CompressEvents ||
+                    (this.CompressEvents != null &&
+                    this.CompressEvents.Equals(input.CompressEvents))
                 ) && 
                 (
                     this.ConsecutiveFailures == input.ConsecutiveFailures ||
@@ -407,6 +422,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.BasicPassword.GetHashCode();
                 if (this.BasicUsername != null)
                     hashCode = hashCode * 59 + this.BasicUsername.GetHashCode();
+                if (this.CompressEvents != null)
+                    hashCode = hashCode * 59 + this.CompressEvents.GetHashCode();
                 if (this.ConsecutiveFailures != null)
                     hashCode = hashCode * 59 + this.ConsecutiveFailures.GetHashCode();
                 if (this.Disabled != null)

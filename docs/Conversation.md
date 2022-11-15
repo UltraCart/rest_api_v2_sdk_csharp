@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BaseLanguageIsoCode** | **string** | The base language iso code for the StoreFront that everything is translated into | [optional] 
 **Closed** | **bool?** |  | [optional] 
 **ConversationArn** | **string** |  | [optional] 
 **ConversationUuid** | **string** |  | [optional] 

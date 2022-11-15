@@ -43,8 +43,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="link">link.</param>
         /// <param name="referrer">URL that referred the click (Browser Header Referer).</param>
         /// <param name="referrerQueryString">Query string that was on the referrer URL..</param>
+        /// <param name="screenRecordingUuid">Screen recording UUID.</param>
         /// <param name="subId">Sub ID value passed on the click.</param>
-        public AffiliateClick(int? affiliateClickOid = default(int?), int? affiliateLinkOid = default(int?), int? affiliateOid = default(int?), string clickDts = default(string), string ipAddress = default(string), string landingPage = default(string), string landingPageQueryString = default(string), AffiliateLink link = default(AffiliateLink), string referrer = default(string), string referrerQueryString = default(string), string subId = default(string))
+        /// <param name="ucacid">UC Analytics Identifier.</param>
+        public AffiliateClick(int? affiliateClickOid = default(int?), int? affiliateLinkOid = default(int?), int? affiliateOid = default(int?), string clickDts = default(string), string ipAddress = default(string), string landingPage = default(string), string landingPageQueryString = default(string), AffiliateLink link = default(AffiliateLink), string referrer = default(string), string referrerQueryString = default(string), string screenRecordingUuid = default(string), string subId = default(string), string ucacid = default(string))
         {
             this.AffiliateClickOid = affiliateClickOid;
             this.AffiliateLinkOid = affiliateLinkOid;
@@ -56,7 +58,9 @@ namespace com.ultracart.admin.v2.Model
             this.Link = link;
             this.Referrer = referrer;
             this.ReferrerQueryString = referrerQueryString;
+            this.ScreenRecordingUuid = screenRecordingUuid;
             this.SubId = subId;
+            this.Ucacid = ucacid;
         }
         
         /// <summary>
@@ -129,11 +133,25 @@ namespace com.ultracart.admin.v2.Model
         public string ReferrerQueryString { get; set; }
 
         /// <summary>
+        /// Screen recording UUID
+        /// </summary>
+        /// <value>Screen recording UUID</value>
+        [DataMember(Name="screen_recording_uuid", EmitDefaultValue=false)]
+        public string ScreenRecordingUuid { get; set; }
+
+        /// <summary>
         /// Sub ID value passed on the click
         /// </summary>
         /// <value>Sub ID value passed on the click</value>
         [DataMember(Name="sub_id", EmitDefaultValue=false)]
         public string SubId { get; set; }
+
+        /// <summary>
+        /// UC Analytics Identifier
+        /// </summary>
+        /// <value>UC Analytics Identifier</value>
+        [DataMember(Name="ucacid", EmitDefaultValue=false)]
+        public string Ucacid { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -153,7 +171,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Link: ").Append(Link).Append("\n");
             sb.Append("  Referrer: ").Append(Referrer).Append("\n");
             sb.Append("  ReferrerQueryString: ").Append(ReferrerQueryString).Append("\n");
+            sb.Append("  ScreenRecordingUuid: ").Append(ScreenRecordingUuid).Append("\n");
             sb.Append("  SubId: ").Append(SubId).Append("\n");
+            sb.Append("  Ucacid: ").Append(Ucacid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -239,9 +259,19 @@ namespace com.ultracart.admin.v2.Model
                     this.ReferrerQueryString.Equals(input.ReferrerQueryString))
                 ) && 
                 (
+                    this.ScreenRecordingUuid == input.ScreenRecordingUuid ||
+                    (this.ScreenRecordingUuid != null &&
+                    this.ScreenRecordingUuid.Equals(input.ScreenRecordingUuid))
+                ) && 
+                (
                     this.SubId == input.SubId ||
                     (this.SubId != null &&
                     this.SubId.Equals(input.SubId))
+                ) && 
+                (
+                    this.Ucacid == input.Ucacid ||
+                    (this.Ucacid != null &&
+                    this.Ucacid.Equals(input.Ucacid))
                 );
         }
 
@@ -274,8 +304,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Referrer.GetHashCode();
                 if (this.ReferrerQueryString != null)
                     hashCode = hashCode * 59 + this.ReferrerQueryString.GetHashCode();
+                if (this.ScreenRecordingUuid != null)
+                    hashCode = hashCode * 59 + this.ScreenRecordingUuid.GetHashCode();
                 if (this.SubId != null)
                     hashCode = hashCode * 59 + this.SubId.GetHashCode();
+                if (this.Ucacid != null)
+                    hashCode = hashCode * 59 + this.Ucacid.GetHashCode();
                 return hashCode;
             }
         }

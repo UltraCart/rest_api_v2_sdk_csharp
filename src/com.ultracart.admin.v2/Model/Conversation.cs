@@ -60,6 +60,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Conversation" /> class.
         /// </summary>
+        /// <param name="baseLanguageIsoCode">The base language iso code for the StoreFront that everything is translated into.</param>
         /// <param name="closed">closed.</param>
         /// <param name="conversationArn">conversationArn.</param>
         /// <param name="conversationUuid">conversationUuid.</param>
@@ -76,8 +77,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="startDts">Start of the conversation date/time.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
         /// <param name="visible">visible.</param>
-        public Conversation(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastInteractiveMessageDts = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationMessage> messages = default(List<ConversationMessage>), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
+        public Conversation(string baseLanguageIsoCode = default(string), bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastInteractiveMessageDts = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationMessage> messages = default(List<ConversationMessage>), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
         {
+            this.BaseLanguageIsoCode = baseLanguageIsoCode;
             this.Closed = closed;
             this.ConversationArn = conversationArn;
             this.ConversationUuid = conversationUuid;
@@ -96,6 +98,13 @@ namespace com.ultracart.admin.v2.Model
             this.Visible = visible;
         }
         
+        /// <summary>
+        /// The base language iso code for the StoreFront that everything is translated into
+        /// </summary>
+        /// <value>The base language iso code for the StoreFront that everything is translated into</value>
+        [DataMember(Name="base_language_iso_code", EmitDefaultValue=false)]
+        public string BaseLanguageIsoCode { get; set; }
+
         /// <summary>
         /// Gets or Sets Closed
         /// </summary>
@@ -198,6 +207,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Conversation {\n");
+            sb.Append("  BaseLanguageIsoCode: ").Append(BaseLanguageIsoCode).Append("\n");
             sb.Append("  Closed: ").Append(Closed).Append("\n");
             sb.Append("  ConversationArn: ").Append(ConversationArn).Append("\n");
             sb.Append("  ConversationUuid: ").Append(ConversationUuid).Append("\n");
@@ -248,6 +258,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.BaseLanguageIsoCode == input.BaseLanguageIsoCode ||
+                    (this.BaseLanguageIsoCode != null &&
+                    this.BaseLanguageIsoCode.Equals(input.BaseLanguageIsoCode))
+                ) && 
                 (
                     this.Closed == input.Closed ||
                     (this.Closed != null &&
@@ -339,6 +354,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.BaseLanguageIsoCode != null)
+                    hashCode = hashCode * 59 + this.BaseLanguageIsoCode.GetHashCode();
                 if (this.Closed != null)
                     hashCode = hashCode * 59 + this.Closed.GetHashCode();
                 if (this.ConversationArn != null)

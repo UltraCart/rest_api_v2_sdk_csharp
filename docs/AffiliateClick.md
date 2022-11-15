@@ -13,7 +13,9 @@ Name | Type | Description | Notes
 **Link** | [**AffiliateLink**](AffiliateLink.md) |  | [optional] 
 **Referrer** | **string** | URL that referred the click (Browser Header Referer) | [optional] 
 **ReferrerQueryString** | **string** | Query string that was on the referrer URL. | [optional] 
+**ScreenRecordingUuid** | **string** | Screen recording UUID | [optional] 
 **SubId** | **string** | Sub ID value passed on the click | [optional] 
+**Ucacid** | **string** | UC Analytics Identifier | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

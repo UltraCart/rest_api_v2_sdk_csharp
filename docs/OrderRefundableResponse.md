@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Error** | [**Error**](Error.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
-**Refundable** | **bool?** | Whether the order is refundable or not. | [optional] 
+**Refundable** | **bool?** | Whether the order is refundable or not.  Null should be interpreted as false. | [optional] 
 **Success** | **bool?** | Indicates if API call was successful | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 
 

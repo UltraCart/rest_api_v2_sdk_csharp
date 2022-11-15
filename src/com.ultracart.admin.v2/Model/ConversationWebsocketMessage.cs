@@ -101,7 +101,19 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Typing for value: typing
             /// </summary>
             [EnumMember(Value = "typing")]
-            Typing = 11
+            Typing = 11,
+
+            /// <summary>
+            /// Enum Addcoupon for value: add coupon
+            /// </summary>
+            [EnumMember(Value = "add coupon")]
+            Addcoupon = 12,
+
+            /// <summary>
+            /// Enum Additem for value: add item
+            /// </summary>
+            [EnumMember(Value = "add item")]
+            Additem = 13
 
         }
 
@@ -154,6 +166,8 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ConversationWebsocketMessage" /> class.
         /// </summary>
         /// <param name="conversationUuid">Conversation UUID if the websocket message is tied to a specific conversation.</param>
+        /// <param name="eventAddCoupon">eventAddCoupon.</param>
+        /// <param name="eventAddItem">eventAddItem.</param>
         /// <param name="eventConversationClosed">eventConversationClosed.</param>
         /// <param name="eventNewConversation">eventNewConversation.</param>
         /// <param name="eventNewMessage">eventNewMessage.</param>
@@ -167,9 +181,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventUpdatedMessage">eventUpdatedMessage.</param>
         /// <param name="message">message.</param>
         /// <param name="type">Type of message.</param>
-        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
+        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationEventAddCoupon eventAddCoupon = default(ConversationEventAddCoupon), ConversationEventAddItem eventAddItem = default(ConversationEventAddItem), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
         {
             this.ConversationUuid = conversationUuid;
+            this.EventAddCoupon = eventAddCoupon;
+            this.EventAddItem = eventAddItem;
             this.EventConversationClosed = eventConversationClosed;
             this.EventNewConversation = eventNewConversation;
             this.EventNewMessage = eventNewMessage;
@@ -191,6 +207,18 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Conversation UUID if the websocket message is tied to a specific conversation</value>
         [DataMember(Name="conversation_uuid", EmitDefaultValue=false)]
         public string ConversationUuid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventAddCoupon
+        /// </summary>
+        [DataMember(Name="event_add_coupon", EmitDefaultValue=false)]
+        public ConversationEventAddCoupon EventAddCoupon { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventAddItem
+        /// </summary>
+        [DataMember(Name="event_add_item", EmitDefaultValue=false)]
+        public ConversationEventAddItem EventAddItem { get; set; }
 
         /// <summary>
         /// Gets or Sets EventConversationClosed
@@ -269,6 +297,8 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ConversationWebsocketMessage {\n");
             sb.Append("  ConversationUuid: ").Append(ConversationUuid).Append("\n");
+            sb.Append("  EventAddCoupon: ").Append(EventAddCoupon).Append("\n");
+            sb.Append("  EventAddItem: ").Append(EventAddItem).Append("\n");
             sb.Append("  EventConversationClosed: ").Append(EventConversationClosed).Append("\n");
             sb.Append("  EventNewConversation: ").Append(EventNewConversation).Append("\n");
             sb.Append("  EventNewMessage: ").Append(EventNewMessage).Append("\n");
@@ -320,6 +350,16 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationUuid == input.ConversationUuid ||
                     (this.ConversationUuid != null &&
                     this.ConversationUuid.Equals(input.ConversationUuid))
+                ) && 
+                (
+                    this.EventAddCoupon == input.EventAddCoupon ||
+                    (this.EventAddCoupon != null &&
+                    this.EventAddCoupon.Equals(input.EventAddCoupon))
+                ) && 
+                (
+                    this.EventAddItem == input.EventAddItem ||
+                    (this.EventAddItem != null &&
+                    this.EventAddItem.Equals(input.EventAddItem))
                 ) && 
                 (
                     this.EventConversationClosed == input.EventConversationClosed ||
@@ -399,6 +439,10 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.ConversationUuid != null)
                     hashCode = hashCode * 59 + this.ConversationUuid.GetHashCode();
+                if (this.EventAddCoupon != null)
+                    hashCode = hashCode * 59 + this.EventAddCoupon.GetHashCode();
+                if (this.EventAddItem != null)
+                    hashCode = hashCode * 59 + this.EventAddItem.GetHashCode();
                 if (this.EventConversationClosed != null)
                     hashCode = hashCode * 59 + this.EventConversationClosed.GetHashCode();
                 if (this.EventNewConversation != null)

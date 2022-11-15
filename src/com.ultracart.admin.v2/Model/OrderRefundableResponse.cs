@@ -35,7 +35,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
-        /// <param name="refundable">Whether the order is refundable or not..</param>
+        /// <param name="refundable">Whether the order is refundable or not.  Null should be interpreted as false..</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
         public OrderRefundableResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool refundable = default(bool), bool success = default(bool), Warning warning = default(Warning))
@@ -60,9 +60,9 @@ namespace com.ultracart.admin.v2.Model
         public ResponseMetadata Metadata { get; set; }
 
         /// <summary>
-        /// Whether the order is refundable or not.
+        /// Whether the order is refundable or not.  Null should be interpreted as false.
         /// </summary>
-        /// <value>Whether the order is refundable or not.</value>
+        /// <value>Whether the order is refundable or not.  Null should be interpreted as false.</value>
         [DataMember(Name="refundable", EmitDefaultValue=false)]
         public bool Refundable { get; set; }
 

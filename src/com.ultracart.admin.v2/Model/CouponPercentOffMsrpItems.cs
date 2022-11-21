@@ -37,12 +37,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="excludedItems">A list of items which cannot be discounted..</param>
         /// <param name="items">An list of items which will receive a discount..</param>
         /// <param name="limit">The (optional) maximum quantity of discounted items..</param>
-        public CouponPercentOffMsrpItems(decimal? discountPercent = default(decimal?), List<string> excludedItems = default(List<string>), List<string> items = default(List<string>), int? limit = default(int?))
+        /// <param name="minimumCumulativeMsrp">The (optional) minimum cumulative msrp of qualifying items..</param>
+        /// <param name="minimumSubtotal">The (optional) minimum subtotal of qualifying items..</param>
+        public CouponPercentOffMsrpItems(decimal? discountPercent = default(decimal?), List<string> excludedItems = default(List<string>), List<string> items = default(List<string>), int? limit = default(int?), decimal? minimumCumulativeMsrp = default(decimal?), decimal? minimumSubtotal = default(decimal?))
         {
             this.DiscountPercent = discountPercent;
             this.ExcludedItems = excludedItems;
             this.Items = items;
             this.Limit = limit;
+            this.MinimumCumulativeMsrp = minimumCumulativeMsrp;
+            this.MinimumSubtotal = minimumSubtotal;
         }
         
         /// <summary>
@@ -74,6 +78,20 @@ namespace com.ultracart.admin.v2.Model
         public int? Limit { get; set; }
 
         /// <summary>
+        /// The (optional) minimum cumulative msrp of qualifying items.
+        /// </summary>
+        /// <value>The (optional) minimum cumulative msrp of qualifying items.</value>
+        [DataMember(Name="minimum_cumulative_msrp", EmitDefaultValue=false)]
+        public decimal? MinimumCumulativeMsrp { get; set; }
+
+        /// <summary>
+        /// The (optional) minimum subtotal of qualifying items.
+        /// </summary>
+        /// <value>The (optional) minimum subtotal of qualifying items.</value>
+        [DataMember(Name="minimum_subtotal", EmitDefaultValue=false)]
+        public decimal? MinimumSubtotal { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +103,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ExcludedItems: ").Append(ExcludedItems).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
+            sb.Append("  MinimumCumulativeMsrp: ").Append(MinimumCumulativeMsrp).Append("\n");
+            sb.Append("  MinimumSubtotal: ").Append(MinimumSubtotal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +158,16 @@ namespace com.ultracart.admin.v2.Model
                     this.Limit == input.Limit ||
                     (this.Limit != null &&
                     this.Limit.Equals(input.Limit))
+                ) && 
+                (
+                    this.MinimumCumulativeMsrp == input.MinimumCumulativeMsrp ||
+                    (this.MinimumCumulativeMsrp != null &&
+                    this.MinimumCumulativeMsrp.Equals(input.MinimumCumulativeMsrp))
+                ) && 
+                (
+                    this.MinimumSubtotal == input.MinimumSubtotal ||
+                    (this.MinimumSubtotal != null &&
+                    this.MinimumSubtotal.Equals(input.MinimumSubtotal))
                 );
         }
 
@@ -158,6 +188,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.Limit != null)
                     hashCode = hashCode * 59 + this.Limit.GetHashCode();
+                if (this.MinimumCumulativeMsrp != null)
+                    hashCode = hashCode * 59 + this.MinimumCumulativeMsrp.GetHashCode();
+                if (this.MinimumSubtotal != null)
+                    hashCode = hashCode * 59 + this.MinimumSubtotal.GetHashCode();
                 return hashCode;
             }
         }

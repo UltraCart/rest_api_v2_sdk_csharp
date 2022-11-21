@@ -114,7 +114,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Additem for value: add item
             /// </summary>
             [EnumMember(Value = "add item")]
-            Additem = 13
+            Additem = 13,
+            
+            /// <summary>
+            /// Enum Webchatcontext for value: webchat context
+            /// </summary>
+            [EnumMember(Value = "webchat context")]
+            Webchatcontext = 14
         }
 
         /// <summary>

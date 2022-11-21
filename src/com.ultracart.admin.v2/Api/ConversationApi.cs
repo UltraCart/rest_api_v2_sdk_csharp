@@ -86,6 +86,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationResponse</returns>
         ApiResponse<ConversationResponse> GetConversationWithHttpInfo (string conversationUuid, int? limit = null);
         /// <summary>
+        /// Get a webchat conversation context
+        /// </summary>
+        /// <remarks>
+        /// Get a webchat conversation context 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>ConversationWebchatContext</returns>
+        ConversationWebchatContext GetConversationContext (string conversationUuid);
+
+        /// <summary>
+        /// Get a webchat conversation context
+        /// </summary>
+        /// <remarks>
+        /// Get a webchat conversation context 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>ApiResponse of ConversationWebchatContext</returns>
+        ApiResponse<ConversationWebchatContext> GetConversationContextWithHttpInfo (string conversationUuid);
+        /// <summary>
         /// Retrieve conversation messages
         /// </summary>
         /// <remarks>
@@ -326,6 +347,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="limit"> (optional)</param>
         /// <returns>Task of ApiResponse (ConversationResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationResponse>> GetConversationAsyncWithHttpInfo (string conversationUuid, int? limit = null);
+        /// <summary>
+        /// Get a webchat conversation context
+        /// </summary>
+        /// <remarks>
+        /// Get a webchat conversation context 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of ConversationWebchatContext</returns>
+        System.Threading.Tasks.Task<ConversationWebchatContext> GetConversationContextAsync (string conversationUuid);
+
+        /// <summary>
+        /// Get a webchat conversation context
+        /// </summary>
+        /// <remarks>
+        /// Get a webchat conversation context 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationWebchatContext)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationWebchatContext>> GetConversationContextAsyncWithHttpInfo (string conversationUuid);
         /// <summary>
         /// Retrieve conversation messages
         /// </summary>
@@ -1060,6 +1102,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationResponse)));
+        }
+
+        /// <summary>
+        /// Get a webchat conversation context Get a webchat conversation context 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>ConversationWebchatContext</returns>
+        public ConversationWebchatContext GetConversationContext (string conversationUuid)
+        {
+             ApiResponse<ConversationWebchatContext> localVarResponse = GetConversationContextWithHttpInfo(conversationUuid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a webchat conversation context Get a webchat conversation context 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>ApiResponse of ConversationWebchatContext</returns>
+        public ApiResponse< ConversationWebchatContext > GetConversationContextWithHttpInfo (string conversationUuid)
+        {
+            // verify the required parameter 'conversationUuid' is set
+            if (conversationUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationUuid' when calling ConversationApi->GetConversationContext");
+
+            var localVarPath = "/conversation/conversations/{conversation_uuid}/context";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationContext", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationWebchatContext>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationWebchatContext) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationWebchatContext)));
+        }
+
+        /// <summary>
+        /// Get a webchat conversation context Get a webchat conversation context 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of ConversationWebchatContext</returns>
+        public async System.Threading.Tasks.Task<ConversationWebchatContext> GetConversationContextAsync (string conversationUuid)
+        {
+             ApiResponse<ConversationWebchatContext> localVarResponse = await GetConversationContextAsyncWithHttpInfo(conversationUuid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a webchat conversation context Get a webchat conversation context 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of ApiResponse (ConversationWebchatContext)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationWebchatContext>> GetConversationContextAsyncWithHttpInfo (string conversationUuid)
+        {
+            // verify the required parameter 'conversationUuid' is set
+            if (conversationUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationUuid' when calling ConversationApi->GetConversationContext");
+
+            var localVarPath = "/conversation/conversations/{conversation_uuid}/context";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationContext", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationWebchatContext>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationWebchatContext) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationWebchatContext)));
         }
 
         /// <summary>

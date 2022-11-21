@@ -177,9 +177,9 @@ namespace com.ultracart.admin.v2.Model
 
 
             // Value (string) maxLength
-            if(this.Value != null && this.Value.Length > 5000)
+            if(this.Value != null && this.Value.Length > 1500)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 5000.", new [] { "Value" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 1500.", new [] { "Value" });
             }
 
 

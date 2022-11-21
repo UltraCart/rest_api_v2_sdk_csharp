@@ -33,11 +33,27 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationEventAddCoupon" /> class.
         /// </summary>
+        /// <param name="agentArn">agentArn.</param>
+        /// <param name="agentName">agentName.</param>
         /// <param name="couponCode">couponCode.</param>
-        public ConversationEventAddCoupon(string couponCode = default(string))
+        public ConversationEventAddCoupon(string agentArn = default(string), string agentName = default(string), string couponCode = default(string))
         {
+            this.AgentArn = agentArn;
+            this.AgentName = agentName;
             this.CouponCode = couponCode;
         }
+
+        /// <summary>
+        /// Gets or Sets AgentArn
+        /// </summary>
+        [DataMember(Name="agent_arn", EmitDefaultValue=false)]
+        public string AgentArn { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AgentName
+        /// </summary>
+        [DataMember(Name="agent_name", EmitDefaultValue=false)]
+        public string AgentName { get; set; }
 
         /// <summary>
         /// Gets or Sets CouponCode
@@ -53,6 +69,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationEventAddCoupon {\n");
+            sb.Append("  AgentArn: ").Append(AgentArn).Append("\n");
+            sb.Append("  AgentName: ").Append(AgentName).Append("\n");
             sb.Append("  CouponCode: ").Append(CouponCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -89,6 +107,16 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AgentArn == input.AgentArn ||
+                    (this.AgentArn != null &&
+                    this.AgentArn.Equals(input.AgentArn))
+                ) && 
+                (
+                    this.AgentName == input.AgentName ||
+                    (this.AgentName != null &&
+                    this.AgentName.Equals(input.AgentName))
+                ) && 
+                (
                     this.CouponCode == input.CouponCode ||
                     (this.CouponCode != null &&
                     this.CouponCode.Equals(input.CouponCode))
@@ -104,6 +132,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AgentArn != null)
+                    hashCode = hashCode * 59 + this.AgentArn.GetHashCode();
+                if (this.AgentName != null)
+                    hashCode = hashCode * 59 + this.AgentName.GetHashCode();
                 if (this.CouponCode != null)
                     hashCode = hashCode * 59 + this.CouponCode.GetHashCode();
                 return hashCode;

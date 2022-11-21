@@ -1,13 +1,13 @@
 
-# com.ultracart.admin.v2.Model.ConversationEventAddCoupon
+# com.ultracart.admin.v2.Model.ConversationEventWebchatContext
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AgentArn** | **string** |  | [optional] 
-**AgentName** | **string** |  | [optional] 
-**CouponCode** | **string** |  | [optional] 
+**CartId** | **string** |  | [optional] 
+**Ucacid** | **string** |  | [optional] 
+**Url** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

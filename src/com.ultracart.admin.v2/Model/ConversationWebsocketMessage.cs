@@ -179,9 +179,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventType">Type of event.</param>
         /// <param name="eventTyping">eventTyping.</param>
         /// <param name="eventUpdatedMessage">eventUpdatedMessage.</param>
+        /// <param name="eventWebchatContext">eventWebchatContext.</param>
         /// <param name="message">message.</param>
         /// <param name="type">Type of message.</param>
-        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationEventAddCoupon eventAddCoupon = default(ConversationEventAddCoupon), ConversationEventAddItem eventAddItem = default(ConversationEventAddItem), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
+        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationEventAddCoupon eventAddCoupon = default(ConversationEventAddCoupon), ConversationEventAddItem eventAddItem = default(ConversationEventAddItem), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationEventWebchatContext eventWebchatContext = default(ConversationEventWebchatContext), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
         {
             this.ConversationUuid = conversationUuid;
             this.EventAddCoupon = eventAddCoupon;
@@ -197,6 +198,7 @@ namespace com.ultracart.admin.v2.Model
             this.EventType = eventType;
             this.EventTyping = eventTyping;
             this.EventUpdatedMessage = eventUpdatedMessage;
+            this.EventWebchatContext = eventWebchatContext;
             this.Message = message;
             this.Type = type;
         }
@@ -282,6 +284,12 @@ namespace com.ultracart.admin.v2.Model
         public ConversationMessage EventUpdatedMessage { get; set; }
 
         /// <summary>
+        /// Gets or Sets EventWebchatContext
+        /// </summary>
+        [DataMember(Name="event_webchat_context", EmitDefaultValue=false)]
+        public ConversationEventWebchatContext EventWebchatContext { get; set; }
+
+        /// <summary>
         /// Gets or Sets Message
         /// </summary>
         [DataMember(Name="message", EmitDefaultValue=false)]
@@ -310,6 +318,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("  EventTyping: ").Append(EventTyping).Append("\n");
             sb.Append("  EventUpdatedMessage: ").Append(EventUpdatedMessage).Append("\n");
+            sb.Append("  EventWebchatContext: ").Append(EventWebchatContext).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
@@ -417,6 +426,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EventUpdatedMessage.Equals(input.EventUpdatedMessage))
                 ) && 
                 (
+                    this.EventWebchatContext == input.EventWebchatContext ||
+                    (this.EventWebchatContext != null &&
+                    this.EventWebchatContext.Equals(input.EventWebchatContext))
+                ) && 
+                (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
@@ -465,6 +479,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EventTyping.GetHashCode();
                 if (this.EventUpdatedMessage != null)
                     hashCode = hashCode * 59 + this.EventUpdatedMessage.GetHashCode();
+                if (this.EventWebchatContext != null)
+                    hashCode = hashCode * 59 + this.EventWebchatContext.GetHashCode();
                 if (this.Message != null)
                     hashCode = hashCode * 59 + this.Message.GetHashCode();
                 if (this.Type != null)

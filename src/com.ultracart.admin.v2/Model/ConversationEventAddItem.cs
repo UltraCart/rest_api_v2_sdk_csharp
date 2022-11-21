@@ -33,17 +33,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationEventAddItem" /> class.
         /// </summary>
-        /// <param name="itemId">itemId.</param>
-        public ConversationEventAddItem(string itemId = default(string))
+        /// <param name="agentArn">agentArn.</param>
+        /// <param name="agentName">agentName.</param>
+        /// <param name="items">items.</param>
+        public ConversationEventAddItem(string agentArn = default(string), string agentName = default(string), List<CartItem> items = default(List<CartItem>))
         {
-            this.ItemId = itemId;
+            this.AgentArn = agentArn;
+            this.AgentName = agentName;
+            this.Items = items;
         }
 
         /// <summary>
-        /// Gets or Sets ItemId
+        /// Gets or Sets AgentArn
         /// </summary>
-        [DataMember(Name="item_id", EmitDefaultValue=false)]
-        public string ItemId { get; set; }
+        [DataMember(Name="agent_arn", EmitDefaultValue=false)]
+        public string AgentArn { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AgentName
+        /// </summary>
+        [DataMember(Name="agent_name", EmitDefaultValue=false)]
+        public string AgentName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Items
+        /// </summary>
+        [DataMember(Name="items", EmitDefaultValue=false)]
+        public List<CartItem> Items { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,7 +69,9 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationEventAddItem {\n");
-            sb.Append("  ItemId: ").Append(ItemId).Append("\n");
+            sb.Append("  AgentArn: ").Append(AgentArn).Append("\n");
+            sb.Append("  AgentName: ").Append(AgentName).Append("\n");
+            sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,9 +107,20 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.ItemId == input.ItemId ||
-                    (this.ItemId != null &&
-                    this.ItemId.Equals(input.ItemId))
+                    this.AgentArn == input.AgentArn ||
+                    (this.AgentArn != null &&
+                    this.AgentArn.Equals(input.AgentArn))
+                ) && 
+                (
+                    this.AgentName == input.AgentName ||
+                    (this.AgentName != null &&
+                    this.AgentName.Equals(input.AgentName))
+                ) && 
+                (
+                    this.Items == input.Items ||
+                    this.Items != null &&
+                    input.Items != null &&
+                    this.Items.SequenceEqual(input.Items)
                 );
         }
 
@@ -104,8 +133,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ItemId != null)
-                    hashCode = hashCode * 59 + this.ItemId.GetHashCode();
+                if (this.AgentArn != null)
+                    hashCode = hashCode * 59 + this.AgentArn.GetHashCode();
+                if (this.AgentName != null)
+                    hashCode = hashCode * 59 + this.AgentName.GetHashCode();
+                if (this.Items != null)
+                    hashCode = hashCode * 59 + this.Items.GetHashCode();
                 return hashCode;
             }
         }

@@ -148,6 +148,7 @@ docs/ConversationStartRequest.md
 docs/ConversationStartResponse.md
 docs/ConversationSummary.md
 docs/ConversationTwilioAccount.md
+docs/ConversationWebchatContext.md
 docs/ConversationWebchatQueueStatus.md
 docs/ConversationWebchatQueueStatusAgent.md
 docs/ConversationWebchatQueueStatusQueueEntry.md
@@ -404,6 +405,10 @@ docs/GroupResponse.md
 docs/GroupUserMembership.md
 docs/GroupsResponse.md
 docs/HTTPHeader.md
+docs/HitPageView.md
+docs/HitPageViewMetaData.md
+docs/HitSessionStart.md
+docs/HitSessionUtm.md
 docs/IntegrationLog.md
 docs/IntegrationLogApi.md
 docs/IntegrationLogFile.md
@@ -876,6 +881,7 @@ src/com.ultracart.admin.v2/Model/ConversationStartRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationStartResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationSummary.cs
 src/com.ultracart.admin.v2/Model/ConversationTwilioAccount.cs
+src/com.ultracart.admin.v2/Model/ConversationWebchatContext.cs
 src/com.ultracart.admin.v2/Model/ConversationWebchatQueueStatus.cs
 src/com.ultracart.admin.v2/Model/ConversationWebchatQueueStatusAgent.cs
 src/com.ultracart.admin.v2/Model/ConversationWebchatQueueStatusQueueEntry.cs
@@ -1128,6 +1134,10 @@ src/com.ultracart.admin.v2/Model/GroupResponse.cs
 src/com.ultracart.admin.v2/Model/GroupUserMembership.cs
 src/com.ultracart.admin.v2/Model/GroupsResponse.cs
 src/com.ultracart.admin.v2/Model/HTTPHeader.cs
+src/com.ultracart.admin.v2/Model/HitPageView.cs
+src/com.ultracart.admin.v2/Model/HitPageViewMetaData.cs
+src/com.ultracart.admin.v2/Model/HitSessionStart.cs
+src/com.ultracart.admin.v2/Model/HitSessionUtm.cs
 src/com.ultracart.admin.v2/Model/IntegrationLog.cs
 src/com.ultracart.admin.v2/Model/IntegrationLogFile.cs
 src/com.ultracart.admin.v2/Model/IntegrationLogLog.cs

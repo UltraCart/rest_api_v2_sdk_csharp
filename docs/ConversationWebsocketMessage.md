@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **EventType** | **string** | Type of event | [optional] 
 **EventTyping** | [**ConversationEventTyping**](ConversationEventTyping.md) |  | [optional] 
 **EventUpdatedMessage** | [**ConversationMessage**](ConversationMessage.md) |  | [optional] 
+**EventWebchatContext** | [**ConversationEventWebchatContext**](ConversationEventWebchatContext.md) |  | [optional] 
 **Message** | [**ConversationMessage**](ConversationMessage.md) |  | [optional] 
 **Type** | **string** | Type of message | [optional] 
 

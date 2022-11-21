@@ -25,68 +25,41 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// Weight
+    /// ConversationEventWebchatContext
     /// </summary>
     [DataContract]
-    public partial class Weight :  IEquatable<Weight>, IValidatableObject
+    public partial class ConversationEventWebchatContext :  IEquatable<ConversationEventWebchatContext>, IValidatableObject
     {
         /// <summary>
-        /// Unit of measure
+        /// Initializes a new instance of the <see cref="ConversationEventWebchatContext" /> class.
         /// </summary>
-        /// <value>Unit of measure</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum UomEnum
+        /// <param name="cartId">cartId.</param>
+        /// <param name="ucacid">ucacid.</param>
+        /// <param name="url">url.</param>
+        public ConversationEventWebchatContext(string cartId = default(string), string ucacid = default(string), string url = default(string))
         {
-            
-            /// <summary>
-            /// Enum KG for value: KG
-            /// </summary>
-            [EnumMember(Value = "KG")]
-            KG = 1,
-            
-            /// <summary>
-            /// Enum G for value: G
-            /// </summary>
-            [EnumMember(Value = "G")]
-            G = 2,
-            
-            /// <summary>
-            /// Enum LB for value: LB
-            /// </summary>
-            [EnumMember(Value = "LB")]
-            LB = 3,
-            
-            /// <summary>
-            /// Enum OZ for value: OZ
-            /// </summary>
-            [EnumMember(Value = "OZ")]
-            OZ = 4
-        }
-
-        /// <summary>
-        /// Unit of measure
-        /// </summary>
-        /// <value>Unit of measure</value>
-        [DataMember(Name="uom", EmitDefaultValue=false)]
-        public UomEnum? Uom { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Weight" /> class.
-        /// </summary>
-        /// <param name="uom">Unit of measure.</param>
-        /// <param name="value">Weight.</param>
-        public Weight(UomEnum? uom = default(UomEnum?), decimal? value = default(decimal?))
-        {
-            this.Uom = uom;
-            this.Value = value;
+            this.CartId = cartId;
+            this.Ucacid = ucacid;
+            this.Url = url;
         }
         
+        /// <summary>
+        /// Gets or Sets CartId
+        /// </summary>
+        [DataMember(Name="cart_id", EmitDefaultValue=false)]
+        public string CartId { get; set; }
 
         /// <summary>
-        /// Weight
+        /// Gets or Sets Ucacid
         /// </summary>
-        /// <value>Weight</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
+        [DataMember(Name="ucacid", EmitDefaultValue=false)]
+        public string Ucacid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Url
+        /// </summary>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -95,9 +68,10 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Weight {\n");
-            sb.Append("  Uom: ").Append(Uom).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class ConversationEventWebchatContext {\n");
+            sb.Append("  CartId: ").Append(CartId).Append("\n");
+            sb.Append("  Ucacid: ").Append(Ucacid).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,29 +92,34 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Weight);
+            return this.Equals(input as ConversationEventWebchatContext);
         }
 
         /// <summary>
-        /// Returns true if Weight instances are equal
+        /// Returns true if ConversationEventWebchatContext instances are equal
         /// </summary>
-        /// <param name="input">Instance of Weight to be compared</param>
+        /// <param name="input">Instance of ConversationEventWebchatContext to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Weight input)
+        public bool Equals(ConversationEventWebchatContext input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Uom == input.Uom ||
-                    (this.Uom != null &&
-                    this.Uom.Equals(input.Uom))
+                    this.CartId == input.CartId ||
+                    (this.CartId != null &&
+                    this.CartId.Equals(input.CartId))
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Ucacid == input.Ucacid ||
+                    (this.Ucacid != null &&
+                    this.Ucacid.Equals(input.Ucacid))
+                ) && 
+                (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -153,10 +132,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Uom != null)
-                    hashCode = hashCode * 59 + this.Uom.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.CartId != null)
+                    hashCode = hashCode * 59 + this.CartId.GetHashCode();
+                if (this.Ucacid != null)
+                    hashCode = hashCode * 59 + this.Ucacid.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 return hashCode;
             }
         }

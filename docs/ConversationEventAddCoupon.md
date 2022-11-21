@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AgentArn** | **string** |  | [optional] 
+**AgentName** | **string** |  | [optional] 
 **CouponCode** | **string** |  | [optional] 
 
 

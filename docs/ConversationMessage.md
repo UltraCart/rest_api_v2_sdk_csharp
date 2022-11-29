@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Body** | **string** |  | [optional] 
 **ClientMessageId** | **string** |  | [optional] 
 **ConversationMessageUuid** | **string** |  | [optional] 
+**DelayUntilDts** | **string** | Delay message transmission until date/time | [optional] 
 **MediaUrls** | **List&lt;string&gt;** |  | [optional] 
 **MerchantId** | **string** |  | [optional] 
 **MessageDts** | **string** | Message date/time | [optional] 

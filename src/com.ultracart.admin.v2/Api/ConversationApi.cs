@@ -241,6 +241,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> LeaveConversationWithHttpInfo (string conversationUuid);
         /// <summary>
+        /// Mark a conversation as read
+        /// </summary>
+        /// <remarks>
+        /// Mark a conversation as read 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns></returns>
+        void MarkReadConversation (string conversationUuid);
+
+        /// <summary>
+        /// Mark a conversation as read
+        /// </summary>
+        /// <remarks>
+        /// Mark a conversation as read 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> MarkReadConversationWithHttpInfo (string conversationUuid);
+        /// <summary>
         /// Start a conversation
         /// </summary>
         /// <remarks>
@@ -502,6 +523,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="conversationUuid"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> LeaveConversationAsyncWithHttpInfo (string conversationUuid);
+        /// <summary>
+        /// Mark a conversation as read
+        /// </summary>
+        /// <remarks>
+        /// Mark a conversation as read 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task MarkReadConversationAsync (string conversationUuid);
+
+        /// <summary>
+        /// Mark a conversation as read
+        /// </summary>
+        /// <remarks>
+        /// Mark a conversation as read 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> MarkReadConversationAsyncWithHttpInfo (string conversationUuid);
         /// <summary>
         /// Start a conversation
         /// </summary>
@@ -2209,6 +2251,161 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("LeaveConversation", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Mark a conversation as read Mark a conversation as read 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns></returns>
+        public void MarkReadConversation (string conversationUuid)
+        {
+             MarkReadConversationWithHttpInfo(conversationUuid);
+        }
+
+        /// <summary>
+        /// Mark a conversation as read Mark a conversation as read 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> MarkReadConversationWithHttpInfo (string conversationUuid)
+        {
+            // verify the required parameter 'conversationUuid' is set
+            if (conversationUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationUuid' when calling ConversationApi->MarkReadConversation");
+
+            var localVarPath = "/conversation/conversations/{conversation_uuid}/markread";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MarkReadConversation", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Mark a conversation as read Mark a conversation as read 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task MarkReadConversationAsync (string conversationUuid)
+        {
+             await MarkReadConversationAsyncWithHttpInfo(conversationUuid);
+
+        }
+
+        /// <summary>
+        /// Mark a conversation as read Mark a conversation as read 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> MarkReadConversationAsyncWithHttpInfo (string conversationUuid)
+        {
+            // verify the required parameter 'conversationUuid' is set
+            if (conversationUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationUuid' when calling ConversationApi->MarkReadConversation");
+
+            var localVarPath = "/conversation/conversations/{conversation_uuid}/markread";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MarkReadConversation", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -65,6 +65,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="body">body.</param>
         /// <param name="clientMessageId">clientMessageId.</param>
         /// <param name="conversationMessageUuid">conversationMessageUuid.</param>
+        /// <param name="delayUntilDts">Delay message transmission until date/time.</param>
         /// <param name="mediaUrls">mediaUrls.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="messageDts">Message date/time.</param>
@@ -72,13 +73,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="transportStatuses">transportStatuses.</param>
         /// <param name="type">Message type.</param>
         /// <param name="uploadKeys">uploadKeys.</param>
-        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), string conversationMessageUuid = default(string), List<string> mediaUrls = default(List<string>), string merchantId = default(string), string messageDts = default(string), long? messageEpoch = default(long?), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), TypeEnum? type = default(TypeEnum?), List<string> uploadKeys = default(List<string>))
+        public ConversationMessage(string authorConversationParticipantArn = default(string), string authorConversationParticipantName = default(string), string body = default(string), string clientMessageId = default(string), string conversationMessageUuid = default(string), string delayUntilDts = default(string), List<string> mediaUrls = default(List<string>), string merchantId = default(string), string messageDts = default(string), long? messageEpoch = default(long?), List<ConversationMessageTransportStatus> transportStatuses = default(List<ConversationMessageTransportStatus>), TypeEnum? type = default(TypeEnum?), List<string> uploadKeys = default(List<string>))
         {
             this.AuthorConversationParticipantArn = authorConversationParticipantArn;
             this.AuthorConversationParticipantName = authorConversationParticipantName;
             this.Body = body;
             this.ClientMessageId = clientMessageId;
             this.ConversationMessageUuid = conversationMessageUuid;
+            this.DelayUntilDts = delayUntilDts;
             this.MediaUrls = mediaUrls;
             this.MerchantId = merchantId;
             this.MessageDts = messageDts;
@@ -117,6 +119,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="conversation_message_uuid", EmitDefaultValue=false)]
         public string ConversationMessageUuid { get; set; }
+
+        /// <summary>
+        /// Delay message transmission until date/time
+        /// </summary>
+        /// <value>Delay message transmission until date/time</value>
+        [DataMember(Name="delay_until_dts", EmitDefaultValue=false)]
+        public string DelayUntilDts { get; set; }
 
         /// <summary>
         /// Gets or Sets MediaUrls
@@ -170,6 +179,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  ClientMessageId: ").Append(ClientMessageId).Append("\n");
             sb.Append("  ConversationMessageUuid: ").Append(ConversationMessageUuid).Append("\n");
+            sb.Append("  DelayUntilDts: ").Append(DelayUntilDts).Append("\n");
             sb.Append("  MediaUrls: ").Append(MediaUrls).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MessageDts: ").Append(MessageDts).Append("\n");
@@ -237,6 +247,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationMessageUuid.Equals(input.ConversationMessageUuid))
                 ) && 
                 (
+                    this.DelayUntilDts == input.DelayUntilDts ||
+                    (this.DelayUntilDts != null &&
+                    this.DelayUntilDts.Equals(input.DelayUntilDts))
+                ) && 
+                (
                     this.MediaUrls == input.MediaUrls ||
                     this.MediaUrls != null &&
                     this.MediaUrls.SequenceEqual(input.MediaUrls)
@@ -292,6 +307,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ClientMessageId.GetHashCode();
                 if (this.ConversationMessageUuid != null)
                     hashCode = hashCode * 59 + this.ConversationMessageUuid.GetHashCode();
+                if (this.DelayUntilDts != null)
+                    hashCode = hashCode * 59 + this.DelayUntilDts.GetHashCode();
                 if (this.MediaUrls != null)
                     hashCode = hashCode * 59 + this.MediaUrls.GetHashCode();
                 if (this.MerchantId != null)

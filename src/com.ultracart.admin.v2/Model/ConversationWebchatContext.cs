@@ -33,20 +33,30 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationWebchatContext" /> class.
         /// </summary>
+        /// <param name="autoOrders">autoOrders.</param>
         /// <param name="cart">cart.</param>
         /// <param name="currentUrl">currentUrl.</param>
+        /// <param name="orders">orders.</param>
         /// <param name="pageView">pageView.</param>
         /// <param name="sessionStart">sessionStart.</param>
         /// <param name="sessionUtm">sessionUtm.</param>
-        public ConversationWebchatContext(Cart cart = default(Cart), string currentUrl = default(string), List<HitPageView> pageView = default(List<HitPageView>), HitSessionStart sessionStart = default(HitSessionStart), HitSessionUtm sessionUtm = default(HitSessionUtm))
+        public ConversationWebchatContext(List<AutoOrder> autoOrders = default(List<AutoOrder>), Cart cart = default(Cart), string currentUrl = default(string), List<Order> orders = default(List<Order>), List<HitPageView> pageView = default(List<HitPageView>), HitSessionStart sessionStart = default(HitSessionStart), HitSessionUtm sessionUtm = default(HitSessionUtm))
         {
+            this.AutoOrders = autoOrders;
             this.Cart = cart;
             this.CurrentUrl = currentUrl;
+            this.Orders = orders;
             this.PageView = pageView;
             this.SessionStart = sessionStart;
             this.SessionUtm = sessionUtm;
         }
         
+        /// <summary>
+        /// Gets or Sets AutoOrders
+        /// </summary>
+        [DataMember(Name="auto_orders", EmitDefaultValue=false)]
+        public List<AutoOrder> AutoOrders { get; set; }
+
         /// <summary>
         /// Gets or Sets Cart
         /// </summary>
@@ -58,6 +68,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="current_url", EmitDefaultValue=false)]
         public string CurrentUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Orders
+        /// </summary>
+        [DataMember(Name="orders", EmitDefaultValue=false)]
+        public List<Order> Orders { get; set; }
 
         /// <summary>
         /// Gets or Sets PageView
@@ -85,8 +101,10 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationWebchatContext {\n");
+            sb.Append("  AutoOrders: ").Append(AutoOrders).Append("\n");
             sb.Append("  Cart: ").Append(Cart).Append("\n");
             sb.Append("  CurrentUrl: ").Append(CurrentUrl).Append("\n");
+            sb.Append("  Orders: ").Append(Orders).Append("\n");
             sb.Append("  PageView: ").Append(PageView).Append("\n");
             sb.Append("  SessionStart: ").Append(SessionStart).Append("\n");
             sb.Append("  SessionUtm: ").Append(SessionUtm).Append("\n");
@@ -125,6 +143,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.AutoOrders == input.AutoOrders ||
+                    this.AutoOrders != null &&
+                    this.AutoOrders.SequenceEqual(input.AutoOrders)
+                ) && 
+                (
                     this.Cart == input.Cart ||
                     (this.Cart != null &&
                     this.Cart.Equals(input.Cart))
@@ -133,6 +156,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CurrentUrl == input.CurrentUrl ||
                     (this.CurrentUrl != null &&
                     this.CurrentUrl.Equals(input.CurrentUrl))
+                ) && 
+                (
+                    this.Orders == input.Orders ||
+                    this.Orders != null &&
+                    this.Orders.SequenceEqual(input.Orders)
                 ) && 
                 (
                     this.PageView == input.PageView ||
@@ -160,10 +188,14 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AutoOrders != null)
+                    hashCode = hashCode * 59 + this.AutoOrders.GetHashCode();
                 if (this.Cart != null)
                     hashCode = hashCode * 59 + this.Cart.GetHashCode();
                 if (this.CurrentUrl != null)
                     hashCode = hashCode * 59 + this.CurrentUrl.GetHashCode();
+                if (this.Orders != null)
+                    hashCode = hashCode * 59 + this.Orders.GetHashCode();
                 if (this.PageView != null)
                     hashCode = hashCode * 59 + this.PageView.GetHashCode();
                 if (this.SessionStart != null)

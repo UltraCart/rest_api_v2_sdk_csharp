@@ -94,6 +94,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="freeShipping">True if the item receives free shipping.</param>
         /// <param name="hazmat">Hazardous materials indicator.</param>
         /// <param name="height">height.</param>
+        /// <param name="itemIndex">Index of the item on the order (one based index).</param>
         /// <param name="itemReferenceOid">Item reference object identifier used to linked to auto order item record.</param>
         /// <param name="kit">True if this item is a kit.</param>
         /// <param name="kitComponent">True if this item is a kit component.</param>
@@ -106,6 +107,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="noShippingDiscount">True if this item is excluded from shipping discounts.</param>
         /// <param name="options">Options.</param>
         /// <param name="packedByUser">Packed by user.</param>
+        /// <param name="parentItemIndex">If this item is a kit component, this is the item index of the parent item (kit).</param>
+        /// <param name="parentMerchantItemId">If this item is a kit component, this is the item id of the parent item (kit).</param>
         /// <param name="perishableClass">Perishable class of the item.</param>
         /// <param name="pricingTierName">Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned.</param>
         /// <param name="properties">Properties.</param>
@@ -128,7 +131,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="upsell">True if this item was added to the order as part of an upsell.</param>
         /// <param name="weight">weight.</param>
         /// <param name="width">width.</param>
-        public OrderItem(string accountingCode = default(string), List<string> activationCodes = default(List<string>), Currency arbitraryUnitCost = default(Currency), string autoOrderLastRebillDts = default(string), string autoOrderSchedule = default(string), string barcode = default(string), string channelPartnerItemId = default(string), decimal? cogs = default(decimal?), decimal? componentUnitValue = default(decimal?), Currency cost = default(Currency), string countryCodeOfOrigin = default(string), string customsDescription = default(string), string description = default(string), Currency discount = default(Currency), decimal? discountQuantity = default(decimal?), Weight discountShippingWeight = default(Weight), string distributionCenterCode = default(string), OrderItemEdi edi = default(OrderItemEdi), bool? excludeCoupon = default(bool?), bool? freeShipping = default(bool?), bool? hazmat = default(bool?), Distance height = default(Distance), int? itemReferenceOid = default(int?), bool? kit = default(bool?), bool? kitComponent = default(bool?), Distance length = default(Distance), string manufacturerSku = default(string), int? maxDaysTimeInTransit = default(int?), string merchantItemId = default(string), string mixAndMatchGroupName = default(string), int? mixAndMatchGroupOid = default(int?), bool? noShippingDiscount = default(bool?), List<OrderItemOption> options = default(List<OrderItemOption>), string packedByUser = default(string), string perishableClass = default(string), string pricingTierName = default(string), List<OrderItemProperty> properties = default(List<OrderItemProperty>), decimal? quantity = default(decimal?), decimal? quantityRefunded = default(decimal?), string quickbooksClass = default(string), bool? shipSeparately = default(bool?), string shippedByUser = default(string), string shippedDts = default(string), string shippingStatus = default(string), string specialProductType = default(string), List<OrderItemTag> tags = default(List<OrderItemTag>), bool? taxFree = default(bool?), TaxProductTypeEnum? taxProductType = default(TaxProductTypeEnum?), Currency taxableCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency totalRefunded = default(Currency), string transmittedToDistributionCenterDts = default(string), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), Weight weight = default(Weight), Distance width = default(Distance))
+        public OrderItem(string accountingCode = default(string), List<string> activationCodes = default(List<string>), Currency arbitraryUnitCost = default(Currency), string autoOrderLastRebillDts = default(string), string autoOrderSchedule = default(string), string barcode = default(string), string channelPartnerItemId = default(string), decimal? cogs = default(decimal?), decimal? componentUnitValue = default(decimal?), Currency cost = default(Currency), string countryCodeOfOrigin = default(string), string customsDescription = default(string), string description = default(string), Currency discount = default(Currency), decimal? discountQuantity = default(decimal?), Weight discountShippingWeight = default(Weight), string distributionCenterCode = default(string), OrderItemEdi edi = default(OrderItemEdi), bool? excludeCoupon = default(bool?), bool? freeShipping = default(bool?), bool? hazmat = default(bool?), Distance height = default(Distance), int? itemIndex = default(int?), int? itemReferenceOid = default(int?), bool? kit = default(bool?), bool? kitComponent = default(bool?), Distance length = default(Distance), string manufacturerSku = default(string), int? maxDaysTimeInTransit = default(int?), string merchantItemId = default(string), string mixAndMatchGroupName = default(string), int? mixAndMatchGroupOid = default(int?), bool? noShippingDiscount = default(bool?), List<OrderItemOption> options = default(List<OrderItemOption>), string packedByUser = default(string), int? parentItemIndex = default(int?), string parentMerchantItemId = default(string), string perishableClass = default(string), string pricingTierName = default(string), List<OrderItemProperty> properties = default(List<OrderItemProperty>), decimal? quantity = default(decimal?), decimal? quantityRefunded = default(decimal?), string quickbooksClass = default(string), bool? shipSeparately = default(bool?), string shippedByUser = default(string), string shippedDts = default(string), string shippingStatus = default(string), string specialProductType = default(string), List<OrderItemTag> tags = default(List<OrderItemTag>), bool? taxFree = default(bool?), TaxProductTypeEnum? taxProductType = default(TaxProductTypeEnum?), Currency taxableCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency totalRefunded = default(Currency), string transmittedToDistributionCenterDts = default(string), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), Weight weight = default(Weight), Distance width = default(Distance))
         {
             this.AccountingCode = accountingCode;
             this.ActivationCodes = activationCodes;
@@ -152,6 +155,7 @@ namespace com.ultracart.admin.v2.Model
             this.FreeShipping = freeShipping;
             this.Hazmat = hazmat;
             this.Height = height;
+            this.ItemIndex = itemIndex;
             this.ItemReferenceOid = itemReferenceOid;
             this.Kit = kit;
             this.KitComponent = kitComponent;
@@ -164,6 +168,8 @@ namespace com.ultracart.admin.v2.Model
             this.NoShippingDiscount = noShippingDiscount;
             this.Options = options;
             this.PackedByUser = packedByUser;
+            this.ParentItemIndex = parentItemIndex;
+            this.ParentMerchantItemId = parentMerchantItemId;
             this.PerishableClass = perishableClass;
             this.PricingTierName = pricingTierName;
             this.Properties = properties;
@@ -337,6 +343,13 @@ namespace com.ultracart.admin.v2.Model
         public Distance Height { get; set; }
 
         /// <summary>
+        /// Index of the item on the order (one based index)
+        /// </summary>
+        /// <value>Index of the item on the order (one based index)</value>
+        [DataMember(Name="item_index", EmitDefaultValue=false)]
+        public int? ItemIndex { get; set; }
+
+        /// <summary>
         /// Item reference object identifier used to linked to auto order item record
         /// </summary>
         /// <value>Item reference object identifier used to linked to auto order item record</value>
@@ -418,6 +431,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Packed by user</value>
         [DataMember(Name="packed_by_user", EmitDefaultValue=false)]
         public string PackedByUser { get; set; }
+
+        /// <summary>
+        /// If this item is a kit component, this is the item index of the parent item (kit)
+        /// </summary>
+        /// <value>If this item is a kit component, this is the item index of the parent item (kit)</value>
+        [DataMember(Name="parent_item_index", EmitDefaultValue=false)]
+        public int? ParentItemIndex { get; set; }
+
+        /// <summary>
+        /// If this item is a kit component, this is the item id of the parent item (kit)
+        /// </summary>
+        /// <value>If this item is a kit component, this is the item id of the parent item (kit)</value>
+        [DataMember(Name="parent_merchant_item_id", EmitDefaultValue=false)]
+        public string ParentMerchantItemId { get; set; }
 
         /// <summary>
         /// Perishable class of the item
@@ -591,6 +618,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  FreeShipping: ").Append(FreeShipping).Append("\n");
             sb.Append("  Hazmat: ").Append(Hazmat).Append("\n");
             sb.Append("  Height: ").Append(Height).Append("\n");
+            sb.Append("  ItemIndex: ").Append(ItemIndex).Append("\n");
             sb.Append("  ItemReferenceOid: ").Append(ItemReferenceOid).Append("\n");
             sb.Append("  Kit: ").Append(Kit).Append("\n");
             sb.Append("  KitComponent: ").Append(KitComponent).Append("\n");
@@ -603,6 +631,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  NoShippingDiscount: ").Append(NoShippingDiscount).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("  PackedByUser: ").Append(PackedByUser).Append("\n");
+            sb.Append("  ParentItemIndex: ").Append(ParentItemIndex).Append("\n");
+            sb.Append("  ParentMerchantItemId: ").Append(ParentMerchantItemId).Append("\n");
             sb.Append("  PerishableClass: ").Append(PerishableClass).Append("\n");
             sb.Append("  PricingTierName: ").Append(PricingTierName).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
@@ -770,6 +800,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Height.Equals(input.Height))
                 ) && 
                 (
+                    this.ItemIndex == input.ItemIndex ||
+                    (this.ItemIndex != null &&
+                    this.ItemIndex.Equals(input.ItemIndex))
+                ) && 
+                (
                     this.ItemReferenceOid == input.ItemReferenceOid ||
                     (this.ItemReferenceOid != null &&
                     this.ItemReferenceOid.Equals(input.ItemReferenceOid))
@@ -828,6 +863,16 @@ namespace com.ultracart.admin.v2.Model
                     this.PackedByUser == input.PackedByUser ||
                     (this.PackedByUser != null &&
                     this.PackedByUser.Equals(input.PackedByUser))
+                ) && 
+                (
+                    this.ParentItemIndex == input.ParentItemIndex ||
+                    (this.ParentItemIndex != null &&
+                    this.ParentItemIndex.Equals(input.ParentItemIndex))
+                ) && 
+                (
+                    this.ParentMerchantItemId == input.ParentMerchantItemId ||
+                    (this.ParentMerchantItemId != null &&
+                    this.ParentMerchantItemId.Equals(input.ParentMerchantItemId))
                 ) && 
                 (
                     this.PerishableClass == input.PerishableClass ||
@@ -994,6 +1039,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Hazmat.GetHashCode();
                 if (this.Height != null)
                     hashCode = hashCode * 59 + this.Height.GetHashCode();
+                if (this.ItemIndex != null)
+                    hashCode = hashCode * 59 + this.ItemIndex.GetHashCode();
                 if (this.ItemReferenceOid != null)
                     hashCode = hashCode * 59 + this.ItemReferenceOid.GetHashCode();
                 if (this.Kit != null)
@@ -1018,6 +1065,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Options.GetHashCode();
                 if (this.PackedByUser != null)
                     hashCode = hashCode * 59 + this.PackedByUser.GetHashCode();
+                if (this.ParentItemIndex != null)
+                    hashCode = hashCode * 59 + this.ParentItemIndex.GetHashCode();
+                if (this.ParentMerchantItemId != null)
+                    hashCode = hashCode * 59 + this.ParentMerchantItemId.GetHashCode();
                 if (this.PerishableClass != null)
                     hashCode = hashCode * 59 + this.PerishableClass.GetHashCode();
                 if (this.PricingTierName != null)
@@ -1095,6 +1146,12 @@ namespace com.ultracart.admin.v2.Model
             if(this.MerchantItemId != null && this.MerchantItemId.Length > 20)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantItemId, length must be less than 20.", new [] { "MerchantItemId" });
+            }
+
+            // ParentMerchantItemId (string) maxLength
+            if(this.ParentMerchantItemId != null && this.ParentMerchantItemId.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ParentMerchantItemId, length must be less than 20.", new [] { "ParentMerchantItemId" });
             }
 
             // PerishableClass (string) maxLength

@@ -5,8 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AutoOrders** | [**List&lt;AutoOrder&gt;**](AutoOrder.md) |  | [optional] 
 **Cart** | [**Cart**](Cart.md) |  | [optional] 
 **CurrentUrl** | **string** |  | [optional] 
+**Orders** | [**List&lt;Order&gt;**](Order.md) |  | [optional] 
 **PageView** | [**List&lt;HitPageView&gt;**](HitPageView.md) |  | [optional] 
 **SessionStart** | [**HitSessionStart**](HitSessionStart.md) |  | [optional] 
 **SessionUtm** | [**HitSessionUtm**](HitSessionUtm.md) |  | [optional] 

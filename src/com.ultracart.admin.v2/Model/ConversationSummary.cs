@@ -63,6 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="closed">closed.</param>
         /// <param name="conversationArn">conversationArn.</param>
         /// <param name="conversationUuid">conversationUuid.</param>
+        /// <param name="customerFirstMessageUnrespondedToDts">Date/time of the first customer message that is unresponded to..</param>
         /// <param name="lastConversationMessageBody">lastConversationMessageBody.</param>
         /// <param name="lastConversationParticipantArn">lastConversationParticipantArn.</param>
         /// <param name="lastConversationParticipantName">lastConversationParticipantName.</param>
@@ -75,11 +76,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="startDts">Start of the conversation date/time.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
         /// <param name="visible">visible.</param>
-        public ConversationSummary(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastInteractiveMessageDts = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
+        public ConversationSummary(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string customerFirstMessageUnrespondedToDts = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastInteractiveMessageDts = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
         {
             this.Closed = closed;
             this.ConversationArn = conversationArn;
             this.ConversationUuid = conversationUuid;
+            this.CustomerFirstMessageUnrespondedToDts = customerFirstMessageUnrespondedToDts;
             this.LastConversationMessageBody = lastConversationMessageBody;
             this.LastConversationParticipantArn = lastConversationParticipantArn;
             this.LastConversationParticipantName = lastConversationParticipantName;
@@ -111,6 +113,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="conversation_uuid", EmitDefaultValue=false)]
         public string ConversationUuid { get; set; }
+
+        /// <summary>
+        /// Date/time of the first customer message that is unresponded to.
+        /// </summary>
+        /// <value>Date/time of the first customer message that is unresponded to.</value>
+        [DataMember(Name="customer_first_message_unresponded_to_dts", EmitDefaultValue=false)]
+        public string CustomerFirstMessageUnrespondedToDts { get; set; }
 
         /// <summary>
         /// Gets or Sets LastConversationMessageBody
@@ -193,6 +202,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Closed: ").Append(Closed).Append("\n");
             sb.Append("  ConversationArn: ").Append(ConversationArn).Append("\n");
             sb.Append("  ConversationUuid: ").Append(ConversationUuid).Append("\n");
+            sb.Append("  CustomerFirstMessageUnrespondedToDts: ").Append(CustomerFirstMessageUnrespondedToDts).Append("\n");
             sb.Append("  LastConversationMessageBody: ").Append(LastConversationMessageBody).Append("\n");
             sb.Append("  LastConversationParticipantArn: ").Append(LastConversationParticipantArn).Append("\n");
             sb.Append("  LastConversationParticipantName: ").Append(LastConversationParticipantName).Append("\n");
@@ -253,6 +263,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationUuid == input.ConversationUuid ||
                     (this.ConversationUuid != null &&
                     this.ConversationUuid.Equals(input.ConversationUuid))
+                ) && 
+                (
+                    this.CustomerFirstMessageUnrespondedToDts == input.CustomerFirstMessageUnrespondedToDts ||
+                    (this.CustomerFirstMessageUnrespondedToDts != null &&
+                    this.CustomerFirstMessageUnrespondedToDts.Equals(input.CustomerFirstMessageUnrespondedToDts))
                 ) && 
                 (
                     this.LastConversationMessageBody == input.LastConversationMessageBody ||
@@ -331,6 +346,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationArn.GetHashCode();
                 if (this.ConversationUuid != null)
                     hashCode = hashCode * 59 + this.ConversationUuid.GetHashCode();
+                if (this.CustomerFirstMessageUnrespondedToDts != null)
+                    hashCode = hashCode * 59 + this.CustomerFirstMessageUnrespondedToDts.GetHashCode();
                 if (this.LastConversationMessageBody != null)
                     hashCode = hashCode * 59 + this.LastConversationMessageBody.GetHashCode();
                 if (this.LastConversationParticipantArn != null)

@@ -39,8 +39,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="orders">orders.</param>
         /// <param name="pageView">pageView.</param>
         /// <param name="sessionStart">sessionStart.</param>
+        /// <param name="sessionStartDts">Date/time that the session was started (if known).</param>
         /// <param name="sessionUtm">sessionUtm.</param>
-        public ConversationWebchatContext(List<AutoOrder> autoOrders = default(List<AutoOrder>), Cart cart = default(Cart), string currentUrl = default(string), List<Order> orders = default(List<Order>), List<HitPageView> pageView = default(List<HitPageView>), HitSessionStart sessionStart = default(HitSessionStart), HitSessionUtm sessionUtm = default(HitSessionUtm))
+        public ConversationWebchatContext(List<AutoOrder> autoOrders = default(List<AutoOrder>), Cart cart = default(Cart), string currentUrl = default(string), List<Order> orders = default(List<Order>), List<HitPageView> pageView = default(List<HitPageView>), HitSessionStart sessionStart = default(HitSessionStart), string sessionStartDts = default(string), HitSessionUtm sessionUtm = default(HitSessionUtm))
         {
             this.AutoOrders = autoOrders;
             this.Cart = cart;
@@ -48,6 +49,7 @@ namespace com.ultracart.admin.v2.Model
             this.Orders = orders;
             this.PageView = pageView;
             this.SessionStart = sessionStart;
+            this.SessionStartDts = sessionStartDts;
             this.SessionUtm = sessionUtm;
         }
         
@@ -88,6 +90,13 @@ namespace com.ultracart.admin.v2.Model
         public HitSessionStart SessionStart { get; set; }
 
         /// <summary>
+        /// Date/time that the session was started (if known)
+        /// </summary>
+        /// <value>Date/time that the session was started (if known)</value>
+        [DataMember(Name="session_start_dts", EmitDefaultValue=false)]
+        public string SessionStartDts { get; set; }
+
+        /// <summary>
         /// Gets or Sets SessionUtm
         /// </summary>
         [DataMember(Name="session_utm", EmitDefaultValue=false)]
@@ -107,6 +116,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Orders: ").Append(Orders).Append("\n");
             sb.Append("  PageView: ").Append(PageView).Append("\n");
             sb.Append("  SessionStart: ").Append(SessionStart).Append("\n");
+            sb.Append("  SessionStartDts: ").Append(SessionStartDts).Append("\n");
             sb.Append("  SessionUtm: ").Append(SessionUtm).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -173,6 +183,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SessionStart.Equals(input.SessionStart))
                 ) && 
                 (
+                    this.SessionStartDts == input.SessionStartDts ||
+                    (this.SessionStartDts != null &&
+                    this.SessionStartDts.Equals(input.SessionStartDts))
+                ) && 
+                (
                     this.SessionUtm == input.SessionUtm ||
                     (this.SessionUtm != null &&
                     this.SessionUtm.Equals(input.SessionUtm))
@@ -200,6 +215,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PageView.GetHashCode();
                 if (this.SessionStart != null)
                     hashCode = hashCode * 59 + this.SessionStart.GetHashCode();
+                if (this.SessionStartDts != null)
+                    hashCode = hashCode * 59 + this.SessionStartDts.GetHashCode();
                 if (this.SessionUtm != null)
                     hashCode = hashCode * 59 + this.SessionUtm.GetHashCode();
                 return hashCode;

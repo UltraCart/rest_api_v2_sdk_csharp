@@ -103,6 +103,7 @@ docs/CartTaxes.md
 docs/CartUpsellAfter.md
 docs/CartValidationRequest.md
 docs/CartValidationResponse.md
+docs/ChannelPartner.md
 docs/ChannelPartnerApi.md
 docs/ChannelPartnerCancelResponse.md
 docs/ChannelPartnerEstimateShippingResponse.md
@@ -231,6 +232,7 @@ docs/CustomerApi.md
 docs/CustomerAttachment.md
 docs/CustomerBilling.md
 docs/CustomerCard.md
+docs/CustomerEDI.md
 docs/CustomerEditorValues.md
 docs/CustomerEmail.md
 docs/CustomerEmailListChanges.md
@@ -840,6 +842,7 @@ src/com.ultracart.admin.v2/Model/CartTaxes.cs
 src/com.ultracart.admin.v2/Model/CartUpsellAfter.cs
 src/com.ultracart.admin.v2/Model/CartValidationRequest.cs
 src/com.ultracart.admin.v2/Model/CartValidationResponse.cs
+src/com.ultracart.admin.v2/Model/ChannelPartner.cs
 src/com.ultracart.admin.v2/Model/ChannelPartnerCancelResponse.cs
 src/com.ultracart.admin.v2/Model/ChannelPartnerEstimateShippingResponse.cs
 src/com.ultracart.admin.v2/Model/ChannelPartnerEstimateTaxResponse.cs
@@ -962,6 +965,7 @@ src/com.ultracart.admin.v2/Model/CustomerAffiliate.cs
 src/com.ultracart.admin.v2/Model/CustomerAttachment.cs
 src/com.ultracart.admin.v2/Model/CustomerBilling.cs
 src/com.ultracart.admin.v2/Model/CustomerCard.cs
+src/com.ultracart.admin.v2/Model/CustomerEDI.cs
 src/com.ultracart.admin.v2/Model/CustomerEditorValues.cs
 src/com.ultracart.admin.v2/Model/CustomerEmail.cs
 src/com.ultracart.admin.v2/Model/CustomerEmailListChanges.cs

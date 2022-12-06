@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **CardExpYears** | **List&lt;string&gt;** | card_exp_years | [optional] 
 **CardTypes** | **List&lt;string&gt;** | card_types | [optional] 
 **Countries** | [**List&lt;Country&gt;**](Country.md) | countries | [optional] 
+**EdiChannelPartners** | [**List&lt;ChannelPartner&gt;**](ChannelPartner.md) | EDI channel partners | [optional] 
 **LoyaltyLedgerDescriptions** | **List&lt;string&gt;** | loyalty_ledger_descriptions | [optional] 
 **LoyaltyProgramType** | **string** | loyalty_program_type | [optional] 
 **QbClasses** | **List&lt;string&gt;** | qb_classes | [optional] 

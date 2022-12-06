@@ -44,7 +44,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="email">Email.</param>
         /// <param name="fedexAccountNumber">FedEx account number on file.</param>
         /// <param name="freeShipping">True if this profile always qualifies for free shipping.</param>
-        /// <param name="freeShippingMinimum">The minimum aount that this profile has to purchase to qualify for free shipping.</param>
+        /// <param name="freeShippingMinimum">The minimum amount that this profile has to purchase to qualify for free shipping.</param>
         /// <param name="maximumItemCount">Maximum item count this profile can purchase.</param>
         /// <param name="minimumItemCount">Minimum item count this profile must purchase.</param>
         /// <param name="minimumSubtotal">Minimum subtotal this profile must purchase.</param>
@@ -53,9 +53,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="noRealtimeCharge">True if this customers orders are not charged in real-time.</param>
         /// <param name="pricingTiers">Pricing tier names this profile qualifies for.</param>
         /// <param name="shippingAddresses">Shipping addresses on file for this profile.</param>
+        /// <param name="signupDts">Signup date.</param>
         /// <param name="taxExempt">True if this profile is exempt from sales tax.</param>
         /// <param name="upsAccountNumber">UPS account number on file.</param>
-        public CartCustomerProfile(bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowPurchaseOrder = default(bool), List<CartCustomerProfileAddress> billingAddresses = default(List<CartCustomerProfileAddress>), List<CartCustomerProfileCreditCard> creditCards = default(List<CartCustomerProfileCreditCard>), int customerProfileOid = default(int), string dhlAccountNumber = default(string), string dhlDutyAccountNumber = default(string), string email = default(string), string fedexAccountNumber = default(string), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), int maximumItemCount = default(int), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), List<string> pricingTiers = default(List<string>), List<CartCustomerProfileAddress> shippingAddresses = default(List<CartCustomerProfileAddress>), bool taxExempt = default(bool), string upsAccountNumber = default(string))
+        public CartCustomerProfile(bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowPurchaseOrder = default(bool), List<CartCustomerProfileAddress> billingAddresses = default(List<CartCustomerProfileAddress>), List<CartCustomerProfileCreditCard> creditCards = default(List<CartCustomerProfileCreditCard>), int customerProfileOid = default(int), string dhlAccountNumber = default(string), string dhlDutyAccountNumber = default(string), string email = default(string), string fedexAccountNumber = default(string), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), int maximumItemCount = default(int), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), List<string> pricingTiers = default(List<string>), List<CartCustomerProfileAddress> shippingAddresses = default(List<CartCustomerProfileAddress>), string signupDts = default(string), bool taxExempt = default(bool), string upsAccountNumber = default(string))
         {
             this.Allow3rdPartyBilling = allow3rdPartyBilling;
             this.AllowCod = allowCod;
@@ -77,6 +78,7 @@ namespace com.ultracart.admin.v2.Model
             this.NoRealtimeCharge = noRealtimeCharge;
             this.PricingTiers = pricingTiers;
             this.ShippingAddresses = shippingAddresses;
+            this.SignupDts = signupDts;
             this.TaxExempt = taxExempt;
             this.UpsAccountNumber = upsAccountNumber;
         }
@@ -159,9 +161,9 @@ namespace com.ultracart.admin.v2.Model
         public bool FreeShipping { get; set; }
 
         /// <summary>
-        /// The minimum aount that this profile has to purchase to qualify for free shipping
+        /// The minimum amount that this profile has to purchase to qualify for free shipping
         /// </summary>
-        /// <value>The minimum aount that this profile has to purchase to qualify for free shipping</value>
+        /// <value>The minimum amount that this profile has to purchase to qualify for free shipping</value>
         [DataMember(Name="free_shipping_minimum", EmitDefaultValue=false)]
         public decimal FreeShippingMinimum { get; set; }
 
@@ -222,6 +224,13 @@ namespace com.ultracart.admin.v2.Model
         public List<CartCustomerProfileAddress> ShippingAddresses { get; set; }
 
         /// <summary>
+        /// Signup date
+        /// </summary>
+        /// <value>Signup date</value>
+        [DataMember(Name="signup_dts", EmitDefaultValue=false)]
+        public string SignupDts { get; set; }
+
+        /// <summary>
         /// True if this profile is exempt from sales tax
         /// </summary>
         /// <value>True if this profile is exempt from sales tax</value>
@@ -263,6 +272,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  NoRealtimeCharge: ").Append(NoRealtimeCharge).Append("\n");
             sb.Append("  PricingTiers: ").Append(PricingTiers).Append("\n");
             sb.Append("  ShippingAddresses: ").Append(ShippingAddresses).Append("\n");
+            sb.Append("  SignupDts: ").Append(SignupDts).Append("\n");
             sb.Append("  TaxExempt: ").Append(TaxExempt).Append("\n");
             sb.Append("  UpsAccountNumber: ").Append(UpsAccountNumber).Append("\n");
             sb.Append("}\n");
@@ -404,6 +414,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ShippingAddresses.SequenceEqual(input.ShippingAddresses)
                 ) && 
                 (
+                    this.SignupDts == input.SignupDts ||
+                    (this.SignupDts != null &&
+                    this.SignupDts.Equals(input.SignupDts))
+                ) && 
+                (
                     this.TaxExempt == input.TaxExempt ||
                     (this.TaxExempt != null &&
                     this.TaxExempt.Equals(input.TaxExempt))
@@ -464,6 +479,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PricingTiers.GetHashCode();
                 if (this.ShippingAddresses != null)
                     hashCode = hashCode * 59 + this.ShippingAddresses.GetHashCode();
+                if (this.SignupDts != null)
+                    hashCode = hashCode * 59 + this.SignupDts.GetHashCode();
                 if (this.TaxExempt != null)
                     hashCode = hashCode * 59 + this.TaxExempt.GetHashCode();
                 if (this.UpsAccountNumber != null)

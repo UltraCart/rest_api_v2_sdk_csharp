@@ -86,6 +86,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationResponse</returns>
         ApiResponse<ConversationResponse> GetConversationWithHttpInfo (string conversationUuid, int? limit = null);
         /// <summary>
+        /// Retrieve a list of canned messages ordered by short_code
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of canned messages ordered by short_code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationCannedMessagesResponse</returns>
+        ConversationCannedMessagesResponse GetConversationCannedMessages ();
+
+        /// <summary>
+        /// Retrieve a list of canned messages ordered by short_code
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of canned messages ordered by short_code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationCannedMessagesResponse</returns>
+        ApiResponse<ConversationCannedMessagesResponse> GetConversationCannedMessagesWithHttpInfo ();
+        /// <summary>
         /// Get a webchat conversation context
         /// </summary>
         /// <remarks>
@@ -199,6 +218,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationsResponse</returns>
         ApiResponse<ConversationsResponse> GetConversationsWithHttpInfo (string medium = null, string before = null, int? limit = null, int? offset = null);
         /// <summary>
+        /// Insert a canned message
+        /// </summary>
+        /// <remarks>
+        /// Insert a canned message 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>ConversationCannedMessageResponse</returns>
+        ConversationCannedMessageResponse InsertConversationCannedMessage (ConversationCannedMessage cannedMessage);
+
+        /// <summary>
+        /// Insert a canned message
+        /// </summary>
+        /// <remarks>
+        /// Insert a canned message 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>ApiResponse of ConversationCannedMessageResponse</returns>
+        ApiResponse<ConversationCannedMessageResponse> InsertConversationCannedMessageWithHttpInfo (ConversationCannedMessage cannedMessage);
+        /// <summary>
         /// Join a conversation
         /// </summary>
         /// <remarks>
@@ -262,6 +302,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> MarkReadConversationWithHttpInfo (string conversationUuid);
         /// <summary>
+        /// Search for canned messages by short_code
+        /// </summary>
+        /// <remarks>
+        /// Search for canned messages by short_code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search request</param>
+        /// <returns>ConversationCannedMessagesResponse</returns>
+        ConversationCannedMessagesResponse SearchConversationCannedMessages (ConversationCannedMessagesSearch searchRequest);
+
+        /// <summary>
+        /// Search for canned messages by short_code
+        /// </summary>
+        /// <remarks>
+        /// Search for canned messages by short_code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search request</param>
+        /// <returns>ApiResponse of ConversationCannedMessagesResponse</returns>
+        ApiResponse<ConversationCannedMessagesResponse> SearchConversationCannedMessagesWithHttpInfo (ConversationCannedMessagesSearch searchRequest);
+        /// <summary>
         /// Start a conversation
         /// </summary>
         /// <remarks>
@@ -282,6 +343,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="startRequest">Start request</param>
         /// <returns>ApiResponse of ConversationStartResponse</returns>
         ApiResponse<ConversationStartResponse> StartConversationWithHttpInfo (ConversationStartRequest startRequest);
+        /// <summary>
+        /// Update a canned message
+        /// </summary>
+        /// <remarks>
+        /// Update a canned message 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationCannedMessageOid"></param>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>ConversationCannedMessageResponse</returns>
+        ConversationCannedMessageResponse UpdateConversationCannedMessage (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage);
+
+        /// <summary>
+        /// Update a canned message
+        /// </summary>
+        /// <remarks>
+        /// Update a canned message 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationCannedMessageOid"></param>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>ApiResponse of ConversationCannedMessageResponse</returns>
+        ApiResponse<ConversationCannedMessageResponse> UpdateConversationCannedMessageWithHttpInfo (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage);
         /// <summary>
         /// Update status within the queue
         /// </summary>
@@ -368,6 +452,25 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="limit"> (optional)</param>
         /// <returns>Task of ApiResponse (ConversationResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationResponse>> GetConversationAsyncWithHttpInfo (string conversationUuid, int? limit = null);
+        /// <summary>
+        /// Retrieve a list of canned messages ordered by short_code
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of canned messages ordered by short_code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationCannedMessagesResponse</returns>
+        System.Threading.Tasks.Task<ConversationCannedMessagesResponse> GetConversationCannedMessagesAsync ();
+
+        /// <summary>
+        /// Retrieve a list of canned messages ordered by short_code
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of canned messages ordered by short_code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationCannedMessagesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessagesResponse>> GetConversationCannedMessagesAsyncWithHttpInfo ();
         /// <summary>
         /// Get a webchat conversation context
         /// </summary>
@@ -482,6 +585,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationsResponse>> GetConversationsAsyncWithHttpInfo (string medium = null, string before = null, int? limit = null, int? offset = null);
         /// <summary>
+        /// Insert a canned message
+        /// </summary>
+        /// <remarks>
+        /// Insert a canned message 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>Task of ConversationCannedMessageResponse</returns>
+        System.Threading.Tasks.Task<ConversationCannedMessageResponse> InsertConversationCannedMessageAsync (ConversationCannedMessage cannedMessage);
+
+        /// <summary>
+        /// Insert a canned message
+        /// </summary>
+        /// <remarks>
+        /// Insert a canned message 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>Task of ApiResponse (ConversationCannedMessageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessageResponse>> InsertConversationCannedMessageAsyncWithHttpInfo (ConversationCannedMessage cannedMessage);
+        /// <summary>
         /// Join a conversation
         /// </summary>
         /// <remarks>
@@ -545,6 +669,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> MarkReadConversationAsyncWithHttpInfo (string conversationUuid);
         /// <summary>
+        /// Search for canned messages by short_code
+        /// </summary>
+        /// <remarks>
+        /// Search for canned messages by short_code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search request</param>
+        /// <returns>Task of ConversationCannedMessagesResponse</returns>
+        System.Threading.Tasks.Task<ConversationCannedMessagesResponse> SearchConversationCannedMessagesAsync (ConversationCannedMessagesSearch searchRequest);
+
+        /// <summary>
+        /// Search for canned messages by short_code
+        /// </summary>
+        /// <remarks>
+        /// Search for canned messages by short_code 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search request</param>
+        /// <returns>Task of ApiResponse (ConversationCannedMessagesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessagesResponse>> SearchConversationCannedMessagesAsyncWithHttpInfo (ConversationCannedMessagesSearch searchRequest);
+        /// <summary>
         /// Start a conversation
         /// </summary>
         /// <remarks>
@@ -565,6 +710,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="startRequest">Start request</param>
         /// <returns>Task of ApiResponse (ConversationStartResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationStartResponse>> StartConversationAsyncWithHttpInfo (ConversationStartRequest startRequest);
+        /// <summary>
+        /// Update a canned message
+        /// </summary>
+        /// <remarks>
+        /// Update a canned message 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationCannedMessageOid"></param>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>Task of ConversationCannedMessageResponse</returns>
+        System.Threading.Tasks.Task<ConversationCannedMessageResponse> UpdateConversationCannedMessageAsync (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage);
+
+        /// <summary>
+        /// Update a canned message
+        /// </summary>
+        /// <remarks>
+        /// Update a canned message 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationCannedMessageOid"></param>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>Task of ApiResponse (ConversationCannedMessageResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessageResponse>> UpdateConversationCannedMessageAsyncWithHttpInfo (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage);
         /// <summary>
         /// Update status within the queue
         /// </summary>
@@ -1144,6 +1312,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of canned messages ordered by short_code Retrieve a list of canned messages ordered by short_code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationCannedMessagesResponse</returns>
+        public ConversationCannedMessagesResponse GetConversationCannedMessages ()
+        {
+             ApiResponse<ConversationCannedMessagesResponse> localVarResponse = GetConversationCannedMessagesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a list of canned messages ordered by short_code Retrieve a list of canned messages ordered by short_code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationCannedMessagesResponse</returns>
+        public ApiResponse< ConversationCannedMessagesResponse > GetConversationCannedMessagesWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/canned_messages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationCannedMessages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationCannedMessagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationCannedMessagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessagesResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of canned messages ordered by short_code Retrieve a list of canned messages ordered by short_code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationCannedMessagesResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationCannedMessagesResponse> GetConversationCannedMessagesAsync ()
+        {
+             ApiResponse<ConversationCannedMessagesResponse> localVarResponse = await GetConversationCannedMessagesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a list of canned messages ordered by short_code Retrieve a list of canned messages ordered by short_code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationCannedMessagesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessagesResponse>> GetConversationCannedMessagesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/canned_messages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationCannedMessages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationCannedMessagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationCannedMessagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessagesResponse)));
         }
 
         /// <summary>
@@ -1950,6 +2263,177 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Insert a canned message Insert a canned message 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>ConversationCannedMessageResponse</returns>
+        public ConversationCannedMessageResponse InsertConversationCannedMessage (ConversationCannedMessage cannedMessage)
+        {
+             ApiResponse<ConversationCannedMessageResponse> localVarResponse = InsertConversationCannedMessageWithHttpInfo(cannedMessage);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert a canned message Insert a canned message 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>ApiResponse of ConversationCannedMessageResponse</returns>
+        public ApiResponse< ConversationCannedMessageResponse > InsertConversationCannedMessageWithHttpInfo (ConversationCannedMessage cannedMessage)
+        {
+            // verify the required parameter 'cannedMessage' is set
+            if (cannedMessage == null)
+                throw new ApiException(400, "Missing required parameter 'cannedMessage' when calling ConversationApi->InsertConversationCannedMessage");
+
+            var localVarPath = "/conversation/canned_messages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (cannedMessage != null && cannedMessage.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(cannedMessage); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cannedMessage; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertConversationCannedMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationCannedMessageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationCannedMessageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessageResponse)));
+        }
+
+        /// <summary>
+        /// Insert a canned message Insert a canned message 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>Task of ConversationCannedMessageResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationCannedMessageResponse> InsertConversationCannedMessageAsync (ConversationCannedMessage cannedMessage)
+        {
+             ApiResponse<ConversationCannedMessageResponse> localVarResponse = await InsertConversationCannedMessageAsyncWithHttpInfo(cannedMessage);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert a canned message Insert a canned message 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>Task of ApiResponse (ConversationCannedMessageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessageResponse>> InsertConversationCannedMessageAsyncWithHttpInfo (ConversationCannedMessage cannedMessage)
+        {
+            // verify the required parameter 'cannedMessage' is set
+            if (cannedMessage == null)
+                throw new ApiException(400, "Missing required parameter 'cannedMessage' when calling ConversationApi->InsertConversationCannedMessage");
+
+            var localVarPath = "/conversation/canned_messages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (cannedMessage != null && cannedMessage.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(cannedMessage); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cannedMessage; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertConversationCannedMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationCannedMessageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationCannedMessageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessageResponse)));
+        }
+
+        /// <summary>
         /// Join a conversation Join a conversation 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2415,6 +2899,177 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Search for canned messages by short_code Search for canned messages by short_code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search request</param>
+        /// <returns>ConversationCannedMessagesResponse</returns>
+        public ConversationCannedMessagesResponse SearchConversationCannedMessages (ConversationCannedMessagesSearch searchRequest)
+        {
+             ApiResponse<ConversationCannedMessagesResponse> localVarResponse = SearchConversationCannedMessagesWithHttpInfo(searchRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search for canned messages by short_code Search for canned messages by short_code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search request</param>
+        /// <returns>ApiResponse of ConversationCannedMessagesResponse</returns>
+        public ApiResponse< ConversationCannedMessagesResponse > SearchConversationCannedMessagesWithHttpInfo (ConversationCannedMessagesSearch searchRequest)
+        {
+            // verify the required parameter 'searchRequest' is set
+            if (searchRequest == null)
+                throw new ApiException(400, "Missing required parameter 'searchRequest' when calling ConversationApi->SearchConversationCannedMessages");
+
+            var localVarPath = "/conversation/canned_messages/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (searchRequest != null && searchRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(searchRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = searchRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchConversationCannedMessages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationCannedMessagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationCannedMessagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessagesResponse)));
+        }
+
+        /// <summary>
+        /// Search for canned messages by short_code Search for canned messages by short_code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search request</param>
+        /// <returns>Task of ConversationCannedMessagesResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationCannedMessagesResponse> SearchConversationCannedMessagesAsync (ConversationCannedMessagesSearch searchRequest)
+        {
+             ApiResponse<ConversationCannedMessagesResponse> localVarResponse = await SearchConversationCannedMessagesAsyncWithHttpInfo(searchRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search for canned messages by short_code Search for canned messages by short_code 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search request</param>
+        /// <returns>Task of ApiResponse (ConversationCannedMessagesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessagesResponse>> SearchConversationCannedMessagesAsyncWithHttpInfo (ConversationCannedMessagesSearch searchRequest)
+        {
+            // verify the required parameter 'searchRequest' is set
+            if (searchRequest == null)
+                throw new ApiException(400, "Missing required parameter 'searchRequest' when calling ConversationApi->SearchConversationCannedMessages");
+
+            var localVarPath = "/conversation/canned_messages/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (searchRequest != null && searchRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(searchRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = searchRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchConversationCannedMessages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationCannedMessagesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationCannedMessagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessagesResponse)));
+        }
+
+        /// <summary>
         /// Start a conversation Start a new conversation 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2583,6 +3238,189 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationStartResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationStartResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationStartResponse)));
+        }
+
+        /// <summary>
+        /// Update a canned message Update a canned message 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationCannedMessageOid"></param>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>ConversationCannedMessageResponse</returns>
+        public ConversationCannedMessageResponse UpdateConversationCannedMessage (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage)
+        {
+             ApiResponse<ConversationCannedMessageResponse> localVarResponse = UpdateConversationCannedMessageWithHttpInfo(conversationCannedMessageOid, cannedMessage);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a canned message Update a canned message 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationCannedMessageOid"></param>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>ApiResponse of ConversationCannedMessageResponse</returns>
+        public ApiResponse< ConversationCannedMessageResponse > UpdateConversationCannedMessageWithHttpInfo (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage)
+        {
+            // verify the required parameter 'conversationCannedMessageOid' is set
+            if (conversationCannedMessageOid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationCannedMessageOid' when calling ConversationApi->UpdateConversationCannedMessage");
+            // verify the required parameter 'cannedMessage' is set
+            if (cannedMessage == null)
+                throw new ApiException(400, "Missing required parameter 'cannedMessage' when calling ConversationApi->UpdateConversationCannedMessage");
+
+            var localVarPath = "/conversation/canned_messages/{conversation_canned_message_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationCannedMessageOid != null) localVarPathParams.Add("conversation_canned_message_oid", this.Configuration.ApiClient.ParameterToString(conversationCannedMessageOid)); // path parameter
+            if (cannedMessage != null && cannedMessage.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(cannedMessage); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cannedMessage; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateConversationCannedMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationCannedMessageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationCannedMessageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessageResponse)));
+        }
+
+        /// <summary>
+        /// Update a canned message Update a canned message 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationCannedMessageOid"></param>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>Task of ConversationCannedMessageResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationCannedMessageResponse> UpdateConversationCannedMessageAsync (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage)
+        {
+             ApiResponse<ConversationCannedMessageResponse> localVarResponse = await UpdateConversationCannedMessageAsyncWithHttpInfo(conversationCannedMessageOid, cannedMessage);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a canned message Update a canned message 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationCannedMessageOid"></param>
+        /// <param name="cannedMessage">Canned message</param>
+        /// <returns>Task of ApiResponse (ConversationCannedMessageResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessageResponse>> UpdateConversationCannedMessageAsyncWithHttpInfo (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage)
+        {
+            // verify the required parameter 'conversationCannedMessageOid' is set
+            if (conversationCannedMessageOid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationCannedMessageOid' when calling ConversationApi->UpdateConversationCannedMessage");
+            // verify the required parameter 'cannedMessage' is set
+            if (cannedMessage == null)
+                throw new ApiException(400, "Missing required parameter 'cannedMessage' when calling ConversationApi->UpdateConversationCannedMessage");
+
+            var localVarPath = "/conversation/canned_messages/{conversation_canned_message_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationCannedMessageOid != null) localVarPathParams.Add("conversation_canned_message_oid", this.Configuration.ApiClient.ParameterToString(conversationCannedMessageOid)); // path parameter
+            if (cannedMessage != null && cannedMessage.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(cannedMessage); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cannedMessage; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateConversationCannedMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationCannedMessageResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationCannedMessageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessageResponse)));
         }
 
         /// <summary>

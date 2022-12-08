@@ -7,15 +7,19 @@ Method | HTTP request | Description
 [**GetAgentKeepAlive**](ConversationApi.md#getagentkeepalive) | **GET** /conversation/agent/keepalive | Agent keep alive
 [**GetAgentWebsocketAuthorization**](ConversationApi.md#getagentwebsocketauthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 [**GetConversation**](ConversationApi.md#getconversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+[**GetConversationCannedMessages**](ConversationApi.md#getconversationcannedmessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
 [**GetConversationContext**](ConversationApi.md#getconversationcontext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
 [**GetConversationMessages**](ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 [**GetConversationMultimediaUploadUrl**](ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 [**GetConversationWebchatQueueStatuses**](ConversationApi.md#getconversationwebchatqueuestatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 [**GetConversations**](ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
+[**InsertConversationCannedMessage**](ConversationApi.md#insertconversationcannedmessage) | **POST** /conversation/canned_messages | Insert a canned message
 [**JoinConversation**](ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 [**LeaveConversation**](ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 [**MarkReadConversation**](ConversationApi.md#markreadconversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
+[**SearchConversationCannedMessages**](ConversationApi.md#searchconversationcannedmessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
 [**StartConversation**](ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
+[**UpdateConversationCannedMessage**](ConversationApi.md#updateconversationcannedmessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 [**UpdateConversationWebchatQueueStatus**](ConversationApi.md#updateconversationwebchatqueuestatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
 
 
@@ -198,6 +202,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationResponse**](ConversationResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getconversationcannedmessages"></a>
+# **GetConversationCannedMessages**
+> ConversationCannedMessagesResponse GetConversationCannedMessages ()
+
+Retrieve a list of canned messages ordered by short_code
+
+Retrieve a list of canned messages ordered by short_code 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetConversationCannedMessagesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+
+            try
+            {
+                // Retrieve a list of canned messages ordered by short_code
+                ConversationCannedMessagesResponse result = apiInstance.GetConversationCannedMessages();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.GetConversationCannedMessages: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationCannedMessagesResponse**](ConversationCannedMessagesResponse.md)
 
 ### Authorization
 
@@ -546,6 +612,72 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="insertconversationcannedmessage"></a>
+# **InsertConversationCannedMessage**
+> ConversationCannedMessageResponse InsertConversationCannedMessage (ConversationCannedMessage cannedMessage)
+
+Insert a canned message
+
+Insert a canned message 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class InsertConversationCannedMessageExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var cannedMessage = new ConversationCannedMessage(); // ConversationCannedMessage | Canned message
+
+            try
+            {
+                // Insert a canned message
+                ConversationCannedMessageResponse result = apiInstance.InsertConversationCannedMessage(cannedMessage);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.InsertConversationCannedMessage: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cannedMessage** | [**ConversationCannedMessage**](ConversationCannedMessage.md)| Canned message | 
+
+### Return type
+
+[**ConversationCannedMessageResponse**](ConversationCannedMessageResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="joinconversation"></a>
 # **JoinConversation**
 > void JoinConversation (string conversationUuid)
@@ -741,6 +873,72 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="searchconversationcannedmessages"></a>
+# **SearchConversationCannedMessages**
+> ConversationCannedMessagesResponse SearchConversationCannedMessages (ConversationCannedMessagesSearch searchRequest)
+
+Search for canned messages by short_code
+
+Search for canned messages by short_code 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class SearchConversationCannedMessagesExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var searchRequest = new ConversationCannedMessagesSearch(); // ConversationCannedMessagesSearch | Search request
+
+            try
+            {
+                // Search for canned messages by short_code
+                ConversationCannedMessagesResponse result = apiInstance.SearchConversationCannedMessages(searchRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.SearchConversationCannedMessages: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchRequest** | [**ConversationCannedMessagesSearch**](ConversationCannedMessagesSearch.md)| Search request | 
+
+### Return type
+
+[**ConversationCannedMessagesResponse**](ConversationCannedMessagesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="startconversation"></a>
 # **StartConversation**
 > ConversationStartResponse StartConversation (ConversationStartRequest startRequest)
@@ -795,6 +993,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationStartResponse**](ConversationStartResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateconversationcannedmessage"></a>
+# **UpdateConversationCannedMessage**
+> ConversationCannedMessageResponse UpdateConversationCannedMessage (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage)
+
+Update a canned message
+
+Update a canned message 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateConversationCannedMessageExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+            var conversationCannedMessageOid = 56;  // int? | 
+            var cannedMessage = new ConversationCannedMessage(); // ConversationCannedMessage | Canned message
+
+            try
+            {
+                // Update a canned message
+                ConversationCannedMessageResponse result = apiInstance.UpdateConversationCannedMessage(conversationCannedMessageOid, cannedMessage);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.UpdateConversationCannedMessage: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversationCannedMessageOid** | **int?**|  | 
+ **cannedMessage** | [**ConversationCannedMessage**](ConversationCannedMessage.md)| Canned message | 
+
+### Return type
+
+[**ConversationCannedMessageResponse**](ConversationCannedMessageResponse.md)
 
 ### Authorization
 

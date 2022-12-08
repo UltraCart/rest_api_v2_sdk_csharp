@@ -45,6 +45,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantId">Merchant ID.</param>
         /// <param name="name">Name of email segment.</param>
         /// <param name="rankJson">Rank settings json.</param>
+        /// <param name="rebuildPercentage">Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display..</param>
         /// <param name="rebuildRequired">True if a rebuild is required because some part of the segment has changed.</param>
         /// <param name="storefrontOid">Storefront oid.</param>
         /// <param name="thirdpartyJoinAddTags">Third party provider tags to add when a customer joins the segment..</param>
@@ -54,7 +55,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="thirdpartyListId">List id of third party provider to sync with..</param>
         /// <param name="thirdpartyProviderName">Name of third party provider to sync segment to a list with..</param>
         /// <param name="usedBy">Details on the flows or campaigns that use this list..</param>
-        public EmailSegment(bool? allowCsvDownload = default(bool?), bool? allowFacebookAudiences = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailSegmentUuid = default(string), string espListSegmentFolderUuid = default(string), bool? facebookCustomAudience = default(bool?), string filterProfileEquationJson = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string rankJson = default(string), bool? rebuildRequired = default(bool?), int? storefrontOid = default(int?), List<string> thirdpartyJoinAddTags = default(List<string>), List<string> thirdpartyJoinRemoveTags = default(List<string>), List<string> thirdpartyLeaveAddTags = default(List<string>), List<string> thirdpartyLeaveRemoveTags = default(List<string>), string thirdpartyListId = default(string), string thirdpartyProviderName = default(string), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
+        public EmailSegment(bool? allowCsvDownload = default(bool?), bool? allowFacebookAudiences = default(bool?), string createdDts = default(string), bool? deleted = default(bool?), string emailSegmentUuid = default(string), string espListSegmentFolderUuid = default(string), bool? facebookCustomAudience = default(bool?), string filterProfileEquationJson = default(string), int? memberCount = default(int?), string merchantId = default(string), string name = default(string), string rankJson = default(string), decimal? rebuildPercentage = default(decimal?), bool? rebuildRequired = default(bool?), int? storefrontOid = default(int?), List<string> thirdpartyJoinAddTags = default(List<string>), List<string> thirdpartyJoinRemoveTags = default(List<string>), List<string> thirdpartyLeaveAddTags = default(List<string>), List<string> thirdpartyLeaveRemoveTags = default(List<string>), string thirdpartyListId = default(string), string thirdpartyProviderName = default(string), List<EmailListSegmentUsedBy> usedBy = default(List<EmailListSegmentUsedBy>))
         {
             this.AllowCsvDownload = allowCsvDownload;
             this.AllowFacebookAudiences = allowFacebookAudiences;
@@ -68,6 +69,7 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantId = merchantId;
             this.Name = name;
             this.RankJson = rankJson;
+            this.RebuildPercentage = rebuildPercentage;
             this.RebuildRequired = rebuildRequired;
             this.StorefrontOid = storefrontOid;
             this.ThirdpartyJoinAddTags = thirdpartyJoinAddTags;
@@ -164,6 +166,13 @@ namespace com.ultracart.admin.v2.Model
         public string RankJson { get; set; }
 
         /// <summary>
+        /// Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.
+        /// </summary>
+        /// <value>Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.</value>
+        [DataMember(Name="rebuild_percentage", EmitDefaultValue=false)]
+        public decimal? RebuildPercentage { get; set; }
+
+        /// <summary>
         /// True if a rebuild is required because some part of the segment has changed
         /// </summary>
         /// <value>True if a rebuild is required because some part of the segment has changed</value>
@@ -246,6 +255,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  RankJson: ").Append(RankJson).Append("\n");
+            sb.Append("  RebuildPercentage: ").Append(RebuildPercentage).Append("\n");
             sb.Append("  RebuildRequired: ").Append(RebuildRequired).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("  ThirdpartyJoinAddTags: ").Append(ThirdpartyJoinAddTags).Append("\n");
@@ -350,6 +360,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RankJson.Equals(input.RankJson))
                 ) && 
                 (
+                    this.RebuildPercentage == input.RebuildPercentage ||
+                    (this.RebuildPercentage != null &&
+                    this.RebuildPercentage.Equals(input.RebuildPercentage))
+                ) && 
+                (
                     this.RebuildRequired == input.RebuildRequired ||
                     (this.RebuildRequired != null &&
                     this.RebuildRequired.Equals(input.RebuildRequired))
@@ -429,6 +444,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.RankJson != null)
                     hashCode = hashCode * 59 + this.RankJson.GetHashCode();
+                if (this.RebuildPercentage != null)
+                    hashCode = hashCode * 59 + this.RebuildPercentage.GetHashCode();
                 if (this.RebuildRequired != null)
                     hashCode = hashCode * 59 + this.RebuildRequired.GetHashCode();
                 if (this.StorefrontOid != null)

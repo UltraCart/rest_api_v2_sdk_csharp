@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **MerchantId** | **string** | Merchant ID | [optional] 
 **Name** | **string** | Name of email segment | [optional] 
 **RankJson** | **string** | Rank settings json | [optional] 
+**RebuildPercentage** | **decimal?** | Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display. | [optional] 
 **RebuildRequired** | **bool?** | True if a rebuild is required because some part of the segment has changed | [optional] 
 **StorefrontOid** | **int?** | Storefront oid | [optional] 
 **ThirdpartyJoinAddTags** | **List&lt;string&gt;** | Third party provider tags to add when a customer joins the segment. | [optional] 

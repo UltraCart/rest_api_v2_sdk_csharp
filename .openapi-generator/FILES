@@ -131,6 +131,10 @@ docs/Conversation.md
 docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationApi.md
+docs/ConversationCannedMessage.md
+docs/ConversationCannedMessageResponse.md
+docs/ConversationCannedMessagesResponse.md
+docs/ConversationCannedMessagesSearch.md
 docs/ConversationEventAddCoupon.md
 docs/ConversationEventAddItem.md
 docs/ConversationEventQueuePosition.md
@@ -866,6 +870,10 @@ src/com.ultracart.admin.v2/Model/CityStateZip.cs
 src/com.ultracart.admin.v2/Model/Conversation.cs
 src/com.ultracart.admin.v2/Model/ConversationAgentAuth.cs
 src/com.ultracart.admin.v2/Model/ConversationAgentAuthResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationCannedMessage.cs
+src/com.ultracart.admin.v2/Model/ConversationCannedMessageResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationCannedMessagesResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationCannedMessagesSearch.cs
 src/com.ultracart.admin.v2/Model/ConversationEventAddCoupon.cs
 src/com.ultracart.admin.v2/Model/ConversationEventAddItem.cs
 src/com.ultracart.admin.v2/Model/ConversationEventQueuePosition.cs

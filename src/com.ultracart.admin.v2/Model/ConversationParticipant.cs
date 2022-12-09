@@ -37,18 +37,20 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="conversationParticipantName">conversationParticipantName.</param>
         /// <param name="conversationParticipantUuid">conversationParticipantUuid.</param>
         /// <param name="joinedDts">Joined conversation date/time.</param>
+        /// <param name="languageIsoCode">languageIsoCode.</param>
         /// <param name="lastMessageDts">Last message date/time.</param>
         /// <param name="leftDts">Left conversation date/time.</param>
         /// <param name="profileImageUrl">profileImageUrl.</param>
         /// <param name="status">status.</param>
         /// <param name="timezone">timezone.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
-        public ConversationParticipant(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationParticipantUuid = default(string), string joinedDts = default(string), string lastMessageDts = default(string), string leftDts = default(string), string profileImageUrl = default(string), string status = default(string), string timezone = default(string), int unreadMessages = default(int))
+        public ConversationParticipant(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationParticipantUuid = default(string), string joinedDts = default(string), string languageIsoCode = default(string), string lastMessageDts = default(string), string leftDts = default(string), string profileImageUrl = default(string), string status = default(string), string timezone = default(string), int unreadMessages = default(int))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
             this.ConversationParticipantUuid = conversationParticipantUuid;
             this.JoinedDts = joinedDts;
+            this.LanguageIsoCode = languageIsoCode;
             this.LastMessageDts = lastMessageDts;
             this.LeftDts = leftDts;
             this.ProfileImageUrl = profileImageUrl;
@@ -81,6 +83,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Joined conversation date/time</value>
         [DataMember(Name="joined_dts", EmitDefaultValue=false)]
         public string JoinedDts { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LanguageIsoCode
+        /// </summary>
+        [DataMember(Name="language_iso_code", EmitDefaultValue=false)]
+        public string LanguageIsoCode { get; set; }
 
         /// <summary>
         /// Last message date/time
@@ -132,6 +140,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
             sb.Append("  ConversationParticipantUuid: ").Append(ConversationParticipantUuid).Append("\n");
             sb.Append("  JoinedDts: ").Append(JoinedDts).Append("\n");
+            sb.Append("  LanguageIsoCode: ").Append(LanguageIsoCode).Append("\n");
             sb.Append("  LastMessageDts: ").Append(LastMessageDts).Append("\n");
             sb.Append("  LeftDts: ").Append(LeftDts).Append("\n");
             sb.Append("  ProfileImageUrl: ").Append(ProfileImageUrl).Append("\n");
@@ -193,6 +202,11 @@ namespace com.ultracart.admin.v2.Model
                     this.JoinedDts.Equals(input.JoinedDts))
                 ) && 
                 (
+                    this.LanguageIsoCode == input.LanguageIsoCode ||
+                    (this.LanguageIsoCode != null &&
+                    this.LanguageIsoCode.Equals(input.LanguageIsoCode))
+                ) && 
+                (
                     this.LastMessageDts == input.LastMessageDts ||
                     (this.LastMessageDts != null &&
                     this.LastMessageDts.Equals(input.LastMessageDts))
@@ -241,6 +255,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationParticipantUuid.GetHashCode();
                 if (this.JoinedDts != null)
                     hashCode = hashCode * 59 + this.JoinedDts.GetHashCode();
+                if (this.LanguageIsoCode != null)
+                    hashCode = hashCode * 59 + this.LanguageIsoCode.GetHashCode();
                 if (this.LastMessageDts != null)
                     hashCode = hashCode * 59 + this.LastMessageDts.GetHashCode();
                 if (this.LeftDts != null)

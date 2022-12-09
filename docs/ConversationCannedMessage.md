@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CannedMessage** | **string** |  | [optional] 
 **ConversationCannedMessageOid** | **int** |  | [optional] 
-**ConversationWebchatQueueUuids** | **List&lt;string&gt;** |  | [optional] 
+**ConversationDepartmentOids** | **List&lt;string&gt;** |  | [optional] 
 **ShortCode** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

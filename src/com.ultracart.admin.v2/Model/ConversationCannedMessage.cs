@@ -35,13 +35,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="cannedMessage">cannedMessage.</param>
         /// <param name="conversationCannedMessageOid">conversationCannedMessageOid.</param>
-        /// <param name="conversationWebchatQueueUuids">conversationWebchatQueueUuids.</param>
+        /// <param name="conversationDepartmentOids">conversationDepartmentOids.</param>
         /// <param name="shortCode">shortCode.</param>
-        public ConversationCannedMessage(string cannedMessage = default(string), int? conversationCannedMessageOid = default(int?), List<string> conversationWebchatQueueUuids = default(List<string>), string shortCode = default(string))
+        public ConversationCannedMessage(string cannedMessage = default(string), int? conversationCannedMessageOid = default(int?), List<string> conversationDepartmentOids = default(List<string>), string shortCode = default(string))
         {
             this.CannedMessage = cannedMessage;
             this.ConversationCannedMessageOid = conversationCannedMessageOid;
-            this.ConversationWebchatQueueUuids = conversationWebchatQueueUuids;
+            this.ConversationDepartmentOids = conversationDepartmentOids;
             this.ShortCode = shortCode;
         }
         
@@ -58,10 +58,10 @@ namespace com.ultracart.admin.v2.Model
         public int? ConversationCannedMessageOid { get; set; }
 
         /// <summary>
-        /// Gets or Sets ConversationWebchatQueueUuids
+        /// Gets or Sets ConversationDepartmentOids
         /// </summary>
-        [DataMember(Name="conversation_webchat_queue_uuids", EmitDefaultValue=false)]
-        public List<string> ConversationWebchatQueueUuids { get; set; }
+        [DataMember(Name="conversation_department_oids", EmitDefaultValue=false)]
+        public List<string> ConversationDepartmentOids { get; set; }
 
         /// <summary>
         /// Gets or Sets ShortCode
@@ -79,7 +79,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationCannedMessage {\n");
             sb.Append("  CannedMessage: ").Append(CannedMessage).Append("\n");
             sb.Append("  ConversationCannedMessageOid: ").Append(ConversationCannedMessageOid).Append("\n");
-            sb.Append("  ConversationWebchatQueueUuids: ").Append(ConversationWebchatQueueUuids).Append("\n");
+            sb.Append("  ConversationDepartmentOids: ").Append(ConversationDepartmentOids).Append("\n");
             sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -126,9 +126,9 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationCannedMessageOid.Equals(input.ConversationCannedMessageOid))
                 ) && 
                 (
-                    this.ConversationWebchatQueueUuids == input.ConversationWebchatQueueUuids ||
-                    this.ConversationWebchatQueueUuids != null &&
-                    this.ConversationWebchatQueueUuids.SequenceEqual(input.ConversationWebchatQueueUuids)
+                    this.ConversationDepartmentOids == input.ConversationDepartmentOids ||
+                    this.ConversationDepartmentOids != null &&
+                    this.ConversationDepartmentOids.SequenceEqual(input.ConversationDepartmentOids)
                 ) && 
                 (
                     this.ShortCode == input.ShortCode ||
@@ -150,8 +150,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CannedMessage.GetHashCode();
                 if (this.ConversationCannedMessageOid != null)
                     hashCode = hashCode * 59 + this.ConversationCannedMessageOid.GetHashCode();
-                if (this.ConversationWebchatQueueUuids != null)
-                    hashCode = hashCode * 59 + this.ConversationWebchatQueueUuids.GetHashCode();
+                if (this.ConversationDepartmentOids != null)
+                    hashCode = hashCode * 59 + this.ConversationDepartmentOids.GetHashCode();
                 if (this.ShortCode != null)
                     hashCode = hashCode * 59 + this.ShortCode.GetHashCode();
                 return hashCode;

@@ -36,24 +36,28 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="conversationParticipantArn">conversationParticipantArn.</param>
         /// <param name="conversationParticipantName">conversationParticipantName.</param>
         /// <param name="conversationParticipantUuid">conversationParticipantUuid.</param>
+        /// <param name="email">email.</param>
         /// <param name="joinedDts">Joined conversation date/time.</param>
         /// <param name="languageIsoCode">languageIsoCode.</param>
         /// <param name="lastMessageDts">Last message date/time.</param>
         /// <param name="leftDts">Left conversation date/time.</param>
         /// <param name="profileImageUrl">profileImageUrl.</param>
+        /// <param name="smsPhoneNumber">smsPhoneNumber.</param>
         /// <param name="status">status.</param>
         /// <param name="timezone">timezone.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
-        public ConversationParticipant(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationParticipantUuid = default(string), string joinedDts = default(string), string languageIsoCode = default(string), string lastMessageDts = default(string), string leftDts = default(string), string profileImageUrl = default(string), string status = default(string), string timezone = default(string), int unreadMessages = default(int))
+        public ConversationParticipant(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationParticipantUuid = default(string), string email = default(string), string joinedDts = default(string), string languageIsoCode = default(string), string lastMessageDts = default(string), string leftDts = default(string), string profileImageUrl = default(string), string smsPhoneNumber = default(string), string status = default(string), string timezone = default(string), int unreadMessages = default(int))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
             this.ConversationParticipantUuid = conversationParticipantUuid;
+            this.Email = email;
             this.JoinedDts = joinedDts;
             this.LanguageIsoCode = languageIsoCode;
             this.LastMessageDts = lastMessageDts;
             this.LeftDts = leftDts;
             this.ProfileImageUrl = profileImageUrl;
+            this.SmsPhoneNumber = smsPhoneNumber;
             this.Status = status;
             this.Timezone = timezone;
             this.UnreadMessages = unreadMessages;
@@ -76,6 +80,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="conversation_participant_uuid", EmitDefaultValue=false)]
         public string ConversationParticipantUuid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Email
+        /// </summary>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Joined conversation date/time
@@ -111,6 +121,12 @@ namespace com.ultracart.admin.v2.Model
         public string ProfileImageUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets SmsPhoneNumber
+        /// </summary>
+        [DataMember(Name="sms_phone_number", EmitDefaultValue=false)]
+        public string SmsPhoneNumber { get; set; }
+
+        /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=false)]
@@ -139,11 +155,13 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConversationParticipantArn: ").Append(ConversationParticipantArn).Append("\n");
             sb.Append("  ConversationParticipantName: ").Append(ConversationParticipantName).Append("\n");
             sb.Append("  ConversationParticipantUuid: ").Append(ConversationParticipantUuid).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  JoinedDts: ").Append(JoinedDts).Append("\n");
             sb.Append("  LanguageIsoCode: ").Append(LanguageIsoCode).Append("\n");
             sb.Append("  LastMessageDts: ").Append(LastMessageDts).Append("\n");
             sb.Append("  LeftDts: ").Append(LeftDts).Append("\n");
             sb.Append("  ProfileImageUrl: ").Append(ProfileImageUrl).Append("\n");
+            sb.Append("  SmsPhoneNumber: ").Append(SmsPhoneNumber).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  UnreadMessages: ").Append(UnreadMessages).Append("\n");
@@ -197,6 +215,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationParticipantUuid.Equals(input.ConversationParticipantUuid))
                 ) && 
                 (
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
+                ) && 
+                (
                     this.JoinedDts == input.JoinedDts ||
                     (this.JoinedDts != null &&
                     this.JoinedDts.Equals(input.JoinedDts))
@@ -220,6 +243,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ProfileImageUrl == input.ProfileImageUrl ||
                     (this.ProfileImageUrl != null &&
                     this.ProfileImageUrl.Equals(input.ProfileImageUrl))
+                ) && 
+                (
+                    this.SmsPhoneNumber == input.SmsPhoneNumber ||
+                    (this.SmsPhoneNumber != null &&
+                    this.SmsPhoneNumber.Equals(input.SmsPhoneNumber))
                 ) && 
                 (
                     this.Status == input.Status ||
@@ -253,6 +281,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationParticipantName.GetHashCode();
                 if (this.ConversationParticipantUuid != null)
                     hashCode = hashCode * 59 + this.ConversationParticipantUuid.GetHashCode();
+                if (this.Email != null)
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.JoinedDts != null)
                     hashCode = hashCode * 59 + this.JoinedDts.GetHashCode();
                 if (this.LanguageIsoCode != null)
@@ -263,6 +293,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LeftDts.GetHashCode();
                 if (this.ProfileImageUrl != null)
                     hashCode = hashCode * 59 + this.ProfileImageUrl.GetHashCode();
+                if (this.SmsPhoneNumber != null)
+                    hashCode = hashCode * 59 + this.SmsPhoneNumber.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Timezone != null)

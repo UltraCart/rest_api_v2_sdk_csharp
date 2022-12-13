@@ -37,7 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="conversationCannedMessageOid">conversationCannedMessageOid.</param>
         /// <param name="conversationDepartmentOids">conversationDepartmentOids.</param>
         /// <param name="shortCode">shortCode.</param>
-        public ConversationCannedMessage(string cannedMessage = default(string), int conversationCannedMessageOid = default(int), List<string> conversationDepartmentOids = default(List<string>), string shortCode = default(string))
+        public ConversationCannedMessage(string cannedMessage = default(string), int conversationCannedMessageOid = default(int), List<int> conversationDepartmentOids = default(List<int>), string shortCode = default(string))
         {
             this.CannedMessage = cannedMessage;
             this.ConversationCannedMessageOid = conversationCannedMessageOid;
@@ -61,7 +61,7 @@ namespace com.ultracart.admin.v2.Model
         /// Gets or Sets ConversationDepartmentOids
         /// </summary>
         [DataMember(Name="conversation_department_oids", EmitDefaultValue=false)]
-        public List<string> ConversationDepartmentOids { get; set; }
+        public List<int> ConversationDepartmentOids { get; set; }
 
         /// <summary>
         /// Gets or Sets ShortCode

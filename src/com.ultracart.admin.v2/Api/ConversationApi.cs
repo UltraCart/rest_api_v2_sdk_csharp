@@ -126,6 +126,44 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationWebchatContext</returns>
         ApiResponse<ConversationWebchatContext> GetConversationContextWithHttpInfo (string conversationUuid);
         /// <summary>
+        /// Retrieve a list of departments ordered by name
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of departments ordered by name 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationDepartmentsResponse</returns>
+        ConversationDepartmentsResponse GetConversationDepartments ();
+
+        /// <summary>
+        /// Retrieve a list of departments ordered by name
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of departments ordered by name 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationDepartmentsResponse</returns>
+        ApiResponse<ConversationDepartmentsResponse> GetConversationDepartmentsWithHttpInfo ();
+        /// <summary>
+        /// Retrieve a list of engagements ordered by name
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of engagements ordered by name 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationEngagementsResponse</returns>
+        ConversationEngagementsResponse GetConversationEngagements ();
+
+        /// <summary>
+        /// Retrieve a list of engagements ordered by name
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of engagements ordered by name 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationEngagementsResponse</returns>
+        ApiResponse<ConversationEngagementsResponse> GetConversationEngagementsWithHttpInfo ();
+        /// <summary>
         /// Retrieve conversation messages
         /// </summary>
         /// <remarks>
@@ -239,6 +277,48 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationCannedMessageResponse</returns>
         ApiResponse<ConversationCannedMessageResponse> InsertConversationCannedMessageWithHttpInfo (ConversationCannedMessage cannedMessage);
         /// <summary>
+        /// Insert a department
+        /// </summary>
+        /// <remarks>
+        /// Insert a department 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="department">Department</param>
+        /// <returns>ConversationDepartmentResponse</returns>
+        ConversationDepartmentResponse InsertConversationDepartment (ConversationDepartment department);
+
+        /// <summary>
+        /// Insert a department
+        /// </summary>
+        /// <remarks>
+        /// Insert a department 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="department">Department</param>
+        /// <returns>ApiResponse of ConversationDepartmentResponse</returns>
+        ApiResponse<ConversationDepartmentResponse> InsertConversationDepartmentWithHttpInfo (ConversationDepartment department);
+        /// <summary>
+        /// Insert a engagement
+        /// </summary>
+        /// <remarks>
+        /// Insert a engagement 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>ConversationEngagementResponse</returns>
+        ConversationEngagementResponse InsertConversationEngagement (ConversationEngagement engagement);
+
+        /// <summary>
+        /// Insert a engagement
+        /// </summary>
+        /// <remarks>
+        /// Insert a engagement 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>ApiResponse of ConversationEngagementResponse</returns>
+        ApiResponse<ConversationEngagementResponse> InsertConversationEngagementWithHttpInfo (ConversationEngagement engagement);
+        /// <summary>
         /// Join a conversation
         /// </summary>
         /// <remarks>
@@ -246,8 +326,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Join request (optional)</param>
         /// <returns></returns>
-        void JoinConversation (string conversationUuid);
+        void JoinConversation (string conversationUuid, ConversationJoinRequest joinRequest = null);
 
         /// <summary>
         /// Join a conversation
@@ -257,8 +338,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Join request (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> JoinConversationWithHttpInfo (string conversationUuid);
+        ApiResponse<Object> JoinConversationWithHttpInfo (string conversationUuid, ConversationJoinRequest joinRequest = null);
         /// <summary>
         /// Leave a conversation
         /// </summary>
@@ -366,6 +448,52 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cannedMessage">Canned message</param>
         /// <returns>ApiResponse of ConversationCannedMessageResponse</returns>
         ApiResponse<ConversationCannedMessageResponse> UpdateConversationCannedMessageWithHttpInfo (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage);
+        /// <summary>
+        /// Update a department
+        /// </summary>
+        /// <remarks>
+        /// Update a department 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationDepartmentOid"></param>
+        /// <param name="department">Department</param>
+        /// <returns>ConversationDepartmentResponse</returns>
+        ConversationDepartmentResponse UpdateConversationDepartment (int? conversationDepartmentOid, ConversationDepartment department);
+
+        /// <summary>
+        /// Update a department
+        /// </summary>
+        /// <remarks>
+        /// Update a department 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationDepartmentOid"></param>
+        /// <param name="department">Department</param>
+        /// <returns>ApiResponse of ConversationDepartmentResponse</returns>
+        ApiResponse<ConversationDepartmentResponse> UpdateConversationDepartmentWithHttpInfo (int? conversationDepartmentOid, ConversationDepartment department);
+        /// <summary>
+        /// Update a engagement
+        /// </summary>
+        /// <remarks>
+        /// Update a engagement 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationEngagementOid"></param>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>ConversationEngagementResponse</returns>
+        ConversationEngagementResponse UpdateConversationEngagement (int? conversationEngagementOid, ConversationEngagement engagement);
+
+        /// <summary>
+        /// Update a engagement
+        /// </summary>
+        /// <remarks>
+        /// Update a engagement 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationEngagementOid"></param>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>ApiResponse of ConversationEngagementResponse</returns>
+        ApiResponse<ConversationEngagementResponse> UpdateConversationEngagementWithHttpInfo (int? conversationEngagementOid, ConversationEngagement engagement);
         /// <summary>
         /// Update status within the queue
         /// </summary>
@@ -493,6 +621,44 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationWebchatContext)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationWebchatContext>> GetConversationContextAsyncWithHttpInfo (string conversationUuid);
         /// <summary>
+        /// Retrieve a list of departments ordered by name
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of departments ordered by name 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationDepartmentsResponse</returns>
+        System.Threading.Tasks.Task<ConversationDepartmentsResponse> GetConversationDepartmentsAsync ();
+
+        /// <summary>
+        /// Retrieve a list of departments ordered by name
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of departments ordered by name 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationDepartmentsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationDepartmentsResponse>> GetConversationDepartmentsAsyncWithHttpInfo ();
+        /// <summary>
+        /// Retrieve a list of engagements ordered by name
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of engagements ordered by name 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationEngagementsResponse</returns>
+        System.Threading.Tasks.Task<ConversationEngagementsResponse> GetConversationEngagementsAsync ();
+
+        /// <summary>
+        /// Retrieve a list of engagements ordered by name
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of engagements ordered by name 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationEngagementsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationEngagementsResponse>> GetConversationEngagementsAsyncWithHttpInfo ();
+        /// <summary>
         /// Retrieve conversation messages
         /// </summary>
         /// <remarks>
@@ -606,6 +772,48 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationCannedMessageResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessageResponse>> InsertConversationCannedMessageAsyncWithHttpInfo (ConversationCannedMessage cannedMessage);
         /// <summary>
+        /// Insert a department
+        /// </summary>
+        /// <remarks>
+        /// Insert a department 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="department">Department</param>
+        /// <returns>Task of ConversationDepartmentResponse</returns>
+        System.Threading.Tasks.Task<ConversationDepartmentResponse> InsertConversationDepartmentAsync (ConversationDepartment department);
+
+        /// <summary>
+        /// Insert a department
+        /// </summary>
+        /// <remarks>
+        /// Insert a department 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="department">Department</param>
+        /// <returns>Task of ApiResponse (ConversationDepartmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationDepartmentResponse>> InsertConversationDepartmentAsyncWithHttpInfo (ConversationDepartment department);
+        /// <summary>
+        /// Insert a engagement
+        /// </summary>
+        /// <remarks>
+        /// Insert a engagement 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>Task of ConversationEngagementResponse</returns>
+        System.Threading.Tasks.Task<ConversationEngagementResponse> InsertConversationEngagementAsync (ConversationEngagement engagement);
+
+        /// <summary>
+        /// Insert a engagement
+        /// </summary>
+        /// <remarks>
+        /// Insert a engagement 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>Task of ApiResponse (ConversationEngagementResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationEngagementResponse>> InsertConversationEngagementAsyncWithHttpInfo (ConversationEngagement engagement);
+        /// <summary>
         /// Join a conversation
         /// </summary>
         /// <remarks>
@@ -613,8 +821,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Join request (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task JoinConversationAsync (string conversationUuid);
+        System.Threading.Tasks.Task JoinConversationAsync (string conversationUuid, ConversationJoinRequest joinRequest = null);
 
         /// <summary>
         /// Join a conversation
@@ -624,8 +833,9 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Join request (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> JoinConversationAsyncWithHttpInfo (string conversationUuid);
+        System.Threading.Tasks.Task<ApiResponse<Object>> JoinConversationAsyncWithHttpInfo (string conversationUuid, ConversationJoinRequest joinRequest = null);
         /// <summary>
         /// Leave a conversation
         /// </summary>
@@ -733,6 +943,52 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cannedMessage">Canned message</param>
         /// <returns>Task of ApiResponse (ConversationCannedMessageResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessageResponse>> UpdateConversationCannedMessageAsyncWithHttpInfo (int? conversationCannedMessageOid, ConversationCannedMessage cannedMessage);
+        /// <summary>
+        /// Update a department
+        /// </summary>
+        /// <remarks>
+        /// Update a department 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationDepartmentOid"></param>
+        /// <param name="department">Department</param>
+        /// <returns>Task of ConversationDepartmentResponse</returns>
+        System.Threading.Tasks.Task<ConversationDepartmentResponse> UpdateConversationDepartmentAsync (int? conversationDepartmentOid, ConversationDepartment department);
+
+        /// <summary>
+        /// Update a department
+        /// </summary>
+        /// <remarks>
+        /// Update a department 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationDepartmentOid"></param>
+        /// <param name="department">Department</param>
+        /// <returns>Task of ApiResponse (ConversationDepartmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationDepartmentResponse>> UpdateConversationDepartmentAsyncWithHttpInfo (int? conversationDepartmentOid, ConversationDepartment department);
+        /// <summary>
+        /// Update a engagement
+        /// </summary>
+        /// <remarks>
+        /// Update a engagement 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationEngagementOid"></param>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>Task of ConversationEngagementResponse</returns>
+        System.Threading.Tasks.Task<ConversationEngagementResponse> UpdateConversationEngagementAsync (int? conversationEngagementOid, ConversationEngagement engagement);
+
+        /// <summary>
+        /// Update a engagement
+        /// </summary>
+        /// <remarks>
+        /// Update a engagement 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationEngagementOid"></param>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>Task of ApiResponse (ConversationEngagementResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationEngagementResponse>> UpdateConversationEngagementAsyncWithHttpInfo (int? conversationEngagementOid, ConversationEngagement engagement);
         /// <summary>
         /// Update status within the queue
         /// </summary>
@@ -1617,6 +1873,296 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Retrieve a list of departments ordered by name Retrieve a list of departments ordered by name 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationDepartmentsResponse</returns>
+        public ConversationDepartmentsResponse GetConversationDepartments ()
+        {
+             ApiResponse<ConversationDepartmentsResponse> localVarResponse = GetConversationDepartmentsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a list of departments ordered by name Retrieve a list of departments ordered by name 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationDepartmentsResponse</returns>
+        public ApiResponse< ConversationDepartmentsResponse > GetConversationDepartmentsWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/departments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationDepartments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationDepartmentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationDepartmentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationDepartmentsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of departments ordered by name Retrieve a list of departments ordered by name 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationDepartmentsResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationDepartmentsResponse> GetConversationDepartmentsAsync ()
+        {
+             ApiResponse<ConversationDepartmentsResponse> localVarResponse = await GetConversationDepartmentsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a list of departments ordered by name Retrieve a list of departments ordered by name 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationDepartmentsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationDepartmentsResponse>> GetConversationDepartmentsAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/departments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationDepartments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationDepartmentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationDepartmentsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationDepartmentsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of engagements ordered by name Retrieve a list of engagements ordered by name 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationEngagementsResponse</returns>
+        public ConversationEngagementsResponse GetConversationEngagements ()
+        {
+             ApiResponse<ConversationEngagementsResponse> localVarResponse = GetConversationEngagementsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a list of engagements ordered by name Retrieve a list of engagements ordered by name 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationEngagementsResponse</returns>
+        public ApiResponse< ConversationEngagementsResponse > GetConversationEngagementsWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/engagements";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationEngagements", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationEngagementsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationEngagementsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationEngagementsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of engagements ordered by name Retrieve a list of engagements ordered by name 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationEngagementsResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationEngagementsResponse> GetConversationEngagementsAsync ()
+        {
+             ApiResponse<ConversationEngagementsResponse> localVarResponse = await GetConversationEngagementsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a list of engagements ordered by name Retrieve a list of engagements ordered by name 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationEngagementsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationEngagementsResponse>> GetConversationEngagementsAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/engagements";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationEngagements", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationEngagementsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationEngagementsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationEngagementsResponse)));
+        }
+
+        /// <summary>
         /// Retrieve conversation messages Retrieve conversation messages since a particular time 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2434,14 +2980,345 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Join a conversation Join a conversation 
+        /// Insert a department Insert a department 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="conversationUuid"></param>
-        /// <returns></returns>
-        public void JoinConversation (string conversationUuid)
+        /// <param name="department">Department</param>
+        /// <returns>ConversationDepartmentResponse</returns>
+        public ConversationDepartmentResponse InsertConversationDepartment (ConversationDepartment department)
         {
-             JoinConversationWithHttpInfo(conversationUuid);
+             ApiResponse<ConversationDepartmentResponse> localVarResponse = InsertConversationDepartmentWithHttpInfo(department);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert a department Insert a department 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="department">Department</param>
+        /// <returns>ApiResponse of ConversationDepartmentResponse</returns>
+        public ApiResponse< ConversationDepartmentResponse > InsertConversationDepartmentWithHttpInfo (ConversationDepartment department)
+        {
+            // verify the required parameter 'department' is set
+            if (department == null)
+                throw new ApiException(400, "Missing required parameter 'department' when calling ConversationApi->InsertConversationDepartment");
+
+            var localVarPath = "/conversation/departments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (department != null && department.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(department); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = department; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertConversationDepartment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationDepartmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationDepartmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationDepartmentResponse)));
+        }
+
+        /// <summary>
+        /// Insert a department Insert a department 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="department">Department</param>
+        /// <returns>Task of ConversationDepartmentResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationDepartmentResponse> InsertConversationDepartmentAsync (ConversationDepartment department)
+        {
+             ApiResponse<ConversationDepartmentResponse> localVarResponse = await InsertConversationDepartmentAsyncWithHttpInfo(department);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert a department Insert a department 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="department">Department</param>
+        /// <returns>Task of ApiResponse (ConversationDepartmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationDepartmentResponse>> InsertConversationDepartmentAsyncWithHttpInfo (ConversationDepartment department)
+        {
+            // verify the required parameter 'department' is set
+            if (department == null)
+                throw new ApiException(400, "Missing required parameter 'department' when calling ConversationApi->InsertConversationDepartment");
+
+            var localVarPath = "/conversation/departments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (department != null && department.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(department); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = department; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertConversationDepartment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationDepartmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationDepartmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationDepartmentResponse)));
+        }
+
+        /// <summary>
+        /// Insert a engagement Insert a engagement 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>ConversationEngagementResponse</returns>
+        public ConversationEngagementResponse InsertConversationEngagement (ConversationEngagement engagement)
+        {
+             ApiResponse<ConversationEngagementResponse> localVarResponse = InsertConversationEngagementWithHttpInfo(engagement);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert a engagement Insert a engagement 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>ApiResponse of ConversationEngagementResponse</returns>
+        public ApiResponse< ConversationEngagementResponse > InsertConversationEngagementWithHttpInfo (ConversationEngagement engagement)
+        {
+            // verify the required parameter 'engagement' is set
+            if (engagement == null)
+                throw new ApiException(400, "Missing required parameter 'engagement' when calling ConversationApi->InsertConversationEngagement");
+
+            var localVarPath = "/conversation/engagements";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (engagement != null && engagement.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(engagement); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = engagement; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertConversationEngagement", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationEngagementResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationEngagementResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationEngagementResponse)));
+        }
+
+        /// <summary>
+        /// Insert a engagement Insert a engagement 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>Task of ConversationEngagementResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationEngagementResponse> InsertConversationEngagementAsync (ConversationEngagement engagement)
+        {
+             ApiResponse<ConversationEngagementResponse> localVarResponse = await InsertConversationEngagementAsyncWithHttpInfo(engagement);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert a engagement Insert a engagement 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>Task of ApiResponse (ConversationEngagementResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationEngagementResponse>> InsertConversationEngagementAsyncWithHttpInfo (ConversationEngagement engagement)
+        {
+            // verify the required parameter 'engagement' is set
+            if (engagement == null)
+                throw new ApiException(400, "Missing required parameter 'engagement' when calling ConversationApi->InsertConversationEngagement");
+
+            var localVarPath = "/conversation/engagements";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (engagement != null && engagement.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(engagement); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = engagement; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertConversationEngagement", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationEngagementResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationEngagementResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationEngagementResponse)));
         }
 
         /// <summary>
@@ -2449,8 +3326,21 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Join request (optional)</param>
+        /// <returns></returns>
+        public void JoinConversation (string conversationUuid, ConversationJoinRequest joinRequest = null)
+        {
+             JoinConversationWithHttpInfo(conversationUuid, joinRequest);
+        }
+
+        /// <summary>
+        /// Join a conversation Join a conversation 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Join request (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> JoinConversationWithHttpInfo (string conversationUuid)
+        public ApiResponse<Object> JoinConversationWithHttpInfo (string conversationUuid, ConversationJoinRequest joinRequest = null)
         {
             // verify the required parameter 'conversationUuid' is set
             if (conversationUuid == null)
@@ -2479,6 +3369,14 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+            if (joinRequest != null && joinRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(joinRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = joinRequest; // byte array
+            }
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -2515,10 +3413,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Join request (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task JoinConversationAsync (string conversationUuid)
+        public async System.Threading.Tasks.Task JoinConversationAsync (string conversationUuid, ConversationJoinRequest joinRequest = null)
         {
-             await JoinConversationAsyncWithHttpInfo(conversationUuid);
+             await JoinConversationAsyncWithHttpInfo(conversationUuid, joinRequest);
 
         }
 
@@ -2527,8 +3426,9 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="conversationUuid"></param>
+        /// <param name="joinRequest">Join request (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> JoinConversationAsyncWithHttpInfo (string conversationUuid)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> JoinConversationAsyncWithHttpInfo (string conversationUuid, ConversationJoinRequest joinRequest = null)
         {
             // verify the required parameter 'conversationUuid' is set
             if (conversationUuid == null)
@@ -2557,6 +3457,14 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+            if (joinRequest != null && joinRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(joinRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = joinRequest; // byte array
+            }
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -3421,6 +4329,372 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationCannedMessageResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationCannedMessageResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessageResponse)));
+        }
+
+        /// <summary>
+        /// Update a department Update a department 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationDepartmentOid"></param>
+        /// <param name="department">Department</param>
+        /// <returns>ConversationDepartmentResponse</returns>
+        public ConversationDepartmentResponse UpdateConversationDepartment (int? conversationDepartmentOid, ConversationDepartment department)
+        {
+             ApiResponse<ConversationDepartmentResponse> localVarResponse = UpdateConversationDepartmentWithHttpInfo(conversationDepartmentOid, department);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a department Update a department 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationDepartmentOid"></param>
+        /// <param name="department">Department</param>
+        /// <returns>ApiResponse of ConversationDepartmentResponse</returns>
+        public ApiResponse< ConversationDepartmentResponse > UpdateConversationDepartmentWithHttpInfo (int? conversationDepartmentOid, ConversationDepartment department)
+        {
+            // verify the required parameter 'conversationDepartmentOid' is set
+            if (conversationDepartmentOid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationDepartmentOid' when calling ConversationApi->UpdateConversationDepartment");
+            // verify the required parameter 'department' is set
+            if (department == null)
+                throw new ApiException(400, "Missing required parameter 'department' when calling ConversationApi->UpdateConversationDepartment");
+
+            var localVarPath = "/conversation/departments/{conversation_department_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationDepartmentOid != null) localVarPathParams.Add("conversation_department_oid", this.Configuration.ApiClient.ParameterToString(conversationDepartmentOid)); // path parameter
+            if (department != null && department.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(department); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = department; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateConversationDepartment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationDepartmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationDepartmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationDepartmentResponse)));
+        }
+
+        /// <summary>
+        /// Update a department Update a department 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationDepartmentOid"></param>
+        /// <param name="department">Department</param>
+        /// <returns>Task of ConversationDepartmentResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationDepartmentResponse> UpdateConversationDepartmentAsync (int? conversationDepartmentOid, ConversationDepartment department)
+        {
+             ApiResponse<ConversationDepartmentResponse> localVarResponse = await UpdateConversationDepartmentAsyncWithHttpInfo(conversationDepartmentOid, department);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a department Update a department 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationDepartmentOid"></param>
+        /// <param name="department">Department</param>
+        /// <returns>Task of ApiResponse (ConversationDepartmentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationDepartmentResponse>> UpdateConversationDepartmentAsyncWithHttpInfo (int? conversationDepartmentOid, ConversationDepartment department)
+        {
+            // verify the required parameter 'conversationDepartmentOid' is set
+            if (conversationDepartmentOid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationDepartmentOid' when calling ConversationApi->UpdateConversationDepartment");
+            // verify the required parameter 'department' is set
+            if (department == null)
+                throw new ApiException(400, "Missing required parameter 'department' when calling ConversationApi->UpdateConversationDepartment");
+
+            var localVarPath = "/conversation/departments/{conversation_department_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationDepartmentOid != null) localVarPathParams.Add("conversation_department_oid", this.Configuration.ApiClient.ParameterToString(conversationDepartmentOid)); // path parameter
+            if (department != null && department.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(department); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = department; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateConversationDepartment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationDepartmentResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationDepartmentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationDepartmentResponse)));
+        }
+
+        /// <summary>
+        /// Update a engagement Update a engagement 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationEngagementOid"></param>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>ConversationEngagementResponse</returns>
+        public ConversationEngagementResponse UpdateConversationEngagement (int? conversationEngagementOid, ConversationEngagement engagement)
+        {
+             ApiResponse<ConversationEngagementResponse> localVarResponse = UpdateConversationEngagementWithHttpInfo(conversationEngagementOid, engagement);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a engagement Update a engagement 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationEngagementOid"></param>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>ApiResponse of ConversationEngagementResponse</returns>
+        public ApiResponse< ConversationEngagementResponse > UpdateConversationEngagementWithHttpInfo (int? conversationEngagementOid, ConversationEngagement engagement)
+        {
+            // verify the required parameter 'conversationEngagementOid' is set
+            if (conversationEngagementOid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationEngagementOid' when calling ConversationApi->UpdateConversationEngagement");
+            // verify the required parameter 'engagement' is set
+            if (engagement == null)
+                throw new ApiException(400, "Missing required parameter 'engagement' when calling ConversationApi->UpdateConversationEngagement");
+
+            var localVarPath = "/conversation/engagements/{conversation_engagement_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationEngagementOid != null) localVarPathParams.Add("conversation_engagement_oid", this.Configuration.ApiClient.ParameterToString(conversationEngagementOid)); // path parameter
+            if (engagement != null && engagement.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(engagement); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = engagement; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateConversationEngagement", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationEngagementResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationEngagementResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationEngagementResponse)));
+        }
+
+        /// <summary>
+        /// Update a engagement Update a engagement 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationEngagementOid"></param>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>Task of ConversationEngagementResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationEngagementResponse> UpdateConversationEngagementAsync (int? conversationEngagementOid, ConversationEngagement engagement)
+        {
+             ApiResponse<ConversationEngagementResponse> localVarResponse = await UpdateConversationEngagementAsyncWithHttpInfo(conversationEngagementOid, engagement);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a engagement Update a engagement 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationEngagementOid"></param>
+        /// <param name="engagement">Engagement</param>
+        /// <returns>Task of ApiResponse (ConversationEngagementResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationEngagementResponse>> UpdateConversationEngagementAsyncWithHttpInfo (int? conversationEngagementOid, ConversationEngagement engagement)
+        {
+            // verify the required parameter 'conversationEngagementOid' is set
+            if (conversationEngagementOid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationEngagementOid' when calling ConversationApi->UpdateConversationEngagement");
+            // verify the required parameter 'engagement' is set
+            if (engagement == null)
+                throw new ApiException(400, "Missing required parameter 'engagement' when calling ConversationApi->UpdateConversationEngagement");
+
+            var localVarPath = "/conversation/engagements/{conversation_engagement_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationEngagementOid != null) localVarPathParams.Add("conversation_engagement_oid", this.Configuration.ApiClient.ParameterToString(conversationEngagementOid)); // path parameter
+            if (engagement != null && engagement.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(engagement); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = engagement; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateConversationEngagement", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationEngagementResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationEngagementResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationEngagementResponse)));
         }
 
         /// <summary>

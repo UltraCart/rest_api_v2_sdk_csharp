@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ConversationWebchatQueueUuid** | **string** |  | [optional] 
 **Email** | **string** |  | [optional] 
 **JoinDts** | **string** | Date/time the customer joined the queue | [optional] 
+**ParticipantLanguageIsoCode** | **string** |  | [optional] 
 **Question** | **string** |  | [optional] 
 
 

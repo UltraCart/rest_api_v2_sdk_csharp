@@ -256,6 +256,48 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationsResponse</returns>
         ApiResponse<ConversationsResponse> GetConversationsWithHttpInfo (string medium = null, string before = null, int? limit = null, int? offset = null);
         /// <summary>
+        /// Retrieve a list of matching terms for a search field
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of matching terms for a search field 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autocompleteRequest">Autocomplete Request</param>
+        /// <returns>ConversationAutocompleteResponse</returns>
+        ConversationAutocompleteResponse GetConversationsAutocomplete (ConversationAutocompleteRequest autocompleteRequest);
+
+        /// <summary>
+        /// Retrieve a list of matching terms for a search field
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of matching terms for a search field 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autocompleteRequest">Autocomplete Request</param>
+        /// <returns>ApiResponse of ConversationAutocompleteResponse</returns>
+        ApiResponse<ConversationAutocompleteResponse> GetConversationsAutocompleteWithHttpInfo (ConversationAutocompleteRequest autocompleteRequest);
+        /// <summary>
+        /// Search conversations
+        /// </summary>
+        /// <remarks>
+        /// Search conversations 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search Request</param>
+        /// <returns>ConversationSearchResponse</returns>
+        ConversationSearchResponse GetConversationsSearch (ConversationSearchRequest searchRequest);
+
+        /// <summary>
+        /// Search conversations
+        /// </summary>
+        /// <remarks>
+        /// Search conversations 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search Request</param>
+        /// <returns>ApiResponse of ConversationSearchResponse</returns>
+        ApiResponse<ConversationSearchResponse> GetConversationsSearchWithHttpInfo (ConversationSearchRequest searchRequest);
+        /// <summary>
         /// Insert a canned message
         /// </summary>
         /// <remarks>
@@ -750,6 +792,48 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="offset">Pagination of the record set.  Offset is a zero based index. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (ConversationsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationsResponse>> GetConversationsAsyncWithHttpInfo (string medium = null, string before = null, int? limit = null, int? offset = null);
+        /// <summary>
+        /// Retrieve a list of matching terms for a search field
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of matching terms for a search field 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autocompleteRequest">Autocomplete Request</param>
+        /// <returns>Task of ConversationAutocompleteResponse</returns>
+        System.Threading.Tasks.Task<ConversationAutocompleteResponse> GetConversationsAutocompleteAsync (ConversationAutocompleteRequest autocompleteRequest);
+
+        /// <summary>
+        /// Retrieve a list of matching terms for a search field
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of matching terms for a search field 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autocompleteRequest">Autocomplete Request</param>
+        /// <returns>Task of ApiResponse (ConversationAutocompleteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationAutocompleteResponse>> GetConversationsAutocompleteAsyncWithHttpInfo (ConversationAutocompleteRequest autocompleteRequest);
+        /// <summary>
+        /// Search conversations
+        /// </summary>
+        /// <remarks>
+        /// Search conversations 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search Request</param>
+        /// <returns>Task of ConversationSearchResponse</returns>
+        System.Threading.Tasks.Task<ConversationSearchResponse> GetConversationsSearchAsync (ConversationSearchRequest searchRequest);
+
+        /// <summary>
+        /// Search conversations
+        /// </summary>
+        /// <remarks>
+        /// Search conversations 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search Request</param>
+        /// <returns>Task of ApiResponse (ConversationSearchResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationSearchResponse>> GetConversationsSearchAsyncWithHttpInfo (ConversationSearchRequest searchRequest);
         /// <summary>
         /// Insert a canned message
         /// </summary>
@@ -2806,6 +2890,348 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of matching terms for a search field Retrieve a list of matching terms for a search field 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autocompleteRequest">Autocomplete Request</param>
+        /// <returns>ConversationAutocompleteResponse</returns>
+        public ConversationAutocompleteResponse GetConversationsAutocomplete (ConversationAutocompleteRequest autocompleteRequest)
+        {
+             ApiResponse<ConversationAutocompleteResponse> localVarResponse = GetConversationsAutocompleteWithHttpInfo(autocompleteRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a list of matching terms for a search field Retrieve a list of matching terms for a search field 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autocompleteRequest">Autocomplete Request</param>
+        /// <returns>ApiResponse of ConversationAutocompleteResponse</returns>
+        public ApiResponse< ConversationAutocompleteResponse > GetConversationsAutocompleteWithHttpInfo (ConversationAutocompleteRequest autocompleteRequest)
+        {
+            // verify the required parameter 'autocompleteRequest' is set
+            if (autocompleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'autocompleteRequest' when calling ConversationApi->GetConversationsAutocomplete");
+
+            var localVarPath = "/conversation/conversations/autocomplete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autocompleteRequest != null && autocompleteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autocompleteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autocompleteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationsAutocomplete", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationAutocompleteResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationAutocompleteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationAutocompleteResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of matching terms for a search field Retrieve a list of matching terms for a search field 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autocompleteRequest">Autocomplete Request</param>
+        /// <returns>Task of ConversationAutocompleteResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationAutocompleteResponse> GetConversationsAutocompleteAsync (ConversationAutocompleteRequest autocompleteRequest)
+        {
+             ApiResponse<ConversationAutocompleteResponse> localVarResponse = await GetConversationsAutocompleteAsyncWithHttpInfo(autocompleteRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a list of matching terms for a search field Retrieve a list of matching terms for a search field 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="autocompleteRequest">Autocomplete Request</param>
+        /// <returns>Task of ApiResponse (ConversationAutocompleteResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationAutocompleteResponse>> GetConversationsAutocompleteAsyncWithHttpInfo (ConversationAutocompleteRequest autocompleteRequest)
+        {
+            // verify the required parameter 'autocompleteRequest' is set
+            if (autocompleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'autocompleteRequest' when calling ConversationApi->GetConversationsAutocomplete");
+
+            var localVarPath = "/conversation/conversations/autocomplete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (autocompleteRequest != null && autocompleteRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(autocompleteRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = autocompleteRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationsAutocomplete", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationAutocompleteResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationAutocompleteResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationAutocompleteResponse)));
+        }
+
+        /// <summary>
+        /// Search conversations Search conversations 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search Request</param>
+        /// <returns>ConversationSearchResponse</returns>
+        public ConversationSearchResponse GetConversationsSearch (ConversationSearchRequest searchRequest)
+        {
+             ApiResponse<ConversationSearchResponse> localVarResponse = GetConversationsSearchWithHttpInfo(searchRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search conversations Search conversations 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search Request</param>
+        /// <returns>ApiResponse of ConversationSearchResponse</returns>
+        public ApiResponse< ConversationSearchResponse > GetConversationsSearchWithHttpInfo (ConversationSearchRequest searchRequest)
+        {
+            // verify the required parameter 'searchRequest' is set
+            if (searchRequest == null)
+                throw new ApiException(400, "Missing required parameter 'searchRequest' when calling ConversationApi->GetConversationsSearch");
+
+            var localVarPath = "/conversation/conversations/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (searchRequest != null && searchRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(searchRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = searchRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationsSearch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationSearchResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationSearchResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationSearchResponse)));
+        }
+
+        /// <summary>
+        /// Search conversations Search conversations 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search Request</param>
+        /// <returns>Task of ConversationSearchResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationSearchResponse> GetConversationsSearchAsync (ConversationSearchRequest searchRequest)
+        {
+             ApiResponse<ConversationSearchResponse> localVarResponse = await GetConversationsSearchAsyncWithHttpInfo(searchRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search conversations Search conversations 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchRequest">Search Request</param>
+        /// <returns>Task of ApiResponse (ConversationSearchResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationSearchResponse>> GetConversationsSearchAsyncWithHttpInfo (ConversationSearchRequest searchRequest)
+        {
+            // verify the required parameter 'searchRequest' is set
+            if (searchRequest == null)
+                throw new ApiException(400, "Missing required parameter 'searchRequest' when calling ConversationApi->GetConversationsSearch");
+
+            var localVarPath = "/conversation/conversations/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (searchRequest != null && searchRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(searchRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = searchRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationsSearch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationSearchResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationSearchResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationSearchResponse)));
         }
 
         /// <summary>

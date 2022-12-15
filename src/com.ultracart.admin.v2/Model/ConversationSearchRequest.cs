@@ -33,6 +33,8 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationSearchRequest" /> class.
         /// </summary>
+        /// <param name="dateEnd">End of the range.</param>
+        /// <param name="dateStart">Start of the range.</param>
         /// <param name="emailFilter">emailFilter.</param>
         /// <param name="languageFilter">languageFilter.</param>
         /// <param name="mediumFilter">mediumFilter.</param>
@@ -43,8 +45,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="smsPhoneNumberFilter">smsPhoneNumberFilter.</param>
         /// <param name="textSearch">textSearch.</param>
         /// <param name="visibleFilter">visibleFilter.</param>
-        public ConversationSearchRequest(string emailFilter = default(string), string languageFilter = default(string), string mediumFilter = default(string), bool orderByNewest = default(bool), bool orderByOldest = default(bool), int rangeBegin = default(int), int rangeEnd = default(int), string smsPhoneNumberFilter = default(string), string textSearch = default(string), bool visibleFilter = default(bool))
+        public ConversationSearchRequest(string dateEnd = default(string), string dateStart = default(string), string emailFilter = default(string), string languageFilter = default(string), string mediumFilter = default(string), bool orderByNewest = default(bool), bool orderByOldest = default(bool), int rangeBegin = default(int), int rangeEnd = default(int), string smsPhoneNumberFilter = default(string), string textSearch = default(string), bool visibleFilter = default(bool))
         {
+            this.DateEnd = dateEnd;
+            this.DateStart = dateStart;
             this.EmailFilter = emailFilter;
             this.LanguageFilter = languageFilter;
             this.MediumFilter = mediumFilter;
@@ -56,6 +60,20 @@ namespace com.ultracart.admin.v2.Model
             this.TextSearch = textSearch;
             this.VisibleFilter = visibleFilter;
         }
+
+        /// <summary>
+        /// End of the range
+        /// </summary>
+        /// <value>End of the range</value>
+        [DataMember(Name="date_end", EmitDefaultValue=false)]
+        public string DateEnd { get; set; }
+
+        /// <summary>
+        /// Start of the range
+        /// </summary>
+        /// <value>Start of the range</value>
+        [DataMember(Name="date_start", EmitDefaultValue=false)]
+        public string DateStart { get; set; }
 
         /// <summary>
         /// Gets or Sets EmailFilter
@@ -125,6 +143,8 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationSearchRequest {\n");
+            sb.Append("  DateEnd: ").Append(DateEnd).Append("\n");
+            sb.Append("  DateStart: ").Append(DateStart).Append("\n");
             sb.Append("  EmailFilter: ").Append(EmailFilter).Append("\n");
             sb.Append("  LanguageFilter: ").Append(LanguageFilter).Append("\n");
             sb.Append("  MediumFilter: ").Append(MediumFilter).Append("\n");
@@ -169,6 +189,16 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.DateEnd == input.DateEnd ||
+                    (this.DateEnd != null &&
+                    this.DateEnd.Equals(input.DateEnd))
+                ) && 
+                (
+                    this.DateStart == input.DateStart ||
+                    (this.DateStart != null &&
+                    this.DateStart.Equals(input.DateStart))
+                ) && 
                 (
                     this.EmailFilter == input.EmailFilter ||
                     (this.EmailFilter != null &&
@@ -230,6 +260,10 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.DateEnd != null)
+                    hashCode = hashCode * 59 + this.DateEnd.GetHashCode();
+                if (this.DateStart != null)
+                    hashCode = hashCode * 59 + this.DateStart.GetHashCode();
                 if (this.EmailFilter != null)
                     hashCode = hashCode * 59 + this.EmailFilter.GetHashCode();
                 if (this.LanguageFilter != null)

@@ -40,7 +40,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="term">term.</param>
         /// <param name="warning">warning.</param>
-        public ConversationAutocompleteResponse(Error error = default(Error), string field = default(string), ResponseMetadata metadata = default(ResponseMetadata), List<string> results = default(List<string>), bool? success = default(bool?), string term = default(string), Warning warning = default(Warning))
+        public ConversationAutocompleteResponse(Error error = default(Error), string field = default(string), ResponseMetadata metadata = default(ResponseMetadata), List<ConversationAutocompleteValue> results = default(List<ConversationAutocompleteValue>), bool? success = default(bool?), string term = default(string), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Field = field;
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Gets or Sets Results
         /// </summary>
         [DataMember(Name="results", EmitDefaultValue=false)]
-        public List<string> Results { get; set; }
+        public List<ConversationAutocompleteValue> Results { get; set; }
 
         /// <summary>
         /// Indicates if API call was successful

@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DateEnd** | **string** | End of the range | [optional] 
+**DateStart** | **string** | Start of the range | [optional] 
 **EmailFilter** | **string** |  | [optional] 
 **LanguageFilter** | **string** |  | [optional] 
 **MediumFilter** | **string** |  | [optional] 

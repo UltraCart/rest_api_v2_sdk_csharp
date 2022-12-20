@@ -1,9 +1,9 @@
-# com.ultracart.admin.v2.Model.ConversationEngagementEquation
+# com.ultracart.admin.v2.Model.ConversationEngagementEquationGroup
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Groups** | [**List&lt;ConversationEngagementEquationGroup&gt;**](ConversationEngagementEquationGroup.md) |  | [optional] 
+**Functions** | [**List&lt;ConversationEngagementEquationFunction&gt;**](ConversationEngagementEquationFunction.md) |  | [optional] 
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

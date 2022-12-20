@@ -25,25 +25,25 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationEngagementEquation
+    /// ConversationEngagementEquationGroup
     /// </summary>
     [DataContract]
-    public partial class ConversationEngagementEquation :  IEquatable<ConversationEngagementEquation>, IValidatableObject
+    public partial class ConversationEngagementEquationGroup :  IEquatable<ConversationEngagementEquationGroup>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationEngagementEquation" /> class.
+        /// Initializes a new instance of the <see cref="ConversationEngagementEquationGroup" /> class.
         /// </summary>
-        /// <param name="groups">groups.</param>
-        public ConversationEngagementEquation(List<ConversationEngagementEquationGroup> groups = default(List<ConversationEngagementEquationGroup>))
+        /// <param name="functions">functions.</param>
+        public ConversationEngagementEquationGroup(List<ConversationEngagementEquationFunction> functions = default(List<ConversationEngagementEquationFunction>))
         {
-            this.Groups = groups;
+            this.Functions = functions;
         }
         
         /// <summary>
-        /// Gets or Sets Groups
+        /// Gets or Sets Functions
         /// </summary>
-        [DataMember(Name="groups", EmitDefaultValue=false)]
-        public List<ConversationEngagementEquationGroup> Groups { get; set; }
+        [DataMember(Name="functions", EmitDefaultValue=false)]
+        public List<ConversationEngagementEquationFunction> Functions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +52,8 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationEngagementEquation {\n");
-            sb.Append("  Groups: ").Append(Groups).Append("\n");
+            sb.Append("class ConversationEngagementEquationGroup {\n");
+            sb.Append("  Functions: ").Append(Functions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +74,24 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationEngagementEquation);
+            return this.Equals(input as ConversationEngagementEquationGroup);
         }
 
         /// <summary>
-        /// Returns true if ConversationEngagementEquation instances are equal
+        /// Returns true if ConversationEngagementEquationGroup instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationEngagementEquation to be compared</param>
+        /// <param name="input">Instance of ConversationEngagementEquationGroup to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationEngagementEquation input)
+        public bool Equals(ConversationEngagementEquationGroup input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Groups == input.Groups ||
-                    this.Groups != null &&
-                    this.Groups.SequenceEqual(input.Groups)
+                    this.Functions == input.Functions ||
+                    this.Functions != null &&
+                    this.Functions.SequenceEqual(input.Functions)
                 );
         }
 
@@ -104,8 +104,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Groups != null)
-                    hashCode = hashCode * 59 + this.Groups.GetHashCode();
+                if (this.Functions != null)
+                    hashCode = hashCode * 59 + this.Functions.GetHashCode();
                 return hashCode;
             }
         }

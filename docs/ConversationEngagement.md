@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **CustomerGreeting** | **string** |  | [optional] 
 **DepartmentOids** | **List&lt;int&gt;** |  | [optional] 
 **EngagementName** | **string** |  | [optional] 
-**Equation** | **Object** |  | [optional] 
+**Equation** | [**ConversationEngagementEquation**](ConversationEngagementEquation.md) |  | [optional] 
 **TimeOnPage** | **int** |  | [optional] 
-**VisitorType** | **string** |  | [optional] 
+**VisitorType** | **string** | The type of visitor | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

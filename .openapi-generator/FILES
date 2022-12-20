@@ -142,6 +142,9 @@ docs/ConversationDepartment.md
 docs/ConversationDepartmentResponse.md
 docs/ConversationDepartmentsResponse.md
 docs/ConversationEngagement.md
+docs/ConversationEngagementEquation.md
+docs/ConversationEngagementEquationFunction.md
+docs/ConversationEngagementEquationGroup.md
 docs/ConversationEngagementResponse.md
 docs/ConversationEngagementsResponse.md
 docs/ConversationEventAddCoupon.md
@@ -894,6 +897,9 @@ src/com.ultracart.admin.v2/Model/ConversationDepartment.cs
 src/com.ultracart.admin.v2/Model/ConversationDepartmentResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationDepartmentsResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationEngagement.cs
+src/com.ultracart.admin.v2/Model/ConversationEngagementEquation.cs
+src/com.ultracart.admin.v2/Model/ConversationEngagementEquationFunction.cs
+src/com.ultracart.admin.v2/Model/ConversationEngagementEquationGroup.cs
 src/com.ultracart.admin.v2/Model/ConversationEngagementResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationEngagementsResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationEventAddCoupon.cs

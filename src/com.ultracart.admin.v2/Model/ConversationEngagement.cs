@@ -31,6 +31,39 @@ namespace com.ultracart.admin.v2.Model
     public partial class ConversationEngagement :  IEquatable<ConversationEngagement>, IValidatableObject
     {
         /// <summary>
+        /// The type of visitor
+        /// </summary>
+        /// <value>The type of visitor</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum VisitorTypeEnum
+        {
+            /// <summary>
+            /// Enum All for value: all
+            /// </summary>
+            [EnumMember(Value = "all")]
+            All = 1,
+
+            /// <summary>
+            /// Enum Firsttime for value: first time
+            /// </summary>
+            [EnumMember(Value = "first time")]
+            Firsttime = 2,
+
+            /// <summary>
+            /// Enum Returning for value: returning
+            /// </summary>
+            [EnumMember(Value = "returning")]
+            Returning = 3
+
+        }
+
+        /// <summary>
+        /// The type of visitor
+        /// </summary>
+        /// <value>The type of visitor</value>
+        [DataMember(Name="visitor_type", EmitDefaultValue=false)]
+        public VisitorTypeEnum? VisitorType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ConversationEngagement" /> class.
         /// </summary>
         /// <param name="conversationEngagementOid">conversationEngagementOid.</param>
@@ -39,8 +72,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="engagementName">engagementName.</param>
         /// <param name="equation">equation.</param>
         /// <param name="timeOnPage">timeOnPage.</param>
-        /// <param name="visitorType">visitorType.</param>
-        public ConversationEngagement(int conversationEngagementOid = default(int), string customerGreeting = default(string), List<int> departmentOids = default(List<int>), string engagementName = default(string), Object equation = default(Object), int timeOnPage = default(int), string visitorType = default(string))
+        /// <param name="visitorType">The type of visitor.</param>
+        public ConversationEngagement(int conversationEngagementOid = default(int), string customerGreeting = default(string), List<int> departmentOids = default(List<int>), string engagementName = default(string), ConversationEngagementEquation equation = default(ConversationEngagementEquation), int timeOnPage = default(int), VisitorTypeEnum? visitorType = default(VisitorTypeEnum?))
         {
             this.ConversationEngagementOid = conversationEngagementOid;
             this.CustomerGreeting = customerGreeting;
@@ -79,7 +112,7 @@ namespace com.ultracart.admin.v2.Model
         /// Gets or Sets Equation
         /// </summary>
         [DataMember(Name="equation", EmitDefaultValue=false)]
-        public Object Equation { get; set; }
+        public ConversationEngagementEquation Equation { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeOnPage
@@ -87,11 +120,6 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="time_on_page", EmitDefaultValue=false)]
         public int TimeOnPage { get; set; }
 
-        /// <summary>
-        /// Gets or Sets VisitorType
-        /// </summary>
-        [DataMember(Name="visitor_type", EmitDefaultValue=false)]
-        public string VisitorType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

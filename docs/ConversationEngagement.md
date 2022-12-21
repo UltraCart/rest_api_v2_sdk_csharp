@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Active** | **bool** |  | [optional] 
 **ConversationEngagementOid** | **int** |  | [optional] 
 **CustomerGreeting** | **string** |  | [optional] 
 **DepartmentOids** | **List&lt;int&gt;** |  | [optional] 

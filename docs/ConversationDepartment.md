@@ -6,7 +6,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConversationDepartmentOid** | **int** |  | [optional] 
-**DeleteMe** | **bool** |  | [optional] 
 **DepartmentName** | **string** |  | [optional] 
 **MerchantId** | **string** |  | [optional] 
 **Settings** | **Object** |  | [optional] 

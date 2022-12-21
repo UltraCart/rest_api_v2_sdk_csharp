@@ -34,14 +34,12 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ConversationDepartment" /> class.
         /// </summary>
         /// <param name="conversationDepartmentOid">conversationDepartmentOid.</param>
-        /// <param name="deleteMe">deleteMe.</param>
         /// <param name="departmentName">departmentName.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="settings">settings.</param>
-        public ConversationDepartment(int? conversationDepartmentOid = default(int?), bool? deleteMe = default(bool?), string departmentName = default(string), string merchantId = default(string), ConversationDepartmentSettings settings = default(ConversationDepartmentSettings))
+        public ConversationDepartment(int? conversationDepartmentOid = default(int?), string departmentName = default(string), string merchantId = default(string), ConversationDepartmentSettings settings = default(ConversationDepartmentSettings))
         {
             this.ConversationDepartmentOid = conversationDepartmentOid;
-            this.DeleteMe = deleteMe;
             this.DepartmentName = departmentName;
             this.MerchantId = merchantId;
             this.Settings = settings;
@@ -52,12 +50,6 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="conversation_department_oid", EmitDefaultValue=false)]
         public int? ConversationDepartmentOid { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DeleteMe
-        /// </summary>
-        [DataMember(Name="delete_me", EmitDefaultValue=false)]
-        public bool? DeleteMe { get; set; }
 
         /// <summary>
         /// Gets or Sets DepartmentName
@@ -86,7 +78,6 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ConversationDepartment {\n");
             sb.Append("  ConversationDepartmentOid: ").Append(ConversationDepartmentOid).Append("\n");
-            sb.Append("  DeleteMe: ").Append(DeleteMe).Append("\n");
             sb.Append("  DepartmentName: ").Append(DepartmentName).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
@@ -130,11 +121,6 @@ namespace com.ultracart.admin.v2.Model
                     this.ConversationDepartmentOid.Equals(input.ConversationDepartmentOid))
                 ) && 
                 (
-                    this.DeleteMe == input.DeleteMe ||
-                    (this.DeleteMe != null &&
-                    this.DeleteMe.Equals(input.DeleteMe))
-                ) && 
-                (
                     this.DepartmentName == input.DepartmentName ||
                     (this.DepartmentName != null &&
                     this.DepartmentName.Equals(input.DepartmentName))
@@ -162,8 +148,6 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.ConversationDepartmentOid != null)
                     hashCode = hashCode * 59 + this.ConversationDepartmentOid.GetHashCode();
-                if (this.DeleteMe != null)
-                    hashCode = hashCode * 59 + this.DeleteMe.GetHashCode();
                 if (this.DepartmentName != null)
                     hashCode = hashCode * 59 + this.DepartmentName.GetHashCode();
                 if (this.MerchantId != null)

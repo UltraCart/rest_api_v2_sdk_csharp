@@ -66,6 +66,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationEngagement" /> class.
         /// </summary>
+        /// <param name="active">active.</param>
         /// <param name="conversationEngagementOid">conversationEngagementOid.</param>
         /// <param name="customerGreeting">customerGreeting.</param>
         /// <param name="departmentOids">departmentOids.</param>
@@ -73,8 +74,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="equation">equation.</param>
         /// <param name="timeOnPage">timeOnPage.</param>
         /// <param name="visitorType">The type of visitor.</param>
-        public ConversationEngagement(int? conversationEngagementOid = default(int?), string customerGreeting = default(string), List<int?> departmentOids = default(List<int?>), string engagementName = default(string), ConversationEngagementEquation equation = default(ConversationEngagementEquation), int? timeOnPage = default(int?), VisitorTypeEnum? visitorType = default(VisitorTypeEnum?))
+        public ConversationEngagement(bool? active = default(bool?), int? conversationEngagementOid = default(int?), string customerGreeting = default(string), List<int?> departmentOids = default(List<int?>), string engagementName = default(string), ConversationEngagementEquation equation = default(ConversationEngagementEquation), int? timeOnPage = default(int?), VisitorTypeEnum? visitorType = default(VisitorTypeEnum?))
         {
+            this.Active = active;
             this.ConversationEngagementOid = conversationEngagementOid;
             this.CustomerGreeting = customerGreeting;
             this.DepartmentOids = departmentOids;
@@ -84,6 +86,12 @@ namespace com.ultracart.admin.v2.Model
             this.VisitorType = visitorType;
         }
         
+        /// <summary>
+        /// Gets or Sets Active
+        /// </summary>
+        [DataMember(Name="active", EmitDefaultValue=false)]
+        public bool? Active { get; set; }
+
         /// <summary>
         /// Gets or Sets ConversationEngagementOid
         /// </summary>
@@ -129,6 +137,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationEngagement {\n");
+            sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  ConversationEngagementOid: ").Append(ConversationEngagementOid).Append("\n");
             sb.Append("  CustomerGreeting: ").Append(CustomerGreeting).Append("\n");
             sb.Append("  DepartmentOids: ").Append(DepartmentOids).Append("\n");
@@ -170,6 +179,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.Active == input.Active ||
+                    (this.Active != null &&
+                    this.Active.Equals(input.Active))
+                ) && 
                 (
                     this.ConversationEngagementOid == input.ConversationEngagementOid ||
                     (this.ConversationEngagementOid != null &&
@@ -216,6 +230,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Active != null)
+                    hashCode = hashCode * 59 + this.Active.GetHashCode();
                 if (this.ConversationEngagementOid != null)
                     hashCode = hashCode * 59 + this.ConversationEngagementOid.GetHashCode();
                 if (this.CustomerGreeting != null)

@@ -213,8 +213,12 @@ docs/CouponFreeShippingWithItemsPurchase.md
 docs/CouponFreeShippingWithSubtotal.md
 docs/CouponItemSearchResult.md
 docs/CouponItemSearchResultsResponse.md
+docs/CouponMoreLoyaltyCashback.md
+docs/CouponMoreLoyaltyPoints.md
 docs/CouponMultipleAmountsOffItems.md
 docs/CouponNoDiscount.md
+docs/CouponPercentMoreLoyaltyCashback.md
+docs/CouponPercentMoreLoyaltyPoints.md
 docs/CouponPercentOffItemWithItemsQuantityPurchase.md
 docs/CouponPercentOffItems.md
 docs/CouponPercentOffItemsAndFreeShipping.md
@@ -967,8 +971,12 @@ src/com.ultracart.admin.v2/Model/CouponFreeShippingWithItemsPurchase.cs
 src/com.ultracart.admin.v2/Model/CouponFreeShippingWithSubtotal.cs
 src/com.ultracart.admin.v2/Model/CouponItemSearchResult.cs
 src/com.ultracart.admin.v2/Model/CouponItemSearchResultsResponse.cs
+src/com.ultracart.admin.v2/Model/CouponMoreLoyaltyCashback.cs
+src/com.ultracart.admin.v2/Model/CouponMoreLoyaltyPoints.cs
 src/com.ultracart.admin.v2/Model/CouponMultipleAmountsOffItems.cs
 src/com.ultracart.admin.v2/Model/CouponNoDiscount.cs
+src/com.ultracart.admin.v2/Model/CouponPercentMoreLoyaltyCashback.cs
+src/com.ultracart.admin.v2/Model/CouponPercentMoreLoyaltyPoints.cs
 src/com.ultracart.admin.v2/Model/CouponPercentOffItemWithItemsQuantityPurchase.cs
 src/com.ultracart.admin.v2/Model/CouponPercentOffItems.cs
 src/com.ultracart.admin.v2/Model/CouponPercentOffItemsAndFreeShipping.cs

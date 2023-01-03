@@ -93,34 +93,46 @@ namespace com.ultracart.admin.v2.Model
             Participantupdate = 9,
             
             /// <summary>
+            /// Enum Participantjoin for value: participant join
+            /// </summary>
+            [EnumMember(Value = "participant join")]
+            Participantjoin = 10,
+            
+            /// <summary>
+            /// Enum Participantleave for value: participant leave
+            /// </summary>
+            [EnumMember(Value = "participant leave")]
+            Participantleave = 11,
+            
+            /// <summary>
             /// Enum Readmessage for value: read message
             /// </summary>
             [EnumMember(Value = "read message")]
-            Readmessage = 10,
+            Readmessage = 12,
             
             /// <summary>
             /// Enum Typing for value: typing
             /// </summary>
             [EnumMember(Value = "typing")]
-            Typing = 11,
+            Typing = 13,
             
             /// <summary>
             /// Enum Addcoupon for value: add coupon
             /// </summary>
             [EnumMember(Value = "add coupon")]
-            Addcoupon = 12,
+            Addcoupon = 14,
             
             /// <summary>
             /// Enum Additem for value: add item
             /// </summary>
             [EnumMember(Value = "add item")]
-            Additem = 13,
+            Additem = 15,
             
             /// <summary>
             /// Enum Webchatcontext for value: webchat context
             /// </summary>
             [EnumMember(Value = "webchat context")]
-            Webchatcontext = 14
+            Webchatcontext = 16
         }
 
         /// <summary>
@@ -177,6 +189,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventConversationClosed">eventConversationClosed.</param>
         /// <param name="eventNewConversation">eventNewConversation.</param>
         /// <param name="eventNewMessage">eventNewMessage.</param>
+        /// <param name="eventParticipantJoin">eventParticipantJoin.</param>
+        /// <param name="eventParticipantJoinParticipant">eventParticipantJoinParticipant.</param>
+        /// <param name="eventParticipantLeft">eventParticipantLeft.</param>
+        /// <param name="eventParticipantLeftParticipant">eventParticipantLeftParticipant.</param>
         /// <param name="eventParticipantUpdate">eventParticipantUpdate.</param>
         /// <param name="eventQueuePosition">eventQueuePosition.</param>
         /// <param name="eventQueueStatusUpdate">eventQueueStatusUpdate.</param>
@@ -188,7 +204,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventWebchatContext">eventWebchatContext.</param>
         /// <param name="message">message.</param>
         /// <param name="type">Type of message.</param>
-        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationEventAddCoupon eventAddCoupon = default(ConversationEventAddCoupon), ConversationEventAddItem eventAddItem = default(ConversationEventAddItem), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationEventWebchatContext eventWebchatContext = default(ConversationEventWebchatContext), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
+        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationEventAddCoupon eventAddCoupon = default(ConversationEventAddCoupon), ConversationEventAddItem eventAddItem = default(ConversationEventAddItem), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantJoin = default(ConversationSummary), ConversationParticipant eventParticipantJoinParticipant = default(ConversationParticipant), ConversationSummary eventParticipantLeft = default(ConversationSummary), ConversationParticipant eventParticipantLeftParticipant = default(ConversationParticipant), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationEventWebchatContext eventWebchatContext = default(ConversationEventWebchatContext), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
         {
             this.ConversationUuid = conversationUuid;
             this.EventAddCoupon = eventAddCoupon;
@@ -196,6 +212,10 @@ namespace com.ultracart.admin.v2.Model
             this.EventConversationClosed = eventConversationClosed;
             this.EventNewConversation = eventNewConversation;
             this.EventNewMessage = eventNewMessage;
+            this.EventParticipantJoin = eventParticipantJoin;
+            this.EventParticipantJoinParticipant = eventParticipantJoinParticipant;
+            this.EventParticipantLeft = eventParticipantLeft;
+            this.EventParticipantLeftParticipant = eventParticipantLeftParticipant;
             this.EventParticipantUpdate = eventParticipantUpdate;
             this.EventQueuePosition = eventQueuePosition;
             this.EventQueueStatusUpdate = eventQueueStatusUpdate;
@@ -245,6 +265,30 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="event_new_message", EmitDefaultValue=false)]
         public ConversationSummary EventNewMessage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventParticipantJoin
+        /// </summary>
+        [DataMember(Name="event_participant_join", EmitDefaultValue=false)]
+        public ConversationSummary EventParticipantJoin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventParticipantJoinParticipant
+        /// </summary>
+        [DataMember(Name="event_participant_join_participant", EmitDefaultValue=false)]
+        public ConversationParticipant EventParticipantJoinParticipant { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventParticipantLeft
+        /// </summary>
+        [DataMember(Name="event_participant_left", EmitDefaultValue=false)]
+        public ConversationSummary EventParticipantLeft { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventParticipantLeftParticipant
+        /// </summary>
+        [DataMember(Name="event_participant_left_participant", EmitDefaultValue=false)]
+        public ConversationParticipant EventParticipantLeftParticipant { get; set; }
 
         /// <summary>
         /// Gets or Sets EventParticipantUpdate
@@ -316,6 +360,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EventConversationClosed: ").Append(EventConversationClosed).Append("\n");
             sb.Append("  EventNewConversation: ").Append(EventNewConversation).Append("\n");
             sb.Append("  EventNewMessage: ").Append(EventNewMessage).Append("\n");
+            sb.Append("  EventParticipantJoin: ").Append(EventParticipantJoin).Append("\n");
+            sb.Append("  EventParticipantJoinParticipant: ").Append(EventParticipantJoinParticipant).Append("\n");
+            sb.Append("  EventParticipantLeft: ").Append(EventParticipantLeft).Append("\n");
+            sb.Append("  EventParticipantLeftParticipant: ").Append(EventParticipantLeftParticipant).Append("\n");
             sb.Append("  EventParticipantUpdate: ").Append(EventParticipantUpdate).Append("\n");
             sb.Append("  EventQueuePosition: ").Append(EventQueuePosition).Append("\n");
             sb.Append("  EventQueueStatusUpdate: ").Append(EventQueueStatusUpdate).Append("\n");
@@ -390,6 +438,26 @@ namespace com.ultracart.admin.v2.Model
                     this.EventNewMessage == input.EventNewMessage ||
                     (this.EventNewMessage != null &&
                     this.EventNewMessage.Equals(input.EventNewMessage))
+                ) && 
+                (
+                    this.EventParticipantJoin == input.EventParticipantJoin ||
+                    (this.EventParticipantJoin != null &&
+                    this.EventParticipantJoin.Equals(input.EventParticipantJoin))
+                ) && 
+                (
+                    this.EventParticipantJoinParticipant == input.EventParticipantJoinParticipant ||
+                    (this.EventParticipantJoinParticipant != null &&
+                    this.EventParticipantJoinParticipant.Equals(input.EventParticipantJoinParticipant))
+                ) && 
+                (
+                    this.EventParticipantLeft == input.EventParticipantLeft ||
+                    (this.EventParticipantLeft != null &&
+                    this.EventParticipantLeft.Equals(input.EventParticipantLeft))
+                ) && 
+                (
+                    this.EventParticipantLeftParticipant == input.EventParticipantLeftParticipant ||
+                    (this.EventParticipantLeftParticipant != null &&
+                    this.EventParticipantLeftParticipant.Equals(input.EventParticipantLeftParticipant))
                 ) && 
                 (
                     this.EventParticipantUpdate == input.EventParticipantUpdate ||
@@ -469,6 +537,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EventNewConversation.GetHashCode();
                 if (this.EventNewMessage != null)
                     hashCode = hashCode * 59 + this.EventNewMessage.GetHashCode();
+                if (this.EventParticipantJoin != null)
+                    hashCode = hashCode * 59 + this.EventParticipantJoin.GetHashCode();
+                if (this.EventParticipantJoinParticipant != null)
+                    hashCode = hashCode * 59 + this.EventParticipantJoinParticipant.GetHashCode();
+                if (this.EventParticipantLeft != null)
+                    hashCode = hashCode * 59 + this.EventParticipantLeft.GetHashCode();
+                if (this.EventParticipantLeftParticipant != null)
+                    hashCode = hashCode * 59 + this.EventParticipantLeftParticipant.GetHashCode();
                 if (this.EventParticipantUpdate != null)
                     hashCode = hashCode * 59 + this.EventParticipantUpdate.GetHashCode();
                 if (this.EventQueuePosition != null)

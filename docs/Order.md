@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **MerchantId** | **string** | UltraCart merchant ID owning this order | [optional] 
 **OrderId** | **string** | Order ID | [optional] 
 **Payment** | [**OrderPayment**](OrderPayment.md) |  | [optional] 
+**PointOfSale** | [**OrderPointOfSale**](OrderPointOfSale.md) |  | [optional] 
 **Properties** | [**List&lt;OrderProperty&gt;**](OrderProperty.md) | Properties, available only through update, not through insert due to the nature of how properties are handled internally | [optional] 
 **Quote** | [**OrderQuote**](OrderQuote.md) |  | [optional] 
 **RefundDts** | **string** | If the order was refunded, the date/time that the last refund occurred | [optional] 

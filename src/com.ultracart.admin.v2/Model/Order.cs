@@ -145,6 +145,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantId">UltraCart merchant ID owning this order.</param>
         /// <param name="orderId">Order ID.</param>
         /// <param name="payment">payment.</param>
+        /// <param name="pointOfSale">pointOfSale.</param>
         /// <param name="properties">Properties, available only through update, not through insert due to the nature of how properties are handled internally.</param>
         /// <param name="quote">quote.</param>
         /// <param name="refundDts">If the order was refunded, the date/time that the last refund occurred.</param>
@@ -154,7 +155,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="summary">summary.</param>
         /// <param name="tags">tags, available only through update, not through insert due to the nature of how tags are handled internally.</param>
         /// <param name="taxes">taxes.</param>
-        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), decimal exchangeRate = default(decimal), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string rejectDts = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes))
+        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), decimal exchangeRate = default(decimal), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), OrderPointOfSale pointOfSale = default(OrderPointOfSale), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string rejectDts = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes))
         {
             this.Affiliates = affiliates;
             this.AutoOrder = autoOrder;
@@ -181,6 +182,7 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantId = merchantId;
             this.OrderId = orderId;
             this.Payment = payment;
+            this.PointOfSale = pointOfSale;
             this.Properties = properties;
             this.Quote = quote;
             this.RefundDts = refundDts;
@@ -347,6 +349,12 @@ namespace com.ultracart.admin.v2.Model
         public OrderPayment Payment { get; set; }
 
         /// <summary>
+        /// Gets or Sets PointOfSale
+        /// </summary>
+        [DataMember(Name="point_of_sale", EmitDefaultValue=false)]
+        public OrderPointOfSale PointOfSale { get; set; }
+
+        /// <summary>
         /// Properties, available only through update, not through insert due to the nature of how properties are handled internally
         /// </summary>
         /// <value>Properties, available only through update, not through insert due to the nature of how properties are handled internally</value>
@@ -437,6 +445,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  Payment: ").Append(Payment).Append("\n");
+            sb.Append("  PointOfSale: ").Append(PointOfSale).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Quote: ").Append(Quote).Append("\n");
             sb.Append("  RefundDts: ").Append(RefundDts).Append("\n");
@@ -609,6 +618,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Payment.Equals(input.Payment))
                 ) && 
                 (
+                    this.PointOfSale == input.PointOfSale ||
+                    (this.PointOfSale != null &&
+                    this.PointOfSale.Equals(input.PointOfSale))
+                ) && 
+                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -716,6 +730,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OrderId.GetHashCode();
                 if (this.Payment != null)
                     hashCode = hashCode * 59 + this.Payment.GetHashCode();
+                if (this.PointOfSale != null)
+                    hashCode = hashCode * 59 + this.PointOfSale.GetHashCode();
                 if (this.Properties != null)
                     hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.Quote != null)

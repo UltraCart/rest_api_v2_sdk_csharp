@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("UltraCart")]
 [assembly: AssemblyProduct("UltraCartRestSDK")]
-[assembly: AssemblyCopyright("2022 ultracart.com")]
+[assembly: AssemblyCopyright("2023 ultracart.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -28,5 +28,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.0.103-RC")]
-[assembly: AssemblyFileVersion("4.0.103-RC")]
+[assembly: AssemblyVersion("4.0.104-RC")]
+[assembly: AssemblyFileVersion("4.0.104-RC")]

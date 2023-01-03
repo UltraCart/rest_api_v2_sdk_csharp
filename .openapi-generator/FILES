@@ -588,6 +588,7 @@ docs/OrderPaymentInsurance.md
 docs/OrderPaymentPurchaseOrder.md
 docs/OrderPaymentTransaction.md
 docs/OrderPaymentTransactionDetail.md
+docs/OrderPointOfSale.md
 docs/OrderProcessPaymentRequest.md
 docs/OrderProcessPaymentResponse.md
 docs/OrderProperty.md
@@ -609,6 +610,9 @@ docs/OrderTrackingNumberDetail.md
 docs/OrderTrackingNumberDetails.md
 docs/OrdersResponse.md
 docs/Permission.md
+docs/PointOfSaleLocation.md
+docs/PointOfSaleReader.md
+docs/PointOfSaleRegister.md
 docs/PricingTier.md
 docs/PricingTierNotification.md
 docs/PricingTiersResponse.md
@@ -1339,6 +1343,7 @@ src/com.ultracart.admin.v2/Model/OrderPaymentInsurance.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentPurchaseOrder.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentTransaction.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentTransactionDetail.cs
+src/com.ultracart.admin.v2/Model/OrderPointOfSale.cs
 src/com.ultracart.admin.v2/Model/OrderProcessPaymentRequest.cs
 src/com.ultracart.admin.v2/Model/OrderProcessPaymentResponse.cs
 src/com.ultracart.admin.v2/Model/OrderProperty.cs
@@ -1360,6 +1365,9 @@ src/com.ultracart.admin.v2/Model/OrderTrackingNumberDetail.cs
 src/com.ultracart.admin.v2/Model/OrderTrackingNumberDetails.cs
 src/com.ultracart.admin.v2/Model/OrdersResponse.cs
 src/com.ultracart.admin.v2/Model/Permission.cs
+src/com.ultracart.admin.v2/Model/PointOfSaleLocation.cs
+src/com.ultracart.admin.v2/Model/PointOfSaleReader.cs
+src/com.ultracart.admin.v2/Model/PointOfSaleRegister.cs
 src/com.ultracart.admin.v2/Model/PricingTier.cs
 src/com.ultracart.admin.v2/Model/PricingTierNotification.cs
 src/com.ultracart.admin.v2/Model/PricingTiersResponse.cs

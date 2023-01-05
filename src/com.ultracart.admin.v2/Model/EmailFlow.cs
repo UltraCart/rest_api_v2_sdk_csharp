@@ -49,6 +49,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="espFriendlyName">Friendly name of the sending email.</param>
         /// <param name="filterProfileEquationJson">File profile equation json.</param>
         /// <param name="libraryItemOid">If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated..</param>
+        /// <param name="maximumEnrolled">The number of maximum customers for the plan are currently enrolled in this flow..</param>
         /// <param name="merchantId">Merchant ID.</param>
         /// <param name="name">Name of email flow.</param>
         /// <param name="openRateFormatted">Open rate of emails, formatted.</param>
@@ -63,7 +64,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="triggerParameter">Trigger parameter.</param>
         /// <param name="triggerParameterName">Trigger parameter name.</param>
         /// <param name="triggerType">Trigger type.</param>
-        public EmailFlow(bool allowMultipleConcurrentEnrollments = default(bool), bool backPopulating = default(bool), string clickRateFormatted = default(string), string createdDts = default(string), bool deleted = default(bool), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), int enrolledCustomers = default(int), string espDomainUser = default(string), string espDomainUuid = default(string), string espFlowFolderUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), int libraryItemOid = default(int), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string screenshotLargeFullUrl = default(string), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string), int storefrontOid = default(int), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
+        public EmailFlow(bool allowMultipleConcurrentEnrollments = default(bool), bool backPopulating = default(bool), string clickRateFormatted = default(string), string createdDts = default(string), bool deleted = default(bool), string emailCommunicationSequenceUuid = default(string), string emailFlowUuid = default(string), bool endOnceCustomerPurchases = default(bool), bool endOnceCustomerPurchasesAnywhere = default(bool), int enrolledCustomers = default(int), string espDomainUser = default(string), string espDomainUuid = default(string), string espFlowFolderUuid = default(string), string espFriendlyName = default(string), string filterProfileEquationJson = default(string), int libraryItemOid = default(int), bool maximumEnrolled = default(bool), string merchantId = default(string), string name = default(string), string openRateFormatted = default(string), string revenueFormatted = default(string), string revenuePerCustomerFormatted = default(string), string screenshotLargeFullUrl = default(string), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string status = default(string), string statusDts = default(string), int storefrontOid = default(int), string triggerParameter = default(string), string triggerParameterName = default(string), string triggerType = default(string))
         {
             this.AllowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
             this.BackPopulating = backPopulating;
@@ -81,6 +82,7 @@ namespace com.ultracart.admin.v2.Model
             this.EspFriendlyName = espFriendlyName;
             this.FilterProfileEquationJson = filterProfileEquationJson;
             this.LibraryItemOid = libraryItemOid;
+            this.MaximumEnrolled = maximumEnrolled;
             this.MerchantId = merchantId;
             this.Name = name;
             this.OpenRateFormatted = openRateFormatted;
@@ -210,6 +212,13 @@ namespace com.ultracart.admin.v2.Model
         public int LibraryItemOid { get; set; }
 
         /// <summary>
+        /// The number of maximum customers for the plan are currently enrolled in this flow.
+        /// </summary>
+        /// <value>The number of maximum customers for the plan are currently enrolled in this flow.</value>
+        [DataMember(Name="maximum_enrolled", EmitDefaultValue=false)]
+        public bool MaximumEnrolled { get; set; }
+
+        /// <summary>
         /// Merchant ID
         /// </summary>
         /// <value>Merchant ID</value>
@@ -331,6 +340,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EspFriendlyName: ").Append(EspFriendlyName).Append("\n");
             sb.Append("  FilterProfileEquationJson: ").Append(FilterProfileEquationJson).Append("\n");
             sb.Append("  LibraryItemOid: ").Append(LibraryItemOid).Append("\n");
+            sb.Append("  MaximumEnrolled: ").Append(MaximumEnrolled).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OpenRateFormatted: ").Append(OpenRateFormatted).Append("\n");
@@ -460,6 +470,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LibraryItemOid.Equals(input.LibraryItemOid))
                 ) && 
                 (
+                    this.MaximumEnrolled == input.MaximumEnrolled ||
+                    (this.MaximumEnrolled != null &&
+                    this.MaximumEnrolled.Equals(input.MaximumEnrolled))
+                ) && 
+                (
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
@@ -572,6 +587,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.FilterProfileEquationJson.GetHashCode();
                 if (this.LibraryItemOid != null)
                     hashCode = hashCode * 59 + this.LibraryItemOid.GetHashCode();
+                if (this.MaximumEnrolled != null)
+                    hashCode = hashCode * 59 + this.MaximumEnrolled.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Name != null)

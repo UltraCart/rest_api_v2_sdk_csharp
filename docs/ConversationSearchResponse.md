@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RangeBegin** | **int?** |  | [optional] 
 **RangeEnd** | **int?** |  | [optional] 
+**Records** | [**List&lt;Conversation&gt;**](Conversation.md) |  | [optional] 
 **Total** | **int?** |  | [optional] 
 
 

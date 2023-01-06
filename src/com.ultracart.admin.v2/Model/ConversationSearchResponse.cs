@@ -35,11 +35,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="rangeBegin">rangeBegin.</param>
         /// <param name="rangeEnd">rangeEnd.</param>
+        /// <param name="records">records.</param>
         /// <param name="total">total.</param>
-        public ConversationSearchResponse(int? rangeBegin = default(int?), int? rangeEnd = default(int?), int? total = default(int?))
+        public ConversationSearchResponse(int? rangeBegin = default(int?), int? rangeEnd = default(int?), List<Conversation> records = default(List<Conversation>), int? total = default(int?))
         {
             this.RangeBegin = rangeBegin;
             this.RangeEnd = rangeEnd;
+            this.Records = records;
             this.Total = total;
         }
         
@@ -54,6 +56,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="range_end", EmitDefaultValue=false)]
         public int? RangeEnd { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Records
+        /// </summary>
+        [DataMember(Name="records", EmitDefaultValue=false)]
+        public List<Conversation> Records { get; set; }
 
         /// <summary>
         /// Gets or Sets Total
@@ -71,6 +79,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationSearchResponse {\n");
             sb.Append("  RangeBegin: ").Append(RangeBegin).Append("\n");
             sb.Append("  RangeEnd: ").Append(RangeEnd).Append("\n");
+            sb.Append("  Records: ").Append(Records).Append("\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -117,6 +126,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RangeEnd.Equals(input.RangeEnd))
                 ) && 
                 (
+                    this.Records == input.Records ||
+                    this.Records != null &&
+                    this.Records.SequenceEqual(input.Records)
+                ) && 
+                (
                     this.Total == input.Total ||
                     (this.Total != null &&
                     this.Total.Equals(input.Total))
@@ -136,6 +150,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RangeBegin.GetHashCode();
                 if (this.RangeEnd != null)
                     hashCode = hashCode * 59 + this.RangeEnd.GetHashCode();
+                if (this.Records != null)
+                    hashCode = hashCode * 59 + this.Records.GetHashCode();
                 if (this.Total != null)
                     hashCode = hashCode * 59 + this.Total.GetHashCode();
                 return hashCode;

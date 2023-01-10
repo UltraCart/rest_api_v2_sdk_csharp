@@ -266,15 +266,15 @@ namespace com.ultracart.admin.v2.Model
             Currentpageurl = 1,
 
             /// <summary>
-            /// Enum Customerslocation for value: customer's location
+            /// Enum Customerslocation for value: customers location
             /// </summary>
-            [EnumMember(Value = "customer's location")]
+            [EnumMember(Value = "customers location")]
             Customerslocation = 2,
 
             /// <summary>
-            /// Enum Customersbrowsingtime for value: customer's browsing time
+            /// Enum Customersbrowsingtime for value: customers browsing time
             /// </summary>
-            [EnumMember(Value = "customer's browsing time")]
+            [EnumMember(Value = "customers browsing time")]
             Customersbrowsingtime = 3,
 
             /// <summary>

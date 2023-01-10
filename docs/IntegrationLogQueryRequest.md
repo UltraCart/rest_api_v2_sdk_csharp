@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Direction** | **string** |  | [optional] 
 **Email** | **string** |  | [optional] 
 **FileNames** | **List&lt;string&gt;** |  | [optional] 
+**IntegrationLogOid** | **int** |  | [optional] 
 **ItemId** | **string** |  | [optional] 
 **ItemIpnOid** | **int** |  | [optional] 
 **LogDtsBegin** | **string** | Log date/time begin | [optional] 

@@ -34,6 +34,7 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="IntegrationLog" /> class.
         /// </summary>
         /// <param name="action">action.</param>
+        /// <param name="autoOrderOids">autoOrderOids.</param>
         /// <param name="direction">direction.</param>
         /// <param name="email">email.</param>
         /// <param name="files">files.</param>
@@ -51,9 +52,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="sk">sk.</param>
         /// <param name="status">status.</param>
         /// <param name="statusCode">statusCode.</param>
-        public IntegrationLog(string action = default(string), string direction = default(string), string email = default(string), List<IntegrationLogFile> files = default(List<IntegrationLogFile>), int? integrationLogOid = default(int?), string itemId = default(string), int? itemIpnOid = default(int?), string logDts = default(string), string logType = default(string), string loggerId = default(string), string loggerName = default(string), List<IntegrationLogLog> logs = default(List<IntegrationLogLog>), bool? omitLogMap = default(bool?), List<string> orderIds = default(List<string>), string pk = default(string), string sk = default(string), string status = default(string), int? statusCode = default(int?))
+        public IntegrationLog(string action = default(string), List<int?> autoOrderOids = default(List<int?>), string direction = default(string), string email = default(string), List<IntegrationLogFile> files = default(List<IntegrationLogFile>), int? integrationLogOid = default(int?), string itemId = default(string), int? itemIpnOid = default(int?), string logDts = default(string), string logType = default(string), string loggerId = default(string), string loggerName = default(string), List<IntegrationLogLog> logs = default(List<IntegrationLogLog>), bool? omitLogMap = default(bool?), List<string> orderIds = default(List<string>), string pk = default(string), string sk = default(string), string status = default(string), int? statusCode = default(int?))
         {
             this.Action = action;
+            this.AutoOrderOids = autoOrderOids;
             this.Direction = direction;
             this.Email = email;
             this.Files = files;
@@ -78,6 +80,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="action", EmitDefaultValue=false)]
         public string Action { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AutoOrderOids
+        /// </summary>
+        [DataMember(Name="auto_order_oids", EmitDefaultValue=false)]
+        public List<int?> AutoOrderOids { get; set; }
 
         /// <summary>
         /// Gets or Sets Direction
@@ -191,6 +199,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class IntegrationLog {\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
+            sb.Append("  AutoOrderOids: ").Append(AutoOrderOids).Append("\n");
             sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
@@ -246,6 +255,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Action == input.Action ||
                     (this.Action != null &&
                     this.Action.Equals(input.Action))
+                ) && 
+                (
+                    this.AutoOrderOids == input.AutoOrderOids ||
+                    this.AutoOrderOids != null &&
+                    this.AutoOrderOids.SequenceEqual(input.AutoOrderOids)
                 ) && 
                 (
                     this.Direction == input.Direction ||
@@ -345,6 +359,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Action != null)
                     hashCode = hashCode * 59 + this.Action.GetHashCode();
+                if (this.AutoOrderOids != null)
+                    hashCode = hashCode * 59 + this.AutoOrderOids.GetHashCode();
                 if (this.Direction != null)
                     hashCode = hashCode * 59 + this.Direction.GetHashCode();
                 if (this.Email != null)

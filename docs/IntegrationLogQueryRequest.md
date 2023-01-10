@@ -4,6 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | **string** |  | [optional] 
+**AutoOrderIds** | **List&lt;string&gt;** |  | [optional] 
+**AutoOrderOids** | **List&lt;int?&gt;** |  | [optional] 
 **Direction** | **string** |  | [optional] 
 **Email** | **string** |  | [optional] 
 **FileNames** | **List&lt;string&gt;** |  | [optional] 

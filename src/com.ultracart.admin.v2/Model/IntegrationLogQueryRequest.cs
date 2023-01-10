@@ -39,6 +39,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="direction">direction.</param>
         /// <param name="email">email.</param>
         /// <param name="fileNames">fileNames.</param>
+        /// <param name="integrationLogOid">integrationLogOid.</param>
         /// <param name="itemId">itemId.</param>
         /// <param name="itemIpnOid">itemIpnOid.</param>
         /// <param name="logDtsBegin">Log date/time begin.</param>
@@ -48,7 +49,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="loggerName">loggerName.</param>
         /// <param name="orderIds">orderIds.</param>
         /// <param name="status">status.</param>
-        public IntegrationLogQueryRequest(string action = default(string), List<string> autoOrderIds = default(List<string>), List<int?> autoOrderOids = default(List<int?>), string direction = default(string), string email = default(string), List<string> fileNames = default(List<string>), string itemId = default(string), int? itemIpnOid = default(int?), string logDtsBegin = default(string), string logDtsEnd = default(string), string logType = default(string), string loggerId = default(string), string loggerName = default(string), List<string> orderIds = default(List<string>), string status = default(string))
+        public IntegrationLogQueryRequest(string action = default(string), List<string> autoOrderIds = default(List<string>), List<int?> autoOrderOids = default(List<int?>), string direction = default(string), string email = default(string), List<string> fileNames = default(List<string>), int? integrationLogOid = default(int?), string itemId = default(string), int? itemIpnOid = default(int?), string logDtsBegin = default(string), string logDtsEnd = default(string), string logType = default(string), string loggerId = default(string), string loggerName = default(string), List<string> orderIds = default(List<string>), string status = default(string))
         {
             this.Action = action;
             this.AutoOrderIds = autoOrderIds;
@@ -56,6 +57,7 @@ namespace com.ultracart.admin.v2.Model
             this.Direction = direction;
             this.Email = email;
             this.FileNames = fileNames;
+            this.IntegrationLogOid = integrationLogOid;
             this.ItemId = itemId;
             this.ItemIpnOid = itemIpnOid;
             this.LogDtsBegin = logDtsBegin;
@@ -102,6 +104,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="file_names", EmitDefaultValue=false)]
         public List<string> FileNames { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IntegrationLogOid
+        /// </summary>
+        [DataMember(Name="integration_log_oid", EmitDefaultValue=false)]
+        public int? IntegrationLogOid { get; set; }
 
         /// <summary>
         /// Gets or Sets ItemId
@@ -173,6 +181,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  FileNames: ").Append(FileNames).Append("\n");
+            sb.Append("  IntegrationLogOid: ").Append(IntegrationLogOid).Append("\n");
             sb.Append("  ItemId: ").Append(ItemId).Append("\n");
             sb.Append("  ItemIpnOid: ").Append(ItemIpnOid).Append("\n");
             sb.Append("  LogDtsBegin: ").Append(LogDtsBegin).Append("\n");
@@ -247,6 +256,11 @@ namespace com.ultracart.admin.v2.Model
                     this.FileNames.SequenceEqual(input.FileNames)
                 ) && 
                 (
+                    this.IntegrationLogOid == input.IntegrationLogOid ||
+                    (this.IntegrationLogOid != null &&
+                    this.IntegrationLogOid.Equals(input.IntegrationLogOid))
+                ) && 
+                (
                     this.ItemId == input.ItemId ||
                     (this.ItemId != null &&
                     this.ItemId.Equals(input.ItemId))
@@ -314,6 +328,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.FileNames != null)
                     hashCode = hashCode * 59 + this.FileNames.GetHashCode();
+                if (this.IntegrationLogOid != null)
+                    hashCode = hashCode * 59 + this.IntegrationLogOid.GetHashCode();
                 if (this.ItemId != null)
                     hashCode = hashCode * 59 + this.ItemId.GetHashCode();
                 if (this.ItemIpnOid != null)

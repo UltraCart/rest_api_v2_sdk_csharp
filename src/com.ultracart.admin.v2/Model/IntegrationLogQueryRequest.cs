@@ -34,6 +34,8 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="IntegrationLogQueryRequest" /> class.
         /// </summary>
         /// <param name="action">action.</param>
+        /// <param name="autoOrderIds">autoOrderIds.</param>
+        /// <param name="autoOrderOids">autoOrderOids.</param>
         /// <param name="direction">direction.</param>
         /// <param name="email">email.</param>
         /// <param name="fileNames">fileNames.</param>
@@ -46,9 +48,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="loggerName">loggerName.</param>
         /// <param name="orderIds">orderIds.</param>
         /// <param name="status">status.</param>
-        public IntegrationLogQueryRequest(string action = default(string), string direction = default(string), string email = default(string), List<string> fileNames = default(List<string>), string itemId = default(string), int itemIpnOid = default(int), string logDtsBegin = default(string), string logDtsEnd = default(string), string logType = default(string), string loggerId = default(string), string loggerName = default(string), List<string> orderIds = default(List<string>), string status = default(string))
+        public IntegrationLogQueryRequest(string action = default(string), List<string> autoOrderIds = default(List<string>), List<int> autoOrderOids = default(List<int>), string direction = default(string), string email = default(string), List<string> fileNames = default(List<string>), string itemId = default(string), int itemIpnOid = default(int), string logDtsBegin = default(string), string logDtsEnd = default(string), string logType = default(string), string loggerId = default(string), string loggerName = default(string), List<string> orderIds = default(List<string>), string status = default(string))
         {
             this.Action = action;
+            this.AutoOrderIds = autoOrderIds;
+            this.AutoOrderOids = autoOrderOids;
             this.Direction = direction;
             this.Email = email;
             this.FileNames = fileNames;
@@ -68,6 +72,18 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="action", EmitDefaultValue=false)]
         public string Action { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AutoOrderIds
+        /// </summary>
+        [DataMember(Name="auto_order_ids", EmitDefaultValue=false)]
+        public List<string> AutoOrderIds { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AutoOrderOids
+        /// </summary>
+        [DataMember(Name="auto_order_oids", EmitDefaultValue=false)]
+        public List<int> AutoOrderOids { get; set; }
 
         /// <summary>
         /// Gets or Sets Direction
@@ -152,6 +168,8 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class IntegrationLogQueryRequest {\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
+            sb.Append("  AutoOrderIds: ").Append(AutoOrderIds).Append("\n");
+            sb.Append("  AutoOrderOids: ").Append(AutoOrderOids).Append("\n");
             sb.Append("  Direction: ").Append(Direction).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  FileNames: ").Append(FileNames).Append("\n");
@@ -202,6 +220,18 @@ namespace com.ultracart.admin.v2.Model
                     this.Action == input.Action ||
                     (this.Action != null &&
                     this.Action.Equals(input.Action))
+                ) && 
+                (
+                    this.AutoOrderIds == input.AutoOrderIds ||
+                    this.AutoOrderIds != null &&
+                    input.AutoOrderIds != null &&
+                    this.AutoOrderIds.SequenceEqual(input.AutoOrderIds)
+                ) && 
+                (
+                    this.AutoOrderOids == input.AutoOrderOids ||
+                    this.AutoOrderOids != null &&
+                    input.AutoOrderOids != null &&
+                    this.AutoOrderOids.SequenceEqual(input.AutoOrderOids)
                 ) && 
                 (
                     this.Direction == input.Direction ||
@@ -278,6 +308,10 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Action != null)
                     hashCode = hashCode * 59 + this.Action.GetHashCode();
+                if (this.AutoOrderIds != null)
+                    hashCode = hashCode * 59 + this.AutoOrderIds.GetHashCode();
+                if (this.AutoOrderOids != null)
+                    hashCode = hashCode * 59 + this.AutoOrderOids.GetHashCode();
                 if (this.Direction != null)
                     hashCode = hashCode * 59 + this.Direction.GetHashCode();
                 if (this.Email != null)

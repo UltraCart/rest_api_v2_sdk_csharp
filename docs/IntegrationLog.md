@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | **string** |  | [optional] 
+**AutoOrderOids** | **List&lt;int&gt;** |  | [optional] 
 **Direction** | **string** |  | [optional] 
 **Email** | **string** |  | [optional] 
 **Files** | [**List&lt;IntegrationLogFile&gt;**](IntegrationLogFile.md) |  | [optional] 

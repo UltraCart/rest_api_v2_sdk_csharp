@@ -37,7 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rangeEnd">rangeEnd.</param>
         /// <param name="records">records.</param>
         /// <param name="total">total.</param>
-        public ConversationSearchResponse(int? rangeBegin = default(int?), int? rangeEnd = default(int?), List<Conversation> records = default(List<Conversation>), int? total = default(int?))
+        public ConversationSearchResponse(int? rangeBegin = default(int?), int? rangeEnd = default(int?), List<ConversationSummary> records = default(List<ConversationSummary>), int? total = default(int?))
         {
             this.RangeBegin = rangeBegin;
             this.RangeEnd = rangeEnd;
@@ -61,7 +61,7 @@ namespace com.ultracart.admin.v2.Model
         /// Gets or Sets Records
         /// </summary>
         [DataMember(Name="records", EmitDefaultValue=false)]
-        public List<Conversation> Records { get; set; }
+        public List<ConversationSummary> Records { get; set; }
 
         /// <summary>
         /// Gets or Sets Total

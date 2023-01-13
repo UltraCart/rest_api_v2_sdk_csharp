@@ -68,6 +68,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ChannelPartnerCancelResponse</returns>
         ApiResponse<ChannelPartnerCancelResponse> CancelOrderByUltraCartOrderIdWithHttpInfo (string orderId);
         /// <summary>
+        /// Delete a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Delete a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <returns></returns>
+        void DeleteChannelPartnerShipToPreference (int channelPartnerOid, int channelPartnerShipToPreferenceOid);
+
+        /// <summary>
+        /// Delete a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Delete a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteChannelPartnerShipToPreferenceWithHttpInfo (int channelPartnerOid, int channelPartnerShipToPreferenceOid);
+        /// <summary>
         /// Estimate shipping for channel partner order
         /// </summary>
         /// <remarks>
@@ -110,6 +133,69 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ChannelPartnerEstimateTaxResponse</returns>
         ApiResponse<ChannelPartnerEstimateTaxResponse> EstimateTaxForChannelPartnerOrderWithHttpInfo (ChannelPartnerOrder channelPartnerOrder);
         /// <summary>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <returns>ChannelPartnerShipToPreferenceResponse</returns>
+        ChannelPartnerShipToPreferenceResponse GetChannelPartnerShipToPreference (int channelPartnerOid, int channelPartnerShipToPreferenceOid);
+
+        /// <summary>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <returns>ApiResponse of ChannelPartnerShipToPreferenceResponse</returns>
+        ApiResponse<ChannelPartnerShipToPreferenceResponse> GetChannelPartnerShipToPreferenceWithHttpInfo (int channelPartnerOid, int channelPartnerShipToPreferenceOid);
+        /// <summary>
+        /// Retrieve the ship to preferences associated with the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the ship to preferences associated with the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <returns>ChannelPartnerShipToPreferencesResponse</returns>
+        ChannelPartnerShipToPreferencesResponse GetChannelPartnerShipToPreferences (int channelPartnerOid);
+
+        /// <summary>
+        /// Retrieve the ship to preferences associated with the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the ship to preferences associated with the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <returns>ApiResponse of ChannelPartnerShipToPreferencesResponse</returns>
+        ApiResponse<ChannelPartnerShipToPreferencesResponse> GetChannelPartnerShipToPreferencesWithHttpInfo (int channelPartnerOid);
+        /// <summary>
+        /// Retrieve the channel partners configured on the account.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the channel partners configured on the account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ChannelPartnersResponse</returns>
+        ChannelPartnersResponse GetChannelPartners ();
+
+        /// <summary>
+        /// Retrieve the channel partners configured on the account.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the channel partners configured on the account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ChannelPartnersResponse</returns>
+        ApiResponse<ChannelPartnersResponse> GetChannelPartnersWithHttpInfo ();
+        /// <summary>
         /// Insert channel partner order
         /// </summary>
         /// <remarks>
@@ -130,6 +216,54 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="channelPartnerOrder">Order to insert</param>
         /// <returns>ApiResponse of ChannelPartnerImportResponse</returns>
         ApiResponse<ChannelPartnerImportResponse> ImportChannelPartnerOrderWithHttpInfo (ChannelPartnerOrder channelPartnerOrder);
+        /// <summary>
+        /// Insert a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Insert a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <returns>ChannelPartnerShipToPreferenceResponse</returns>
+        ChannelPartnerShipToPreferenceResponse InsertChannelPartnerShipToPreference (int channelPartnerOid, ChannelPartnerShipToPreference shipToPreference);
+
+        /// <summary>
+        /// Insert a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Insert a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <returns>ApiResponse of ChannelPartnerShipToPreferenceResponse</returns>
+        ApiResponse<ChannelPartnerShipToPreferenceResponse> InsertChannelPartnerShipToPreferenceWithHttpInfo (int channelPartnerOid, ChannelPartnerShipToPreference shipToPreference);
+        /// <summary>
+        /// Update a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Update a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <returns>ChannelPartnerShipToPreferenceResponse</returns>
+        ChannelPartnerShipToPreferenceResponse UpdateChannelPartnerShipToPreference (int channelPartnerOid, int channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference);
+
+        /// <summary>
+        /// Update a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Update a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <returns>ApiResponse of ChannelPartnerShipToPreferenceResponse</returns>
+        ApiResponse<ChannelPartnerShipToPreferenceResponse> UpdateChannelPartnerShipToPreferenceWithHttpInfo (int channelPartnerOid, int channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -179,6 +313,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ChannelPartnerCancelResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ChannelPartnerCancelResponse>> CancelOrderByUltraCartOrderIdWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Delete a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Delete a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteChannelPartnerShipToPreferenceAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Delete a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteChannelPartnerShipToPreferenceWithHttpInfoAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Estimate shipping for channel partner order
         /// </summary>
         /// <remarks>
@@ -225,6 +384,75 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ChannelPartnerEstimateTaxResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ChannelPartnerEstimateTaxResponse>> EstimateTaxForChannelPartnerOrderWithHttpInfoAsync (ChannelPartnerOrder channelPartnerOrder, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ChannelPartnerShipToPreferenceResponse</returns>
+        System.Threading.Tasks.Task<ChannelPartnerShipToPreferenceResponse> GetChannelPartnerShipToPreferenceAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ChannelPartnerShipToPreferenceResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ChannelPartnerShipToPreferenceResponse>> GetChannelPartnerShipToPreferenceWithHttpInfoAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve the ship to preferences associated with the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the ship to preferences associated with the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ChannelPartnerShipToPreferencesResponse</returns>
+        System.Threading.Tasks.Task<ChannelPartnerShipToPreferencesResponse> GetChannelPartnerShipToPreferencesAsync (int channelPartnerOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve the ship to preferences associated with the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the ship to preferences associated with the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ChannelPartnerShipToPreferencesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ChannelPartnerShipToPreferencesResponse>> GetChannelPartnerShipToPreferencesWithHttpInfoAsync (int channelPartnerOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve the channel partners configured on the account.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the channel partners configured on the account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ChannelPartnersResponse</returns>
+        System.Threading.Tasks.Task<ChannelPartnersResponse> GetChannelPartnersAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve the channel partners configured on the account.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the channel partners configured on the account. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ChannelPartnersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ChannelPartnersResponse>> GetChannelPartnersWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Insert channel partner order
         /// </summary>
         /// <remarks>
@@ -247,6 +475,58 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ChannelPartnerImportResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ChannelPartnerImportResponse>> ImportChannelPartnerOrderWithHttpInfoAsync (ChannelPartnerOrder channelPartnerOrder, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Insert a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Insert a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ChannelPartnerShipToPreferenceResponse</returns>
+        System.Threading.Tasks.Task<ChannelPartnerShipToPreferenceResponse> InsertChannelPartnerShipToPreferenceAsync (int channelPartnerOid, ChannelPartnerShipToPreference shipToPreference, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Insert a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Insert a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ChannelPartnerShipToPreferenceResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ChannelPartnerShipToPreferenceResponse>> InsertChannelPartnerShipToPreferenceWithHttpInfoAsync (int channelPartnerOid, ChannelPartnerShipToPreference shipToPreference, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Update a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ChannelPartnerShipToPreferenceResponse</returns>
+        System.Threading.Tasks.Task<ChannelPartnerShipToPreferenceResponse> UpdateChannelPartnerShipToPreferenceAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update a ship to preference record for the channel partner.
+        /// </summary>
+        /// <remarks>
+        /// Update a ship to preference record for the channel partner. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ChannelPartnerShipToPreferenceResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ChannelPartnerShipToPreferenceResponse>> UpdateChannelPartnerShipToPreferenceWithHttpInfoAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference, CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -691,6 +971,173 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Delete a ship to preference record for the channel partner. Delete a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <returns></returns>
+        public void DeleteChannelPartnerShipToPreference (int channelPartnerOid, int channelPartnerShipToPreferenceOid)
+        {
+             DeleteChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, channelPartnerShipToPreferenceOid);
+        }
+
+        /// <summary>
+        /// Delete a ship to preference record for the channel partner. Delete a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteChannelPartnerShipToPreferenceWithHttpInfo (int channelPartnerOid, int channelPartnerShipToPreferenceOid)
+        {
+            // verify the required parameter 'channelPartnerOid' is set
+            if (channelPartnerOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOid' when calling ChannelPartnerApi->DeleteChannelPartnerShipToPreference");
+            // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+            if (channelPartnerShipToPreferenceOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerShipToPreferenceOid' when calling ChannelPartnerApi->DeleteChannelPartnerShipToPreference");
+
+            var localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOid != null) localVarPathParams.Add("channel_partner_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerOid)); // path parameter
+            if (channelPartnerShipToPreferenceOid != null) localVarPathParams.Add("channel_partner_ship_to_preference_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerShipToPreferenceOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteChannelPartnerShipToPreference", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a ship to preference record for the channel partner. Delete a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteChannelPartnerShipToPreferenceAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteChannelPartnerShipToPreferenceWithHttpInfoAsync(channelPartnerOid, channelPartnerShipToPreferenceOid, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Delete a ship to preference record for the channel partner. Delete a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteChannelPartnerShipToPreferenceWithHttpInfoAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'channelPartnerOid' is set
+            if (channelPartnerOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOid' when calling ChannelPartnerApi->DeleteChannelPartnerShipToPreference");
+            // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+            if (channelPartnerShipToPreferenceOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerShipToPreferenceOid' when calling ChannelPartnerApi->DeleteChannelPartnerShipToPreference");
+
+            var localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOid != null) localVarPathParams.Add("channel_partner_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerOid)); // path parameter
+            if (channelPartnerShipToPreferenceOid != null) localVarPathParams.Add("channel_partner_ship_to_preference_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerShipToPreferenceOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteChannelPartnerShipToPreference", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
         /// Estimate shipping for channel partner order Estimate shipping for order from a channel partner. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1037,6 +1484,477 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id. Retrieve the ship to preference associated with the channel partner and the specific id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <returns>ChannelPartnerShipToPreferenceResponse</returns>
+        public ChannelPartnerShipToPreferenceResponse GetChannelPartnerShipToPreference (int channelPartnerOid, int channelPartnerShipToPreferenceOid)
+        {
+             ApiResponse<ChannelPartnerShipToPreferenceResponse> localVarResponse = GetChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, channelPartnerShipToPreferenceOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id. Retrieve the ship to preference associated with the channel partner and the specific id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <returns>ApiResponse of ChannelPartnerShipToPreferenceResponse</returns>
+        public ApiResponse<ChannelPartnerShipToPreferenceResponse> GetChannelPartnerShipToPreferenceWithHttpInfo (int channelPartnerOid, int channelPartnerShipToPreferenceOid)
+        {
+            // verify the required parameter 'channelPartnerOid' is set
+            if (channelPartnerOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOid' when calling ChannelPartnerApi->GetChannelPartnerShipToPreference");
+            // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+            if (channelPartnerShipToPreferenceOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerShipToPreferenceOid' when calling ChannelPartnerApi->GetChannelPartnerShipToPreference");
+
+            var localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOid != null) localVarPathParams.Add("channel_partner_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerOid)); // path parameter
+            if (channelPartnerShipToPreferenceOid != null) localVarPathParams.Add("channel_partner_ship_to_preference_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerShipToPreferenceOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetChannelPartnerShipToPreference", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnerShipToPreferenceResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ChannelPartnerShipToPreferenceResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerShipToPreferenceResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id. Retrieve the ship to preference associated with the channel partner and the specific id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ChannelPartnerShipToPreferenceResponse</returns>
+        public async System.Threading.Tasks.Task<ChannelPartnerShipToPreferenceResponse> GetChannelPartnerShipToPreferenceAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ChannelPartnerShipToPreferenceResponse> localVarResponse = await GetChannelPartnerShipToPreferenceWithHttpInfoAsync(channelPartnerOid, channelPartnerShipToPreferenceOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve the ship to preference associated with the channel partner and the specific id. Retrieve the ship to preference associated with the channel partner and the specific id. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ChannelPartnerShipToPreferenceResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ChannelPartnerShipToPreferenceResponse>> GetChannelPartnerShipToPreferenceWithHttpInfoAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'channelPartnerOid' is set
+            if (channelPartnerOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOid' when calling ChannelPartnerApi->GetChannelPartnerShipToPreference");
+            // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+            if (channelPartnerShipToPreferenceOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerShipToPreferenceOid' when calling ChannelPartnerApi->GetChannelPartnerShipToPreference");
+
+            var localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOid != null) localVarPathParams.Add("channel_partner_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerOid)); // path parameter
+            if (channelPartnerShipToPreferenceOid != null) localVarPathParams.Add("channel_partner_ship_to_preference_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerShipToPreferenceOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetChannelPartnerShipToPreference", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnerShipToPreferenceResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ChannelPartnerShipToPreferenceResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerShipToPreferenceResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve the ship to preferences associated with the channel partner. Retrieve the ship to preferences associated with the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <returns>ChannelPartnerShipToPreferencesResponse</returns>
+        public ChannelPartnerShipToPreferencesResponse GetChannelPartnerShipToPreferences (int channelPartnerOid)
+        {
+             ApiResponse<ChannelPartnerShipToPreferencesResponse> localVarResponse = GetChannelPartnerShipToPreferencesWithHttpInfo(channelPartnerOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the ship to preferences associated with the channel partner. Retrieve the ship to preferences associated with the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <returns>ApiResponse of ChannelPartnerShipToPreferencesResponse</returns>
+        public ApiResponse<ChannelPartnerShipToPreferencesResponse> GetChannelPartnerShipToPreferencesWithHttpInfo (int channelPartnerOid)
+        {
+            // verify the required parameter 'channelPartnerOid' is set
+            if (channelPartnerOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOid' when calling ChannelPartnerApi->GetChannelPartnerShipToPreferences");
+
+            var localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOid != null) localVarPathParams.Add("channel_partner_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetChannelPartnerShipToPreferences", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnerShipToPreferencesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ChannelPartnerShipToPreferencesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerShipToPreferencesResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve the ship to preferences associated with the channel partner. Retrieve the ship to preferences associated with the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ChannelPartnerShipToPreferencesResponse</returns>
+        public async System.Threading.Tasks.Task<ChannelPartnerShipToPreferencesResponse> GetChannelPartnerShipToPreferencesAsync (int channelPartnerOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ChannelPartnerShipToPreferencesResponse> localVarResponse = await GetChannelPartnerShipToPreferencesWithHttpInfoAsync(channelPartnerOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve the ship to preferences associated with the channel partner. Retrieve the ship to preferences associated with the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ChannelPartnerShipToPreferencesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ChannelPartnerShipToPreferencesResponse>> GetChannelPartnerShipToPreferencesWithHttpInfoAsync (int channelPartnerOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'channelPartnerOid' is set
+            if (channelPartnerOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOid' when calling ChannelPartnerApi->GetChannelPartnerShipToPreferences");
+
+            var localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOid != null) localVarPathParams.Add("channel_partner_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetChannelPartnerShipToPreferences", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnerShipToPreferencesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ChannelPartnerShipToPreferencesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerShipToPreferencesResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve the channel partners configured on the account. Retrieve the channel partners configured on the account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ChannelPartnersResponse</returns>
+        public ChannelPartnersResponse GetChannelPartners ()
+        {
+             ApiResponse<ChannelPartnersResponse> localVarResponse = GetChannelPartnersWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the channel partners configured on the account. Retrieve the channel partners configured on the account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ChannelPartnersResponse</returns>
+        public ApiResponse<ChannelPartnersResponse> GetChannelPartnersWithHttpInfo ()
+        {
+
+            var localVarPath = "/channel_partner/channel_partners";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetChannelPartners", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ChannelPartnersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve the channel partners configured on the account. Retrieve the channel partners configured on the account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ChannelPartnersResponse</returns>
+        public async System.Threading.Tasks.Task<ChannelPartnersResponse> GetChannelPartnersAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ChannelPartnersResponse> localVarResponse = await GetChannelPartnersWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve the channel partners configured on the account. Retrieve the channel partners configured on the account. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ChannelPartnersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ChannelPartnersResponse>> GetChannelPartnersWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/channel_partner/channel_partners";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetChannelPartners", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ChannelPartnersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnersResponse)));
+        }
+
+        /// <summary>
         /// Insert channel partner order Insert order from a channel partner. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1207,6 +2125,388 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ChannelPartnerImportResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ChannelPartnerImportResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerImportResponse)));
+        }
+
+        /// <summary>
+        /// Insert a ship to preference record for the channel partner. Insert a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <returns>ChannelPartnerShipToPreferenceResponse</returns>
+        public ChannelPartnerShipToPreferenceResponse InsertChannelPartnerShipToPreference (int channelPartnerOid, ChannelPartnerShipToPreference shipToPreference)
+        {
+             ApiResponse<ChannelPartnerShipToPreferenceResponse> localVarResponse = InsertChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, shipToPreference);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert a ship to preference record for the channel partner. Insert a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <returns>ApiResponse of ChannelPartnerShipToPreferenceResponse</returns>
+        public ApiResponse<ChannelPartnerShipToPreferenceResponse> InsertChannelPartnerShipToPreferenceWithHttpInfo (int channelPartnerOid, ChannelPartnerShipToPreference shipToPreference)
+        {
+            // verify the required parameter 'channelPartnerOid' is set
+            if (channelPartnerOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOid' when calling ChannelPartnerApi->InsertChannelPartnerShipToPreference");
+            // verify the required parameter 'shipToPreference' is set
+            if (shipToPreference == null)
+                throw new ApiException(400, "Missing required parameter 'shipToPreference' when calling ChannelPartnerApi->InsertChannelPartnerShipToPreference");
+
+            var localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOid != null) localVarPathParams.Add("channel_partner_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerOid)); // path parameter
+            if (shipToPreference != null && shipToPreference.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(shipToPreference); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = shipToPreference; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertChannelPartnerShipToPreference", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnerShipToPreferenceResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ChannelPartnerShipToPreferenceResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerShipToPreferenceResponse)));
+        }
+
+        /// <summary>
+        /// Insert a ship to preference record for the channel partner. Insert a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ChannelPartnerShipToPreferenceResponse</returns>
+        public async System.Threading.Tasks.Task<ChannelPartnerShipToPreferenceResponse> InsertChannelPartnerShipToPreferenceAsync (int channelPartnerOid, ChannelPartnerShipToPreference shipToPreference, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ChannelPartnerShipToPreferenceResponse> localVarResponse = await InsertChannelPartnerShipToPreferenceWithHttpInfoAsync(channelPartnerOid, shipToPreference, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert a ship to preference record for the channel partner. Insert a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ChannelPartnerShipToPreferenceResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ChannelPartnerShipToPreferenceResponse>> InsertChannelPartnerShipToPreferenceWithHttpInfoAsync (int channelPartnerOid, ChannelPartnerShipToPreference shipToPreference, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'channelPartnerOid' is set
+            if (channelPartnerOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOid' when calling ChannelPartnerApi->InsertChannelPartnerShipToPreference");
+            // verify the required parameter 'shipToPreference' is set
+            if (shipToPreference == null)
+                throw new ApiException(400, "Missing required parameter 'shipToPreference' when calling ChannelPartnerApi->InsertChannelPartnerShipToPreference");
+
+            var localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOid != null) localVarPathParams.Add("channel_partner_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerOid)); // path parameter
+            if (shipToPreference != null && shipToPreference.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(shipToPreference); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = shipToPreference; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertChannelPartnerShipToPreference", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnerShipToPreferenceResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ChannelPartnerShipToPreferenceResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerShipToPreferenceResponse)));
+        }
+
+        /// <summary>
+        /// Update a ship to preference record for the channel partner. Update a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <returns>ChannelPartnerShipToPreferenceResponse</returns>
+        public ChannelPartnerShipToPreferenceResponse UpdateChannelPartnerShipToPreference (int channelPartnerOid, int channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference)
+        {
+             ApiResponse<ChannelPartnerShipToPreferenceResponse> localVarResponse = UpdateChannelPartnerShipToPreferenceWithHttpInfo(channelPartnerOid, channelPartnerShipToPreferenceOid, shipToPreference);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a ship to preference record for the channel partner. Update a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <returns>ApiResponse of ChannelPartnerShipToPreferenceResponse</returns>
+        public ApiResponse<ChannelPartnerShipToPreferenceResponse> UpdateChannelPartnerShipToPreferenceWithHttpInfo (int channelPartnerOid, int channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference)
+        {
+            // verify the required parameter 'channelPartnerOid' is set
+            if (channelPartnerOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOid' when calling ChannelPartnerApi->UpdateChannelPartnerShipToPreference");
+            // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+            if (channelPartnerShipToPreferenceOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerShipToPreferenceOid' when calling ChannelPartnerApi->UpdateChannelPartnerShipToPreference");
+            // verify the required parameter 'shipToPreference' is set
+            if (shipToPreference == null)
+                throw new ApiException(400, "Missing required parameter 'shipToPreference' when calling ChannelPartnerApi->UpdateChannelPartnerShipToPreference");
+
+            var localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOid != null) localVarPathParams.Add("channel_partner_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerOid)); // path parameter
+            if (channelPartnerShipToPreferenceOid != null) localVarPathParams.Add("channel_partner_ship_to_preference_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerShipToPreferenceOid)); // path parameter
+            if (shipToPreference != null && shipToPreference.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(shipToPreference); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = shipToPreference; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateChannelPartnerShipToPreference", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnerShipToPreferenceResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ChannelPartnerShipToPreferenceResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerShipToPreferenceResponse)));
+        }
+
+        /// <summary>
+        /// Update a ship to preference record for the channel partner. Update a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ChannelPartnerShipToPreferenceResponse</returns>
+        public async System.Threading.Tasks.Task<ChannelPartnerShipToPreferenceResponse> UpdateChannelPartnerShipToPreferenceAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ChannelPartnerShipToPreferenceResponse> localVarResponse = await UpdateChannelPartnerShipToPreferenceWithHttpInfoAsync(channelPartnerOid, channelPartnerShipToPreferenceOid, shipToPreference, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a ship to preference record for the channel partner. Update a ship to preference record for the channel partner. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="channelPartnerOid"></param>
+        /// <param name="channelPartnerShipToPreferenceOid"></param>
+        /// <param name="shipToPreference">Ship to preference to create</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ChannelPartnerShipToPreferenceResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ChannelPartnerShipToPreferenceResponse>> UpdateChannelPartnerShipToPreferenceWithHttpInfoAsync (int channelPartnerOid, int channelPartnerShipToPreferenceOid, ChannelPartnerShipToPreference shipToPreference, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'channelPartnerOid' is set
+            if (channelPartnerOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerOid' when calling ChannelPartnerApi->UpdateChannelPartnerShipToPreference");
+            // verify the required parameter 'channelPartnerShipToPreferenceOid' is set
+            if (channelPartnerShipToPreferenceOid == null)
+                throw new ApiException(400, "Missing required parameter 'channelPartnerShipToPreferenceOid' when calling ChannelPartnerApi->UpdateChannelPartnerShipToPreference");
+            // verify the required parameter 'shipToPreference' is set
+            if (shipToPreference == null)
+                throw new ApiException(400, "Missing required parameter 'shipToPreference' when calling ChannelPartnerApi->UpdateChannelPartnerShipToPreference");
+
+            var localVarPath = "/channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (channelPartnerOid != null) localVarPathParams.Add("channel_partner_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerOid)); // path parameter
+            if (channelPartnerShipToPreferenceOid != null) localVarPathParams.Add("channel_partner_ship_to_preference_oid", this.Configuration.ApiClient.ParameterToString(channelPartnerShipToPreferenceOid)); // path parameter
+            if (shipToPreference != null && shipToPreference.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(shipToPreference); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = shipToPreference; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateChannelPartnerShipToPreference", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ChannelPartnerShipToPreferenceResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ChannelPartnerShipToPreferenceResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelPartnerShipToPreferenceResponse)));
         }
 
     }

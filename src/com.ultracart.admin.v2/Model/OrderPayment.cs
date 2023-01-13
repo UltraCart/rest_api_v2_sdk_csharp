@@ -150,7 +150,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Walmart for value: Walmart
             /// </summary>
             [EnumMember(Value = "Walmart")]
-            Walmart = 19
+            Walmart = 19,
+            
+            /// <summary>
+            /// Enum ShopCom for value: Shop.com
+            /// </summary>
+            [EnumMember(Value = "Shop.com")]
+            ShopCom = 20
         }
 
         /// <summary>

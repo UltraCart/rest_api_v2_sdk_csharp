@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **City** | **string** | City | [optional] 
 **Country** | **string** | Country | [optional] 
 **DistributionCenterCode** | **string** | The distribution center code where inventory is reduced from for this sale. | [optional] 
+**ExternalId** | **string** | External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs. | [optional] 
 **MerchantId** | **string** | Merchant ID that owns this location | [optional] 
 **PosLocationOid** | **int?** | Object identifier of the point of sale location. | [optional] 
 **PostalCode** | **string** | Postal code | [optional] 

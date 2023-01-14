@@ -38,17 +38,19 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="city">City.</param>
         /// <param name="country">Country.</param>
         /// <param name="distributionCenterCode">The distribution center code where inventory is reduced from for this sale..</param>
+        /// <param name="externalId">External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs..</param>
         /// <param name="merchantId">Merchant ID that owns this location.</param>
         /// <param name="posLocationOid">Object identifier of the point of sale location..</param>
         /// <param name="postalCode">Postal code.</param>
         /// <param name="stateProvince">State/province.</param>
-        public PointOfSaleLocation(string adddress2 = default(string), string address1 = default(string), string city = default(string), string country = default(string), string distributionCenterCode = default(string), string merchantId = default(string), int? posLocationOid = default(int?), string postalCode = default(string), string stateProvince = default(string))
+        public PointOfSaleLocation(string adddress2 = default(string), string address1 = default(string), string city = default(string), string country = default(string), string distributionCenterCode = default(string), string externalId = default(string), string merchantId = default(string), int? posLocationOid = default(int?), string postalCode = default(string), string stateProvince = default(string))
         {
             this.Adddress2 = adddress2;
             this.Address1 = address1;
             this.City = city;
             this.Country = country;
             this.DistributionCenterCode = distributionCenterCode;
+            this.ExternalId = externalId;
             this.MerchantId = merchantId;
             this.PosLocationOid = posLocationOid;
             this.PostalCode = postalCode;
@@ -91,6 +93,13 @@ namespace com.ultracart.admin.v2.Model
         public string DistributionCenterCode { get; set; }
 
         /// <summary>
+        /// External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.
+        /// </summary>
+        /// <value>External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.</value>
+        [DataMember(Name="external_id", EmitDefaultValue=false)]
+        public string ExternalId { get; set; }
+
+        /// <summary>
         /// Merchant ID that owns this location
         /// </summary>
         /// <value>Merchant ID that owns this location</value>
@@ -131,6 +140,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  DistributionCenterCode: ").Append(DistributionCenterCode).Append("\n");
+            sb.Append("  ExternalId: ").Append(ExternalId).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  PosLocationOid: ").Append(PosLocationOid).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
@@ -195,6 +205,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DistributionCenterCode.Equals(input.DistributionCenterCode))
                 ) && 
                 (
+                    this.ExternalId == input.ExternalId ||
+                    (this.ExternalId != null &&
+                    this.ExternalId.Equals(input.ExternalId))
+                ) && 
+                (
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
@@ -235,6 +250,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
                 if (this.DistributionCenterCode != null)
                     hashCode = hashCode * 59 + this.DistributionCenterCode.GetHashCode();
+                if (this.ExternalId != null)
+                    hashCode = hashCode * 59 + this.ExternalId.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.PosLocationOid != null)
@@ -254,6 +271,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ExternalId (string) maxLength
+            if(this.ExternalId != null && this.ExternalId.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExternalId, length must be less than 100.", new [] { "ExternalId" });
+            }
+
             yield break;
         }
     }

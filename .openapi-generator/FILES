@@ -68,6 +68,7 @@ docs/CartItemMultimediaThumbnail.md
 docs/CartItemOption.md
 docs/CartItemOptionValue.md
 docs/CartItemPhysical.md
+docs/CartItemProperty.md
 docs/CartItemVariationSelection.md
 docs/CartKitComponentOption.md
 docs/CartMarketing.md
@@ -839,6 +840,7 @@ src/com.ultracart.admin.v2/Model/CartItemMultimediaThumbnail.cs
 src/com.ultracart.admin.v2/Model/CartItemOption.cs
 src/com.ultracart.admin.v2/Model/CartItemOptionValue.cs
 src/com.ultracart.admin.v2/Model/CartItemPhysical.cs
+src/com.ultracart.admin.v2/Model/CartItemProperty.cs
 src/com.ultracart.admin.v2/Model/CartItemVariationSelection.cs
 src/com.ultracart.admin.v2/Model/CartKitComponentOption.cs
 src/com.ultracart.admin.v2/Model/CartMarketing.cs

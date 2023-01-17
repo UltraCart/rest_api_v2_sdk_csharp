@@ -53,6 +53,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="phsyical">phsyical.</param>
         /// <param name="position">Position of the item in the cart.</param>
         /// <param name="preorder">True if this item is on pre-order.</param>
+        /// <param name="properties">Properties associated with the item.</param>
         /// <param name="quantity">quantity.</param>
         /// <param name="schedules">Customer selectable auto order schedules.</param>
         /// <param name="totalCost">totalCost.</param>
@@ -62,7 +63,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="upsell">True if this item was added to the cart as part of an upsell.</param>
         /// <param name="variations">Variations.</param>
         /// <param name="viewUrl">URL to view the product on the site.</param>
-        public CartItem(Currency arbitraryUnitCost = default(Currency), List<CartItemAttribute> attributes = default(List<CartItemAttribute>), string autoOrderSchedule = default(string), string defaultImageUrl = default(string), string defaultThumbnailUrl = default(string), string description = default(string), Currency discount = default(Currency), string extendedDescription = default(string), string itemId = default(string), int? itemOid = default(int?), bool? kit = default(bool?), List<CartKitComponentOption> kitComponentOptions = default(List<CartKitComponentOption>), Currency manufacturerSuggestedRetailPrice = default(Currency), decimal? maximumQuantity = default(decimal?), decimal? minimumQuantity = default(decimal?), List<CartItemMultimedia> multimedia = default(List<CartItemMultimedia>), List<CartItemOption> options = default(List<CartItemOption>), CartItemPhysical phsyical = default(CartItemPhysical), int? position = default(int?), bool? preorder = default(bool?), decimal? quantity = default(decimal?), List<string> schedules = default(List<string>), Currency totalCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency unitCost = default(Currency), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), List<CartItemVariationSelection> variations = default(List<CartItemVariationSelection>), string viewUrl = default(string))
+        public CartItem(Currency arbitraryUnitCost = default(Currency), List<CartItemAttribute> attributes = default(List<CartItemAttribute>), string autoOrderSchedule = default(string), string defaultImageUrl = default(string), string defaultThumbnailUrl = default(string), string description = default(string), Currency discount = default(Currency), string extendedDescription = default(string), string itemId = default(string), int? itemOid = default(int?), bool? kit = default(bool?), List<CartKitComponentOption> kitComponentOptions = default(List<CartKitComponentOption>), Currency manufacturerSuggestedRetailPrice = default(Currency), decimal? maximumQuantity = default(decimal?), decimal? minimumQuantity = default(decimal?), List<CartItemMultimedia> multimedia = default(List<CartItemMultimedia>), List<CartItemOption> options = default(List<CartItemOption>), CartItemPhysical phsyical = default(CartItemPhysical), int? position = default(int?), bool? preorder = default(bool?), List<CartItemProperty> properties = default(List<CartItemProperty>), decimal? quantity = default(decimal?), List<string> schedules = default(List<string>), Currency totalCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency unitCost = default(Currency), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), List<CartItemVariationSelection> variations = default(List<CartItemVariationSelection>), string viewUrl = default(string))
         {
             this.ArbitraryUnitCost = arbitraryUnitCost;
             this.Attributes = attributes;
@@ -84,6 +85,7 @@ namespace com.ultracart.admin.v2.Model
             this.Phsyical = phsyical;
             this.Position = position;
             this.Preorder = preorder;
+            this.Properties = properties;
             this.Quantity = quantity;
             this.Schedules = schedules;
             this.TotalCost = totalCost;
@@ -232,6 +234,13 @@ namespace com.ultracart.admin.v2.Model
         public bool? Preorder { get; set; }
 
         /// <summary>
+        /// Properties associated with the item
+        /// </summary>
+        /// <value>Properties associated with the item</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<CartItemProperty> Properties { get; set; }
+
+        /// <summary>
         /// quantity
         /// </summary>
         /// <value>quantity</value>
@@ -318,6 +327,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Phsyical: ").Append(Phsyical).Append("\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
             sb.Append("  Preorder: ").Append(Preorder).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Schedules: ").Append(Schedules).Append("\n");
             sb.Append("  TotalCost: ").Append(TotalCost).Append("\n");
@@ -462,6 +472,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Preorder.Equals(input.Preorder))
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.Quantity == input.Quantity ||
                     (this.Quantity != null &&
                     this.Quantity.Equals(input.Quantity))
@@ -557,6 +572,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Position.GetHashCode();
                 if (this.Preorder != null)
                     hashCode = hashCode * 59 + this.Preorder.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.Quantity != null)
                     hashCode = hashCode * 59 + this.Quantity.GetHashCode();
                 if (this.Schedules != null)

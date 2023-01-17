@@ -98,10 +98,10 @@ namespace com.ultracart.admin.v2.Model
             Participantjoin = 10,
 
             /// <summary>
-            /// Enum Participantleave for value: participant leave
+            /// Enum Participantleft for value: participant left
             /// </summary>
-            [EnumMember(Value = "participant leave")]
-            Participantleave = 11,
+            [EnumMember(Value = "participant left")]
+            Participantleft = 11,
 
             /// <summary>
             /// Enum Readmessage for value: read message

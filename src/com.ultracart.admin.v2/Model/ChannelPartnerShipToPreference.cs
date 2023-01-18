@@ -36,14 +36,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="additionalKitComponentItemIds">Additional item ids to add as kit components to the order with a zero price..</param>
         /// <param name="channelPartnerOid">The channel partner object identifier this preference is associated with.</param>
         /// <param name="channelPartnerShipToPreferenceOid">Object identifier for the ship to preference.</param>
+        /// <param name="description">A description that is meaningful to the merchant..</param>
         /// <param name="merchantId">The merchant id that owns the channel partner.</param>
         /// <param name="returnPolicy">Alternate return policy to print on the packing slip..</param>
         /// <param name="shipToEdiCode">The ship to EDI code that the preferences are for.</param>
-        public ChannelPartnerShipToPreference(List<string> additionalKitComponentItemIds = default(List<string>), int? channelPartnerOid = default(int?), int? channelPartnerShipToPreferenceOid = default(int?), string merchantId = default(string), string returnPolicy = default(string), string shipToEdiCode = default(string))
+        public ChannelPartnerShipToPreference(List<string> additionalKitComponentItemIds = default(List<string>), int? channelPartnerOid = default(int?), int? channelPartnerShipToPreferenceOid = default(int?), string description = default(string), string merchantId = default(string), string returnPolicy = default(string), string shipToEdiCode = default(string))
         {
             this.AdditionalKitComponentItemIds = additionalKitComponentItemIds;
             this.ChannelPartnerOid = channelPartnerOid;
             this.ChannelPartnerShipToPreferenceOid = channelPartnerShipToPreferenceOid;
+            this.Description = description;
             this.MerchantId = merchantId;
             this.ReturnPolicy = returnPolicy;
             this.ShipToEdiCode = shipToEdiCode;
@@ -69,6 +71,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Object identifier for the ship to preference</value>
         [DataMember(Name="channel_partner_ship_to_preference_oid", EmitDefaultValue=false)]
         public int? ChannelPartnerShipToPreferenceOid { get; set; }
+
+        /// <summary>
+        /// A description that is meaningful to the merchant.
+        /// </summary>
+        /// <value>A description that is meaningful to the merchant.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// The merchant id that owns the channel partner
@@ -102,6 +111,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AdditionalKitComponentItemIds: ").Append(AdditionalKitComponentItemIds).Append("\n");
             sb.Append("  ChannelPartnerOid: ").Append(ChannelPartnerOid).Append("\n");
             sb.Append("  ChannelPartnerShipToPreferenceOid: ").Append(ChannelPartnerShipToPreferenceOid).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  ReturnPolicy: ").Append(ReturnPolicy).Append("\n");
             sb.Append("  ShipToEdiCode: ").Append(ShipToEdiCode).Append("\n");
@@ -155,6 +165,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ChannelPartnerShipToPreferenceOid.Equals(input.ChannelPartnerShipToPreferenceOid))
                 ) && 
                 (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
@@ -186,6 +201,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ChannelPartnerOid.GetHashCode();
                 if (this.ChannelPartnerShipToPreferenceOid != null)
                     hashCode = hashCode * 59 + this.ChannelPartnerShipToPreferenceOid.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.ReturnPolicy != null)
@@ -203,6 +220,12 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Description (string) maxLength
+            if(this.Description != null && this.Description.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 100.", new [] { "Description" });
+            }
+
             yield break;
         }
     }

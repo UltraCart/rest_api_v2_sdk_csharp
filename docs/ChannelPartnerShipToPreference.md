@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **AdditionalKitComponentItemIds** | **List&lt;string&gt;** | Additional item ids to add as kit components to the order with a zero price. | [optional] 
 **ChannelPartnerOid** | **int** | The channel partner object identifier this preference is associated with | [optional] 
 **ChannelPartnerShipToPreferenceOid** | **int** | Object identifier for the ship to preference | [optional] 
+**Description** | **string** | A description that is meaningful to the merchant. | [optional] 
 **MerchantId** | **string** | The merchant id that owns the channel partner | [optional] 
 **ReturnPolicy** | **string** | Alternate return policy to print on the packing slip. | [optional] 
 **ShipToEdiCode** | **string** | The ship to EDI code that the preferences are for | [optional] 

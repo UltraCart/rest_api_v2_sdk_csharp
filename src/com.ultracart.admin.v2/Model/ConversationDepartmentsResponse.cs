@@ -36,13 +36,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="conversationDepartments">conversationDepartments.</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
+        /// <param name="readOnly">readOnly.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ConversationDepartmentsResponse(List<ConversationDepartment> conversationDepartments = default(List<ConversationDepartment>), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool success = default(bool), Warning warning = default(Warning))
+        public ConversationDepartmentsResponse(List<ConversationDepartment> conversationDepartments = default(List<ConversationDepartment>), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool readOnly = default(bool), bool success = default(bool), Warning warning = default(Warning))
         {
             this.ConversationDepartments = conversationDepartments;
             this.Error = error;
             this.Metadata = metadata;
+            this.ReadOnly = readOnly;
             this.Success = success;
             this.Warning = warning;
         }
@@ -64,6 +66,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public ResponseMetadata Metadata { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReadOnly
+        /// </summary>
+        [DataMember(Name="read_only", EmitDefaultValue=false)]
+        public bool ReadOnly { get; set; }
 
         /// <summary>
         /// Indicates if API call was successful
@@ -89,6 +97,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ConversationDepartments: ").Append(ConversationDepartments).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  ReadOnly: ").Append(ReadOnly).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
@@ -142,6 +151,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
+                    this.ReadOnly == input.ReadOnly ||
+                    (this.ReadOnly != null &&
+                    this.ReadOnly.Equals(input.ReadOnly))
+                ) && 
+                (
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
@@ -168,6 +182,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                if (this.ReadOnly != null)
+                    hashCode = hashCode * 59 + this.ReadOnly.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Warning != null)

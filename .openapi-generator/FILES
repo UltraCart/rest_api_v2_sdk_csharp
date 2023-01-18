@@ -144,6 +144,7 @@ docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
 docs/ConversationCannedMessagesSearch.md
 docs/ConversationDepartment.md
+docs/ConversationDepartmentMember.md
 docs/ConversationDepartmentResponse.md
 docs/ConversationDepartmentsResponse.md
 docs/ConversationEngagement.md
@@ -912,6 +913,7 @@ src/com.ultracart.admin.v2/Model/ConversationCannedMessageResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationCannedMessagesResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationCannedMessagesSearch.cs
 src/com.ultracart.admin.v2/Model/ConversationDepartment.cs
+src/com.ultracart.admin.v2/Model/ConversationDepartmentMember.cs
 src/com.ultracart.admin.v2/Model/ConversationDepartmentResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationDepartmentsResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationEngagement.cs

@@ -35,12 +35,14 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="conversationDepartmentOid">conversationDepartmentOid.</param>
         /// <param name="departmentName">departmentName.</param>
+        /// <param name="members">members.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="settings">settings.</param>
-        public ConversationDepartment(int? conversationDepartmentOid = default(int?), string departmentName = default(string), string merchantId = default(string), ConversationDepartmentSettings settings = default(ConversationDepartmentSettings))
+        public ConversationDepartment(int? conversationDepartmentOid = default(int?), string departmentName = default(string), List<ConversationDepartmentMember> members = default(List<ConversationDepartmentMember>), string merchantId = default(string), ConversationDepartmentSettings settings = default(ConversationDepartmentSettings))
         {
             this.ConversationDepartmentOid = conversationDepartmentOid;
             this.DepartmentName = departmentName;
+            this.Members = members;
             this.MerchantId = merchantId;
             this.Settings = settings;
         }
@@ -56,6 +58,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="department_name", EmitDefaultValue=false)]
         public string DepartmentName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Members
+        /// </summary>
+        [DataMember(Name="members", EmitDefaultValue=false)]
+        public List<ConversationDepartmentMember> Members { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantId
@@ -79,6 +87,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ConversationDepartment {\n");
             sb.Append("  ConversationDepartmentOid: ").Append(ConversationDepartmentOid).Append("\n");
             sb.Append("  DepartmentName: ").Append(DepartmentName).Append("\n");
+            sb.Append("  Members: ").Append(Members).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("}\n");
@@ -126,6 +135,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DepartmentName.Equals(input.DepartmentName))
                 ) && 
                 (
+                    this.Members == input.Members ||
+                    this.Members != null &&
+                    this.Members.SequenceEqual(input.Members)
+                ) && 
+                (
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
@@ -150,6 +164,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationDepartmentOid.GetHashCode();
                 if (this.DepartmentName != null)
                     hashCode = hashCode * 59 + this.DepartmentName.GetHashCode();
+                if (this.Members != null)
+                    hashCode = hashCode * 59 + this.Members.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Settings != null)

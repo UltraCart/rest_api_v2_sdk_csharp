@@ -190,6 +190,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationWebchatContext</returns>
         ApiResponse<ConversationWebchatContext> GetConversationContextWithHttpInfo (string conversationUuid);
         /// <summary>
+        /// Retrieve a list of possible department members
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of possible department members 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationDepartmentMembersResponse</returns>
+        ConversationDepartmentMembersResponse GetConversationDepartmentMemberList ();
+
+        /// <summary>
+        /// Retrieve a list of possible department members
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of possible department members 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationDepartmentMembersResponse</returns>
+        ApiResponse<ConversationDepartmentMembersResponse> GetConversationDepartmentMemberListWithHttpInfo ();
+        /// <summary>
         /// Retrieve a list of departments ordered by name
         /// </summary>
         /// <remarks>
@@ -805,6 +824,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ConversationWebchatContext)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationWebchatContext>> GetConversationContextWithHttpInfoAsync (string conversationUuid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve a list of possible department members
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of possible department members 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ConversationDepartmentMembersResponse</returns>
+        System.Threading.Tasks.Task<ConversationDepartmentMembersResponse> GetConversationDepartmentMemberListAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve a list of possible department members
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of possible department members 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ConversationDepartmentMembersResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationDepartmentMembersResponse>> GetConversationDepartmentMemberListWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve a list of departments ordered by name
         /// </summary>
@@ -2624,6 +2664,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationWebchatContext>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ConversationWebchatContext) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationWebchatContext)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of possible department members Retrieve a list of possible department members 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationDepartmentMembersResponse</returns>
+        public ConversationDepartmentMembersResponse GetConversationDepartmentMemberList ()
+        {
+             ApiResponse<ConversationDepartmentMembersResponse> localVarResponse = GetConversationDepartmentMemberListWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve a list of possible department members Retrieve a list of possible department members 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationDepartmentMembersResponse</returns>
+        public ApiResponse<ConversationDepartmentMembersResponse> GetConversationDepartmentMemberListWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/department_members";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationDepartmentMemberList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationDepartmentMembersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ConversationDepartmentMembersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationDepartmentMembersResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve a list of possible department members Retrieve a list of possible department members 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ConversationDepartmentMembersResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationDepartmentMembersResponse> GetConversationDepartmentMemberListAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ConversationDepartmentMembersResponse> localVarResponse = await GetConversationDepartmentMemberListWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve a list of possible department members Retrieve a list of possible department members 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ConversationDepartmentMembersResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationDepartmentMembersResponse>> GetConversationDepartmentMemberListWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/conversation/department_members";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationDepartmentMemberList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationDepartmentMembersResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ConversationDepartmentMembersResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationDepartmentMembersResponse)));
         }
 
         /// <summary>

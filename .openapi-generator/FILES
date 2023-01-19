@@ -169,6 +169,8 @@ docs/ConversationMessagesResponse.md
 docs/ConversationMultimediaUploadUrl.md
 docs/ConversationMultimediaUploadUrlResponse.md
 docs/ConversationParticipant.md
+docs/ConversationPermissions.md
+docs/ConversationPermissionsResponse.md
 docs/ConversationResponse.md
 docs/ConversationSearchRequest.md
 docs/ConversationSearchResponse.md
@@ -939,6 +941,8 @@ src/com.ultracart.admin.v2/Model/ConversationMessagesResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationMultimediaUploadUrl.cs
 src/com.ultracart.admin.v2/Model/ConversationMultimediaUploadUrlResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationParticipant.cs
+src/com.ultracart.admin.v2/Model/ConversationPermissions.cs
+src/com.ultracart.admin.v2/Model/ConversationPermissionsResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationSearchRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationSearchResponse.cs

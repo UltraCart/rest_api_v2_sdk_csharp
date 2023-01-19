@@ -1,13 +1,13 @@
 
-# com.ultracart.admin.v2.Model.ConversationDepartmentsResponse
+# com.ultracart.admin.v2.Model.ConversationPermissionsResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConversationDepartments** | [**List&lt;ConversationDepartment&gt;**](ConversationDepartment.md) |  | [optional] 
 **Error** | [**Error**](Error.md) |  | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**Permissions** | [**ConversationPermissions**](ConversationPermissions.md) |  | [optional] 
 **Success** | **bool** | Indicates if API call was successful | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 
 

@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**GetConversationEngagements**](ConversationApi.md#getconversationengagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 [**GetConversationMessages**](ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 [**GetConversationMultimediaUploadUrl**](ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
+[**GetConversationPermissions**](ConversationApi.md#getconversationpermissions) | **GET** /conversation/permissions | Retrieve conversation permissions
 [**GetConversationWebchatQueueStatuses**](ConversationApi.md#getconversationwebchatqueuestatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 [**GetConversations**](ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 [**GetConversationsAutocomplete**](ConversationApi.md#getconversationsautocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
@@ -859,6 +860,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationMultimediaUploadUrlResponse**](ConversationMultimediaUploadUrlResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getconversationpermissions"></a>
+# **GetConversationPermissions**
+> ConversationPermissionsResponse GetConversationPermissions ()
+
+Retrieve conversation permissions
+
+Retrieve conversation permissions 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetConversationPermissionsExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ConversationApi(simpleKey);
+
+
+            try
+            {
+                // Retrieve conversation permissions
+                ConversationPermissionsResponse result = apiInstance.GetConversationPermissions();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ConversationApi.GetConversationPermissions: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationPermissionsResponse**](ConversationPermissionsResponse.md)
 
 ### Authorization
 

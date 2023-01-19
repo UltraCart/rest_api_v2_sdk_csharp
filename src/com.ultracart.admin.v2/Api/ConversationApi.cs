@@ -292,6 +292,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationMultimediaUploadUrlResponse</returns>
         ApiResponse<ConversationMultimediaUploadUrlResponse> GetConversationMultimediaUploadUrlWithHttpInfo (string extension);
         /// <summary>
+        /// Retrieve conversation permissions
+        /// </summary>
+        /// <remarks>
+        /// Retrieve conversation permissions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationPermissionsResponse</returns>
+        ConversationPermissionsResponse GetConversationPermissions ();
+
+        /// <summary>
+        /// Retrieve conversation permissions
+        /// </summary>
+        /// <remarks>
+        /// Retrieve conversation permissions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationPermissionsResponse</returns>
+        ApiResponse<ConversationPermissionsResponse> GetConversationPermissionsWithHttpInfo ();
+        /// <summary>
         /// Retrieve a conversation webchat queue statuses
         /// </summary>
         /// <remarks>
@@ -910,6 +929,25 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="extension"></param>
         /// <returns>Task of ApiResponse (ConversationMultimediaUploadUrlResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationMultimediaUploadUrlResponse>> GetConversationMultimediaUploadUrlAsyncWithHttpInfo (string extension);
+        /// <summary>
+        /// Retrieve conversation permissions
+        /// </summary>
+        /// <remarks>
+        /// Retrieve conversation permissions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationPermissionsResponse</returns>
+        System.Threading.Tasks.Task<ConversationPermissionsResponse> GetConversationPermissionsAsync ();
+
+        /// <summary>
+        /// Retrieve conversation permissions
+        /// </summary>
+        /// <remarks>
+        /// Retrieve conversation permissions 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationPermissionsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationPermissionsResponse>> GetConversationPermissionsAsyncWithHttpInfo ();
         /// <summary>
         /// Retrieve a conversation webchat queue statuses
         /// </summary>
@@ -3350,6 +3388,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationMultimediaUploadUrlResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationMultimediaUploadUrlResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationMultimediaUploadUrlResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve conversation permissions Retrieve conversation permissions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationPermissionsResponse</returns>
+        public ConversationPermissionsResponse GetConversationPermissions ()
+        {
+             ApiResponse<ConversationPermissionsResponse> localVarResponse = GetConversationPermissionsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve conversation permissions Retrieve conversation permissions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationPermissionsResponse</returns>
+        public ApiResponse< ConversationPermissionsResponse > GetConversationPermissionsWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/permissions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationPermissions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPermissionsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPermissionsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPermissionsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve conversation permissions Retrieve conversation permissions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationPermissionsResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationPermissionsResponse> GetConversationPermissionsAsync ()
+        {
+             ApiResponse<ConversationPermissionsResponse> localVarResponse = await GetConversationPermissionsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve conversation permissions Retrieve conversation permissions 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationPermissionsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationPermissionsResponse>> GetConversationPermissionsAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/permissions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetConversationPermissions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationPermissionsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationPermissionsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationPermissionsResponse)));
         }
 
         /// <summary>

@@ -25,34 +25,28 @@ using SwaggerDateConverter = com.ultracart.admin.v2.Client.SwaggerDateConverter;
 namespace com.ultracart.admin.v2.Model
 {
     /// <summary>
-    /// ConversationDepartmentsResponse
+    /// ConversationPermissionsResponse
     /// </summary>
     [DataContract]
-    public partial class ConversationDepartmentsResponse :  IEquatable<ConversationDepartmentsResponse>, IValidatableObject
+    public partial class ConversationPermissionsResponse :  IEquatable<ConversationPermissionsResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConversationDepartmentsResponse" /> class.
+        /// Initializes a new instance of the <see cref="ConversationPermissionsResponse" /> class.
         /// </summary>
-        /// <param name="conversationDepartments">conversationDepartments.</param>
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
+        /// <param name="permissions">permissions.</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public ConversationDepartmentsResponse(List<ConversationDepartment> conversationDepartments = default(List<ConversationDepartment>), Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), Warning warning = default(Warning))
+        public ConversationPermissionsResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), ConversationPermissions permissions = default(ConversationPermissions), bool? success = default(bool?), Warning warning = default(Warning))
         {
-            this.ConversationDepartments = conversationDepartments;
             this.Error = error;
             this.Metadata = metadata;
+            this.Permissions = permissions;
             this.Success = success;
             this.Warning = warning;
         }
         
-        /// <summary>
-        /// Gets or Sets ConversationDepartments
-        /// </summary>
-        [DataMember(Name="conversation_departments", EmitDefaultValue=false)]
-        public List<ConversationDepartment> ConversationDepartments { get; set; }
-
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
@@ -64,6 +58,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public ResponseMetadata Metadata { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Permissions
+        /// </summary>
+        [DataMember(Name="permissions", EmitDefaultValue=false)]
+        public ConversationPermissions Permissions { get; set; }
 
         /// <summary>
         /// Indicates if API call was successful
@@ -85,10 +85,10 @@ namespace com.ultracart.admin.v2.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConversationDepartmentsResponse {\n");
-            sb.Append("  ConversationDepartments: ").Append(ConversationDepartments).Append("\n");
+            sb.Append("class ConversationPermissionsResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  Permissions: ").Append(Permissions).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
@@ -111,25 +111,20 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ConversationDepartmentsResponse);
+            return this.Equals(input as ConversationPermissionsResponse);
         }
 
         /// <summary>
-        /// Returns true if ConversationDepartmentsResponse instances are equal
+        /// Returns true if ConversationPermissionsResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConversationDepartmentsResponse to be compared</param>
+        /// <param name="input">Instance of ConversationPermissionsResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConversationDepartmentsResponse input)
+        public bool Equals(ConversationPermissionsResponse input)
         {
             if (input == null)
                 return false;
 
             return 
-                (
-                    this.ConversationDepartments == input.ConversationDepartments ||
-                    this.ConversationDepartments != null &&
-                    this.ConversationDepartments.SequenceEqual(input.ConversationDepartments)
-                ) && 
                 (
                     this.Error == input.Error ||
                     (this.Error != null &&
@@ -139,6 +134,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
+                ) && 
+                (
+                    this.Permissions == input.Permissions ||
+                    (this.Permissions != null &&
+                    this.Permissions.Equals(input.Permissions))
                 ) && 
                 (
                     this.Success == input.Success ||
@@ -161,12 +161,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ConversationDepartments != null)
-                    hashCode = hashCode * 59 + this.ConversationDepartments.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                if (this.Permissions != null)
+                    hashCode = hashCode * 59 + this.Permissions.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Warning != null)

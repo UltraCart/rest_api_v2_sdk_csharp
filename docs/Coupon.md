@@ -61,6 +61,7 @@ Name | Type | Description | Notes
 **RestrictByPostalCodes** | **List&lt;string&gt;** | Optional list of postal codes which restrict a coupon to within these postal codes. | [optional] 
 **RestrictByScreenBrandingThemeCodes** | [**List&lt;CouponRestriction&gt;**](CouponRestriction.md) | Optional list of legacy screen branding theme codes to limit coupon use to only those themes. | [optional] 
 **RestrictByStorefronts** | [**List&lt;CouponRestriction&gt;**](CouponRestriction.md) | Optional list of storefronts to limit coupon use to only those storefronts. | [optional] 
+**SkipOnRebill** | **bool** | Skip this coupon when it is on a rebill of an auto order. | [optional] 
 **StartDts** | **string** | Date/time when coupon is valid | [optional] 
 **SuperCoupon** | **bool** | If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration | [optional] 
 **TieredAmountOffItems** | [**CouponTieredAmountOffItems**](CouponTieredAmountOffItems.md) |  | [optional] 

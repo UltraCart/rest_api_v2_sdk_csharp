@@ -34,17 +34,19 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="OrderInternal" /> class.
         /// </summary>
         /// <param name="exportedToAccounting">True if the order has been exported to QuickBooks. If QuickBooks is not configured, then this will already be true.</param>
-        /// <param name="merchantNotes">Merchant notes.</param>
+        /// <param name="merchantNotes">Merchant notes.  Full notes in non-transactional mode.  Just used to write a new merchant note when transaction merchant notes enabled..</param>
         /// <param name="placedByUser">If placed via the BEOE, this is the user that placed the order.</param>
         /// <param name="refundByUser">User that issued the refund.</param>
         /// <param name="salesRepCode">Sales rep code associated with the order.</param>
-        public OrderInternal(bool exportedToAccounting = default(bool), string merchantNotes = default(string), string placedByUser = default(string), string refundByUser = default(string), string salesRepCode = default(string))
+        /// <param name="transactionalMerchantNotes">Transactional merchant notes.</param>
+        public OrderInternal(bool exportedToAccounting = default(bool), string merchantNotes = default(string), string placedByUser = default(string), string refundByUser = default(string), string salesRepCode = default(string), List<OrderTransactionalMerchantNote> transactionalMerchantNotes = default(List<OrderTransactionalMerchantNote>))
         {
             this.ExportedToAccounting = exportedToAccounting;
             this.MerchantNotes = merchantNotes;
             this.PlacedByUser = placedByUser;
             this.RefundByUser = refundByUser;
             this.SalesRepCode = salesRepCode;
+            this.TransactionalMerchantNotes = transactionalMerchantNotes;
         }
 
         /// <summary>
@@ -55,9 +57,9 @@ namespace com.ultracart.admin.v2.Model
         public bool ExportedToAccounting { get; set; }
 
         /// <summary>
-        /// Merchant notes
+        /// Merchant notes.  Full notes in non-transactional mode.  Just used to write a new merchant note when transaction merchant notes enabled.
         /// </summary>
-        /// <value>Merchant notes</value>
+        /// <value>Merchant notes.  Full notes in non-transactional mode.  Just used to write a new merchant note when transaction merchant notes enabled.</value>
         [DataMember(Name="merchant_notes", EmitDefaultValue=false)]
         public string MerchantNotes { get; set; }
 
@@ -83,6 +85,13 @@ namespace com.ultracart.admin.v2.Model
         public string SalesRepCode { get; set; }
 
         /// <summary>
+        /// Transactional merchant notes
+        /// </summary>
+        /// <value>Transactional merchant notes</value>
+        [DataMember(Name="transactional_merchant_notes", EmitDefaultValue=false)]
+        public List<OrderTransactionalMerchantNote> TransactionalMerchantNotes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +104,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PlacedByUser: ").Append(PlacedByUser).Append("\n");
             sb.Append("  RefundByUser: ").Append(RefundByUser).Append("\n");
             sb.Append("  SalesRepCode: ").Append(SalesRepCode).Append("\n");
+            sb.Append("  TransactionalMerchantNotes: ").Append(TransactionalMerchantNotes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +163,12 @@ namespace com.ultracart.admin.v2.Model
                     this.SalesRepCode == input.SalesRepCode ||
                     (this.SalesRepCode != null &&
                     this.SalesRepCode.Equals(input.SalesRepCode))
+                ) && 
+                (
+                    this.TransactionalMerchantNotes == input.TransactionalMerchantNotes ||
+                    this.TransactionalMerchantNotes != null &&
+                    input.TransactionalMerchantNotes != null &&
+                    this.TransactionalMerchantNotes.SequenceEqual(input.TransactionalMerchantNotes)
                 );
         }
 
@@ -175,6 +191,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.RefundByUser.GetHashCode();
                 if (this.SalesRepCode != null)
                     hashCode = hashCode * 59 + this.SalesRepCode.GetHashCode();
+                if (this.TransactionalMerchantNotes != null)
+                    hashCode = hashCode * 59 + this.TransactionalMerchantNotes.GetHashCode();
                 return hashCode;
             }
         }

@@ -137,6 +137,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of OrderFormatResponse</returns>
         ApiResponse<OrderFormatResponse> FormatWithHttpInfo (string orderId, OrderFormat formatOptions);
         /// <summary>
+        /// Generate an invoice for this order.
+        /// </summary>
+        /// <remarks>
+        /// The invoice PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>OrderInvoiceResponse</returns>
+        OrderInvoiceResponse GenerateInvoice (string orderId);
+
+        /// <summary>
+        /// Generate an invoice for this order.
+        /// </summary>
+        /// <remarks>
+        /// The invoice PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>ApiResponse of OrderInvoiceResponse</returns>
+        ApiResponse<OrderInvoiceResponse> GenerateInvoiceWithHttpInfo (string orderId);
+        /// <summary>
         /// Generate an order token for a given order id
         /// </summary>
         /// <remarks>
@@ -760,6 +781,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (OrderFormatResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderFormatResponse>> FormatWithHttpInfoAsync (string orderId, OrderFormat formatOptions, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Generate an invoice for this order.
+        /// </summary>
+        /// <remarks>
+        /// The invoice PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderInvoiceResponse</returns>
+        System.Threading.Tasks.Task<OrderInvoiceResponse> GenerateInvoiceAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Generate an invoice for this order.
+        /// </summary>
+        /// <remarks>
+        /// The invoice PDF that is returned is base 64 encoded 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderInvoiceResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderInvoiceResponse>> GenerateInvoiceWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate an order token for a given order id
         /// </summary>
@@ -2255,6 +2299,163 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrderFormatResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (OrderFormatResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderFormatResponse)));
+        }
+
+        /// <summary>
+        /// Generate an invoice for this order. The invoice PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>OrderInvoiceResponse</returns>
+        public OrderInvoiceResponse GenerateInvoice (string orderId)
+        {
+             ApiResponse<OrderInvoiceResponse> localVarResponse = GenerateInvoiceWithHttpInfo(orderId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate an invoice for this order. The invoice PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <returns>ApiResponse of OrderInvoiceResponse</returns>
+        public ApiResponse<OrderInvoiceResponse> GenerateInvoiceWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GenerateInvoice");
+
+            var localVarPath = "/order/orders/{order_id}/invoice";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GenerateInvoice", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderInvoiceResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderInvoiceResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderInvoiceResponse)));
+        }
+
+        /// <summary>
+        /// Generate an invoice for this order. The invoice PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of OrderInvoiceResponse</returns>
+        public async System.Threading.Tasks.Task<OrderInvoiceResponse> GenerateInvoiceAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<OrderInvoiceResponse> localVarResponse = await GenerateInvoiceWithHttpInfoAsync(orderId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate an invoice for this order. The invoice PDF that is returned is base 64 encoded 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (OrderInvoiceResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderInvoiceResponse>> GenerateInvoiceWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->GenerateInvoice");
+
+            var localVarPath = "/order/orders/{order_id}/invoice";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GenerateInvoice", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderInvoiceResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (OrderInvoiceResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderInvoiceResponse)));
         }
 
         /// <summary>

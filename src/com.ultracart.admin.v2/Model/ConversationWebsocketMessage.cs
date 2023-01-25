@@ -99,10 +99,10 @@ namespace com.ultracart.admin.v2.Model
             Participantjoin = 10,
             
             /// <summary>
-            /// Enum Participantleft for value: participant left
+            /// Enum Participantleave for value: participant leave
             /// </summary>
-            [EnumMember(Value = "participant left")]
-            Participantleft = 11,
+            [EnumMember(Value = "participant leave")]
+            Participantleave = 11,
             
             /// <summary>
             /// Enum Readmessage for value: read message
@@ -132,7 +132,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Webchatcontext for value: webchat context
             /// </summary>
             [EnumMember(Value = "webchat context")]
-            Webchatcontext = 16
+            Webchatcontext = 16,
+            
+            /// <summary>
+            /// Enum Engagecustomer for value: engage customer
+            /// </summary>
+            [EnumMember(Value = "engage customer")]
+            Engagecustomer = 17
         }
 
         /// <summary>

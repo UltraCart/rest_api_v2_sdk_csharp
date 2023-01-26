@@ -46,6 +46,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="defaultTier">Default tier.</param>
         /// <param name="displayOnWholesaleSignup">Display on wholesale signup.</param>
         /// <param name="excludeFromFreePromotion">Exclude from free promotion.</param>
+        /// <param name="exemptLoyaltyRewards">Exempt from Loyalty Rewards.</param>
         /// <param name="exemptShippingHandlingCharge">Exempt shipping handling charge.</param>
         /// <param name="freeShipping">Free shipping.</param>
         /// <param name="freeShippingMinimum">Free shipping minimum.</param>
@@ -64,7 +65,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="suppressMailingList">Suppress mailing list.</param>
         /// <param name="taxExempt">Tax Exempt.</param>
         /// <param name="trackSeparately">Track separately.</param>
-        public PricingTier(bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowPurchaseOrder = default(bool), bool allowQuoteRequest = default(bool), PricingTierNotification approvalNotification = default(PricingTierNotification), bool autoApproveCod = default(bool), bool autoApprovePurchaseOrder = default(bool), bool defaultOnWholesaleSignup = default(bool), decimal defaultPercentageDiscount = default(decimal), int defaultShippingMethodOid = default(int), bool defaultTier = default(bool), bool displayOnWholesaleSignup = default(bool), bool excludeFromFreePromotion = default(bool), bool exemptShippingHandlingCharge = default(bool), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), int maximumItemCount = default(int), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), string name = default(string), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), bool notValidWhenCouponPresent = default(bool), int pricingTierOid = default(int), decimal realtimePercentageDiscount = default(decimal), PricingTierNotification signupNotification = default(PricingTierNotification), bool suppressBuysafe = default(bool), bool suppressMailingList = default(bool), bool taxExempt = default(bool), bool trackSeparately = default(bool))
+        public PricingTier(bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowPurchaseOrder = default(bool), bool allowQuoteRequest = default(bool), PricingTierNotification approvalNotification = default(PricingTierNotification), bool autoApproveCod = default(bool), bool autoApprovePurchaseOrder = default(bool), bool defaultOnWholesaleSignup = default(bool), decimal defaultPercentageDiscount = default(decimal), int defaultShippingMethodOid = default(int), bool defaultTier = default(bool), bool displayOnWholesaleSignup = default(bool), bool excludeFromFreePromotion = default(bool), bool exemptLoyaltyRewards = default(bool), bool exemptShippingHandlingCharge = default(bool), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), int maximumItemCount = default(int), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), string name = default(string), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), bool notValidWhenCouponPresent = default(bool), int pricingTierOid = default(int), decimal realtimePercentageDiscount = default(decimal), PricingTierNotification signupNotification = default(PricingTierNotification), bool suppressBuysafe = default(bool), bool suppressMailingList = default(bool), bool taxExempt = default(bool), bool trackSeparately = default(bool))
         {
             this.Allow3rdPartyBilling = allow3rdPartyBilling;
             this.AllowCod = allowCod;
@@ -79,6 +80,7 @@ namespace com.ultracart.admin.v2.Model
             this.DefaultTier = defaultTier;
             this.DisplayOnWholesaleSignup = displayOnWholesaleSignup;
             this.ExcludeFromFreePromotion = excludeFromFreePromotion;
+            this.ExemptLoyaltyRewards = exemptLoyaltyRewards;
             this.ExemptShippingHandlingCharge = exemptShippingHandlingCharge;
             this.FreeShipping = freeShipping;
             this.FreeShippingMinimum = freeShippingMinimum;
@@ -188,6 +190,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Exclude from free promotion</value>
         [DataMember(Name="exclude_from_free_promotion", EmitDefaultValue=false)]
         public bool ExcludeFromFreePromotion { get; set; }
+
+        /// <summary>
+        /// Exempt from Loyalty Rewards
+        /// </summary>
+        /// <value>Exempt from Loyalty Rewards</value>
+        [DataMember(Name="exempt_loyalty_rewards", EmitDefaultValue=false)]
+        public bool ExemptLoyaltyRewards { get; set; }
 
         /// <summary>
         /// Exempt shipping handling charge
@@ -335,6 +344,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DefaultTier: ").Append(DefaultTier).Append("\n");
             sb.Append("  DisplayOnWholesaleSignup: ").Append(DisplayOnWholesaleSignup).Append("\n");
             sb.Append("  ExcludeFromFreePromotion: ").Append(ExcludeFromFreePromotion).Append("\n");
+            sb.Append("  ExemptLoyaltyRewards: ").Append(ExemptLoyaltyRewards).Append("\n");
             sb.Append("  ExemptShippingHandlingCharge: ").Append(ExemptShippingHandlingCharge).Append("\n");
             sb.Append("  FreeShipping: ").Append(FreeShipping).Append("\n");
             sb.Append("  FreeShippingMinimum: ").Append(FreeShippingMinimum).Append("\n");
@@ -451,6 +461,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ExcludeFromFreePromotion == input.ExcludeFromFreePromotion ||
                     (this.ExcludeFromFreePromotion != null &&
                     this.ExcludeFromFreePromotion.Equals(input.ExcludeFromFreePromotion))
+                ) && 
+                (
+                    this.ExemptLoyaltyRewards == input.ExemptLoyaltyRewards ||
+                    (this.ExemptLoyaltyRewards != null &&
+                    this.ExemptLoyaltyRewards.Equals(input.ExemptLoyaltyRewards))
                 ) && 
                 (
                     this.ExemptShippingHandlingCharge == input.ExemptShippingHandlingCharge ||
@@ -579,6 +594,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DisplayOnWholesaleSignup.GetHashCode();
                 if (this.ExcludeFromFreePromotion != null)
                     hashCode = hashCode * 59 + this.ExcludeFromFreePromotion.GetHashCode();
+                if (this.ExemptLoyaltyRewards != null)
+                    hashCode = hashCode * 59 + this.ExemptLoyaltyRewards.GetHashCode();
                 if (this.ExemptShippingHandlingCharge != null)
                     hashCode = hashCode * 59 + this.ExemptShippingHandlingCharge.GetHashCode();
                 if (this.FreeShipping != null)

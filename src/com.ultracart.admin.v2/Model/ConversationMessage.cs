@@ -47,7 +47,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Notice for value: notice
             /// </summary>
             [EnumMember(Value = "notice")]
-            Notice = 2
+            Notice = 2,
+
+            /// <summary>
+            /// Enum Engagementprompt for value: engagement prompt
+            /// </summary>
+            [EnumMember(Value = "engagement prompt")]
+            Engagementprompt = 3
 
         }
 

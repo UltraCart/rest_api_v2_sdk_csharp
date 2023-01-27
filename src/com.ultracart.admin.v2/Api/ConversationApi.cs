@@ -420,6 +420,25 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationSearchResponse</returns>
         ApiResponse<ConversationSearchResponse> GetConversationsSearchWithHttpInfo (ConversationSearchRequest searchRequest);
         /// <summary>
+        /// Get location data for engagement configuration
+        /// </summary>
+        /// <remarks>
+        /// Get location data for engagement configuration 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationLocationsResponse</returns>
+        ConversationLocationsResponse GetLocationsForEngagement ();
+
+        /// <summary>
+        /// Get location data for engagement configuration
+        /// </summary>
+        /// <remarks>
+        /// Get location data for engagement configuration 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationLocationsResponse</returns>
+        ApiResponse<ConversationLocationsResponse> GetLocationsForEngagementWithHttpInfo ();
+        /// <summary>
         /// Insert a canned message
         /// </summary>
         /// <remarks>
@@ -1078,6 +1097,25 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="searchRequest">Search Request</param>
         /// <returns>Task of ApiResponse (ConversationSearchResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationSearchResponse>> GetConversationsSearchAsyncWithHttpInfo (ConversationSearchRequest searchRequest);
+        /// <summary>
+        /// Get location data for engagement configuration
+        /// </summary>
+        /// <remarks>
+        /// Get location data for engagement configuration 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationLocationsResponse</returns>
+        System.Threading.Tasks.Task<ConversationLocationsResponse> GetLocationsForEngagementAsync ();
+
+        /// <summary>
+        /// Get location data for engagement configuration
+        /// </summary>
+        /// <remarks>
+        /// Get location data for engagement configuration 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationLocationsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConversationLocationsResponse>> GetLocationsForEngagementAsyncWithHttpInfo ();
         /// <summary>
         /// Insert a canned message
         /// </summary>
@@ -4388,6 +4426,151 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationSearchResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationSearchResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationSearchResponse)));
+        }
+
+        /// <summary>
+        /// Get location data for engagement configuration Get location data for engagement configuration 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ConversationLocationsResponse</returns>
+        public ConversationLocationsResponse GetLocationsForEngagement ()
+        {
+             ApiResponse<ConversationLocationsResponse> localVarResponse = GetLocationsForEngagementWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get location data for engagement configuration Get location data for engagement configuration 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ConversationLocationsResponse</returns>
+        public ApiResponse< ConversationLocationsResponse > GetLocationsForEngagementWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/locations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLocationsForEngagement", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationLocationsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationLocationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationLocationsResponse)));
+        }
+
+        /// <summary>
+        /// Get location data for engagement configuration Get location data for engagement configuration 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ConversationLocationsResponse</returns>
+        public async System.Threading.Tasks.Task<ConversationLocationsResponse> GetLocationsForEngagementAsync ()
+        {
+             ApiResponse<ConversationLocationsResponse> localVarResponse = await GetLocationsForEngagementAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get location data for engagement configuration Get location data for engagement configuration 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ConversationLocationsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConversationLocationsResponse>> GetLocationsForEngagementAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/conversation/locations";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLocationsForEngagement", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConversationLocationsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ConversationLocationsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationLocationsResponse)));
         }
 
         /// <summary>

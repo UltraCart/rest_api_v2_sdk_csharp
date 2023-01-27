@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **EventAddCoupon** | [**ConversationEventAddCoupon**](ConversationEventAddCoupon.md) |  | [optional] 
 **EventAddItem** | [**ConversationEventAddItem**](ConversationEventAddItem.md) |  | [optional] 
 **EventConversationClosed** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
+**EventEngageCustomer** | [**ConversationWebchatQueueStatusQueueEntry**](ConversationWebchatQueueStatusQueueEntry.md) |  | [optional] 
 **EventNewConversation** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **EventNewMessage** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **EventParticipantJoin** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 

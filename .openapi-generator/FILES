@@ -135,6 +135,8 @@ docs/CityStateZip.md
 docs/Conversation.md
 docs/ConversationAgentAuth.md
 docs/ConversationAgentAuthResponse.md
+docs/ConversationAgentProfile.md
+docs/ConversationAgentProfileResponse.md
 docs/ConversationApi.md
 docs/ConversationAutocompleteRequest.md
 docs/ConversationAutocompleteResponse.md
@@ -913,6 +915,8 @@ src/com.ultracart.admin.v2/Model/CityStateZip.cs
 src/com.ultracart.admin.v2/Model/Conversation.cs
 src/com.ultracart.admin.v2/Model/ConversationAgentAuth.cs
 src/com.ultracart.admin.v2/Model/ConversationAgentAuthResponse.cs
+src/com.ultracart.admin.v2/Model/ConversationAgentProfile.cs
+src/com.ultracart.admin.v2/Model/ConversationAgentProfileResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationAutocompleteRequest.cs
 src/com.ultracart.admin.v2/Model/ConversationAutocompleteResponse.cs
 src/com.ultracart.admin.v2/Model/ConversationAutocompleteValue.cs

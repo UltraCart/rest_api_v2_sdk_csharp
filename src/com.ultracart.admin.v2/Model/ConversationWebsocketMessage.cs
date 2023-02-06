@@ -189,6 +189,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationWebsocketMessage" /> class.
         /// </summary>
+        /// <param name="conversationArn">Conversation ARN.</param>
         /// <param name="conversationUuid">Conversation UUID if the websocket message is tied to a specific conversation.</param>
         /// <param name="eventAddCoupon">eventAddCoupon.</param>
         /// <param name="eventAddItem">eventAddItem.</param>
@@ -211,8 +212,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventWebchatContext">eventWebchatContext.</param>
         /// <param name="message">message.</param>
         /// <param name="type">Type of message.</param>
-        public ConversationWebsocketMessage(string conversationUuid = default(string), ConversationEventAddCoupon eventAddCoupon = default(ConversationEventAddCoupon), ConversationEventAddItem eventAddItem = default(ConversationEventAddItem), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationWebchatQueueStatusQueueEntry eventEngageCustomer = default(ConversationWebchatQueueStatusQueueEntry), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantJoin = default(ConversationSummary), ConversationParticipant eventParticipantJoinParticipant = default(ConversationParticipant), ConversationSummary eventParticipantLeft = default(ConversationSummary), ConversationParticipant eventParticipantLeftParticipant = default(ConversationParticipant), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationEventWebchatContext eventWebchatContext = default(ConversationEventWebchatContext), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
+        public ConversationWebsocketMessage(string conversationArn = default(string), string conversationUuid = default(string), ConversationEventAddCoupon eventAddCoupon = default(ConversationEventAddCoupon), ConversationEventAddItem eventAddItem = default(ConversationEventAddItem), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationWebchatQueueStatusQueueEntry eventEngageCustomer = default(ConversationWebchatQueueStatusQueueEntry), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantJoin = default(ConversationSummary), ConversationParticipant eventParticipantJoinParticipant = default(ConversationParticipant), ConversationSummary eventParticipantLeft = default(ConversationSummary), ConversationParticipant eventParticipantLeftParticipant = default(ConversationParticipant), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationEventWebchatContext eventWebchatContext = default(ConversationEventWebchatContext), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
         {
+            this.ConversationArn = conversationArn;
             this.ConversationUuid = conversationUuid;
             this.EventAddCoupon = eventAddCoupon;
             this.EventAddItem = eventAddItem;
@@ -237,6 +239,13 @@ namespace com.ultracart.admin.v2.Model
             this.Type = type;
         }
         
+        /// <summary>
+        /// Conversation ARN
+        /// </summary>
+        /// <value>Conversation ARN</value>
+        [DataMember(Name="conversation_arn", EmitDefaultValue=false)]
+        public string ConversationArn { get; set; }
+
         /// <summary>
         /// Conversation UUID if the websocket message is tied to a specific conversation
         /// </summary>
@@ -368,6 +377,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConversationWebsocketMessage {\n");
+            sb.Append("  ConversationArn: ").Append(ConversationArn).Append("\n");
             sb.Append("  ConversationUuid: ").Append(ConversationUuid).Append("\n");
             sb.Append("  EventAddCoupon: ").Append(EventAddCoupon).Append("\n");
             sb.Append("  EventAddItem: ").Append(EventAddItem).Append("\n");
@@ -424,6 +434,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.ConversationArn == input.ConversationArn ||
+                    (this.ConversationArn != null &&
+                    this.ConversationArn.Equals(input.ConversationArn))
+                ) && 
                 (
                     this.ConversationUuid == input.ConversationUuid ||
                     (this.ConversationUuid != null &&
@@ -545,6 +560,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ConversationArn != null)
+                    hashCode = hashCode * 59 + this.ConversationArn.GetHashCode();
                 if (this.ConversationUuid != null)
                     hashCode = hashCode * 59 + this.ConversationUuid.GetHashCode();
                 if (this.EventAddCoupon != null)

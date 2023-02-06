@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ConversationArn** | **string** | Conversation ARN | [optional] 
 **ConversationUuid** | **string** | Conversation UUID if the websocket message is tied to a specific conversation | [optional] 
 **EventAddCoupon** | [**ConversationEventAddCoupon**](ConversationEventAddCoupon.md) |  | [optional] 
 **EventAddItem** | [**ConversationEventAddItem**](ConversationEventAddItem.md) |  | [optional] 

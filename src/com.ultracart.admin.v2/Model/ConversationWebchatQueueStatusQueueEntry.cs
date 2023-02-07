@@ -40,7 +40,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="joinDts">Date/time the customer joined the queue.</param>
         /// <param name="participantLanguageIsoCode">participantLanguageIsoCode.</param>
         /// <param name="question">question.</param>
-        public ConversationWebchatQueueStatusQueueEntry(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationWebchatQueueUuid = default(string), string email = default(string), string joinDts = default(string), string participantLanguageIsoCode = default(string), string question = default(string))
+        /// <param name="queueName">queueName.</param>
+        public ConversationWebchatQueueStatusQueueEntry(string conversationParticipantArn = default(string), string conversationParticipantName = default(string), string conversationWebchatQueueUuid = default(string), string email = default(string), string joinDts = default(string), string participantLanguageIsoCode = default(string), string question = default(string), string queueName = default(string))
         {
             this.ConversationParticipantArn = conversationParticipantArn;
             this.ConversationParticipantName = conversationParticipantName;
@@ -49,6 +50,7 @@ namespace com.ultracart.admin.v2.Model
             this.JoinDts = joinDts;
             this.ParticipantLanguageIsoCode = participantLanguageIsoCode;
             this.Question = question;
+            this.QueueName = queueName;
         }
 
         /// <summary>
@@ -95,6 +97,12 @@ namespace com.ultracart.admin.v2.Model
         public string Question { get; set; }
 
         /// <summary>
+        /// Gets or Sets QueueName
+        /// </summary>
+        [DataMember(Name="queue_name", EmitDefaultValue=false)]
+        public string QueueName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,6 +117,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  JoinDts: ").Append(JoinDts).Append("\n");
             sb.Append("  ParticipantLanguageIsoCode: ").Append(ParticipantLanguageIsoCode).Append("\n");
             sb.Append("  Question: ").Append(Question).Append("\n");
+            sb.Append("  QueueName: ").Append(QueueName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,6 +186,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Question == input.Question ||
                     (this.Question != null &&
                     this.Question.Equals(input.Question))
+                ) && 
+                (
+                    this.QueueName == input.QueueName ||
+                    (this.QueueName != null &&
+                    this.QueueName.Equals(input.QueueName))
                 );
         }
 
@@ -203,6 +217,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ParticipantLanguageIsoCode.GetHashCode();
                 if (this.Question != null)
                     hashCode = hashCode * 59 + this.Question.GetHashCode();
+                if (this.QueueName != null)
+                    hashCode = hashCode * 59 + this.QueueName.GetHashCode();
                 return hashCode;
             }
         }

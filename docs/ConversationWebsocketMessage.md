@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **EventParticipantLeft** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **EventParticipantLeftParticipant** | [**ConversationParticipant**](ConversationParticipant.md) |  | [optional] 
 **EventParticipantUpdate** | [**ConversationSummary**](ConversationSummary.md) |  | [optional] 
+**EventQueueNewMember** | [**ConversationWebchatQueueStatusQueueEntry**](ConversationWebchatQueueStatusQueueEntry.md) |  | [optional] 
 **EventQueuePosition** | [**ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  | [optional] 
 **EventQueueStatusUpdate** | [**ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  | [optional] 
 **EventReadMessage** | [**ConversationEventReadMessage**](ConversationEventReadMessage.md) |  | [optional] 

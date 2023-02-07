@@ -138,7 +138,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Engagecustomer for value: engage customer
             /// </summary>
             [EnumMember(Value = "engage customer")]
-            Engagecustomer = 17
+            Engagecustomer = 17,
+            
+            /// <summary>
+            /// Enum Queuenewmember for value: queue new member
+            /// </summary>
+            [EnumMember(Value = "queue new member")]
+            Queuenewmember = 18
         }
 
         /// <summary>
@@ -202,6 +208,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventParticipantLeft">eventParticipantLeft.</param>
         /// <param name="eventParticipantLeftParticipant">eventParticipantLeftParticipant.</param>
         /// <param name="eventParticipantUpdate">eventParticipantUpdate.</param>
+        /// <param name="eventQueueNewMember">eventQueueNewMember.</param>
         /// <param name="eventQueuePosition">eventQueuePosition.</param>
         /// <param name="eventQueueStatusUpdate">eventQueueStatusUpdate.</param>
         /// <param name="eventReadMessage">eventReadMessage.</param>
@@ -212,7 +219,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventWebchatContext">eventWebchatContext.</param>
         /// <param name="message">message.</param>
         /// <param name="type">Type of message.</param>
-        public ConversationWebsocketMessage(string conversationArn = default(string), string conversationUuid = default(string), ConversationEventAddCoupon eventAddCoupon = default(ConversationEventAddCoupon), ConversationEventAddItem eventAddItem = default(ConversationEventAddItem), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationWebchatQueueStatusQueueEntry eventEngageCustomer = default(ConversationWebchatQueueStatusQueueEntry), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantJoin = default(ConversationSummary), ConversationParticipant eventParticipantJoinParticipant = default(ConversationParticipant), ConversationSummary eventParticipantLeft = default(ConversationSummary), ConversationParticipant eventParticipantLeftParticipant = default(ConversationParticipant), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationEventWebchatContext eventWebchatContext = default(ConversationEventWebchatContext), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
+        public ConversationWebsocketMessage(string conversationArn = default(string), string conversationUuid = default(string), ConversationEventAddCoupon eventAddCoupon = default(ConversationEventAddCoupon), ConversationEventAddItem eventAddItem = default(ConversationEventAddItem), ConversationSummary eventConversationClosed = default(ConversationSummary), ConversationWebchatQueueStatusQueueEntry eventEngageCustomer = default(ConversationWebchatQueueStatusQueueEntry), ConversationSummary eventNewConversation = default(ConversationSummary), ConversationSummary eventNewMessage = default(ConversationSummary), ConversationSummary eventParticipantJoin = default(ConversationSummary), ConversationParticipant eventParticipantJoinParticipant = default(ConversationParticipant), ConversationSummary eventParticipantLeft = default(ConversationSummary), ConversationParticipant eventParticipantLeftParticipant = default(ConversationParticipant), ConversationSummary eventParticipantUpdate = default(ConversationSummary), ConversationWebchatQueueStatusQueueEntry eventQueueNewMember = default(ConversationWebchatQueueStatusQueueEntry), ConversationEventQueuePosition eventQueuePosition = default(ConversationEventQueuePosition), ConversationWebchatQueueStatus eventQueueStatusUpdate = default(ConversationWebchatQueueStatus), ConversationEventReadMessage eventReadMessage = default(ConversationEventReadMessage), ConversationEventRRWeb eventRrweb = default(ConversationEventRRWeb), EventTypeEnum? eventType = default(EventTypeEnum?), ConversationEventTyping eventTyping = default(ConversationEventTyping), ConversationMessage eventUpdatedMessage = default(ConversationMessage), ConversationEventWebchatContext eventWebchatContext = default(ConversationEventWebchatContext), ConversationMessage message = default(ConversationMessage), TypeEnum? type = default(TypeEnum?))
         {
             this.ConversationArn = conversationArn;
             this.ConversationUuid = conversationUuid;
@@ -227,6 +234,7 @@ namespace com.ultracart.admin.v2.Model
             this.EventParticipantLeft = eventParticipantLeft;
             this.EventParticipantLeftParticipant = eventParticipantLeftParticipant;
             this.EventParticipantUpdate = eventParticipantUpdate;
+            this.EventQueueNewMember = eventQueueNewMember;
             this.EventQueuePosition = eventQueuePosition;
             this.EventQueueStatusUpdate = eventQueueStatusUpdate;
             this.EventReadMessage = eventReadMessage;
@@ -320,6 +328,12 @@ namespace com.ultracart.admin.v2.Model
         public ConversationSummary EventParticipantUpdate { get; set; }
 
         /// <summary>
+        /// Gets or Sets EventQueueNewMember
+        /// </summary>
+        [DataMember(Name="event_queue_new_member", EmitDefaultValue=false)]
+        public ConversationWebchatQueueStatusQueueEntry EventQueueNewMember { get; set; }
+
+        /// <summary>
         /// Gets or Sets EventQueuePosition
         /// </summary>
         [DataMember(Name="event_queue_position", EmitDefaultValue=false)]
@@ -390,6 +404,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EventParticipantLeft: ").Append(EventParticipantLeft).Append("\n");
             sb.Append("  EventParticipantLeftParticipant: ").Append(EventParticipantLeftParticipant).Append("\n");
             sb.Append("  EventParticipantUpdate: ").Append(EventParticipantUpdate).Append("\n");
+            sb.Append("  EventQueueNewMember: ").Append(EventQueueNewMember).Append("\n");
             sb.Append("  EventQueuePosition: ").Append(EventQueuePosition).Append("\n");
             sb.Append("  EventQueueStatusUpdate: ").Append(EventQueueStatusUpdate).Append("\n");
             sb.Append("  EventReadMessage: ").Append(EventReadMessage).Append("\n");
@@ -500,6 +515,11 @@ namespace com.ultracart.admin.v2.Model
                     this.EventParticipantUpdate.Equals(input.EventParticipantUpdate))
                 ) && 
                 (
+                    this.EventQueueNewMember == input.EventQueueNewMember ||
+                    (this.EventQueueNewMember != null &&
+                    this.EventQueueNewMember.Equals(input.EventQueueNewMember))
+                ) && 
+                (
                     this.EventQueuePosition == input.EventQueuePosition ||
                     (this.EventQueuePosition != null &&
                     this.EventQueuePosition.Equals(input.EventQueuePosition))
@@ -586,6 +606,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.EventParticipantLeftParticipant.GetHashCode();
                 if (this.EventParticipantUpdate != null)
                     hashCode = hashCode * 59 + this.EventParticipantUpdate.GetHashCode();
+                if (this.EventQueueNewMember != null)
+                    hashCode = hashCode * 59 + this.EventQueueNewMember.GetHashCode();
                 if (this.EventQueuePosition != null)
                     hashCode = hashCode * 59 + this.EventQueuePosition.GetHashCode();
                 if (this.EventQueueStatusUpdate != null)

@@ -36,13 +36,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="category">category.</param>
         /// <param name="matches">matches.</param>
         /// <param name="maxHits">maxHits.</param>
+        /// <param name="storefrontHostName">storefrontHostName.</param>
         /// <param name="storefrontOid">storefrontOid.</param>
         /// <param name="subcategory">subcategory.</param>
-        public LookupRequest(string category = default(string), string matches = default(string), int? maxHits = default(int?), int? storefrontOid = default(int?), string subcategory = default(string))
+        public LookupRequest(string category = default(string), string matches = default(string), int? maxHits = default(int?), string storefrontHostName = default(string), int? storefrontOid = default(int?), string subcategory = default(string))
         {
             this.Category = category;
             this.Matches = matches;
             this.MaxHits = maxHits;
+            this.StorefrontHostName = storefrontHostName;
             this.StorefrontOid = storefrontOid;
             this.Subcategory = subcategory;
         }
@@ -64,6 +66,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="max_hits", EmitDefaultValue=false)]
         public int? MaxHits { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StorefrontHostName
+        /// </summary>
+        [DataMember(Name="storefront_host_name", EmitDefaultValue=false)]
+        public string StorefrontHostName { get; set; }
 
         /// <summary>
         /// Gets or Sets StorefrontOid
@@ -88,6 +96,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Matches: ").Append(Matches).Append("\n");
             sb.Append("  MaxHits: ").Append(MaxHits).Append("\n");
+            sb.Append("  StorefrontHostName: ").Append(StorefrontHostName).Append("\n");
             sb.Append("  StorefrontOid: ").Append(StorefrontOid).Append("\n");
             sb.Append("  Subcategory: ").Append(Subcategory).Append("\n");
             sb.Append("}\n");
@@ -140,6 +149,11 @@ namespace com.ultracart.admin.v2.Model
                     this.MaxHits.Equals(input.MaxHits))
                 ) && 
                 (
+                    this.StorefrontHostName == input.StorefrontHostName ||
+                    (this.StorefrontHostName != null &&
+                    this.StorefrontHostName.Equals(input.StorefrontHostName))
+                ) && 
+                (
                     this.StorefrontOid == input.StorefrontOid ||
                     (this.StorefrontOid != null &&
                     this.StorefrontOid.Equals(input.StorefrontOid))
@@ -166,6 +180,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Matches.GetHashCode();
                 if (this.MaxHits != null)
                     hashCode = hashCode * 59 + this.MaxHits.GetHashCode();
+                if (this.StorefrontHostName != null)
+                    hashCode = hashCode * 59 + this.StorefrontHostName.GetHashCode();
                 if (this.StorefrontOid != null)
                     hashCode = hashCode * 59 + this.StorefrontOid.GetHashCode();
                 if (this.Subcategory != null)

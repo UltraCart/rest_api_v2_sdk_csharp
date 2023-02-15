@@ -155,7 +155,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="summary">summary.</param>
         /// <param name="tags">tags, available only through update, not through insert due to the nature of how tags are handled internally.</param>
         /// <param name="taxes">taxes.</param>
-        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), decimal? exchangeRate = default(decimal?), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), OrderPointOfSale pointOfSale = default(OrderPointOfSale), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string rejectDts = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes))
+        /// <param name="utms">UTM clicks.  The zero index is the most recent (last) UTM click.</param>
+        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), decimal? exchangeRate = default(decimal?), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), OrderPointOfSale pointOfSale = default(OrderPointOfSale), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string rejectDts = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes), List<OrderUtm> utms = default(List<OrderUtm>))
         {
             this.Affiliates = affiliates;
             this.AutoOrder = autoOrder;
@@ -192,6 +193,7 @@ namespace com.ultracart.admin.v2.Model
             this.Summary = summary;
             this.Tags = tags;
             this.Taxes = taxes;
+            this.Utms = utms;
         }
         
         /// <summary>
@@ -413,6 +415,13 @@ namespace com.ultracart.admin.v2.Model
         public OrderTaxes Taxes { get; set; }
 
         /// <summary>
+        /// UTM clicks.  The zero index is the most recent (last) UTM click
+        /// </summary>
+        /// <value>UTM clicks.  The zero index is the most recent (last) UTM click</value>
+        [DataMember(Name="utms", EmitDefaultValue=false)]
+        public List<OrderUtm> Utms { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -455,6 +464,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Summary: ").Append(Summary).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Taxes: ").Append(Taxes).Append("\n");
+            sb.Append("  Utms: ").Append(Utms).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -663,6 +673,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Taxes == input.Taxes ||
                     (this.Taxes != null &&
                     this.Taxes.Equals(input.Taxes))
+                ) && 
+                (
+                    this.Utms == input.Utms ||
+                    this.Utms != null &&
+                    this.Utms.SequenceEqual(input.Utms)
                 );
         }
 
@@ -745,6 +760,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Taxes != null)
                     hashCode = hashCode * 59 + this.Taxes.GetHashCode();
+                if (this.Utms != null)
+                    hashCode = hashCode * 59 + this.Utms.GetHashCode();
                 return hashCode;
             }
         }

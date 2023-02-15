@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **NotValidWhenCouponPresent** | **bool** | Not valid when coupon present | [optional] 
 **PricingTierOid** | **int** | Pricing Tier Oid | [optional] 
 **RealtimePercentageDiscount** | **decimal** | Realtime percentage discount | [optional] 
+**RestrictToDistributionCenterOid** | **int** | Restrict inventory to this distribution center oid | [optional] 
 **SignupNotification** | [**PricingTierNotification**](PricingTierNotification.md) |  | [optional] 
 **SuppressBuysafe** | **bool** | Suppress buySAFE (deprecated) | [optional] 
 **SuppressMailingList** | **bool** | Suppress mailing list | [optional] 

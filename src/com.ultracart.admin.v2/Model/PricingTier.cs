@@ -60,12 +60,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="notValidWhenCouponPresent">Not valid when coupon present.</param>
         /// <param name="pricingTierOid">Pricing Tier Oid.</param>
         /// <param name="realtimePercentageDiscount">Realtime percentage discount.</param>
+        /// <param name="restrictToDistributionCenterOid">Restrict inventory to this distribution center oid.</param>
         /// <param name="signupNotification">signupNotification.</param>
         /// <param name="suppressBuysafe">Suppress buySAFE (deprecated).</param>
         /// <param name="suppressMailingList">Suppress mailing list.</param>
         /// <param name="taxExempt">Tax Exempt.</param>
         /// <param name="trackSeparately">Track separately.</param>
-        public PricingTier(bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowPurchaseOrder = default(bool), bool allowQuoteRequest = default(bool), PricingTierNotification approvalNotification = default(PricingTierNotification), bool autoApproveCod = default(bool), bool autoApprovePurchaseOrder = default(bool), bool defaultOnWholesaleSignup = default(bool), decimal defaultPercentageDiscount = default(decimal), int defaultShippingMethodOid = default(int), bool defaultTier = default(bool), bool displayOnWholesaleSignup = default(bool), bool excludeFromFreePromotion = default(bool), bool exemptLoyaltyRewards = default(bool), bool exemptShippingHandlingCharge = default(bool), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), int maximumItemCount = default(int), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), string name = default(string), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), bool notValidWhenCouponPresent = default(bool), int pricingTierOid = default(int), decimal realtimePercentageDiscount = default(decimal), PricingTierNotification signupNotification = default(PricingTierNotification), bool suppressBuysafe = default(bool), bool suppressMailingList = default(bool), bool taxExempt = default(bool), bool trackSeparately = default(bool))
+        public PricingTier(bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowPurchaseOrder = default(bool), bool allowQuoteRequest = default(bool), PricingTierNotification approvalNotification = default(PricingTierNotification), bool autoApproveCod = default(bool), bool autoApprovePurchaseOrder = default(bool), bool defaultOnWholesaleSignup = default(bool), decimal defaultPercentageDiscount = default(decimal), int defaultShippingMethodOid = default(int), bool defaultTier = default(bool), bool displayOnWholesaleSignup = default(bool), bool excludeFromFreePromotion = default(bool), bool exemptLoyaltyRewards = default(bool), bool exemptShippingHandlingCharge = default(bool), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), int maximumItemCount = default(int), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), string name = default(string), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), bool notValidWhenCouponPresent = default(bool), int pricingTierOid = default(int), decimal realtimePercentageDiscount = default(decimal), int restrictToDistributionCenterOid = default(int), PricingTierNotification signupNotification = default(PricingTierNotification), bool suppressBuysafe = default(bool), bool suppressMailingList = default(bool), bool taxExempt = default(bool), bool trackSeparately = default(bool))
         {
             this.Allow3rdPartyBilling = allow3rdPartyBilling;
             this.AllowCod = allowCod;
@@ -94,6 +95,7 @@ namespace com.ultracart.admin.v2.Model
             this.NotValidWhenCouponPresent = notValidWhenCouponPresent;
             this.PricingTierOid = pricingTierOid;
             this.RealtimePercentageDiscount = realtimePercentageDiscount;
+            this.RestrictToDistributionCenterOid = restrictToDistributionCenterOid;
             this.SignupNotification = signupNotification;
             this.SuppressBuysafe = suppressBuysafe;
             this.SuppressMailingList = suppressMailingList;
@@ -290,6 +292,13 @@ namespace com.ultracart.admin.v2.Model
         public decimal RealtimePercentageDiscount { get; set; }
 
         /// <summary>
+        /// Restrict inventory to this distribution center oid
+        /// </summary>
+        /// <value>Restrict inventory to this distribution center oid</value>
+        [DataMember(Name="restrict_to_distribution_center_oid", EmitDefaultValue=false)]
+        public int RestrictToDistributionCenterOid { get; set; }
+
+        /// <summary>
         /// Gets or Sets SignupNotification
         /// </summary>
         [DataMember(Name="signup_notification", EmitDefaultValue=false)]
@@ -358,6 +367,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  NotValidWhenCouponPresent: ").Append(NotValidWhenCouponPresent).Append("\n");
             sb.Append("  PricingTierOid: ").Append(PricingTierOid).Append("\n");
             sb.Append("  RealtimePercentageDiscount: ").Append(RealtimePercentageDiscount).Append("\n");
+            sb.Append("  RestrictToDistributionCenterOid: ").Append(RestrictToDistributionCenterOid).Append("\n");
             sb.Append("  SignupNotification: ").Append(SignupNotification).Append("\n");
             sb.Append("  SuppressBuysafe: ").Append(SuppressBuysafe).Append("\n");
             sb.Append("  SuppressMailingList: ").Append(SuppressMailingList).Append("\n");
@@ -533,6 +543,11 @@ namespace com.ultracart.admin.v2.Model
                     this.RealtimePercentageDiscount.Equals(input.RealtimePercentageDiscount))
                 ) && 
                 (
+                    this.RestrictToDistributionCenterOid == input.RestrictToDistributionCenterOid ||
+                    (this.RestrictToDistributionCenterOid != null &&
+                    this.RestrictToDistributionCenterOid.Equals(input.RestrictToDistributionCenterOid))
+                ) && 
+                (
                     this.SignupNotification == input.SignupNotification ||
                     (this.SignupNotification != null &&
                     this.SignupNotification.Equals(input.SignupNotification))
@@ -622,6 +637,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PricingTierOid.GetHashCode();
                 if (this.RealtimePercentageDiscount != null)
                     hashCode = hashCode * 59 + this.RealtimePercentageDiscount.GetHashCode();
+                if (this.RestrictToDistributionCenterOid != null)
+                    hashCode = hashCode * 59 + this.RestrictToDistributionCenterOid.GetHashCode();
                 if (this.SignupNotification != null)
                     hashCode = hashCode * 59 + this.SignupNotification.GetHashCode();
                 if (this.SuppressBuysafe != null)

@@ -36,28 +36,34 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="browser">browser.</param>
         /// <param name="comments">Comments from the customer.  Rarely used on the single page checkout..</param>
         /// <param name="customField1">Custom field 1.</param>
+        /// <param name="customField10">Custom field 10.</param>
         /// <param name="customField2">Custom field 2.</param>
         /// <param name="customField3">Custom field 3.</param>
         /// <param name="customField4">Custom field 4.</param>
         /// <param name="customField5">Custom field 5.</param>
         /// <param name="customField6">Custom field 6.</param>
         /// <param name="customField7">Custom field 7.</param>
+        /// <param name="customField8">Custom field 8.</param>
+        /// <param name="customField9">Custom field 9.</param>
         /// <param name="customerIpAddress">IP address of the customer when placing the order.</param>
         /// <param name="screenBrandingThemeCode">Screen branding theme code associated with the order (legacy checkout).</param>
         /// <param name="screenSize">Screen size small, medium or large.</param>
         /// <param name="storefrontHostName">StoreFront host name associated with the order.</param>
         /// <param name="upsellPathCode">Upsell path code assigned during the checkout that the customer went through.</param>
-        public OrderCheckout(Browser browser = default(Browser), string comments = default(string), string customField1 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customerIpAddress = default(string), string screenBrandingThemeCode = default(string), string screenSize = default(string), string storefrontHostName = default(string), string upsellPathCode = default(string))
+        public OrderCheckout(Browser browser = default(Browser), string comments = default(string), string customField1 = default(string), string customField10 = default(string), string customField2 = default(string), string customField3 = default(string), string customField4 = default(string), string customField5 = default(string), string customField6 = default(string), string customField7 = default(string), string customField8 = default(string), string customField9 = default(string), string customerIpAddress = default(string), string screenBrandingThemeCode = default(string), string screenSize = default(string), string storefrontHostName = default(string), string upsellPathCode = default(string))
         {
             this.Browser = browser;
             this.Comments = comments;
             this.CustomField1 = customField1;
+            this.CustomField10 = customField10;
             this.CustomField2 = customField2;
             this.CustomField3 = customField3;
             this.CustomField4 = customField4;
             this.CustomField5 = customField5;
             this.CustomField6 = customField6;
             this.CustomField7 = customField7;
+            this.CustomField8 = customField8;
+            this.CustomField9 = customField9;
             this.CustomerIpAddress = customerIpAddress;
             this.ScreenBrandingThemeCode = screenBrandingThemeCode;
             this.ScreenSize = screenSize;
@@ -84,6 +90,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Custom field 1</value>
         [DataMember(Name="custom_field1", EmitDefaultValue=false)]
         public string CustomField1 { get; set; }
+
+        /// <summary>
+        /// Custom field 10
+        /// </summary>
+        /// <value>Custom field 10</value>
+        [DataMember(Name="custom_field10", EmitDefaultValue=false)]
+        public string CustomField10 { get; set; }
 
         /// <summary>
         /// Custom field 2
@@ -126,6 +139,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Custom field 7</value>
         [DataMember(Name="custom_field7", EmitDefaultValue=false)]
         public string CustomField7 { get; set; }
+
+        /// <summary>
+        /// Custom field 8
+        /// </summary>
+        /// <value>Custom field 8</value>
+        [DataMember(Name="custom_field8", EmitDefaultValue=false)]
+        public string CustomField8 { get; set; }
+
+        /// <summary>
+        /// Custom field 9
+        /// </summary>
+        /// <value>Custom field 9</value>
+        [DataMember(Name="custom_field9", EmitDefaultValue=false)]
+        public string CustomField9 { get; set; }
 
         /// <summary>
         /// IP address of the customer when placing the order
@@ -173,12 +200,15 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Browser: ").Append(Browser).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
             sb.Append("  CustomField1: ").Append(CustomField1).Append("\n");
+            sb.Append("  CustomField10: ").Append(CustomField10).Append("\n");
             sb.Append("  CustomField2: ").Append(CustomField2).Append("\n");
             sb.Append("  CustomField3: ").Append(CustomField3).Append("\n");
             sb.Append("  CustomField4: ").Append(CustomField4).Append("\n");
             sb.Append("  CustomField5: ").Append(CustomField5).Append("\n");
             sb.Append("  CustomField6: ").Append(CustomField6).Append("\n");
             sb.Append("  CustomField7: ").Append(CustomField7).Append("\n");
+            sb.Append("  CustomField8: ").Append(CustomField8).Append("\n");
+            sb.Append("  CustomField9: ").Append(CustomField9).Append("\n");
             sb.Append("  CustomerIpAddress: ").Append(CustomerIpAddress).Append("\n");
             sb.Append("  ScreenBrandingThemeCode: ").Append(ScreenBrandingThemeCode).Append("\n");
             sb.Append("  ScreenSize: ").Append(ScreenSize).Append("\n");
@@ -234,6 +264,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CustomField1.Equals(input.CustomField1))
                 ) && 
                 (
+                    this.CustomField10 == input.CustomField10 ||
+                    (this.CustomField10 != null &&
+                    this.CustomField10.Equals(input.CustomField10))
+                ) && 
+                (
                     this.CustomField2 == input.CustomField2 ||
                     (this.CustomField2 != null &&
                     this.CustomField2.Equals(input.CustomField2))
@@ -262,6 +297,16 @@ namespace com.ultracart.admin.v2.Model
                     this.CustomField7 == input.CustomField7 ||
                     (this.CustomField7 != null &&
                     this.CustomField7.Equals(input.CustomField7))
+                ) && 
+                (
+                    this.CustomField8 == input.CustomField8 ||
+                    (this.CustomField8 != null &&
+                    this.CustomField8.Equals(input.CustomField8))
+                ) && 
+                (
+                    this.CustomField9 == input.CustomField9 ||
+                    (this.CustomField9 != null &&
+                    this.CustomField9.Equals(input.CustomField9))
                 ) && 
                 (
                     this.CustomerIpAddress == input.CustomerIpAddress ||
@@ -305,6 +350,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Comments.GetHashCode();
                 if (this.CustomField1 != null)
                     hashCode = hashCode * 59 + this.CustomField1.GetHashCode();
+                if (this.CustomField10 != null)
+                    hashCode = hashCode * 59 + this.CustomField10.GetHashCode();
                 if (this.CustomField2 != null)
                     hashCode = hashCode * 59 + this.CustomField2.GetHashCode();
                 if (this.CustomField3 != null)
@@ -317,6 +364,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CustomField6.GetHashCode();
                 if (this.CustomField7 != null)
                     hashCode = hashCode * 59 + this.CustomField7.GetHashCode();
+                if (this.CustomField8 != null)
+                    hashCode = hashCode * 59 + this.CustomField8.GetHashCode();
+                if (this.CustomField9 != null)
+                    hashCode = hashCode * 59 + this.CustomField9.GetHashCode();
                 if (this.CustomerIpAddress != null)
                     hashCode = hashCode * 59 + this.CustomerIpAddress.GetHashCode();
                 if (this.ScreenBrandingThemeCode != null)
@@ -342,6 +393,13 @@ namespace com.ultracart.admin.v2.Model
             if(this.CustomField1 != null && this.CustomField1.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomField1, length must be less than 50.", new [] { "CustomField1" });
+            }
+
+
+            // CustomField10 (string) maxLength
+            if(this.CustomField10 != null && this.CustomField10.Length > 200)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomField10, length must be less than 200.", new [] { "CustomField10" });
             }
 
 
@@ -384,6 +442,20 @@ namespace com.ultracart.admin.v2.Model
             if(this.CustomField7 != null && this.CustomField7.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomField7, length must be less than 50.", new [] { "CustomField7" });
+            }
+
+
+            // CustomField8 (string) maxLength
+            if(this.CustomField8 != null && this.CustomField8.Length > 200)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomField8, length must be less than 200.", new [] { "CustomField8" });
+            }
+
+
+            // CustomField9 (string) maxLength
+            if(this.CustomField9 != null && this.CustomField9.Length > 200)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomField9, length must be less than 200.", new [] { "CustomField9" });
             }
 
 

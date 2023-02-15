@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **Summary** | [**OrderSummary**](OrderSummary.md) |  | [optional] 
 **Tags** | [**List&lt;OrderTag&gt;**](OrderTag.md) | tags, available only through update, not through insert due to the nature of how tags are handled internally | [optional] 
 **Taxes** | [**OrderTaxes**](OrderTaxes.md) |  | [optional] 
+**Utms** | [**List&lt;OrderUtm&gt;**](OrderUtm.md) | UTM clicks.  The zero index is the most recent (last) UTM click | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

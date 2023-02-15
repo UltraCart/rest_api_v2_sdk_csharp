@@ -624,6 +624,7 @@ docs/OrderTokenResponse.md
 docs/OrderTrackingNumberDetail.md
 docs/OrderTrackingNumberDetails.md
 docs/OrderTransactionalMerchantNote.md
+docs/OrderUtm.md
 docs/OrdersResponse.md
 docs/Permission.md
 docs/PointOfSaleLocation.md
@@ -1395,6 +1396,7 @@ src/com.ultracart.admin.v2/Model/OrderTokenResponse.cs
 src/com.ultracart.admin.v2/Model/OrderTrackingNumberDetail.cs
 src/com.ultracart.admin.v2/Model/OrderTrackingNumberDetails.cs
 src/com.ultracart.admin.v2/Model/OrderTransactionalMerchantNote.cs
+src/com.ultracart.admin.v2/Model/OrderUtm.cs
 src/com.ultracart.admin.v2/Model/OrdersResponse.cs
 src/com.ultracart.admin.v2/Model/Permission.cs
 src/com.ultracart.admin.v2/Model/PointOfSaleLocation.cs

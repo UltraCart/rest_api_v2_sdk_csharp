@@ -607,6 +607,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationCannedMessagesResponse</returns>
         ApiResponse<ConversationCannedMessagesResponse> SearchConversationCannedMessagesWithHttpInfo (ConversationCannedMessagesSearch searchRequest);
         /// <summary>
+        /// Unsubscribe any SMS participants in this conversation
+        /// </summary>
+        /// <remarks>
+        /// Unsubscribe any SMS participants in this conversation 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns></returns>
+        void SmsUnsubscribeConversation (string conversationUuid);
+
+        /// <summary>
+        /// Unsubscribe any SMS participants in this conversation
+        /// </summary>
+        /// <remarks>
+        /// Unsubscribe any SMS participants in this conversation 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SmsUnsubscribeConversationWithHttpInfo (string conversationUuid);
+        /// <summary>
         /// Start a conversation
         /// </summary>
         /// <remarks>
@@ -1324,6 +1345,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="searchRequest">Search request</param>
         /// <returns>Task of ApiResponse (ConversationCannedMessagesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationCannedMessagesResponse>> SearchConversationCannedMessagesAsyncWithHttpInfo (ConversationCannedMessagesSearch searchRequest);
+        /// <summary>
+        /// Unsubscribe any SMS participants in this conversation
+        /// </summary>
+        /// <remarks>
+        /// Unsubscribe any SMS participants in this conversation 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task SmsUnsubscribeConversationAsync (string conversationUuid);
+
+        /// <summary>
+        /// Unsubscribe any SMS participants in this conversation
+        /// </summary>
+        /// <remarks>
+        /// Unsubscribe any SMS participants in this conversation 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> SmsUnsubscribeConversationAsyncWithHttpInfo (string conversationUuid);
         /// <summary>
         /// Start a conversation
         /// </summary>
@@ -5965,6 +6007,161 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ConversationCannedMessagesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ConversationCannedMessagesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConversationCannedMessagesResponse)));
+        }
+
+        /// <summary>
+        /// Unsubscribe any SMS participants in this conversation Unsubscribe any SMS participants in this conversation 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns></returns>
+        public void SmsUnsubscribeConversation (string conversationUuid)
+        {
+             SmsUnsubscribeConversationWithHttpInfo(conversationUuid);
+        }
+
+        /// <summary>
+        /// Unsubscribe any SMS participants in this conversation Unsubscribe any SMS participants in this conversation 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SmsUnsubscribeConversationWithHttpInfo (string conversationUuid)
+        {
+            // verify the required parameter 'conversationUuid' is set
+            if (conversationUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationUuid' when calling ConversationApi->SmsUnsubscribeConversation");
+
+            var localVarPath = "/conversation/conversations/{conversation_uuid}/sms_unsubscribe";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SmsUnsubscribeConversation", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Unsubscribe any SMS participants in this conversation Unsubscribe any SMS participants in this conversation 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task SmsUnsubscribeConversationAsync (string conversationUuid)
+        {
+             await SmsUnsubscribeConversationAsyncWithHttpInfo(conversationUuid);
+
+        }
+
+        /// <summary>
+        /// Unsubscribe any SMS participants in this conversation Unsubscribe any SMS participants in this conversation 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="conversationUuid"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SmsUnsubscribeConversationAsyncWithHttpInfo (string conversationUuid)
+        {
+            // verify the required parameter 'conversationUuid' is set
+            if (conversationUuid == null)
+                throw new ApiException(400, "Missing required parameter 'conversationUuid' when calling ConversationApi->SmsUnsubscribeConversation");
+
+            var localVarPath = "/conversation/conversations/{conversation_uuid}/sms_unsubscribe";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (conversationUuid != null) localVarPathParams.Add("conversation_uuid", this.Configuration.ApiClient.ParameterToString(conversationUuid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SmsUnsubscribeConversation", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>

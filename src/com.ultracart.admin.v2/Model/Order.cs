@@ -149,14 +149,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="properties">Properties, available only through update, not through insert due to the nature of how properties are handled internally.</param>
         /// <param name="quote">quote.</param>
         /// <param name="refundDts">If the order was refunded, the date/time that the last refund occurred.</param>
+        /// <param name="refundReason">Refund reason code.  This can only be written during a refund operation otherwise this field is read only..</param>
         /// <param name="rejectDts">If the order was rejected, the date/time that the rejection occurred.</param>
+        /// <param name="rejectReason">Reject reason code.  This can only be written during a reject operation otherwise this field is read only..</param>
         /// <param name="salesforce">salesforce.</param>
         /// <param name="shipping">shipping.</param>
         /// <param name="summary">summary.</param>
         /// <param name="tags">tags, available only through update, not through insert due to the nature of how tags are handled internally.</param>
         /// <param name="taxes">taxes.</param>
         /// <param name="utms">UTM clicks.  The zero index is the most recent (last) UTM click.</param>
-        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), decimal exchangeRate = default(decimal), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), OrderPointOfSale pointOfSale = default(OrderPointOfSale), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string rejectDts = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes), List<OrderUtm> utms = default(List<OrderUtm>))
+        public Order(List<OrderAffiliate> affiliates = default(List<OrderAffiliate>), OrderAutoOrder autoOrder = default(OrderAutoOrder), OrderBilling billing = default(OrderBilling), OrderBuysafe buysafe = default(OrderBuysafe), OrderChannelPartner channelPartner = default(OrderChannelPartner), OrderCheckout checkout = default(OrderCheckout), List<OrderCoupon> coupons = default(List<OrderCoupon>), string creationDts = default(string), string currencyCode = default(string), CurrentStageEnum? currentStage = default(CurrentStageEnum?), Customer customerProfile = default(Customer), OrderDigitalOrder digitalOrder = default(OrderDigitalOrder), OrderEdi edi = default(OrderEdi), decimal exchangeRate = default(decimal), OrderFraudScore fraudScore = default(OrderFraudScore), OrderGift gift = default(OrderGift), OrderGiftCertificate giftCertificate = default(OrderGiftCertificate), OrderInternal _internal = default(OrderInternal), List<OrderItem> items = default(List<OrderItem>), string languageIsoCode = default(string), OrderLinkedShipment linkedShipment = default(OrderLinkedShipment), OrderMarketing marketing = default(OrderMarketing), string merchantId = default(string), string orderId = default(string), OrderPayment payment = default(OrderPayment), OrderPointOfSale pointOfSale = default(OrderPointOfSale), List<OrderProperty> properties = default(List<OrderProperty>), OrderQuote quote = default(OrderQuote), string refundDts = default(string), string refundReason = default(string), string rejectDts = default(string), string rejectReason = default(string), OrderSalesforce salesforce = default(OrderSalesforce), OrderShipping shipping = default(OrderShipping), OrderSummary summary = default(OrderSummary), List<OrderTag> tags = default(List<OrderTag>), OrderTaxes taxes = default(OrderTaxes), List<OrderUtm> utms = default(List<OrderUtm>))
         {
             this.Affiliates = affiliates;
             this.AutoOrder = autoOrder;
@@ -187,7 +189,9 @@ namespace com.ultracart.admin.v2.Model
             this.Properties = properties;
             this.Quote = quote;
             this.RefundDts = refundDts;
+            this.RefundReason = refundReason;
             this.RejectDts = rejectDts;
+            this.RejectReason = rejectReason;
             this.Salesforce = salesforce;
             this.Shipping = shipping;
             this.Summary = summary;
@@ -377,11 +381,25 @@ namespace com.ultracart.admin.v2.Model
         public string RefundDts { get; set; }
 
         /// <summary>
+        /// Refund reason code.  This can only be written during a refund operation otherwise this field is read only.
+        /// </summary>
+        /// <value>Refund reason code.  This can only be written during a refund operation otherwise this field is read only.</value>
+        [DataMember(Name="refund_reason", EmitDefaultValue=false)]
+        public string RefundReason { get; set; }
+
+        /// <summary>
         /// If the order was rejected, the date/time that the rejection occurred
         /// </summary>
         /// <value>If the order was rejected, the date/time that the rejection occurred</value>
         [DataMember(Name="reject_dts", EmitDefaultValue=false)]
         public string RejectDts { get; set; }
+
+        /// <summary>
+        /// Reject reason code.  This can only be written during a reject operation otherwise this field is read only.
+        /// </summary>
+        /// <value>Reject reason code.  This can only be written during a reject operation otherwise this field is read only.</value>
+        [DataMember(Name="reject_reason", EmitDefaultValue=false)]
+        public string RejectReason { get; set; }
 
         /// <summary>
         /// Gets or Sets Salesforce
@@ -458,7 +476,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Quote: ").Append(Quote).Append("\n");
             sb.Append("  RefundDts: ").Append(RefundDts).Append("\n");
+            sb.Append("  RefundReason: ").Append(RefundReason).Append("\n");
             sb.Append("  RejectDts: ").Append(RejectDts).Append("\n");
+            sb.Append("  RejectReason: ").Append(RejectReason).Append("\n");
             sb.Append("  Salesforce: ").Append(Salesforce).Append("\n");
             sb.Append("  Shipping: ").Append(Shipping).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
@@ -649,9 +669,19 @@ namespace com.ultracart.admin.v2.Model
                     this.RefundDts.Equals(input.RefundDts))
                 ) && 
                 (
+                    this.RefundReason == input.RefundReason ||
+                    (this.RefundReason != null &&
+                    this.RefundReason.Equals(input.RefundReason))
+                ) && 
+                (
                     this.RejectDts == input.RejectDts ||
                     (this.RejectDts != null &&
                     this.RejectDts.Equals(input.RejectDts))
+                ) && 
+                (
+                    this.RejectReason == input.RejectReason ||
+                    (this.RejectReason != null &&
+                    this.RejectReason.Equals(input.RejectReason))
                 ) && 
                 (
                     this.Salesforce == input.Salesforce ||
@@ -754,8 +784,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Quote.GetHashCode();
                 if (this.RefundDts != null)
                     hashCode = hashCode * 59 + this.RefundDts.GetHashCode();
+                if (this.RefundReason != null)
+                    hashCode = hashCode * 59 + this.RefundReason.GetHashCode();
                 if (this.RejectDts != null)
                     hashCode = hashCode * 59 + this.RejectDts.GetHashCode();
+                if (this.RejectReason != null)
+                    hashCode = hashCode * 59 + this.RejectReason.GetHashCode();
                 if (this.Salesforce != null)
                     hashCode = hashCode * 59 + this.Salesforce.GetHashCode();
                 if (this.Shipping != null)

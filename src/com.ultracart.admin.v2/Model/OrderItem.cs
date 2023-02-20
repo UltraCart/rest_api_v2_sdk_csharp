@@ -115,6 +115,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="quantity">Quantity.</param>
         /// <param name="quantityRefunded">Quantity refunded on this item (read only except refund operation).</param>
         /// <param name="quickbooksClass">QuickBooks class.</param>
+        /// <param name="refundReason">Refund reason code.  This can only be written during a refund operation otherwise this field is read only..</param>
+        /// <param name="returnReason">Return reason code.  This can only be written during a refund operation otherwise this field is read only..</param>
         /// <param name="shipSeparately">True if this item ships in a separate box.</param>
         /// <param name="shippedByUser">Shipped by user.</param>
         /// <param name="shippedDts">Date/time that this item was marked shipped.</param>
@@ -131,7 +133,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="upsell">True if this item was added to the order as part of an upsell.</param>
         /// <param name="weight">weight.</param>
         /// <param name="width">width.</param>
-        public OrderItem(string accountingCode = default(string), List<string> activationCodes = default(List<string>), Currency arbitraryUnitCost = default(Currency), string autoOrderLastRebillDts = default(string), string autoOrderSchedule = default(string), string barcode = default(string), string channelPartnerItemId = default(string), decimal? cogs = default(decimal?), decimal? componentUnitValue = default(decimal?), Currency cost = default(Currency), string countryCodeOfOrigin = default(string), string customsDescription = default(string), string description = default(string), Currency discount = default(Currency), decimal? discountQuantity = default(decimal?), Weight discountShippingWeight = default(Weight), string distributionCenterCode = default(string), OrderItemEdi edi = default(OrderItemEdi), bool? excludeCoupon = default(bool?), bool? freeShipping = default(bool?), bool? hazmat = default(bool?), Distance height = default(Distance), int? itemIndex = default(int?), int? itemReferenceOid = default(int?), bool? kit = default(bool?), bool? kitComponent = default(bool?), Distance length = default(Distance), string manufacturerSku = default(string), int? maxDaysTimeInTransit = default(int?), string merchantItemId = default(string), string mixAndMatchGroupName = default(string), int? mixAndMatchGroupOid = default(int?), bool? noShippingDiscount = default(bool?), List<OrderItemOption> options = default(List<OrderItemOption>), string packedByUser = default(string), int? parentItemIndex = default(int?), string parentMerchantItemId = default(string), string perishableClass = default(string), string pricingTierName = default(string), List<OrderItemProperty> properties = default(List<OrderItemProperty>), decimal? quantity = default(decimal?), decimal? quantityRefunded = default(decimal?), string quickbooksClass = default(string), bool? shipSeparately = default(bool?), string shippedByUser = default(string), string shippedDts = default(string), string shippingStatus = default(string), string specialProductType = default(string), List<OrderItemTag> tags = default(List<OrderItemTag>), bool? taxFree = default(bool?), TaxProductTypeEnum? taxProductType = default(TaxProductTypeEnum?), Currency taxableCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency totalRefunded = default(Currency), string transmittedToDistributionCenterDts = default(string), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), Weight weight = default(Weight), Distance width = default(Distance))
+        public OrderItem(string accountingCode = default(string), List<string> activationCodes = default(List<string>), Currency arbitraryUnitCost = default(Currency), string autoOrderLastRebillDts = default(string), string autoOrderSchedule = default(string), string barcode = default(string), string channelPartnerItemId = default(string), decimal? cogs = default(decimal?), decimal? componentUnitValue = default(decimal?), Currency cost = default(Currency), string countryCodeOfOrigin = default(string), string customsDescription = default(string), string description = default(string), Currency discount = default(Currency), decimal? discountQuantity = default(decimal?), Weight discountShippingWeight = default(Weight), string distributionCenterCode = default(string), OrderItemEdi edi = default(OrderItemEdi), bool? excludeCoupon = default(bool?), bool? freeShipping = default(bool?), bool? hazmat = default(bool?), Distance height = default(Distance), int? itemIndex = default(int?), int? itemReferenceOid = default(int?), bool? kit = default(bool?), bool? kitComponent = default(bool?), Distance length = default(Distance), string manufacturerSku = default(string), int? maxDaysTimeInTransit = default(int?), string merchantItemId = default(string), string mixAndMatchGroupName = default(string), int? mixAndMatchGroupOid = default(int?), bool? noShippingDiscount = default(bool?), List<OrderItemOption> options = default(List<OrderItemOption>), string packedByUser = default(string), int? parentItemIndex = default(int?), string parentMerchantItemId = default(string), string perishableClass = default(string), string pricingTierName = default(string), List<OrderItemProperty> properties = default(List<OrderItemProperty>), decimal? quantity = default(decimal?), decimal? quantityRefunded = default(decimal?), string quickbooksClass = default(string), string refundReason = default(string), string returnReason = default(string), bool? shipSeparately = default(bool?), string shippedByUser = default(string), string shippedDts = default(string), string shippingStatus = default(string), string specialProductType = default(string), List<OrderItemTag> tags = default(List<OrderItemTag>), bool? taxFree = default(bool?), TaxProductTypeEnum? taxProductType = default(TaxProductTypeEnum?), Currency taxableCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency totalRefunded = default(Currency), string transmittedToDistributionCenterDts = default(string), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), Weight weight = default(Weight), Distance width = default(Distance))
         {
             this.AccountingCode = accountingCode;
             this.ActivationCodes = activationCodes;
@@ -176,6 +178,8 @@ namespace com.ultracart.admin.v2.Model
             this.Quantity = quantity;
             this.QuantityRefunded = quantityRefunded;
             this.QuickbooksClass = quickbooksClass;
+            this.RefundReason = refundReason;
+            this.ReturnReason = returnReason;
             this.ShipSeparately = shipSeparately;
             this.ShippedByUser = shippedByUser;
             this.ShippedDts = shippedDts;
@@ -489,6 +493,20 @@ namespace com.ultracart.admin.v2.Model
         public string QuickbooksClass { get; set; }
 
         /// <summary>
+        /// Refund reason code.  This can only be written during a refund operation otherwise this field is read only.
+        /// </summary>
+        /// <value>Refund reason code.  This can only be written during a refund operation otherwise this field is read only.</value>
+        [DataMember(Name="refund_reason", EmitDefaultValue=false)]
+        public string RefundReason { get; set; }
+
+        /// <summary>
+        /// Return reason code.  This can only be written during a refund operation otherwise this field is read only.
+        /// </summary>
+        /// <value>Return reason code.  This can only be written during a refund operation otherwise this field is read only.</value>
+        [DataMember(Name="return_reason", EmitDefaultValue=false)]
+        public string ReturnReason { get; set; }
+
+        /// <summary>
         /// True if this item ships in a separate box
         /// </summary>
         /// <value>True if this item ships in a separate box</value>
@@ -639,6 +657,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  QuantityRefunded: ").Append(QuantityRefunded).Append("\n");
             sb.Append("  QuickbooksClass: ").Append(QuickbooksClass).Append("\n");
+            sb.Append("  RefundReason: ").Append(RefundReason).Append("\n");
+            sb.Append("  ReturnReason: ").Append(ReturnReason).Append("\n");
             sb.Append("  ShipSeparately: ").Append(ShipSeparately).Append("\n");
             sb.Append("  ShippedByUser: ").Append(ShippedByUser).Append("\n");
             sb.Append("  ShippedDts: ").Append(ShippedDts).Append("\n");
@@ -905,6 +925,16 @@ namespace com.ultracart.admin.v2.Model
                     this.QuickbooksClass.Equals(input.QuickbooksClass))
                 ) && 
                 (
+                    this.RefundReason == input.RefundReason ||
+                    (this.RefundReason != null &&
+                    this.RefundReason.Equals(input.RefundReason))
+                ) && 
+                (
+                    this.ReturnReason == input.ReturnReason ||
+                    (this.ReturnReason != null &&
+                    this.ReturnReason.Equals(input.ReturnReason))
+                ) && 
+                (
                     this.ShipSeparately == input.ShipSeparately ||
                     (this.ShipSeparately != null &&
                     this.ShipSeparately.Equals(input.ShipSeparately))
@@ -1081,6 +1111,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.QuantityRefunded.GetHashCode();
                 if (this.QuickbooksClass != null)
                     hashCode = hashCode * 59 + this.QuickbooksClass.GetHashCode();
+                if (this.RefundReason != null)
+                    hashCode = hashCode * 59 + this.RefundReason.GetHashCode();
+                if (this.ReturnReason != null)
+                    hashCode = hashCode * 59 + this.ReturnReason.GetHashCode();
                 if (this.ShipSeparately != null)
                     hashCode = hashCode * 59 + this.ShipSeparately.GetHashCode();
                 if (this.ShippedByUser != null)

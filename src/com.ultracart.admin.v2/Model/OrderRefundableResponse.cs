@@ -34,14 +34,26 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="OrderRefundableResponse" /> class.
         /// </summary>
         /// <param name="error">error.</param>
+        /// <param name="itemLevelRefundReasonRequired">True if the item level refund reason is required.</param>
+        /// <param name="itemLevelRefundReasons">Reason codes available at the item level..</param>
+        /// <param name="itemLevelReturnReasons">Return codes available at the item level..</param>
         /// <param name="metadata">metadata.</param>
+        /// <param name="orderLevelRefundReasonRequired">True if the order level refund reason is required.</param>
+        /// <param name="orderLevelRefundReasons">Reason codes available at the order level..</param>
+        /// <param name="orderLevelRejectReasons">Reject codes available at the order level..</param>
         /// <param name="refundable">Whether the order is refundable or not.  Null should be interpreted as false..</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public OrderRefundableResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? refundable = default(bool?), bool? success = default(bool?), Warning warning = default(Warning))
+        public OrderRefundableResponse(Error error = default(Error), bool? itemLevelRefundReasonRequired = default(bool?), List<OrderReason> itemLevelRefundReasons = default(List<OrderReason>), List<OrderReason> itemLevelReturnReasons = default(List<OrderReason>), ResponseMetadata metadata = default(ResponseMetadata), bool? orderLevelRefundReasonRequired = default(bool?), List<OrderReason> orderLevelRefundReasons = default(List<OrderReason>), List<OrderReason> orderLevelRejectReasons = default(List<OrderReason>), bool? refundable = default(bool?), bool? success = default(bool?), Warning warning = default(Warning))
         {
             this.Error = error;
+            this.ItemLevelRefundReasonRequired = itemLevelRefundReasonRequired;
+            this.ItemLevelRefundReasons = itemLevelRefundReasons;
+            this.ItemLevelReturnReasons = itemLevelReturnReasons;
             this.Metadata = metadata;
+            this.OrderLevelRefundReasonRequired = orderLevelRefundReasonRequired;
+            this.OrderLevelRefundReasons = orderLevelRefundReasons;
+            this.OrderLevelRejectReasons = orderLevelRejectReasons;
             this.Refundable = refundable;
             this.Success = success;
             this.Warning = warning;
@@ -54,10 +66,52 @@ namespace com.ultracart.admin.v2.Model
         public Error Error { get; set; }
 
         /// <summary>
+        /// True if the item level refund reason is required
+        /// </summary>
+        /// <value>True if the item level refund reason is required</value>
+        [DataMember(Name="item_level_refund_reason_required", EmitDefaultValue=false)]
+        public bool? ItemLevelRefundReasonRequired { get; set; }
+
+        /// <summary>
+        /// Reason codes available at the item level.
+        /// </summary>
+        /// <value>Reason codes available at the item level.</value>
+        [DataMember(Name="item_level_refund_reasons", EmitDefaultValue=false)]
+        public List<OrderReason> ItemLevelRefundReasons { get; set; }
+
+        /// <summary>
+        /// Return codes available at the item level.
+        /// </summary>
+        /// <value>Return codes available at the item level.</value>
+        [DataMember(Name="item_level_return_reasons", EmitDefaultValue=false)]
+        public List<OrderReason> ItemLevelReturnReasons { get; set; }
+
+        /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public ResponseMetadata Metadata { get; set; }
+
+        /// <summary>
+        /// True if the order level refund reason is required
+        /// </summary>
+        /// <value>True if the order level refund reason is required</value>
+        [DataMember(Name="order_level_refund_reason_required", EmitDefaultValue=false)]
+        public bool? OrderLevelRefundReasonRequired { get; set; }
+
+        /// <summary>
+        /// Reason codes available at the order level.
+        /// </summary>
+        /// <value>Reason codes available at the order level.</value>
+        [DataMember(Name="order_level_refund_reasons", EmitDefaultValue=false)]
+        public List<OrderReason> OrderLevelRefundReasons { get; set; }
+
+        /// <summary>
+        /// Reject codes available at the order level.
+        /// </summary>
+        /// <value>Reject codes available at the order level.</value>
+        [DataMember(Name="order_level_reject_reasons", EmitDefaultValue=false)]
+        public List<OrderReason> OrderLevelRejectReasons { get; set; }
 
         /// <summary>
         /// Whether the order is refundable or not.  Null should be interpreted as false.
@@ -88,7 +142,13 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class OrderRefundableResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
+            sb.Append("  ItemLevelRefundReasonRequired: ").Append(ItemLevelRefundReasonRequired).Append("\n");
+            sb.Append("  ItemLevelRefundReasons: ").Append(ItemLevelRefundReasons).Append("\n");
+            sb.Append("  ItemLevelReturnReasons: ").Append(ItemLevelReturnReasons).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  OrderLevelRefundReasonRequired: ").Append(OrderLevelRefundReasonRequired).Append("\n");
+            sb.Append("  OrderLevelRefundReasons: ").Append(OrderLevelRefundReasons).Append("\n");
+            sb.Append("  OrderLevelRejectReasons: ").Append(OrderLevelRejectReasons).Append("\n");
             sb.Append("  Refundable: ").Append(Refundable).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
@@ -132,9 +192,39 @@ namespace com.ultracart.admin.v2.Model
                     this.Error.Equals(input.Error))
                 ) && 
                 (
+                    this.ItemLevelRefundReasonRequired == input.ItemLevelRefundReasonRequired ||
+                    (this.ItemLevelRefundReasonRequired != null &&
+                    this.ItemLevelRefundReasonRequired.Equals(input.ItemLevelRefundReasonRequired))
+                ) && 
+                (
+                    this.ItemLevelRefundReasons == input.ItemLevelRefundReasons ||
+                    this.ItemLevelRefundReasons != null &&
+                    this.ItemLevelRefundReasons.SequenceEqual(input.ItemLevelRefundReasons)
+                ) && 
+                (
+                    this.ItemLevelReturnReasons == input.ItemLevelReturnReasons ||
+                    this.ItemLevelReturnReasons != null &&
+                    this.ItemLevelReturnReasons.SequenceEqual(input.ItemLevelReturnReasons)
+                ) && 
+                (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
+                ) && 
+                (
+                    this.OrderLevelRefundReasonRequired == input.OrderLevelRefundReasonRequired ||
+                    (this.OrderLevelRefundReasonRequired != null &&
+                    this.OrderLevelRefundReasonRequired.Equals(input.OrderLevelRefundReasonRequired))
+                ) && 
+                (
+                    this.OrderLevelRefundReasons == input.OrderLevelRefundReasons ||
+                    this.OrderLevelRefundReasons != null &&
+                    this.OrderLevelRefundReasons.SequenceEqual(input.OrderLevelRefundReasons)
+                ) && 
+                (
+                    this.OrderLevelRejectReasons == input.OrderLevelRejectReasons ||
+                    this.OrderLevelRejectReasons != null &&
+                    this.OrderLevelRejectReasons.SequenceEqual(input.OrderLevelRejectReasons)
                 ) && 
                 (
                     this.Refundable == input.Refundable ||
@@ -164,8 +254,20 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
+                if (this.ItemLevelRefundReasonRequired != null)
+                    hashCode = hashCode * 59 + this.ItemLevelRefundReasonRequired.GetHashCode();
+                if (this.ItemLevelRefundReasons != null)
+                    hashCode = hashCode * 59 + this.ItemLevelRefundReasons.GetHashCode();
+                if (this.ItemLevelReturnReasons != null)
+                    hashCode = hashCode * 59 + this.ItemLevelReturnReasons.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                if (this.OrderLevelRefundReasonRequired != null)
+                    hashCode = hashCode * 59 + this.OrderLevelRefundReasonRequired.GetHashCode();
+                if (this.OrderLevelRefundReasons != null)
+                    hashCode = hashCode * 59 + this.OrderLevelRefundReasons.GetHashCode();
+                if (this.OrderLevelRejectReasons != null)
+                    hashCode = hashCode * 59 + this.OrderLevelRejectReasons.GetHashCode();
                 if (this.Refundable != null)
                     hashCode = hashCode * 59 + this.Refundable.GetHashCode();
                 if (this.Success != null)

@@ -4,7 +4,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Error** | [**Error**](Error.md) |  | [optional] 
+**ItemLevelRefundReasonRequired** | **bool?** | True if the item level refund reason is required | [optional] 
+**ItemLevelRefundReasons** | [**List&lt;OrderReason&gt;**](OrderReason.md) | Reason codes available at the item level. | [optional] 
+**ItemLevelReturnReasons** | [**List&lt;OrderReason&gt;**](OrderReason.md) | Return codes available at the item level. | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**OrderLevelRefundReasonRequired** | **bool?** | True if the order level refund reason is required | [optional] 
+**OrderLevelRefundReasons** | [**List&lt;OrderReason&gt;**](OrderReason.md) | Reason codes available at the order level. | [optional] 
+**OrderLevelRejectReasons** | [**List&lt;OrderReason&gt;**](OrderReason.md) | Reject codes available at the order level. | [optional] 
 **Refundable** | **bool?** | Whether the order is refundable or not.  Null should be interpreted as false. | [optional] 
 **Success** | **bool?** | Indicates if API call was successful | [optional] 
 **Warning** | [**Warning**](Warning.md) |  | [optional] 

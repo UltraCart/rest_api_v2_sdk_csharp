@@ -69,16 +69,18 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="active">active.</param>
         /// <param name="conversationEngagementOid">conversationEngagementOid.</param>
         /// <param name="customerGreeting">customerGreeting.</param>
+        /// <param name="customerInitiated">customerInitiated.</param>
         /// <param name="departmentOids">departmentOids.</param>
         /// <param name="engagementName">engagementName.</param>
         /// <param name="equation">equation.</param>
         /// <param name="timeOnPage">timeOnPage.</param>
         /// <param name="visitorType">The type of visitor.</param>
-        public ConversationEngagement(bool active = default(bool), int conversationEngagementOid = default(int), string customerGreeting = default(string), List<int> departmentOids = default(List<int>), string engagementName = default(string), ConversationEngagementEquation equation = default(ConversationEngagementEquation), int timeOnPage = default(int), VisitorTypeEnum? visitorType = default(VisitorTypeEnum?))
+        public ConversationEngagement(bool active = default(bool), int conversationEngagementOid = default(int), string customerGreeting = default(string), bool customerInitiated = default(bool), List<int> departmentOids = default(List<int>), string engagementName = default(string), ConversationEngagementEquation equation = default(ConversationEngagementEquation), int timeOnPage = default(int), VisitorTypeEnum? visitorType = default(VisitorTypeEnum?))
         {
             this.Active = active;
             this.ConversationEngagementOid = conversationEngagementOid;
             this.CustomerGreeting = customerGreeting;
+            this.CustomerInitiated = customerInitiated;
             this.DepartmentOids = departmentOids;
             this.EngagementName = engagementName;
             this.Equation = equation;
@@ -103,6 +105,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="customer_greeting", EmitDefaultValue=false)]
         public string CustomerGreeting { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CustomerInitiated
+        /// </summary>
+        [DataMember(Name="customer_initiated", EmitDefaultValue=false)]
+        public bool CustomerInitiated { get; set; }
 
         /// <summary>
         /// Gets or Sets DepartmentOids
@@ -140,6 +148,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  ConversationEngagementOid: ").Append(ConversationEngagementOid).Append("\n");
             sb.Append("  CustomerGreeting: ").Append(CustomerGreeting).Append("\n");
+            sb.Append("  CustomerInitiated: ").Append(CustomerInitiated).Append("\n");
             sb.Append("  DepartmentOids: ").Append(DepartmentOids).Append("\n");
             sb.Append("  EngagementName: ").Append(EngagementName).Append("\n");
             sb.Append("  Equation: ").Append(Equation).Append("\n");
@@ -195,6 +204,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CustomerGreeting.Equals(input.CustomerGreeting))
                 ) && 
                 (
+                    this.CustomerInitiated == input.CustomerInitiated ||
+                    (this.CustomerInitiated != null &&
+                    this.CustomerInitiated.Equals(input.CustomerInitiated))
+                ) && 
+                (
                     this.DepartmentOids == input.DepartmentOids ||
                     this.DepartmentOids != null &&
                     input.DepartmentOids != null &&
@@ -237,6 +251,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ConversationEngagementOid.GetHashCode();
                 if (this.CustomerGreeting != null)
                     hashCode = hashCode * 59 + this.CustomerGreeting.GetHashCode();
+                if (this.CustomerInitiated != null)
+                    hashCode = hashCode * 59 + this.CustomerInitiated.GetHashCode();
                 if (this.DepartmentOids != null)
                     hashCode = hashCode * 59 + this.DepartmentOids.GetHashCode();
                 if (this.EngagementName != null)

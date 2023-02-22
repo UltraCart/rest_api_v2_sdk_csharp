@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Active** | **bool?** |  | [optional] 
 **ConversationEngagementOid** | **int?** |  | [optional] 
 **CustomerGreeting** | **string** |  | [optional] 
+**CustomerInitiated** | **bool?** |  | [optional] 
 **DepartmentOids** | **List&lt;int?&gt;** |  | [optional] 
 **EngagementName** | **string** |  | [optional] 
 **Equation** | [**ConversationEngagementEquation**](ConversationEngagementEquation.md) |  | [optional] 

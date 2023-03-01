@@ -73,10 +73,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantId">merchantId.</param>
         /// <param name="messageCount">messageCount.</param>
         /// <param name="participants">participants.</param>
+        /// <param name="sentiment">sentiment.</param>
         /// <param name="startDts">Start of the conversation date/time.</param>
         /// <param name="unreadMessages">unreadMessages.</param>
         /// <param name="visible">visible.</param>
-        public ConversationSummary(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string customerFirstMessageUnrespondedToDts = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastInteractiveMessageDts = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationParticipant> participants = default(List<ConversationParticipant>), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
+        public ConversationSummary(bool? closed = default(bool?), string conversationArn = default(string), string conversationUuid = default(string), string customerFirstMessageUnrespondedToDts = default(string), string lastConversationMessageBody = default(string), string lastConversationParticipantArn = default(string), string lastConversationParticipantName = default(string), string lastInteractiveMessageDts = default(string), string lastMessageDts = default(string), MediumEnum? medium = default(MediumEnum?), string merchantId = default(string), int? messageCount = default(int?), List<ConversationParticipant> participants = default(List<ConversationParticipant>), ConversationSentiment sentiment = default(ConversationSentiment), string startDts = default(string), bool? unreadMessages = default(bool?), bool? visible = default(bool?))
         {
             this.Closed = closed;
             this.ConversationArn = conversationArn;
@@ -91,6 +92,7 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantId = merchantId;
             this.MessageCount = messageCount;
             this.Participants = participants;
+            this.Sentiment = sentiment;
             this.StartDts = startDts;
             this.UnreadMessages = unreadMessages;
             this.Visible = visible;
@@ -173,6 +175,12 @@ namespace com.ultracart.admin.v2.Model
         public List<ConversationParticipant> Participants { get; set; }
 
         /// <summary>
+        /// Gets or Sets Sentiment
+        /// </summary>
+        [DataMember(Name="sentiment", EmitDefaultValue=false)]
+        public ConversationSentiment Sentiment { get; set; }
+
+        /// <summary>
         /// Start of the conversation date/time
         /// </summary>
         /// <value>Start of the conversation date/time</value>
@@ -212,6 +220,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  MessageCount: ").Append(MessageCount).Append("\n");
             sb.Append("  Participants: ").Append(Participants).Append("\n");
+            sb.Append("  Sentiment: ").Append(Sentiment).Append("\n");
             sb.Append("  StartDts: ").Append(StartDts).Append("\n");
             sb.Append("  UnreadMessages: ").Append(UnreadMessages).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
@@ -315,6 +324,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Participants.SequenceEqual(input.Participants)
                 ) && 
                 (
+                    this.Sentiment == input.Sentiment ||
+                    (this.Sentiment != null &&
+                    this.Sentiment.Equals(input.Sentiment))
+                ) && 
+                (
                     this.StartDts == input.StartDts ||
                     (this.StartDts != null &&
                     this.StartDts.Equals(input.StartDts))
@@ -366,6 +380,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MessageCount.GetHashCode();
                 if (this.Participants != null)
                     hashCode = hashCode * 59 + this.Participants.GetHashCode();
+                if (this.Sentiment != null)
+                    hashCode = hashCode * 59 + this.Sentiment.GetHashCode();
                 if (this.StartDts != null)
                     hashCode = hashCode * 59 + this.StartDts.GetHashCode();
                 if (this.UnreadMessages != null)

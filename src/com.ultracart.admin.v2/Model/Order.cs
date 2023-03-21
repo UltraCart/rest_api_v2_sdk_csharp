@@ -108,7 +108,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum AdvancedOrderRouting for value: Advanced Order Routing
             /// </summary>
             [EnumMember(Value = "Advanced Order Routing")]
-            AdvancedOrderRouting = 12
+            AdvancedOrderRouting = 12,
+            
+            /// <summary>
+            /// Enum Hold for value: Hold
+            /// </summary>
+            [EnumMember(Value = "Hold")]
+            Hold = 13
         }
 
         /// <summary>

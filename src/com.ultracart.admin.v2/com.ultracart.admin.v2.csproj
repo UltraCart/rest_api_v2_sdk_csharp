@@ -12,7 +12,7 @@ Contact: support@ultracart.com
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{25DFDD41-576B-4B94-B779-A24EB6A375E2}</ProjectGuid>
+    <ProjectGuid>{EC665134-BC71-4E5E-806F-A1FE665CDDBF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>com.ultracart.admin.v2</RootNamespace>

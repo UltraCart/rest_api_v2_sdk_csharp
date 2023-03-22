@@ -37,6 +37,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="itemLevelRefundReasonRequired">True if the item level refund reason is required.</param>
         /// <param name="itemLevelRefundReasons">Reason codes available at the item level..</param>
         /// <param name="itemLevelReturnReasons">Return codes available at the item level..</param>
+        /// <param name="manualBecauseMultipleCharges">If true, this refund will have to be manually done because of additional charges with the virtual terminal were made.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="orderLevelRefundReasonRequired">True if the order level refund reason is required.</param>
         /// <param name="orderLevelRefundReasons">Reason codes available at the order level..</param>
@@ -44,12 +45,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="refundable">Whether the order is refundable or not.  Null should be interpreted as false..</param>
         /// <param name="success">Indicates if API call was successful.</param>
         /// <param name="warning">warning.</param>
-        public OrderRefundableResponse(Error error = default(Error), bool itemLevelRefundReasonRequired = default(bool), List<OrderReason> itemLevelRefundReasons = default(List<OrderReason>), List<OrderReason> itemLevelReturnReasons = default(List<OrderReason>), ResponseMetadata metadata = default(ResponseMetadata), bool orderLevelRefundReasonRequired = default(bool), List<OrderReason> orderLevelRefundReasons = default(List<OrderReason>), List<OrderReason> orderLevelRejectReasons = default(List<OrderReason>), bool refundable = default(bool), bool success = default(bool), Warning warning = default(Warning))
+        public OrderRefundableResponse(Error error = default(Error), bool itemLevelRefundReasonRequired = default(bool), List<OrderReason> itemLevelRefundReasons = default(List<OrderReason>), List<OrderReason> itemLevelReturnReasons = default(List<OrderReason>), bool manualBecauseMultipleCharges = default(bool), ResponseMetadata metadata = default(ResponseMetadata), bool orderLevelRefundReasonRequired = default(bool), List<OrderReason> orderLevelRefundReasons = default(List<OrderReason>), List<OrderReason> orderLevelRejectReasons = default(List<OrderReason>), bool refundable = default(bool), bool success = default(bool), Warning warning = default(Warning))
         {
             this.Error = error;
             this.ItemLevelRefundReasonRequired = itemLevelRefundReasonRequired;
             this.ItemLevelRefundReasons = itemLevelRefundReasons;
             this.ItemLevelReturnReasons = itemLevelReturnReasons;
+            this.ManualBecauseMultipleCharges = manualBecauseMultipleCharges;
             this.Metadata = metadata;
             this.OrderLevelRefundReasonRequired = orderLevelRefundReasonRequired;
             this.OrderLevelRefundReasons = orderLevelRefundReasons;
@@ -85,6 +87,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Return codes available at the item level.</value>
         [DataMember(Name="item_level_return_reasons", EmitDefaultValue=false)]
         public List<OrderReason> ItemLevelReturnReasons { get; set; }
+
+        /// <summary>
+        /// If true, this refund will have to be manually done because of additional charges with the virtual terminal were made
+        /// </summary>
+        /// <value>If true, this refund will have to be manually done because of additional charges with the virtual terminal were made</value>
+        [DataMember(Name="manual_because_multiple_charges", EmitDefaultValue=false)]
+        public bool ManualBecauseMultipleCharges { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
@@ -145,6 +154,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ItemLevelRefundReasonRequired: ").Append(ItemLevelRefundReasonRequired).Append("\n");
             sb.Append("  ItemLevelRefundReasons: ").Append(ItemLevelRefundReasons).Append("\n");
             sb.Append("  ItemLevelReturnReasons: ").Append(ItemLevelReturnReasons).Append("\n");
+            sb.Append("  ManualBecauseMultipleCharges: ").Append(ManualBecauseMultipleCharges).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  OrderLevelRefundReasonRequired: ").Append(OrderLevelRefundReasonRequired).Append("\n");
             sb.Append("  OrderLevelRefundReasons: ").Append(OrderLevelRefundReasons).Append("\n");
@@ -209,6 +219,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ItemLevelReturnReasons.SequenceEqual(input.ItemLevelReturnReasons)
                 ) && 
                 (
+                    this.ManualBecauseMultipleCharges == input.ManualBecauseMultipleCharges ||
+                    (this.ManualBecauseMultipleCharges != null &&
+                    this.ManualBecauseMultipleCharges.Equals(input.ManualBecauseMultipleCharges))
+                ) && 
+                (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
@@ -264,6 +279,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ItemLevelRefundReasons.GetHashCode();
                 if (this.ItemLevelReturnReasons != null)
                     hashCode = hashCode * 59 + this.ItemLevelReturnReasons.GetHashCode();
+                if (this.ManualBecauseMultipleCharges != null)
+                    hashCode = hashCode * 59 + this.ManualBecauseMultipleCharges.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.OrderLevelRefundReasonRequired != null)

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ItemLevelRefundReasonRequired** | **bool** | True if the item level refund reason is required | [optional] 
 **ItemLevelRefundReasons** | [**List&lt;OrderReason&gt;**](OrderReason.md) | Reason codes available at the item level. | [optional] 
 **ItemLevelReturnReasons** | [**List&lt;OrderReason&gt;**](OrderReason.md) | Return codes available at the item level. | [optional] 
+**ManualBecauseMultipleCharges** | **bool** | If true, this refund will have to be manually done because of additional charges with the virtual terminal were made | [optional] 
 **Metadata** | [**ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **OrderLevelRefundReasonRequired** | **bool** | True if the order level refund reason is required | [optional] 
 **OrderLevelRefundReasons** | [**List&lt;OrderReason&gt;**](OrderReason.md) | Reason codes available at the order level. | [optional] 

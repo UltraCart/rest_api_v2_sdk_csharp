@@ -62,7 +62,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="eventType">Event type.</param>
         /// <param name="queryCompletion">queryCompletion.</param>
-        public ReportWebsocketEvent(EventTypeEnum? eventType = default(EventTypeEnum?), ReportDataSetSummary queryCompletion = default(ReportDataSetSummary))
+        public ReportWebsocketEvent(EventTypeEnum? eventType = default(EventTypeEnum?), ReportDataSet queryCompletion = default(ReportDataSet))
         {
             this.EventType = eventType;
             this.QueryCompletion = queryCompletion;
@@ -73,7 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// Gets or Sets QueryCompletion
         /// </summary>
         [DataMember(Name="query_completion", EmitDefaultValue=false)]
-        public ReportDataSetSummary QueryCompletion { get; set; }
+        public ReportDataSet QueryCompletion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

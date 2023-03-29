@@ -653,7 +653,6 @@ docs/ReportDataSetQuery.md
 docs/ReportDataSetResponse.md
 docs/ReportDataSetRow.md
 docs/ReportDataSetSchema.md
-docs/ReportDataSetSummary.md
 docs/ReportDataSource.md
 docs/ReportDataSourceSchema.md
 docs/ReportExecuteQueriesRequest.md
@@ -1454,7 +1453,6 @@ src/com.ultracart.admin.v2/Model/ReportDataSetQuery.cs
 src/com.ultracart.admin.v2/Model/ReportDataSetResponse.cs
 src/com.ultracart.admin.v2/Model/ReportDataSetRow.cs
 src/com.ultracart.admin.v2/Model/ReportDataSetSchema.cs
-src/com.ultracart.admin.v2/Model/ReportDataSetSummary.cs
 src/com.ultracart.admin.v2/Model/ReportDataSource.cs
 src/com.ultracart.admin.v2/Model/ReportDataSourceSchema.cs
 src/com.ultracart.admin.v2/Model/ReportExecuteQueriesRequest.cs

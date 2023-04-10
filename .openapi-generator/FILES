@@ -11,6 +11,7 @@ docs/AccountsReceivableRetryStatAccount.md
 docs/AccountsReceivableRetryStatMetrics.md
 docs/AccountsReceivableRetryStatRevenue.md
 docs/AccountsReceivableRetryStatsResponse.md
+docs/AccountsReceivableRetryTransactionReject.md
 docs/Activity.md
 docs/AddLibraryItemRequest.md
 docs/AdjustInternalCertificateRequest.md
@@ -655,6 +656,9 @@ docs/ReportDataSetRow.md
 docs/ReportDataSetSchema.md
 docs/ReportDataSource.md
 docs/ReportDataSourceSchema.md
+docs/ReportDryRunQueriesRequest.md
+docs/ReportDryRunQueriesResponse.md
+docs/ReportDryRunQueryResult.md
 docs/ReportExecuteQueriesRequest.md
 docs/ReportFilter.md
 docs/ReportFilterConnection.md
@@ -826,6 +830,7 @@ src/com.ultracart.admin.v2/Model/AccountsReceivableRetryStatAccount.cs
 src/com.ultracart.admin.v2/Model/AccountsReceivableRetryStatMetrics.cs
 src/com.ultracart.admin.v2/Model/AccountsReceivableRetryStatRevenue.cs
 src/com.ultracart.admin.v2/Model/AccountsReceivableRetryStatsResponse.cs
+src/com.ultracart.admin.v2/Model/AccountsReceivableRetryTransactionReject.cs
 src/com.ultracart.admin.v2/Model/Activity.cs
 src/com.ultracart.admin.v2/Model/AddLibraryItemRequest.cs
 src/com.ultracart.admin.v2/Model/AdjustInternalCertificateRequest.cs
@@ -1455,6 +1460,9 @@ src/com.ultracart.admin.v2/Model/ReportDataSetRow.cs
 src/com.ultracart.admin.v2/Model/ReportDataSetSchema.cs
 src/com.ultracart.admin.v2/Model/ReportDataSource.cs
 src/com.ultracart.admin.v2/Model/ReportDataSourceSchema.cs
+src/com.ultracart.admin.v2/Model/ReportDryRunQueriesRequest.cs
+src/com.ultracart.admin.v2/Model/ReportDryRunQueriesResponse.cs
+src/com.ultracart.admin.v2/Model/ReportDryRunQueryResult.cs
 src/com.ultracart.admin.v2/Model/ReportExecuteQueriesRequest.cs
 src/com.ultracart.admin.v2/Model/ReportFilter.cs
 src/com.ultracart.admin.v2/Model/ReportFilterConnection.cs

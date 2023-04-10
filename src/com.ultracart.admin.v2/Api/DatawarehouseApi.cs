@@ -47,6 +47,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteReportWithHttpInfo (int reportOid);
         /// <summary>
+        /// Dry run the report queries
+        /// </summary>
+        /// <remarks>
+        /// Dry run the report queries 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queryRequest">Dry run request</param>
+        /// <returns>ReportDryRunQueriesResponse</returns>
+        ReportDryRunQueriesResponse DryRunReportQueries (ReportDryRunQueriesRequest queryRequest);
+
+        /// <summary>
+        /// Dry run the report queries
+        /// </summary>
+        /// <remarks>
+        /// Dry run the report queries 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queryRequest">Dry run request</param>
+        /// <returns>ApiResponse of ReportDryRunQueriesResponse</returns>
+        ApiResponse<ReportDryRunQueriesResponse> DryRunReportQueriesWithHttpInfo (ReportDryRunQueriesRequest queryRequest);
+        /// <summary>
         /// Execute the report queries
         /// </summary>
         /// <remarks>
@@ -239,6 +260,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteReportWithHttpInfoAsync (int reportOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Dry run the report queries
+        /// </summary>
+        /// <remarks>
+        /// Dry run the report queries 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queryRequest">Dry run request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ReportDryRunQueriesResponse</returns>
+        System.Threading.Tasks.Task<ReportDryRunQueriesResponse> DryRunReportQueriesAsync (ReportDryRunQueriesRequest queryRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Dry run the report queries
+        /// </summary>
+        /// <remarks>
+        /// Dry run the report queries 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queryRequest">Dry run request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ReportDryRunQueriesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ReportDryRunQueriesResponse>> DryRunReportQueriesWithHttpInfoAsync (ReportDryRunQueriesRequest queryRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Execute the report queries
         /// </summary>
@@ -705,6 +749,179 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Dry run the report queries Dry run the report queries 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queryRequest">Dry run request</param>
+        /// <returns>ReportDryRunQueriesResponse</returns>
+        public ReportDryRunQueriesResponse DryRunReportQueries (ReportDryRunQueriesRequest queryRequest)
+        {
+             ApiResponse<ReportDryRunQueriesResponse> localVarResponse = DryRunReportQueriesWithHttpInfo(queryRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Dry run the report queries Dry run the report queries 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queryRequest">Dry run request</param>
+        /// <returns>ApiResponse of ReportDryRunQueriesResponse</returns>
+        public ApiResponse<ReportDryRunQueriesResponse> DryRunReportQueriesWithHttpInfo (ReportDryRunQueriesRequest queryRequest)
+        {
+            // verify the required parameter 'queryRequest' is set
+            if (queryRequest == null)
+                throw new ApiException(400, "Missing required parameter 'queryRequest' when calling DatawarehouseApi->DryRunReportQueries");
+
+            var localVarPath = "/datawarehouse/reports/dryrun";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (queryRequest != null && queryRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(queryRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = queryRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DryRunReportQueries", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ReportDryRunQueriesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ReportDryRunQueriesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportDryRunQueriesResponse)));
+        }
+
+        /// <summary>
+        /// Dry run the report queries Dry run the report queries 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queryRequest">Dry run request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ReportDryRunQueriesResponse</returns>
+        public async System.Threading.Tasks.Task<ReportDryRunQueriesResponse> DryRunReportQueriesAsync (ReportDryRunQueriesRequest queryRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ReportDryRunQueriesResponse> localVarResponse = await DryRunReportQueriesWithHttpInfoAsync(queryRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Dry run the report queries Dry run the report queries 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="queryRequest">Dry run request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ReportDryRunQueriesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ReportDryRunQueriesResponse>> DryRunReportQueriesWithHttpInfoAsync (ReportDryRunQueriesRequest queryRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'queryRequest' is set
+            if (queryRequest == null)
+                throw new ApiException(400, "Missing required parameter 'queryRequest' when calling DatawarehouseApi->DryRunReportQueries");
+
+            var localVarPath = "/datawarehouse/reports/dryrun";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (queryRequest != null && queryRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(queryRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = queryRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DryRunReportQueries", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ReportDryRunQueriesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ReportDryRunQueriesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportDryRunQueriesResponse)));
         }
 
         /// <summary>

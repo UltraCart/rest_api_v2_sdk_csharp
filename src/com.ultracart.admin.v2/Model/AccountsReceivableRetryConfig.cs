@@ -46,9 +46,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="processLinkedAccounts">If true, all linked accounts are also processed using the same rules..</param>
         /// <param name="processingPercentage">The percentage rate charged for the service..</param>
         /// <param name="rejectAtEnd">If true, the order is rejected the day after the last configured activity day.</param>
+        /// <param name="transactionRejects">Array of key/value pairs that when found in the response cause the rejection of the transaction..</param>
         /// <param name="trialMode">True if the account is currently in trial mode.  Set to false to exit trial mode..</param>
         /// <param name="trialModeExpirationDts">The date when trial mode expires.  If this date is reached without exiting trial mode, the service will de-activate..</param>
-        public AccountsReceivableRetryConfig(bool active = default(bool), bool allowProcessLinkedAccounts = default(bool), bool cancelAutoOrder = default(bool), string currentServicePlan = default(string), List<AccountsReceivableRetryDayActivity> dailyActivityList = default(List<AccountsReceivableRetryDayActivity>), bool managedByLinkedAccountMerchantId = default(bool), string merchantId = default(string), List<string> notifyEmails = default(List<string>), bool notifyRejections = default(bool), bool notifySuccesses = default(bool), bool processLinkedAccounts = default(bool), string processingPercentage = default(string), bool rejectAtEnd = default(bool), bool trialMode = default(bool), string trialModeExpirationDts = default(string))
+        public AccountsReceivableRetryConfig(bool active = default(bool), bool allowProcessLinkedAccounts = default(bool), bool cancelAutoOrder = default(bool), string currentServicePlan = default(string), List<AccountsReceivableRetryDayActivity> dailyActivityList = default(List<AccountsReceivableRetryDayActivity>), bool managedByLinkedAccountMerchantId = default(bool), string merchantId = default(string), List<string> notifyEmails = default(List<string>), bool notifyRejections = default(bool), bool notifySuccesses = default(bool), bool processLinkedAccounts = default(bool), string processingPercentage = default(string), bool rejectAtEnd = default(bool), List<AccountsReceivableRetryTransactionReject> transactionRejects = default(List<AccountsReceivableRetryTransactionReject>), bool trialMode = default(bool), string trialModeExpirationDts = default(string))
         {
             this.Active = active;
             this.AllowProcessLinkedAccounts = allowProcessLinkedAccounts;
@@ -63,6 +64,7 @@ namespace com.ultracart.admin.v2.Model
             this.ProcessLinkedAccounts = processLinkedAccounts;
             this.ProcessingPercentage = processingPercentage;
             this.RejectAtEnd = rejectAtEnd;
+            this.TransactionRejects = transactionRejects;
             this.TrialMode = trialMode;
             this.TrialModeExpirationDts = trialModeExpirationDts;
         }
@@ -159,6 +161,13 @@ namespace com.ultracart.admin.v2.Model
         public bool RejectAtEnd { get; set; }
 
         /// <summary>
+        /// Array of key/value pairs that when found in the response cause the rejection of the transaction.
+        /// </summary>
+        /// <value>Array of key/value pairs that when found in the response cause the rejection of the transaction.</value>
+        [DataMember(Name="transaction_rejects", EmitDefaultValue=false)]
+        public List<AccountsReceivableRetryTransactionReject> TransactionRejects { get; set; }
+
+        /// <summary>
         /// True if the account is currently in trial mode.  Set to false to exit trial mode.
         /// </summary>
         /// <value>True if the account is currently in trial mode.  Set to false to exit trial mode.</value>
@@ -193,6 +202,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ProcessLinkedAccounts: ").Append(ProcessLinkedAccounts).Append("\n");
             sb.Append("  ProcessingPercentage: ").Append(ProcessingPercentage).Append("\n");
             sb.Append("  RejectAtEnd: ").Append(RejectAtEnd).Append("\n");
+            sb.Append("  TransactionRejects: ").Append(TransactionRejects).Append("\n");
             sb.Append("  TrialMode: ").Append(TrialMode).Append("\n");
             sb.Append("  TrialModeExpirationDts: ").Append(TrialModeExpirationDts).Append("\n");
             sb.Append("}\n");
@@ -297,6 +307,12 @@ namespace com.ultracart.admin.v2.Model
                     this.RejectAtEnd.Equals(input.RejectAtEnd))
                 ) && 
                 (
+                    this.TransactionRejects == input.TransactionRejects ||
+                    this.TransactionRejects != null &&
+                    input.TransactionRejects != null &&
+                    this.TransactionRejects.SequenceEqual(input.TransactionRejects)
+                ) && 
+                (
                     this.TrialMode == input.TrialMode ||
                     (this.TrialMode != null &&
                     this.TrialMode.Equals(input.TrialMode))
@@ -343,6 +359,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ProcessingPercentage.GetHashCode();
                 if (this.RejectAtEnd != null)
                     hashCode = hashCode * 59 + this.RejectAtEnd.GetHashCode();
+                if (this.TransactionRejects != null)
+                    hashCode = hashCode * 59 + this.TransactionRejects.GetHashCode();
                 if (this.TrialMode != null)
                     hashCode = hashCode * 59 + this.TrialMode.GetHashCode();
                 if (this.TrialModeExpirationDts != null)

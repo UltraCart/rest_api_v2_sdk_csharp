@@ -114,6 +114,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="openaiModel">The type of OpenAI model used.</param>
         /// <param name="openaiTotalIterations">The total number of iterations to perform on the experiment.</param>
         /// <param name="optimizationType">Type of optimization.</param>
+        /// <param name="p95SessionsNeeded">Estimated sessions needed to achieve P95.</param>
         /// <param name="pValue">Statistics p-value for the experiment.</param>
         /// <param name="sessionCount">Total number of sessions in the experiment.</param>
         /// <param name="startDts">Start date/time.</param>
@@ -122,7 +123,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="storefrontOid">Storefront oid.</param>
         /// <param name="uri">URI the experiment was started on.</param>
         /// <param name="variations">Variations being tested in the experiment.</param>
-        public Experiment(string containerId = default(string), int durationDays = default(int), string endDts = default(string), bool equalWeighting = default(bool), string experimentType = default(string), string id = default(string), string name = default(string), string notes = default(string), string objective = default(string), string objectiveParameter = default(string), int openaiCurrentIteration = default(int), OpenaiElementTypeEnum? openaiElementType = default(OpenaiElementTypeEnum?), string openaiModel = default(string), int openaiTotalIterations = default(int), string optimizationType = default(string), decimal pValue = default(decimal), int sessionCount = default(int), string startDts = default(string), StatusEnum? status = default(StatusEnum?), int storefrontExperimentOid = default(int), int storefrontOid = default(int), string uri = default(string), List<ExperimentVariation> variations = default(List<ExperimentVariation>))
+        public Experiment(string containerId = default(string), int durationDays = default(int), string endDts = default(string), bool equalWeighting = default(bool), string experimentType = default(string), string id = default(string), string name = default(string), string notes = default(string), string objective = default(string), string objectiveParameter = default(string), int openaiCurrentIteration = default(int), OpenaiElementTypeEnum? openaiElementType = default(OpenaiElementTypeEnum?), string openaiModel = default(string), int openaiTotalIterations = default(int), string optimizationType = default(string), int p95SessionsNeeded = default(int), decimal pValue = default(decimal), int sessionCount = default(int), string startDts = default(string), StatusEnum? status = default(StatusEnum?), int storefrontExperimentOid = default(int), int storefrontOid = default(int), string uri = default(string), List<ExperimentVariation> variations = default(List<ExperimentVariation>))
         {
             this.ContainerId = containerId;
             this.DurationDays = durationDays;
@@ -139,6 +140,7 @@ namespace com.ultracart.admin.v2.Model
             this.OpenaiModel = openaiModel;
             this.OpenaiTotalIterations = openaiTotalIterations;
             this.OptimizationType = optimizationType;
+            this.P95SessionsNeeded = p95SessionsNeeded;
             this.PValue = pValue;
             this.SessionCount = sessionCount;
             this.StartDts = startDts;
@@ -249,6 +251,13 @@ namespace com.ultracart.admin.v2.Model
         public string OptimizationType { get; set; }
 
         /// <summary>
+        /// Estimated sessions needed to achieve P95
+        /// </summary>
+        /// <value>Estimated sessions needed to achieve P95</value>
+        [DataMember(Name="p95_sessions_needed", EmitDefaultValue=false)]
+        public int P95SessionsNeeded { get; set; }
+
+        /// <summary>
         /// Statistics p-value for the experiment
         /// </summary>
         /// <value>Statistics p-value for the experiment</value>
@@ -321,6 +330,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  OpenaiModel: ").Append(OpenaiModel).Append("\n");
             sb.Append("  OpenaiTotalIterations: ").Append(OpenaiTotalIterations).Append("\n");
             sb.Append("  OptimizationType: ").Append(OptimizationType).Append("\n");
+            sb.Append("  P95SessionsNeeded: ").Append(P95SessionsNeeded).Append("\n");
             sb.Append("  PValue: ").Append(PValue).Append("\n");
             sb.Append("  SessionCount: ").Append(SessionCount).Append("\n");
             sb.Append("  StartDts: ").Append(StartDts).Append("\n");
@@ -439,6 +449,11 @@ namespace com.ultracart.admin.v2.Model
                     this.OptimizationType.Equals(input.OptimizationType))
                 ) && 
                 (
+                    this.P95SessionsNeeded == input.P95SessionsNeeded ||
+                    (this.P95SessionsNeeded != null &&
+                    this.P95SessionsNeeded.Equals(input.P95SessionsNeeded))
+                ) && 
+                (
                     this.PValue == input.PValue ||
                     (this.PValue != null &&
                     this.PValue.Equals(input.PValue))
@@ -520,6 +535,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.OpenaiTotalIterations.GetHashCode();
                 if (this.OptimizationType != null)
                     hashCode = hashCode * 59 + this.OptimizationType.GetHashCode();
+                if (this.P95SessionsNeeded != null)
+                    hashCode = hashCode * 59 + this.P95SessionsNeeded.GetHashCode();
                 if (this.PValue != null)
                     hashCode = hashCode * 59 + this.PValue.GetHashCode();
                 if (this.SessionCount != null)

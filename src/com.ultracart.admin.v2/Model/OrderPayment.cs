@@ -156,7 +156,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum ShopCom for value: Shop.com
             /// </summary>
             [EnumMember(Value = "Shop.com")]
-            ShopCom = 20
+            ShopCom = 20,
+            
+            /// <summary>
+            /// Enum Sezzle for value: Sezzle
+            /// </summary>
+            [EnumMember(Value = "Sezzle")]
+            Sezzle = 21
         }
 
         /// <summary>

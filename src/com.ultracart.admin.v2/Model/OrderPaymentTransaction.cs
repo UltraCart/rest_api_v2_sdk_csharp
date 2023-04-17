@@ -36,12 +36,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="details">Details.</param>
         /// <param name="successful">True if the transaction was successful.</param>
         /// <param name="transactionGateway">Transaction gateway.</param>
+        /// <param name="transactionId">Transaction ID.</param>
         /// <param name="transactionTimestamp">Transaction date/time.</param>
-        public OrderPaymentTransaction(List<OrderPaymentTransactionDetail> details = default(List<OrderPaymentTransactionDetail>), bool successful = default(bool), string transactionGateway = default(string), string transactionTimestamp = default(string))
+        public OrderPaymentTransaction(List<OrderPaymentTransactionDetail> details = default(List<OrderPaymentTransactionDetail>), bool successful = default(bool), string transactionGateway = default(string), int transactionId = default(int), string transactionTimestamp = default(string))
         {
             this.Details = details;
             this.Successful = successful;
             this.TransactionGateway = transactionGateway;
+            this.TransactionId = transactionId;
             this.TransactionTimestamp = transactionTimestamp;
         }
 
@@ -67,6 +69,13 @@ namespace com.ultracart.admin.v2.Model
         public string TransactionGateway { get; set; }
 
         /// <summary>
+        /// Transaction ID
+        /// </summary>
+        /// <value>Transaction ID</value>
+        [DataMember(Name="transaction_id", EmitDefaultValue=false)]
+        public int TransactionId { get; set; }
+
+        /// <summary>
         /// Transaction date/time
         /// </summary>
         /// <value>Transaction date/time</value>
@@ -84,6 +93,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("  Successful: ").Append(Successful).Append("\n");
             sb.Append("  TransactionGateway: ").Append(TransactionGateway).Append("\n");
+            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  TransactionTimestamp: ").Append(TransactionTimestamp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -136,6 +146,11 @@ namespace com.ultracart.admin.v2.Model
                     this.TransactionGateway.Equals(input.TransactionGateway))
                 ) && 
                 (
+                    this.TransactionId == input.TransactionId ||
+                    (this.TransactionId != null &&
+                    this.TransactionId.Equals(input.TransactionId))
+                ) && 
+                (
                     this.TransactionTimestamp == input.TransactionTimestamp ||
                     (this.TransactionTimestamp != null &&
                     this.TransactionTimestamp.Equals(input.TransactionTimestamp))
@@ -157,6 +172,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Successful.GetHashCode();
                 if (this.TransactionGateway != null)
                     hashCode = hashCode * 59 + this.TransactionGateway.GetHashCode();
+                if (this.TransactionId != null)
+                    hashCode = hashCode * 59 + this.TransactionId.GetHashCode();
                 if (this.TransactionTimestamp != null)
                     hashCode = hashCode * 59 + this.TransactionTimestamp.GetHashCode();
                 return hashCode;

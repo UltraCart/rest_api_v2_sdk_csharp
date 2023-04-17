@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Details** | [**List&lt;OrderPaymentTransactionDetail&gt;**](OrderPaymentTransactionDetail.md) | Details | [optional] 
 **Successful** | **bool?** | True if the transaction was successful | [optional] 
 **TransactionGateway** | **string** | Transaction gateway | [optional] 
+**TransactionId** | **int?** | Transaction ID | [optional] 
 **TransactionTimestamp** | **string** | Transaction date/time | [optional] 
 
 

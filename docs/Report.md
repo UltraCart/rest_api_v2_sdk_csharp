@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **DataSources** | [**List&lt;ReportDataSource&gt;**](ReportDataSource.md) |  | [optional] 
 **DefaultDatasetId** | **string** |  | [optional] 
 **DefaultProjectId** | **string** |  | [optional] 
+**Filters** | [**List&lt;ReportFilter&gt;**](ReportFilter.md) |  | [optional] 
 **MerchantId** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Pages** | [**List&lt;ReportPage&gt;**](ReportPage.md) |  | [optional] 

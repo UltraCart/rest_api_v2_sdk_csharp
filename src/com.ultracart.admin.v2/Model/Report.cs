@@ -76,17 +76,19 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="dataSources">dataSources.</param>
         /// <param name="defaultDatasetId">defaultDatasetId.</param>
         /// <param name="defaultProjectId">defaultProjectId.</param>
+        /// <param name="filters">filters.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="name">name.</param>
         /// <param name="pages">pages.</param>
         /// <param name="reportOid">Object identifier for this report..</param>
         /// <param name="securityLevel">Security level to execute report under.</param>
-        public Report(bool? active = default(bool?), List<ReportDataSource> dataSources = default(List<ReportDataSource>), string defaultDatasetId = default(string), string defaultProjectId = default(string), string merchantId = default(string), string name = default(string), List<ReportPage> pages = default(List<ReportPage>), int? reportOid = default(int?), SecurityLevelEnum? securityLevel = default(SecurityLevelEnum?))
+        public Report(bool? active = default(bool?), List<ReportDataSource> dataSources = default(List<ReportDataSource>), string defaultDatasetId = default(string), string defaultProjectId = default(string), List<ReportFilter> filters = default(List<ReportFilter>), string merchantId = default(string), string name = default(string), List<ReportPage> pages = default(List<ReportPage>), int? reportOid = default(int?), SecurityLevelEnum? securityLevel = default(SecurityLevelEnum?))
         {
             this.Active = active;
             this.DataSources = dataSources;
             this.DefaultDatasetId = defaultDatasetId;
             this.DefaultProjectId = defaultProjectId;
+            this.Filters = filters;
             this.MerchantId = merchantId;
             this.Name = name;
             this.Pages = pages;
@@ -117,6 +119,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="default_project_id", EmitDefaultValue=false)]
         public string DefaultProjectId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Filters
+        /// </summary>
+        [DataMember(Name="filters", EmitDefaultValue=false)]
+        public List<ReportFilter> Filters { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantId
@@ -156,6 +164,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DataSources: ").Append(DataSources).Append("\n");
             sb.Append("  DefaultDatasetId: ").Append(DefaultDatasetId).Append("\n");
             sb.Append("  DefaultProjectId: ").Append(DefaultProjectId).Append("\n");
+            sb.Append("  Filters: ").Append(Filters).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Pages: ").Append(Pages).Append("\n");
@@ -216,6 +225,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DefaultProjectId.Equals(input.DefaultProjectId))
                 ) && 
                 (
+                    this.Filters == input.Filters ||
+                    this.Filters != null &&
+                    this.Filters.SequenceEqual(input.Filters)
+                ) && 
+                (
                     this.MerchantId == input.MerchantId ||
                     (this.MerchantId != null &&
                     this.MerchantId.Equals(input.MerchantId))
@@ -259,6 +273,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DefaultDatasetId.GetHashCode();
                 if (this.DefaultProjectId != null)
                     hashCode = hashCode * 59 + this.DefaultProjectId.GetHashCode();
+                if (this.Filters != null)
+                    hashCode = hashCode * 59 + this.Filters.GetHashCode();
                 if (this.MerchantId != null)
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Name != null)

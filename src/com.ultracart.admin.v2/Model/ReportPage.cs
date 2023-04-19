@@ -33,18 +33,26 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportPage" /> class.
         /// </summary>
+        /// <param name="filters">filters.</param>
         /// <param name="height">Height of the report page in inches.</param>
         /// <param name="title">title.</param>
         /// <param name="visualizations">Visualizations on the report page..</param>
         /// <param name="width">Width of the report page in inches.</param>
-        public ReportPage(decimal? height = default(decimal?), string title = default(string), List<ReportPageVisualization> visualizations = default(List<ReportPageVisualization>), decimal? width = default(decimal?))
+        public ReportPage(List<ReportFilter> filters = default(List<ReportFilter>), decimal? height = default(decimal?), string title = default(string), List<ReportPageVisualization> visualizations = default(List<ReportPageVisualization>), decimal? width = default(decimal?))
         {
+            this.Filters = filters;
             this.Height = height;
             this.Title = title;
             this.Visualizations = visualizations;
             this.Width = width;
         }
         
+        /// <summary>
+        /// Gets or Sets Filters
+        /// </summary>
+        [DataMember(Name="filters", EmitDefaultValue=false)]
+        public List<ReportFilter> Filters { get; set; }
+
         /// <summary>
         /// Height of the report page in inches
         /// </summary>
@@ -80,6 +88,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportPage {\n");
+            sb.Append("  Filters: ").Append(Filters).Append("\n");
             sb.Append("  Height: ").Append(Height).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Visualizations: ").Append(Visualizations).Append("\n");
@@ -119,6 +128,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Filters == input.Filters ||
+                    this.Filters != null &&
+                    this.Filters.SequenceEqual(input.Filters)
+                ) && 
+                (
                     this.Height == input.Height ||
                     (this.Height != null &&
                     this.Height.Equals(input.Height))
@@ -149,6 +163,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Filters != null)
+                    hashCode = hashCode * 59 + this.Filters.GetHashCode();
                 if (this.Height != null)
                     hashCode = hashCode * 59 + this.Height.GetHashCode();
                 if (this.Title != null)

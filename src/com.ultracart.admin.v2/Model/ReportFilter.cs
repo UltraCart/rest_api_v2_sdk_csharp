@@ -72,22 +72,33 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportFilter" /> class.
         /// </summary>
+        /// <param name="config">A JSON representation of the configuration for this visualization.</param>
         /// <param name="connections">How this filter connects to the data sources and columns.</param>
         /// <param name="name">name.</param>
+        /// <param name="styles">A JSON representation of the style configuration for this visualization.</param>
         /// <param name="timezone">The timezone that the date range is querying on..</param>
         /// <param name="type">Type of filter.</param>
         /// <param name="uuid">Unique UUID assigned to the filter.  Assists when returning values that the filter can use..</param>
         /// <param name="values">The selected values for the filter.  When used, some type conversion will need to occur..</param>
-        public ReportFilter(List<ReportFilterConnection> connections = default(List<ReportFilterConnection>), string name = default(string), string timezone = default(string), TypeEnum? type = default(TypeEnum?), string uuid = default(string), List<string> values = default(List<string>))
+        public ReportFilter(string config = default(string), List<ReportFilterConnection> connections = default(List<ReportFilterConnection>), string name = default(string), string styles = default(string), string timezone = default(string), TypeEnum? type = default(TypeEnum?), string uuid = default(string), List<string> values = default(List<string>))
         {
+            this.Config = config;
             this.Connections = connections;
             this.Name = name;
+            this.Styles = styles;
             this.Timezone = timezone;
             this.Type = type;
             this.Uuid = uuid;
             this.Values = values;
         }
         
+        /// <summary>
+        /// A JSON representation of the configuration for this visualization
+        /// </summary>
+        /// <value>A JSON representation of the configuration for this visualization</value>
+        [DataMember(Name="config", EmitDefaultValue=false)]
+        public string Config { get; set; }
+
         /// <summary>
         /// How this filter connects to the data sources and columns
         /// </summary>
@@ -100,6 +111,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// A JSON representation of the style configuration for this visualization
+        /// </summary>
+        /// <value>A JSON representation of the style configuration for this visualization</value>
+        [DataMember(Name="styles", EmitDefaultValue=false)]
+        public string Styles { get; set; }
 
         /// <summary>
         /// The timezone that the date range is querying on.
@@ -131,8 +149,10 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportFilter {\n");
+            sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("  Connections: ").Append(Connections).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Styles: ").Append(Styles).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Uuid: ").Append(Uuid).Append("\n");
@@ -172,6 +192,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Config == input.Config ||
+                    (this.Config != null &&
+                    this.Config.Equals(input.Config))
+                ) && 
+                (
                     this.Connections == input.Connections ||
                     this.Connections != null &&
                     this.Connections.SequenceEqual(input.Connections)
@@ -180,6 +205,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Styles == input.Styles ||
+                    (this.Styles != null &&
+                    this.Styles.Equals(input.Styles))
                 ) && 
                 (
                     this.Timezone == input.Timezone ||
@@ -212,10 +242,14 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Config != null)
+                    hashCode = hashCode * 59 + this.Config.GetHashCode();
                 if (this.Connections != null)
                     hashCode = hashCode * 59 + this.Connections.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Styles != null)
+                    hashCode = hashCode * 59 + this.Styles.GetHashCode();
                 if (this.Timezone != null)
                     hashCode = hashCode * 59 + this.Timezone.GetHashCode();
                 if (this.Type != null)

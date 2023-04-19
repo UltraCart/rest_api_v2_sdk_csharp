@@ -3,8 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Config** | **string** | A JSON representation of the configuration for this visualization | [optional] 
 **Connections** | [**List&lt;ReportFilterConnection&gt;**](ReportFilterConnection.md) | How this filter connects to the data sources and columns | [optional] 
 **Name** | **string** |  | [optional] 
+**Styles** | **string** | A JSON representation of the style configuration for this visualization | [optional] 
 **Timezone** | **string** | The timezone that the date range is querying on. | [optional] 
 **Type** | **string** | Type of filter | [optional] 
 **Uuid** | **string** | Unique UUID assigned to the filter.  Assists when returning values that the filter can use. | [optional] 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filters** | [**List&lt;ReportFilter&gt;**](ReportFilter.md) |  | [optional] 
+**Filters** | [**List&lt;ReportPageFilter&gt;**](ReportPageFilter.md) |  | [optional] 
 **Height** | **decimal** | Height of the report page in inches | [optional] 
 **Title** | **string** |  | [optional] 
 **Visualizations** | [**List&lt;ReportPageVisualization&gt;**](ReportPageVisualization.md) | Visualizations on the report page. | [optional] 

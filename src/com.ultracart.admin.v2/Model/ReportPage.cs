@@ -38,7 +38,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="title">title.</param>
         /// <param name="visualizations">Visualizations on the report page..</param>
         /// <param name="width">Width of the report page in inches.</param>
-        public ReportPage(List<ReportFilter> filters = default(List<ReportFilter>), decimal height = default(decimal), string title = default(string), List<ReportPageVisualization> visualizations = default(List<ReportPageVisualization>), decimal width = default(decimal))
+        public ReportPage(List<ReportPageFilter> filters = default(List<ReportPageFilter>), decimal height = default(decimal), string title = default(string), List<ReportPageVisualization> visualizations = default(List<ReportPageVisualization>), decimal width = default(decimal))
         {
             this.Filters = filters;
             this.Height = height;
@@ -51,7 +51,7 @@ namespace com.ultracart.admin.v2.Model
         /// Gets or Sets Filters
         /// </summary>
         [DataMember(Name="filters", EmitDefaultValue=false)]
-        public List<ReportFilter> Filters { get; set; }
+        public List<ReportPageFilter> Filters { get; set; }
 
         /// <summary>
         /// Height of the report page in inches

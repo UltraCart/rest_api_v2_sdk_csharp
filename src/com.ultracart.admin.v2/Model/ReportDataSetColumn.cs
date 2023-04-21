@@ -33,17 +33,57 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportDataSetColumn" /> class.
         /// </summary>
-        /// <param name="name">name.</param>
-        public ReportDataSetColumn(string name = default(string))
+        /// <param name="_in">_in.</param>
+        /// <param name="n">n.</param>
+        /// <param name="vd">vd.</param>
+        /// <param name="vdt">vdt.</param>
+        /// <param name="vn">vn.</param>
+        /// <param name="vs">vs.</param>
+        public ReportDataSetColumn(bool _in = default(bool), string n = default(string), string vd = default(string), string vdt = default(string), decimal vn = default(decimal), string vs = default(string))
         {
-            this.Name = name;
+            this.In = _in;
+            this.N = n;
+            this.Vd = vd;
+            this.Vdt = vdt;
+            this.Vn = vn;
+            this.Vs = vs;
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets In
         /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
+        [DataMember(Name="in", EmitDefaultValue=false)]
+        public bool In { get; set; }
+
+        /// <summary>
+        /// Gets or Sets N
+        /// </summary>
+        [DataMember(Name="n", EmitDefaultValue=false)]
+        public string N { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Vd
+        /// </summary>
+        [DataMember(Name="vd", EmitDefaultValue=false)]
+        public string Vd { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Vdt
+        /// </summary>
+        [DataMember(Name="vdt", EmitDefaultValue=false)]
+        public string Vdt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Vn
+        /// </summary>
+        [DataMember(Name="vn", EmitDefaultValue=false)]
+        public decimal Vn { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Vs
+        /// </summary>
+        [DataMember(Name="vs", EmitDefaultValue=false)]
+        public string Vs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,7 +93,12 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportDataSetColumn {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  In: ").Append(In).Append("\n");
+            sb.Append("  N: ").Append(N).Append("\n");
+            sb.Append("  Vd: ").Append(Vd).Append("\n");
+            sb.Append("  Vdt: ").Append(Vdt).Append("\n");
+            sb.Append("  Vn: ").Append(Vn).Append("\n");
+            sb.Append("  Vs: ").Append(Vs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,9 +134,34 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.In == input.In ||
+                    (this.In != null &&
+                    this.In.Equals(input.In))
+                ) && 
+                (
+                    this.N == input.N ||
+                    (this.N != null &&
+                    this.N.Equals(input.N))
+                ) && 
+                (
+                    this.Vd == input.Vd ||
+                    (this.Vd != null &&
+                    this.Vd.Equals(input.Vd))
+                ) && 
+                (
+                    this.Vdt == input.Vdt ||
+                    (this.Vdt != null &&
+                    this.Vdt.Equals(input.Vdt))
+                ) && 
+                (
+                    this.Vn == input.Vn ||
+                    (this.Vn != null &&
+                    this.Vn.Equals(input.Vn))
+                ) && 
+                (
+                    this.Vs == input.Vs ||
+                    (this.Vs != null &&
+                    this.Vs.Equals(input.Vs))
                 );
         }
 
@@ -104,8 +174,18 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.In != null)
+                    hashCode = hashCode * 59 + this.In.GetHashCode();
+                if (this.N != null)
+                    hashCode = hashCode * 59 + this.N.GetHashCode();
+                if (this.Vd != null)
+                    hashCode = hashCode * 59 + this.Vd.GetHashCode();
+                if (this.Vdt != null)
+                    hashCode = hashCode * 59 + this.Vdt.GetHashCode();
+                if (this.Vn != null)
+                    hashCode = hashCode * 59 + this.Vn.GetHashCode();
+                if (this.Vs != null)
+                    hashCode = hashCode * 59 + this.Vs.GetHashCode();
                 return hashCode;
             }
         }

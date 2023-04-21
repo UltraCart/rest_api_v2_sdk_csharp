@@ -33,17 +33,17 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportDataSetRow" /> class.
         /// </summary>
-        /// <param name="columns">columns.</param>
-        public ReportDataSetRow(List<ReportDataSetColumn> columns = default(List<ReportDataSetColumn>))
+        /// <param name="c">c.</param>
+        public ReportDataSetRow(List<ReportDataSetColumn> c = default(List<ReportDataSetColumn>))
         {
-            this.Columns = columns;
+            this.C = c;
         }
 
         /// <summary>
-        /// Gets or Sets Columns
+        /// Gets or Sets C
         /// </summary>
-        [DataMember(Name="columns", EmitDefaultValue=false)]
-        public List<ReportDataSetColumn> Columns { get; set; }
+        [DataMember(Name="c", EmitDefaultValue=false)]
+        public List<ReportDataSetColumn> C { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,7 +53,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportDataSetRow {\n");
-            sb.Append("  Columns: ").Append(Columns).Append("\n");
+            sb.Append("  C: ").Append(C).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,10 +89,10 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
-                    this.Columns == input.Columns ||
-                    this.Columns != null &&
-                    input.Columns != null &&
-                    this.Columns.SequenceEqual(input.Columns)
+                    this.C == input.C ||
+                    this.C != null &&
+                    input.C != null &&
+                    this.C.SequenceEqual(input.C)
                 );
         }
 
@@ -105,8 +105,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Columns != null)
-                    hashCode = hashCode * 59 + this.Columns.GetHashCode();
+                if (this.C != null)
+                    hashCode = hashCode * 59 + this.C.GetHashCode();
                 return hashCode;
             }
         }

@@ -75,7 +75,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="initialPages">Initial pages returned in the dataset.</param>
         /// <param name="maxResults">The total number of results.</param>
         /// <param name="merchantId">Merchant that owns this data set.</param>
-        /// <param name="pageCount">The size of the pages.</param>
+        /// <param name="pageCount">The total number of pages in the result set.</param>
         /// <param name="pageSize">The size of the pages.</param>
         /// <param name="schema">The schema associated with the data set..</param>
         /// <param name="securityLevel">Security level this dataset was read from..</param>
@@ -158,9 +158,9 @@ namespace com.ultracart.admin.v2.Model
         public string MerchantId { get; set; }
 
         /// <summary>
-        /// The size of the pages
+        /// The total number of pages in the result set
         /// </summary>
-        /// <value>The size of the pages</value>
+        /// <value>The total number of pages in the result set</value>
         [DataMember(Name="page_count", EmitDefaultValue=false)]
         public int PageCount { get; set; }
 

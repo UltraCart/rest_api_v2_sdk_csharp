@@ -114,15 +114,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportDataSourceSchema" /> class.
         /// </summary>
+        /// <param name="config">A JSON representation of the configuration for this visualization.</param>
         /// <param name="dimension">Whether or not this column can be used as a dimension within a visualization.</param>
         /// <param name="name">name.</param>
         /// <param name="type">Type of the column.  Only supporting the allowed values.  Any other types will be ignored..</param>
-        public ReportDataSourceSchema(bool dimension = default(bool), string name = default(string), TypeEnum? type = default(TypeEnum?))
+        public ReportDataSourceSchema(string config = default(string), bool dimension = default(bool), string name = default(string), TypeEnum? type = default(TypeEnum?))
         {
+            this.Config = config;
             this.Dimension = dimension;
             this.Name = name;
             this.Type = type;
         }
+
+        /// <summary>
+        /// A JSON representation of the configuration for this visualization
+        /// </summary>
+        /// <value>A JSON representation of the configuration for this visualization</value>
+        [DataMember(Name="config", EmitDefaultValue=false)]
+        public string Config { get; set; }
 
         /// <summary>
         /// Whether or not this column can be used as a dimension within a visualization
@@ -146,6 +155,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportDataSourceSchema {\n");
+            sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("  Dimension: ").Append(Dimension).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -184,6 +194,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Config == input.Config ||
+                    (this.Config != null &&
+                    this.Config.Equals(input.Config))
+                ) && 
+                (
                     this.Dimension == input.Dimension ||
                     (this.Dimension != null &&
                     this.Dimension.Equals(input.Dimension))
@@ -209,6 +224,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Config != null)
+                    hashCode = hashCode * 59 + this.Config.GetHashCode();
                 if (this.Dimension != null)
                     hashCode = hashCode * 59 + this.Dimension.GetHashCode();
                 if (this.Name != null)

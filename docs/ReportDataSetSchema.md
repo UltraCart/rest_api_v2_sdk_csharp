@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Config** | **string** | A JSON representation of the configuration for this visualization | [optional] 
 **Name** | **string** |  | [optional] 
 **Type** | **string** | Type of the column. | [optional] 
 

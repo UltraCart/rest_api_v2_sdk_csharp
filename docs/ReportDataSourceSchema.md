@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Config** | **string** | A JSON representation of the configuration for this visualization | [optional] 
 **Dimension** | **bool?** | Whether or not this column can be used as a dimension within a visualization | [optional] 
 **Name** | **string** |  | [optional] 
 **Type** | **string** | Type of the column.  Only supporting the allowed values.  Any other types will be ignored. | [optional] 

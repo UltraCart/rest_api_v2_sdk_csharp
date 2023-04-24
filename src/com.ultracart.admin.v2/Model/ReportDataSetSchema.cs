@@ -114,14 +114,23 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportDataSetSchema" /> class.
         /// </summary>
+        /// <param name="config">A JSON representation of the configuration for this visualization.</param>
         /// <param name="name">name.</param>
         /// <param name="type">Type of the column..</param>
-        public ReportDataSetSchema(string name = default(string), TypeEnum? type = default(TypeEnum?))
+        public ReportDataSetSchema(string config = default(string), string name = default(string), TypeEnum? type = default(TypeEnum?))
         {
+            this.Config = config;
             this.Name = name;
             this.Type = type;
         }
         
+        /// <summary>
+        /// A JSON representation of the configuration for this visualization
+        /// </summary>
+        /// <value>A JSON representation of the configuration for this visualization</value>
+        [DataMember(Name="config", EmitDefaultValue=false)]
+        public string Config { get; set; }
+
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -137,6 +146,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportDataSetSchema {\n");
+            sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
@@ -174,6 +184,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.Config == input.Config ||
+                    (this.Config != null &&
+                    this.Config.Equals(input.Config))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -194,6 +209,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Config != null)
+                    hashCode = hashCode * 59 + this.Config.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Type != null)

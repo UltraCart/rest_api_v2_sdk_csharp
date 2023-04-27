@@ -95,7 +95,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="cardNumberTruncated">True if the card has been truncated.</param>
         /// <param name="cardType">Card type.</param>
         /// <param name="cardVerificationNumberToken">Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries.</param>
-        public OrderPaymentCreditCard(string cardAuthTicket = default(string), decimal cardAuthorizationAmount = default(decimal), string cardAuthorizationDts = default(string), string cardAuthorizationReferenceNumber = default(string), int cardExpirationMonth = default(int), int cardExpirationYear = default(int), string cardNumber = default(string), string cardNumberToken = default(string), bool cardNumberTruncated = default(bool), CardTypeEnum? cardType = default(CardTypeEnum?), string cardVerificationNumberToken = default(string))
+        /// <param name="dualVaulted">dualVaulted.</param>
+        public OrderPaymentCreditCard(string cardAuthTicket = default(string), decimal cardAuthorizationAmount = default(decimal), string cardAuthorizationDts = default(string), string cardAuthorizationReferenceNumber = default(string), int cardExpirationMonth = default(int), int cardExpirationYear = default(int), string cardNumber = default(string), string cardNumberToken = default(string), bool cardNumberTruncated = default(bool), CardTypeEnum? cardType = default(CardTypeEnum?), string cardVerificationNumberToken = default(string), OrderPaymentCreditCardDualVaulted dualVaulted = default(OrderPaymentCreditCardDualVaulted))
         {
             this.CardAuthTicket = cardAuthTicket;
             this.CardAuthorizationAmount = cardAuthorizationAmount;
@@ -108,6 +109,7 @@ namespace com.ultracart.admin.v2.Model
             this.CardNumberTruncated = cardNumberTruncated;
             this.CardType = cardType;
             this.CardVerificationNumberToken = cardVerificationNumberToken;
+            this.DualVaulted = dualVaulted;
         }
 
         /// <summary>
@@ -182,6 +184,12 @@ namespace com.ultracart.admin.v2.Model
         public string CardVerificationNumberToken { get; set; }
 
         /// <summary>
+        /// Gets or Sets DualVaulted
+        /// </summary>
+        [DataMember(Name="dual_vaulted", EmitDefaultValue=false)]
+        public OrderPaymentCreditCardDualVaulted DualVaulted { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -200,6 +208,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CardNumberTruncated: ").Append(CardNumberTruncated).Append("\n");
             sb.Append("  CardType: ").Append(CardType).Append("\n");
             sb.Append("  CardVerificationNumberToken: ").Append(CardVerificationNumberToken).Append("\n");
+            sb.Append("  DualVaulted: ").Append(DualVaulted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -288,6 +297,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CardVerificationNumberToken == input.CardVerificationNumberToken ||
                     (this.CardVerificationNumberToken != null &&
                     this.CardVerificationNumberToken.Equals(input.CardVerificationNumberToken))
+                ) && 
+                (
+                    this.DualVaulted == input.DualVaulted ||
+                    (this.DualVaulted != null &&
+                    this.DualVaulted.Equals(input.DualVaulted))
                 );
         }
 
@@ -322,6 +336,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CardType.GetHashCode();
                 if (this.CardVerificationNumberToken != null)
                     hashCode = hashCode * 59 + this.CardVerificationNumberToken.GetHashCode();
+                if (this.DualVaulted != null)
+                    hashCode = hashCode * 59 + this.DualVaulted.GetHashCode();
                 return hashCode;
             }
         }

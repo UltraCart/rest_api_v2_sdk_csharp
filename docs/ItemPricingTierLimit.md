@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CumulativeOrderLimit** | **int** | Cumulative order limit | [optional] 
+**ExemptFromMinimumItemCount** | **bool** | Exempt from Minimum Item Count | [optional] 
 **IndividualOrderLimit** | **int** | Individual order limit | [optional] 
 **MultipleQuantity** | **int** | Multiple quantity | [optional] 
 

@@ -34,11 +34,13 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ItemPricingTierLimit" /> class.
         /// </summary>
         /// <param name="cumulativeOrderLimit">Cumulative order limit.</param>
+        /// <param name="exemptFromMinimumItemCount">Exempt from Minimum Item Count.</param>
         /// <param name="individualOrderLimit">Individual order limit.</param>
         /// <param name="multipleQuantity">Multiple quantity.</param>
-        public ItemPricingTierLimit(int cumulativeOrderLimit = default(int), int individualOrderLimit = default(int), int multipleQuantity = default(int))
+        public ItemPricingTierLimit(int cumulativeOrderLimit = default(int), bool exemptFromMinimumItemCount = default(bool), int individualOrderLimit = default(int), int multipleQuantity = default(int))
         {
             this.CumulativeOrderLimit = cumulativeOrderLimit;
+            this.ExemptFromMinimumItemCount = exemptFromMinimumItemCount;
             this.IndividualOrderLimit = individualOrderLimit;
             this.MultipleQuantity = multipleQuantity;
         }
@@ -49,6 +51,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Cumulative order limit</value>
         [DataMember(Name="cumulative_order_limit", EmitDefaultValue=false)]
         public int CumulativeOrderLimit { get; set; }
+
+        /// <summary>
+        /// Exempt from Minimum Item Count
+        /// </summary>
+        /// <value>Exempt from Minimum Item Count</value>
+        [DataMember(Name="exempt_from_minimum_item_count", EmitDefaultValue=false)]
+        public bool ExemptFromMinimumItemCount { get; set; }
 
         /// <summary>
         /// Individual order limit
@@ -73,6 +82,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ItemPricingTierLimit {\n");
             sb.Append("  CumulativeOrderLimit: ").Append(CumulativeOrderLimit).Append("\n");
+            sb.Append("  ExemptFromMinimumItemCount: ").Append(ExemptFromMinimumItemCount).Append("\n");
             sb.Append("  IndividualOrderLimit: ").Append(IndividualOrderLimit).Append("\n");
             sb.Append("  MultipleQuantity: ").Append(MultipleQuantity).Append("\n");
             sb.Append("}\n");
@@ -115,6 +125,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CumulativeOrderLimit.Equals(input.CumulativeOrderLimit))
                 ) && 
                 (
+                    this.ExemptFromMinimumItemCount == input.ExemptFromMinimumItemCount ||
+                    (this.ExemptFromMinimumItemCount != null &&
+                    this.ExemptFromMinimumItemCount.Equals(input.ExemptFromMinimumItemCount))
+                ) && 
+                (
                     this.IndividualOrderLimit == input.IndividualOrderLimit ||
                     (this.IndividualOrderLimit != null &&
                     this.IndividualOrderLimit.Equals(input.IndividualOrderLimit))
@@ -137,6 +152,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.CumulativeOrderLimit != null)
                     hashCode = hashCode * 59 + this.CumulativeOrderLimit.GetHashCode();
+                if (this.ExemptFromMinimumItemCount != null)
+                    hashCode = hashCode * 59 + this.ExemptFromMinimumItemCount.GetHashCode();
                 if (this.IndividualOrderLimit != null)
                     hashCode = hashCode * 59 + this.IndividualOrderLimit.GetHashCode();
                 if (this.MultipleQuantity != null)

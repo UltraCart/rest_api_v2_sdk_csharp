@@ -31,6 +31,45 @@ namespace com.ultracart.admin.v2.Model
     public partial class ItemReview :  IEquatable<ItemReview>, IValidatableObject
     {
         /// <summary>
+        /// Status of the review
+        /// </summary>
+        /// <value>Status of the review</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
+        {
+            /// <summary>
+            /// Enum Approved for value: approved
+            /// </summary>
+            [EnumMember(Value = "approved")]
+            Approved = 1,
+
+            /// <summary>
+            /// Enum Unapproved for value: unapproved
+            /// </summary>
+            [EnumMember(Value = "unapproved")]
+            Unapproved = 2,
+
+            /// <summary>
+            /// Enum Rejected for value: rejected
+            /// </summary>
+            [EnumMember(Value = "rejected")]
+            Rejected = 3,
+
+            /// <summary>
+            /// Enum Multimediaprocessing for value: multimedia processing
+            /// </summary>
+            [EnumMember(Value = "multimedia processing")]
+            Multimediaprocessing = 4
+
+        }
+
+        /// <summary>
+        /// Status of the review
+        /// </summary>
+        /// <value>Status of the review</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public StatusEnum? Status { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ItemReview" /> class.
         /// </summary>
         /// <param name="customerProfileOid">Customer profile object identifier.</param>
@@ -39,16 +78,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="helpfulYesVotes">helpfulYesVotes.</param>
         /// <param name="orderId">orderId.</param>
         /// <param name="overall">overall.</param>
-        /// <param name="ratingName1">ratingName1.</param>
-        /// <param name="ratingName10">ratingName10.</param>
-        /// <param name="ratingName2">ratingName2.</param>
-        /// <param name="ratingName3">ratingName3.</param>
-        /// <param name="ratingName4">ratingName4.</param>
-        /// <param name="ratingName5">ratingName5.</param>
-        /// <param name="ratingName6">ratingName6.</param>
-        /// <param name="ratingName7">ratingName7.</param>
-        /// <param name="ratingName8">ratingName8.</param>
-        /// <param name="ratingName9">ratingName9.</param>
+        /// <param name="ratingName1">Rating Name 1.</param>
+        /// <param name="ratingName10">Rating Name 10.</param>
+        /// <param name="ratingName2">Rating Name 2.</param>
+        /// <param name="ratingName3">Rating Name 3.</param>
+        /// <param name="ratingName4">Rating Name 4.</param>
+        /// <param name="ratingName5">Rating Name 5.</param>
+        /// <param name="ratingName6">Rating Name 6.</param>
+        /// <param name="ratingName7">Rating Name 7.</param>
+        /// <param name="ratingName8">Rating Name 8.</param>
+        /// <param name="ratingName9">Rating Name 9.</param>
         /// <param name="ratingScore1">ratingScore1.</param>
         /// <param name="ratingScore10">ratingScore10.</param>
         /// <param name="ratingScore2">ratingScore2.</param>
@@ -61,16 +100,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="ratingScore9">ratingScore9.</param>
         /// <param name="recommendStoreToFriend">recommendStoreToFriend.</param>
         /// <param name="recommendToFriend">recommendToFriend.</param>
-        /// <param name="review">review.</param>
+        /// <param name="review">Review.</param>
         /// <param name="reviewOid">reviewOid.</param>
-        /// <param name="reviewedNickname">reviewedNickname.</param>
-        /// <param name="reviewerEmail">reviewerEmail.</param>
-        /// <param name="reviewerLocation">reviewerLocation.</param>
-        /// <param name="status">status.</param>
-        /// <param name="storeFeedback">storeFeedback.</param>
+        /// <param name="reviewedNickname">Nickname.</param>
+        /// <param name="reviewerEmail">Reviewer Email.</param>
+        /// <param name="reviewerLocation">Location.</param>
+        /// <param name="status">Status of the review.</param>
+        /// <param name="storeFeedback">Store Feedback.</param>
         /// <param name="submittedDts">Date/time of review submission.</param>
-        /// <param name="title">title.</param>
-        public ItemReview(int customerProfileOid = default(int), bool featured = default(bool), int helperfulNoVotes = default(int), int helpfulYesVotes = default(int), string orderId = default(string), decimal overall = default(decimal), string ratingName1 = default(string), string ratingName10 = default(string), string ratingName2 = default(string), string ratingName3 = default(string), string ratingName4 = default(string), string ratingName5 = default(string), string ratingName6 = default(string), string ratingName7 = default(string), string ratingName8 = default(string), string ratingName9 = default(string), decimal ratingScore1 = default(decimal), decimal ratingScore10 = default(decimal), decimal ratingScore2 = default(decimal), decimal ratingScore3 = default(decimal), decimal ratingScore4 = default(decimal), decimal ratingScore5 = default(decimal), decimal ratingScore6 = default(decimal), decimal ratingScore7 = default(decimal), decimal ratingScore8 = default(decimal), decimal ratingScore9 = default(decimal), int recommendStoreToFriend = default(int), bool recommendToFriend = default(bool), string review = default(string), int reviewOid = default(int), string reviewedNickname = default(string), string reviewerEmail = default(string), string reviewerLocation = default(string), string status = default(string), string storeFeedback = default(string), string submittedDts = default(string), string title = default(string))
+        /// <param name="title">Title.</param>
+        public ItemReview(int customerProfileOid = default(int), bool featured = default(bool), int helperfulNoVotes = default(int), int helpfulYesVotes = default(int), string orderId = default(string), decimal overall = default(decimal), string ratingName1 = default(string), string ratingName10 = default(string), string ratingName2 = default(string), string ratingName3 = default(string), string ratingName4 = default(string), string ratingName5 = default(string), string ratingName6 = default(string), string ratingName7 = default(string), string ratingName8 = default(string), string ratingName9 = default(string), decimal ratingScore1 = default(decimal), decimal ratingScore10 = default(decimal), decimal ratingScore2 = default(decimal), decimal ratingScore3 = default(decimal), decimal ratingScore4 = default(decimal), decimal ratingScore5 = default(decimal), decimal ratingScore6 = default(decimal), decimal ratingScore7 = default(decimal), decimal ratingScore8 = default(decimal), decimal ratingScore9 = default(decimal), int recommendStoreToFriend = default(int), bool recommendToFriend = default(bool), string review = default(string), int reviewOid = default(int), string reviewedNickname = default(string), string reviewerEmail = default(string), string reviewerLocation = default(string), StatusEnum? status = default(StatusEnum?), string storeFeedback = default(string), string submittedDts = default(string), string title = default(string))
         {
             this.CustomerProfileOid = customerProfileOid;
             this.Featured = featured;
@@ -149,62 +188,72 @@ namespace com.ultracart.admin.v2.Model
         public decimal Overall { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingName1
+        /// Rating Name 1
         /// </summary>
+        /// <value>Rating Name 1</value>
         [DataMember(Name="rating_name1", EmitDefaultValue=false)]
         public string RatingName1 { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingName10
+        /// Rating Name 10
         /// </summary>
+        /// <value>Rating Name 10</value>
         [DataMember(Name="rating_name10", EmitDefaultValue=false)]
         public string RatingName10 { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingName2
+        /// Rating Name 2
         /// </summary>
+        /// <value>Rating Name 2</value>
         [DataMember(Name="rating_name2", EmitDefaultValue=false)]
         public string RatingName2 { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingName3
+        /// Rating Name 3
         /// </summary>
+        /// <value>Rating Name 3</value>
         [DataMember(Name="rating_name3", EmitDefaultValue=false)]
         public string RatingName3 { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingName4
+        /// Rating Name 4
         /// </summary>
+        /// <value>Rating Name 4</value>
         [DataMember(Name="rating_name4", EmitDefaultValue=false)]
         public string RatingName4 { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingName5
+        /// Rating Name 5
         /// </summary>
+        /// <value>Rating Name 5</value>
         [DataMember(Name="rating_name5", EmitDefaultValue=false)]
         public string RatingName5 { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingName6
+        /// Rating Name 6
         /// </summary>
+        /// <value>Rating Name 6</value>
         [DataMember(Name="rating_name6", EmitDefaultValue=false)]
         public string RatingName6 { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingName7
+        /// Rating Name 7
         /// </summary>
+        /// <value>Rating Name 7</value>
         [DataMember(Name="rating_name7", EmitDefaultValue=false)]
         public string RatingName7 { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingName8
+        /// Rating Name 8
         /// </summary>
+        /// <value>Rating Name 8</value>
         [DataMember(Name="rating_name8", EmitDefaultValue=false)]
         public string RatingName8 { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingName9
+        /// Rating Name 9
         /// </summary>
+        /// <value>Rating Name 9</value>
         [DataMember(Name="rating_name9", EmitDefaultValue=false)]
         public string RatingName9 { get; set; }
 
@@ -281,8 +330,9 @@ namespace com.ultracart.admin.v2.Model
         public bool RecommendToFriend { get; set; }
 
         /// <summary>
-        /// Gets or Sets Review
+        /// Review
         /// </summary>
+        /// <value>Review</value>
         [DataMember(Name="review", EmitDefaultValue=false)]
         public string Review { get; set; }
 
@@ -293,32 +343,31 @@ namespace com.ultracart.admin.v2.Model
         public int ReviewOid { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReviewedNickname
+        /// Nickname
         /// </summary>
+        /// <value>Nickname</value>
         [DataMember(Name="reviewed_nickname", EmitDefaultValue=false)]
         public string ReviewedNickname { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReviewerEmail
+        /// Reviewer Email
         /// </summary>
+        /// <value>Reviewer Email</value>
         [DataMember(Name="reviewer_email", EmitDefaultValue=false)]
         public string ReviewerEmail { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReviewerLocation
+        /// Location
         /// </summary>
+        /// <value>Location</value>
         [DataMember(Name="reviewer_location", EmitDefaultValue=false)]
         public string ReviewerLocation { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets StoreFeedback
+        /// Store Feedback
         /// </summary>
+        /// <value>Store Feedback</value>
         [DataMember(Name="store_feedback", EmitDefaultValue=false)]
         public string StoreFeedback { get; set; }
 
@@ -330,8 +379,9 @@ namespace com.ultracart.admin.v2.Model
         public string SubmittedDts { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// Title
         /// </summary>
+        /// <value>Title</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
 
@@ -695,6 +745,118 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // RatingName1 (string) maxLength
+            if(this.RatingName1 != null && this.RatingName1.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingName1, length must be less than 100.", new [] { "RatingName1" });
+            }
+
+
+            // RatingName10 (string) maxLength
+            if(this.RatingName10 != null && this.RatingName10.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingName10, length must be less than 100.", new [] { "RatingName10" });
+            }
+
+
+            // RatingName2 (string) maxLength
+            if(this.RatingName2 != null && this.RatingName2.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingName2, length must be less than 100.", new [] { "RatingName2" });
+            }
+
+
+            // RatingName3 (string) maxLength
+            if(this.RatingName3 != null && this.RatingName3.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingName3, length must be less than 100.", new [] { "RatingName3" });
+            }
+
+
+            // RatingName4 (string) maxLength
+            if(this.RatingName4 != null && this.RatingName4.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingName4, length must be less than 100.", new [] { "RatingName4" });
+            }
+
+
+            // RatingName5 (string) maxLength
+            if(this.RatingName5 != null && this.RatingName5.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingName5, length must be less than 100.", new [] { "RatingName5" });
+            }
+
+
+            // RatingName6 (string) maxLength
+            if(this.RatingName6 != null && this.RatingName6.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingName6, length must be less than 100.", new [] { "RatingName6" });
+            }
+
+
+            // RatingName7 (string) maxLength
+            if(this.RatingName7 != null && this.RatingName7.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingName7, length must be less than 100.", new [] { "RatingName7" });
+            }
+
+
+            // RatingName8 (string) maxLength
+            if(this.RatingName8 != null && this.RatingName8.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingName8, length must be less than 100.", new [] { "RatingName8" });
+            }
+
+
+            // RatingName9 (string) maxLength
+            if(this.RatingName9 != null && this.RatingName9.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingName9, length must be less than 100.", new [] { "RatingName9" });
+            }
+
+
+            // Review (string) maxLength
+            if(this.Review != null && this.Review.Length > 10000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Review, length must be less than 10000.", new [] { "Review" });
+            }
+
+
+            // ReviewedNickname (string) maxLength
+            if(this.ReviewedNickname != null && this.ReviewedNickname.Length > 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReviewedNickname, length must be less than 25.", new [] { "ReviewedNickname" });
+            }
+
+
+            // ReviewerEmail (string) maxLength
+            if(this.ReviewerEmail != null && this.ReviewerEmail.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReviewerEmail, length must be less than 100.", new [] { "ReviewerEmail" });
+            }
+
+
+            // ReviewerLocation (string) maxLength
+            if(this.ReviewerLocation != null && this.ReviewerLocation.Length > 25)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReviewerLocation, length must be less than 25.", new [] { "ReviewerLocation" });
+            }
+
+
+            // StoreFeedback (string) maxLength
+            if(this.StoreFeedback != null && this.StoreFeedback.Length > 10000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreFeedback, length must be less than 10000.", new [] { "StoreFeedback" });
+            }
+
+
+            // Title (string) maxLength
+            if(this.Title != null && this.Title.Length > 250)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 250.", new [] { "Title" });
+            }
+
+
             yield break;
         }
     }

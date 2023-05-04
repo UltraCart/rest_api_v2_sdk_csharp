@@ -68,6 +68,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteItemWithHttpInfo (int merchantItemOid);
         /// <summary>
+        /// Delete a review
+        /// </summary>
+        /// <remarks>
+        /// Delete an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to delete.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns></returns>
+        void DeleteReview (int reviewOid, int merchantItemOid);
+
+        /// <summary>
+        /// Delete a review
+        /// </summary>
+        /// <remarks>
+        /// Delete an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to delete.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteReviewWithHttpInfo (int reviewOid, int merchantItemOid);
+        /// <summary>
         /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
         /// </summary>
         /// <remarks>
@@ -247,6 +270,50 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of PricingTiersResponse</returns>
         ApiResponse<PricingTiersResponse> GetPricingTiersWithHttpInfo (string expand = default(string));
         /// <summary>
+        /// get a review
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to retrieve.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns>ItemReviewResponse</returns>
+        ItemReviewResponse GetReview (int reviewOid, int merchantItemOid);
+
+        /// <summary>
+        /// get a review
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to retrieve.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns>ApiResponse of ItemReviewResponse</returns>
+        ApiResponse<ItemReviewResponse> GetReviewWithHttpInfo (int reviewOid, int merchantItemOid);
+        /// <summary>
+        /// get reviews for an item
+        /// </summary>
+        /// <remarks>
+        /// Retrieve item reviews. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns>ItemReviewsResponse</returns>
+        ItemReviewsResponse GetReviews (int merchantItemOid);
+
+        /// <summary>
+        /// get reviews for an item
+        /// </summary>
+        /// <remarks>
+        /// Retrieve item reviews. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns>ApiResponse of ItemReviewsResponse</returns>
+        ApiResponse<ItemReviewsResponse> GetReviewsWithHttpInfo (int merchantItemOid);
+        /// <summary>
         /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
         /// </summary>
         /// <remarks>
@@ -323,6 +390,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="placeholders">Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)</param>
         /// <returns>ApiResponse of ItemResponse</returns>
         ApiResponse<ItemResponse> InsertItemWithHttpInfo (Item item, string expand = default(string), bool? placeholders = default(bool?));
+        /// <summary>
+        /// Insert a review
+        /// </summary>
+        /// <remarks>
+        /// Insert a item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to insert</param>
+        /// <returns>ItemReviewResponse</returns>
+        ItemReviewResponse InsertReview (int merchantItemOid, ItemReview review);
+
+        /// <summary>
+        /// Insert a review
+        /// </summary>
+        /// <remarks>
+        /// Insert a item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to insert</param>
+        /// <returns>ApiResponse of ItemReviewResponse</returns>
+        ApiResponse<ItemReviewResponse> InsertReviewWithHttpInfo (int merchantItemOid, ItemReview review);
         /// <summary>
         /// Updates a file within the digital library
         /// </summary>
@@ -401,6 +491,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ItemsResponse</returns>
         ApiResponse<ItemsResponse> UpdateItemsWithHttpInfo (ItemsRequest itemsRequest, string expand = default(string), bool? placeholders = default(bool?), bool? async = default(bool?));
         /// <summary>
+        /// Update a review
+        /// </summary>
+        /// <remarks>
+        /// Update an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to update.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to update</param>
+        /// <returns>ItemReviewResponse</returns>
+        ItemReviewResponse UpdateReview (int reviewOid, int merchantItemOid, ItemReview review);
+
+        /// <summary>
+        /// Update a review
+        /// </summary>
+        /// <remarks>
+        /// Update an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to update.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to update</param>
+        /// <returns>ApiResponse of ItemReviewResponse</returns>
+        ApiResponse<ItemReviewResponse> UpdateReviewWithHttpInfo (int reviewOid, int merchantItemOid, ItemReview review);
+        /// <summary>
         /// Upload an image to the temporary multimedia.
         /// </summary>
         /// <remarks>
@@ -469,6 +584,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteItemWithHttpInfoAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete a review
+        /// </summary>
+        /// <remarks>
+        /// Delete an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to delete.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteReviewAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a review
+        /// </summary>
+        /// <remarks>
+        /// Delete an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to delete.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteReviewWithHttpInfoAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
         /// </summary>
@@ -663,6 +803,54 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (PricingTiersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PricingTiersResponse>> GetPricingTiersWithHttpInfoAsync (string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// get a review
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to retrieve.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemReviewResponse</returns>
+        System.Threading.Tasks.Task<ItemReviewResponse> GetReviewAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// get a review
+        /// </summary>
+        /// <remarks>
+        /// Retrieve an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to retrieve.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemReviewResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemReviewResponse>> GetReviewWithHttpInfoAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// get reviews for an item
+        /// </summary>
+        /// <remarks>
+        /// Retrieve item reviews. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemReviewsResponse</returns>
+        System.Threading.Tasks.Task<ItemReviewsResponse> GetReviewsAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// get reviews for an item
+        /// </summary>
+        /// <remarks>
+        /// Retrieve item reviews. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemReviewsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemReviewsResponse>> GetReviewsWithHttpInfoAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
         /// </summary>
         /// <remarks>
@@ -746,6 +934,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ItemResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemResponse>> InsertItemWithHttpInfoAsync (Item item, string expand = default(string), bool? placeholders = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Insert a review
+        /// </summary>
+        /// <remarks>
+        /// Insert a item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to insert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemReviewResponse</returns>
+        System.Threading.Tasks.Task<ItemReviewResponse> InsertReviewAsync (int merchantItemOid, ItemReview review, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Insert a review
+        /// </summary>
+        /// <remarks>
+        /// Insert a item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to insert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemReviewResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemReviewResponse>> InsertReviewWithHttpInfoAsync (int merchantItemOid, ItemReview review, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Updates a file within the digital library
         /// </summary>
         /// <remarks>
@@ -828,6 +1041,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ItemsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemsResponse>> UpdateItemsWithHttpInfoAsync (ItemsRequest itemsRequest, string expand = default(string), bool? placeholders = default(bool?), bool? async = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update a review
+        /// </summary>
+        /// <remarks>
+        /// Update an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to update.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to update</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemReviewResponse</returns>
+        System.Threading.Tasks.Task<ItemReviewResponse> UpdateReviewAsync (int reviewOid, int merchantItemOid, ItemReview review, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update a review
+        /// </summary>
+        /// <remarks>
+        /// Update an item review. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to update.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to update</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemReviewResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemReviewResponse>> UpdateReviewWithHttpInfoAsync (int reviewOid, int merchantItemOid, ItemReview review, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Upload an image to the temporary multimedia.
         /// </summary>
@@ -1282,6 +1522,173 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("DeleteItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a review Delete an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to delete.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns></returns>
+        public void DeleteReview (int reviewOid, int merchantItemOid)
+        {
+             DeleteReviewWithHttpInfo(reviewOid, merchantItemOid);
+        }
+
+        /// <summary>
+        /// Delete a review Delete an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to delete.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteReviewWithHttpInfo (int reviewOid, int merchantItemOid)
+        {
+            // verify the required parameter 'reviewOid' is set
+            if (reviewOid == null)
+                throw new ApiException(400, "Missing required parameter 'reviewOid' when calling ItemApi->DeleteReview");
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->DeleteReview");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/reviews/{review_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reviewOid != null) localVarPathParams.Add("review_oid", this.Configuration.ApiClient.ParameterToString(reviewOid)); // path parameter
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteReview", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete a review Delete an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to delete.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteReviewAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteReviewWithHttpInfoAsync(reviewOid, merchantItemOid, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Delete a review Delete an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to delete.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteReviewWithHttpInfoAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'reviewOid' is set
+            if (reviewOid == null)
+                throw new ApiException(400, "Missing required parameter 'reviewOid' when calling ItemApi->DeleteReview");
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->DeleteReview");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/reviews/{review_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reviewOid != null) localVarPathParams.Add("review_oid", this.Configuration.ApiClient.ParameterToString(reviewOid)); // path parameter
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteReview", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2468,6 +2875,332 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// get a review Retrieve an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to retrieve.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns>ItemReviewResponse</returns>
+        public ItemReviewResponse GetReview (int reviewOid, int merchantItemOid)
+        {
+             ApiResponse<ItemReviewResponse> localVarResponse = GetReviewWithHttpInfo(reviewOid, merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// get a review Retrieve an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to retrieve.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns>ApiResponse of ItemReviewResponse</returns>
+        public ApiResponse<ItemReviewResponse> GetReviewWithHttpInfo (int reviewOid, int merchantItemOid)
+        {
+            // verify the required parameter 'reviewOid' is set
+            if (reviewOid == null)
+                throw new ApiException(400, "Missing required parameter 'reviewOid' when calling ItemApi->GetReview");
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->GetReview");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/reviews/{review_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reviewOid != null) localVarPathParams.Add("review_oid", this.Configuration.ApiClient.ParameterToString(reviewOid)); // path parameter
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetReview", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemReviewResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemReviewResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemReviewResponse)));
+        }
+
+        /// <summary>
+        /// get a review Retrieve an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to retrieve.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemReviewResponse</returns>
+        public async System.Threading.Tasks.Task<ItemReviewResponse> GetReviewAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemReviewResponse> localVarResponse = await GetReviewWithHttpInfoAsync(reviewOid, merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// get a review Retrieve an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to retrieve.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemReviewResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemReviewResponse>> GetReviewWithHttpInfoAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'reviewOid' is set
+            if (reviewOid == null)
+                throw new ApiException(400, "Missing required parameter 'reviewOid' when calling ItemApi->GetReview");
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->GetReview");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/reviews/{review_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reviewOid != null) localVarPathParams.Add("review_oid", this.Configuration.ApiClient.ParameterToString(reviewOid)); // path parameter
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetReview", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemReviewResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemReviewResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemReviewResponse)));
+        }
+
+        /// <summary>
+        /// get reviews for an item Retrieve item reviews. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns>ItemReviewsResponse</returns>
+        public ItemReviewsResponse GetReviews (int merchantItemOid)
+        {
+             ApiResponse<ItemReviewsResponse> localVarResponse = GetReviewsWithHttpInfo(merchantItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// get reviews for an item Retrieve item reviews. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <returns>ApiResponse of ItemReviewsResponse</returns>
+        public ApiResponse<ItemReviewsResponse> GetReviewsWithHttpInfo (int merchantItemOid)
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->GetReviews");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/reviews";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetReviews", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemReviewsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemReviewsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemReviewsResponse)));
+        }
+
+        /// <summary>
+        /// get reviews for an item Retrieve item reviews. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemReviewsResponse</returns>
+        public async System.Threading.Tasks.Task<ItemReviewsResponse> GetReviewsAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemReviewsResponse> localVarResponse = await GetReviewsWithHttpInfoAsync(merchantItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// get reviews for an item Retrieve item reviews. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemReviewsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemReviewsResponse>> GetReviewsWithHttpInfoAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->GetReviews");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/reviews";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetReviews", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemReviewsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemReviewsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemReviewsResponse)));
+        }
+
+        /// <summary>
         /// Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items Retrieves a group of digital items (file information) from the account that are not yet associated with any actual items.  If no parameters are specified, all digital items will be returned.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3004,6 +3737,191 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ItemResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemResponse)));
+        }
+
+        /// <summary>
+        /// Insert a review Insert a item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to insert</param>
+        /// <returns>ItemReviewResponse</returns>
+        public ItemReviewResponse InsertReview (int merchantItemOid, ItemReview review)
+        {
+             ApiResponse<ItemReviewResponse> localVarResponse = InsertReviewWithHttpInfo(merchantItemOid, review);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert a review Insert a item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to insert</param>
+        /// <returns>ApiResponse of ItemReviewResponse</returns>
+        public ApiResponse<ItemReviewResponse> InsertReviewWithHttpInfo (int merchantItemOid, ItemReview review)
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->InsertReview");
+            // verify the required parameter 'review' is set
+            if (review == null)
+                throw new ApiException(400, "Missing required parameter 'review' when calling ItemApi->InsertReview");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/reviews";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (review != null && review.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(review); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = review; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertReview", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemReviewResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemReviewResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemReviewResponse)));
+        }
+
+        /// <summary>
+        /// Insert a review Insert a item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to insert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemReviewResponse</returns>
+        public async System.Threading.Tasks.Task<ItemReviewResponse> InsertReviewAsync (int merchantItemOid, ItemReview review, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemReviewResponse> localVarResponse = await InsertReviewWithHttpInfoAsync(merchantItemOid, review, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert a review Insert a item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to insert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemReviewResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemReviewResponse>> InsertReviewWithHttpInfoAsync (int merchantItemOid, ItemReview review, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->InsertReview");
+            // verify the required parameter 'review' is set
+            if (review == null)
+                throw new ApiException(400, "Missing required parameter 'review' when calling ItemApi->InsertReview");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/reviews";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (review != null && review.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(review); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = review; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertReview", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemReviewResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemReviewResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemReviewResponse)));
         }
 
         /// <summary>
@@ -3577,6 +4495,203 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<ItemsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemsResponse)));
+        }
+
+        /// <summary>
+        /// Update a review Update an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to update.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to update</param>
+        /// <returns>ItemReviewResponse</returns>
+        public ItemReviewResponse UpdateReview (int reviewOid, int merchantItemOid, ItemReview review)
+        {
+             ApiResponse<ItemReviewResponse> localVarResponse = UpdateReviewWithHttpInfo(reviewOid, merchantItemOid, review);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a review Update an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to update.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to update</param>
+        /// <returns>ApiResponse of ItemReviewResponse</returns>
+        public ApiResponse<ItemReviewResponse> UpdateReviewWithHttpInfo (int reviewOid, int merchantItemOid, ItemReview review)
+        {
+            // verify the required parameter 'reviewOid' is set
+            if (reviewOid == null)
+                throw new ApiException(400, "Missing required parameter 'reviewOid' when calling ItemApi->UpdateReview");
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->UpdateReview");
+            // verify the required parameter 'review' is set
+            if (review == null)
+                throw new ApiException(400, "Missing required parameter 'review' when calling ItemApi->UpdateReview");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/reviews/{review_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reviewOid != null) localVarPathParams.Add("review_oid", this.Configuration.ApiClient.ParameterToString(reviewOid)); // path parameter
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (review != null && review.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(review); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = review; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateReview", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemReviewResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemReviewResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemReviewResponse)));
+        }
+
+        /// <summary>
+        /// Update a review Update an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to update.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to update</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ItemReviewResponse</returns>
+        public async System.Threading.Tasks.Task<ItemReviewResponse> UpdateReviewAsync (int reviewOid, int merchantItemOid, ItemReview review, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<ItemReviewResponse> localVarResponse = await UpdateReviewWithHttpInfoAsync(reviewOid, merchantItemOid, review, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a review Update an item review. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reviewOid">The review oid to update.</param>
+        /// <param name="merchantItemOid">The item oid the review is associated with.</param>
+        /// <param name="review">Review to update</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (ItemReviewResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ItemReviewResponse>> UpdateReviewWithHttpInfoAsync (int reviewOid, int merchantItemOid, ItemReview review, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'reviewOid' is set
+            if (reviewOid == null)
+                throw new ApiException(400, "Missing required parameter 'reviewOid' when calling ItemApi->UpdateReview");
+            // verify the required parameter 'merchantItemOid' is set
+            if (merchantItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'merchantItemOid' when calling ItemApi->UpdateReview");
+            // verify the required parameter 'review' is set
+            if (review == null)
+                throw new ApiException(400, "Missing required parameter 'review' when calling ItemApi->UpdateReview");
+
+            var localVarPath = "/item/items/{merchant_item_oid}/reviews/{review_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reviewOid != null) localVarPathParams.Add("review_oid", this.Configuration.ApiClient.ParameterToString(reviewOid)); // path parameter
+            if (merchantItemOid != null) localVarPathParams.Add("merchant_item_oid", this.Configuration.ApiClient.ParameterToString(merchantItemOid)); // path parameter
+            if (review != null && review.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(review); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = review; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateReview", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ItemReviewResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ItemReviewResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ItemReviewResponse)));
         }
 
         /// <summary>

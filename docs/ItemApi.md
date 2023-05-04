@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteDigitalItem**](ItemApi.md#deletedigitalitem) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 [**DeleteItem**](ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**DeleteReview**](ItemApi.md#deletereview) | **DELETE** /item/items/{merchant_item_oid}/reviews/{review_oid} | Delete a review
 [**GetDigitalItem**](ItemApi.md#getdigitalitem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 [**GetDigitalItems**](ItemApi.md#getdigitalitems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**GetDigitalItemsByExternalId**](ItemApi.md#getdigitalitemsbyexternalid) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
@@ -13,12 +14,16 @@ Method | HTTP request | Description
 [**GetItemByMerchantItemId**](ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**GetItems**](ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 [**GetPricingTiers**](ItemApi.md#getpricingtiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+[**GetReview**](ItemApi.md#getreview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | get a review
+[**GetReviews**](ItemApi.md#getreviews) | **GET** /item/items/{merchant_item_oid}/reviews | get reviews for an item
 [**GetUnassociatedDigitalItems**](ItemApi.md#getunassociateddigitalitems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 [**InsertDigitalItem**](ItemApi.md#insertdigitalitem) | **POST** /item/digital_library | Create a file within the digital library
 [**InsertItem**](ItemApi.md#insertitem) | **POST** /item/items | Create an item
+[**InsertReview**](ItemApi.md#insertreview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**UpdateDigitalItem**](ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**UpdateItem**](ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**UpdateItems**](ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
+[**UpdateReview**](ItemApi.md#updatereview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 [**UploadTemporaryMultimedia**](ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
@@ -148,6 +153,73 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletereview"></a>
+# **DeleteReview**
+> void DeleteReview (int? reviewOid, int? merchantItemOid)
+
+Delete a review
+
+Delete an item review. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteReviewExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var reviewOid = 56;  // int? | The review oid to delete.
+            var merchantItemOid = 56;  // int? | The item oid the review is associated with.
+
+            try
+            {
+                // Delete a review
+                apiInstance.DeleteReview(reviewOid, merchantItemOid);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.DeleteReview: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reviewOid** | **int?**| The review oid to delete. | 
+ **merchantItemOid** | **int?**| The item oid the review is associated with. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -646,6 +718,140 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getreview"></a>
+# **GetReview**
+> ItemReviewResponse GetReview (int? reviewOid, int? merchantItemOid)
+
+get a review
+
+Retrieve an item review. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetReviewExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var reviewOid = 56;  // int? | The review oid to retrieve.
+            var merchantItemOid = 56;  // int? | The item oid the review is associated with.
+
+            try
+            {
+                // get a review
+                ItemReviewResponse result = apiInstance.GetReview(reviewOid, merchantItemOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.GetReview: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reviewOid** | **int?**| The review oid to retrieve. | 
+ **merchantItemOid** | **int?**| The item oid the review is associated with. | 
+
+### Return type
+
+[**ItemReviewResponse**](ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getreviews"></a>
+# **GetReviews**
+> ItemReviewsResponse GetReviews (int? merchantItemOid)
+
+get reviews for an item
+
+Retrieve item reviews. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetReviewsExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var merchantItemOid = 56;  // int? | The item oid the review is associated with.
+
+            try
+            {
+                // get reviews for an item
+                ItemReviewsResponse result = apiInstance.GetReviews(merchantItemOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.GetReviews: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantItemOid** | **int?**| The item oid the review is associated with. | 
+
+### Return type
+
+[**ItemReviewsResponse**](ItemReviewsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getunassociateddigitalitems"></a>
 # **GetUnassociatedDigitalItems**
 > ItemDigitalItemsResponse GetUnassociatedDigitalItems (int? limit = null, int? offset = null, string since = null, string sort = null, string expand = null, bool? placeholders = null)
@@ -858,6 +1064,74 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="insertreview"></a>
+# **InsertReview**
+> ItemReviewResponse InsertReview (ItemReview review, int? merchantItemOid)
+
+Insert a review
+
+Insert a item review. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class InsertReviewExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var review = new ItemReview(); // ItemReview | Review to insert
+            var merchantItemOid = 56;  // int? | The item oid the review is associated with.
+
+            try
+            {
+                // Insert a review
+                ItemReviewResponse result = apiInstance.InsertReview(review, merchantItemOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.InsertReview: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review** | [**ItemReview**](ItemReview.md)| Review to insert | 
+ **merchantItemOid** | **int?**| The item oid the review is associated with. | 
+
+### Return type
+
+[**ItemReviewResponse**](ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="updatedigitalitem"></a>
 # **UpdateDigitalItem**
 > ItemDigitalItemResponse UpdateDigitalItem (int? digitalItemOid, ItemDigitalItem digitalItem)
@@ -1058,6 +1332,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ItemsResponse**](ItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatereview"></a>
+# **UpdateReview**
+> ItemReviewResponse UpdateReview (ItemReview review, int? reviewOid, int? merchantItemOid)
+
+Update a review
+
+Update an item review. 
+### Example
+```csharp
+
+using System;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Client;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateReviewExample
+    {
+        public void main()
+        {
+
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            const string simpleKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+            var api = new ItemApi(simpleKey);
+
+            var review = new ItemReview(); // ItemReview | Review to update
+            var reviewOid = 56;  // int? | The review oid to update.
+            var merchantItemOid = 56;  // int? | The item oid the review is associated with.
+
+            try
+            {
+                // Update a review
+                ItemReviewResponse result = apiInstance.UpdateReview(review, reviewOid, merchantItemOid);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ItemApi.UpdateReview: " + e.Message );
+            }
+        }
+    }
+}
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review** | [**ItemReview**](ItemReview.md)| Review to update | 
+ **reviewOid** | **int?**| The review oid to update. | 
+ **merchantItemOid** | **int?**| The item oid the review is associated with. | 
+
+### Return type
+
+[**ItemReviewResponse**](ItemReviewResponse.md)
 
 ### Authorization
 

@@ -270,7 +270,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of PricingTiersResponse</returns>
         ApiResponse<PricingTiersResponse> GetPricingTiersWithHttpInfo (string expand = default(string));
         /// <summary>
-        /// get a review
+        /// Get a review
         /// </summary>
         /// <remarks>
         /// Retrieve an item review. 
@@ -282,7 +282,7 @@ namespace com.ultracart.admin.v2.Api
         ItemReviewResponse GetReview (int reviewOid, int merchantItemOid);
 
         /// <summary>
-        /// get a review
+        /// Get a review
         /// </summary>
         /// <remarks>
         /// Retrieve an item review. 
@@ -293,7 +293,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ItemReviewResponse</returns>
         ApiResponse<ItemReviewResponse> GetReviewWithHttpInfo (int reviewOid, int merchantItemOid);
         /// <summary>
-        /// get reviews for an item
+        /// Get reviews for an item
         /// </summary>
         /// <remarks>
         /// Retrieve item reviews. 
@@ -304,7 +304,7 @@ namespace com.ultracart.admin.v2.Api
         ItemReviewsResponse GetReviews (int merchantItemOid);
 
         /// <summary>
-        /// get reviews for an item
+        /// Get reviews for an item
         /// </summary>
         /// <remarks>
         /// Retrieve item reviews. 
@@ -803,7 +803,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (PricingTiersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PricingTiersResponse>> GetPricingTiersWithHttpInfoAsync (string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// get a review
+        /// Get a review
         /// </summary>
         /// <remarks>
         /// Retrieve an item review. 
@@ -816,7 +816,7 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<ItemReviewResponse> GetReviewAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// get a review
+        /// Get a review
         /// </summary>
         /// <remarks>
         /// Retrieve an item review. 
@@ -828,7 +828,7 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ItemReviewResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ItemReviewResponse>> GetReviewWithHttpInfoAsync (int reviewOid, int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// get reviews for an item
+        /// Get reviews for an item
         /// </summary>
         /// <remarks>
         /// Retrieve item reviews. 
@@ -840,7 +840,7 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<ItemReviewsResponse> GetReviewsAsync (int merchantItemOid, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// get reviews for an item
+        /// Get reviews for an item
         /// </summary>
         /// <remarks>
         /// Retrieve item reviews. 
@@ -2875,7 +2875,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// get a review Retrieve an item review. 
+        /// Get a review Retrieve an item review. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reviewOid">The review oid to retrieve.</param>
@@ -2888,7 +2888,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// get a review Retrieve an item review. 
+        /// Get a review Retrieve an item review. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reviewOid">The review oid to retrieve.</param>
@@ -2958,7 +2958,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// get a review Retrieve an item review. 
+        /// Get a review Retrieve an item review. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reviewOid">The review oid to retrieve.</param>
@@ -2973,7 +2973,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// get a review Retrieve an item review. 
+        /// Get a review Retrieve an item review. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reviewOid">The review oid to retrieve.</param>
@@ -3044,7 +3044,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// get reviews for an item Retrieve item reviews. 
+        /// Get reviews for an item Retrieve item reviews. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantItemOid">The item oid the review is associated with.</param>
@@ -3056,7 +3056,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// get reviews for an item Retrieve item reviews. 
+        /// Get reviews for an item Retrieve item reviews. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantItemOid">The item oid the review is associated with.</param>
@@ -3121,7 +3121,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// get reviews for an item Retrieve item reviews. 
+        /// Get reviews for an item Retrieve item reviews. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantItemOid">The item oid the review is associated with.</param>
@@ -3135,7 +3135,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// get reviews for an item Retrieve item reviews. 
+        /// Get reviews for an item Retrieve item reviews. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantItemOid">The item oid the review is associated with.</param>

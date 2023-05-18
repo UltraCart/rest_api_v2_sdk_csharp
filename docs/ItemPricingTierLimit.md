@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ExemptFromMinimumItemCount** | **bool** | Exempt from Minimum Item Count | [optional] 
 **IndividualOrderLimit** | **int** | Individual order limit | [optional] 
 **MultipleQuantity** | **int** | Multiple quantity | [optional] 
+**PaymentMethodValidity** | **List&lt;string&gt;** | Payment method validity | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

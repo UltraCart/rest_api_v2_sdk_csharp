@@ -14,8 +14,8 @@ Method | HTTP request | Description
 [**GetItemByMerchantItemId**](ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**GetItems**](ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 [**GetPricingTiers**](ItemApi.md#getpricingtiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
-[**GetReview**](ItemApi.md#getreview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | get a review
-[**GetReviews**](ItemApi.md#getreviews) | **GET** /item/items/{merchant_item_oid}/reviews | get reviews for an item
+[**GetReview**](ItemApi.md#getreview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
+[**GetReviews**](ItemApi.md#getreviews) | **GET** /item/items/{merchant_item_oid}/reviews | Get reviews for an item
 [**GetUnassociatedDigitalItems**](ItemApi.md#getunassociateddigitalitems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 [**InsertDigitalItem**](ItemApi.md#insertdigitalitem) | **POST** /item/digital_library | Create a file within the digital library
 [**InsertItem**](ItemApi.md#insertitem) | **POST** /item/items | Create an item
@@ -922,7 +922,7 @@ Name | Type | Description  | Notes
 
 > ItemReviewResponse GetReview (int reviewOid, int merchantItemOid)
 
-get a review
+Get a review
 
 Retrieve an item review. 
 
@@ -953,7 +953,7 @@ namespace Example
 
             try
             {
-                // get a review
+                // Get a review
                 ItemReviewResponse result = apiInstance.GetReview(reviewOid, merchantItemOid);
                 Debug.WriteLine(result);
             }
@@ -1010,7 +1010,7 @@ Name | Type | Description  | Notes
 
 > ItemReviewsResponse GetReviews (int merchantItemOid)
 
-get reviews for an item
+Get reviews for an item
 
 Retrieve item reviews. 
 
@@ -1040,7 +1040,7 @@ namespace Example
 
             try
             {
-                // get reviews for an item
+                // Get reviews for an item
                 ItemReviewsResponse result = apiInstance.GetReviews(merchantItemOid);
                 Debug.WriteLine(result);
             }

@@ -37,12 +37,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="exemptFromMinimumItemCount">Exempt from Minimum Item Count.</param>
         /// <param name="individualOrderLimit">Individual order limit.</param>
         /// <param name="multipleQuantity">Multiple quantity.</param>
-        public ItemPricingTierLimit(int cumulativeOrderLimit = default(int), bool exemptFromMinimumItemCount = default(bool), int individualOrderLimit = default(int), int multipleQuantity = default(int))
+        /// <param name="paymentMethodValidity">Payment method validity.</param>
+        public ItemPricingTierLimit(int cumulativeOrderLimit = default(int), bool exemptFromMinimumItemCount = default(bool), int individualOrderLimit = default(int), int multipleQuantity = default(int), List<string> paymentMethodValidity = default(List<string>))
         {
             this.CumulativeOrderLimit = cumulativeOrderLimit;
             this.ExemptFromMinimumItemCount = exemptFromMinimumItemCount;
             this.IndividualOrderLimit = individualOrderLimit;
             this.MultipleQuantity = multipleQuantity;
+            this.PaymentMethodValidity = paymentMethodValidity;
         }
 
         /// <summary>
@@ -74,6 +76,13 @@ namespace com.ultracart.admin.v2.Model
         public int MultipleQuantity { get; set; }
 
         /// <summary>
+        /// Payment method validity
+        /// </summary>
+        /// <value>Payment method validity</value>
+        [DataMember(Name="payment_method_validity", EmitDefaultValue=false)]
+        public List<string> PaymentMethodValidity { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +94,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ExemptFromMinimumItemCount: ").Append(ExemptFromMinimumItemCount).Append("\n");
             sb.Append("  IndividualOrderLimit: ").Append(IndividualOrderLimit).Append("\n");
             sb.Append("  MultipleQuantity: ").Append(MultipleQuantity).Append("\n");
+            sb.Append("  PaymentMethodValidity: ").Append(PaymentMethodValidity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +148,12 @@ namespace com.ultracart.admin.v2.Model
                     this.MultipleQuantity == input.MultipleQuantity ||
                     (this.MultipleQuantity != null &&
                     this.MultipleQuantity.Equals(input.MultipleQuantity))
+                ) && 
+                (
+                    this.PaymentMethodValidity == input.PaymentMethodValidity ||
+                    this.PaymentMethodValidity != null &&
+                    input.PaymentMethodValidity != null &&
+                    this.PaymentMethodValidity.SequenceEqual(input.PaymentMethodValidity)
                 );
         }
 
@@ -158,6 +174,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.IndividualOrderLimit.GetHashCode();
                 if (this.MultipleQuantity != null)
                     hashCode = hashCode * 59 + this.MultipleQuantity.GetHashCode();
+                if (this.PaymentMethodValidity != null)
+                    hashCode = hashCode * 59 + this.PaymentMethodValidity.GetHashCode();
                 return hashCode;
             }
         }

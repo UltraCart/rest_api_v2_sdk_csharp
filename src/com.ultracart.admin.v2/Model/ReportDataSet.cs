@@ -70,6 +70,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="dataSetUuid">A unique identifier assigned to the data set that is returned..</param>
         /// <param name="destinationTableId">The BigQuery destination table id that contains the result..</param>
         /// <param name="errorMessage">Error message if the query failed..</param>
+        /// <param name="executedSql">executedSql.</param>
         /// <param name="forObjectId">An identifier that can be used to help match up the returned data set.</param>
         /// <param name="forObjectType">The type of object this data set is for.</param>
         /// <param name="initialPages">Initial pages returned in the dataset.</param>
@@ -81,12 +82,13 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="securityLevel">Security level this dataset was read from..</param>
         /// <param name="timezone">timezone.</param>
         /// <param name="userData">Any other data that needs to be returned with the response to help the UI.</param>
-        public ReportDataSet(string dataSetQueryUuid = default(string), string dataSetUuid = default(string), string destinationTableId = default(string), string errorMessage = default(string), string forObjectId = default(string), ForObjectTypeEnum? forObjectType = default(ForObjectTypeEnum?), List<ReportDataSetPage> initialPages = default(List<ReportDataSetPage>), long? maxResults = default(long?), string merchantId = default(string), int? pageCount = default(int?), int? pageSize = default(int?), List<ReportDataSetSchema> schema = default(List<ReportDataSetSchema>), string securityLevel = default(string), string timezone = default(string), string userData = default(string))
+        public ReportDataSet(string dataSetQueryUuid = default(string), string dataSetUuid = default(string), string destinationTableId = default(string), string errorMessage = default(string), string executedSql = default(string), string forObjectId = default(string), ForObjectTypeEnum? forObjectType = default(ForObjectTypeEnum?), List<ReportDataSetPage> initialPages = default(List<ReportDataSetPage>), long? maxResults = default(long?), string merchantId = default(string), int? pageCount = default(int?), int? pageSize = default(int?), List<ReportDataSetSchema> schema = default(List<ReportDataSetSchema>), string securityLevel = default(string), string timezone = default(string), string userData = default(string))
         {
             this.DataSetQueryUuid = dataSetQueryUuid;
             this.DataSetUuid = dataSetUuid;
             this.DestinationTableId = destinationTableId;
             this.ErrorMessage = errorMessage;
+            this.ExecutedSql = executedSql;
             this.ForObjectId = forObjectId;
             this.ForObjectType = forObjectType;
             this.InitialPages = initialPages;
@@ -127,6 +129,12 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Error message if the query failed.</value>
         [DataMember(Name="error_message", EmitDefaultValue=false)]
         public string ErrorMessage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExecutedSql
+        /// </summary>
+        [DataMember(Name="executed_sql", EmitDefaultValue=false)]
+        public string ExecutedSql { get; set; }
 
         /// <summary>
         /// An identifier that can be used to help match up the returned data set
@@ -210,6 +218,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DataSetUuid: ").Append(DataSetUuid).Append("\n");
             sb.Append("  DestinationTableId: ").Append(DestinationTableId).Append("\n");
             sb.Append("  ErrorMessage: ").Append(ErrorMessage).Append("\n");
+            sb.Append("  ExecutedSql: ").Append(ExecutedSql).Append("\n");
             sb.Append("  ForObjectId: ").Append(ForObjectId).Append("\n");
             sb.Append("  ForObjectType: ").Append(ForObjectType).Append("\n");
             sb.Append("  InitialPages: ").Append(InitialPages).Append("\n");
@@ -274,6 +283,11 @@ namespace com.ultracart.admin.v2.Model
                     this.ErrorMessage == input.ErrorMessage ||
                     (this.ErrorMessage != null &&
                     this.ErrorMessage.Equals(input.ErrorMessage))
+                ) && 
+                (
+                    this.ExecutedSql == input.ExecutedSql ||
+                    (this.ExecutedSql != null &&
+                    this.ExecutedSql.Equals(input.ExecutedSql))
                 ) && 
                 (
                     this.ForObjectId == input.ForObjectId ||
@@ -349,6 +363,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.DestinationTableId.GetHashCode();
                 if (this.ErrorMessage != null)
                     hashCode = hashCode * 59 + this.ErrorMessage.GetHashCode();
+                if (this.ExecutedSql != null)
+                    hashCode = hashCode * 59 + this.ExecutedSql.GetHashCode();
                 if (this.ForObjectId != null)
                     hashCode = hashCode * 59 + this.ForObjectId.GetHashCode();
                 if (this.ForObjectType != null)

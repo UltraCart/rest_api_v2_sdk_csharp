@@ -162,7 +162,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Sezzle for value: Sezzle
             /// </summary>
             [EnumMember(Value = "Sezzle")]
-            Sezzle = 21
+            Sezzle = 21,
+            
+            /// <summary>
+            /// Enum Venmo for value: Venmo
+            /// </summary>
+            [EnumMember(Value = "Venmo")]
+            Venmo = 22
         }
 
         /// <summary>

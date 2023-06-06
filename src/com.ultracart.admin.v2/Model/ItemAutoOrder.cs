@@ -38,7 +38,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="autoOrderCancelChargeMinimumBalance">If true, the cost of the cancel item will be the remaining balance of the minimum rebill or lifetime value.</param>
         /// <param name="autoOrderCancelItemId">Item id to attempt charging the customer for if they cancel.</param>
         /// <param name="autoOrderCancelItemOid">Item object identifier to attempt charging the customer for if they cancel.</param>
+        /// <param name="autoOrderCancelMinimumLifeTimeCount">The minimum life time count that must be billed in order to not be charged the cancellation item..</param>
         /// <param name="autoOrderCancelMinimumLifeTimeValue">The minimum life time value that must be paid in order to not be charged the cancellation item..</param>
+        /// <param name="autoOrderCancelMinimumRebillCount">The minimum rebill count that must be billed in order to not be charged the cancellation item..</param>
         /// <param name="autoOrderCancelMinimumRebillValue">The minimum rebill value that must be paid in order to not be charged the cancellation item..</param>
         /// <param name="autoOrderDowngradeItems">List of downgrade items presented to customer service representatives.</param>
         /// <param name="autoOrderPaused">True if the rebill processing of this item is paused.</param>
@@ -53,14 +55,16 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="freeShippingAutoOrder">True if the customer should be given free shipping.</param>
         /// <param name="refundOtherAutoOrders">True if other auto orders for this customer should refunded if this item is refunded..</param>
         /// <param name="steps">The rebill steps if this auto order is an upsell.</param>
-        public ItemAutoOrder(decimal authFutureAmount = default(decimal), decimal authTestAmount = default(decimal), bool autoOrderCancelChargeMinimumBalance = default(bool), string autoOrderCancelItemId = default(string), int autoOrderCancelItemOid = default(int), decimal autoOrderCancelMinimumLifeTimeValue = default(decimal), decimal autoOrderCancelMinimumRebillValue = default(decimal), List<string> autoOrderDowngradeItems = default(List<string>), bool autoOrderPaused = default(bool), int autoOrderProhibitExpiringCards = default(int), List<string> autoOrderSchedules = default(List<string>), List<string> autoOrderUpgradeItems = default(List<string>), bool autoOrderUpsell = default(bool), bool autoOrderUpsellNoEasyCancel = default(bool), bool autoOrderUpsellOnePerCustomer = default(bool), bool autoOrderable = default(bool), bool cancelOtherAutoOrders = default(bool), bool freeShippingAutoOrder = default(bool), bool refundOtherAutoOrders = default(bool), List<ItemAutoOrderStep> steps = default(List<ItemAutoOrderStep>))
+        public ItemAutoOrder(decimal authFutureAmount = default(decimal), decimal authTestAmount = default(decimal), bool autoOrderCancelChargeMinimumBalance = default(bool), string autoOrderCancelItemId = default(string), int autoOrderCancelItemOid = default(int), int autoOrderCancelMinimumLifeTimeCount = default(int), decimal autoOrderCancelMinimumLifeTimeValue = default(decimal), int autoOrderCancelMinimumRebillCount = default(int), decimal autoOrderCancelMinimumRebillValue = default(decimal), List<string> autoOrderDowngradeItems = default(List<string>), bool autoOrderPaused = default(bool), int autoOrderProhibitExpiringCards = default(int), List<string> autoOrderSchedules = default(List<string>), List<string> autoOrderUpgradeItems = default(List<string>), bool autoOrderUpsell = default(bool), bool autoOrderUpsellNoEasyCancel = default(bool), bool autoOrderUpsellOnePerCustomer = default(bool), bool autoOrderable = default(bool), bool cancelOtherAutoOrders = default(bool), bool freeShippingAutoOrder = default(bool), bool refundOtherAutoOrders = default(bool), List<ItemAutoOrderStep> steps = default(List<ItemAutoOrderStep>))
         {
             this.AuthFutureAmount = authFutureAmount;
             this.AuthTestAmount = authTestAmount;
             this.AutoOrderCancelChargeMinimumBalance = autoOrderCancelChargeMinimumBalance;
             this.AutoOrderCancelItemId = autoOrderCancelItemId;
             this.AutoOrderCancelItemOid = autoOrderCancelItemOid;
+            this.AutoOrderCancelMinimumLifeTimeCount = autoOrderCancelMinimumLifeTimeCount;
             this.AutoOrderCancelMinimumLifeTimeValue = autoOrderCancelMinimumLifeTimeValue;
+            this.AutoOrderCancelMinimumRebillCount = autoOrderCancelMinimumRebillCount;
             this.AutoOrderCancelMinimumRebillValue = autoOrderCancelMinimumRebillValue;
             this.AutoOrderDowngradeItems = autoOrderDowngradeItems;
             this.AutoOrderPaused = autoOrderPaused;
@@ -113,11 +117,25 @@ namespace com.ultracart.admin.v2.Model
         public int AutoOrderCancelItemOid { get; set; }
 
         /// <summary>
+        /// The minimum life time count that must be billed in order to not be charged the cancellation item.
+        /// </summary>
+        /// <value>The minimum life time count that must be billed in order to not be charged the cancellation item.</value>
+        [DataMember(Name="auto_order_cancel_minimum_life_time_count", EmitDefaultValue=false)]
+        public int AutoOrderCancelMinimumLifeTimeCount { get; set; }
+
+        /// <summary>
         /// The minimum life time value that must be paid in order to not be charged the cancellation item.
         /// </summary>
         /// <value>The minimum life time value that must be paid in order to not be charged the cancellation item.</value>
         [DataMember(Name="auto_order_cancel_minimum_life_time_value", EmitDefaultValue=false)]
         public decimal AutoOrderCancelMinimumLifeTimeValue { get; set; }
+
+        /// <summary>
+        /// The minimum rebill count that must be billed in order to not be charged the cancellation item.
+        /// </summary>
+        /// <value>The minimum rebill count that must be billed in order to not be charged the cancellation item.</value>
+        [DataMember(Name="auto_order_cancel_minimum_rebill_count", EmitDefaultValue=false)]
+        public int AutoOrderCancelMinimumRebillCount { get; set; }
 
         /// <summary>
         /// The minimum rebill value that must be paid in order to not be charged the cancellation item.
@@ -230,7 +248,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AutoOrderCancelChargeMinimumBalance: ").Append(AutoOrderCancelChargeMinimumBalance).Append("\n");
             sb.Append("  AutoOrderCancelItemId: ").Append(AutoOrderCancelItemId).Append("\n");
             sb.Append("  AutoOrderCancelItemOid: ").Append(AutoOrderCancelItemOid).Append("\n");
+            sb.Append("  AutoOrderCancelMinimumLifeTimeCount: ").Append(AutoOrderCancelMinimumLifeTimeCount).Append("\n");
             sb.Append("  AutoOrderCancelMinimumLifeTimeValue: ").Append(AutoOrderCancelMinimumLifeTimeValue).Append("\n");
+            sb.Append("  AutoOrderCancelMinimumRebillCount: ").Append(AutoOrderCancelMinimumRebillCount).Append("\n");
             sb.Append("  AutoOrderCancelMinimumRebillValue: ").Append(AutoOrderCancelMinimumRebillValue).Append("\n");
             sb.Append("  AutoOrderDowngradeItems: ").Append(AutoOrderDowngradeItems).Append("\n");
             sb.Append("  AutoOrderPaused: ").Append(AutoOrderPaused).Append("\n");
@@ -305,9 +325,19 @@ namespace com.ultracart.admin.v2.Model
                     this.AutoOrderCancelItemOid.Equals(input.AutoOrderCancelItemOid))
                 ) && 
                 (
+                    this.AutoOrderCancelMinimumLifeTimeCount == input.AutoOrderCancelMinimumLifeTimeCount ||
+                    (this.AutoOrderCancelMinimumLifeTimeCount != null &&
+                    this.AutoOrderCancelMinimumLifeTimeCount.Equals(input.AutoOrderCancelMinimumLifeTimeCount))
+                ) && 
+                (
                     this.AutoOrderCancelMinimumLifeTimeValue == input.AutoOrderCancelMinimumLifeTimeValue ||
                     (this.AutoOrderCancelMinimumLifeTimeValue != null &&
                     this.AutoOrderCancelMinimumLifeTimeValue.Equals(input.AutoOrderCancelMinimumLifeTimeValue))
+                ) && 
+                (
+                    this.AutoOrderCancelMinimumRebillCount == input.AutoOrderCancelMinimumRebillCount ||
+                    (this.AutoOrderCancelMinimumRebillCount != null &&
+                    this.AutoOrderCancelMinimumRebillCount.Equals(input.AutoOrderCancelMinimumRebillCount))
                 ) && 
                 (
                     this.AutoOrderCancelMinimumRebillValue == input.AutoOrderCancelMinimumRebillValue ||
@@ -404,8 +434,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AutoOrderCancelItemId.GetHashCode();
                 if (this.AutoOrderCancelItemOid != null)
                     hashCode = hashCode * 59 + this.AutoOrderCancelItemOid.GetHashCode();
+                if (this.AutoOrderCancelMinimumLifeTimeCount != null)
+                    hashCode = hashCode * 59 + this.AutoOrderCancelMinimumLifeTimeCount.GetHashCode();
                 if (this.AutoOrderCancelMinimumLifeTimeValue != null)
                     hashCode = hashCode * 59 + this.AutoOrderCancelMinimumLifeTimeValue.GetHashCode();
+                if (this.AutoOrderCancelMinimumRebillCount != null)
+                    hashCode = hashCode * 59 + this.AutoOrderCancelMinimumRebillCount.GetHashCode();
                 if (this.AutoOrderCancelMinimumRebillValue != null)
                     hashCode = hashCode * 59 + this.AutoOrderCancelMinimumRebillValue.GetHashCode();
                 if (this.AutoOrderDowngradeItems != null)

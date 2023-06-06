@@ -66,6 +66,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoOrder" /> class.
         /// </summary>
+        /// <param name="addOns">Array of addon objects instructing which items to add to auto order and how many times they should be added..</param>
         /// <param name="autoOrderCode">Unique code assigned to this auto order.</param>
         /// <param name="autoOrderOid">Auto order object identifier.</param>
         /// <param name="cancelAfterNextXOrders">Cancel this auto order after X additional rebills.</param>
@@ -89,8 +90,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="rebillOrders">Rebill orders that have taken place on this auto order.</param>
         /// <param name="rotatingTransactionGatewayCode">The RTG code associated with this order for future rebills.</param>
         /// <param name="status">The status of the auto order.</param>
-        public AutoOrder(string autoOrderCode = default(string), int autoOrderOid = default(int), int cancelAfterNextXOrders = default(int), bool cancelDowngrade = default(bool), string cancelReason = default(string), bool cancelUpgrade = default(bool), string canceledByUser = default(string), string canceledDts = default(string), bool completed = default(bool), int creditCardAttempt = default(int), string disabledDts = default(string), bool enabled = default(bool), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), List<AutoOrderLog> logs = default(List<AutoOrderLog>), AutoOrderManagement management = default(AutoOrderManagement), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int overrideAffiliateId = default(int), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
+        public AutoOrder(List<AutoOrderAddonItem> addOns = default(List<AutoOrderAddonItem>), string autoOrderCode = default(string), int autoOrderOid = default(int), int cancelAfterNextXOrders = default(int), bool cancelDowngrade = default(bool), string cancelReason = default(string), bool cancelUpgrade = default(bool), string canceledByUser = default(string), string canceledDts = default(string), bool completed = default(bool), int creditCardAttempt = default(int), string disabledDts = default(string), bool enabled = default(bool), string failureReason = default(string), List<AutoOrderItem> items = default(List<AutoOrderItem>), List<AutoOrderLog> logs = default(List<AutoOrderLog>), AutoOrderManagement management = default(AutoOrderManagement), string nextAttempt = default(string), Order originalOrder = default(Order), string originalOrderId = default(string), int overrideAffiliateId = default(int), List<Order> rebillOrders = default(List<Order>), string rotatingTransactionGatewayCode = default(string), StatusEnum? status = default(StatusEnum?))
         {
+            this.AddOns = addOns;
             this.AutoOrderCode = autoOrderCode;
             this.AutoOrderOid = autoOrderOid;
             this.CancelAfterNextXOrders = cancelAfterNextXOrders;
@@ -115,6 +117,13 @@ namespace com.ultracart.admin.v2.Model
             this.RotatingTransactionGatewayCode = rotatingTransactionGatewayCode;
             this.Status = status;
         }
+
+        /// <summary>
+        /// Array of addon objects instructing which items to add to auto order and how many times they should be added.
+        /// </summary>
+        /// <value>Array of addon objects instructing which items to add to auto order and how many times they should be added.</value>
+        [DataMember(Name="add_ons", EmitDefaultValue=false)]
+        public List<AutoOrderAddonItem> AddOns { get; set; }
 
         /// <summary>
         /// Unique code assigned to this auto order
@@ -277,6 +286,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AutoOrder {\n");
+            sb.Append("  AddOns: ").Append(AddOns).Append("\n");
             sb.Append("  AutoOrderCode: ").Append(AutoOrderCode).Append("\n");
             sb.Append("  AutoOrderOid: ").Append(AutoOrderOid).Append("\n");
             sb.Append("  CancelAfterNextXOrders: ").Append(CancelAfterNextXOrders).Append("\n");
@@ -334,6 +344,12 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.AddOns == input.AddOns ||
+                    this.AddOns != null &&
+                    input.AddOns != null &&
+                    this.AddOns.SequenceEqual(input.AddOns)
+                ) && 
                 (
                     this.AutoOrderCode == input.AutoOrderCode ||
                     (this.AutoOrderCode != null &&
@@ -463,6 +479,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AddOns != null)
+                    hashCode = hashCode * 59 + this.AddOns.GetHashCode();
                 if (this.AutoOrderCode != null)
                     hashCode = hashCode * 59 + this.AutoOrderCode.GetHashCode();
                 if (this.AutoOrderOid != null)

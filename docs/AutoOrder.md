@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AddOns** | [**List&lt;AutoOrderAddonItem&gt;**](AutoOrderAddonItem.md) | Array of addon objects instructing which items to add to auto order and how many times they should be added. | [optional] 
 **AutoOrderCode** | **string** | Unique code assigned to this auto order | [optional] 
 **AutoOrderOid** | **int?** | Auto order object identifier | [optional] 
 **CancelAfterNextXOrders** | **int?** | Cancel this auto order after X additional rebills | [optional] 

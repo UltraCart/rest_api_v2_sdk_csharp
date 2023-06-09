@@ -52,6 +52,21 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="name">Name of this distribution center.</param>
         /// <param name="noCustomerDirectShipments">True if this distribution center does not handle customer direct shipments.</param>
         /// <param name="noSplitShipment">True if this distribution center is not allowed to participate in a split shipment..</param>
+        /// <param name="pickupCutoffTimeFriday">The time (EST) after which pickups will not be available on Friday.</param>
+        /// <param name="pickupCutoffTimeMonday">The time (EST) after which pickups will not be available on Monday.</param>
+        /// <param name="pickupCutoffTimeSaturday">The time (EST) after which pickups will not be available on Saturday.</param>
+        /// <param name="pickupCutoffTimeSunday">The time (EST) after which pickups will not be available on Sunday.</param>
+        /// <param name="pickupCutoffTimeThursday">The time (EST) after which pickups will not be available on Thursday.</param>
+        /// <param name="pickupCutoffTimeTuesday">The time (EST) after which pickups will not be available on Tuesday.</param>
+        /// <param name="pickupCutoffTimeWednesday">The time (EST) after which pickups will not be available on Wednesday.</param>
+        /// <param name="pickupStartTimeFriday">The time (EST) after which pickups are available on Friday.</param>
+        /// <param name="pickupStartTimeMonday">The time (EST) after which pickups are available on Monday.</param>
+        /// <param name="pickupStartTimeSaturday">The time (EST) after which pickups are available on Saturday.</param>
+        /// <param name="pickupStartTimeSunday">The time (EST) after which pickups are available on Sunday.</param>
+        /// <param name="pickupStartTimeThursday">The time (EST) after which pickups are available on Thursday.</param>
+        /// <param name="pickupStartTimeTuesday">The time (EST) after which pickups are available on Tuesday.</param>
+        /// <param name="pickupStartTimeWednesday">The time (EST) after which pickups are available on Wednesday.</param>
+        /// <param name="pickupTz">The IANA timezone for all pickup times.</param>
         /// <param name="postalCode">Postal code of the distribution center.</param>
         /// <param name="processDays">The number of processing days required before an order ships.</param>
         /// <param name="processInventoryStartTime">The time (EST) after which inventory updates will be processed.</param>
@@ -68,7 +83,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="state">State of the distribution center.</param>
         /// <param name="transmitBlankCosts">True if monetary amounts should be zeroed before transmission.</param>
         /// <param name="transport">Transport mechanism for this distribution center.</param>
-        public DistributionCenter(string address1 = default(string), string address2 = default(string), string city = default(string), string code = default(string), string countryCode = default(string), bool defaultCenter = default(bool), bool defaultHandlesAllItems = default(bool), int distributionCenterOid = default(int), string duns = default(string), int estimateFromDistributionCenterOid = default(int), string ftpPassword = default(string), int holdBeforeShipmentMinutes = default(int), bool holdBeforeTransmission = default(bool), int holdAutoOrderBeforeShipmentMinutes = default(int), decimal latitude = default(decimal), decimal longitude = default(decimal), string name = default(string), bool noCustomerDirectShipments = default(bool), bool noSplitShipment = default(bool), string postalCode = default(string), int processDays = default(int), string processInventoryStartTime = default(string), string processInventoryStopTime = default(string), bool requireAsn = default(bool), bool sendKitInsteadOfComponents = default(bool), string shipmentCutoffTimeFriday = default(string), string shipmentCutoffTimeMonday = default(string), string shipmentCutoffTimeSaturday = default(string), string shipmentCutoffTimeSunday = default(string), string shipmentCutoffTimeThursday = default(string), string shipmentCutoffTimeTuesday = default(string), string shipmentCutoffTimeWednesday = default(string), string state = default(string), bool transmitBlankCosts = default(bool), string transport = default(string))
+        public DistributionCenter(string address1 = default(string), string address2 = default(string), string city = default(string), string code = default(string), string countryCode = default(string), bool defaultCenter = default(bool), bool defaultHandlesAllItems = default(bool), int distributionCenterOid = default(int), string duns = default(string), int estimateFromDistributionCenterOid = default(int), string ftpPassword = default(string), int holdBeforeShipmentMinutes = default(int), bool holdBeforeTransmission = default(bool), int holdAutoOrderBeforeShipmentMinutes = default(int), decimal latitude = default(decimal), decimal longitude = default(decimal), string name = default(string), bool noCustomerDirectShipments = default(bool), bool noSplitShipment = default(bool), string pickupCutoffTimeFriday = default(string), string pickupCutoffTimeMonday = default(string), string pickupCutoffTimeSaturday = default(string), string pickupCutoffTimeSunday = default(string), string pickupCutoffTimeThursday = default(string), string pickupCutoffTimeTuesday = default(string), string pickupCutoffTimeWednesday = default(string), string pickupStartTimeFriday = default(string), string pickupStartTimeMonday = default(string), string pickupStartTimeSaturday = default(string), string pickupStartTimeSunday = default(string), string pickupStartTimeThursday = default(string), string pickupStartTimeTuesday = default(string), string pickupStartTimeWednesday = default(string), string pickupTz = default(string), string postalCode = default(string), int processDays = default(int), string processInventoryStartTime = default(string), string processInventoryStopTime = default(string), bool requireAsn = default(bool), bool sendKitInsteadOfComponents = default(bool), string shipmentCutoffTimeFriday = default(string), string shipmentCutoffTimeMonday = default(string), string shipmentCutoffTimeSaturday = default(string), string shipmentCutoffTimeSunday = default(string), string shipmentCutoffTimeThursday = default(string), string shipmentCutoffTimeTuesday = default(string), string shipmentCutoffTimeWednesday = default(string), string state = default(string), bool transmitBlankCosts = default(bool), string transport = default(string))
         {
             this.Address1 = address1;
             this.Address2 = address2;
@@ -89,6 +104,21 @@ namespace com.ultracart.admin.v2.Model
             this.Name = name;
             this.NoCustomerDirectShipments = noCustomerDirectShipments;
             this.NoSplitShipment = noSplitShipment;
+            this.PickupCutoffTimeFriday = pickupCutoffTimeFriday;
+            this.PickupCutoffTimeMonday = pickupCutoffTimeMonday;
+            this.PickupCutoffTimeSaturday = pickupCutoffTimeSaturday;
+            this.PickupCutoffTimeSunday = pickupCutoffTimeSunday;
+            this.PickupCutoffTimeThursday = pickupCutoffTimeThursday;
+            this.PickupCutoffTimeTuesday = pickupCutoffTimeTuesday;
+            this.PickupCutoffTimeWednesday = pickupCutoffTimeWednesday;
+            this.PickupStartTimeFriday = pickupStartTimeFriday;
+            this.PickupStartTimeMonday = pickupStartTimeMonday;
+            this.PickupStartTimeSaturday = pickupStartTimeSaturday;
+            this.PickupStartTimeSunday = pickupStartTimeSunday;
+            this.PickupStartTimeThursday = pickupStartTimeThursday;
+            this.PickupStartTimeTuesday = pickupStartTimeTuesday;
+            this.PickupStartTimeWednesday = pickupStartTimeWednesday;
+            this.PickupTz = pickupTz;
             this.PostalCode = postalCode;
             this.ProcessDays = processDays;
             this.ProcessInventoryStartTime = processInventoryStartTime;
@@ -240,6 +270,111 @@ namespace com.ultracart.admin.v2.Model
         public bool NoSplitShipment { get; set; }
 
         /// <summary>
+        /// The time (EST) after which pickups will not be available on Friday
+        /// </summary>
+        /// <value>The time (EST) after which pickups will not be available on Friday</value>
+        [DataMember(Name="pickup_cutoff_time_friday", EmitDefaultValue=false)]
+        public string PickupCutoffTimeFriday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups will not be available on Monday
+        /// </summary>
+        /// <value>The time (EST) after which pickups will not be available on Monday</value>
+        [DataMember(Name="pickup_cutoff_time_monday", EmitDefaultValue=false)]
+        public string PickupCutoffTimeMonday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups will not be available on Saturday
+        /// </summary>
+        /// <value>The time (EST) after which pickups will not be available on Saturday</value>
+        [DataMember(Name="pickup_cutoff_time_saturday", EmitDefaultValue=false)]
+        public string PickupCutoffTimeSaturday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups will not be available on Sunday
+        /// </summary>
+        /// <value>The time (EST) after which pickups will not be available on Sunday</value>
+        [DataMember(Name="pickup_cutoff_time_sunday", EmitDefaultValue=false)]
+        public string PickupCutoffTimeSunday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups will not be available on Thursday
+        /// </summary>
+        /// <value>The time (EST) after which pickups will not be available on Thursday</value>
+        [DataMember(Name="pickup_cutoff_time_thursday", EmitDefaultValue=false)]
+        public string PickupCutoffTimeThursday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups will not be available on Tuesday
+        /// </summary>
+        /// <value>The time (EST) after which pickups will not be available on Tuesday</value>
+        [DataMember(Name="pickup_cutoff_time_tuesday", EmitDefaultValue=false)]
+        public string PickupCutoffTimeTuesday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups will not be available on Wednesday
+        /// </summary>
+        /// <value>The time (EST) after which pickups will not be available on Wednesday</value>
+        [DataMember(Name="pickup_cutoff_time_wednesday", EmitDefaultValue=false)]
+        public string PickupCutoffTimeWednesday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups are available on Friday
+        /// </summary>
+        /// <value>The time (EST) after which pickups are available on Friday</value>
+        [DataMember(Name="pickup_start_time_friday", EmitDefaultValue=false)]
+        public string PickupStartTimeFriday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups are available on Monday
+        /// </summary>
+        /// <value>The time (EST) after which pickups are available on Monday</value>
+        [DataMember(Name="pickup_start_time_monday", EmitDefaultValue=false)]
+        public string PickupStartTimeMonday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups are available on Saturday
+        /// </summary>
+        /// <value>The time (EST) after which pickups are available on Saturday</value>
+        [DataMember(Name="pickup_start_time_saturday", EmitDefaultValue=false)]
+        public string PickupStartTimeSaturday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups are available on Sunday
+        /// </summary>
+        /// <value>The time (EST) after which pickups are available on Sunday</value>
+        [DataMember(Name="pickup_start_time_sunday", EmitDefaultValue=false)]
+        public string PickupStartTimeSunday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups are available on Thursday
+        /// </summary>
+        /// <value>The time (EST) after which pickups are available on Thursday</value>
+        [DataMember(Name="pickup_start_time_thursday", EmitDefaultValue=false)]
+        public string PickupStartTimeThursday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups are available on Tuesday
+        /// </summary>
+        /// <value>The time (EST) after which pickups are available on Tuesday</value>
+        [DataMember(Name="pickup_start_time_tuesday", EmitDefaultValue=false)]
+        public string PickupStartTimeTuesday { get; set; }
+
+        /// <summary>
+        /// The time (EST) after which pickups are available on Wednesday
+        /// </summary>
+        /// <value>The time (EST) after which pickups are available on Wednesday</value>
+        [DataMember(Name="pickup_start_time_wednesday", EmitDefaultValue=false)]
+        public string PickupStartTimeWednesday { get; set; }
+
+        /// <summary>
+        /// The IANA timezone for all pickup times
+        /// </summary>
+        /// <value>The IANA timezone for all pickup times</value>
+        [DataMember(Name="pickup_tz", EmitDefaultValue=false)]
+        public string PickupTz { get; set; }
+
+        /// <summary>
         /// Postal code of the distribution center
         /// </summary>
         /// <value>Postal code of the distribution center</value>
@@ -378,6 +513,21 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  NoCustomerDirectShipments: ").Append(NoCustomerDirectShipments).Append("\n");
             sb.Append("  NoSplitShipment: ").Append(NoSplitShipment).Append("\n");
+            sb.Append("  PickupCutoffTimeFriday: ").Append(PickupCutoffTimeFriday).Append("\n");
+            sb.Append("  PickupCutoffTimeMonday: ").Append(PickupCutoffTimeMonday).Append("\n");
+            sb.Append("  PickupCutoffTimeSaturday: ").Append(PickupCutoffTimeSaturday).Append("\n");
+            sb.Append("  PickupCutoffTimeSunday: ").Append(PickupCutoffTimeSunday).Append("\n");
+            sb.Append("  PickupCutoffTimeThursday: ").Append(PickupCutoffTimeThursday).Append("\n");
+            sb.Append("  PickupCutoffTimeTuesday: ").Append(PickupCutoffTimeTuesday).Append("\n");
+            sb.Append("  PickupCutoffTimeWednesday: ").Append(PickupCutoffTimeWednesday).Append("\n");
+            sb.Append("  PickupStartTimeFriday: ").Append(PickupStartTimeFriday).Append("\n");
+            sb.Append("  PickupStartTimeMonday: ").Append(PickupStartTimeMonday).Append("\n");
+            sb.Append("  PickupStartTimeSaturday: ").Append(PickupStartTimeSaturday).Append("\n");
+            sb.Append("  PickupStartTimeSunday: ").Append(PickupStartTimeSunday).Append("\n");
+            sb.Append("  PickupStartTimeThursday: ").Append(PickupStartTimeThursday).Append("\n");
+            sb.Append("  PickupStartTimeTuesday: ").Append(PickupStartTimeTuesday).Append("\n");
+            sb.Append("  PickupStartTimeWednesday: ").Append(PickupStartTimeWednesday).Append("\n");
+            sb.Append("  PickupTz: ").Append(PickupTz).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  ProcessDays: ").Append(ProcessDays).Append("\n");
             sb.Append("  ProcessInventoryStartTime: ").Append(ProcessInventoryStartTime).Append("\n");
@@ -524,6 +674,81 @@ namespace com.ultracart.admin.v2.Model
                     this.NoSplitShipment.Equals(input.NoSplitShipment))
                 ) && 
                 (
+                    this.PickupCutoffTimeFriday == input.PickupCutoffTimeFriday ||
+                    (this.PickupCutoffTimeFriday != null &&
+                    this.PickupCutoffTimeFriday.Equals(input.PickupCutoffTimeFriday))
+                ) && 
+                (
+                    this.PickupCutoffTimeMonday == input.PickupCutoffTimeMonday ||
+                    (this.PickupCutoffTimeMonday != null &&
+                    this.PickupCutoffTimeMonday.Equals(input.PickupCutoffTimeMonday))
+                ) && 
+                (
+                    this.PickupCutoffTimeSaturday == input.PickupCutoffTimeSaturday ||
+                    (this.PickupCutoffTimeSaturday != null &&
+                    this.PickupCutoffTimeSaturday.Equals(input.PickupCutoffTimeSaturday))
+                ) && 
+                (
+                    this.PickupCutoffTimeSunday == input.PickupCutoffTimeSunday ||
+                    (this.PickupCutoffTimeSunday != null &&
+                    this.PickupCutoffTimeSunday.Equals(input.PickupCutoffTimeSunday))
+                ) && 
+                (
+                    this.PickupCutoffTimeThursday == input.PickupCutoffTimeThursday ||
+                    (this.PickupCutoffTimeThursday != null &&
+                    this.PickupCutoffTimeThursday.Equals(input.PickupCutoffTimeThursday))
+                ) && 
+                (
+                    this.PickupCutoffTimeTuesday == input.PickupCutoffTimeTuesday ||
+                    (this.PickupCutoffTimeTuesday != null &&
+                    this.PickupCutoffTimeTuesday.Equals(input.PickupCutoffTimeTuesday))
+                ) && 
+                (
+                    this.PickupCutoffTimeWednesday == input.PickupCutoffTimeWednesday ||
+                    (this.PickupCutoffTimeWednesday != null &&
+                    this.PickupCutoffTimeWednesday.Equals(input.PickupCutoffTimeWednesday))
+                ) && 
+                (
+                    this.PickupStartTimeFriday == input.PickupStartTimeFriday ||
+                    (this.PickupStartTimeFriday != null &&
+                    this.PickupStartTimeFriday.Equals(input.PickupStartTimeFriday))
+                ) && 
+                (
+                    this.PickupStartTimeMonday == input.PickupStartTimeMonday ||
+                    (this.PickupStartTimeMonday != null &&
+                    this.PickupStartTimeMonday.Equals(input.PickupStartTimeMonday))
+                ) && 
+                (
+                    this.PickupStartTimeSaturday == input.PickupStartTimeSaturday ||
+                    (this.PickupStartTimeSaturday != null &&
+                    this.PickupStartTimeSaturday.Equals(input.PickupStartTimeSaturday))
+                ) && 
+                (
+                    this.PickupStartTimeSunday == input.PickupStartTimeSunday ||
+                    (this.PickupStartTimeSunday != null &&
+                    this.PickupStartTimeSunday.Equals(input.PickupStartTimeSunday))
+                ) && 
+                (
+                    this.PickupStartTimeThursday == input.PickupStartTimeThursday ||
+                    (this.PickupStartTimeThursday != null &&
+                    this.PickupStartTimeThursday.Equals(input.PickupStartTimeThursday))
+                ) && 
+                (
+                    this.PickupStartTimeTuesday == input.PickupStartTimeTuesday ||
+                    (this.PickupStartTimeTuesday != null &&
+                    this.PickupStartTimeTuesday.Equals(input.PickupStartTimeTuesday))
+                ) && 
+                (
+                    this.PickupStartTimeWednesday == input.PickupStartTimeWednesday ||
+                    (this.PickupStartTimeWednesday != null &&
+                    this.PickupStartTimeWednesday.Equals(input.PickupStartTimeWednesday))
+                ) && 
+                (
+                    this.PickupTz == input.PickupTz ||
+                    (this.PickupTz != null &&
+                    this.PickupTz.Equals(input.PickupTz))
+                ) && 
+                (
                     this.PostalCode == input.PostalCode ||
                     (this.PostalCode != null &&
                     this.PostalCode.Equals(input.PostalCode))
@@ -652,6 +877,36 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.NoCustomerDirectShipments.GetHashCode();
                 if (this.NoSplitShipment != null)
                     hashCode = hashCode * 59 + this.NoSplitShipment.GetHashCode();
+                if (this.PickupCutoffTimeFriday != null)
+                    hashCode = hashCode * 59 + this.PickupCutoffTimeFriday.GetHashCode();
+                if (this.PickupCutoffTimeMonday != null)
+                    hashCode = hashCode * 59 + this.PickupCutoffTimeMonday.GetHashCode();
+                if (this.PickupCutoffTimeSaturday != null)
+                    hashCode = hashCode * 59 + this.PickupCutoffTimeSaturday.GetHashCode();
+                if (this.PickupCutoffTimeSunday != null)
+                    hashCode = hashCode * 59 + this.PickupCutoffTimeSunday.GetHashCode();
+                if (this.PickupCutoffTimeThursday != null)
+                    hashCode = hashCode * 59 + this.PickupCutoffTimeThursday.GetHashCode();
+                if (this.PickupCutoffTimeTuesday != null)
+                    hashCode = hashCode * 59 + this.PickupCutoffTimeTuesday.GetHashCode();
+                if (this.PickupCutoffTimeWednesday != null)
+                    hashCode = hashCode * 59 + this.PickupCutoffTimeWednesday.GetHashCode();
+                if (this.PickupStartTimeFriday != null)
+                    hashCode = hashCode * 59 + this.PickupStartTimeFriday.GetHashCode();
+                if (this.PickupStartTimeMonday != null)
+                    hashCode = hashCode * 59 + this.PickupStartTimeMonday.GetHashCode();
+                if (this.PickupStartTimeSaturday != null)
+                    hashCode = hashCode * 59 + this.PickupStartTimeSaturday.GetHashCode();
+                if (this.PickupStartTimeSunday != null)
+                    hashCode = hashCode * 59 + this.PickupStartTimeSunday.GetHashCode();
+                if (this.PickupStartTimeThursday != null)
+                    hashCode = hashCode * 59 + this.PickupStartTimeThursday.GetHashCode();
+                if (this.PickupStartTimeTuesday != null)
+                    hashCode = hashCode * 59 + this.PickupStartTimeTuesday.GetHashCode();
+                if (this.PickupStartTimeWednesday != null)
+                    hashCode = hashCode * 59 + this.PickupStartTimeWednesday.GetHashCode();
+                if (this.PickupTz != null)
+                    hashCode = hashCode * 59 + this.PickupTz.GetHashCode();
                 if (this.PostalCode != null)
                     hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.ProcessDays != null)

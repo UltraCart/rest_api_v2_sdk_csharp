@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **DefaultProjectId** | **string** |  | [optional] 
 **MerchantId** | **string** |  | [optional] 
 **Queries** | [**List&lt;ReportDataSetQuery&gt;**](ReportDataSetQuery.md) | An array of queries that we want the lambda function to execute. | [optional] 
+**RequestDts** | **string** | Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results | [optional] 
 **SecurityLevel** | **string** | Security level to execute report under | [optional] 
 
 

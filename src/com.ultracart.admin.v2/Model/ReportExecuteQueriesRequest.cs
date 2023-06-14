@@ -78,8 +78,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="defaultProjectId">defaultProjectId.</param>
         /// <param name="merchantId">merchantId.</param>
         /// <param name="queries">An array of queries that we want the lambda function to execute..</param>
+        /// <param name="requestDts">Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results.</param>
         /// <param name="securityLevel">Security level to execute report under.</param>
-        public ReportExecuteQueriesRequest(string clientUuid = default(string), string connectionId = default(string), string defaultDatasetId = default(string), string defaultProjectId = default(string), string merchantId = default(string), List<ReportDataSetQuery> queries = default(List<ReportDataSetQuery>), SecurityLevelEnum? securityLevel = default(SecurityLevelEnum?))
+        public ReportExecuteQueriesRequest(string clientUuid = default(string), string connectionId = default(string), string defaultDatasetId = default(string), string defaultProjectId = default(string), string merchantId = default(string), List<ReportDataSetQuery> queries = default(List<ReportDataSetQuery>), string requestDts = default(string), SecurityLevelEnum? securityLevel = default(SecurityLevelEnum?))
         {
             this.ClientUuid = clientUuid;
             this.ConnectionId = connectionId;
@@ -87,6 +88,7 @@ namespace com.ultracart.admin.v2.Model
             this.DefaultProjectId = defaultProjectId;
             this.MerchantId = merchantId;
             this.Queries = queries;
+            this.RequestDts = requestDts;
             this.SecurityLevel = securityLevel;
         }
 
@@ -129,6 +131,13 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="queries", EmitDefaultValue=false)]
         public List<ReportDataSetQuery> Queries { get; set; }
 
+        /// <summary>
+        /// Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results
+        /// </summary>
+        /// <value>Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results</value>
+        [DataMember(Name="request_dts", EmitDefaultValue=false)]
+        public string RequestDts { get; set; }
+
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -144,6 +153,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  DefaultProjectId: ").Append(DefaultProjectId).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Queries: ").Append(Queries).Append("\n");
+            sb.Append("  RequestDts: ").Append(RequestDts).Append("\n");
             sb.Append("  SecurityLevel: ").Append(SecurityLevel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -211,6 +221,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Queries.SequenceEqual(input.Queries)
                 ) && 
                 (
+                    this.RequestDts == input.RequestDts ||
+                    (this.RequestDts != null &&
+                    this.RequestDts.Equals(input.RequestDts))
+                ) && 
+                (
                     this.SecurityLevel == input.SecurityLevel ||
                     (this.SecurityLevel != null &&
                     this.SecurityLevel.Equals(input.SecurityLevel))
@@ -238,6 +253,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.MerchantId.GetHashCode();
                 if (this.Queries != null)
                     hashCode = hashCode * 59 + this.Queries.GetHashCode();
+                if (this.RequestDts != null)
+                    hashCode = hashCode * 59 + this.RequestDts.GetHashCode();
                 if (this.SecurityLevel != null)
                     hashCode = hashCode * 59 + this.SecurityLevel.GetHashCode();
                 return hashCode;

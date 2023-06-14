@@ -78,11 +78,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="merchantId">Merchant that owns this data set.</param>
         /// <param name="pageCount">The total number of pages in the result set.</param>
         /// <param name="pageSize">The size of the pages.</param>
+        /// <param name="requestDts">Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results.</param>
         /// <param name="schema">The schema associated with the data set..</param>
         /// <param name="securityLevel">Security level this dataset was read from..</param>
         /// <param name="timezone">timezone.</param>
         /// <param name="userData">Any other data that needs to be returned with the response to help the UI.</param>
-        public ReportDataSet(string dataSetQueryUuid = default(string), string dataSetUuid = default(string), string destinationTableId = default(string), string errorMessage = default(string), string executedSql = default(string), string forObjectId = default(string), ForObjectTypeEnum? forObjectType = default(ForObjectTypeEnum?), List<ReportDataSetPage> initialPages = default(List<ReportDataSetPage>), long maxResults = default(long), string merchantId = default(string), int pageCount = default(int), int pageSize = default(int), List<ReportDataSetSchema> schema = default(List<ReportDataSetSchema>), string securityLevel = default(string), string timezone = default(string), string userData = default(string))
+        public ReportDataSet(string dataSetQueryUuid = default(string), string dataSetUuid = default(string), string destinationTableId = default(string), string errorMessage = default(string), string executedSql = default(string), string forObjectId = default(string), ForObjectTypeEnum? forObjectType = default(ForObjectTypeEnum?), List<ReportDataSetPage> initialPages = default(List<ReportDataSetPage>), long maxResults = default(long), string merchantId = default(string), int pageCount = default(int), int pageSize = default(int), string requestDts = default(string), List<ReportDataSetSchema> schema = default(List<ReportDataSetSchema>), string securityLevel = default(string), string timezone = default(string), string userData = default(string))
         {
             this.DataSetQueryUuid = dataSetQueryUuid;
             this.DataSetUuid = dataSetUuid;
@@ -96,6 +97,7 @@ namespace com.ultracart.admin.v2.Model
             this.MerchantId = merchantId;
             this.PageCount = pageCount;
             this.PageSize = pageSize;
+            this.RequestDts = requestDts;
             this.Schema = schema;
             this.SecurityLevel = securityLevel;
             this.Timezone = timezone;
@@ -180,6 +182,13 @@ namespace com.ultracart.admin.v2.Model
         public int PageSize { get; set; }
 
         /// <summary>
+        /// Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results
+        /// </summary>
+        /// <value>Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results</value>
+        [DataMember(Name="request_dts", EmitDefaultValue=false)]
+        public string RequestDts { get; set; }
+
+        /// <summary>
         /// The schema associated with the data set.
         /// </summary>
         /// <value>The schema associated with the data set.</value>
@@ -226,6 +235,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  PageCount: ").Append(PageCount).Append("\n");
             sb.Append("  PageSize: ").Append(PageSize).Append("\n");
+            sb.Append("  RequestDts: ").Append(RequestDts).Append("\n");
             sb.Append("  Schema: ").Append(Schema).Append("\n");
             sb.Append("  SecurityLevel: ").Append(SecurityLevel).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
@@ -326,6 +336,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PageSize.Equals(input.PageSize))
                 ) && 
                 (
+                    this.RequestDts == input.RequestDts ||
+                    (this.RequestDts != null &&
+                    this.RequestDts.Equals(input.RequestDts))
+                ) && 
+                (
                     this.Schema == input.Schema ||
                     this.Schema != null &&
                     input.Schema != null &&
@@ -381,6 +396,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PageCount.GetHashCode();
                 if (this.PageSize != null)
                     hashCode = hashCode * 59 + this.PageSize.GetHashCode();
+                if (this.RequestDts != null)
+                    hashCode = hashCode * 59 + this.RequestDts.GetHashCode();
                 if (this.Schema != null)
                     hashCode = hashCode * 59 + this.Schema.GetHashCode();
                 if (this.SecurityLevel != null)

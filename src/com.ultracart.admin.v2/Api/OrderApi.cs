@@ -56,8 +56,10 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="lockSelfShipOrders">Flag to prevent a order shipping during a refund process (optional)</param>
+        /// <param name="skipRefundAndHold">Skip refund and move order to Held Orders department (optional)</param>
         /// <returns>BaseResponse</returns>
-        BaseResponse CancelOrder (string orderId);
+        BaseResponse CancelOrder (string orderId, bool? lockSelfShipOrders = default(bool?), bool? skipRefundAndHold = default(bool?));
 
         /// <summary>
         /// Cancel an order
@@ -67,8 +69,10 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="lockSelfShipOrders">Flag to prevent a order shipping during a refund process (optional)</param>
+        /// <param name="skipRefundAndHold">Skip refund and move order to Held Orders department (optional)</param>
         /// <returns>ApiResponse of BaseResponse</returns>
-        ApiResponse<BaseResponse> CancelOrderWithHttpInfo (string orderId);
+        ApiResponse<BaseResponse> CancelOrderWithHttpInfo (string orderId, bool? lockSelfShipOrders = default(bool?), bool? skipRefundAndHold = default(bool?));
         /// <summary>
         /// Delete an order
         /// </summary>
@@ -714,9 +718,11 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="lockSelfShipOrders">Flag to prevent a order shipping during a refund process (optional)</param>
+        /// <param name="skipRefundAndHold">Skip refund and move order to Held Orders department (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of BaseResponse</returns>
-        System.Threading.Tasks.Task<BaseResponse> CancelOrderAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<BaseResponse> CancelOrderAsync (string orderId, bool? lockSelfShipOrders = default(bool?), bool? skipRefundAndHold = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Cancel an order
@@ -726,9 +732,11 @@ namespace com.ultracart.admin.v2.Api
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="lockSelfShipOrders">Flag to prevent a order shipping during a refund process (optional)</param>
+        /// <param name="skipRefundAndHold">Skip refund and move order to Held Orders department (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> CancelOrderWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> CancelOrderWithHttpInfoAsync (string orderId, bool? lockSelfShipOrders = default(bool?), bool? skipRefundAndHold = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete an order
         /// </summary>
@@ -1690,10 +1698,12 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="lockSelfShipOrders">Flag to prevent a order shipping during a refund process (optional)</param>
+        /// <param name="skipRefundAndHold">Skip refund and move order to Held Orders department (optional)</param>
         /// <returns>BaseResponse</returns>
-        public BaseResponse CancelOrder (string orderId)
+        public BaseResponse CancelOrder (string orderId, bool? lockSelfShipOrders = default(bool?), bool? skipRefundAndHold = default(bool?))
         {
-             ApiResponse<BaseResponse> localVarResponse = CancelOrderWithHttpInfo(orderId);
+             ApiResponse<BaseResponse> localVarResponse = CancelOrderWithHttpInfo(orderId, lockSelfShipOrders, skipRefundAndHold);
              return localVarResponse.Data;
         }
 
@@ -1702,8 +1712,10 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="lockSelfShipOrders">Flag to prevent a order shipping during a refund process (optional)</param>
+        /// <param name="skipRefundAndHold">Skip refund and move order to Held Orders department (optional)</param>
         /// <returns>ApiResponse of BaseResponse</returns>
-        public ApiResponse<BaseResponse> CancelOrderWithHttpInfo (string orderId)
+        public ApiResponse<BaseResponse> CancelOrderWithHttpInfo (string orderId, bool? lockSelfShipOrders = default(bool?), bool? skipRefundAndHold = default(bool?))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -1731,6 +1743,8 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (lockSelfShipOrders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "lock_self_ship_orders", lockSelfShipOrders)); // query parameter
+            if (skipRefundAndHold != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip_refund_and_hold", skipRefundAndHold)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required
@@ -1767,11 +1781,13 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="lockSelfShipOrders">Flag to prevent a order shipping during a refund process (optional)</param>
+        /// <param name="skipRefundAndHold">Skip refund and move order to Held Orders department (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of BaseResponse</returns>
-        public async System.Threading.Tasks.Task<BaseResponse> CancelOrderAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<BaseResponse> CancelOrderAsync (string orderId, bool? lockSelfShipOrders = default(bool?), bool? skipRefundAndHold = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<BaseResponse> localVarResponse = await CancelOrderWithHttpInfoAsync(orderId, cancellationToken);
+             ApiResponse<BaseResponse> localVarResponse = await CancelOrderWithHttpInfoAsync(orderId, lockSelfShipOrders, skipRefundAndHold, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1781,9 +1797,11 @@ namespace com.ultracart.admin.v2.Api
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="lockSelfShipOrders">Flag to prevent a order shipping during a refund process (optional)</param>
+        /// <param name="skipRefundAndHold">Skip refund and move order to Held Orders department (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> CancelOrderWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> CancelOrderWithHttpInfoAsync (string orderId, bool? lockSelfShipOrders = default(bool?), bool? skipRefundAndHold = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -1811,6 +1829,8 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (lockSelfShipOrders != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "lock_self_ship_orders", lockSelfShipOrders)); // query parameter
+            if (skipRefundAndHold != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip_refund_and_hold", skipRefundAndHold)); // query parameter
 
             // authentication (ultraCartOauth) required
             // oauth required

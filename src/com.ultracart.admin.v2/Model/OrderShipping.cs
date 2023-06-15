@@ -48,6 +48,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="leastCostRoute">If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts..</param>
         /// <param name="leastCostRouteShippingMethods">List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts..</param>
         /// <param name="liftGate">Lift gate requested (LTL shipping methods only).</param>
+        /// <param name="pickupDts">Date/time the order should be picked up locally..</param>
         /// <param name="postalCode">Postal code.</param>
         /// <param name="rma">RMA number.</param>
         /// <param name="shipOnDate">Date the customer is requesting that the order ship on.  Typically used for perishable product delivery..</param>
@@ -63,7 +64,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="trackingNumberDetails">Tracking number details.</param>
         /// <param name="trackingNumbers">Tracking numbers.</param>
         /// <param name="weight">weight.</param>
-        public OrderShipping(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string dayPhoneE164 = default(string), string deliveryDate = default(string), string eveningPhone = default(string), string eveningPhoneE164 = default(string), string firstName = default(string), string lastName = default(string), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? liftGate = default(bool?), string postalCode = default(string), string rma = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shipping3rdPartyAccountNumber = default(string), string shippingDate = default(string), string shippingDepartmentStatus = default(string), string shippingMethod = default(string), string shippingMethodAccountingCode = default(string), string specialInstructions = default(string), string stateRegion = default(string), string title = default(string), List<OrderTrackingNumberDetails> trackingNumberDetails = default(List<OrderTrackingNumberDetails>), List<string> trackingNumbers = default(List<string>), Weight weight = default(Weight))
+        public OrderShipping(string address1 = default(string), string address2 = default(string), string city = default(string), string company = default(string), string countryCode = default(string), string dayPhone = default(string), string dayPhoneE164 = default(string), string deliveryDate = default(string), string eveningPhone = default(string), string eveningPhoneE164 = default(string), string firstName = default(string), string lastName = default(string), bool? leastCostRoute = default(bool?), List<string> leastCostRouteShippingMethods = default(List<string>), bool? liftGate = default(bool?), string pickupDts = default(string), string postalCode = default(string), string rma = default(string), string shipOnDate = default(string), bool? shipToResidential = default(bool?), string shipping3rdPartyAccountNumber = default(string), string shippingDate = default(string), string shippingDepartmentStatus = default(string), string shippingMethod = default(string), string shippingMethodAccountingCode = default(string), string specialInstructions = default(string), string stateRegion = default(string), string title = default(string), List<OrderTrackingNumberDetails> trackingNumberDetails = default(List<OrderTrackingNumberDetails>), List<string> trackingNumbers = default(List<string>), Weight weight = default(Weight))
         {
             this.Address1 = address1;
             this.Address2 = address2;
@@ -80,6 +81,7 @@ namespace com.ultracart.admin.v2.Model
             this.LeastCostRoute = leastCostRoute;
             this.LeastCostRouteShippingMethods = leastCostRouteShippingMethods;
             this.LiftGate = liftGate;
+            this.PickupDts = pickupDts;
             this.PostalCode = postalCode;
             this.Rma = rma;
             this.ShipOnDate = shipOnDate;
@@ -201,6 +203,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Lift gate requested (LTL shipping methods only)</value>
         [DataMember(Name="lift_gate", EmitDefaultValue=false)]
         public bool? LiftGate { get; set; }
+
+        /// <summary>
+        /// Date/time the order should be picked up locally.
+        /// </summary>
+        /// <value>Date/time the order should be picked up locally.</value>
+        [DataMember(Name="pickup_dts", EmitDefaultValue=false)]
+        public string PickupDts { get; set; }
 
         /// <summary>
         /// Postal code
@@ -329,6 +338,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  LeastCostRoute: ").Append(LeastCostRoute).Append("\n");
             sb.Append("  LeastCostRouteShippingMethods: ").Append(LeastCostRouteShippingMethods).Append("\n");
             sb.Append("  LiftGate: ").Append(LiftGate).Append("\n");
+            sb.Append("  PickupDts: ").Append(PickupDts).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  Rma: ").Append(Rma).Append("\n");
             sb.Append("  ShipOnDate: ").Append(ShipOnDate).Append("\n");
@@ -454,6 +464,11 @@ namespace com.ultracart.admin.v2.Model
                     this.LiftGate.Equals(input.LiftGate))
                 ) && 
                 (
+                    this.PickupDts == input.PickupDts ||
+                    (this.PickupDts != null &&
+                    this.PickupDts.Equals(input.PickupDts))
+                ) && 
+                (
                     this.PostalCode == input.PostalCode ||
                     (this.PostalCode != null &&
                     this.PostalCode.Equals(input.PostalCode))
@@ -569,6 +584,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.LeastCostRouteShippingMethods.GetHashCode();
                 if (this.LiftGate != null)
                     hashCode = hashCode * 59 + this.LiftGate.GetHashCode();
+                if (this.PickupDts != null)
+                    hashCode = hashCode * 59 + this.PickupDts.GetHashCode();
                 if (this.PostalCode != null)
                     hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.Rma != null)

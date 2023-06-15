@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelorder"></a>
 # **CancelOrder**
-> BaseResponse CancelOrder (string orderId)
+> BaseResponse CancelOrder (string orderId, bool? lockSelfShipOrders = null, bool? skipRefundAndHold = null)
 
 Cancel an order
 
@@ -128,11 +128,13 @@ namespace Example
             var api = new OrderApi(simpleKey);
 
             var orderId = orderId_example;  // string | The order id to cancel.
+            var lockSelfShipOrders = true;  // bool? | Flag to prevent a order shipping during a refund process (optional) 
+            var skipRefundAndHold = true;  // bool? | Skip refund and move order to Held Orders department (optional) 
 
             try
             {
                 // Cancel an order
-                BaseResponse result = apiInstance.CancelOrder(orderId);
+                BaseResponse result = apiInstance.CancelOrder(orderId, lockSelfShipOrders, skipRefundAndHold);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -150,6 +152,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **string**| The order id to cancel. | 
+ **lockSelfShipOrders** | **bool?**| Flag to prevent a order shipping during a refund process | [optional] 
+ **skipRefundAndHold** | **bool?**| Skip refund and move order to Held Orders department | [optional] 
 
 ### Return type
 

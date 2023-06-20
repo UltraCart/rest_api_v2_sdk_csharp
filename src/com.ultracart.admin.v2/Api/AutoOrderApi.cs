@@ -25,6 +25,29 @@ namespace com.ultracart.admin.v2.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Establish an auto order by referencing a regular order id
+        /// </summary>
+        /// <remarks>
+        /// Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The order id to attach this auto order to</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        AutoOrderResponse EstablishAutoOrderByReferenceOrderId (string referenceOrderId, string expand = null);
+
+        /// <summary>
+        /// Establish an auto order by referencing a regular order id
+        /// </summary>
+        /// <remarks>
+        /// Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The order id to attach this auto order to</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        ApiResponse<AutoOrderResponse> EstablishAutoOrderByReferenceOrderIdWithHttpInfo (string referenceOrderId, string expand = null);
+        /// <summary>
         /// Retrieve an auto order by oid
         /// </summary>
         /// <remarks>
@@ -264,6 +287,29 @@ namespace com.ultracart.admin.v2.Api
         ApiResponse<AutoOrdersResponse> UpdateAutoOrdersBatchWithHttpInfo (AutoOrdersRequest autoOrdersRequest, string expand = null, bool? placeholders = null, bool? async = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Establish an auto order by referencing a regular order id
+        /// </summary>
+        /// <remarks>
+        /// Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The order id to attach this auto order to</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        System.Threading.Tasks.Task<AutoOrderResponse> EstablishAutoOrderByReferenceOrderIdAsync (string referenceOrderId, string expand = null);
+
+        /// <summary>
+        /// Establish an auto order by referencing a regular order id
+        /// </summary>
+        /// <remarks>
+        /// Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The order id to attach this auto order to</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> EstablishAutoOrderByReferenceOrderIdAsyncWithHttpInfo (string referenceOrderId, string expand = null);
         /// <summary>
         /// Retrieve an auto order by oid
         /// </summary>
@@ -607,6 +653,169 @@ namespace com.ultracart.admin.v2.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Establish an auto order by referencing a regular order id Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The order id to attach this auto order to</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>AutoOrderResponse</returns>
+        public AutoOrderResponse EstablishAutoOrderByReferenceOrderId (string referenceOrderId, string expand = null)
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = EstablishAutoOrderByReferenceOrderIdWithHttpInfo(referenceOrderId, expand);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Establish an auto order by referencing a regular order id Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The order id to attach this auto order to</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>ApiResponse of AutoOrderResponse</returns>
+        public ApiResponse< AutoOrderResponse > EstablishAutoOrderByReferenceOrderIdWithHttpInfo (string referenceOrderId, string expand = null)
+        {
+            // verify the required parameter 'referenceOrderId' is set
+            if (referenceOrderId == null)
+                throw new ApiException(400, "Missing required parameter 'referenceOrderId' when calling AutoOrderApi->EstablishAutoOrderByReferenceOrderId");
+
+            var localVarPath = "/auto_order/auto_orders/reference_order_id/{reference_order_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (referenceOrderId != null) localVarPathParams.Add("reference_order_id", this.Configuration.ApiClient.ParameterToString(referenceOrderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EstablishAutoOrderByReferenceOrderId", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
+        }
+
+        /// <summary>
+        /// Establish an auto order by referencing a regular order id Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The order id to attach this auto order to</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of AutoOrderResponse</returns>
+        public async System.Threading.Tasks.Task<AutoOrderResponse> EstablishAutoOrderByReferenceOrderIdAsync (string referenceOrderId, string expand = null)
+        {
+             ApiResponse<AutoOrderResponse> localVarResponse = await EstablishAutoOrderByReferenceOrderIdAsyncWithHttpInfo(referenceOrderId, expand);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Establish an auto order by referencing a regular order id Establish an auto order by referencing a regular order id.  The result will be an auto order without any items.  You should add the items and perform an update call.  Orders must be less than 60 days old and use a credit card payment. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="referenceOrderId">The order id to attach this auto order to</param>
+        /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
+        /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> EstablishAutoOrderByReferenceOrderIdAsyncWithHttpInfo (string referenceOrderId, string expand = null)
+        {
+            // verify the required parameter 'referenceOrderId' is set
+            if (referenceOrderId == null)
+                throw new ApiException(400, "Missing required parameter 'referenceOrderId' when calling AutoOrderApi->EstablishAutoOrderByReferenceOrderId");
+
+            var localVarPath = "/auto_order/auto_orders/reference_order_id/{reference_order_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (referenceOrderId != null) localVarPathParams.Add("reference_order_id", this.Configuration.ApiClient.ParameterToString(referenceOrderId)); // path parameter
+            if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EstablishAutoOrderByReferenceOrderId", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AutoOrderResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AutoOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AutoOrderResponse)));
         }
 
         /// <summary>

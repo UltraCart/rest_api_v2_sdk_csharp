@@ -31,6 +31,51 @@ namespace com.ultracart.admin.v2.Model
     public partial class Coupon :  IEquatable<Coupon>, IValidatableObject
     {
         /// <summary>
+        /// Who may use this coupon.
+        /// </summary>
+        /// <value>Who may use this coupon.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum UsableByEnum
+        {
+            /// <summary>
+            /// Enum Anyone for value: Anyone
+            /// </summary>
+            [EnumMember(Value = "Anyone")]
+            Anyone = 1,
+
+            /// <summary>
+            /// Enum UniqueCode for value: UniqueCode
+            /// </summary>
+            [EnumMember(Value = "UniqueCode")]
+            UniqueCode = 2,
+
+            /// <summary>
+            /// Enum OncePerCustomer for value: OncePerCustomer
+            /// </summary>
+            [EnumMember(Value = "OncePerCustomer")]
+            OncePerCustomer = 3,
+
+            /// <summary>
+            /// Enum OncePerNewCustomer for value: OncePerNewCustomer
+            /// </summary>
+            [EnumMember(Value = "OncePerNewCustomer")]
+            OncePerNewCustomer = 4,
+
+            /// <summary>
+            /// Enum OncePerNewCustomerForItem for value: OncePerNewCustomerForItem
+            /// </summary>
+            [EnumMember(Value = "OncePerNewCustomerForItem")]
+            OncePerNewCustomerForItem = 5
+
+        }
+
+        /// <summary>
+        /// Who may use this coupon.
+        /// </summary>
+        /// <value>Who may use this coupon.</value>
+        [DataMember(Name="usable_by", EmitDefaultValue=false)]
+        public UsableByEnum? UsableBy { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Coupon" /> class.
         /// </summary>
         /// <param name="affiliateOid">Associates an order with an affiliate when this value is set..</param>
@@ -99,7 +144,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="tieredPercentOffSubtotal">tieredPercentOffSubtotal.</param>
         /// <param name="tieredPercentOffSubtotalBasedOnMsrp">tieredPercentOffSubtotalBasedOnMsrp.</param>
         /// <param name="usableBy">Who may use this coupon..</param>
-        public Coupon(int affiliateOid = default(int), bool allowMultipleOneTimeCodes = default(bool), CouponAmountOffItems amountOffItems = default(CouponAmountOffItems), CouponAmountOffShipping amountOffShipping = default(CouponAmountOffShipping), CouponAmountOffShippingWithItemsPurchase amountOffShippingWithItemsPurchase = default(CouponAmountOffShippingWithItemsPurchase), CouponAmountOffSubtotal amountOffSubtotal = default(CouponAmountOffSubtotal), CouponAmountOffSubtotalFreeShippingWithPurchase amountOffSubtotalAndFreeShipping = default(CouponAmountOffSubtotalFreeShippingWithPurchase), CouponAmountOffSubtotalAndShipping amountOffSubtotalAndShipping = default(CouponAmountOffSubtotalAndShipping), CouponAmountOffSubtotalWithBlockPurchase amountOffSubtotalWithBlockPurchase = default(CouponAmountOffSubtotalWithBlockPurchase), CouponAmountOffSubtotalWithItemsPurchase amountOffSubtotalWithItemsPurchase = default(CouponAmountOffSubtotalWithItemsPurchase), CouponAmountOffSubtotalWithPurchase amountOffSubtotalWithPurchase = default(CouponAmountOffSubtotalWithPurchase), CouponAmountShippingWithSubtotal amountShippingWithSubtotal = default(CouponAmountShippingWithSubtotal), CouponAutomaticallyApplyCouponCodes automaticallyApplyCouponCodes = default(CouponAutomaticallyApplyCouponCodes), CouponBuyOneGetOneLimit buyOneGetOne = default(CouponBuyOneGetOneLimit), string calculatedDescription = default(string), bool canBeUsedWithOtherCoupons = default(bool), int couponOid = default(int), string couponType = default(string), string description = default(string), CouponDiscountItemWithItemPurchase discountItemWithItemPurchase = default(CouponDiscountItemWithItemPurchase), CouponDiscountItems discountItems = default(CouponDiscountItems), string expirationDts = default(string), CouponFreeItemAndShippingWithSubtotal freeItemAndShippingWithSubtotal = default(CouponFreeItemAndShippingWithSubtotal), CouponFreeItemWithItemPurchase freeItemWithItemPurchase = default(CouponFreeItemWithItemPurchase), CouponFreeItemWithSubtotal freeItemWithSubtotal = default(CouponFreeItemWithSubtotal), CouponFreeItemsWithItemPurchase freeItemsWithItemPurchase = default(CouponFreeItemsWithItemPurchase), CouponFreeItemsWithMixMatchPurchase freeItemsWithMixmatchPurchase = default(CouponFreeItemsWithMixMatchPurchase), CouponFreeShipping freeShipping = default(CouponFreeShipping), CouponFreeShippingSpecificItems freeShippingSpecificItems = default(CouponFreeShippingSpecificItems), CouponFreeShippingWithItemsPurchase freeShippingWithItemsPurchase = default(CouponFreeShippingWithItemsPurchase), CouponFreeShippingWithSubtotal freeShippingWithSubtotal = default(CouponFreeShippingWithSubtotal), bool hideFromCustomer = default(bool), string merchantCode = default(string), string merchantNotes = default(string), CouponMoreLoyaltyCashback moreLoyaltyCashback = default(CouponMoreLoyaltyCashback), CouponMoreLoyaltyPoints moreLoyaltyPoints = default(CouponMoreLoyaltyPoints), CouponMultipleAmountsOffItems multipleAmountsOffItems = default(CouponMultipleAmountsOffItems), CouponNoDiscount noDiscount = default(CouponNoDiscount), CouponPercentMoreLoyaltyCashback percentMoreLoyaltyCashback = default(CouponPercentMoreLoyaltyCashback), CouponPercentMoreLoyaltyPoints percentMoreLoyaltyPoints = default(CouponPercentMoreLoyaltyPoints), CouponPercentOffItemWithItemsQuantityPurchase percentOffItemWithItemsQuantityPurchase = default(CouponPercentOffItemWithItemsQuantityPurchase), CouponPercentOffItems percentOffItems = default(CouponPercentOffItems), CouponPercentOffItemsAndFreeShipping percentOffItemsAndFreeShipping = default(CouponPercentOffItemsAndFreeShipping), CouponPercentOffItemsWithItemsPurchase percentOffItemsWithItemsPurchase = default(CouponPercentOffItemsWithItemsPurchase), CouponPercentOffMsrpItems percentOffMsrpItems = default(CouponPercentOffMsrpItems), CouponPercentOffRetailPriceItems percentOffRetailPriceItems = default(CouponPercentOffRetailPriceItems), CouponPercentOffShipping percentOffShipping = default(CouponPercentOffShipping), CouponPercentOffSubtotal percentOffSubtotal = default(CouponPercentOffSubtotal), CouponPercentOffSubtotalAndFreeShipping percentOffSubtotalAndFreeShipping = default(CouponPercentOffSubtotalAndFreeShipping), CouponPercentOffSubtotalLimit percentOffSubtotalLimit = default(CouponPercentOffSubtotalLimit), CouponPercentOffSubtotalWithItemsPurchase percentOffSubtotalWithItemsPurchase = default(CouponPercentOffSubtotalWithItemsPurchase), CouponPercentOffSubtotalWithSubtotal percentOffSubtotalWithSubtotal = default(CouponPercentOffSubtotalWithSubtotal), string quickbooksCode = default(string), List<string> restrictByPostalCodes = default(List<string>), List<CouponRestriction> restrictByScreenBrandingThemeCodes = default(List<CouponRestriction>), List<CouponRestriction> restrictByStorefronts = default(List<CouponRestriction>), bool skipOnRebill = default(bool), string startDts = default(string), bool superCoupon = default(bool), CouponTieredAmountOffItems tieredAmountOffItems = default(CouponTieredAmountOffItems), CouponTieredAmountOffSubtotal tieredAmountOffSubtotal = default(CouponTieredAmountOffSubtotal), CouponTieredPercentOffItems tieredPercentOffItems = default(CouponTieredPercentOffItems), CouponTieredPercentOffShipping tieredPercentOffShipping = default(CouponTieredPercentOffShipping), CouponTieredPercentOffSubtotal tieredPercentOffSubtotal = default(CouponTieredPercentOffSubtotal), CouponTieredPercentOffSubtotalBasedOnMSRP tieredPercentOffSubtotalBasedOnMsrp = default(CouponTieredPercentOffSubtotalBasedOnMSRP), string usableBy = default(string))
+        public Coupon(int affiliateOid = default(int), bool allowMultipleOneTimeCodes = default(bool), CouponAmountOffItems amountOffItems = default(CouponAmountOffItems), CouponAmountOffShipping amountOffShipping = default(CouponAmountOffShipping), CouponAmountOffShippingWithItemsPurchase amountOffShippingWithItemsPurchase = default(CouponAmountOffShippingWithItemsPurchase), CouponAmountOffSubtotal amountOffSubtotal = default(CouponAmountOffSubtotal), CouponAmountOffSubtotalFreeShippingWithPurchase amountOffSubtotalAndFreeShipping = default(CouponAmountOffSubtotalFreeShippingWithPurchase), CouponAmountOffSubtotalAndShipping amountOffSubtotalAndShipping = default(CouponAmountOffSubtotalAndShipping), CouponAmountOffSubtotalWithBlockPurchase amountOffSubtotalWithBlockPurchase = default(CouponAmountOffSubtotalWithBlockPurchase), CouponAmountOffSubtotalWithItemsPurchase amountOffSubtotalWithItemsPurchase = default(CouponAmountOffSubtotalWithItemsPurchase), CouponAmountOffSubtotalWithPurchase amountOffSubtotalWithPurchase = default(CouponAmountOffSubtotalWithPurchase), CouponAmountShippingWithSubtotal amountShippingWithSubtotal = default(CouponAmountShippingWithSubtotal), CouponAutomaticallyApplyCouponCodes automaticallyApplyCouponCodes = default(CouponAutomaticallyApplyCouponCodes), CouponBuyOneGetOneLimit buyOneGetOne = default(CouponBuyOneGetOneLimit), string calculatedDescription = default(string), bool canBeUsedWithOtherCoupons = default(bool), int couponOid = default(int), string couponType = default(string), string description = default(string), CouponDiscountItemWithItemPurchase discountItemWithItemPurchase = default(CouponDiscountItemWithItemPurchase), CouponDiscountItems discountItems = default(CouponDiscountItems), string expirationDts = default(string), CouponFreeItemAndShippingWithSubtotal freeItemAndShippingWithSubtotal = default(CouponFreeItemAndShippingWithSubtotal), CouponFreeItemWithItemPurchase freeItemWithItemPurchase = default(CouponFreeItemWithItemPurchase), CouponFreeItemWithSubtotal freeItemWithSubtotal = default(CouponFreeItemWithSubtotal), CouponFreeItemsWithItemPurchase freeItemsWithItemPurchase = default(CouponFreeItemsWithItemPurchase), CouponFreeItemsWithMixMatchPurchase freeItemsWithMixmatchPurchase = default(CouponFreeItemsWithMixMatchPurchase), CouponFreeShipping freeShipping = default(CouponFreeShipping), CouponFreeShippingSpecificItems freeShippingSpecificItems = default(CouponFreeShippingSpecificItems), CouponFreeShippingWithItemsPurchase freeShippingWithItemsPurchase = default(CouponFreeShippingWithItemsPurchase), CouponFreeShippingWithSubtotal freeShippingWithSubtotal = default(CouponFreeShippingWithSubtotal), bool hideFromCustomer = default(bool), string merchantCode = default(string), string merchantNotes = default(string), CouponMoreLoyaltyCashback moreLoyaltyCashback = default(CouponMoreLoyaltyCashback), CouponMoreLoyaltyPoints moreLoyaltyPoints = default(CouponMoreLoyaltyPoints), CouponMultipleAmountsOffItems multipleAmountsOffItems = default(CouponMultipleAmountsOffItems), CouponNoDiscount noDiscount = default(CouponNoDiscount), CouponPercentMoreLoyaltyCashback percentMoreLoyaltyCashback = default(CouponPercentMoreLoyaltyCashback), CouponPercentMoreLoyaltyPoints percentMoreLoyaltyPoints = default(CouponPercentMoreLoyaltyPoints), CouponPercentOffItemWithItemsQuantityPurchase percentOffItemWithItemsQuantityPurchase = default(CouponPercentOffItemWithItemsQuantityPurchase), CouponPercentOffItems percentOffItems = default(CouponPercentOffItems), CouponPercentOffItemsAndFreeShipping percentOffItemsAndFreeShipping = default(CouponPercentOffItemsAndFreeShipping), CouponPercentOffItemsWithItemsPurchase percentOffItemsWithItemsPurchase = default(CouponPercentOffItemsWithItemsPurchase), CouponPercentOffMsrpItems percentOffMsrpItems = default(CouponPercentOffMsrpItems), CouponPercentOffRetailPriceItems percentOffRetailPriceItems = default(CouponPercentOffRetailPriceItems), CouponPercentOffShipping percentOffShipping = default(CouponPercentOffShipping), CouponPercentOffSubtotal percentOffSubtotal = default(CouponPercentOffSubtotal), CouponPercentOffSubtotalAndFreeShipping percentOffSubtotalAndFreeShipping = default(CouponPercentOffSubtotalAndFreeShipping), CouponPercentOffSubtotalLimit percentOffSubtotalLimit = default(CouponPercentOffSubtotalLimit), CouponPercentOffSubtotalWithItemsPurchase percentOffSubtotalWithItemsPurchase = default(CouponPercentOffSubtotalWithItemsPurchase), CouponPercentOffSubtotalWithSubtotal percentOffSubtotalWithSubtotal = default(CouponPercentOffSubtotalWithSubtotal), string quickbooksCode = default(string), List<string> restrictByPostalCodes = default(List<string>), List<CouponRestriction> restrictByScreenBrandingThemeCodes = default(List<CouponRestriction>), List<CouponRestriction> restrictByStorefronts = default(List<CouponRestriction>), bool skipOnRebill = default(bool), string startDts = default(string), bool superCoupon = default(bool), CouponTieredAmountOffItems tieredAmountOffItems = default(CouponTieredAmountOffItems), CouponTieredAmountOffSubtotal tieredAmountOffSubtotal = default(CouponTieredAmountOffSubtotal), CouponTieredPercentOffItems tieredPercentOffItems = default(CouponTieredPercentOffItems), CouponTieredPercentOffShipping tieredPercentOffShipping = default(CouponTieredPercentOffShipping), CouponTieredPercentOffSubtotal tieredPercentOffSubtotal = default(CouponTieredPercentOffSubtotal), CouponTieredPercentOffSubtotalBasedOnMSRP tieredPercentOffSubtotalBasedOnMsrp = default(CouponTieredPercentOffSubtotalBasedOnMSRP), UsableByEnum? usableBy = default(UsableByEnum?))
         {
             this.AffiliateOid = affiliateOid;
             this.AllowMultipleOneTimeCodes = allowMultipleOneTimeCodes;
@@ -577,12 +622,6 @@ namespace com.ultracart.admin.v2.Model
         [DataMember(Name="tiered_percent_off_subtotal_based_on_msrp", EmitDefaultValue=false)]
         public CouponTieredPercentOffSubtotalBasedOnMSRP TieredPercentOffSubtotalBasedOnMsrp { get; set; }
 
-        /// <summary>
-        /// Who may use this coupon.
-        /// </summary>
-        /// <value>Who may use this coupon.</value>
-        [DataMember(Name="usable_by", EmitDefaultValue=false)]
-        public string UsableBy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -1215,7 +1254,7 @@ namespace com.ultracart.admin.v2.Model
 
 
             // UsableBy (string) maxLength
-            if(this.UsableBy != null && this.UsableBy.Length > 50)
+            if(this.UsableBy != null && this.UsableBy.ToString().Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsableBy, length must be less than 50.", new [] { "UsableBy" });
             }

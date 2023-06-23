@@ -65,7 +65,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Table for value: table
             /// </summary>
             [EnumMember(Value = "table")]
-            Table = 5
+            Table = 5,
+
+            /// <summary>
+            /// Enum Gauge for value: gauge
+            /// </summary>
+            [EnumMember(Value = "gauge")]
+            Gauge = 6
 
         }
 

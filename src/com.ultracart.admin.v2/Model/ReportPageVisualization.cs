@@ -72,7 +72,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Gauge for value: gauge
             /// </summary>
             [EnumMember(Value = "gauge")]
-            Gauge = 6
+            Gauge = 6,
+            
+            /// <summary>
+            /// Enum Piechart for value: pie chart
+            /// </summary>
+            [EnumMember(Value = "pie chart")]
+            Piechart = 7
         }
 
         /// <summary>

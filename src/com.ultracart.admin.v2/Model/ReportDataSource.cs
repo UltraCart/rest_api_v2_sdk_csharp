@@ -33,14 +33,16 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportDataSource" /> class.
         /// </summary>
+        /// <param name="dataSourceUuid">A unique identifier assigned to the data source..</param>
         /// <param name="name">name.</param>
         /// <param name="partitionDateColumn">partitionDateColumn.</param>
         /// <param name="partitionDateSafetyDays">partitionDateSafetyDays.</param>
         /// <param name="partitionDateStrategy">The partition date strategy, defaults to weekly sunday.</param>
         /// <param name="schema">schema.</param>
         /// <param name="sql">sql.</param>
-        public ReportDataSource(string name = default(string), string partitionDateColumn = default(string), int? partitionDateSafetyDays = default(int?), string partitionDateStrategy = default(string), List<ReportDataSourceSchema> schema = default(List<ReportDataSourceSchema>), string sql = default(string))
+        public ReportDataSource(string dataSourceUuid = default(string), string name = default(string), string partitionDateColumn = default(string), int? partitionDateSafetyDays = default(int?), string partitionDateStrategy = default(string), List<ReportDataSourceSchema> schema = default(List<ReportDataSourceSchema>), string sql = default(string))
         {
+            this.DataSourceUuid = dataSourceUuid;
             this.Name = name;
             this.PartitionDateColumn = partitionDateColumn;
             this.PartitionDateSafetyDays = partitionDateSafetyDays;
@@ -49,6 +51,13 @@ namespace com.ultracart.admin.v2.Model
             this.Sql = sql;
         }
         
+        /// <summary>
+        /// A unique identifier assigned to the data source.
+        /// </summary>
+        /// <value>A unique identifier assigned to the data source.</value>
+        [DataMember(Name="data_source_uuid", EmitDefaultValue=false)]
+        public string DataSourceUuid { get; set; }
+
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -94,6 +103,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportDataSource {\n");
+            sb.Append("  DataSourceUuid: ").Append(DataSourceUuid).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  PartitionDateColumn: ").Append(PartitionDateColumn).Append("\n");
             sb.Append("  PartitionDateSafetyDays: ").Append(PartitionDateSafetyDays).Append("\n");
@@ -135,6 +145,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.DataSourceUuid == input.DataSourceUuid ||
+                    (this.DataSourceUuid != null &&
+                    this.DataSourceUuid.Equals(input.DataSourceUuid))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -175,6 +190,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.DataSourceUuid != null)
+                    hashCode = hashCode * 59 + this.DataSourceUuid.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.PartitionDateColumn != null)

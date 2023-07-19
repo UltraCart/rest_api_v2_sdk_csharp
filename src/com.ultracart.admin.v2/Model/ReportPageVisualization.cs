@@ -92,6 +92,7 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="config">A JSON representation of the configuration for this visualization.</param>
         /// <param name="dataSourceName">dataSourceName.</param>
+        /// <param name="dataSourceUuid">A unique identifier assigned to the data source..</param>
         /// <param name="dimensions">dimensions.</param>
         /// <param name="metrics">metrics.</param>
         /// <param name="name">name.</param>
@@ -99,10 +100,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="styles">A JSON representation of the style configuration for this visualization.</param>
         /// <param name="type">Type of visualization.</param>
         /// <param name="visualizationUuid">A UUID for the visualization.</param>
-        public ReportPageVisualization(string config = default(string), string dataSourceName = default(string), List<ReportPageVisualizationDimension> dimensions = default(List<ReportPageVisualizationDimension>), List<ReportPageVisualizationMetric> metrics = default(List<ReportPageVisualizationMetric>), string name = default(string), bool showComparison = default(bool), string styles = default(string), TypeEnum? type = default(TypeEnum?), string visualizationUuid = default(string))
+        public ReportPageVisualization(string config = default(string), string dataSourceName = default(string), string dataSourceUuid = default(string), List<ReportPageVisualizationDimension> dimensions = default(List<ReportPageVisualizationDimension>), List<ReportPageVisualizationMetric> metrics = default(List<ReportPageVisualizationMetric>), string name = default(string), bool showComparison = default(bool), string styles = default(string), TypeEnum? type = default(TypeEnum?), string visualizationUuid = default(string))
         {
             this.Config = config;
             this.DataSourceName = dataSourceName;
+            this.DataSourceUuid = dataSourceUuid;
             this.Dimensions = dimensions;
             this.Metrics = metrics;
             this.Name = name;
@@ -124,6 +126,13 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="data_source_name", EmitDefaultValue=false)]
         public string DataSourceName { get; set; }
+
+        /// <summary>
+        /// A unique identifier assigned to the data source.
+        /// </summary>
+        /// <value>A unique identifier assigned to the data source.</value>
+        [DataMember(Name="data_source_uuid", EmitDefaultValue=false)]
+        public string DataSourceUuid { get; set; }
 
         /// <summary>
         /// Gets or Sets Dimensions
@@ -175,6 +184,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ReportPageVisualization {\n");
             sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("  DataSourceName: ").Append(DataSourceName).Append("\n");
+            sb.Append("  DataSourceUuid: ").Append(DataSourceUuid).Append("\n");
             sb.Append("  Dimensions: ").Append(Dimensions).Append("\n");
             sb.Append("  Metrics: ").Append(Metrics).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -225,6 +235,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DataSourceName == input.DataSourceName ||
                     (this.DataSourceName != null &&
                     this.DataSourceName.Equals(input.DataSourceName))
+                ) && 
+                (
+                    this.DataSourceUuid == input.DataSourceUuid ||
+                    (this.DataSourceUuid != null &&
+                    this.DataSourceUuid.Equals(input.DataSourceUuid))
                 ) && 
                 (
                     this.Dimensions == input.Dimensions ||
@@ -278,6 +293,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Config.GetHashCode();
                 if (this.DataSourceName != null)
                     hashCode = hashCode * 59 + this.DataSourceName.GetHashCode();
+                if (this.DataSourceUuid != null)
+                    hashCode = hashCode * 59 + this.DataSourceUuid.GetHashCode();
                 if (this.Dimensions != null)
                     hashCode = hashCode * 59 + this.Dimensions.GetHashCode();
                 if (this.Metrics != null)

@@ -36,15 +36,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="channelPartnerOid">Channel partner object id.</param>
         /// <param name="code">Code associated with the channel partner.</param>
         /// <param name="communicationMethod">Communication method of the channel partner.</param>
+        /// <param name="dontHoldShipment">True if shipments should immediately process for this channel partner..</param>
         /// <param name="inactive">True if the channel partner is inactive.</param>
         /// <param name="merchantId">Merchant ID of the channel partner.</param>
         /// <param name="name">Name of the channel partner.</param>
         /// <param name="skipCustomerEmails">True if emails to the customer are skipped for this channel partner..</param>
-        public ChannelPartner(int channelPartnerOid = default(int), string code = default(string), string communicationMethod = default(string), bool inactive = default(bool), string merchantId = default(string), string name = default(string), bool skipCustomerEmails = default(bool))
+        public ChannelPartner(int channelPartnerOid = default(int), string code = default(string), string communicationMethod = default(string), bool dontHoldShipment = default(bool), bool inactive = default(bool), string merchantId = default(string), string name = default(string), bool skipCustomerEmails = default(bool))
         {
             this.ChannelPartnerOid = channelPartnerOid;
             this.Code = code;
             this.CommunicationMethod = communicationMethod;
+            this.DontHoldShipment = dontHoldShipment;
             this.Inactive = inactive;
             this.MerchantId = merchantId;
             this.Name = name;
@@ -71,6 +73,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Communication method of the channel partner</value>
         [DataMember(Name="communication_method", EmitDefaultValue=false)]
         public string CommunicationMethod { get; set; }
+
+        /// <summary>
+        /// True if shipments should immediately process for this channel partner.
+        /// </summary>
+        /// <value>True if shipments should immediately process for this channel partner.</value>
+        [DataMember(Name="dont_hold_shipment", EmitDefaultValue=false)]
+        public bool DontHoldShipment { get; set; }
 
         /// <summary>
         /// True if the channel partner is inactive
@@ -111,6 +120,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ChannelPartnerOid: ").Append(ChannelPartnerOid).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  CommunicationMethod: ").Append(CommunicationMethod).Append("\n");
+            sb.Append("  DontHoldShipment: ").Append(DontHoldShipment).Append("\n");
             sb.Append("  Inactive: ").Append(Inactive).Append("\n");
             sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -165,6 +175,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CommunicationMethod.Equals(input.CommunicationMethod))
                 ) && 
                 (
+                    this.DontHoldShipment == input.DontHoldShipment ||
+                    (this.DontHoldShipment != null &&
+                    this.DontHoldShipment.Equals(input.DontHoldShipment))
+                ) && 
+                (
                     this.Inactive == input.Inactive ||
                     (this.Inactive != null &&
                     this.Inactive.Equals(input.Inactive))
@@ -201,6 +216,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Code.GetHashCode();
                 if (this.CommunicationMethod != null)
                     hashCode = hashCode * 59 + this.CommunicationMethod.GetHashCode();
+                if (this.DontHoldShipment != null)
+                    hashCode = hashCode * 59 + this.DontHoldShipment.GetHashCode();
                 if (this.Inactive != null)
                     hashCode = hashCode * 59 + this.Inactive.GetHashCode();
                 if (this.MerchantId != null)

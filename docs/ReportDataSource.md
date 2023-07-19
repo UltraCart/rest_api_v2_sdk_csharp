@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DataSourceUuid** | **string** | A unique identifier assigned to the data source. | [optional] 
 **Name** | **string** |  | [optional] 
 **PartitionDateColumn** | **string** |  | [optional] 
 **PartitionDateSafetyDays** | **int** |  | [optional] 

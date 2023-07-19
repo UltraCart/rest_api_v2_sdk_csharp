@@ -35,10 +35,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="column">column.</param>
         /// <param name="dataSourceName">dataSourceName.</param>
-        public ReportFilterConnection(string column = default(string), string dataSourceName = default(string))
+        /// <param name="dataSourceUuid">A unique identifier assigned to the data source..</param>
+        public ReportFilterConnection(string column = default(string), string dataSourceName = default(string), string dataSourceUuid = default(string))
         {
             this.Column = column;
             this.DataSourceName = dataSourceName;
+            this.DataSourceUuid = dataSourceUuid;
         }
 
         /// <summary>
@@ -54,6 +56,13 @@ namespace com.ultracart.admin.v2.Model
         public string DataSourceName { get; set; }
 
         /// <summary>
+        /// A unique identifier assigned to the data source.
+        /// </summary>
+        /// <value>A unique identifier assigned to the data source.</value>
+        [DataMember(Name="data_source_uuid", EmitDefaultValue=false)]
+        public string DataSourceUuid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +72,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ReportFilterConnection {\n");
             sb.Append("  Column: ").Append(Column).Append("\n");
             sb.Append("  DataSourceName: ").Append(DataSourceName).Append("\n");
+            sb.Append("  DataSourceUuid: ").Append(DataSourceUuid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +116,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DataSourceName == input.DataSourceName ||
                     (this.DataSourceName != null &&
                     this.DataSourceName.Equals(input.DataSourceName))
+                ) && 
+                (
+                    this.DataSourceUuid == input.DataSourceUuid ||
+                    (this.DataSourceUuid != null &&
+                    this.DataSourceUuid.Equals(input.DataSourceUuid))
                 );
         }
 
@@ -122,6 +137,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Column.GetHashCode();
                 if (this.DataSourceName != null)
                     hashCode = hashCode * 59 + this.DataSourceName.GetHashCode();
+                if (this.DataSourceUuid != null)
+                    hashCode = hashCode * 59 + this.DataSourceUuid.GetHashCode();
                 return hashCode;
             }
         }

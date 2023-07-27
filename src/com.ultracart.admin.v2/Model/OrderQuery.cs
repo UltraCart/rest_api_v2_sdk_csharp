@@ -201,7 +201,25 @@ namespace com.ultracart.admin.v2.Model
             /// Enum WireTransfer for value: Wire Transfer
             /// </summary>
             [EnumMember(Value = "Wire Transfer")]
-            WireTransfer = 15
+            WireTransfer = 15,
+            
+            /// <summary>
+            /// Enum Venmo for value: Venmo
+            /// </summary>
+            [EnumMember(Value = "Venmo")]
+            Venmo = 16,
+            
+            /// <summary>
+            /// Enum ApplePay for value: Apple Pay
+            /// </summary>
+            [EnumMember(Value = "Apple Pay")]
+            ApplePay = 17,
+            
+            /// <summary>
+            /// Enum GooglePay for value:  Google Pay
+            /// </summary>
+            [EnumMember(Value = " Google Pay")]
+            GooglePay = 18
         }
 
         /// <summary>

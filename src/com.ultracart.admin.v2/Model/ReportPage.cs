@@ -35,13 +35,15 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="filters">filters.</param>
         /// <param name="height">Height of the report page in inches.</param>
+        /// <param name="settings">A JSON representation of the settings for this report.</param>
         /// <param name="title">title.</param>
         /// <param name="visualizations">Visualizations on the report page..</param>
         /// <param name="width">Width of the report page in inches.</param>
-        public ReportPage(List<ReportPageFilter> filters = default(List<ReportPageFilter>), decimal? height = default(decimal?), string title = default(string), List<ReportPageVisualization> visualizations = default(List<ReportPageVisualization>), decimal? width = default(decimal?))
+        public ReportPage(List<ReportPageFilter> filters = default(List<ReportPageFilter>), decimal? height = default(decimal?), string settings = default(string), string title = default(string), List<ReportPageVisualization> visualizations = default(List<ReportPageVisualization>), decimal? width = default(decimal?))
         {
             this.Filters = filters;
             this.Height = height;
+            this.Settings = settings;
             this.Title = title;
             this.Visualizations = visualizations;
             this.Width = width;
@@ -59,6 +61,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Height of the report page in inches</value>
         [DataMember(Name="height", EmitDefaultValue=false)]
         public decimal? Height { get; set; }
+
+        /// <summary>
+        /// A JSON representation of the settings for this report
+        /// </summary>
+        /// <value>A JSON representation of the settings for this report</value>
+        [DataMember(Name="settings", EmitDefaultValue=false)]
+        public string Settings { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
@@ -90,6 +99,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class ReportPage {\n");
             sb.Append("  Filters: ").Append(Filters).Append("\n");
             sb.Append("  Height: ").Append(Height).Append("\n");
+            sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Visualizations: ").Append(Visualizations).Append("\n");
             sb.Append("  Width: ").Append(Width).Append("\n");
@@ -138,6 +148,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Height.Equals(input.Height))
                 ) && 
                 (
+                    this.Settings == input.Settings ||
+                    (this.Settings != null &&
+                    this.Settings.Equals(input.Settings))
+                ) && 
+                (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
@@ -167,6 +182,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Filters.GetHashCode();
                 if (this.Height != null)
                     hashCode = hashCode * 59 + this.Height.GetHashCode();
+                if (this.Settings != null)
+                    hashCode = hashCode * 59 + this.Settings.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Visualizations != null)

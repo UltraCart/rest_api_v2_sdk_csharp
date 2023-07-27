@@ -167,7 +167,19 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Venmo for value: Venmo
             /// </summary>
             [EnumMember(Value = "Venmo")]
-            Venmo = 22
+            Venmo = 22,
+
+            /// <summary>
+            /// Enum ApplePay for value: Apple Pay
+            /// </summary>
+            [EnumMember(Value = "Apple Pay")]
+            ApplePay = 23,
+
+            /// <summary>
+            /// Enum GooglePay for value: Google Pay
+            /// </summary>
+            [EnumMember(Value = "Google Pay")]
+            GooglePay = 24
 
         }
 

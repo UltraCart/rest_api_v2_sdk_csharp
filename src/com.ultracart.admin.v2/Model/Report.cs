@@ -82,7 +82,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="pages">pages.</param>
         /// <param name="reportOid">Object identifier for this report..</param>
         /// <param name="securityLevel">Security level to execute report under.</param>
-        public Report(bool active = default(bool), List<ReportDataSource> dataSources = default(List<ReportDataSource>), string defaultDatasetId = default(string), string defaultProjectId = default(string), List<ReportFilter> filters = default(List<ReportFilter>), string merchantId = default(string), string name = default(string), List<ReportPage> pages = default(List<ReportPage>), int reportOid = default(int), SecurityLevelEnum? securityLevel = default(SecurityLevelEnum?))
+        /// <param name="settings">A JSON representation of the settings for this report.</param>
+        public Report(bool active = default(bool), List<ReportDataSource> dataSources = default(List<ReportDataSource>), string defaultDatasetId = default(string), string defaultProjectId = default(string), List<ReportFilter> filters = default(List<ReportFilter>), string merchantId = default(string), string name = default(string), List<ReportPage> pages = default(List<ReportPage>), int reportOid = default(int), SecurityLevelEnum? securityLevel = default(SecurityLevelEnum?), string settings = default(string))
         {
             this.Active = active;
             this.DataSources = dataSources;
@@ -94,6 +95,7 @@ namespace com.ultracart.admin.v2.Model
             this.Pages = pages;
             this.ReportOid = reportOid;
             this.SecurityLevel = securityLevel;
+            this.Settings = settings;
         }
 
         /// <summary>
@@ -153,6 +155,13 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
+        /// A JSON representation of the settings for this report
+        /// </summary>
+        /// <value>A JSON representation of the settings for this report</value>
+        [DataMember(Name="settings", EmitDefaultValue=false)]
+        public string Settings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -170,6 +179,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Pages: ").Append(Pages).Append("\n");
             sb.Append("  ReportOid: ").Append(ReportOid).Append("\n");
             sb.Append("  SecurityLevel: ").Append(SecurityLevel).Append("\n");
+            sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -256,6 +266,11 @@ namespace com.ultracart.admin.v2.Model
                     this.SecurityLevel == input.SecurityLevel ||
                     (this.SecurityLevel != null &&
                     this.SecurityLevel.Equals(input.SecurityLevel))
+                ) && 
+                (
+                    this.Settings == input.Settings ||
+                    (this.Settings != null &&
+                    this.Settings.Equals(input.Settings))
                 );
         }
 
@@ -288,6 +303,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ReportOid.GetHashCode();
                 if (this.SecurityLevel != null)
                     hashCode = hashCode * 59 + this.SecurityLevel.GetHashCode();
+                if (this.Settings != null)
+                    hashCode = hashCode * 59 + this.Settings.GetHashCode();
                 return hashCode;
             }
         }

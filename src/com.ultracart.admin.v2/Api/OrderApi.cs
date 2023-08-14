@@ -682,6 +682,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of OrderResponse</returns>
         ApiResponse<OrderResponse> UpdateOrderWithHttpInfo (Order order, string orderId, string expand = null);
+        /// <summary>
+        /// Validate
+        /// </summary>
+        /// <remarks>
+        /// Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Validation request</param>
+        /// <returns>OrderValidationResponse</returns>
+        OrderValidationResponse ValidateOrder (OrderValidationRequest validationRequest);
+
+        /// <summary>
+        /// Validate
+        /// </summary>
+        /// <remarks>
+        /// Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Validation request</param>
+        /// <returns>ApiResponse of OrderValidationResponse</returns>
+        ApiResponse<OrderValidationResponse> ValidateOrderWithHttpInfo (OrderValidationRequest validationRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -1342,6 +1363,27 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderResponse>> UpdateOrderAsyncWithHttpInfo (Order order, string orderId, string expand = null);
+        /// <summary>
+        /// Validate
+        /// </summary>
+        /// <remarks>
+        /// Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Validation request</param>
+        /// <returns>Task of OrderValidationResponse</returns>
+        System.Threading.Tasks.Task<OrderValidationResponse> ValidateOrderAsync (OrderValidationRequest validationRequest);
+
+        /// <summary>
+        /// Validate
+        /// </summary>
+        /// <remarks>
+        /// Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Validation request</param>
+        /// <returns>Task of ApiResponse (OrderValidationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OrderValidationResponse>> ValidateOrderAsyncWithHttpInfo (OrderValidationRequest validationRequest);
         #endregion Asynchronous Operations
     }
 
@@ -6027,6 +6069,177 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<OrderResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (OrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderResponse)));
+        }
+
+        /// <summary>
+        /// Validate Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Validation request</param>
+        /// <returns>OrderValidationResponse</returns>
+        public OrderValidationResponse ValidateOrder (OrderValidationRequest validationRequest)
+        {
+             ApiResponse<OrderValidationResponse> localVarResponse = ValidateOrderWithHttpInfo(validationRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Validate Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Validation request</param>
+        /// <returns>ApiResponse of OrderValidationResponse</returns>
+        public ApiResponse< OrderValidationResponse > ValidateOrderWithHttpInfo (OrderValidationRequest validationRequest)
+        {
+            // verify the required parameter 'validationRequest' is set
+            if (validationRequest == null)
+                throw new ApiException(400, "Missing required parameter 'validationRequest' when calling OrderApi->ValidateOrder");
+
+            var localVarPath = "/order/validate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (validationRequest != null && validationRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(validationRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = validationRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ValidateOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderValidationResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderValidationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderValidationResponse)));
+        }
+
+        /// <summary>
+        /// Validate Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Validation request</param>
+        /// <returns>Task of OrderValidationResponse</returns>
+        public async System.Threading.Tasks.Task<OrderValidationResponse> ValidateOrderAsync (OrderValidationRequest validationRequest)
+        {
+             ApiResponse<OrderValidationResponse> localVarResponse = await ValidateOrderAsyncWithHttpInfo(validationRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Validate Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="validationRequest">Validation request</param>
+        /// <returns>Task of ApiResponse (OrderValidationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<OrderValidationResponse>> ValidateOrderAsyncWithHttpInfo (OrderValidationRequest validationRequest)
+        {
+            // verify the required parameter 'validationRequest' is set
+            if (validationRequest == null)
+                throw new ApiException(400, "Missing required parameter 'validationRequest' when calling OrderApi->ValidateOrder");
+
+            var localVarPath = "/order/validate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (validationRequest != null && validationRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(validationRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = validationRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ValidateOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<OrderValidationResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (OrderValidationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(OrderValidationResponse)));
         }
 
     }

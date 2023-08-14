@@ -33,6 +33,9 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailSettings" /> class.
         /// </summary>
+        /// <param name="emailsPerDay">Emails per day allowed.</param>
+        /// <param name="emailsPerHour">Emails per hour allowed.</param>
+        /// <param name="emailsPerMonth">Emails per month allowed.</param>
         /// <param name="marketingEspDomainUser">marketingEspDomainUser.</param>
         /// <param name="marketingEspDomainUuid">marketingEspDomainUuid.</param>
         /// <param name="marketingEspFriendlyName">marketingEspFriendlyName.</param>
@@ -48,8 +51,11 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="transactionalEspDomainUser">transactionalEspDomainUser.</param>
         /// <param name="transactionalEspDomainUuid">transactionalEspDomainUuid.</param>
         /// <param name="transactionalEspFriendlyName">transactionalEspFriendlyName.</param>
-        public EmailSettings(string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), bool? reviewsIoConfigured = default(bool?), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
+        public EmailSettings(int? emailsPerDay = default(int?), int? emailsPerHour = default(int?), int? emailsPerMonth = default(int?), string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), bool? reviewsIoConfigured = default(bool?), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
         {
+            this.EmailsPerDay = emailsPerDay;
+            this.EmailsPerHour = emailsPerHour;
+            this.EmailsPerMonth = emailsPerMonth;
             this.MarketingEspDomainUser = marketingEspDomainUser;
             this.MarketingEspDomainUuid = marketingEspDomainUuid;
             this.MarketingEspFriendlyName = marketingEspFriendlyName;
@@ -67,6 +73,27 @@ namespace com.ultracart.admin.v2.Model
             this.TransactionalEspFriendlyName = transactionalEspFriendlyName;
         }
         
+        /// <summary>
+        /// Emails per day allowed
+        /// </summary>
+        /// <value>Emails per day allowed</value>
+        [DataMember(Name="emails_per_day", EmitDefaultValue=false)]
+        public int? EmailsPerDay { get; set; }
+
+        /// <summary>
+        /// Emails per hour allowed
+        /// </summary>
+        /// <value>Emails per hour allowed</value>
+        [DataMember(Name="emails_per_hour", EmitDefaultValue=false)]
+        public int? EmailsPerHour { get; set; }
+
+        /// <summary>
+        /// Emails per month allowed
+        /// </summary>
+        /// <value>Emails per month allowed</value>
+        [DataMember(Name="emails_per_month", EmitDefaultValue=false)]
+        public int? EmailsPerMonth { get; set; }
+
         /// <summary>
         /// Gets or Sets MarketingEspDomainUser
         /// </summary>
@@ -166,6 +193,9 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailSettings {\n");
+            sb.Append("  EmailsPerDay: ").Append(EmailsPerDay).Append("\n");
+            sb.Append("  EmailsPerHour: ").Append(EmailsPerHour).Append("\n");
+            sb.Append("  EmailsPerMonth: ").Append(EmailsPerMonth).Append("\n");
             sb.Append("  MarketingEspDomainUser: ").Append(MarketingEspDomainUser).Append("\n");
             sb.Append("  MarketingEspDomainUuid: ").Append(MarketingEspDomainUuid).Append("\n");
             sb.Append("  MarketingEspFriendlyName: ").Append(MarketingEspFriendlyName).Append("\n");
@@ -215,6 +245,21 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.EmailsPerDay == input.EmailsPerDay ||
+                    (this.EmailsPerDay != null &&
+                    this.EmailsPerDay.Equals(input.EmailsPerDay))
+                ) && 
+                (
+                    this.EmailsPerHour == input.EmailsPerHour ||
+                    (this.EmailsPerHour != null &&
+                    this.EmailsPerHour.Equals(input.EmailsPerHour))
+                ) && 
+                (
+                    this.EmailsPerMonth == input.EmailsPerMonth ||
+                    (this.EmailsPerMonth != null &&
+                    this.EmailsPerMonth.Equals(input.EmailsPerMonth))
+                ) && 
                 (
                     this.MarketingEspDomainUser == input.MarketingEspDomainUser ||
                     (this.MarketingEspDomainUser != null &&
@@ -301,6 +346,12 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.EmailsPerDay != null)
+                    hashCode = hashCode * 59 + this.EmailsPerDay.GetHashCode();
+                if (this.EmailsPerHour != null)
+                    hashCode = hashCode * 59 + this.EmailsPerHour.GetHashCode();
+                if (this.EmailsPerMonth != null)
+                    hashCode = hashCode * 59 + this.EmailsPerMonth.GetHashCode();
                 if (this.MarketingEspDomainUser != null)
                     hashCode = hashCode * 59 + this.MarketingEspDomainUser.GetHashCode();
                 if (this.MarketingEspDomainUuid != null)

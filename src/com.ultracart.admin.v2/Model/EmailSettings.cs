@@ -45,13 +45,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="postcardFromName">postcardFromName.</param>
         /// <param name="postcardFromPostalCode">postcardFromPostalCode.</param>
         /// <param name="postcardFromState">postcardFromState.</param>
+        /// <param name="requireOrderWithinLast">Require order within last.</param>
         /// <param name="reviewsIoConfigured">True if the Reviews.io integration is configured.</param>
         /// <param name="smsEspTwilioUuid">smsEspTwilioUuid.</param>
         /// <param name="smsPhoneNumber">smsPhoneNumber.</param>
         /// <param name="transactionalEspDomainUser">transactionalEspDomainUser.</param>
         /// <param name="transactionalEspDomainUuid">transactionalEspDomainUuid.</param>
         /// <param name="transactionalEspFriendlyName">transactionalEspFriendlyName.</param>
-        public EmailSettings(int? emailsPerDay = default(int?), int? emailsPerHour = default(int?), int? emailsPerMonth = default(int?), string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), bool? reviewsIoConfigured = default(bool?), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
+        public EmailSettings(int? emailsPerDay = default(int?), int? emailsPerHour = default(int?), int? emailsPerMonth = default(int?), string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), int? requireOrderWithinLast = default(int?), bool? reviewsIoConfigured = default(bool?), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
         {
             this.EmailsPerDay = emailsPerDay;
             this.EmailsPerHour = emailsPerHour;
@@ -65,6 +66,7 @@ namespace com.ultracart.admin.v2.Model
             this.PostcardFromName = postcardFromName;
             this.PostcardFromPostalCode = postcardFromPostalCode;
             this.PostcardFromState = postcardFromState;
+            this.RequireOrderWithinLast = requireOrderWithinLast;
             this.ReviewsIoConfigured = reviewsIoConfigured;
             this.SmsEspTwilioUuid = smsEspTwilioUuid;
             this.SmsPhoneNumber = smsPhoneNumber;
@@ -149,6 +151,13 @@ namespace com.ultracart.admin.v2.Model
         public string PostcardFromState { get; set; }
 
         /// <summary>
+        /// Require order within last
+        /// </summary>
+        /// <value>Require order within last</value>
+        [DataMember(Name="require_order_within_last", EmitDefaultValue=false)]
+        public int? RequireOrderWithinLast { get; set; }
+
+        /// <summary>
         /// True if the Reviews.io integration is configured
         /// </summary>
         /// <value>True if the Reviews.io integration is configured</value>
@@ -205,6 +214,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  PostcardFromName: ").Append(PostcardFromName).Append("\n");
             sb.Append("  PostcardFromPostalCode: ").Append(PostcardFromPostalCode).Append("\n");
             sb.Append("  PostcardFromState: ").Append(PostcardFromState).Append("\n");
+            sb.Append("  RequireOrderWithinLast: ").Append(RequireOrderWithinLast).Append("\n");
             sb.Append("  ReviewsIoConfigured: ").Append(ReviewsIoConfigured).Append("\n");
             sb.Append("  SmsEspTwilioUuid: ").Append(SmsEspTwilioUuid).Append("\n");
             sb.Append("  SmsPhoneNumber: ").Append(SmsPhoneNumber).Append("\n");
@@ -306,6 +316,11 @@ namespace com.ultracart.admin.v2.Model
                     this.PostcardFromState.Equals(input.PostcardFromState))
                 ) && 
                 (
+                    this.RequireOrderWithinLast == input.RequireOrderWithinLast ||
+                    (this.RequireOrderWithinLast != null &&
+                    this.RequireOrderWithinLast.Equals(input.RequireOrderWithinLast))
+                ) && 
+                (
                     this.ReviewsIoConfigured == input.ReviewsIoConfigured ||
                     (this.ReviewsIoConfigured != null &&
                     this.ReviewsIoConfigured.Equals(input.ReviewsIoConfigured))
@@ -370,6 +385,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PostcardFromPostalCode.GetHashCode();
                 if (this.PostcardFromState != null)
                     hashCode = hashCode * 59 + this.PostcardFromState.GetHashCode();
+                if (this.RequireOrderWithinLast != null)
+                    hashCode = hashCode * 59 + this.RequireOrderWithinLast.GetHashCode();
                 if (this.ReviewsIoConfigured != null)
                     hashCode = hashCode * 59 + this.ReviewsIoConfigured.GetHashCode();
                 if (this.SmsEspTwilioUuid != null)

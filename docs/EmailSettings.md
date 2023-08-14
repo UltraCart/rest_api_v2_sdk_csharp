@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **PostcardFromName** | **string** |  | [optional] 
 **PostcardFromPostalCode** | **string** |  | [optional] 
 **PostcardFromState** | **string** |  | [optional] 
+**RequireOrderWithinLast** | **int?** | Require order within last | [optional] 
 **ReviewsIoConfigured** | **bool?** | True if the Reviews.io integration is configured | [optional] 
 **SmsEspTwilioUuid** | **string** |  | [optional] 
 **SmsPhoneNumber** | **string** |  | [optional] 

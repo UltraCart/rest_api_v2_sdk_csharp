@@ -5,6 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EmailsPerDay** | **int** | Emails per day allowed | [optional] 
+**EmailsPerHour** | **int** | Emails per hour allowed | [optional] 
+**EmailsPerMonth** | **int** | Emails per month allowed | [optional] 
 **MarketingEspDomainUser** | **string** |  | [optional] 
 **MarketingEspDomainUuid** | **string** |  | [optional] 
 **MarketingEspFriendlyName** | **string** |  | [optional] 

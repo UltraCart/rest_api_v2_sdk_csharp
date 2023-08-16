@@ -242,9 +242,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrder">Auto order to update</param>
         /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="validateOriginalOrder">Validate original order before updating (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>AutoOrderResponse</returns>
-        AutoOrderResponse UpdateAutoOrder (AutoOrder autoOrder, int? autoOrderOid, string expand = null);
+        AutoOrderResponse UpdateAutoOrder (AutoOrder autoOrder, int? autoOrderOid, string validateOriginalOrder = null, string expand = null);
 
         /// <summary>
         /// Update an auto order
@@ -255,9 +256,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrder">Auto order to update</param>
         /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="validateOriginalOrder">Validate original order before updating (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of AutoOrderResponse</returns>
-        ApiResponse<AutoOrderResponse> UpdateAutoOrderWithHttpInfo (AutoOrder autoOrder, int? autoOrderOid, string expand = null);
+        ApiResponse<AutoOrderResponse> UpdateAutoOrderWithHttpInfo (AutoOrder autoOrder, int? autoOrderOid, string validateOriginalOrder = null, string expand = null);
         /// <summary>
         /// Update multiple auto orders
         /// </summary>
@@ -505,9 +507,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrder">Auto order to update</param>
         /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="validateOriginalOrder">Validate original order before updating (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of AutoOrderResponse</returns>
-        System.Threading.Tasks.Task<AutoOrderResponse> UpdateAutoOrderAsync (AutoOrder autoOrder, int? autoOrderOid, string expand = null);
+        System.Threading.Tasks.Task<AutoOrderResponse> UpdateAutoOrderAsync (AutoOrder autoOrder, int? autoOrderOid, string validateOriginalOrder = null, string expand = null);
 
         /// <summary>
         /// Update an auto order
@@ -518,9 +521,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrder">Auto order to update</param>
         /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="validateOriginalOrder">Validate original order before updating (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderAsyncWithHttpInfo (AutoOrder autoOrder, int? autoOrderOid, string expand = null);
+        System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderAsyncWithHttpInfo (AutoOrder autoOrder, int? autoOrderOid, string validateOriginalOrder = null, string expand = null);
         /// <summary>
         /// Update multiple auto orders
         /// </summary>
@@ -1968,11 +1972,12 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrder">Auto order to update</param>
         /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="validateOriginalOrder">Validate original order before updating (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>AutoOrderResponse</returns>
-        public AutoOrderResponse UpdateAutoOrder (AutoOrder autoOrder, int? autoOrderOid, string expand = null)
+        public AutoOrderResponse UpdateAutoOrder (AutoOrder autoOrder, int? autoOrderOid, string validateOriginalOrder = null, string expand = null)
         {
-             ApiResponse<AutoOrderResponse> localVarResponse = UpdateAutoOrderWithHttpInfo(autoOrder, autoOrderOid, expand);
+             ApiResponse<AutoOrderResponse> localVarResponse = UpdateAutoOrderWithHttpInfo(autoOrder, autoOrderOid, validateOriginalOrder, expand);
              return localVarResponse.Data;
         }
 
@@ -1982,9 +1987,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrder">Auto order to update</param>
         /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="validateOriginalOrder">Validate original order before updating (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>ApiResponse of AutoOrderResponse</returns>
-        public ApiResponse< AutoOrderResponse > UpdateAutoOrderWithHttpInfo (AutoOrder autoOrder, int? autoOrderOid, string expand = null)
+        public ApiResponse< AutoOrderResponse > UpdateAutoOrderWithHttpInfo (AutoOrder autoOrder, int? autoOrderOid, string validateOriginalOrder = null, string expand = null)
         {
             // verify the required parameter 'autoOrder' is set
             if (autoOrder == null)
@@ -2016,6 +2022,7 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (validateOriginalOrder != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "validate_original_order", validateOriginalOrder)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
             if (autoOrder != null && autoOrder.GetType() != typeof(byte[]))
             {
@@ -2062,11 +2069,12 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrder">Auto order to update</param>
         /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="validateOriginalOrder">Validate original order before updating (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of AutoOrderResponse</returns>
-        public async System.Threading.Tasks.Task<AutoOrderResponse> UpdateAutoOrderAsync (AutoOrder autoOrder, int? autoOrderOid, string expand = null)
+        public async System.Threading.Tasks.Task<AutoOrderResponse> UpdateAutoOrderAsync (AutoOrder autoOrder, int? autoOrderOid, string validateOriginalOrder = null, string expand = null)
         {
-             ApiResponse<AutoOrderResponse> localVarResponse = await UpdateAutoOrderAsyncWithHttpInfo(autoOrder, autoOrderOid, expand);
+             ApiResponse<AutoOrderResponse> localVarResponse = await UpdateAutoOrderAsyncWithHttpInfo(autoOrder, autoOrderOid, validateOriginalOrder, expand);
              return localVarResponse.Data;
 
         }
@@ -2077,9 +2085,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoOrder">Auto order to update</param>
         /// <param name="autoOrderOid">The auto order oid to update.</param>
+        /// <param name="validateOriginalOrder">Validate original order before updating (optional)</param>
         /// <param name="expand">The object expansion to perform on the result.  See documentation for examples (optional)</param>
         /// <returns>Task of ApiResponse (AutoOrderResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderAsyncWithHttpInfo (AutoOrder autoOrder, int? autoOrderOid, string expand = null)
+        public async System.Threading.Tasks.Task<ApiResponse<AutoOrderResponse>> UpdateAutoOrderAsyncWithHttpInfo (AutoOrder autoOrder, int? autoOrderOid, string validateOriginalOrder = null, string expand = null)
         {
             // verify the required parameter 'autoOrder' is set
             if (autoOrder == null)
@@ -2111,6 +2120,7 @@ namespace com.ultracart.admin.v2.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (autoOrderOid != null) localVarPathParams.Add("auto_order_oid", this.Configuration.ApiClient.ParameterToString(autoOrderOid)); // path parameter
+            if (validateOriginalOrder != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "validate_original_order", validateOriginalOrder)); // query parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "_expand", expand)); // query parameter
             if (autoOrder != null && autoOrder.GetType() != typeof(byte[]))
             {

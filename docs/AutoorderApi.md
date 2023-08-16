@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 
 <a name="updateautoorder"></a>
 # **UpdateAutoOrder**
-> AutoOrderResponse UpdateAutoOrder (AutoOrder autoOrder, int? autoOrderOid, string expand = null)
+> AutoOrderResponse UpdateAutoOrder (AutoOrder autoOrder, int? autoOrderOid, string validateOriginalOrder = null, string expand = null)
 
 Update an auto order
 
@@ -568,12 +568,13 @@ namespace Example
 
             var autoOrder = new AutoOrder(); // AutoOrder | Auto order to update
             var autoOrderOid = 56;  // int? | The auto order oid to update.
+            var validateOriginalOrder = validateOriginalOrder_example;  // string | Validate original order before updating (optional) 
             var expand = expand_example;  // string | The object expansion to perform on the result.  See documentation for examples (optional) 
 
             try
             {
                 // Update an auto order
-                AutoOrderResponse result = apiInstance.UpdateAutoOrder(autoOrder, autoOrderOid, expand);
+                AutoOrderResponse result = apiInstance.UpdateAutoOrder(autoOrder, autoOrderOid, validateOriginalOrder, expand);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -592,6 +593,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update | 
  **autoOrderOid** | **int?**| The auto order oid to update. | 
+ **validateOriginalOrder** | **string**| Validate original order before updating | [optional] 
  **expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional] 
 
 ### Return type

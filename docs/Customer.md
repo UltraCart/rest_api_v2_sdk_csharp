@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **Password** | **string** | Password (may only be set, never read) | [optional] 
 **PricingTiers** | [**List&lt;CustomerPricingTier&gt;**](CustomerPricingTier.md) | Pricing tiers for this customer | [optional] 
 **Privacy** | [**CustomerPrivacy**](CustomerPrivacy.md) |  | [optional] 
+**Properties** | [**List&lt;CustomerProperty&gt;**](CustomerProperty.md) | Properties for this customer | [optional] 
 **QbClass** | **string** | QuickBooks class to import this customer as | [optional] 
 **QbCode** | **string** | QuickBooks name to import this customer as | [optional] 
 **QbTaxExemptionReasonCode** | **int?** | QuickBooks tax exemption reason code | [optional] 

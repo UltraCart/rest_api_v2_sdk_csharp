@@ -73,6 +73,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="password">Password (may only be set, never read).</param>
         /// <param name="pricingTiers">Pricing tiers for this customer.</param>
         /// <param name="privacy">privacy.</param>
+        /// <param name="properties">Properties for this customer.</param>
         /// <param name="qbClass">QuickBooks class to import this customer as.</param>
         /// <param name="qbCode">QuickBooks name to import this customer as.</param>
         /// <param name="qbTaxExemptionReasonCode">QuickBooks tax exemption reason code.</param>
@@ -95,7 +96,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="unapproved">Unapproved.</param>
         /// <param name="upsAccountNumber">UPS account number.</param>
         /// <param name="websiteUrl">Website url.</param>
-        public Customer(CustomerActivity activity = default(CustomerActivity), int affiliateOid = default(int), bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowDropShipping = default(bool), bool allowPurchaseOrder = default(bool), bool allowQuoteRequest = default(bool), bool allowSelectionOfAddressType = default(bool), List<CustomerAttachment> attachments = default(List<CustomerAttachment>), bool autoApproveCod = default(bool), bool autoApprovePurchaseOrder = default(bool), string automaticMerchantNotes = default(string), List<CustomerBilling> billing = default(List<CustomerBilling>), string businessNotes = default(string), List<CustomerCard> cards = default(List<CustomerCard>), List<CustomerEmail> ccEmails = default(List<CustomerEmail>), int customerProfileOid = default(int), string dhlAccountNumber = default(string), string dhlDutyAccountNumber = default(string), CustomerEDI edi = default(CustomerEDI), string email = default(string), bool exemptShippingHandlingCharge = default(bool), string fedexAccountNumber = default(string), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), string lastModifiedBy = default(string), string lastModifiedDts = default(string), CustomerLoyalty loyalty = default(CustomerLoyalty), int maximumItemCount = default(int), string merchantId = default(string), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), List<Order> orders = default(List<Order>), CustomerOrdersSummary ordersSummary = default(CustomerOrdersSummary), string password = default(string), List<CustomerPricingTier> pricingTiers = default(List<CustomerPricingTier>), CustomerPrivacy privacy = default(CustomerPrivacy), string qbClass = default(string), string qbCode = default(string), int qbTaxExemptionReasonCode = default(int), List<Order> quotes = default(List<Order>), CustomerQuotesSummary quotesSummary = default(CustomerQuotesSummary), string referralSource = default(string), CustomerReviewer reviewer = default(CustomerReviewer), string salesRepCode = default(string), bool sendSignupNotification = default(bool), List<CustomerShipping> shipping = default(List<CustomerShipping>), string signupDts = default(string), List<CustomerSoftwareEntitlement> softwareEntitlements = default(List<CustomerSoftwareEntitlement>), bool suppressBuysafe = default(bool), List<CustomerTag> tags = default(List<CustomerTag>), CustomerTaxCodes taxCodes = default(CustomerTaxCodes), bool taxExempt = default(bool), string taxId = default(string), string terms = default(string), bool trackSeparately = default(bool), bool unapproved = default(bool), string upsAccountNumber = default(string), string websiteUrl = default(string))
+        public Customer(CustomerActivity activity = default(CustomerActivity), int affiliateOid = default(int), bool allow3rdPartyBilling = default(bool), bool allowCod = default(bool), bool allowDropShipping = default(bool), bool allowPurchaseOrder = default(bool), bool allowQuoteRequest = default(bool), bool allowSelectionOfAddressType = default(bool), List<CustomerAttachment> attachments = default(List<CustomerAttachment>), bool autoApproveCod = default(bool), bool autoApprovePurchaseOrder = default(bool), string automaticMerchantNotes = default(string), List<CustomerBilling> billing = default(List<CustomerBilling>), string businessNotes = default(string), List<CustomerCard> cards = default(List<CustomerCard>), List<CustomerEmail> ccEmails = default(List<CustomerEmail>), int customerProfileOid = default(int), string dhlAccountNumber = default(string), string dhlDutyAccountNumber = default(string), CustomerEDI edi = default(CustomerEDI), string email = default(string), bool exemptShippingHandlingCharge = default(bool), string fedexAccountNumber = default(string), bool freeShipping = default(bool), decimal freeShippingMinimum = default(decimal), string lastModifiedBy = default(string), string lastModifiedDts = default(string), CustomerLoyalty loyalty = default(CustomerLoyalty), int maximumItemCount = default(int), string merchantId = default(string), int minimumItemCount = default(int), decimal minimumSubtotal = default(decimal), bool noCoupons = default(bool), bool noFreeShipping = default(bool), bool noRealtimeCharge = default(bool), List<Order> orders = default(List<Order>), CustomerOrdersSummary ordersSummary = default(CustomerOrdersSummary), string password = default(string), List<CustomerPricingTier> pricingTiers = default(List<CustomerPricingTier>), CustomerPrivacy privacy = default(CustomerPrivacy), List<CustomerProperty> properties = default(List<CustomerProperty>), string qbClass = default(string), string qbCode = default(string), int qbTaxExemptionReasonCode = default(int), List<Order> quotes = default(List<Order>), CustomerQuotesSummary quotesSummary = default(CustomerQuotesSummary), string referralSource = default(string), CustomerReviewer reviewer = default(CustomerReviewer), string salesRepCode = default(string), bool sendSignupNotification = default(bool), List<CustomerShipping> shipping = default(List<CustomerShipping>), string signupDts = default(string), List<CustomerSoftwareEntitlement> softwareEntitlements = default(List<CustomerSoftwareEntitlement>), bool suppressBuysafe = default(bool), List<CustomerTag> tags = default(List<CustomerTag>), CustomerTaxCodes taxCodes = default(CustomerTaxCodes), bool taxExempt = default(bool), string taxId = default(string), string terms = default(string), bool trackSeparately = default(bool), bool unapproved = default(bool), string upsAccountNumber = default(string), string websiteUrl = default(string))
         {
             this.Activity = activity;
             this.AffiliateOid = affiliateOid;
@@ -137,6 +138,7 @@ namespace com.ultracart.admin.v2.Model
             this.Password = password;
             this.PricingTiers = pricingTiers;
             this.Privacy = privacy;
+            this.Properties = properties;
             this.QbClass = qbClass;
             this.QbCode = qbCode;
             this.QbTaxExemptionReasonCode = qbTaxExemptionReasonCode;
@@ -437,6 +439,13 @@ namespace com.ultracart.admin.v2.Model
         public CustomerPrivacy Privacy { get; set; }
 
         /// <summary>
+        /// Properties for this customer
+        /// </summary>
+        /// <value>Properties for this customer</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<CustomerProperty> Properties { get; set; }
+
+        /// <summary>
         /// QuickBooks class to import this customer as
         /// </summary>
         /// <value>QuickBooks class to import this customer as</value>
@@ -635,6 +644,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  PricingTiers: ").Append(PricingTiers).Append("\n");
             sb.Append("  Privacy: ").Append(Privacy).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  QbClass: ").Append(QbClass).Append("\n");
             sb.Append("  QbCode: ").Append(QbCode).Append("\n");
             sb.Append("  QbTaxExemptionReasonCode: ").Append(QbTaxExemptionReasonCode).Append("\n");
@@ -898,6 +908,12 @@ namespace com.ultracart.admin.v2.Model
                     this.Privacy.Equals(input.Privacy))
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.QbClass == input.QbClass ||
                     (this.QbClass != null &&
                     this.QbClass.Equals(input.QbClass))
@@ -1102,6 +1118,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PricingTiers.GetHashCode();
                 if (this.Privacy != null)
                     hashCode = hashCode * 59 + this.Privacy.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.QbClass != null)
                     hashCode = hashCode * 59 + this.QbClass.GetHashCode();
                 if (this.QbCode != null)

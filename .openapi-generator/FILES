@@ -222,6 +222,7 @@ docs/CouponEditorValues.md
 docs/CouponExistsResponse.md
 docs/CouponFreeItemAndShippingWithSubtotal.md
 docs/CouponFreeItemWithItemPurchase.md
+docs/CouponFreeItemWithItemPurchaseAndFreeShipping.md
 docs/CouponFreeItemWithSubtotal.md
 docs/CouponFreeItemsWithItemPurchase.md
 docs/CouponFreeItemsWithMixMatchPurchase.md
@@ -286,6 +287,7 @@ docs/CustomerMergeRequest.md
 docs/CustomerOrdersSummary.md
 docs/CustomerPricingTier.md
 docs/CustomerPrivacy.md
+docs/CustomerProperty.md
 docs/CustomerQuery.md
 docs/CustomerQuotesSummary.md
 docs/CustomerResponse.md
@@ -1043,6 +1045,7 @@ src/com.ultracart.admin.v2/Model/CouponEditorValues.cs
 src/com.ultracart.admin.v2/Model/CouponExistsResponse.cs
 src/com.ultracart.admin.v2/Model/CouponFreeItemAndShippingWithSubtotal.cs
 src/com.ultracart.admin.v2/Model/CouponFreeItemWithItemPurchase.cs
+src/com.ultracart.admin.v2/Model/CouponFreeItemWithItemPurchaseAndFreeShipping.cs
 src/com.ultracart.admin.v2/Model/CouponFreeItemWithSubtotal.cs
 src/com.ultracart.admin.v2/Model/CouponFreeItemsWithItemPurchase.cs
 src/com.ultracart.admin.v2/Model/CouponFreeItemsWithMixMatchPurchase.cs
@@ -1106,6 +1109,7 @@ src/com.ultracart.admin.v2/Model/CustomerMergeRequest.cs
 src/com.ultracart.admin.v2/Model/CustomerOrdersSummary.cs
 src/com.ultracart.admin.v2/Model/CustomerPricingTier.cs
 src/com.ultracart.admin.v2/Model/CustomerPrivacy.cs
+src/com.ultracart.admin.v2/Model/CustomerProperty.cs
 src/com.ultracart.admin.v2/Model/CustomerQuery.cs
 src/com.ultracart.admin.v2/Model/CustomerQuotesSummary.cs
 src/com.ultracart.admin.v2/Model/CustomerResponse.cs

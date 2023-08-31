@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **ExpirationDts** | **string** | Date/time when coupon expires | [optional] 
 **FreeItemAndShippingWithSubtotal** | [**CouponFreeItemAndShippingWithSubtotal**](CouponFreeItemAndShippingWithSubtotal.md) |  | [optional] 
 **FreeItemWithItemPurchase** | [**CouponFreeItemWithItemPurchase**](CouponFreeItemWithItemPurchase.md) |  | [optional] 
+**FreeItemWithItemPurchaseAndFreeShipping** | [**CouponFreeItemWithItemPurchaseAndFreeShipping**](CouponFreeItemWithItemPurchaseAndFreeShipping.md) |  | [optional] 
 **FreeItemWithSubtotal** | [**CouponFreeItemWithSubtotal**](CouponFreeItemWithSubtotal.md) |  | [optional] 
 **FreeItemsWithItemPurchase** | [**CouponFreeItemsWithItemPurchase**](CouponFreeItemsWithItemPurchase.md) |  | [optional] 
 **FreeItemsWithMixmatchPurchase** | [**CouponFreeItemsWithMixMatchPurchase**](CouponFreeItemsWithMixMatchPurchase.md) |  | [optional] 

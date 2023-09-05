@@ -113,7 +113,25 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Yearly for value: Yearly
             /// </summary>
             [EnumMember(Value = "Yearly")]
-            Yearly = 13
+            Yearly = 13,
+
+            /// <summary>
+            /// Enum Every4Weeks for value: Every 4 Weeks
+            /// </summary>
+            [EnumMember(Value = "Every 4 Weeks")]
+            Every4Weeks = 14,
+
+            /// <summary>
+            /// Enum Every6Weeks for value: Every 6 Weeks
+            /// </summary>
+            [EnumMember(Value = "Every 6 Weeks")]
+            Every6Weeks = 15,
+
+            /// <summary>
+            /// Enum Every8Weeks for value: Every 8 Weeks
+            /// </summary>
+            [EnumMember(Value = "Every 8 Weeks")]
+            Every8Weeks = 16
 
         }
 

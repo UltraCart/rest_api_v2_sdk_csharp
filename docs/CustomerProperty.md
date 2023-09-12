@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomerProfilePropertyOid** | **int?** | Customer profile property oid | [optional] 
 **ExpirationDts** | **string** | The date/time that the property expires and is deleted | [optional] 
 **Name** | **string** | Name | [optional] 
 **Value** | **string** | Value | [optional] 

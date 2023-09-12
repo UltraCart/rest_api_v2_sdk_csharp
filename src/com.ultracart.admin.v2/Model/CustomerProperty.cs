@@ -33,15 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerProperty" /> class.
         /// </summary>
+        /// <param name="customerProfilePropertyOid">Customer profile property oid.</param>
         /// <param name="expirationDts">The date/time that the property expires and is deleted.</param>
         /// <param name="name">Name.</param>
         /// <param name="value">Value.</param>
-        public CustomerProperty(string expirationDts = default(string), string name = default(string), string value = default(string))
+        public CustomerProperty(int customerProfilePropertyOid = default(int), string expirationDts = default(string), string name = default(string), string value = default(string))
         {
+            this.CustomerProfilePropertyOid = customerProfilePropertyOid;
             this.ExpirationDts = expirationDts;
             this.Name = name;
             this.Value = value;
         }
+
+        /// <summary>
+        /// Customer profile property oid
+        /// </summary>
+        /// <value>Customer profile property oid</value>
+        [DataMember(Name="customer_profile_property_oid", EmitDefaultValue=false)]
+        public int CustomerProfilePropertyOid { get; set; }
 
         /// <summary>
         /// The date/time that the property expires and is deleted
@@ -72,6 +81,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CustomerProperty {\n");
+            sb.Append("  CustomerProfilePropertyOid: ").Append(CustomerProfilePropertyOid).Append("\n");
             sb.Append("  ExpirationDts: ").Append(ExpirationDts).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
@@ -110,6 +120,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.CustomerProfilePropertyOid == input.CustomerProfilePropertyOid ||
+                    (this.CustomerProfilePropertyOid != null &&
+                    this.CustomerProfilePropertyOid.Equals(input.CustomerProfilePropertyOid))
+                ) && 
+                (
                     this.ExpirationDts == input.ExpirationDts ||
                     (this.ExpirationDts != null &&
                     this.ExpirationDts.Equals(input.ExpirationDts))
@@ -135,6 +150,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CustomerProfilePropertyOid != null)
+                    hashCode = hashCode * 59 + this.CustomerProfilePropertyOid.GetHashCode();
                 if (this.ExpirationDts != null)
                     hashCode = hashCode * 59 + this.ExpirationDts.GetHashCode();
                 if (this.Name != null)

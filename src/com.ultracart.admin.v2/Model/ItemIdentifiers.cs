@@ -34,12 +34,20 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="ItemIdentifiers" /> class.
         /// </summary>
         /// <param name="barcode">Barcode.</param>
+        /// <param name="barcodeGtin12">Barcode - GTIN 12.</param>
+        /// <param name="barcodeGtin14">Barcode - GTIN 14.</param>
+        /// <param name="barcodeUpc11">Barcode - UPC 11.</param>
+        /// <param name="barcodeUpc12">Barcode - UPC 12.</param>
         /// <param name="manufacturerName">Manufacturer Name.</param>
         /// <param name="manufacturerSku">Manufacturer SKU.</param>
         /// <param name="unspsc">UNSPSC.</param>
-        public ItemIdentifiers(string barcode = default(string), string manufacturerName = default(string), string manufacturerSku = default(string), string unspsc = default(string))
+        public ItemIdentifiers(string barcode = default(string), string barcodeGtin12 = default(string), string barcodeGtin14 = default(string), string barcodeUpc11 = default(string), string barcodeUpc12 = default(string), string manufacturerName = default(string), string manufacturerSku = default(string), string unspsc = default(string))
         {
             this.Barcode = barcode;
+            this.BarcodeGtin12 = barcodeGtin12;
+            this.BarcodeGtin14 = barcodeGtin14;
+            this.BarcodeUpc11 = barcodeUpc11;
+            this.BarcodeUpc12 = barcodeUpc12;
             this.ManufacturerName = manufacturerName;
             this.ManufacturerSku = manufacturerSku;
             this.Unspsc = unspsc;
@@ -51,6 +59,34 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Barcode</value>
         [DataMember(Name="barcode", EmitDefaultValue=false)]
         public string Barcode { get; set; }
+
+        /// <summary>
+        /// Barcode - GTIN 12
+        /// </summary>
+        /// <value>Barcode - GTIN 12</value>
+        [DataMember(Name="barcode_gtin12", EmitDefaultValue=false)]
+        public string BarcodeGtin12 { get; set; }
+
+        /// <summary>
+        /// Barcode - GTIN 14
+        /// </summary>
+        /// <value>Barcode - GTIN 14</value>
+        [DataMember(Name="barcode_gtin14", EmitDefaultValue=false)]
+        public string BarcodeGtin14 { get; set; }
+
+        /// <summary>
+        /// Barcode - UPC 11
+        /// </summary>
+        /// <value>Barcode - UPC 11</value>
+        [DataMember(Name="barcode_upc11", EmitDefaultValue=false)]
+        public string BarcodeUpc11 { get; set; }
+
+        /// <summary>
+        /// Barcode - UPC 12
+        /// </summary>
+        /// <value>Barcode - UPC 12</value>
+        [DataMember(Name="barcode_upc12", EmitDefaultValue=false)]
+        public string BarcodeUpc12 { get; set; }
 
         /// <summary>
         /// Manufacturer Name
@@ -82,6 +118,10 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class ItemIdentifiers {\n");
             sb.Append("  Barcode: ").Append(Barcode).Append("\n");
+            sb.Append("  BarcodeGtin12: ").Append(BarcodeGtin12).Append("\n");
+            sb.Append("  BarcodeGtin14: ").Append(BarcodeGtin14).Append("\n");
+            sb.Append("  BarcodeUpc11: ").Append(BarcodeUpc11).Append("\n");
+            sb.Append("  BarcodeUpc12: ").Append(BarcodeUpc12).Append("\n");
             sb.Append("  ManufacturerName: ").Append(ManufacturerName).Append("\n");
             sb.Append("  ManufacturerSku: ").Append(ManufacturerSku).Append("\n");
             sb.Append("  Unspsc: ").Append(Unspsc).Append("\n");
@@ -125,6 +165,26 @@ namespace com.ultracart.admin.v2.Model
                     this.Barcode.Equals(input.Barcode))
                 ) && 
                 (
+                    this.BarcodeGtin12 == input.BarcodeGtin12 ||
+                    (this.BarcodeGtin12 != null &&
+                    this.BarcodeGtin12.Equals(input.BarcodeGtin12))
+                ) && 
+                (
+                    this.BarcodeGtin14 == input.BarcodeGtin14 ||
+                    (this.BarcodeGtin14 != null &&
+                    this.BarcodeGtin14.Equals(input.BarcodeGtin14))
+                ) && 
+                (
+                    this.BarcodeUpc11 == input.BarcodeUpc11 ||
+                    (this.BarcodeUpc11 != null &&
+                    this.BarcodeUpc11.Equals(input.BarcodeUpc11))
+                ) && 
+                (
+                    this.BarcodeUpc12 == input.BarcodeUpc12 ||
+                    (this.BarcodeUpc12 != null &&
+                    this.BarcodeUpc12.Equals(input.BarcodeUpc12))
+                ) && 
+                (
                     this.ManufacturerName == input.ManufacturerName ||
                     (this.ManufacturerName != null &&
                     this.ManufacturerName.Equals(input.ManufacturerName))
@@ -152,6 +212,14 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.Barcode != null)
                     hashCode = hashCode * 59 + this.Barcode.GetHashCode();
+                if (this.BarcodeGtin12 != null)
+                    hashCode = hashCode * 59 + this.BarcodeGtin12.GetHashCode();
+                if (this.BarcodeGtin14 != null)
+                    hashCode = hashCode * 59 + this.BarcodeGtin14.GetHashCode();
+                if (this.BarcodeUpc11 != null)
+                    hashCode = hashCode * 59 + this.BarcodeUpc11.GetHashCode();
+                if (this.BarcodeUpc12 != null)
+                    hashCode = hashCode * 59 + this.BarcodeUpc12.GetHashCode();
                 if (this.ManufacturerName != null)
                     hashCode = hashCode * 59 + this.ManufacturerName.GetHashCode();
                 if (this.ManufacturerSku != null)
@@ -173,6 +241,30 @@ namespace com.ultracart.admin.v2.Model
             if(this.Barcode != null && this.Barcode.Length > 30)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Barcode, length must be less than 30.", new [] { "Barcode" });
+            }
+
+            // BarcodeGtin12 (string) maxLength
+            if(this.BarcodeGtin12 != null && this.BarcodeGtin12.Length > 12)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BarcodeGtin12, length must be less than 12.", new [] { "BarcodeGtin12" });
+            }
+
+            // BarcodeGtin14 (string) maxLength
+            if(this.BarcodeGtin14 != null && this.BarcodeGtin14.Length > 14)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BarcodeGtin14, length must be less than 14.", new [] { "BarcodeGtin14" });
+            }
+
+            // BarcodeUpc11 (string) maxLength
+            if(this.BarcodeUpc11 != null && this.BarcodeUpc11.Length > 11)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BarcodeUpc11, length must be less than 11.", new [] { "BarcodeUpc11" });
+            }
+
+            // BarcodeUpc12 (string) maxLength
+            if(this.BarcodeUpc12 != null && this.BarcodeUpc12.Length > 12)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BarcodeUpc12, length must be less than 12.", new [] { "BarcodeUpc12" });
             }
 
             // ManufacturerName (string) maxLength

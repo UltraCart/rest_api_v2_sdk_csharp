@@ -78,6 +78,10 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="autoOrderLastRebillDts">Date/time of the last rebill, used only during order insert to help project future rebills.</param>
         /// <param name="autoOrderSchedule">Auto order schedule, used only during inserts supplying the recurring schedule.</param>
         /// <param name="barcode">Barcode.</param>
+        /// <param name="barcodeGtin12">Barcode - GTIN 12.</param>
+        /// <param name="barcodeGtin14">Barcode - GTIN 14.</param>
+        /// <param name="barcodeUpc11">Barcode - UPC 11.</param>
+        /// <param name="barcodeUpc12">Barcode - UPC 12.</param>
         /// <param name="channelPartnerItemId">Channel partner item id if this order came through a channel partner and the channel partner item id was mapped to an internal item id.</param>
         /// <param name="cogs">Cost of goods sold.</param>
         /// <param name="componentUnitValue">Value of the kit component item.</param>
@@ -133,7 +137,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="upsell">True if this item was added to the order as part of an upsell.</param>
         /// <param name="weight">weight.</param>
         /// <param name="width">width.</param>
-        public OrderItem(string accountingCode = default(string), List<string> activationCodes = default(List<string>), Currency arbitraryUnitCost = default(Currency), string autoOrderLastRebillDts = default(string), string autoOrderSchedule = default(string), string barcode = default(string), string channelPartnerItemId = default(string), decimal? cogs = default(decimal?), decimal? componentUnitValue = default(decimal?), Currency cost = default(Currency), string countryCodeOfOrigin = default(string), string customsDescription = default(string), string description = default(string), Currency discount = default(Currency), decimal? discountQuantity = default(decimal?), Weight discountShippingWeight = default(Weight), string distributionCenterCode = default(string), OrderItemEdi edi = default(OrderItemEdi), bool? excludeCoupon = default(bool?), bool? freeShipping = default(bool?), bool? hazmat = default(bool?), Distance height = default(Distance), int? itemIndex = default(int?), int? itemReferenceOid = default(int?), bool? kit = default(bool?), bool? kitComponent = default(bool?), Distance length = default(Distance), string manufacturerSku = default(string), int? maxDaysTimeInTransit = default(int?), string merchantItemId = default(string), string mixAndMatchGroupName = default(string), int? mixAndMatchGroupOid = default(int?), bool? noShippingDiscount = default(bool?), List<OrderItemOption> options = default(List<OrderItemOption>), string packedByUser = default(string), int? parentItemIndex = default(int?), string parentMerchantItemId = default(string), string perishableClass = default(string), string pricingTierName = default(string), List<OrderItemProperty> properties = default(List<OrderItemProperty>), decimal? quantity = default(decimal?), decimal? quantityRefunded = default(decimal?), string quickbooksClass = default(string), string refundReason = default(string), string returnReason = default(string), bool? shipSeparately = default(bool?), string shippedByUser = default(string), string shippedDts = default(string), string shippingStatus = default(string), string specialProductType = default(string), List<OrderItemTag> tags = default(List<OrderItemTag>), bool? taxFree = default(bool?), TaxProductTypeEnum? taxProductType = default(TaxProductTypeEnum?), Currency taxableCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency totalRefunded = default(Currency), string transmittedToDistributionCenterDts = default(string), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), Weight weight = default(Weight), Distance width = default(Distance))
+        public OrderItem(string accountingCode = default(string), List<string> activationCodes = default(List<string>), Currency arbitraryUnitCost = default(Currency), string autoOrderLastRebillDts = default(string), string autoOrderSchedule = default(string), string barcode = default(string), string barcodeGtin12 = default(string), string barcodeGtin14 = default(string), string barcodeUpc11 = default(string), string barcodeUpc12 = default(string), string channelPartnerItemId = default(string), decimal? cogs = default(decimal?), decimal? componentUnitValue = default(decimal?), Currency cost = default(Currency), string countryCodeOfOrigin = default(string), string customsDescription = default(string), string description = default(string), Currency discount = default(Currency), decimal? discountQuantity = default(decimal?), Weight discountShippingWeight = default(Weight), string distributionCenterCode = default(string), OrderItemEdi edi = default(OrderItemEdi), bool? excludeCoupon = default(bool?), bool? freeShipping = default(bool?), bool? hazmat = default(bool?), Distance height = default(Distance), int? itemIndex = default(int?), int? itemReferenceOid = default(int?), bool? kit = default(bool?), bool? kitComponent = default(bool?), Distance length = default(Distance), string manufacturerSku = default(string), int? maxDaysTimeInTransit = default(int?), string merchantItemId = default(string), string mixAndMatchGroupName = default(string), int? mixAndMatchGroupOid = default(int?), bool? noShippingDiscount = default(bool?), List<OrderItemOption> options = default(List<OrderItemOption>), string packedByUser = default(string), int? parentItemIndex = default(int?), string parentMerchantItemId = default(string), string perishableClass = default(string), string pricingTierName = default(string), List<OrderItemProperty> properties = default(List<OrderItemProperty>), decimal? quantity = default(decimal?), decimal? quantityRefunded = default(decimal?), string quickbooksClass = default(string), string refundReason = default(string), string returnReason = default(string), bool? shipSeparately = default(bool?), string shippedByUser = default(string), string shippedDts = default(string), string shippingStatus = default(string), string specialProductType = default(string), List<OrderItemTag> tags = default(List<OrderItemTag>), bool? taxFree = default(bool?), TaxProductTypeEnum? taxProductType = default(TaxProductTypeEnum?), Currency taxableCost = default(Currency), Currency totalCostWithDiscount = default(Currency), Currency totalRefunded = default(Currency), string transmittedToDistributionCenterDts = default(string), Currency unitCostWithDiscount = default(Currency), bool? upsell = default(bool?), Weight weight = default(Weight), Distance width = default(Distance))
         {
             this.AccountingCode = accountingCode;
             this.ActivationCodes = activationCodes;
@@ -141,6 +145,10 @@ namespace com.ultracart.admin.v2.Model
             this.AutoOrderLastRebillDts = autoOrderLastRebillDts;
             this.AutoOrderSchedule = autoOrderSchedule;
             this.Barcode = barcode;
+            this.BarcodeGtin12 = barcodeGtin12;
+            this.BarcodeGtin14 = barcodeGtin14;
+            this.BarcodeUpc11 = barcodeUpc11;
+            this.BarcodeUpc12 = barcodeUpc12;
             this.ChannelPartnerItemId = channelPartnerItemId;
             this.Cogs = cogs;
             this.ComponentUnitValue = componentUnitValue;
@@ -238,6 +246,34 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Barcode</value>
         [DataMember(Name="barcode", EmitDefaultValue=false)]
         public string Barcode { get; set; }
+
+        /// <summary>
+        /// Barcode - GTIN 12
+        /// </summary>
+        /// <value>Barcode - GTIN 12</value>
+        [DataMember(Name="barcode_gtin12", EmitDefaultValue=false)]
+        public string BarcodeGtin12 { get; set; }
+
+        /// <summary>
+        /// Barcode - GTIN 14
+        /// </summary>
+        /// <value>Barcode - GTIN 14</value>
+        [DataMember(Name="barcode_gtin14", EmitDefaultValue=false)]
+        public string BarcodeGtin14 { get; set; }
+
+        /// <summary>
+        /// Barcode - UPC 11
+        /// </summary>
+        /// <value>Barcode - UPC 11</value>
+        [DataMember(Name="barcode_upc11", EmitDefaultValue=false)]
+        public string BarcodeUpc11 { get; set; }
+
+        /// <summary>
+        /// Barcode - UPC 12
+        /// </summary>
+        /// <value>Barcode - UPC 12</value>
+        [DataMember(Name="barcode_upc12", EmitDefaultValue=false)]
+        public string BarcodeUpc12 { get; set; }
 
         /// <summary>
         /// Channel partner item id if this order came through a channel partner and the channel partner item id was mapped to an internal item id
@@ -620,6 +656,10 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  AutoOrderLastRebillDts: ").Append(AutoOrderLastRebillDts).Append("\n");
             sb.Append("  AutoOrderSchedule: ").Append(AutoOrderSchedule).Append("\n");
             sb.Append("  Barcode: ").Append(Barcode).Append("\n");
+            sb.Append("  BarcodeGtin12: ").Append(BarcodeGtin12).Append("\n");
+            sb.Append("  BarcodeGtin14: ").Append(BarcodeGtin14).Append("\n");
+            sb.Append("  BarcodeUpc11: ").Append(BarcodeUpc11).Append("\n");
+            sb.Append("  BarcodeUpc12: ").Append(BarcodeUpc12).Append("\n");
             sb.Append("  ChannelPartnerItemId: ").Append(ChannelPartnerItemId).Append("\n");
             sb.Append("  Cogs: ").Append(Cogs).Append("\n");
             sb.Append("  ComponentUnitValue: ").Append(ComponentUnitValue).Append("\n");
@@ -738,6 +778,26 @@ namespace com.ultracart.admin.v2.Model
                     this.Barcode == input.Barcode ||
                     (this.Barcode != null &&
                     this.Barcode.Equals(input.Barcode))
+                ) && 
+                (
+                    this.BarcodeGtin12 == input.BarcodeGtin12 ||
+                    (this.BarcodeGtin12 != null &&
+                    this.BarcodeGtin12.Equals(input.BarcodeGtin12))
+                ) && 
+                (
+                    this.BarcodeGtin14 == input.BarcodeGtin14 ||
+                    (this.BarcodeGtin14 != null &&
+                    this.BarcodeGtin14.Equals(input.BarcodeGtin14))
+                ) && 
+                (
+                    this.BarcodeUpc11 == input.BarcodeUpc11 ||
+                    (this.BarcodeUpc11 != null &&
+                    this.BarcodeUpc11.Equals(input.BarcodeUpc11))
+                ) && 
+                (
+                    this.BarcodeUpc12 == input.BarcodeUpc12 ||
+                    (this.BarcodeUpc12 != null &&
+                    this.BarcodeUpc12.Equals(input.BarcodeUpc12))
                 ) && 
                 (
                     this.ChannelPartnerItemId == input.ChannelPartnerItemId ||
@@ -1037,6 +1097,14 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.AutoOrderSchedule.GetHashCode();
                 if (this.Barcode != null)
                     hashCode = hashCode * 59 + this.Barcode.GetHashCode();
+                if (this.BarcodeGtin12 != null)
+                    hashCode = hashCode * 59 + this.BarcodeGtin12.GetHashCode();
+                if (this.BarcodeGtin14 != null)
+                    hashCode = hashCode * 59 + this.BarcodeGtin14.GetHashCode();
+                if (this.BarcodeUpc11 != null)
+                    hashCode = hashCode * 59 + this.BarcodeUpc11.GetHashCode();
+                if (this.BarcodeUpc12 != null)
+                    hashCode = hashCode * 59 + this.BarcodeUpc12.GetHashCode();
                 if (this.ChannelPartnerItemId != null)
                     hashCode = hashCode * 59 + this.ChannelPartnerItemId.GetHashCode();
                 if (this.Cogs != null)
@@ -1158,6 +1226,30 @@ namespace com.ultracart.admin.v2.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // BarcodeGtin12 (string) maxLength
+            if(this.BarcodeGtin12 != null && this.BarcodeGtin12.Length > 12)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BarcodeGtin12, length must be less than 12.", new [] { "BarcodeGtin12" });
+            }
+
+            // BarcodeGtin14 (string) maxLength
+            if(this.BarcodeGtin14 != null && this.BarcodeGtin14.Length > 14)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BarcodeGtin14, length must be less than 14.", new [] { "BarcodeGtin14" });
+            }
+
+            // BarcodeUpc11 (string) maxLength
+            if(this.BarcodeUpc11 != null && this.BarcodeUpc11.Length > 11)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BarcodeUpc11, length must be less than 11.", new [] { "BarcodeUpc11" });
+            }
+
+            // BarcodeUpc12 (string) maxLength
+            if(this.BarcodeUpc12 != null && this.BarcodeUpc12.Length > 12)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BarcodeUpc12, length must be less than 12.", new [] { "BarcodeUpc12" });
+            }
+
             // ChannelPartnerItemId (string) maxLength
             if(this.ChannelPartnerItemId != null && this.ChannelPartnerItemId.Length > 30)
             {

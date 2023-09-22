@@ -74,11 +74,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="forObjectId">An identifier that can be used to help match up the returned data set.</param>
         /// <param name="forObjectType">The type of object this data set is for.</param>
         /// <param name="metrics">metrics.</param>
+        /// <param name="orderByColumns">The columns to order by in the final result.  If not specified the dimensions will be used.</param>
         /// <param name="pageSize">Result set page size.  The default value is 200 records.  Max is 10000..</param>
         /// <param name="selectedFilters">selectedFilters.</param>
         /// <param name="skipCache">True if the 15 minute cache should be skipped..</param>
         /// <param name="userData">Any other data that needs to be returned with the response to help the UI.</param>
-        public ReportDataSetQuery(bool? comparisonResults = default(bool?), string dataSetQueryUuid = default(string), ReportDataSource dataSource = default(ReportDataSource), List<ReportPageVisualizationDimension> dimensions = default(List<ReportPageVisualizationDimension>), ReportFilter filter = default(ReportFilter), string forObjectId = default(string), ForObjectTypeEnum? forObjectType = default(ForObjectTypeEnum?), List<ReportPageVisualizationMetric> metrics = default(List<ReportPageVisualizationMetric>), int? pageSize = default(int?), List<ReportFilter> selectedFilters = default(List<ReportFilter>), bool? skipCache = default(bool?), string userData = default(string))
+        public ReportDataSetQuery(bool? comparisonResults = default(bool?), string dataSetQueryUuid = default(string), ReportDataSource dataSource = default(ReportDataSource), List<ReportPageVisualizationDimension> dimensions = default(List<ReportPageVisualizationDimension>), ReportFilter filter = default(ReportFilter), string forObjectId = default(string), ForObjectTypeEnum? forObjectType = default(ForObjectTypeEnum?), List<ReportPageVisualizationMetric> metrics = default(List<ReportPageVisualizationMetric>), List<ReportDataSetQueryOrderByColumn> orderByColumns = default(List<ReportDataSetQueryOrderByColumn>), int? pageSize = default(int?), List<ReportFilter> selectedFilters = default(List<ReportFilter>), bool? skipCache = default(bool?), string userData = default(string))
         {
             this.ComparisonResults = comparisonResults;
             this.DataSetQueryUuid = dataSetQueryUuid;
@@ -88,6 +89,7 @@ namespace com.ultracart.admin.v2.Model
             this.ForObjectId = forObjectId;
             this.ForObjectType = forObjectType;
             this.Metrics = metrics;
+            this.OrderByColumns = orderByColumns;
             this.PageSize = pageSize;
             this.SelectedFilters = selectedFilters;
             this.SkipCache = skipCache;
@@ -141,6 +143,13 @@ namespace com.ultracart.admin.v2.Model
         public List<ReportPageVisualizationMetric> Metrics { get; set; }
 
         /// <summary>
+        /// The columns to order by in the final result.  If not specified the dimensions will be used
+        /// </summary>
+        /// <value>The columns to order by in the final result.  If not specified the dimensions will be used</value>
+        [DataMember(Name="order_by_columns", EmitDefaultValue=false)]
+        public List<ReportDataSetQueryOrderByColumn> OrderByColumns { get; set; }
+
+        /// <summary>
         /// Result set page size.  The default value is 200 records.  Max is 10000.
         /// </summary>
         /// <value>Result set page size.  The default value is 200 records.  Max is 10000.</value>
@@ -183,6 +192,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ForObjectId: ").Append(ForObjectId).Append("\n");
             sb.Append("  ForObjectType: ").Append(ForObjectType).Append("\n");
             sb.Append("  Metrics: ").Append(Metrics).Append("\n");
+            sb.Append("  OrderByColumns: ").Append(OrderByColumns).Append("\n");
             sb.Append("  PageSize: ").Append(PageSize).Append("\n");
             sb.Append("  SelectedFilters: ").Append(SelectedFilters).Append("\n");
             sb.Append("  SkipCache: ").Append(SkipCache).Append("\n");
@@ -262,6 +272,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Metrics.SequenceEqual(input.Metrics)
                 ) && 
                 (
+                    this.OrderByColumns == input.OrderByColumns ||
+                    this.OrderByColumns != null &&
+                    this.OrderByColumns.SequenceEqual(input.OrderByColumns)
+                ) && 
+                (
                     this.PageSize == input.PageSize ||
                     (this.PageSize != null &&
                     this.PageSize.Equals(input.PageSize))
@@ -308,6 +323,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ForObjectType.GetHashCode();
                 if (this.Metrics != null)
                     hashCode = hashCode * 59 + this.Metrics.GetHashCode();
+                if (this.OrderByColumns != null)
+                    hashCode = hashCode * 59 + this.OrderByColumns.GetHashCode();
                 if (this.PageSize != null)
                     hashCode = hashCode * 59 + this.PageSize.GetHashCode();
                 if (this.SelectedFilters != null)

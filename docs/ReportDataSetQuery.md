@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ForObjectId** | **string** | An identifier that can be used to help match up the returned data set | [optional] 
 **ForObjectType** | **string** | The type of object this data set is for | [optional] 
 **Metrics** | [**List&lt;ReportPageVisualizationMetric&gt;**](ReportPageVisualizationMetric.md) |  | [optional] 
+**OrderByColumns** | [**List&lt;ReportDataSetQueryOrderByColumn&gt;**](ReportDataSetQueryOrderByColumn.md) | The columns to order by in the final result.  If not specified the dimensions will be used | [optional] 
 **PageSize** | **int** | Result set page size.  The default value is 200 records.  Max is 10000. | [optional] 
 **SelectedFilters** | [**List&lt;ReportFilter&gt;**](ReportFilter.md) |  | [optional] 
 **SkipCache** | **bool** | True if the 15 minute cache should be skipped. | [optional] 

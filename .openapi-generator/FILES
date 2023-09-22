@@ -661,6 +661,7 @@ docs/ReportDataSetColumn.md
 docs/ReportDataSetPage.md
 docs/ReportDataSetPageResponse.md
 docs/ReportDataSetQuery.md
+docs/ReportDataSetQueryOrderByColumn.md
 docs/ReportDataSetResponse.md
 docs/ReportDataSetRow.md
 docs/ReportDataSetSchema.md
@@ -1476,6 +1477,7 @@ src/com.ultracart.admin.v2/Model/ReportDataSetColumn.cs
 src/com.ultracart.admin.v2/Model/ReportDataSetPage.cs
 src/com.ultracart.admin.v2/Model/ReportDataSetPageResponse.cs
 src/com.ultracart.admin.v2/Model/ReportDataSetQuery.cs
+src/com.ultracart.admin.v2/Model/ReportDataSetQueryOrderByColumn.cs
 src/com.ultracart.admin.v2/Model/ReportDataSetResponse.cs
 src/com.ultracart.admin.v2/Model/ReportDataSetRow.cs
 src/com.ultracart.admin.v2/Model/ReportDataSetSchema.cs

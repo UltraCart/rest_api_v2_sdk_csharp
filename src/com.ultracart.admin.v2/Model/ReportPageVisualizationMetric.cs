@@ -65,7 +65,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Avg for value: avg
             /// </summary>
             [EnumMember(Value = "avg")]
-            Avg = 5
+            Avg = 5,
+
+            /// <summary>
+            /// Enum None for value: none
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None = 6
 
         }
 

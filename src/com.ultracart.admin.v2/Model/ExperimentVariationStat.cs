@@ -39,13 +39,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="eventCount">Total event count for this variation.</param>
         /// <param name="initiateCheckoutCount">Total initiate checkout count for this variation.</param>
         /// <param name="orderCount">Total order count for this variation.</param>
+        /// <param name="orderIds">Order ID thats converted on this variation.</param>
         /// <param name="orderItemCount">Total order item count for this variation.</param>
         /// <param name="pageViewCount">Total page view count for this variation.</param>
         /// <param name="revenue">Total revenue for this variation.</param>
         /// <param name="sessionCount">Total sessions for this variation.</param>
         /// <param name="smsOptInCount">Total SMS opt in count for this variation.</param>
         /// <param name="statDts">Date/time that the statistic was created.</param>
-        public ExperimentVariationStat(int addToCartCount = default(int), int bounceCount = default(int), long durationSecondsSum = default(long), int eventCount = default(int), int initiateCheckoutCount = default(int), int orderCount = default(int), int orderItemCount = default(int), int pageViewCount = default(int), decimal revenue = default(decimal), int sessionCount = default(int), int smsOptInCount = default(int), string statDts = default(string))
+        public ExperimentVariationStat(int addToCartCount = default(int), int bounceCount = default(int), long durationSecondsSum = default(long), int eventCount = default(int), int initiateCheckoutCount = default(int), int orderCount = default(int), List<string> orderIds = default(List<string>), int orderItemCount = default(int), int pageViewCount = default(int), decimal revenue = default(decimal), int sessionCount = default(int), int smsOptInCount = default(int), string statDts = default(string))
         {
             this.AddToCartCount = addToCartCount;
             this.BounceCount = bounceCount;
@@ -53,6 +54,7 @@ namespace com.ultracart.admin.v2.Model
             this.EventCount = eventCount;
             this.InitiateCheckoutCount = initiateCheckoutCount;
             this.OrderCount = orderCount;
+            this.OrderIds = orderIds;
             this.OrderItemCount = orderItemCount;
             this.PageViewCount = pageViewCount;
             this.Revenue = revenue;
@@ -102,6 +104,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Total order count for this variation</value>
         [DataMember(Name="order_count", EmitDefaultValue=false)]
         public int OrderCount { get; set; }
+
+        /// <summary>
+        /// Order ID thats converted on this variation
+        /// </summary>
+        /// <value>Order ID thats converted on this variation</value>
+        [DataMember(Name="order_ids", EmitDefaultValue=false)]
+        public List<string> OrderIds { get; set; }
 
         /// <summary>
         /// Total order item count for this variation
@@ -159,6 +168,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  EventCount: ").Append(EventCount).Append("\n");
             sb.Append("  InitiateCheckoutCount: ").Append(InitiateCheckoutCount).Append("\n");
             sb.Append("  OrderCount: ").Append(OrderCount).Append("\n");
+            sb.Append("  OrderIds: ").Append(OrderIds).Append("\n");
             sb.Append("  OrderItemCount: ").Append(OrderItemCount).Append("\n");
             sb.Append("  PageViewCount: ").Append(PageViewCount).Append("\n");
             sb.Append("  Revenue: ").Append(Revenue).Append("\n");
@@ -230,6 +240,12 @@ namespace com.ultracart.admin.v2.Model
                     this.OrderCount.Equals(input.OrderCount))
                 ) && 
                 (
+                    this.OrderIds == input.OrderIds ||
+                    this.OrderIds != null &&
+                    input.OrderIds != null &&
+                    this.OrderIds.SequenceEqual(input.OrderIds)
+                ) && 
+                (
                     this.OrderItemCount == input.OrderItemCount ||
                     (this.OrderItemCount != null &&
                     this.OrderItemCount.Equals(input.OrderItemCount))
@@ -282,6 +298,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.InitiateCheckoutCount.GetHashCode();
                 if (this.OrderCount != null)
                     hashCode = hashCode * 59 + this.OrderCount.GetHashCode();
+                if (this.OrderIds != null)
+                    hashCode = hashCode * 59 + this.OrderIds.GetHashCode();
                 if (this.OrderItemCount != null)
                     hashCode = hashCode * 59 + this.OrderItemCount.GetHashCode();
                 if (this.PageViewCount != null)

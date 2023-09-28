@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **EventCount** | **int** | Total event count for this variation | [optional] 
 **InitiateCheckoutCount** | **int** | Total initiate checkout count for this variation | [optional] 
 **OrderCount** | **int** | Total order count for this variation | [optional] 
+**OrderIds** | **List&lt;string&gt;** | Order ID thats converted on this variation | [optional] 
 **OrderItemCount** | **int** | Total order item count for this variation | [optional] 
 **PageViewCount** | **int** | Total page view count for this variation | [optional] 
 **Revenue** | **decimal** | Total revenue for this variation | [optional] 

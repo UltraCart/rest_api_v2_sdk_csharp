@@ -34,11 +34,13 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="CartSettingsPaymentCreditCard" /> class.
         /// </summary>
         /// <param name="collectCreditCardVerificationNumber">True if the credit card verification number should be collected.</param>
+        /// <param name="collectCreditCardVerificationNumberMinimum">If this field is null or the total is greater than or equal to this value then collect the CVV2..</param>
         /// <param name="creditCardTypes">Available credit card types.</param>
         /// <param name="hostedFieldsShoppingCartToken">The shoppingCartToken needed for proper initialization of hosted fields collection.</param>
-        public CartSettingsPaymentCreditCard(bool? collectCreditCardVerificationNumber = default(bool?), List<string> creditCardTypes = default(List<string>), string hostedFieldsShoppingCartToken = default(string))
+        public CartSettingsPaymentCreditCard(bool? collectCreditCardVerificationNumber = default(bool?), decimal? collectCreditCardVerificationNumberMinimum = default(decimal?), List<string> creditCardTypes = default(List<string>), string hostedFieldsShoppingCartToken = default(string))
         {
             this.CollectCreditCardVerificationNumber = collectCreditCardVerificationNumber;
+            this.CollectCreditCardVerificationNumberMinimum = collectCreditCardVerificationNumberMinimum;
             this.CreditCardTypes = creditCardTypes;
             this.HostedFieldsShoppingCartToken = hostedFieldsShoppingCartToken;
         }
@@ -49,6 +51,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>True if the credit card verification number should be collected</value>
         [DataMember(Name="collect_credit_card_verification_number", EmitDefaultValue=false)]
         public bool? CollectCreditCardVerificationNumber { get; set; }
+
+        /// <summary>
+        /// If this field is null or the total is greater than or equal to this value then collect the CVV2.
+        /// </summary>
+        /// <value>If this field is null or the total is greater than or equal to this value then collect the CVV2.</value>
+        [DataMember(Name="collect_credit_card_verification_number_minimum", EmitDefaultValue=false)]
+        public decimal? CollectCreditCardVerificationNumberMinimum { get; set; }
 
         /// <summary>
         /// Available credit card types
@@ -73,6 +82,7 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class CartSettingsPaymentCreditCard {\n");
             sb.Append("  CollectCreditCardVerificationNumber: ").Append(CollectCreditCardVerificationNumber).Append("\n");
+            sb.Append("  CollectCreditCardVerificationNumberMinimum: ").Append(CollectCreditCardVerificationNumberMinimum).Append("\n");
             sb.Append("  CreditCardTypes: ").Append(CreditCardTypes).Append("\n");
             sb.Append("  HostedFieldsShoppingCartToken: ").Append(HostedFieldsShoppingCartToken).Append("\n");
             sb.Append("}\n");
@@ -115,6 +125,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CollectCreditCardVerificationNumber.Equals(input.CollectCreditCardVerificationNumber))
                 ) && 
                 (
+                    this.CollectCreditCardVerificationNumberMinimum == input.CollectCreditCardVerificationNumberMinimum ||
+                    (this.CollectCreditCardVerificationNumberMinimum != null &&
+                    this.CollectCreditCardVerificationNumberMinimum.Equals(input.CollectCreditCardVerificationNumberMinimum))
+                ) && 
+                (
                     this.CreditCardTypes == input.CreditCardTypes ||
                     this.CreditCardTypes != null &&
                     this.CreditCardTypes.SequenceEqual(input.CreditCardTypes)
@@ -137,6 +152,8 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.CollectCreditCardVerificationNumber != null)
                     hashCode = hashCode * 59 + this.CollectCreditCardVerificationNumber.GetHashCode();
+                if (this.CollectCreditCardVerificationNumberMinimum != null)
+                    hashCode = hashCode * 59 + this.CollectCreditCardVerificationNumberMinimum.GetHashCode();
                 if (this.CreditCardTypes != null)
                     hashCode = hashCode * 59 + this.CreditCardTypes.GetHashCode();
                 if (this.HostedFieldsShoppingCartToken != null)

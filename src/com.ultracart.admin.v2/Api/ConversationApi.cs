@@ -311,10 +311,10 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of ConversationMessagesResponse</returns>
         ApiResponse<ConversationMessagesResponse> GetConversationMessagesWithHttpInfo (string conversationUuid, long? since, int? limit = null);
         /// <summary>
-        /// Get a presigned conersation multimedia upload URL
+        /// Get a presigned conversation multimedia upload URL
         /// </summary>
         /// <remarks>
-        /// Get a presigned conersation multimedia upload URL 
+        /// Get a presigned conversation multimedia upload URL 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
@@ -322,10 +322,10 @@ namespace com.ultracart.admin.v2.Api
         ConversationMultimediaUploadUrlResponse GetConversationMultimediaUploadUrl (string extension);
 
         /// <summary>
-        /// Get a presigned conersation multimedia upload URL
+        /// Get a presigned conversation multimedia upload URL
         /// </summary>
         /// <remarks>
-        /// Get a presigned conersation multimedia upload URL 
+        /// Get a presigned conversation multimedia upload URL 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
@@ -1050,10 +1050,10 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (ConversationMessagesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConversationMessagesResponse>> GetConversationMessagesAsyncWithHttpInfo (string conversationUuid, long? since, int? limit = null);
         /// <summary>
-        /// Get a presigned conersation multimedia upload URL
+        /// Get a presigned conversation multimedia upload URL
         /// </summary>
         /// <remarks>
-        /// Get a presigned conersation multimedia upload URL 
+        /// Get a presigned conversation multimedia upload URL 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
@@ -1061,10 +1061,10 @@ namespace com.ultracart.admin.v2.Api
         System.Threading.Tasks.Task<ConversationMultimediaUploadUrlResponse> GetConversationMultimediaUploadUrlAsync (string extension);
 
         /// <summary>
-        /// Get a presigned conersation multimedia upload URL
+        /// Get a presigned conversation multimedia upload URL
         /// </summary>
         /// <remarks>
-        /// Get a presigned conersation multimedia upload URL 
+        /// Get a presigned conversation multimedia upload URL 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
@@ -3738,7 +3738,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get a presigned conersation multimedia upload URL Get a presigned conersation multimedia upload URL 
+        /// Get a presigned conversation multimedia upload URL Get a presigned conversation multimedia upload URL 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
@@ -3750,7 +3750,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get a presigned conersation multimedia upload URL Get a presigned conersation multimedia upload URL 
+        /// Get a presigned conversation multimedia upload URL Get a presigned conversation multimedia upload URL 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
@@ -3816,7 +3816,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get a presigned conersation multimedia upload URL Get a presigned conersation multimedia upload URL 
+        /// Get a presigned conversation multimedia upload URL Get a presigned conversation multimedia upload URL 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>
@@ -3829,7 +3829,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Get a presigned conersation multimedia upload URL Get a presigned conersation multimedia upload URL 
+        /// Get a presigned conversation multimedia upload URL Get a presigned conversation multimedia upload URL 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="extension"></param>

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**GetConversationEngagement**](ConversationApi.md#getconversationengagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 [**GetConversationEngagements**](ConversationApi.md#getconversationengagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 [**GetConversationMessages**](ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
-[**GetConversationMultimediaUploadUrl**](ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
+[**GetConversationMultimediaUploadUrl**](ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
 [**GetConversationPermissions**](ConversationApi.md#getconversationpermissions) | **GET** /conversation/permissions | Retrieve conversation permissions
 [**GetConversationWebchatQueueStatuses**](ConversationApi.md#getconversationwebchatqueuestatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 [**GetConversations**](ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
@@ -1220,9 +1220,9 @@ Name | Type | Description  | Notes
 
 > ConversationMultimediaUploadUrlResponse GetConversationMultimediaUploadUrl (string extension)
 
-Get a presigned conersation multimedia upload URL
+Get a presigned conversation multimedia upload URL
 
-Get a presigned conersation multimedia upload URL 
+Get a presigned conversation multimedia upload URL 
 
 ### Example
 
@@ -1250,7 +1250,7 @@ namespace Example
 
             try
             {
-                // Get a presigned conersation multimedia upload URL
+                // Get a presigned conversation multimedia upload URL
                 ConversationMultimediaUploadUrlResponse result = apiInstance.GetConversationMultimediaUploadUrl(extension);
                 Debug.WriteLine(result);
             }

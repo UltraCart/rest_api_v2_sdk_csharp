@@ -80,6 +80,7 @@ docs/CartPaymentAffirm.md
 docs/CartPaymentAmazon.md
 docs/CartPaymentCheck.md
 docs/CartPaymentCreditCard.md
+docs/CartPaymentHealthBenefitCard.md
 docs/CartPaymentPurchaseOrder.md
 docs/CartProfileLoginRequest.md
 docs/CartProfileLoginResponse.md
@@ -612,6 +613,7 @@ docs/OrderPaymentCreditCard.md
 docs/OrderPaymentCreditCardDualVaulted.md
 docs/OrderPaymentCreditCardDualVaultedProperty.md
 docs/OrderPaymentECheck.md
+docs/OrderPaymentHealthBenefitCard.md
 docs/OrderPaymentInsurance.md
 docs/OrderPaymentPurchaseOrder.md
 docs/OrderPaymentTransaction.md
@@ -924,6 +926,7 @@ src/com.ultracart.admin.v2/Model/CartPaymentAffirm.cs
 src/com.ultracart.admin.v2/Model/CartPaymentAmazon.cs
 src/com.ultracart.admin.v2/Model/CartPaymentCheck.cs
 src/com.ultracart.admin.v2/Model/CartPaymentCreditCard.cs
+src/com.ultracart.admin.v2/Model/CartPaymentHealthBenefitCard.cs
 src/com.ultracart.admin.v2/Model/CartPaymentPurchaseOrder.cs
 src/com.ultracart.admin.v2/Model/CartProfileLoginRequest.cs
 src/com.ultracart.admin.v2/Model/CartProfileLoginResponse.cs
@@ -1443,6 +1446,7 @@ src/com.ultracart.admin.v2/Model/OrderPaymentCreditCard.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentCreditCardDualVaulted.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentCreditCardDualVaultedProperty.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentECheck.cs
+src/com.ultracart.admin.v2/Model/OrderPaymentHealthBenefitCard.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentInsurance.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentPurchaseOrder.cs
 src/com.ultracart.admin.v2/Model/OrderPaymentTransaction.cs

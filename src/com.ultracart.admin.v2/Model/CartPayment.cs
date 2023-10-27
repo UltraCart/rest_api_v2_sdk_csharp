@@ -37,15 +37,17 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="amazon">amazon.</param>
         /// <param name="check">check.</param>
         /// <param name="creditCard">creditCard.</param>
+        /// <param name="healthBenefitCard">healthBenefitCard.</param>
         /// <param name="paymentMethod">Payment method.</param>
         /// <param name="purchaseOrder">purchaseOrder.</param>
         /// <param name="rtgCode">Rotating transaction gateway code.</param>
-        public CartPayment(CartPaymentAffirm affirm = default(CartPaymentAffirm), CartPaymentAmazon amazon = default(CartPaymentAmazon), CartPaymentCheck check = default(CartPaymentCheck), CartPaymentCreditCard creditCard = default(CartPaymentCreditCard), string paymentMethod = default(string), CartPaymentPurchaseOrder purchaseOrder = default(CartPaymentPurchaseOrder), string rtgCode = default(string))
+        public CartPayment(CartPaymentAffirm affirm = default(CartPaymentAffirm), CartPaymentAmazon amazon = default(CartPaymentAmazon), CartPaymentCheck check = default(CartPaymentCheck), CartPaymentCreditCard creditCard = default(CartPaymentCreditCard), CartPaymentHealthBenefitCard healthBenefitCard = default(CartPaymentHealthBenefitCard), string paymentMethod = default(string), CartPaymentPurchaseOrder purchaseOrder = default(CartPaymentPurchaseOrder), string rtgCode = default(string))
         {
             this.Affirm = affirm;
             this.Amazon = amazon;
             this.Check = check;
             this.CreditCard = creditCard;
+            this.HealthBenefitCard = healthBenefitCard;
             this.PaymentMethod = paymentMethod;
             this.PurchaseOrder = purchaseOrder;
             this.RtgCode = rtgCode;
@@ -74,6 +76,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="credit_card", EmitDefaultValue=false)]
         public CartPaymentCreditCard CreditCard { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HealthBenefitCard
+        /// </summary>
+        [DataMember(Name="health_benefit_card", EmitDefaultValue=false)]
+        public CartPaymentHealthBenefitCard HealthBenefitCard { get; set; }
 
         /// <summary>
         /// Payment method
@@ -107,6 +115,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Amazon: ").Append(Amazon).Append("\n");
             sb.Append("  Check: ").Append(Check).Append("\n");
             sb.Append("  CreditCard: ").Append(CreditCard).Append("\n");
+            sb.Append("  HealthBenefitCard: ").Append(HealthBenefitCard).Append("\n");
             sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
             sb.Append("  PurchaseOrder: ").Append(PurchaseOrder).Append("\n");
             sb.Append("  RtgCode: ").Append(RtgCode).Append("\n");
@@ -165,6 +174,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CreditCard.Equals(input.CreditCard))
                 ) && 
                 (
+                    this.HealthBenefitCard == input.HealthBenefitCard ||
+                    (this.HealthBenefitCard != null &&
+                    this.HealthBenefitCard.Equals(input.HealthBenefitCard))
+                ) && 
+                (
                     this.PaymentMethod == input.PaymentMethod ||
                     (this.PaymentMethod != null &&
                     this.PaymentMethod.Equals(input.PaymentMethod))
@@ -198,6 +212,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Check.GetHashCode();
                 if (this.CreditCard != null)
                     hashCode = hashCode * 59 + this.CreditCard.GetHashCode();
+                if (this.HealthBenefitCard != null)
+                    hashCode = hashCode * 59 + this.HealthBenefitCard.GetHashCode();
                 if (this.PaymentMethod != null)
                     hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
                 if (this.PurchaseOrder != null)

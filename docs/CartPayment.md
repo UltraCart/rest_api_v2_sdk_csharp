@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Amazon** | [**CartPaymentAmazon**](CartPaymentAmazon.md) |  | [optional] 
 **Check** | [**CartPaymentCheck**](CartPaymentCheck.md) |  | [optional] 
 **CreditCard** | [**CartPaymentCreditCard**](CartPaymentCreditCard.md) |  | [optional] 
+**HealthBenefitCard** | [**CartPaymentHealthBenefitCard**](CartPaymentHealthBenefitCard.md) |  | [optional] 
 **PaymentMethod** | **string** | Payment method | [optional] 
 **PurchaseOrder** | [**CartPaymentPurchaseOrder**](CartPaymentPurchaseOrder.md) |  | [optional] 
 **RtgCode** | **string** | Rotating transaction gateway code | [optional] 

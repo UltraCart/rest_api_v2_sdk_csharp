@@ -156,7 +156,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="createdBy">createdBy.</param>
         /// <param name="createdDtsBegin">Date/time that the workflow task was created.</param>
         /// <param name="createdDtsEnd">Date/time that the workflow task was created.</param>
-        /// <param name="delayUntilDts">Date/time that the workflow task should delay until.</param>
+        /// <param name="delayUntilDtsBegin">Date/time that the workflow task should delay until.</param>
+        /// <param name="delayUntilDtsEnd">Date/time that the workflow task should delay until.</param>
         /// <param name="dueDtsBegin">Date/time that the workflow task is due.</param>
         /// <param name="dueDtsEnd">Date/time that the workflow task is due.</param>
         /// <param name="lastUpdateDtsBegin">Date/time that the workflow task was last updated.</param>
@@ -166,7 +167,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="priority">Priority.</param>
         /// <param name="status">Status of the workflow task.</param>
         /// <param name="unassigned">Tasks that are unassigned to a user or group.</param>
-        public WorkflowTasksRequest(int? assignedToGroupId = default(int?), bool? assignedToMe = default(bool?), int? assignedToUserId = default(int?), WorkflowUser createdBy = default(WorkflowUser), string createdDtsBegin = default(string), string createdDtsEnd = default(string), string delayUntilDts = default(string), string dueDtsBegin = default(string), string dueDtsEnd = default(string), string lastUpdateDtsBegin = default(string), string lastUpdateDtsEnd = default(string), string objectEmail = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), PriorityEnum? priority = default(PriorityEnum?), StatusEnum? status = default(StatusEnum?), bool? unassigned = default(bool?))
+        public WorkflowTasksRequest(int? assignedToGroupId = default(int?), bool? assignedToMe = default(bool?), int? assignedToUserId = default(int?), WorkflowUser createdBy = default(WorkflowUser), string createdDtsBegin = default(string), string createdDtsEnd = default(string), string delayUntilDtsBegin = default(string), string delayUntilDtsEnd = default(string), string dueDtsBegin = default(string), string dueDtsEnd = default(string), string lastUpdateDtsBegin = default(string), string lastUpdateDtsEnd = default(string), string objectEmail = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), PriorityEnum? priority = default(PriorityEnum?), StatusEnum? status = default(StatusEnum?), bool? unassigned = default(bool?))
         {
             this.AssignedToGroupId = assignedToGroupId;
             this.AssignedToMe = assignedToMe;
@@ -174,7 +175,8 @@ namespace com.ultracart.admin.v2.Model
             this.CreatedBy = createdBy;
             this.CreatedDtsBegin = createdDtsBegin;
             this.CreatedDtsEnd = createdDtsEnd;
-            this.DelayUntilDts = delayUntilDts;
+            this.DelayUntilDtsBegin = delayUntilDtsBegin;
+            this.DelayUntilDtsEnd = delayUntilDtsEnd;
             this.DueDtsBegin = dueDtsBegin;
             this.DueDtsEnd = dueDtsEnd;
             this.LastUpdateDtsBegin = lastUpdateDtsBegin;
@@ -231,8 +233,15 @@ namespace com.ultracart.admin.v2.Model
         /// Date/time that the workflow task should delay until
         /// </summary>
         /// <value>Date/time that the workflow task should delay until</value>
-        [DataMember(Name="delay_until_dts", EmitDefaultValue=false)]
-        public string DelayUntilDts { get; set; }
+        [DataMember(Name="delay_until_dts_begin", EmitDefaultValue=false)]
+        public string DelayUntilDtsBegin { get; set; }
+
+        /// <summary>
+        /// Date/time that the workflow task should delay until
+        /// </summary>
+        /// <value>Date/time that the workflow task should delay until</value>
+        [DataMember(Name="delay_until_dts_end", EmitDefaultValue=false)]
+        public string DelayUntilDtsEnd { get; set; }
 
         /// <summary>
         /// Date/time that the workflow task is due
@@ -293,7 +302,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  CreatedDtsBegin: ").Append(CreatedDtsBegin).Append("\n");
             sb.Append("  CreatedDtsEnd: ").Append(CreatedDtsEnd).Append("\n");
-            sb.Append("  DelayUntilDts: ").Append(DelayUntilDts).Append("\n");
+            sb.Append("  DelayUntilDtsBegin: ").Append(DelayUntilDtsBegin).Append("\n");
+            sb.Append("  DelayUntilDtsEnd: ").Append(DelayUntilDtsEnd).Append("\n");
             sb.Append("  DueDtsBegin: ").Append(DueDtsBegin).Append("\n");
             sb.Append("  DueDtsEnd: ").Append(DueDtsEnd).Append("\n");
             sb.Append("  LastUpdateDtsBegin: ").Append(LastUpdateDtsBegin).Append("\n");
@@ -368,9 +378,14 @@ namespace com.ultracart.admin.v2.Model
                     this.CreatedDtsEnd.Equals(input.CreatedDtsEnd))
                 ) && 
                 (
-                    this.DelayUntilDts == input.DelayUntilDts ||
-                    (this.DelayUntilDts != null &&
-                    this.DelayUntilDts.Equals(input.DelayUntilDts))
+                    this.DelayUntilDtsBegin == input.DelayUntilDtsBegin ||
+                    (this.DelayUntilDtsBegin != null &&
+                    this.DelayUntilDtsBegin.Equals(input.DelayUntilDtsBegin))
+                ) && 
+                (
+                    this.DelayUntilDtsEnd == input.DelayUntilDtsEnd ||
+                    (this.DelayUntilDtsEnd != null &&
+                    this.DelayUntilDtsEnd.Equals(input.DelayUntilDtsEnd))
                 ) && 
                 (
                     this.DueDtsBegin == input.DueDtsBegin ||
@@ -440,8 +455,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CreatedDtsBegin.GetHashCode();
                 if (this.CreatedDtsEnd != null)
                     hashCode = hashCode * 59 + this.CreatedDtsEnd.GetHashCode();
-                if (this.DelayUntilDts != null)
-                    hashCode = hashCode * 59 + this.DelayUntilDts.GetHashCode();
+                if (this.DelayUntilDtsBegin != null)
+                    hashCode = hashCode * 59 + this.DelayUntilDtsBegin.GetHashCode();
+                if (this.DelayUntilDtsEnd != null)
+                    hashCode = hashCode * 59 + this.DelayUntilDtsEnd.GetHashCode();
                 if (this.DueDtsBegin != null)
                     hashCode = hashCode * 59 + this.DueDtsBegin.GetHashCode();
                 if (this.DueDtsEnd != null)

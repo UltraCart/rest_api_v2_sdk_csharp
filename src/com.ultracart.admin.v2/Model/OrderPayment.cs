@@ -180,7 +180,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum GooglePay for value: Google Pay
             /// </summary>
             [EnumMember(Value = "Google Pay")]
-            GooglePay = 24
+            GooglePay = 24,
+            
+            /// <summary>
+            /// Enum HealthBenefitCard for value: Health Benefit Card
+            /// </summary>
+            [EnumMember(Value = "Health Benefit Card")]
+            HealthBenefitCard = 25
         }
 
         /// <summary>
@@ -258,6 +264,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="check">check.</param>
         /// <param name="creditCard">creditCard.</param>
         /// <param name="echeck">echeck.</param>
+        /// <param name="healthBenefitCard">healthBenefitCard.</param>
         /// <param name="holdForFraudReview">True if order has been held for fraud review.</param>
         /// <param name="insurance">insurance.</param>
         /// <param name="paymentDts">Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true.</param>
@@ -273,11 +280,12 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="surchargeTransactionPercentage">Surcharge transaction percentage.</param>
         /// <param name="testOrder">True if this is a test order.</param>
         /// <param name="transactions">Transactions associated with processing this payment.</param>
-        public OrderPayment(OrderPaymentCheck check = default(OrderPaymentCheck), OrderPaymentCreditCard creditCard = default(OrderPaymentCreditCard), OrderPaymentECheck echeck = default(OrderPaymentECheck), bool? holdForFraudReview = default(bool?), OrderPaymentInsurance insurance = default(OrderPaymentInsurance), string paymentDts = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string paymentMethodAccountingCode = default(string), string paymentMethodDepositToAccount = default(string), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), OrderPaymentPurchaseOrder purchaseOrder = default(OrderPaymentPurchaseOrder), string rotatingTransactionGatewayCode = default(string), Currency surcharge = default(Currency), string surchargeAccountingCode = default(string), decimal? surchargeTransactionFee = default(decimal?), decimal? surchargeTransactionPercentage = default(decimal?), bool? testOrder = default(bool?), List<OrderPaymentTransaction> transactions = default(List<OrderPaymentTransaction>))
+        public OrderPayment(OrderPaymentCheck check = default(OrderPaymentCheck), OrderPaymentCreditCard creditCard = default(OrderPaymentCreditCard), OrderPaymentECheck echeck = default(OrderPaymentECheck), OrderPaymentHealthBenefitCard healthBenefitCard = default(OrderPaymentHealthBenefitCard), bool? holdForFraudReview = default(bool?), OrderPaymentInsurance insurance = default(OrderPaymentInsurance), string paymentDts = default(string), PaymentMethodEnum? paymentMethod = default(PaymentMethodEnum?), string paymentMethodAccountingCode = default(string), string paymentMethodDepositToAccount = default(string), PaymentStatusEnum? paymentStatus = default(PaymentStatusEnum?), OrderPaymentPurchaseOrder purchaseOrder = default(OrderPaymentPurchaseOrder), string rotatingTransactionGatewayCode = default(string), Currency surcharge = default(Currency), string surchargeAccountingCode = default(string), decimal? surchargeTransactionFee = default(decimal?), decimal? surchargeTransactionPercentage = default(decimal?), bool? testOrder = default(bool?), List<OrderPaymentTransaction> transactions = default(List<OrderPaymentTransaction>))
         {
             this.Check = check;
             this.CreditCard = creditCard;
             this.Echeck = echeck;
+            this.HealthBenefitCard = healthBenefitCard;
             this.HoldForFraudReview = holdForFraudReview;
             this.Insurance = insurance;
             this.PaymentDts = paymentDts;
@@ -312,6 +320,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="echeck", EmitDefaultValue=false)]
         public OrderPaymentECheck Echeck { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HealthBenefitCard
+        /// </summary>
+        [DataMember(Name="health_benefit_card", EmitDefaultValue=false)]
+        public OrderPaymentHealthBenefitCard HealthBenefitCard { get; set; }
 
         /// <summary>
         /// True if order has been held for fraud review
@@ -414,6 +428,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Check: ").Append(Check).Append("\n");
             sb.Append("  CreditCard: ").Append(CreditCard).Append("\n");
             sb.Append("  Echeck: ").Append(Echeck).Append("\n");
+            sb.Append("  HealthBenefitCard: ").Append(HealthBenefitCard).Append("\n");
             sb.Append("  HoldForFraudReview: ").Append(HoldForFraudReview).Append("\n");
             sb.Append("  Insurance: ").Append(Insurance).Append("\n");
             sb.Append("  PaymentDts: ").Append(PaymentDts).Append("\n");
@@ -477,6 +492,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Echeck == input.Echeck ||
                     (this.Echeck != null &&
                     this.Echeck.Equals(input.Echeck))
+                ) && 
+                (
+                    this.HealthBenefitCard == input.HealthBenefitCard ||
+                    (this.HealthBenefitCard != null &&
+                    this.HealthBenefitCard.Equals(input.HealthBenefitCard))
                 ) && 
                 (
                     this.HoldForFraudReview == input.HoldForFraudReview ||
@@ -570,6 +590,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CreditCard.GetHashCode();
                 if (this.Echeck != null)
                     hashCode = hashCode * 59 + this.Echeck.GetHashCode();
+                if (this.HealthBenefitCard != null)
+                    hashCode = hashCode * 59 + this.HealthBenefitCard.GetHashCode();
                 if (this.HoldForFraudReview != null)
                     hashCode = hashCode * 59 + this.HoldForFraudReview.GetHashCode();
                 if (this.Insurance != null)

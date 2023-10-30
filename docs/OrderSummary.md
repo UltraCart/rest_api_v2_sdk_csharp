@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **ActualPaymentProcessing** | [**Currency**](Currency.md) |  | [optional] 
 **ActualShipping** | [**Currency**](Currency.md) |  | [optional] 
 **ArbitraryShippingHandlingTotal** | [**Currency**](Currency.md) |  | [optional] 
+**HealthBenefitCardAmount** | [**Currency**](Currency.md) |  | [optional] 
+**HealthBenefitCardRefunded** | [**Currency**](Currency.md) |  | [optional] 
 **InternalGiftCertificateAmount** | [**Currency**](Currency.md) |  | [optional] 
 **InternalGiftCertificateRefunded** | [**Currency**](Currency.md) |  | [optional] 
 **OtherRefunded** | [**Currency**](Currency.md) |  | [optional] 

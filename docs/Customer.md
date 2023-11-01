@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **CustomerProfileOid** | **int?** | Customer profile object identifier | [optional] 
 **DhlAccountNumber** | **string** | DHL account number | [optional] 
 **DhlDutyAccountNumber** | **string** | DHL duty account number | [optional] 
+**DoNotSendMail** | **bool?** | Do not send mail (null will not update) | [optional] 
 **Edi** | [**CustomerEDI**](CustomerEDI.md) |  | [optional] 
 **Email** | **string** | Email address of this customer profile | [optional] 
 **ExemptShippingHandlingCharge** | **bool?** | Exempt shipping handling charge | [optional] 

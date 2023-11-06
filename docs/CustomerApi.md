@@ -7,21 +7,26 @@ Method | HTTP request | Description
 [**AddCustomerStoreCredit**](CustomerApi.md#addcustomerstorecredit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer
 [**AdjustInternalCertificate**](CustomerApi.md#adjustinternalcertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
 [**DeleteCustomer**](CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
+[**DeleteWishListItem**](CustomerApi.md#deletewishlistitem) | **DELETE** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Delete a customer wishlist item
 [**GetCustomer**](CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**GetCustomerByEmail**](CustomerApi.md#getcustomerbyemail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
 [**GetCustomerEditorValues**](CustomerApi.md#getcustomereditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**GetCustomerEmailLists**](CustomerApi.md#getcustomeremaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 [**GetCustomerStoreCredit**](CustomerApi.md#getcustomerstorecredit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs
+[**GetCustomerWishList**](CustomerApi.md#getcustomerwishlist) | **GET** /customer/customers/{customer_profile_oid}/wishlist | Retrieve wishlist items for customer
+[**GetCustomerWishListItem**](CustomerApi.md#getcustomerwishlistitem) | **GET** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Retrieve wishlist item for customer
 [**GetCustomers**](CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
 [**GetCustomersByQuery**](CustomerApi.md#getcustomersbyquery) | **POST** /customer/customers/query | Retrieve customers by query
 [**GetCustomersForDataTables**](CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**GetEmailVerificationToken**](CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**GetMagicLink**](CustomerApi.md#getmagiclink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
 [**InsertCustomer**](CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
+[**InsertWishListItem**](CustomerApi.md#insertwishlistitem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 [**MergeCustomer**](CustomerApi.md#mergecustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 [**SearchCustomerProfileValues**](CustomerApi.md#searchcustomerprofilevalues) | **POST** /customer/search | Searches for all matching values (using POST)
 [**UpdateCustomer**](CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**UpdateCustomerEmailLists**](CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
+[**UpdateWishListItem**](CustomerApi.md#updatewishlistitem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
 [**ValidateEmailVerificationToken**](CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 
 
@@ -274,6 +279,94 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteWishListItem
+
+> CustomerWishListItem DeleteWishListItem (int customerProfileOid, int customerWishlistItemOid)
+
+Delete a customer wishlist item
+
+Delete a customer wishlist item 
+
+### Example
+
+```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+using System.Collections.Generic;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class DeleteWishListItemExample
+    {
+        public static void Main()
+        {
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+
+            var customerProfileOid = 56;  // int | The customer oid for this wishlist.
+            var customerWishlistItemOid = 56;  // int | The wishlist oid for this wishlist item to delete.
+
+            try
+            {
+                // Delete a customer wishlist item
+                CustomerWishListItem result = apiInstance.DeleteWishListItem(customerProfileOid, customerWishlistItemOid);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling CustomerApi.DeleteWishListItem: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customerProfileOid** | **int**| The customer oid for this wishlist. | 
+ **customerWishlistItemOid** | **int**| The wishlist oid for this wishlist item to delete. | 
+
+### Return type
+
+[**CustomerWishListItem**](CustomerWishListItem.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -685,6 +778,180 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomerStoreCreditResponse**](CustomerStoreCreditResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCustomerWishList
+
+> CustomerWishListItemsResponse GetCustomerWishList (int customerProfileOid)
+
+Retrieve wishlist items for customer
+
+Retrieve wishlist items for customer. 
+
+### Example
+
+```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+using System.Collections.Generic;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetCustomerWishListExample
+    {
+        public static void Main()
+        {
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+
+            var customerProfileOid = 56;  // int | The customer oid for this wishlist.
+
+            try
+            {
+                // Retrieve wishlist items for customer
+                CustomerWishListItemsResponse result = apiInstance.GetCustomerWishList(customerProfileOid);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling CustomerApi.GetCustomerWishList: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customerProfileOid** | **int**| The customer oid for this wishlist. | 
+
+### Return type
+
+[**CustomerWishListItemsResponse**](CustomerWishListItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetCustomerWishListItem
+
+> CustomerWishListItemResponse GetCustomerWishListItem (int customerProfileOid, int customerWishlistItemOid)
+
+Retrieve wishlist item for customer
+
+Retrieve wishlist item for customer. 
+
+### Example
+
+```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+using System.Collections.Generic;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class GetCustomerWishListItemExample
+    {
+        public static void Main()
+        {
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+
+            var customerProfileOid = 56;  // int | The customer oid for this wishlist.
+            var customerWishlistItemOid = 56;  // int | The wishlist oid for this wishlist item.
+
+            try
+            {
+                // Retrieve wishlist item for customer
+                CustomerWishListItemResponse result = apiInstance.GetCustomerWishListItem(customerProfileOid, customerWishlistItemOid);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling CustomerApi.GetCustomerWishListItem: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customerProfileOid** | **int**| The customer oid for this wishlist. | 
+ **customerWishlistItemOid** | **int**| The wishlist oid for this wishlist item. | 
+
+### Return type
+
+[**CustomerWishListItemResponse**](CustomerWishListItemResponse.md)
 
 ### Authorization
 
@@ -1304,6 +1571,94 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InsertWishListItem
+
+> CustomerWishListItem InsertWishListItem (int customerProfileOid, CustomerWishListItem wishlistItem)
+
+Insert a customer wishlist item
+
+Insert a customer wishlist item 
+
+### Example
+
+```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+using System.Collections.Generic;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class InsertWishListItemExample
+    {
+        public static void Main()
+        {
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+
+            var customerProfileOid = 56;  // int | The customer oid for this wishlist.
+            var wishlistItem = new CustomerWishListItem(); // CustomerWishListItem | Wishlist item to insert
+
+            try
+            {
+                // Insert a customer wishlist item
+                CustomerWishListItem result = apiInstance.InsertWishListItem(customerProfileOid, wishlistItem);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling CustomerApi.InsertWishListItem: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customerProfileOid** | **int**| The customer oid for this wishlist. | 
+ **wishlistItem** | [**CustomerWishListItem**](CustomerWishListItem.md)| Wishlist item to insert | 
+
+### Return type
+
+[**CustomerWishListItem**](CustomerWishListItem.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## MergeCustomer
 
 > void MergeCustomer (int customerProfileOid, CustomerMergeRequest customer, string expand = null)
@@ -1627,6 +1982,96 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CustomerEmailListChanges**](CustomerEmailListChanges.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json; charset=UTF-8
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateWishListItem
+
+> CustomerWishListItem UpdateWishListItem (int customerProfileOid, int customerWishlistItemOid, CustomerWishListItem wishlistItem)
+
+Update a customer wishlist item
+
+Update a customer wishlist item 
+
+### Example
+
+```csharp
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+using System.Collections.Generic;
+using System.Diagnostics;
+using com.ultracart.admin.v2.Api;
+using com.ultracart.admin.v2.Model;
+
+namespace Example
+{
+    public class UpdateWishListItemExample
+    {
+        public static void Main()
+        {
+            // Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+            var api = new GiftCertificateApi(Constants.API_KEY); // Constants is a class from the sdk_samples project
+
+            var customerProfileOid = 56;  // int | The customer oid for this wishlist.
+            var customerWishlistItemOid = 56;  // int | The wishlist oid for this wishlist item.
+            var wishlistItem = new CustomerWishListItem(); // CustomerWishListItem | Wishlist item to update
+
+            try
+            {
+                // Update a customer wishlist item
+                CustomerWishListItem result = apiInstance.UpdateWishListItem(customerProfileOid, customerWishlistItemOid, wishlistItem);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling CustomerApi.UpdateWishListItem: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customerProfileOid** | **int**| The customer oid for this wishlist. | 
+ **customerWishlistItemOid** | **int**| The wishlist oid for this wishlist item. | 
+ **wishlistItem** | [**CustomerWishListItem**](CustomerWishListItem.md)| Wishlist item to update | 
+
+### Return type
+
+[**CustomerWishListItem**](CustomerWishListItem.md)
 
 ### Authorization
 

@@ -93,6 +93,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCustomerWithHttpInfo (int customerProfileOid);
         /// <summary>
+        /// Delete a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Delete a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
+        /// <returns>CustomerWishListItem</returns>
+        CustomerWishListItem DeleteWishListItem (int customerProfileOid, int customerWishlistItemOid);
+
+        /// <summary>
+        /// Delete a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Delete a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
+        /// <returns>ApiResponse of CustomerWishListItem</returns>
+        ApiResponse<CustomerWishListItem> DeleteWishListItemWithHttpInfo (int customerProfileOid, int customerWishlistItemOid);
+        /// <summary>
         /// Retrieve a customer
         /// </summary>
         /// <remarks>
@@ -197,6 +220,50 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="customerProfileOid">The customer oid to retrieve.</param>
         /// <returns>ApiResponse of CustomerStoreCreditResponse</returns>
         ApiResponse<CustomerStoreCreditResponse> GetCustomerStoreCreditWithHttpInfo (int customerProfileOid);
+        /// <summary>
+        /// Retrieve wishlist items for customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve wishlist items for customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <returns>CustomerWishListItemsResponse</returns>
+        CustomerWishListItemsResponse GetCustomerWishList (int customerProfileOid);
+
+        /// <summary>
+        /// Retrieve wishlist items for customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve wishlist items for customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <returns>ApiResponse of CustomerWishListItemsResponse</returns>
+        ApiResponse<CustomerWishListItemsResponse> GetCustomerWishListWithHttpInfo (int customerProfileOid);
+        /// <summary>
+        /// Retrieve wishlist item for customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve wishlist item for customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <returns>CustomerWishListItemResponse</returns>
+        CustomerWishListItemResponse GetCustomerWishListItem (int customerProfileOid, int customerWishlistItemOid);
+
+        /// <summary>
+        /// Retrieve wishlist item for customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve wishlist item for customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <returns>ApiResponse of CustomerWishListItemResponse</returns>
+        ApiResponse<CustomerWishListItemResponse> GetCustomerWishListItemWithHttpInfo (int customerProfileOid, int customerWishlistItemOid);
         /// <summary>
         /// Retrieve customers
         /// </summary>
@@ -400,6 +467,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of CustomerResponse</returns>
         ApiResponse<CustomerResponse> InsertCustomerWithHttpInfo (Customer customer, string expand = default(string));
         /// <summary>
+        /// Insert a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Insert a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="wishlistItem">Wishlist item to insert</param>
+        /// <returns>CustomerWishListItem</returns>
+        CustomerWishListItem InsertWishListItem (int customerProfileOid, CustomerWishListItem wishlistItem);
+
+        /// <summary>
+        /// Insert a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Insert a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="wishlistItem">Wishlist item to insert</param>
+        /// <returns>ApiResponse of CustomerWishListItem</returns>
+        ApiResponse<CustomerWishListItem> InsertWishListItemWithHttpInfo (int customerProfileOid, CustomerWishListItem wishlistItem);
+        /// <summary>
         /// Merge customer into this customer
         /// </summary>
         /// <remarks>
@@ -493,6 +583,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="listChanges">List changes</param>
         /// <returns>ApiResponse of CustomerEmailListChanges</returns>
         ApiResponse<CustomerEmailListChanges> UpdateCustomerEmailListsWithHttpInfo (int customerProfileOid, CustomerEmailListChanges listChanges);
+        /// <summary>
+        /// Update a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Update a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="wishlistItem">Wishlist item to update</param>
+        /// <returns>CustomerWishListItem</returns>
+        CustomerWishListItem UpdateWishListItem (int customerProfileOid, int customerWishlistItemOid, CustomerWishListItem wishlistItem);
+
+        /// <summary>
+        /// Update a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Update a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="wishlistItem">Wishlist item to update</param>
+        /// <returns>ApiResponse of CustomerWishListItem</returns>
+        ApiResponse<CustomerWishListItem> UpdateWishListItemWithHttpInfo (int customerProfileOid, int customerWishlistItemOid, CustomerWishListItem wishlistItem);
         /// <summary>
         /// Validate a token that can be used to verify a customer email address
         /// </summary>
@@ -589,6 +704,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomerWithHttpInfoAsync (int customerProfileOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Delete a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerWishListItem</returns>
+        System.Threading.Tasks.Task<CustomerWishListItem> DeleteWishListItemAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Delete a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerWishListItem)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerWishListItem>> DeleteWishListItemWithHttpInfoAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve a customer
         /// </summary>
@@ -704,6 +844,54 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CustomerStoreCreditResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerStoreCreditResponse>> GetCustomerStoreCreditWithHttpInfoAsync (int customerProfileOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve wishlist items for customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve wishlist items for customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerWishListItemsResponse</returns>
+        System.Threading.Tasks.Task<CustomerWishListItemsResponse> GetCustomerWishListAsync (int customerProfileOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve wishlist items for customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve wishlist items for customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerWishListItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerWishListItemsResponse>> GetCustomerWishListWithHttpInfoAsync (int customerProfileOid, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Retrieve wishlist item for customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve wishlist item for customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerWishListItemResponse</returns>
+        System.Threading.Tasks.Task<CustomerWishListItemResponse> GetCustomerWishListItemAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve wishlist item for customer
+        /// </summary>
+        /// <remarks>
+        /// Retrieve wishlist item for customer. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerWishListItemResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerWishListItemResponse>> GetCustomerWishListItemWithHttpInfoAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Retrieve customers
         /// </summary>
@@ -919,6 +1107,31 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>Task of ApiResponse (CustomerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> InsertCustomerWithHttpInfoAsync (Customer customer, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Insert a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Insert a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="wishlistItem">Wishlist item to insert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerWishListItem</returns>
+        System.Threading.Tasks.Task<CustomerWishListItem> InsertWishListItemAsync (int customerProfileOid, CustomerWishListItem wishlistItem, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Insert a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Insert a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="wishlistItem">Wishlist item to insert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerWishListItem)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerWishListItem>> InsertWishListItemWithHttpInfoAsync (int customerProfileOid, CustomerWishListItem wishlistItem, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Merge customer into this customer
         /// </summary>
         /// <remarks>
@@ -1020,6 +1233,33 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CustomerEmailListChanges)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerEmailListChanges>> UpdateCustomerEmailListsWithHttpInfoAsync (int customerProfileOid, CustomerEmailListChanges listChanges, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Update a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="wishlistItem">Wishlist item to update</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerWishListItem</returns>
+        System.Threading.Tasks.Task<CustomerWishListItem> UpdateWishListItemAsync (int customerProfileOid, int customerWishlistItemOid, CustomerWishListItem wishlistItem, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update a customer wishlist item
+        /// </summary>
+        /// <remarks>
+        /// Update a customer wishlist item 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="wishlistItem">Wishlist item to update</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerWishListItem)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerWishListItem>> UpdateWishListItemWithHttpInfoAsync (int customerProfileOid, int customerWishlistItemOid, CustomerWishListItem wishlistItem, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Validate a token that can be used to verify a customer email address
         /// </summary>
@@ -1695,6 +1935,175 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Delete a customer wishlist item Delete a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
+        /// <returns>CustomerWishListItem</returns>
+        public CustomerWishListItem DeleteWishListItem (int customerProfileOid, int customerWishlistItemOid)
+        {
+             ApiResponse<CustomerWishListItem> localVarResponse = DeleteWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete a customer wishlist item Delete a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
+        /// <returns>ApiResponse of CustomerWishListItem</returns>
+        public ApiResponse<CustomerWishListItem> DeleteWishListItemWithHttpInfo (int customerProfileOid, int customerWishlistItemOid)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->DeleteWishListItem");
+            // verify the required parameter 'customerWishlistItemOid' is set
+            if (customerWishlistItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerWishlistItemOid' when calling CustomerApi->DeleteWishListItem");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (customerWishlistItemOid != null) localVarPathParams.Add("customer_wishlist_item_oid", this.Configuration.ApiClient.ParameterToString(customerWishlistItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteWishListItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerWishListItem>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerWishListItem) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItem)));
+        }
+
+        /// <summary>
+        /// Delete a customer wishlist item Delete a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerWishListItem</returns>
+        public async System.Threading.Tasks.Task<CustomerWishListItem> DeleteWishListItemAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<CustomerWishListItem> localVarResponse = await DeleteWishListItemWithHttpInfoAsync(customerProfileOid, customerWishlistItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete a customer wishlist item Delete a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerWishListItem)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerWishListItem>> DeleteWishListItemWithHttpInfoAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->DeleteWishListItem");
+            // verify the required parameter 'customerWishlistItemOid' is set
+            if (customerWishlistItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerWishlistItemOid' when calling CustomerApi->DeleteWishListItem");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (customerWishlistItemOid != null) localVarPathParams.Add("customer_wishlist_item_oid", this.Configuration.ApiClient.ParameterToString(customerWishlistItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteWishListItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerWishListItem>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerWishListItem) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItem)));
         }
 
         /// <summary>
@@ -2468,6 +2877,332 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomerStoreCreditResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CustomerStoreCreditResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerStoreCreditResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve wishlist items for customer Retrieve wishlist items for customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <returns>CustomerWishListItemsResponse</returns>
+        public CustomerWishListItemsResponse GetCustomerWishList (int customerProfileOid)
+        {
+             ApiResponse<CustomerWishListItemsResponse> localVarResponse = GetCustomerWishListWithHttpInfo(customerProfileOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve wishlist items for customer Retrieve wishlist items for customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <returns>ApiResponse of CustomerWishListItemsResponse</returns>
+        public ApiResponse<CustomerWishListItemsResponse> GetCustomerWishListWithHttpInfo (int customerProfileOid)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->GetCustomerWishList");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/wishlist";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomerWishList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerWishListItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerWishListItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve wishlist items for customer Retrieve wishlist items for customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerWishListItemsResponse</returns>
+        public async System.Threading.Tasks.Task<CustomerWishListItemsResponse> GetCustomerWishListAsync (int customerProfileOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<CustomerWishListItemsResponse> localVarResponse = await GetCustomerWishListWithHttpInfoAsync(customerProfileOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve wishlist items for customer Retrieve wishlist items for customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerWishListItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerWishListItemsResponse>> GetCustomerWishListWithHttpInfoAsync (int customerProfileOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->GetCustomerWishList");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/wishlist";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomerWishList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerWishListItemsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerWishListItemsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItemsResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve wishlist item for customer Retrieve wishlist item for customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <returns>CustomerWishListItemResponse</returns>
+        public CustomerWishListItemResponse GetCustomerWishListItem (int customerProfileOid, int customerWishlistItemOid)
+        {
+             ApiResponse<CustomerWishListItemResponse> localVarResponse = GetCustomerWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve wishlist item for customer Retrieve wishlist item for customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <returns>ApiResponse of CustomerWishListItemResponse</returns>
+        public ApiResponse<CustomerWishListItemResponse> GetCustomerWishListItemWithHttpInfo (int customerProfileOid, int customerWishlistItemOid)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->GetCustomerWishListItem");
+            // verify the required parameter 'customerWishlistItemOid' is set
+            if (customerWishlistItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerWishlistItemOid' when calling CustomerApi->GetCustomerWishListItem");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (customerWishlistItemOid != null) localVarPathParams.Add("customer_wishlist_item_oid", this.Configuration.ApiClient.ParameterToString(customerWishlistItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomerWishListItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerWishListItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerWishListItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItemResponse)));
+        }
+
+        /// <summary>
+        /// Retrieve wishlist item for customer Retrieve wishlist item for customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerWishListItemResponse</returns>
+        public async System.Threading.Tasks.Task<CustomerWishListItemResponse> GetCustomerWishListItemAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<CustomerWishListItemResponse> localVarResponse = await GetCustomerWishListItemWithHttpInfoAsync(customerProfileOid, customerWishlistItemOid, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve wishlist item for customer Retrieve wishlist item for customer. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerWishListItemResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerWishListItemResponse>> GetCustomerWishListItemWithHttpInfoAsync (int customerProfileOid, int customerWishlistItemOid, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->GetCustomerWishListItem");
+            // verify the required parameter 'customerWishlistItemOid' is set
+            if (customerWishlistItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerWishlistItemOid' when calling CustomerApi->GetCustomerWishListItem");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (customerWishlistItemOid != null) localVarPathParams.Add("customer_wishlist_item_oid", this.Configuration.ApiClient.ParameterToString(customerWishlistItemOid)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomerWishListItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerWishListItemResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerWishListItemResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItemResponse)));
         }
 
         /// <summary>
@@ -3683,6 +4418,191 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
+        /// Insert a customer wishlist item Insert a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="wishlistItem">Wishlist item to insert</param>
+        /// <returns>CustomerWishListItem</returns>
+        public CustomerWishListItem InsertWishListItem (int customerProfileOid, CustomerWishListItem wishlistItem)
+        {
+             ApiResponse<CustomerWishListItem> localVarResponse = InsertWishListItemWithHttpInfo(customerProfileOid, wishlistItem);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Insert a customer wishlist item Insert a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="wishlistItem">Wishlist item to insert</param>
+        /// <returns>ApiResponse of CustomerWishListItem</returns>
+        public ApiResponse<CustomerWishListItem> InsertWishListItemWithHttpInfo (int customerProfileOid, CustomerWishListItem wishlistItem)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->InsertWishListItem");
+            // verify the required parameter 'wishlistItem' is set
+            if (wishlistItem == null)
+                throw new ApiException(400, "Missing required parameter 'wishlistItem' when calling CustomerApi->InsertWishListItem");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/wishlist";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (wishlistItem != null && wishlistItem.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(wishlistItem); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = wishlistItem; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertWishListItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerWishListItem>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerWishListItem) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItem)));
+        }
+
+        /// <summary>
+        /// Insert a customer wishlist item Insert a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="wishlistItem">Wishlist item to insert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerWishListItem</returns>
+        public async System.Threading.Tasks.Task<CustomerWishListItem> InsertWishListItemAsync (int customerProfileOid, CustomerWishListItem wishlistItem, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<CustomerWishListItem> localVarResponse = await InsertWishListItemWithHttpInfoAsync(customerProfileOid, wishlistItem, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Insert a customer wishlist item Insert a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="wishlistItem">Wishlist item to insert</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerWishListItem)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerWishListItem>> InsertWishListItemWithHttpInfoAsync (int customerProfileOid, CustomerWishListItem wishlistItem, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->InsertWishListItem");
+            // verify the required parameter 'wishlistItem' is set
+            if (wishlistItem == null)
+                throw new ApiException(400, "Missing required parameter 'wishlistItem' when calling CustomerApi->InsertWishListItem");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/wishlist";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (wishlistItem != null && wishlistItem.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(wishlistItem); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = wishlistItem; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InsertWishListItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerWishListItem>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerWishListItem) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItem)));
+        }
+
+        /// <summary>
         /// Merge customer into this customer Merge customer into this customer. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4428,6 +5348,203 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<CustomerEmailListChanges>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CustomerEmailListChanges) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerEmailListChanges)));
+        }
+
+        /// <summary>
+        /// Update a customer wishlist item Update a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="wishlistItem">Wishlist item to update</param>
+        /// <returns>CustomerWishListItem</returns>
+        public CustomerWishListItem UpdateWishListItem (int customerProfileOid, int customerWishlistItemOid, CustomerWishListItem wishlistItem)
+        {
+             ApiResponse<CustomerWishListItem> localVarResponse = UpdateWishListItemWithHttpInfo(customerProfileOid, customerWishlistItemOid, wishlistItem);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a customer wishlist item Update a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="wishlistItem">Wishlist item to update</param>
+        /// <returns>ApiResponse of CustomerWishListItem</returns>
+        public ApiResponse<CustomerWishListItem> UpdateWishListItemWithHttpInfo (int customerProfileOid, int customerWishlistItemOid, CustomerWishListItem wishlistItem)
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->UpdateWishListItem");
+            // verify the required parameter 'customerWishlistItemOid' is set
+            if (customerWishlistItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerWishlistItemOid' when calling CustomerApi->UpdateWishListItem");
+            // verify the required parameter 'wishlistItem' is set
+            if (wishlistItem == null)
+                throw new ApiException(400, "Missing required parameter 'wishlistItem' when calling CustomerApi->UpdateWishListItem");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (customerWishlistItemOid != null) localVarPathParams.Add("customer_wishlist_item_oid", this.Configuration.ApiClient.ParameterToString(customerWishlistItemOid)); // path parameter
+            if (wishlistItem != null && wishlistItem.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(wishlistItem); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = wishlistItem; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateWishListItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerWishListItem>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerWishListItem) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItem)));
+        }
+
+        /// <summary>
+        /// Update a customer wishlist item Update a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="wishlistItem">Wishlist item to update</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of CustomerWishListItem</returns>
+        public async System.Threading.Tasks.Task<CustomerWishListItem> UpdateWishListItemAsync (int customerProfileOid, int customerWishlistItemOid, CustomerWishListItem wishlistItem, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<CustomerWishListItem> localVarResponse = await UpdateWishListItemWithHttpInfoAsync(customerProfileOid, customerWishlistItemOid, wishlistItem, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a customer wishlist item Update a customer wishlist item 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileOid">The customer oid for this wishlist.</param>
+        /// <param name="customerWishlistItemOid">The wishlist oid for this wishlist item.</param>
+        /// <param name="wishlistItem">Wishlist item to update</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (CustomerWishListItem)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerWishListItem>> UpdateWishListItemWithHttpInfoAsync (int customerProfileOid, int customerWishlistItemOid, CustomerWishListItem wishlistItem, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'customerProfileOid' is set
+            if (customerProfileOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileOid' when calling CustomerApi->UpdateWishListItem");
+            // verify the required parameter 'customerWishlistItemOid' is set
+            if (customerWishlistItemOid == null)
+                throw new ApiException(400, "Missing required parameter 'customerWishlistItemOid' when calling CustomerApi->UpdateWishListItem");
+            // verify the required parameter 'wishlistItem' is set
+            if (wishlistItem == null)
+                throw new ApiException(400, "Missing required parameter 'wishlistItem' when calling CustomerApi->UpdateWishListItem");
+
+            var localVarPath = "/customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json; charset=UTF-8"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileOid != null) localVarPathParams.Add("customer_profile_oid", this.Configuration.ApiClient.ParameterToString(customerProfileOid)); // path parameter
+            if (customerWishlistItemOid != null) localVarPathParams.Add("customer_wishlist_item_oid", this.Configuration.ApiClient.ParameterToString(customerWishlistItemOid)); // path parameter
+            if (wishlistItem != null && wishlistItem.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(wishlistItem); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = wishlistItem; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateWishListItem", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerWishListItem>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerWishListItem) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerWishListItem)));
         }
 
         /// <summary>

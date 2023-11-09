@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.ultracart.admin.v2", "src\com.ultracart.admin.v2\com.ultracart.admin.v2.csproj", "{811E62D4-FADB-4BFE-BF54-8531DDFCAA6C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.ultracart.admin.v2", "src\com.ultracart.admin.v2\com.ultracart.admin.v2.csproj", "{9F07F05E-5BDF-497B-9FCB-C12CC826BAC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +10,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{811E62D4-FADB-4BFE-BF54-8531DDFCAA6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{811E62D4-FADB-4BFE-BF54-8531DDFCAA6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{811E62D4-FADB-4BFE-BF54-8531DDFCAA6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{811E62D4-FADB-4BFE-BF54-8531DDFCAA6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F07F05E-5BDF-497B-9FCB-C12CC826BAC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F07F05E-5BDF-497B-9FCB-C12CC826BAC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F07F05E-5BDF-497B-9FCB-C12CC826BAC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F07F05E-5BDF-497B-9FCB-C12CC826BAC5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

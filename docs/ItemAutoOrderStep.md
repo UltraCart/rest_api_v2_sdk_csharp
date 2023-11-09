@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **ManagedBy** | **string** | Managed by (defaults to UltraCart) | [optional] 
 **PauseDays** | **int?** | Number of days to pause | [optional] 
 **PauseUntilDate** | **string** | Wait for this step to happen until the specified date | [optional] 
+**PauseUntilDayOfMonth** | **int?** | Pause until a specific day of the month | [optional] 
+**PauseUntilMinimumDelayDays** | **int?** | Pause at least this many days between the last order and the calculated next day of month | [optional] 
 **PreshipmentNoticeDays** | **int?** | If set, a pre-shipment notice is sent to the customer this many days in advance | [optional] 
 **RecurringMerchantItemId** | **string** | Item id to rebill | [optional] 
 **RecurringMerchantItemOid** | **int?** | Item object identifier to rebill | [optional] 

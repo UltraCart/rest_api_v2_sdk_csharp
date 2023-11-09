@@ -59,7 +59,13 @@ namespace com.ultracart.admin.v2.Model
             /// Enum Kitonly for value: kit only
             /// </summary>
             [EnumMember(Value = "kit only")]
-            Kitonly = 4
+            Kitonly = 4,
+
+            /// <summary>
+            /// Enum Pauseuntil for value: pause until
+            /// </summary>
+            [EnumMember(Value = "pause until")]
+            Pauseuntil = 5
 
         }
 
@@ -79,6 +85,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="managedBy">Managed by (defaults to UltraCart).</param>
         /// <param name="pauseDays">Number of days to pause.</param>
         /// <param name="pauseUntilDate">Wait for this step to happen until the specified date.</param>
+        /// <param name="pauseUntilDayOfMonth">Pause until a specific day of the month.</param>
+        /// <param name="pauseUntilMinimumDelayDays">Pause at least this many days between the last order and the calculated next day of month.</param>
         /// <param name="preshipmentNoticeDays">If set, a pre-shipment notice is sent to the customer this many days in advance.</param>
         /// <param name="recurringMerchantItemId">Item id to rebill.</param>
         /// <param name="recurringMerchantItemOid">Item object identifier to rebill.</param>
@@ -87,7 +95,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="subscribeEmailListName">Email list name to subscribe the customer to when the rebill occurs.</param>
         /// <param name="subscribeEmailListOid">Email list identifier to subscribe the customer to when this rebill occurs.</param>
         /// <param name="type">Type of step (item, kit only, loop or pause).</param>
-        public ItemAutoOrderStep(int arbitraryScheduleDays = default(int), decimal arbitraryUnitCost = default(decimal), List<ItemAutoOrderStepArbitraryUnitCostSchedule> arbitraryUnitCostSchedules = default(List<ItemAutoOrderStepArbitraryUnitCostSchedule>), List<ItemAutoOrderStepGrandfatherPricing> grandfatherPricing = default(List<ItemAutoOrderStepGrandfatherPricing>), string managedBy = default(string), int pauseDays = default(int), string pauseUntilDate = default(string), int preshipmentNoticeDays = default(int), string recurringMerchantItemId = default(string), int recurringMerchantItemOid = default(int), int repeatCount = default(int), string schedule = default(string), string subscribeEmailListName = default(string), int subscribeEmailListOid = default(int), TypeEnum? type = default(TypeEnum?))
+        public ItemAutoOrderStep(int arbitraryScheduleDays = default(int), decimal arbitraryUnitCost = default(decimal), List<ItemAutoOrderStepArbitraryUnitCostSchedule> arbitraryUnitCostSchedules = default(List<ItemAutoOrderStepArbitraryUnitCostSchedule>), List<ItemAutoOrderStepGrandfatherPricing> grandfatherPricing = default(List<ItemAutoOrderStepGrandfatherPricing>), string managedBy = default(string), int pauseDays = default(int), string pauseUntilDate = default(string), int pauseUntilDayOfMonth = default(int), int pauseUntilMinimumDelayDays = default(int), int preshipmentNoticeDays = default(int), string recurringMerchantItemId = default(string), int recurringMerchantItemOid = default(int), int repeatCount = default(int), string schedule = default(string), string subscribeEmailListName = default(string), int subscribeEmailListOid = default(int), TypeEnum? type = default(TypeEnum?))
         {
             this.ArbitraryScheduleDays = arbitraryScheduleDays;
             this.ArbitraryUnitCost = arbitraryUnitCost;
@@ -96,6 +104,8 @@ namespace com.ultracart.admin.v2.Model
             this.ManagedBy = managedBy;
             this.PauseDays = pauseDays;
             this.PauseUntilDate = pauseUntilDate;
+            this.PauseUntilDayOfMonth = pauseUntilDayOfMonth;
+            this.PauseUntilMinimumDelayDays = pauseUntilMinimumDelayDays;
             this.PreshipmentNoticeDays = preshipmentNoticeDays;
             this.RecurringMerchantItemId = recurringMerchantItemId;
             this.RecurringMerchantItemOid = recurringMerchantItemOid;
@@ -154,6 +164,20 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Wait for this step to happen until the specified date</value>
         [DataMember(Name="pause_until_date", EmitDefaultValue=false)]
         public string PauseUntilDate { get; set; }
+
+        /// <summary>
+        /// Pause until a specific day of the month
+        /// </summary>
+        /// <value>Pause until a specific day of the month</value>
+        [DataMember(Name="pause_until_day_of_month", EmitDefaultValue=false)]
+        public int PauseUntilDayOfMonth { get; set; }
+
+        /// <summary>
+        /// Pause at least this many days between the last order and the calculated next day of month
+        /// </summary>
+        /// <value>Pause at least this many days between the last order and the calculated next day of month</value>
+        [DataMember(Name="pause_until_minimum_delay_days", EmitDefaultValue=false)]
+        public int PauseUntilMinimumDelayDays { get; set; }
 
         /// <summary>
         /// If set, a pre-shipment notice is sent to the customer this many days in advance
@@ -220,6 +244,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ManagedBy: ").Append(ManagedBy).Append("\n");
             sb.Append("  PauseDays: ").Append(PauseDays).Append("\n");
             sb.Append("  PauseUntilDate: ").Append(PauseUntilDate).Append("\n");
+            sb.Append("  PauseUntilDayOfMonth: ").Append(PauseUntilDayOfMonth).Append("\n");
+            sb.Append("  PauseUntilMinimumDelayDays: ").Append(PauseUntilMinimumDelayDays).Append("\n");
             sb.Append("  PreshipmentNoticeDays: ").Append(PreshipmentNoticeDays).Append("\n");
             sb.Append("  RecurringMerchantItemId: ").Append(RecurringMerchantItemId).Append("\n");
             sb.Append("  RecurringMerchantItemOid: ").Append(RecurringMerchantItemOid).Append("\n");
@@ -300,6 +326,16 @@ namespace com.ultracart.admin.v2.Model
                     this.PauseUntilDate.Equals(input.PauseUntilDate))
                 ) && 
                 (
+                    this.PauseUntilDayOfMonth == input.PauseUntilDayOfMonth ||
+                    (this.PauseUntilDayOfMonth != null &&
+                    this.PauseUntilDayOfMonth.Equals(input.PauseUntilDayOfMonth))
+                ) && 
+                (
+                    this.PauseUntilMinimumDelayDays == input.PauseUntilMinimumDelayDays ||
+                    (this.PauseUntilMinimumDelayDays != null &&
+                    this.PauseUntilMinimumDelayDays.Equals(input.PauseUntilMinimumDelayDays))
+                ) && 
+                (
                     this.PreshipmentNoticeDays == input.PreshipmentNoticeDays ||
                     (this.PreshipmentNoticeDays != null &&
                     this.PreshipmentNoticeDays.Equals(input.PreshipmentNoticeDays))
@@ -364,6 +400,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.PauseDays.GetHashCode();
                 if (this.PauseUntilDate != null)
                     hashCode = hashCode * 59 + this.PauseUntilDate.GetHashCode();
+                if (this.PauseUntilDayOfMonth != null)
+                    hashCode = hashCode * 59 + this.PauseUntilDayOfMonth.GetHashCode();
+                if (this.PauseUntilMinimumDelayDays != null)
+                    hashCode = hashCode * 59 + this.PauseUntilMinimumDelayDays.GetHashCode();
                 if (this.PreshipmentNoticeDays != null)
                     hashCode = hashCode * 59 + this.PreshipmentNoticeDays.GetHashCode();
                 if (this.RecurringMerchantItemId != null)

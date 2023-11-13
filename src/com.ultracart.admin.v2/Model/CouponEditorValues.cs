@@ -38,18 +38,20 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="couponTypesForDisplay">coupon_types_for_display.</param>
         /// <param name="currencyCodes">currency_codes.</param>
         /// <param name="deprecatedThemes">deprecated_themes.</param>
+        /// <param name="itemTags">Item tags.</param>
         /// <param name="mixAndMatchNames">mix_and_match_names.</param>
         /// <param name="shippingMethods">shipping_methods.</param>
         /// <param name="storefronts">storefronts.</param>
         /// <param name="usableBy">usable_by.</param>
         /// <param name="validWithOtherCoupons">valid_with_other_coupons.</param>
-        public CouponEditorValues(List<SimpleValue> affiliates = default(List<SimpleValue>), List<string> couponTypes = default(List<string>), List<CouponType> couponTypesForDisplay = default(List<CouponType>), List<string> currencyCodes = default(List<string>), List<SimpleValue> deprecatedThemes = default(List<SimpleValue>), List<string> mixAndMatchNames = default(List<string>), List<string> shippingMethods = default(List<string>), List<SimpleValue> storefronts = default(List<SimpleValue>), List<SimpleValue> usableBy = default(List<SimpleValue>), List<string> validWithOtherCoupons = default(List<string>))
+        public CouponEditorValues(List<SimpleValue> affiliates = default(List<SimpleValue>), List<string> couponTypes = default(List<string>), List<CouponType> couponTypesForDisplay = default(List<CouponType>), List<string> currencyCodes = default(List<string>), List<SimpleValue> deprecatedThemes = default(List<SimpleValue>), List<string> itemTags = default(List<string>), List<string> mixAndMatchNames = default(List<string>), List<string> shippingMethods = default(List<string>), List<SimpleValue> storefronts = default(List<SimpleValue>), List<SimpleValue> usableBy = default(List<SimpleValue>), List<string> validWithOtherCoupons = default(List<string>))
         {
             this.Affiliates = affiliates;
             this.CouponTypes = couponTypes;
             this.CouponTypesForDisplay = couponTypesForDisplay;
             this.CurrencyCodes = currencyCodes;
             this.DeprecatedThemes = deprecatedThemes;
+            this.ItemTags = itemTags;
             this.MixAndMatchNames = mixAndMatchNames;
             this.ShippingMethods = shippingMethods;
             this.Storefronts = storefronts;
@@ -91,6 +93,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>deprecated_themes</value>
         [DataMember(Name="deprecated_themes", EmitDefaultValue=false)]
         public List<SimpleValue> DeprecatedThemes { get; set; }
+
+        /// <summary>
+        /// Item tags
+        /// </summary>
+        /// <value>Item tags</value>
+        [DataMember(Name="item_tags", EmitDefaultValue=false)]
+        public List<string> ItemTags { get; set; }
 
         /// <summary>
         /// mix_and_match_names
@@ -140,6 +149,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CouponTypesForDisplay: ").Append(CouponTypesForDisplay).Append("\n");
             sb.Append("  CurrencyCodes: ").Append(CurrencyCodes).Append("\n");
             sb.Append("  DeprecatedThemes: ").Append(DeprecatedThemes).Append("\n");
+            sb.Append("  ItemTags: ").Append(ItemTags).Append("\n");
             sb.Append("  MixAndMatchNames: ").Append(MixAndMatchNames).Append("\n");
             sb.Append("  ShippingMethods: ").Append(ShippingMethods).Append("\n");
             sb.Append("  Storefronts: ").Append(Storefronts).Append("\n");
@@ -210,6 +220,12 @@ namespace com.ultracart.admin.v2.Model
                     this.DeprecatedThemes.SequenceEqual(input.DeprecatedThemes)
                 ) && 
                 (
+                    this.ItemTags == input.ItemTags ||
+                    this.ItemTags != null &&
+                    input.ItemTags != null &&
+                    this.ItemTags.SequenceEqual(input.ItemTags)
+                ) && 
+                (
                     this.MixAndMatchNames == input.MixAndMatchNames ||
                     this.MixAndMatchNames != null &&
                     input.MixAndMatchNames != null &&
@@ -260,6 +276,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CurrencyCodes.GetHashCode();
                 if (this.DeprecatedThemes != null)
                     hashCode = hashCode * 59 + this.DeprecatedThemes.GetHashCode();
+                if (this.ItemTags != null)
+                    hashCode = hashCode * 59 + this.ItemTags.GetHashCode();
                 if (this.MixAndMatchNames != null)
                     hashCode = hashCode * 59 + this.MixAndMatchNames.GetHashCode();
                 if (this.ShippingMethods != null)

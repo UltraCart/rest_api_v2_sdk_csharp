@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 <a name="getworkflowtaskbyobjecttype"></a>
 # **GetWorkflowTaskByObjectType**
-> WorkflowTaskResponse GetWorkflowTaskByObjectType (string objectType, string objectId)
+> WorkflowTasksResponse GetWorkflowTaskByObjectType (string objectType, string objectId)
 
 Retrieve a workflow task by object type and id
 
@@ -315,7 +315,7 @@ namespace Example
             try
             {
                 // Retrieve a workflow task by object type and id
-                WorkflowTaskResponse result = apiInstance.GetWorkflowTaskByObjectType(objectType, objectId);
+                WorkflowTasksResponse result = apiInstance.GetWorkflowTaskByObjectType(objectType, objectId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkflowTaskResponse**](WorkflowTaskResponse.md)
+[**WorkflowTasksResponse**](WorkflowTasksResponse.md)
 
 ### Authorization
 

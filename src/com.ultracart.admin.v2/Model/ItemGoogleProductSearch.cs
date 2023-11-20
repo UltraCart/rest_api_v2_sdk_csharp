@@ -989,9 +989,9 @@ namespace com.ultracart.admin.v2.Model
             }
 
             // Color (string) maxLength
-            if(this.Color != null && this.Color.Length > 20)
+            if(this.Color != null && this.Color.Length > 100)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Color, length must be less than 20.", new [] { "Color" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Color, length must be less than 100.", new [] { "Color" });
             }
 
             // Condition (string) maxLength

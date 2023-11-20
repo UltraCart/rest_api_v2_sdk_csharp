@@ -122,8 +122,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="objectType"></param>
         /// <param name="objectId"></param>
-        /// <returns>WorkflowTaskResponse</returns>
-        WorkflowTaskResponse GetWorkflowTaskByObjectType (string objectType, string objectId);
+        /// <returns>WorkflowTasksResponse</returns>
+        WorkflowTasksResponse GetWorkflowTaskByObjectType (string objectType, string objectId);
 
         /// <summary>
         /// Retrieve a workflow task by object type and id
@@ -134,8 +134,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="objectType"></param>
         /// <param name="objectId"></param>
-        /// <returns>ApiResponse of WorkflowTaskResponse</returns>
-        ApiResponse<WorkflowTaskResponse> GetWorkflowTaskByObjectTypeWithHttpInfo (string objectType, string objectId);
+        /// <returns>ApiResponse of WorkflowTasksResponse</returns>
+        ApiResponse<WorkflowTasksResponse> GetWorkflowTaskByObjectTypeWithHttpInfo (string objectType, string objectId);
         /// <summary>
         /// Search workflow tasks
         /// </summary>
@@ -315,8 +315,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="objectType"></param>
         /// <param name="objectId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of WorkflowTaskResponse</returns>
-        System.Threading.Tasks.Task<WorkflowTaskResponse> GetWorkflowTaskByObjectTypeAsync (string objectType, string objectId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of WorkflowTasksResponse</returns>
+        System.Threading.Tasks.Task<WorkflowTasksResponse> GetWorkflowTaskByObjectTypeAsync (string objectType, string objectId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Retrieve a workflow task by object type and id
@@ -328,8 +328,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="objectType"></param>
         /// <param name="objectId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (WorkflowTaskResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WorkflowTaskResponse>> GetWorkflowTaskByObjectTypeWithHttpInfoAsync (string objectType, string objectId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (WorkflowTasksResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WorkflowTasksResponse>> GetWorkflowTaskByObjectTypeWithHttpInfoAsync (string objectType, string objectId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Search workflow tasks
         /// </summary>
@@ -1170,10 +1170,10 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="objectType"></param>
         /// <param name="objectId"></param>
-        /// <returns>WorkflowTaskResponse</returns>
-        public WorkflowTaskResponse GetWorkflowTaskByObjectType (string objectType, string objectId)
+        /// <returns>WorkflowTasksResponse</returns>
+        public WorkflowTasksResponse GetWorkflowTaskByObjectType (string objectType, string objectId)
         {
-             ApiResponse<WorkflowTaskResponse> localVarResponse = GetWorkflowTaskByObjectTypeWithHttpInfo(objectType, objectId);
+             ApiResponse<WorkflowTasksResponse> localVarResponse = GetWorkflowTaskByObjectTypeWithHttpInfo(objectType, objectId);
              return localVarResponse.Data;
         }
 
@@ -1183,8 +1183,8 @@ namespace com.ultracart.admin.v2.Api
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="objectType"></param>
         /// <param name="objectId"></param>
-        /// <returns>ApiResponse of WorkflowTaskResponse</returns>
-        public ApiResponse<WorkflowTaskResponse> GetWorkflowTaskByObjectTypeWithHttpInfo (string objectType, string objectId)
+        /// <returns>ApiResponse of WorkflowTasksResponse</returns>
+        public ApiResponse<WorkflowTasksResponse> GetWorkflowTaskByObjectTypeWithHttpInfo (string objectType, string objectId)
         {
             // verify the required parameter 'objectType' is set
             if (objectType == null)
@@ -1242,9 +1242,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<WorkflowTaskResponse>(localVarStatusCode,
+            return new ApiResponse<WorkflowTasksResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (WorkflowTaskResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowTaskResponse)));
+                (WorkflowTasksResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowTasksResponse)));
         }
 
         /// <summary>
@@ -1254,10 +1254,10 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="objectType"></param>
         /// <param name="objectId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of WorkflowTaskResponse</returns>
-        public async System.Threading.Tasks.Task<WorkflowTaskResponse> GetWorkflowTaskByObjectTypeAsync (string objectType, string objectId, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of WorkflowTasksResponse</returns>
+        public async System.Threading.Tasks.Task<WorkflowTasksResponse> GetWorkflowTaskByObjectTypeAsync (string objectType, string objectId, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<WorkflowTaskResponse> localVarResponse = await GetWorkflowTaskByObjectTypeWithHttpInfoAsync(objectType, objectId, cancellationToken);
+             ApiResponse<WorkflowTasksResponse> localVarResponse = await GetWorkflowTaskByObjectTypeWithHttpInfoAsync(objectType, objectId, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1269,8 +1269,8 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="objectType"></param>
         /// <param name="objectId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (WorkflowTaskResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WorkflowTaskResponse>> GetWorkflowTaskByObjectTypeWithHttpInfoAsync (string objectType, string objectId, CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (WorkflowTasksResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<WorkflowTasksResponse>> GetWorkflowTaskByObjectTypeWithHttpInfoAsync (string objectType, string objectId, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'objectType' is set
             if (objectType == null)
@@ -1328,9 +1328,9 @@ namespace com.ultracart.admin.v2.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<WorkflowTaskResponse>(localVarStatusCode,
+            return new ApiResponse<WorkflowTasksResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (WorkflowTaskResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowTaskResponse)));
+                (WorkflowTasksResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkflowTasksResponse)));
         }
 
         /// <summary>

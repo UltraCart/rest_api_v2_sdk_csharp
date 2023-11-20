@@ -34,12 +34,16 @@ namespace com.ultracart.admin.v2.Model
         /// Initializes a new instance of the <see cref="CouponPercentOffItemsAndFreeShipping" /> class.
         /// </summary>
         /// <param name="discountPercent">The percentage of subtotal discount.</param>
+        /// <param name="excludedItemTags">A list of item tags which cannot be discounted..</param>
         /// <param name="excludedItems">A list of items which cannot be discounted..</param>
+        /// <param name="itemTags">An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items..</param>
         /// <param name="items">An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items..</param>
-        public CouponPercentOffItemsAndFreeShipping(decimal? discountPercent = default(decimal?), List<string> excludedItems = default(List<string>), List<string> items = default(List<string>))
+        public CouponPercentOffItemsAndFreeShipping(decimal? discountPercent = default(decimal?), List<string> excludedItemTags = default(List<string>), List<string> excludedItems = default(List<string>), List<string> itemTags = default(List<string>), List<string> items = default(List<string>))
         {
             this.DiscountPercent = discountPercent;
+            this.ExcludedItemTags = excludedItemTags;
             this.ExcludedItems = excludedItems;
+            this.ItemTags = itemTags;
             this.Items = items;
         }
         
@@ -51,11 +55,25 @@ namespace com.ultracart.admin.v2.Model
         public decimal? DiscountPercent { get; set; }
 
         /// <summary>
+        /// A list of item tags which cannot be discounted.
+        /// </summary>
+        /// <value>A list of item tags which cannot be discounted.</value>
+        [DataMember(Name="excluded_item_tags", EmitDefaultValue=false)]
+        public List<string> ExcludedItemTags { get; set; }
+
+        /// <summary>
         /// A list of items which cannot be discounted.
         /// </summary>
         /// <value>A list of items which cannot be discounted.</value>
         [DataMember(Name="excluded_items", EmitDefaultValue=false)]
         public List<string> ExcludedItems { get; set; }
+
+        /// <summary>
+        /// An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.
+        /// </summary>
+        /// <value>An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.</value>
+        [DataMember(Name="item_tags", EmitDefaultValue=false)]
+        public List<string> ItemTags { get; set; }
 
         /// <summary>
         /// An optional list of items which will receive a discount.  If blank, discount applies to all items except excluded items.
@@ -73,7 +91,9 @@ namespace com.ultracart.admin.v2.Model
             var sb = new StringBuilder();
             sb.Append("class CouponPercentOffItemsAndFreeShipping {\n");
             sb.Append("  DiscountPercent: ").Append(DiscountPercent).Append("\n");
+            sb.Append("  ExcludedItemTags: ").Append(ExcludedItemTags).Append("\n");
             sb.Append("  ExcludedItems: ").Append(ExcludedItems).Append("\n");
+            sb.Append("  ItemTags: ").Append(ItemTags).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -115,9 +135,19 @@ namespace com.ultracart.admin.v2.Model
                     this.DiscountPercent.Equals(input.DiscountPercent))
                 ) && 
                 (
+                    this.ExcludedItemTags == input.ExcludedItemTags ||
+                    this.ExcludedItemTags != null &&
+                    this.ExcludedItemTags.SequenceEqual(input.ExcludedItemTags)
+                ) && 
+                (
                     this.ExcludedItems == input.ExcludedItems ||
                     this.ExcludedItems != null &&
                     this.ExcludedItems.SequenceEqual(input.ExcludedItems)
+                ) && 
+                (
+                    this.ItemTags == input.ItemTags ||
+                    this.ItemTags != null &&
+                    this.ItemTags.SequenceEqual(input.ItemTags)
                 ) && 
                 (
                     this.Items == input.Items ||
@@ -137,8 +167,12 @@ namespace com.ultracart.admin.v2.Model
                 int hashCode = 41;
                 if (this.DiscountPercent != null)
                     hashCode = hashCode * 59 + this.DiscountPercent.GetHashCode();
+                if (this.ExcludedItemTags != null)
+                    hashCode = hashCode * 59 + this.ExcludedItemTags.GetHashCode();
                 if (this.ExcludedItems != null)
                     hashCode = hashCode * 59 + this.ExcludedItems.GetHashCode();
+                if (this.ItemTags != null)
+                    hashCode = hashCode * 59 + this.ItemTags.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
                 return hashCode;

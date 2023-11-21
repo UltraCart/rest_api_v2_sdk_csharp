@@ -33,16 +33,25 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponTieredPercentOffItems" /> class.
         /// </summary>
+        /// <param name="itemTags">An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items..</param>
         /// <param name="items">A list of items of which at least one must be purchased for coupon to be valid..</param>
         /// <param name="limit">The (optional) maximum quantity of discounted items..</param>
         /// <param name="tiers">A list of discount tiers..</param>
-        public CouponTieredPercentOffItems(List<string> items = default(List<string>), decimal? limit = default(decimal?), List<CouponTierQuantityPercent> tiers = default(List<CouponTierQuantityPercent>))
+        public CouponTieredPercentOffItems(List<string> itemTags = default(List<string>), List<string> items = default(List<string>), decimal? limit = default(decimal?), List<CouponTierQuantityPercent> tiers = default(List<CouponTierQuantityPercent>))
         {
+            this.ItemTags = itemTags;
             this.Items = items;
             this.Limit = limit;
             this.Tiers = tiers;
         }
         
+        /// <summary>
+        /// An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.
+        /// </summary>
+        /// <value>An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.</value>
+        [DataMember(Name="item_tags", EmitDefaultValue=false)]
+        public List<string> ItemTags { get; set; }
+
         /// <summary>
         /// A list of items of which at least one must be purchased for coupon to be valid.
         /// </summary>
@@ -72,6 +81,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CouponTieredPercentOffItems {\n");
+            sb.Append("  ItemTags: ").Append(ItemTags).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  Tiers: ").Append(Tiers).Append("\n");
@@ -110,6 +120,11 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.ItemTags == input.ItemTags ||
+                    this.ItemTags != null &&
+                    this.ItemTags.SequenceEqual(input.ItemTags)
+                ) && 
+                (
                     this.Items == input.Items ||
                     this.Items != null &&
                     this.Items.SequenceEqual(input.Items)
@@ -135,6 +150,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ItemTags != null)
+                    hashCode = hashCode * 59 + this.ItemTags.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.Limit != null)

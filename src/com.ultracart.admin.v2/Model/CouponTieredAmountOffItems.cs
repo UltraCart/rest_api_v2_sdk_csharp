@@ -33,15 +33,24 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CouponTieredAmountOffItems" /> class.
         /// </summary>
+        /// <param name="itemTags">An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items..</param>
         /// <param name="items">The items being discounted by this coupon..</param>
         /// <param name="limit">The maximum number of discounted items..</param>
         /// <param name="tiers">A list of discount tiers..</param>
-        public CouponTieredAmountOffItems(List<string> items = default(List<string>), decimal limit = default(decimal), List<CouponTierQuantityAmount> tiers = default(List<CouponTierQuantityAmount>))
+        public CouponTieredAmountOffItems(List<string> itemTags = default(List<string>), List<string> items = default(List<string>), decimal limit = default(decimal), List<CouponTierQuantityAmount> tiers = default(List<CouponTierQuantityAmount>))
         {
+            this.ItemTags = itemTags;
             this.Items = items;
             this.Limit = limit;
             this.Tiers = tiers;
         }
+
+        /// <summary>
+        /// An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.
+        /// </summary>
+        /// <value>An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.</value>
+        [DataMember(Name="item_tags", EmitDefaultValue=false)]
+        public List<string> ItemTags { get; set; }
 
         /// <summary>
         /// The items being discounted by this coupon.
@@ -72,6 +81,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CouponTieredAmountOffItems {\n");
+            sb.Append("  ItemTags: ").Append(ItemTags).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  Tiers: ").Append(Tiers).Append("\n");
@@ -110,6 +120,12 @@ namespace com.ultracart.admin.v2.Model
 
             return 
                 (
+                    this.ItemTags == input.ItemTags ||
+                    this.ItemTags != null &&
+                    input.ItemTags != null &&
+                    this.ItemTags.SequenceEqual(input.ItemTags)
+                ) && 
+                (
                     this.Items == input.Items ||
                     this.Items != null &&
                     input.Items != null &&
@@ -137,6 +153,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ItemTags != null)
+                    hashCode = hashCode * 59 + this.ItemTags.GetHashCode();
                 if (this.Items != null)
                     hashCode = hashCode * 59 + this.Items.GetHashCode();
                 if (this.Limit != null)

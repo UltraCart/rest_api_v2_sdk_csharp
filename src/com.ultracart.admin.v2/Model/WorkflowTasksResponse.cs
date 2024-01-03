@@ -36,13 +36,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="error">error.</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="success">Indicates if API call was successful.</param>
+        /// <param name="taskContext">User friendly string of the task context if querying for a specific object type/id.</param>
         /// <param name="tasks">tasks.</param>
         /// <param name="warning">warning.</param>
-        public WorkflowTasksResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), List<WorkflowTask> tasks = default(List<WorkflowTask>), Warning warning = default(Warning))
+        public WorkflowTasksResponse(Error error = default(Error), ResponseMetadata metadata = default(ResponseMetadata), bool? success = default(bool?), string taskContext = default(string), List<WorkflowTask> tasks = default(List<WorkflowTask>), Warning warning = default(Warning))
         {
             this.Error = error;
             this.Metadata = metadata;
             this.Success = success;
+            this.TaskContext = taskContext;
             this.Tasks = tasks;
             this.Warning = warning;
         }
@@ -65,6 +67,13 @@ namespace com.ultracart.admin.v2.Model
         /// <value>Indicates if API call was successful</value>
         [DataMember(Name="success", EmitDefaultValue=false)]
         public bool? Success { get; set; }
+
+        /// <summary>
+        /// User friendly string of the task context if querying for a specific object type/id
+        /// </summary>
+        /// <value>User friendly string of the task context if querying for a specific object type/id</value>
+        [DataMember(Name="task_context", EmitDefaultValue=false)]
+        public string TaskContext { get; set; }
 
         /// <summary>
         /// tasks
@@ -90,6 +99,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("  TaskContext: ").Append(TaskContext).Append("\n");
             sb.Append("  Tasks: ").Append(Tasks).Append("\n");
             sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("}\n");
@@ -142,6 +152,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Success.Equals(input.Success))
                 ) && 
                 (
+                    this.TaskContext == input.TaskContext ||
+                    (this.TaskContext != null &&
+                    this.TaskContext.Equals(input.TaskContext))
+                ) && 
+                (
                     this.Tasks == input.Tasks ||
                     this.Tasks != null &&
                     this.Tasks.SequenceEqual(input.Tasks)
@@ -168,6 +183,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
+                if (this.TaskContext != null)
+                    hashCode = hashCode * 59 + this.TaskContext.GetHashCode();
                 if (this.Tasks != null)
                     hashCode = hashCode * 59 + this.Tasks.GetHashCode();
                 if (this.Warning != null)

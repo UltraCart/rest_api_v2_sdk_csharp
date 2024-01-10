@@ -166,8 +166,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="objectType">Object Type.</param>
         /// <param name="priority">Priority.</param>
         /// <param name="status">Status of the workflow task.</param>
+        /// <param name="tags">Tasks that are tagged with the specified tags.</param>
         /// <param name="unassigned">Tasks that are unassigned to a user or group.</param>
-        public WorkflowTasksRequest(int assignedToGroupId = default(int), bool assignedToMe = default(bool), int assignedToUserId = default(int), WorkflowUser createdBy = default(WorkflowUser), string createdDtsBegin = default(string), string createdDtsEnd = default(string), string delayUntilDtsBegin = default(string), string delayUntilDtsEnd = default(string), string dueDtsBegin = default(string), string dueDtsEnd = default(string), string lastUpdateDtsBegin = default(string), string lastUpdateDtsEnd = default(string), string objectEmail = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), PriorityEnum? priority = default(PriorityEnum?), StatusEnum? status = default(StatusEnum?), bool unassigned = default(bool))
+        public WorkflowTasksRequest(int assignedToGroupId = default(int), bool assignedToMe = default(bool), int assignedToUserId = default(int), WorkflowUser createdBy = default(WorkflowUser), string createdDtsBegin = default(string), string createdDtsEnd = default(string), string delayUntilDtsBegin = default(string), string delayUntilDtsEnd = default(string), string dueDtsBegin = default(string), string dueDtsEnd = default(string), string lastUpdateDtsBegin = default(string), string lastUpdateDtsEnd = default(string), string objectEmail = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), PriorityEnum? priority = default(PriorityEnum?), StatusEnum? status = default(StatusEnum?), List<string> tags = default(List<string>), bool unassigned = default(bool))
         {
             this.AssignedToGroupId = assignedToGroupId;
             this.AssignedToMe = assignedToMe;
@@ -185,6 +186,7 @@ namespace com.ultracart.admin.v2.Model
             this.ObjectType = objectType;
             this.Priority = priority;
             this.Status = status;
+            this.Tags = tags;
             this.Unassigned = unassigned;
         }
 
@@ -282,6 +284,13 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
+        /// Tasks that are tagged with the specified tags
+        /// </summary>
+        /// <value>Tasks that are tagged with the specified tags</value>
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public List<string> Tags { get; set; }
+
+        /// <summary>
         /// Tasks that are unassigned to a user or group
         /// </summary>
         /// <value>Tasks that are unassigned to a user or group</value>
@@ -312,6 +321,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ObjectType: ").Append(ObjectType).Append("\n");
             sb.Append("  Priority: ").Append(Priority).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Unassigned: ").Append(Unassigned).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -428,6 +438,12 @@ namespace com.ultracart.admin.v2.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
                     this.Unassigned == input.Unassigned ||
                     (this.Unassigned != null &&
                     this.Unassigned.Equals(input.Unassigned))
@@ -475,6 +491,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Priority.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Tags != null)
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Unassigned != null)
                     hashCode = hashCode * 59 + this.Unassigned.GetHashCode();
                 return hashCode;

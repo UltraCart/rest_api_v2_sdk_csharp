@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **ObjectType** | **string** | Object Type | [optional] 
 **Priority** | **string** | Priority | [optional] 
 **Status** | **string** | Status of the workflow task | [optional] 
+**Tags** | **List&lt;string&gt;** | Tasks that are tagged with the specified tags | [optional] 
 **Unassigned** | **bool?** | Tasks that are unassigned to a user or group | [optional] 
 
 

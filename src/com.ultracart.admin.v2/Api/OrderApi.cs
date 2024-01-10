@@ -538,7 +538,7 @@ namespace com.ultracart.admin.v2.Api
         /// Refund an order
         /// </summary>
         /// <remarks>
-        /// Perform a refund operation on an order and then update the order if successful 
+        /// Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
@@ -557,7 +557,7 @@ namespace com.ultracart.admin.v2.Api
         /// Refund an order
         /// </summary>
         /// <remarks>
-        /// Perform a refund operation on an order and then update the order if successful 
+        /// Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
@@ -1219,7 +1219,7 @@ namespace com.ultracart.admin.v2.Api
         /// Refund an order
         /// </summary>
         /// <remarks>
-        /// Perform a refund operation on an order and then update the order if successful 
+        /// Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
@@ -1238,7 +1238,7 @@ namespace com.ultracart.admin.v2.Api
         /// Refund an order
         /// </summary>
         /// <remarks>
-        /// Perform a refund operation on an order and then update the order if successful 
+        /// Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
         /// </remarks>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
@@ -4990,7 +4990,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Refund an order Perform a refund operation on an order and then update the order if successful 
+        /// Refund an order Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
@@ -5010,7 +5010,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Refund an order Perform a refund operation on an order and then update the order if successful 
+        /// Refund an order Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
@@ -5102,7 +5102,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Refund an order Perform a refund operation on an order and then update the order if successful 
+        /// Refund an order Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>
@@ -5123,7 +5123,7 @@ namespace com.ultracart.admin.v2.Api
         }
 
         /// <summary>
-        /// Refund an order Perform a refund operation on an order and then update the order if successful 
+        /// Refund an order Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds. 
         /// </summary>
         /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order">Order to refund</param>

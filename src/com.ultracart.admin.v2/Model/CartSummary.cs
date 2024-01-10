@@ -38,6 +38,8 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="arbitraryTaxRate">arbitraryTaxRate.</param>
         /// <param name="arbitraryTaxableSubtotal">arbitraryTaxableSubtotal.</param>
         /// <param name="healthBenefitCardAmount">healthBenefitCardAmount.</param>
+        /// <param name="healthBenefitCardBalance">healthBenefitCardBalance.</param>
+        /// <param name="healthBenefitCardRequirements">Health benefit card requirements.</param>
         /// <param name="internalGiftCertificateAmount">internalGiftCertificateAmount.</param>
         /// <param name="shippingHandling">shippingHandling.</param>
         /// <param name="shippingHandlingDiscount">shippingHandlingDiscount.</param>
@@ -51,13 +53,15 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taxableSubtotalDiscount">taxableSubtotalDiscount.</param>
         /// <param name="taxableSubtotalWithDiscount">taxableSubtotalWithDiscount.</param>
         /// <param name="total">total.</param>
-        public CartSummary(Currency arbitraryShippingHandlingTotal = default(Currency), Currency arbitraryTax = default(Currency), Currency arbitraryTaxRate = default(Currency), Currency arbitraryTaxableSubtotal = default(Currency), Currency healthBenefitCardAmount = default(Currency), Currency internalGiftCertificateAmount = default(Currency), Currency shippingHandling = default(Currency), Currency shippingHandlingDiscount = default(Currency), Currency shippingHandlingWithDiscount = default(Currency), Currency subtotal = default(Currency), Currency subtotalDiscount = default(Currency), Currency subtotalWithDiscount = default(Currency), Currency surcharge = default(Currency), Currency tax = default(Currency), Currency taxableSubtotal = default(Currency), Currency taxableSubtotalDiscount = default(Currency), Currency taxableSubtotalWithDiscount = default(Currency), Currency total = default(Currency))
+        public CartSummary(Currency arbitraryShippingHandlingTotal = default(Currency), Currency arbitraryTax = default(Currency), Currency arbitraryTaxRate = default(Currency), Currency arbitraryTaxableSubtotal = default(Currency), Currency healthBenefitCardAmount = default(Currency), Currency healthBenefitCardBalance = default(Currency), string healthBenefitCardRequirements = default(string), Currency internalGiftCertificateAmount = default(Currency), Currency shippingHandling = default(Currency), Currency shippingHandlingDiscount = default(Currency), Currency shippingHandlingWithDiscount = default(Currency), Currency subtotal = default(Currency), Currency subtotalDiscount = default(Currency), Currency subtotalWithDiscount = default(Currency), Currency surcharge = default(Currency), Currency tax = default(Currency), Currency taxableSubtotal = default(Currency), Currency taxableSubtotalDiscount = default(Currency), Currency taxableSubtotalWithDiscount = default(Currency), Currency total = default(Currency))
         {
             this.ArbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
             this.ArbitraryTax = arbitraryTax;
             this.ArbitraryTaxRate = arbitraryTaxRate;
             this.ArbitraryTaxableSubtotal = arbitraryTaxableSubtotal;
             this.HealthBenefitCardAmount = healthBenefitCardAmount;
+            this.HealthBenefitCardBalance = healthBenefitCardBalance;
+            this.HealthBenefitCardRequirements = healthBenefitCardRequirements;
             this.InternalGiftCertificateAmount = internalGiftCertificateAmount;
             this.ShippingHandling = shippingHandling;
             this.ShippingHandlingDiscount = shippingHandlingDiscount;
@@ -102,6 +106,19 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         [DataMember(Name="health_benefit_card_amount", EmitDefaultValue=false)]
         public Currency HealthBenefitCardAmount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HealthBenefitCardBalance
+        /// </summary>
+        [DataMember(Name="health_benefit_card_balance", EmitDefaultValue=false)]
+        public Currency HealthBenefitCardBalance { get; set; }
+
+        /// <summary>
+        /// Health benefit card requirements
+        /// </summary>
+        /// <value>Health benefit card requirements</value>
+        [DataMember(Name="health_benefit_card_requirements", EmitDefaultValue=false)]
+        public string HealthBenefitCardRequirements { get; set; }
 
         /// <summary>
         /// Gets or Sets InternalGiftCertificateAmount
@@ -194,6 +211,8 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ArbitraryTaxRate: ").Append(ArbitraryTaxRate).Append("\n");
             sb.Append("  ArbitraryTaxableSubtotal: ").Append(ArbitraryTaxableSubtotal).Append("\n");
             sb.Append("  HealthBenefitCardAmount: ").Append(HealthBenefitCardAmount).Append("\n");
+            sb.Append("  HealthBenefitCardBalance: ").Append(HealthBenefitCardBalance).Append("\n");
+            sb.Append("  HealthBenefitCardRequirements: ").Append(HealthBenefitCardRequirements).Append("\n");
             sb.Append("  InternalGiftCertificateAmount: ").Append(InternalGiftCertificateAmount).Append("\n");
             sb.Append("  ShippingHandling: ").Append(ShippingHandling).Append("\n");
             sb.Append("  ShippingHandlingDiscount: ").Append(ShippingHandlingDiscount).Append("\n");
@@ -265,6 +284,16 @@ namespace com.ultracart.admin.v2.Model
                     this.HealthBenefitCardAmount == input.HealthBenefitCardAmount ||
                     (this.HealthBenefitCardAmount != null &&
                     this.HealthBenefitCardAmount.Equals(input.HealthBenefitCardAmount))
+                ) && 
+                (
+                    this.HealthBenefitCardBalance == input.HealthBenefitCardBalance ||
+                    (this.HealthBenefitCardBalance != null &&
+                    this.HealthBenefitCardBalance.Equals(input.HealthBenefitCardBalance))
+                ) && 
+                (
+                    this.HealthBenefitCardRequirements == input.HealthBenefitCardRequirements ||
+                    (this.HealthBenefitCardRequirements != null &&
+                    this.HealthBenefitCardRequirements.Equals(input.HealthBenefitCardRequirements))
                 ) && 
                 (
                     this.InternalGiftCertificateAmount == input.InternalGiftCertificateAmount ||
@@ -352,6 +381,10 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ArbitraryTaxableSubtotal.GetHashCode();
                 if (this.HealthBenefitCardAmount != null)
                     hashCode = hashCode * 59 + this.HealthBenefitCardAmount.GetHashCode();
+                if (this.HealthBenefitCardBalance != null)
+                    hashCode = hashCode * 59 + this.HealthBenefitCardBalance.GetHashCode();
+                if (this.HealthBenefitCardRequirements != null)
+                    hashCode = hashCode * 59 + this.HealthBenefitCardRequirements.GetHashCode();
                 if (this.InternalGiftCertificateAmount != null)
                     hashCode = hashCode * 59 + this.InternalGiftCertificateAmount.GetHashCode();
                 if (this.ShippingHandling != null)

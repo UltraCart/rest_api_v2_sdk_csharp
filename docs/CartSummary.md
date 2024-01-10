@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **ArbitraryTaxRate** | [**Currency**](Currency.md) |  | [optional] 
 **ArbitraryTaxableSubtotal** | [**Currency**](Currency.md) |  | [optional] 
 **HealthBenefitCardAmount** | [**Currency**](Currency.md) |  | [optional] 
+**HealthBenefitCardBalance** | [**Currency**](Currency.md) |  | [optional] 
+**HealthBenefitCardRequirements** | **string** | Health benefit card requirements | [optional] 
 **InternalGiftCertificateAmount** | [**Currency**](Currency.md) |  | [optional] 
 **ShippingHandling** | [**Currency**](Currency.md) |  | [optional] 
 **ShippingHandlingDiscount** | [**Currency**](Currency.md) |  | [optional] 

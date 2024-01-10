@@ -164,6 +164,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="createdBy">createdBy.</param>
         /// <param name="createdDts">Date/time that the workflow task was created.</param>
         /// <param name="delayUntilDts">Date/time that the workflow task should delay until.</param>
+        /// <param name="dependantWorkflowTaskUuid">Dependant Workflow Task UUID (must be completed before this task can be completed).</param>
         /// <param name="dueDts">Date/time that the workflow task is due.</param>
         /// <param name="histories">Array of history records for the task.</param>
         /// <param name="lastUpdateDts">Date/time that the workflow task was last updated.</param>
@@ -174,12 +175,14 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="objectType">Object Type.</param>
         /// <param name="objectUrl">Object URL.</param>
         /// <param name="priority">Priority.</param>
+        /// <param name="relatedWorkflowTaskUuid">Related Workflow Task UUID.</param>
         /// <param name="status">Status of the workflow task.</param>
+        /// <param name="tags">Tags.</param>
         /// <param name="taskContext">User friendly string of the task context.</param>
         /// <param name="taskDetails">Task Details.</param>
         /// <param name="taskName">Task Name.</param>
         /// <param name="workflowTaskUuid">Workflow Task UUID.</param>
-        public WorkflowTask(string assignedToGroup = default(string), int assignedToGroupId = default(int), string assignedToUser = default(string), int assignedToUserId = default(int), List<WorkflowAttachment> attachments = default(List<WorkflowAttachment>), WorkflowUser createdBy = default(WorkflowUser), string createdDts = default(string), string delayUntilDts = default(string), string dueDts = default(string), List<WorkflowTaskHistory> histories = default(List<WorkflowTaskHistory>), string lastUpdateDts = default(string), string merchantId = default(string), List<WorkflowNote> notes = default(List<WorkflowNote>), string objectEmail = default(string), string objectId = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), string objectUrl = default(string), PriorityEnum? priority = default(PriorityEnum?), StatusEnum? status = default(StatusEnum?), string taskContext = default(string), string taskDetails = default(string), string taskName = default(string), string workflowTaskUuid = default(string))
+        public WorkflowTask(string assignedToGroup = default(string), int assignedToGroupId = default(int), string assignedToUser = default(string), int assignedToUserId = default(int), List<WorkflowAttachment> attachments = default(List<WorkflowAttachment>), WorkflowUser createdBy = default(WorkflowUser), string createdDts = default(string), string delayUntilDts = default(string), string dependantWorkflowTaskUuid = default(string), string dueDts = default(string), List<WorkflowTaskHistory> histories = default(List<WorkflowTaskHistory>), string lastUpdateDts = default(string), string merchantId = default(string), List<WorkflowNote> notes = default(List<WorkflowNote>), string objectEmail = default(string), string objectId = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), string objectUrl = default(string), PriorityEnum? priority = default(PriorityEnum?), string relatedWorkflowTaskUuid = default(string), StatusEnum? status = default(StatusEnum?), List<string> tags = default(List<string>), string taskContext = default(string), string taskDetails = default(string), string taskName = default(string), string workflowTaskUuid = default(string))
         {
             this.AssignedToGroup = assignedToGroup;
             this.AssignedToGroupId = assignedToGroupId;
@@ -189,6 +192,7 @@ namespace com.ultracart.admin.v2.Model
             this.CreatedBy = createdBy;
             this.CreatedDts = createdDts;
             this.DelayUntilDts = delayUntilDts;
+            this.DependantWorkflowTaskUuid = dependantWorkflowTaskUuid;
             this.DueDts = dueDts;
             this.Histories = histories;
             this.LastUpdateDts = lastUpdateDts;
@@ -199,7 +203,9 @@ namespace com.ultracart.admin.v2.Model
             this.ObjectType = objectType;
             this.ObjectUrl = objectUrl;
             this.Priority = priority;
+            this.RelatedWorkflowTaskUuid = relatedWorkflowTaskUuid;
             this.Status = status;
+            this.Tags = tags;
             this.TaskContext = taskContext;
             this.TaskDetails = taskDetails;
             this.TaskName = taskName;
@@ -262,6 +268,13 @@ namespace com.ultracart.admin.v2.Model
         public string DelayUntilDts { get; set; }
 
         /// <summary>
+        /// Dependant Workflow Task UUID (must be completed before this task can be completed)
+        /// </summary>
+        /// <value>Dependant Workflow Task UUID (must be completed before this task can be completed)</value>
+        [DataMember(Name="dependant_workflow_task_uuid", EmitDefaultValue=false)]
+        public string DependantWorkflowTaskUuid { get; set; }
+
+        /// <summary>
         /// Date/time that the workflow task is due
         /// </summary>
         /// <value>Date/time that the workflow task is due</value>
@@ -319,6 +332,20 @@ namespace com.ultracart.admin.v2.Model
         public string ObjectUrl { get; set; }
 
 
+        /// <summary>
+        /// Related Workflow Task UUID
+        /// </summary>
+        /// <value>Related Workflow Task UUID</value>
+        [DataMember(Name="related_workflow_task_uuid", EmitDefaultValue=false)]
+        public string RelatedWorkflowTaskUuid { get; set; }
+
+
+        /// <summary>
+        /// Tags
+        /// </summary>
+        /// <value>Tags</value>
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public List<string> Tags { get; set; }
 
         /// <summary>
         /// User friendly string of the task context
@@ -364,6 +391,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  CreatedDts: ").Append(CreatedDts).Append("\n");
             sb.Append("  DelayUntilDts: ").Append(DelayUntilDts).Append("\n");
+            sb.Append("  DependantWorkflowTaskUuid: ").Append(DependantWorkflowTaskUuid).Append("\n");
             sb.Append("  DueDts: ").Append(DueDts).Append("\n");
             sb.Append("  Histories: ").Append(Histories).Append("\n");
             sb.Append("  LastUpdateDts: ").Append(LastUpdateDts).Append("\n");
@@ -374,7 +402,9 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ObjectType: ").Append(ObjectType).Append("\n");
             sb.Append("  ObjectUrl: ").Append(ObjectUrl).Append("\n");
             sb.Append("  Priority: ").Append(Priority).Append("\n");
+            sb.Append("  RelatedWorkflowTaskUuid: ").Append(RelatedWorkflowTaskUuid).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  TaskContext: ").Append(TaskContext).Append("\n");
             sb.Append("  TaskDetails: ").Append(TaskDetails).Append("\n");
             sb.Append("  TaskName: ").Append(TaskName).Append("\n");
@@ -455,6 +485,11 @@ namespace com.ultracart.admin.v2.Model
                     this.DelayUntilDts.Equals(input.DelayUntilDts))
                 ) && 
                 (
+                    this.DependantWorkflowTaskUuid == input.DependantWorkflowTaskUuid ||
+                    (this.DependantWorkflowTaskUuid != null &&
+                    this.DependantWorkflowTaskUuid.Equals(input.DependantWorkflowTaskUuid))
+                ) && 
+                (
                     this.DueDts == input.DueDts ||
                     (this.DueDts != null &&
                     this.DueDts.Equals(input.DueDts))
@@ -507,9 +542,20 @@ namespace com.ultracart.admin.v2.Model
                     this.Priority.Equals(input.Priority))
                 ) && 
                 (
+                    this.RelatedWorkflowTaskUuid == input.RelatedWorkflowTaskUuid ||
+                    (this.RelatedWorkflowTaskUuid != null &&
+                    this.RelatedWorkflowTaskUuid.Equals(input.RelatedWorkflowTaskUuid))
+                ) && 
+                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
                 ) && 
                 (
                     this.TaskContext == input.TaskContext ||
@@ -558,6 +604,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.CreatedDts.GetHashCode();
                 if (this.DelayUntilDts != null)
                     hashCode = hashCode * 59 + this.DelayUntilDts.GetHashCode();
+                if (this.DependantWorkflowTaskUuid != null)
+                    hashCode = hashCode * 59 + this.DependantWorkflowTaskUuid.GetHashCode();
                 if (this.DueDts != null)
                     hashCode = hashCode * 59 + this.DueDts.GetHashCode();
                 if (this.Histories != null)
@@ -578,8 +626,12 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ObjectUrl.GetHashCode();
                 if (this.Priority != null)
                     hashCode = hashCode * 59 + this.Priority.GetHashCode();
+                if (this.RelatedWorkflowTaskUuid != null)
+                    hashCode = hashCode * 59 + this.RelatedWorkflowTaskUuid.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Tags != null)
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.TaskContext != null)
                     hashCode = hashCode * 59 + this.TaskContext.GetHashCode();
                 if (this.TaskDetails != null)

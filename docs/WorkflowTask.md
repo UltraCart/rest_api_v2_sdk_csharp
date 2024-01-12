@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **ObjectType** | **string** | Object Type | [optional] 
 **ObjectUrl** | **string** | Object URL | [optional] 
 **Priority** | **string** | Priority | [optional] 
+**Properties** | [**List&lt;Property&gt;**](Property.md) | Properties | [optional] 
 **RelatedWorkflowTaskUuid** | **string** | Related Workflow Task UUID | [optional] 
 **Status** | **string** | Status of the workflow task | [optional] 
 **Tags** | **List&lt;string&gt;** | Tags | [optional] 

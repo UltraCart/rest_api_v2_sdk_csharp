@@ -175,6 +175,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="objectType">Object Type.</param>
         /// <param name="objectUrl">Object URL.</param>
         /// <param name="priority">Priority.</param>
+        /// <param name="properties">Properties.</param>
         /// <param name="relatedWorkflowTaskUuid">Related Workflow Task UUID.</param>
         /// <param name="status">Status of the workflow task.</param>
         /// <param name="tags">Tags.</param>
@@ -182,7 +183,7 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="taskDetails">Task Details.</param>
         /// <param name="taskName">Task Name.</param>
         /// <param name="workflowTaskUuid">Workflow Task UUID.</param>
-        public WorkflowTask(string assignedToGroup = default(string), int? assignedToGroupId = default(int?), string assignedToUser = default(string), int? assignedToUserId = default(int?), List<WorkflowAttachment> attachments = default(List<WorkflowAttachment>), WorkflowUser createdBy = default(WorkflowUser), string createdDts = default(string), string delayUntilDts = default(string), string dependantWorkflowTaskUuid = default(string), string dueDts = default(string), List<WorkflowTaskHistory> histories = default(List<WorkflowTaskHistory>), string lastUpdateDts = default(string), string merchantId = default(string), List<WorkflowNote> notes = default(List<WorkflowNote>), string objectEmail = default(string), string objectId = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), string objectUrl = default(string), PriorityEnum? priority = default(PriorityEnum?), string relatedWorkflowTaskUuid = default(string), StatusEnum? status = default(StatusEnum?), List<string> tags = default(List<string>), string taskContext = default(string), string taskDetails = default(string), string taskName = default(string), string workflowTaskUuid = default(string))
+        public WorkflowTask(string assignedToGroup = default(string), int? assignedToGroupId = default(int?), string assignedToUser = default(string), int? assignedToUserId = default(int?), List<WorkflowAttachment> attachments = default(List<WorkflowAttachment>), WorkflowUser createdBy = default(WorkflowUser), string createdDts = default(string), string delayUntilDts = default(string), string dependantWorkflowTaskUuid = default(string), string dueDts = default(string), List<WorkflowTaskHistory> histories = default(List<WorkflowTaskHistory>), string lastUpdateDts = default(string), string merchantId = default(string), List<WorkflowNote> notes = default(List<WorkflowNote>), string objectEmail = default(string), string objectId = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?), string objectUrl = default(string), PriorityEnum? priority = default(PriorityEnum?), List<Property> properties = default(List<Property>), string relatedWorkflowTaskUuid = default(string), StatusEnum? status = default(StatusEnum?), List<string> tags = default(List<string>), string taskContext = default(string), string taskDetails = default(string), string taskName = default(string), string workflowTaskUuid = default(string))
         {
             this.AssignedToGroup = assignedToGroup;
             this.AssignedToGroupId = assignedToGroupId;
@@ -203,6 +204,7 @@ namespace com.ultracart.admin.v2.Model
             this.ObjectType = objectType;
             this.ObjectUrl = objectUrl;
             this.Priority = priority;
+            this.Properties = properties;
             this.RelatedWorkflowTaskUuid = relatedWorkflowTaskUuid;
             this.Status = status;
             this.Tags = tags;
@@ -333,6 +335,13 @@ namespace com.ultracart.admin.v2.Model
 
 
         /// <summary>
+        /// Properties
+        /// </summary>
+        /// <value>Properties</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<Property> Properties { get; set; }
+
+        /// <summary>
         /// Related Workflow Task UUID
         /// </summary>
         /// <value>Related Workflow Task UUID</value>
@@ -402,6 +411,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("  ObjectType: ").Append(ObjectType).Append("\n");
             sb.Append("  ObjectUrl: ").Append(ObjectUrl).Append("\n");
             sb.Append("  Priority: ").Append(Priority).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  RelatedWorkflowTaskUuid: ").Append(RelatedWorkflowTaskUuid).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
@@ -539,6 +549,11 @@ namespace com.ultracart.admin.v2.Model
                     this.Priority.Equals(input.Priority))
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.RelatedWorkflowTaskUuid == input.RelatedWorkflowTaskUuid ||
                     (this.RelatedWorkflowTaskUuid != null &&
                     this.RelatedWorkflowTaskUuid.Equals(input.RelatedWorkflowTaskUuid))
@@ -622,6 +637,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.ObjectUrl.GetHashCode();
                 if (this.Priority != null)
                     hashCode = hashCode * 59 + this.Priority.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 if (this.RelatedWorkflowTaskUuid != null)
                     hashCode = hashCode * 59 + this.RelatedWorkflowTaskUuid.GetHashCode();
                 if (this.Status != null)
